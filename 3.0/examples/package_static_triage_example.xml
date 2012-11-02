@@ -32,6 +32,12 @@
         <common:Simple_Hash_Value datatype="hexBinary" condition="Equals">4EC0027BEF4D7E1786A04D021FA8A67F</common:Simple_Hash_Value>
        </common:Hash>
       </FileObj:Hashes>
+      <FileObj:Packer_List>
+       <FileObj:Packer>
+        <FileObj:Name datatype="String">UPX</FileObj:Name>
+        <FileObj:PEiD datatype="String">UPX v3.0.2</FileObj:PEiD>
+       </FileObj:Packer>
+      </FileObj:Packer_List>
      </cybox:Defined_Object>
    </maecPackage:Subject_Attributes>
    <maecPackage:Analyses>
@@ -53,7 +59,7 @@
     </maecPackage:Analysis>
    </maecPackage:Analyses>
    <maecPackage:Findings_Bundles>
-    <maecPackage:Bundle id="maec-tst-bnd-1" schema_version="3.0" content_type="extracted_from_subject">
+    <maecPackage:Bundle id="maec-tst-bnd-1" schema_version="3.0" defined_subject="false" content_type="extracted_from_subject">
      <maecBundle:Objects>
       <maecBundle:Object id="maec-tst-obj-1" type="File">
         <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">

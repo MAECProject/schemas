@@ -115,7 +115,7 @@
    </maecPackage:Analyses>
    
    <maecPackage:Findings_Bundles>
-    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" content_type="extracted_from_subject">
+    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="extracted_from_subject">
      <maecBundle:Objects>
       <maecBundle:Object id="maec-example-obj-1" type="File">
         <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
@@ -135,7 +135,7 @@
      </maecBundle:Objects>
     </maecPackage:Bundle>
     
-    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="3.0" content_type="dynamic_analysis_output">
+    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_output">
      <maecBundle:Process_Tree>
       <maecBundle:Root_Process id="maec-example-pro-1">
        <ProcessObj:Image_Info>
