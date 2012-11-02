@@ -959,17 +959,19 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice maxOccurs="unbounded">
-				<xs:element name="Behavior_Reference" type="maecBundle:BundleReferenceType">
+				<xs:element minOccurs="0" name="Behavior_Reference"
+					type="maecBundle:BundleReferenceType">
 					<xs:annotation>
 						<xs:documentation>The Behavior_Reference element specifies a reference to a single Behavior in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Action_Reference" type="cybox:ActionReferenceType">
+				<xs:element minOccurs="0" name="Action_Reference" type="cybox:ActionReferenceType">
 					<xs:annotation>
 						<xs:documentation>The Action_Reference element specifies a reference to a single Action in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Object_Reference" type="maecBundle:ObjectReferenceType">
+				<xs:element minOccurs="0" name="Object_Reference"
+					type="maecBundle:ObjectReferenceType">
 					<xs:annotation>
 						<xs:documentation>The Object_Reference element specifies a reference to a single Object in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
 					</xs:annotation>
