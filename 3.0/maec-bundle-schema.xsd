@@ -976,24 +976,23 @@
 			<xs:documentation>The CandidateIndicatorCompositionType captures the composition of a Candidate Indicator, via references to any corresponding MAEC entities contained in the Bundle.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Behavior_References"
-				type="maecBundle:BehaviorReferenceListType">
-				<xs:annotation>
-					<xs:documentation>The Behavior_References element captures any Behavior, via reference, that the Candidate Indicator is composed of.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Action_References"
-				type="maecBundle:ActionReferenceListType">
-				<xs:annotation>
-					<xs:documentation>The Action_References element captures any Actions, via reference, that the Candidate Indicator is composed of.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Object_References"
-				type="maecBundle:ObjectReferenceListType">
-				<xs:annotation>
-					<xs:documentation>The Object_References element captures any Objects, via reference, that the Candidate Indicator is composed of.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Behavior_Reference" type="maecBundle:BundleReferenceType">
+					<xs:annotation>
+						<xs:documentation>The Behavior_Reference element specifies a reference to a single Behavior in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Action_Reference" type="cybox:ActionReferenceType">
+					<xs:annotation>
+						<xs:documentation>The Action_Reference element specifies a reference to a single Action in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Object_Reference" type="maecBundle:ObjectReferenceType">
+					<xs:annotation>
+						<xs:documentation>The Object_Reference element specifies a reference to a single Object in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Sub_Composition"
 				type="maecBundle:CandidateIndicatorCompositionType">
 				<xs:annotation>
