@@ -246,7 +246,7 @@
 		</xs:attribute>
 		<xs:attribute name="content_type" type="maecBundle:BundleContentTypeEnum">
 			<xs:annotation>
-				<xs:documentation>The content_type attribute specifies the general type of content contained in this MAEC Bundle, e.g. static analysis output, dynamic analysis output, etc.</xs:documentation>
+				<xs:documentation>The content_type attribute specifies the general type of content contained in this Bundle, e.g. static analysis output, dynamic analysis output, etc.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
@@ -925,7 +925,11 @@
 			<xs:documentation>The ProcessTreeType captures the process tree for the malware instance, including the parent process and processes spawned by it, along with the Actions performed for each.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Root_Process" type="maecBundle:ProcessTreeNodeType"/>
+			<xs:element name="Root_Process" type="maecBundle:ProcessTreeNodeType">
+				<xs:annotation>
+					<xs:documentation>The Root_Process element captures the root process in the process tree.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ProcessTreeNodeType">
@@ -944,17 +948,21 @@
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="Spawned_Process"
 						type="maecBundle:ProcessTreeNodeType">
 						<xs:annotation>
-							<xs:documentation>The Spawned_Process element captures any processes spawned by this process.</xs:documentation>
+							<xs:documentation>The Spawned_Process element captures a single process spawned by this process.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="Injected_Process"
 						type="maecBundle:ProcessTreeNodeType">
 						<xs:annotation>
-							<xs:documentation>The Injected_Process element captures any processes that were injected by this process.</xs:documentation>
+							<xs:documentation>The Injected_Process element captures a single process that was injected by this process.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="id" type="maecBundle:ProcessTreeNodeIDPattern" use="required"/>
+				<xs:attribute name="id" type="maecBundle:ProcessTreeNodeIDPattern" use="required">
+					<xs:annotation>
+						<xs:documentation>The required id attribute specifies a unique ID for the process node. The ID must follow the pattern defined in the ProcessTreeNodeIDPattern simple type.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 				<xs:attribute name="parent_action_idref" type="maecBundle:ActionIDREFPattern">
 					<xs:annotation>
 						<xs:documentation>The parent_action_idref attribute specifies the id of the action that created or injected this process.</xs:documentation>
