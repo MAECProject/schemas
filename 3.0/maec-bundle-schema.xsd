@@ -239,7 +239,7 @@
 				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Bundle Schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="subject_is_defined" type="xs:boolean">
+		<xs:attribute name="defined_subject" type="xs:boolean" use="required">
 			<xs:annotation>
 				<xs:documentation>The required defined_subject attribute specifies whether the subject attributes of the malware instance characterized here are included inside this MAEC Bundle (via the Subject_Attributes element) or elsewhere (such as a MAEC Subject in a MAEC Package).</xs:documentation>
 			</xs:annotation>
