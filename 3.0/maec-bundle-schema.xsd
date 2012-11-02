@@ -854,24 +854,6 @@
 					<xs:documentation>The Description element is intended to provide a brief description of the entity that the indicator or signature is written against.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Behavior_References"
-				type="maecBundle:BehaviorReferenceListType">
-				<xs:annotation>
-					<xs:documentation>The Behavior_References element references any MAEC-defined Behaviors in the current MAEC bundle that the indicator or signature is written against.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Action_References"
-				type="maecBundle:ActionReferenceListType">
-				<xs:annotation>
-					<xs:documentation>The Action_References element references any MAEC-defined Actions in the current MAEC bundle that the indicator or signature is written against.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Object_References"
-				type="maecBundle:ObjectReferenceListType">
-				<xs:annotation>
-					<xs:documentation>The Object_References element references any CybOX Objects in the current MAEC bundle that the indicator or signature is written against.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="type" type="maecBundle:MalwareEntityTypeEnum" use="optional">
 			<xs:annotation>
@@ -1232,16 +1214,12 @@
 	</xs:simpleType>
 	<xs:simpleType name="MalwareEntityTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The MalwareEntityTypeEnum is an enumeration of the different types of entities that a malware indicator or signature may target.</xs:documentation>
+			<xs:documentation>The MalwareEntityTypeEnum is an enumeration of the different types of entities that a malware indicator or signature may be written against.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Instance"/>
 			<xs:enumeration value="Family"/>
 			<xs:enumeration value="Class"/>
-			<xs:enumeration value="Behavior"/>
-			<xs:enumeration value="Action"/>
-			<xs:enumeration value="Anomaly"/>
-			<xs:enumeration value="Packer"/>
 			<xs:enumeration value="Other"/>
 		</xs:restriction>
 	</xs:simpleType>
