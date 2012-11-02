@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ MAEC Stand-alone Bundle Example
+ based on ThreatExpert report http://www.threatexpert.com/report.aspx?md5=6519ed23fb22d0228e61a68d40f75c49
+ 
+ Created November 2012 for MAEC v3.0 and CybOX v1.0 draft-->
+<maecBundle:MAEC_Bundle xmlns:UserAccountObj="http://cybox.mitre.org/objects#UserAccountObject"
+ xmlns:Common="http://cybox.mitre.org/Common_v1"
+ xmlns:Account="http://cybox.mitre.org/objects#AccountObject"
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
+ xmlns:metadata="http://xml/metadataSharing.xsd"
+ xmlns:cybox="http://cybox.mitre.org/cybox_v1"
+ xmlns:URIObj="http://cybox.mitre.org/objects#URIObject"
+ xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject"
+ xmlns:WinSystemObj="http://cybox.mitre.org/XMLSchema/objects#WinSystemObject"
+ xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
+ xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject"
+ xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+ xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject"
+ xmlns:PortObj="http://cybox.mitre.org/objects#PortObject"
+ xmlns:MemoryObj="http://cybox.mitre.org/objects#MemoryObject"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
+ xmlns:MutexObj="http://cybox.mitre.org/objects#MutexObject"
+ xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
+ xmlns:WinRegistryKeyObj="http://cybox.mitre.org/objects#WinRegistryKeyObject"
+ xmlns:WinMutexObj="http://cybox.mitre.org/objects#WinMutexObject"
+ xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ id="maec-example-bnd-5" schema_version="3.0" xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 file:../maec-bundle-schema.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.2.xsd
+ http://cybox.mitre.org/objects#WinRegistryKeyObject http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/Win_Registry_Key_Object_1.2.xsd
+ http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/Win_Mutex_Object_1.1.xsd
+ http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.2.xsd" subject_is_defined="true" content_type="dynamic_analysis_output">
+<maecBundle:Subject_Attributes>
+ <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+  <FileObj:Size_In_Bytes datatype="UnsignedLong">332288</FileObj:Size_In_Bytes>
+  <FileObj:Hashes>
+   <Common:Hash>
+    <Common:Type datatype="String">MD5</Common:Type>
+    <Common:Simple_Hash_Value datatype="hexBinary">6519ED23FB22D0228E61A68D40F75C49</Common:Simple_Hash_Value>
+   </Common:Hash>
+   <Common:Hash>
+    <Common:Type datatype="String">SHA1</Common:Type>
+    <Common:Simple_Hash_Value datatype="hexBinary">7F42DF6B1318A5CC4633E33076629F95F59F1445</Common:Simple_Hash_Value>
+   </Common:Hash>
+  </FileObj:Hashes>
+ </cybox:Defined_Object>
+</maecBundle:Subject_Attributes>
+ 
+<maecBundle:Actions>
+ <maecBundle:Action type="Create" id="maec-example-act-1">
+  <cybox:Action_Name>
+   <cybox:Defined_Name>Create File</cybox:Defined_Name>
+  </cybox:Action_Name>
+  <cybox:Associated_Objects>
+   <cybox:Associated_Object association_type="Affected">
+    <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+     <FileObj:File_Name datatype="String">Zcxaxz.exe</FileObj:File_Name>
+     <FileObj:File_Path fully_qualified="false" datatype="String">%AppData%\</FileObj:File_Path>
+     <FileObj:Size_In_Bytes datatype="UnsignedLong">332288</FileObj:Size_In_Bytes>
+    </cybox:Defined_Object>
+   </cybox:Associated_Object>
+  </cybox:Associated_Objects>
+ </maecBundle:Action>
+ 
+ <maecBundle:Action type="Create" id="maec-example-act-2">
+  <cybox:Action_Name>
+   <cybox:Defined_Name>Create Registry Key</cybox:Defined_Name>
+  </cybox:Action_Name>
+  <cybox:Associated_Objects>
+   <cybox:Associated_Object association_type="Affected">
+    <cybox:Defined_Object xsi:type="WinRegistryKeyObj:WindowsRegistryKeyObjectType">
+     <WinRegistryKeyObj:Key datatype="String">Software\Microsoft\Windows\CurrentVersion\Run</WinRegistryKeyObj:Key>
+     <WinRegistryKeyObj:Hive datatype="String">HKEY_CURRENT_USER</WinRegistryKeyObj:Hive>
+     <WinRegistryKeyObj:Values>
+      <WinRegistryKeyObj:Value>
+       <WinRegistryKeyObj:Name datatype="String">Zcxaxz</WinRegistryKeyObj:Name>
+       <WinRegistryKeyObj:Data datatype="String">"%AppData%\Zcxaxz.exe"</WinRegistryKeyObj:Data>
+      </WinRegistryKeyObj:Value>
+     </WinRegistryKeyObj:Values>
+    </cybox:Defined_Object>
+   </cybox:Associated_Object>
+  </cybox:Associated_Objects>
+ </maecBundle:Action>
+ 
+ <maecBundle:Action type="Create" id="maec-example-act-3">
+  <cybox:Action_Name>
+   <cybox:Defined_Name>Create Mutex</cybox:Defined_Name>
+  </cybox:Action_Name>
+  <cybox:Associated_Objects>
+   <cybox:Associated_Object association_type="Affected">
+    <cybox:Defined_Object xsi:type="WinMutexObj:WindowsMutexObjectType" named="true">
+     <MutexObj:Name datatype="String">redem-Mutex</MutexObj:Name>
+    </cybox:Defined_Object>
+   </cybox:Associated_Object>
+  </cybox:Associated_Objects>
+ </maecBundle:Action>
+ 
+ <maecBundle:Action type="Create" id="maec-example-act-4">
+  <cybox:Action_Name>
+   <cybox:Undefined_Name>Create Memory Page in Process</cybox:Undefined_Name>
+  </cybox:Action_Name>
+  <cybox:Associated_Objects>
+   <cybox:Associated_Object association_type="Affected">
+    <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
+     <ProcessObj:Name datatype="String">services.exe</ProcessObj:Name>
+     <ProcessObj:Image_Info>
+      <ProcessObj:Path datatype="String">%System%\services.exe</ProcessObj:Path>
+     </ProcessObj:Image_Info>
+    </cybox:Defined_Object>
+   </cybox:Associated_Object>
+  </cybox:Associated_Objects>
+ </maecBundle:Action>
+ 
+ <maecBundle:Action type="Create" id="maec-example-act-5">
+  <cybox:Action_Name>
+   <cybox:Undefined_Name>Create Memory Page in Process</cybox:Undefined_Name>
+  </cybox:Action_Name>
+  <cybox:Associated_Objects>
+   <cybox:Associated_Object association_type="Affected">
+    <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
+     <ProcessObj:Name datatype="String">svchost.exe</ProcessObj:Name>
+     <ProcessObj:Image_Info>
+      <ProcessObj:Path datatype="String">%System%\svchost.exe</ProcessObj:Path>
+     </ProcessObj:Image_Info>
+    </cybox:Defined_Object>
+   </cybox:Associated_Object>
+  </cybox:Associated_Objects>
+ </maecBundle:Action>
+ 
+ <maecBundle:Action type="Create" id="maec-example-act-6">
+  <cybox:Action_Name>
+   <cybox:Undefined_Name>Create Memory Page in Process</cybox:Undefined_Name>
+  </cybox:Action_Name>
+  <cybox:Associated_Objects>
+   <cybox:Associated_Object association_type="Affected">
+    <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
+     <ProcessObj:Name datatype="String">alg.exe</ProcessObj:Name>
+     <ProcessObj:Image_Info>
+      <ProcessObj:Path datatype="String">%System%\alg.exe</ProcessObj:Path>
+     </ProcessObj:Image_Info>
+    </cybox:Defined_Object>
+   </cybox:Associated_Object>
+  </cybox:Associated_Objects>
+ </maecBundle:Action>
+</maecBundle:Actions>
+</maecBundle:MAEC_Bundle>
