@@ -85,7 +85,7 @@
     
     <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_output">
      <maecBundle:Actions>
-      <maecBundle:Action action_status="Success" context="Host" type="Create" id="maec-anubis_to_maec-act-3">
+      <maecBundle:Action action_status="Success" context="Host" type="Create" id="maec-anubis_to_maec-act-1">
        <cybox:Action_Name>
         <cybox:Defined_Name>Create File</cybox:Defined_Name>
        </cybox:Action_Name>
@@ -139,7 +139,7 @@
     <maecPackage:Bundle id="maec-example-bnd-3" schema_version="3.0" defined_subject="false" content_type="manual_analysis_output">
      <maecBundle:Behaviors>
       <maecBundle:Behavior id="maec-example-bhv-1">
-       <maecBundle:Description>A persistence after reboot behavior using the Windows startup.</maecBundle:Description>
+       <maecBundle:Description>A persistence after reboot behavior using the Windows startup folder.</maecBundle:Description>
        <maecBundle:Action_Composition>
         <maecBundle:Action_Equivalence_Reference action_equivalence_idref="maec-example-acteq-1"/>
        </maecBundle:Action_Composition>
