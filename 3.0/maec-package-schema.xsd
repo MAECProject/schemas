@@ -69,7 +69,7 @@
 	</xs:complexType>
 	<xs:complexType name="SourceType">
 		<xs:annotation>
-			<xs:documentation>The SourceType provides a way of characterizing the external source of a relevant MAEC entity, such as an analysis or indicator.</xs:documentation>
+			<xs:documentation>The SourceType provides a way of characterizing the external source of a relevant MAEC entity, such as an Analysis.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string" minOccurs="0">
@@ -101,12 +101,12 @@
 	</xs:complexType>
 	<xs:complexType name="CommentListType">
 		<xs:annotation>
-			<xs:documentation>The CommentListType provides a simple way of capturing any comments relating to malware-associated entities, such as analyses.</xs:documentation>
+			<xs:documentation>The CommentListType provides a simple way of capturing any comments relating to MAEC entities, such as Analyses.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Comment" type="maecPackage:CommentType">
 				<xs:annotation>
-					<xs:documentation>The Comment element specifies a single comment about a particular entity.</xs:documentation>
+					<xs:documentation>The Comment element specifies a single comment pertaining to a particular MAEC entity.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -126,13 +126,13 @@
 	</xs:complexType>
 	<xs:complexType name="ToolListType">
 		<xs:annotation>
-			<xs:documentation>The ToolsType characterizes one or more tools, typically associated with the analysis or detection of a Malware Subject.</xs:documentation>
+			<xs:documentation>The ToolsType characterizes one or more tools, most typically associated with the analysis of a Malware Subject.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence maxOccurs="1">
 			<xs:element maxOccurs="unbounded" name="Tool" type="common:ToolInformationType"
 				minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The Tool element specifies a single tool that was used in the analysis or detection of the malware.</xs:documentation>
+					<xs:documentation>The Tool element specifies a single tool in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -151,7 +151,7 @@
 	</xs:complexType>
 	<xs:complexType name="CommentType">
 		<xs:annotation>
-			<xs:documentation>The CommentType captures comments made by analysts throughout the malware analysis process.</xs:documentation>
+			<xs:documentation>The CommentType captures a comment relating to some MAEC entity.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
@@ -178,7 +178,7 @@
 					<xs:element minOccurs="0" name="Installed_Programs"
 						type="maecPackage:InstalledProgramsType">
 						<xs:annotation>
-							<xs:documentation>The Installed_Programs element refers to information about the software installed on the OS used to perform the analysis. This can be useful for clarifying the nature of the analysis environment, for instance for determining whether an exploited piece of software was present, as well as for specifying any tools that may have been installed.</xs:documentation>
+							<xs:documentation>The Installed_Programs element specifies the programs installed on the OS that was used to perform the analysis. This can be useful for clarifying the nature of the analysis environment, for instance for determining whether an exploited piece of software was present, as well as for specifying any tools that may have been installed.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -330,7 +330,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Package" type="maecPackage:PackageType">
 				<xs:annotation>
-					<xs:documentation>The Package element specifies a single Package, which encompasses a number of related Malware Subjects and any associated metadata.</xs:documentation>
+					<xs:documentation>The Package element specifies a single Package, which encompasses 1-n Malware Subjects and any associated metadata.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -342,7 +342,7 @@
 		<xs:sequence>
 			<xs:element name="Malware_Subjects" type="maecPackage:MalwareSubjectListType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subjects element encompasses each of the Malware_Subjects contained in the MAEC Package.</xs:documentation>
+					<xs:documentation>The Malware_Subjects element captures each of the Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Grouping_Relationship"
@@ -354,23 +354,23 @@
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="maecPackage:PackageIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id attribute specifies a unique ID for this MAEC Package. The ID must follow the pattern defined in the PackageIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id attribute specifies a unique ID for this Package. The ID must follow the pattern defined in the PackageIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute fixed="3.0" name="schema_version" type="xs:decimal" use="required">
+		<xs:attribute fixed="1.0" name="schema_version" type="xs:decimal" use="required">
 			<xs:annotation>
 				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Package Schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The timestamp attribute specifies the date/time that the MAEC Collection was generated.</xs:documentation>
+				<xs:documentation>The timestamp attribute specifies the date/time that the Package was generated.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="MalwareSubjectType">
 		<xs:annotation>
-			<xs:documentation>The MalwareSubjectType captures the details of a single malware subject, including any corresponding analyses, analysis findings, related artifacts, and relationships to other Malware Subjects.</xs:documentation>
+			<xs:documentation>The MalwareSubjectType captures the details of a single malware subject, including any corresponding Analyses, Findings Bundles, and relationships to other Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" name="Subject_Attributes" type="cybox:ObjectType">
@@ -386,7 +386,7 @@
 			<xs:element minOccurs="0" name="Findings_Bundles"
 				type="maecPackage:FindingsBundleListType">
 				<xs:annotation>
-					<xs:documentation>The Findings_Bundles element specifies any Behaviors, Actions, or Objects (as MAEC Bundle entities) that were discovered regarding the Malware Subject. These Bundles can either be abstract, or referenced as the result of an analysis that was performed on the malware.</xs:documentation>
+					<xs:documentation>The Findings_Bundles element specifies any Behaviors, Actions, or Objects (as MAEC Bundle entities) that were discovered for the Malware Subject. These Bundles can either be abstract, or referenced as the result of an analysis that was performed on the malware.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Relationships"
@@ -398,13 +398,13 @@
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="maecPackage:MalwareSubjectIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id attribute specifies the unique document-level ID for the malware subject.</xs:documentation>
+				<xs:documentation>The required id attribute specifies a unique ID for this Malware Subject. The ID must follow the pattern defined in the MalwareSubjectIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="MetaAnalysisType">
 		<xs:annotation>
-			<xs:documentation>The MetaAnalysisType captures meta-analysis associated with the Bundles included in a Malware Subject, such as Action Equivalencies.</xs:documentation>
+			<xs:documentation>The MetaAnalysisType captures meta-analysis entities associated with the Bundles found for a Malware Subject, such as Action Equivalencies.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Action_Equivalencies"
@@ -447,7 +447,7 @@
 			<xs:element name="Malware_Subject_Relationship" maxOccurs="unbounded"
 				type="maecPackage:MalwareSubjectRelationshipType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subject_Relationship element specifies a relationship that relates this Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
+					<xs:documentation>The Malware_Subject_Relationship element specifies a relationship that relates tbe Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -471,7 +471,7 @@
 			<xs:element maxOccurs="unbounded" name="Malware_Subject"
 				type="maecPackage:MalwareSubjectType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subject element represents a single Malware Subject (most commonly a file) and its associated metadata, such as analyses, findings bundles, relationships to other Malware Subjects, etc.</xs:documentation>
+					<xs:documentation>The Malware_Subject element represents a single Malware Subject (most commonly a file) and its associated metadata, such as Analyses, Bundles, relationships to other Malware Subjects, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -502,7 +502,7 @@
 	</xs:complexType>
 	<xs:complexType name="GroupingRelationshipType">
 		<xs:annotation>
-			<xs:documentation>The GroupingRelationshipType provides a mechanism for specifying the relationship that groups the Malware Subjects together in a Package.</xs:documentation>
+			<xs:documentation>The GroupingRelationshipType provides a mechanism for specifying the relationship that groups together the Malware Subjects in a Package.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Malware_Family_Name" type="xs:string">
@@ -550,16 +550,17 @@
 			<xs:documentation>The NetworkInfrastructureType captures specific details about the network infrastructure used in the analysis of a Malware Subject.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Protocols" type="maecPackage:ProtocolListType">
+			<xs:element minOccurs="0" name="Captured_Protocols"
+				type="maecPackage:CapturedProtocolListType">
 				<xs:annotation>
-					<xs:documentation>The Protocols element specifies a list of layer 7 protocols that the analysis system captures or interacts with in some fashion.</xs:documentation>
+					<xs:documentation>The Captured_Protocols element specifies a list of network protocols, along with the particular level of interaction, that the analysis environment captures or interacts with in some fashion.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ActionEquivalencyType">
 		<xs:annotation>
-			<xs:documentation>The ActionEquivalencyType relates any actions that are equivalent to each other, e.g., those that were found through for the same Malware Subject when using different analysis tools. It can be used as a way of referencing equivalent actions as a single unit, such as for specifying the Action composition of a Behavior.</xs:documentation>
+			<xs:documentation>The ActionEquivalencyType relates any Actions that are equivalent to each other, e.g., those that were found for the same Malware Subject when using different analysis tools. It can be used as a way of referencing equivalent actions as a single unit, such as for specifying the Action composition of a Behavior.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Action_Reference"
@@ -588,22 +589,22 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ProtocolListType">
+	<xs:complexType name="CapturedProtocolListType">
 		<xs:annotation>
-			<xs:documentation>The ProtocolListType captures a list of network protocols that a malware analysis environment may capture or interact with.</xs:documentation>
+			<xs:documentation>The CapturedProtocolListType specifies a list of network protocols that a malware analysis environment may capture or interact with.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Protocol"
-				type="maecPackage:CapturedPortProtocolType">
+				type="maecPackage:CapturedProtocolType">
 				<xs:annotation>
 					<xs:documentation>The Protocol element specifies a single layer 4 or layer 7 network protocol captured or interacted with by the analysis environment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CapturedPortProtocolType">
+	<xs:complexType name="CapturedProtocolType">
 		<xs:annotation>
-			<xs:documentation>The CapturedPortProtocolType specifies the details of network protocol that is captured or otherwise manipulated during malware analysis.</xs:documentation>
+			<xs:documentation>The CapturedProtocolType specifies the details of a network protocol that is captured or otherwise manipulated during malware analysis.</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="layer7_protocol" type="maecPackage:Layer7ProtocolEnum">
 			<xs:annotation>
@@ -648,14 +649,14 @@
 			<xs:element maxOccurs="unbounded" name="Object_Equivalency"
 				type="maecPackage:ObjectEquivalencyType">
 				<xs:annotation>
-					<xs:documentation>The Object_Equivalency element captures a single Object Equivalency in the list.</xs:documentation>
+					<xs:documentation>The Object_Equivalency element specifies a single Object Equivalency in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="PackageIDPattern">
 		<xs:annotation>
-			<xs:documentation>The PackageIDPattern simple type defines the format for acceptable MAEC Package ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'pkg', and ending with an integer.</xs:documentation>
+			<xs:documentation>The PackageIDPattern defines the format for acceptable MAEC Package ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'pkg', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-pkg-[1-9][0-9]*"/>
@@ -663,7 +664,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="MalwareSubjectIDPattern">
 		<xs:annotation>
-			<xs:documentation>The MalwareSubjectIDPattern simple type defines the format for acceptable MAEC Malware Subject ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'sub', and ending with an integer.</xs:documentation>
+			<xs:documentation>The MalwareSubjectIDPattern defines the format for acceptable MAEC Malware Subject ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'sub', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-sub-[1-9][0-9]*"/>
@@ -671,7 +672,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="AnalysisIDPattern">
 		<xs:annotation>
-			<xs:documentation>The AnalysisIDPattern simple type defines the format for acceptable MAEC Analysis ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'ana', and ending with an integer.</xs:documentation>
+			<xs:documentation>The AnalysisIDPattern defines the format for acceptable MAEC Analysis ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'ana', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-ana-[1-9][0-9]*"/>
@@ -679,7 +680,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ActionEquivalencyIDPattern">
 		<xs:annotation>
-			<xs:documentation>The ActionEquivalencyIDPattern simple type defines the format for acceptable MAEC Action Equivalency ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'acteq', and ending with an integer.</xs:documentation>
+			<xs:documentation>The ActionEquivalencyIDPattern defines the format for acceptable MAEC Action Equivalency ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'acteq', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-acteq-[1-9][0-9]*"/>
@@ -687,7 +688,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ObjectEquivalencyIDPattern">
 		<xs:annotation>
-			<xs:documentation>The ObjectEquivalencyIDPattern simple type defines the format for acceptable MAEC Object Equivalency ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'objeq', and ending with an integer.</xs:documentation>
+			<xs:documentation>The ObjectEquivalencyIDPattern defines the format for acceptable MAEC Object Equivalency ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'objeq', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-objeq-[1-9][0-9]*"/>
@@ -695,7 +696,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="AnalysisTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The AnalysisTypeEnum simple type is an enumeration of types of malware analyses.</xs:documentation>
+			<xs:documentation>The AnalysisTypeEnum is an enumeration of types of malware analyses.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Triage"/>
@@ -704,7 +705,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="AnalysisMethodEnum">
 		<xs:annotation>
-			<xs:documentation>The AnalysisMethodEnum simple type is an enumeration of malware analysis methods.</xs:documentation>
+			<xs:documentation>The AnalysisMethodEnum is an enumeration of malware analysis methods.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Static"/>
@@ -712,25 +713,9 @@
 			<xs:enumeration value="Combination"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="SubjectObjectFormEnum">
-		<xs:annotation>
-			<xs:documentation>The PrimarySubjectFormEnum is an enumeration of the forms that a primary malware subject can take.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="binary"/>
-			<xs:enumeration value="packed_binary"/>
-			<xs:enumeration value="unpacked_binary"/>
-			<xs:enumeration value="encrypted_binary"/>
-			<xs:enumeration value="decrypted_binary"/>
-			<xs:enumeration value="encoded_binary"/>
-			<xs:enumeration value="decoded_binary"/>
-			<xs:enumeration value="polymorphed_binary"/>
-			<xs:enumeration value="metamorphed_binary"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="GroupingRelationshipEnum">
 		<xs:annotation>
-			<xs:documentation>The GroupingRelationshipEnum is a non-exhaustive enumeration of grouping relationships.</xs:documentation>
+			<xs:documentation>The GroupingRelationshipEnum is a non-exhaustive enumeration of Malware Subject grouping relationships.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="same_malware_family"/>
@@ -765,7 +750,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="Layer7ProtocolEnum">
 		<xs:annotation>
-			<xs:documentation>The Layer7ProtocolEnum is an enumeration of Layer 7 (OSI model) network protocols.</xs:documentation>
+			<xs:documentation>The Layer7ProtocolEnum is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="HTTP"/>
