@@ -19,7 +19,7 @@
  xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 ../maec-package-schema.xsd http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.2.xsd">
 
-<maecPackage:Package id="maec-tst-pkg-1" schema_version="3.0">
+<maecPackage:Package id="maec-tst-pkg-1" schema_version="1.0">
  <maecPackage:Malware_Subjects>
   <maecPackage:Malware_Subject id="maec-tst-sub-1">
    <maecPackage:Subject_Attributes>
