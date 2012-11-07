@@ -444,10 +444,10 @@
 			<xs:documentation>The MalwareSubjectRelationshipListType captures a list of relationships between Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Malware_Subject_Relationship" maxOccurs="unbounded"
+			<xs:element name="Relationship" maxOccurs="unbounded"
 				type="maecPackage:MalwareSubjectRelationshipType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subject_Relationship element specifies a relationship that relates tbe Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
+					<xs:documentation>The Relationship element specifies a relationship that relates tbe Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
