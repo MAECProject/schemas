@@ -3,8 +3,6 @@
  MAEC Bundle Candidate Indicator
  based on ThreatExpert report http://www.threatexpert.com/report.aspx?md5=6519ed23fb22d0228e61a68d40f75c49
  
- This example builds on the stand-alone bundle example (bundle_standalone_example.xml)
- 
  Created November 2012 for MAEC v3.0 and CybOX v1.0 draft-->
 <maecBundle:MAEC_Bundle xmlns:UserAccountObj="http://cybox.mitre.org/objects#UserAccountObject"
  xmlns:Common="http://cybox.mitre.org/Common_v1"
@@ -151,12 +149,10 @@
   <!-- An example of a simple object-based candidate indicator for the characterized malware instance -->
   <maecBundle:Candidate_Indicator id="maec-example-ind-1">
    <maecBundle:Composition operator="OR">
+    <maecBundle:Object_Reference object_idref="maec-example-obj-3"/>
     <maecBundle:Sub_Composition operator="AND">
      <maecBundle:Object_Reference object_idref="maec-example-obj-1"/>
      <maecBundle:Object_Reference object_idref="maec-example-obj-2"/>
-    </maecBundle:Sub_Composition>
-    <maecBundle:Sub_Composition operator="OR">
-     <maecBundle:Object_Reference object_idref="maec-example-obj-3"/>
     </maecBundle:Sub_Composition>
    </maecBundle:Composition>
   </maecBundle:Candidate_Indicator>
