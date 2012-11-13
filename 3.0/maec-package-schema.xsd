@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
-	targetNamespace="http://maec.mitre.org/XMLSchema/maec-package-3"
+	targetNamespace="http://maec.mitre.org/XMLSchema/maec-package-1"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-3"
+	xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
 	xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
 	xmlns:metadata="http://xml/metadataSharing.xsd" xmlns:cybox="http://cybox.mitre.org/cybox_v1"
 	xmlns:common="http://cybox.mitre.org/Common_v1"
@@ -19,8 +19,6 @@
 		schemaLocation="http://cybox.mitre.org/XMLSchema/cybox_core_v1.0.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#SystemObject"
 		schemaLocation="http://cybox.mitre.org/XMLSchema/objects/System/System_Object_1.3.xsd"/>
-	<xs:import namespace="http://cybox.mitre.org/objects#URIObject"
-		schemaLocation="http://cybox.mitre.org/XMLSchema/objects/URI/URI_Object_1.2.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/Common_v1"
 		schemaLocation="http://cybox.mitre.org/XMLSchema/cybox_common_types_v1.0.xsd"/>
 	<xs:annotation>
@@ -92,7 +90,7 @@
 					<xs:documentation>The Organization element specifies the name of the organization from which the source originated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="URL" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="URL" type="xs:anyURI">
 				<xs:annotation>
 					<xs:documentation>The URL element specifies the URl of the external source, if applicable.</xs:documentation>
 				</xs:annotation>
@@ -493,7 +491,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Bundle_External_Reference"
-				type="URIObj:URIObjectType">
+				type="xs:anyURI">
 				<xs:annotation>
 					<xs:documentation>The Bundle_External_Reference element specifies a single externally located MAEC Bundle (such as a file or URL) via a URI, representing some set of results from analysis of the Malware Subject.</xs:documentation>
 				</xs:annotation>
