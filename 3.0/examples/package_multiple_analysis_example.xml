@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  MAEC Package Multiple Analysis Example
- -Demonstrates how multiple analyses for the same Malware Subject (a Zeus binary) can be combined
+ -Demonstrates how multiple analyses for the same Malware Subject (a Zeus binary in this case) can be combined
  -Shows ThreatExpert and Anubis analyses for the same instance (outputs were trimmed for readability)
  -Also shows usage of Bundle Collections
  
@@ -84,12 +84,9 @@
              <maecBundle:Action_Collections>
                  <maecBundle:Action_Collection name="File System Actions" id="maec-anubis_to_maec-actc-1">
                      <maecBundle:Action_List>
-                         <maecBundle:Action action_status="Success" context="Host" type="Create" id="maec-anubis_to_maec-act-1">
-                             <cybox:Action_Name>
-                                 <cybox:Defined_Name>Create File</cybox:Defined_Name>
-                             </cybox:Action_Name>
+                         <maecBundle:Action action_status="Success" context="Host" type="Create" name="Create File" id="maec-anubis_to_maec-act-1">
                              <cybox:Associated_Objects>
-                                 <cybox:Associated_Object type="File" id="maec-anubis_to_maec-obj-2" association_type="Affected">
+                                 <cybox:Associated_Object type="File" id="maec-anubis_to_maec-obj-1" association_type="Affected">
                                      <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
                                          <FileObj:File_Name datatype="String">oembios.exe</FileObj:File_Name>
                                          <FileObj:File_Path datatype="String">C:\WINDOWS\system32\</FileObj:File_Path>
@@ -102,12 +99,9 @@
               
                  <maecBundle:Action_Collection name="IPC Actions" id="maec-anubis_to_maec-actc-2">
                      <maecBundle:Action_List>
-                         <maecBundle:Action action_status="Success" context="Host" type="Create" id="maec-anubis_to_maec-act-14">
-                             <cybox:Action_Name>
-                                 <cybox:Defined_Name>Create Mutex</cybox:Defined_Name>
-                             </cybox:Action_Name>
+                         <maecBundle:Action action_status="Success" context="Host" type="Create" name="Create Mutex" id="maec-anubis_to_maec-act-2">
                              <cybox:Associated_Objects>
-                                 <cybox:Associated_Object type="Mutex" id="maec-anubis_to_maec-obj-15" association_type="Affected">
+                                 <cybox:Associated_Object type="Mutex" id="maec-anubis_to_maec-obj-2" association_type="Affected">
                                      <cybox:Defined_Object xsi:type="WinMutexObj:WindowsMutexObjectType" named="true">
                                          <MutexObj:Name datatype="String">__SYSTEM__91C38905__</MutexObj:Name>
                                      </cybox:Defined_Object>
@@ -117,14 +111,11 @@
                      </maecBundle:Action_List>
                  </maecBundle:Action_Collection>
               
-                 <maecBundle:Action_Collection name="Registry Actions" id="maec-anubis_to_maec-actc-5">
+                 <maecBundle:Action_Collection name="Registry Actions" id="maec-anubis_to_maec-actc-3">
                      <maecBundle:Action_List>
-                         <maecBundle:Action action_status="Success" context="Host" type="Modify" id="maec-anubis_to_maec-act-7">
-                             <cybox:Action_Name>
-                                 <cybox:Defined_Name>Write Registry Key Value</cybox:Defined_Name>
-                             </cybox:Action_Name>
+                         <maecBundle:Action action_status="Success" context="Host" type="Modify" name="Write Registry Key Value" id="maec-anubis_to_maec-act-3">
                              <cybox:Associated_Objects>
-                                 <cybox:Associated_Object type="Key/Key Group" id="maec-anubis_to_maec-obj-8" association_type="Affected">
+                                 <cybox:Associated_Object type="Registry Key/Key Group" id="maec-anubis_to_maec-obj-3" association_type="Affected">
                                      <cybox:Defined_Object xsi:type="WinRegistryKeyObj:WindowsRegistryKeyObjectType">
                                          <WinRegistryKeyObj:Key datatype="String">software\microsoft\windows nt\currentversion\winlogon</WinRegistryKeyObj:Key>
                                          <WinRegistryKeyObj:Hive datatype="String">HKEY_LOCAL_MACHINE</WinRegistryKeyObj:Hive>
@@ -149,9 +140,9 @@
             <maecBundle:Action_Collections>
                 <maecBundle:Action_Collection name="File System Actions" id="maec-threatexpert_to_maec-actc-1">
                     <maecBundle:Action_List>
-                        <maecBundle:Action action_status="Success" type="Create" id="maec-threatexpert_to_maec-act-1">
+                        <maecBundle:Action action_status="Success" type="Create" name="Create File" id="maec-threatexpert_to_maec-act-1">
                             <cybox:Associated_Objects>
-                                <cybox:Associated_Object type="File" id="maec-threatexpert_to_maec-obj-2">
+                                <cybox:Associated_Object type="File" id="maec-threatexpert_to_maec-obj-1">
                                     <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
                                         <FileObj:File_Name datatype="String">sysproc32.sys</FileObj:File_Name>
                                         <FileObj:File_Path datatype="String">%Profiles%\LocalService\Application Data\sysproc64\</FileObj:File_Path>
@@ -174,9 +165,9 @@
              
                 <maecBundle:Action_Collection name="IPC Actions" id="maec-threatexpert_to_maec-actc-2">
                     <maecBundle:Action_List>
-                        <maecBundle:Action action_status="Success" type="Create" id="maec-threatexpert_to_maec-act-22">
+                        <maecBundle:Action action_status="Success" type="Create" name="Create Mutex" id="maec-threatexpert_to_maec-act-2" context="Host">
                             <cybox:Associated_Objects>
-                                <cybox:Associated_Object type="Mutex" id="maec-threatexpert_to_maec-obj-23">
+                                <cybox:Associated_Object type="Mutex" id="maec-threatexpert_to_maec-obj-2">
                                     <cybox:Defined_Object xsi:type="WinMutexObj:WindowsMutexObjectType" named="true">
                                         <MutexObj:Name datatype="String">__SYSTEM__91C38905__</MutexObj:Name>
                                     </cybox:Defined_Object>
@@ -186,11 +177,11 @@
                     </maecBundle:Action_List>
                  
                 </maecBundle:Action_Collection>
-                <maecBundle:Action_Collection name="Registry Actions" id="maec-threatexpert_to_maec-actc-5">
+                <maecBundle:Action_Collection name="Registry Actions" id="maec-threatexpert_to_maec-actc-3">
                     <maecBundle:Action_List>
-                        <maecBundle:Action action_status="Success" type="Create" id="maec-threatexpert_to_maec-act-7">
+                        <maecBundle:Action action_status="Success" type="Create" name="Create Registry Key" id="maec-threatexpert_to_maec-act-3" context="Host">
                             <cybox:Associated_Objects>
-                                <cybox:Associated_Object type="Key/Key Group" id="maec-threatexpert_to_maec-obj-8">
+                                <cybox:Associated_Object type="Registry Key/Key Group" id="maec-threatexpert_to_maec-obj-3">
                                     <cybox:Defined_Object xsi:type="WinRegistryKeyObj:WindowsRegistryKeyObjectType">
                                         <WinRegistryKeyObj:Key datatype="String">.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\{19127AD2-394B-70F5-C650-B97867BAA1F7}</WinRegistryKeyObj:Key>
                                         <WinRegistryKeyObj:Hive datatype="String">HKEY_USERS</WinRegistryKeyObj:Hive>

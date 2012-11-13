@@ -48,10 +48,7 @@
 </maecBundle:Subject_Attributes>
  
 <maecBundle:Actions>
- <maecBundle:Action type="Create" id="maec-example-act-1">
-  <cybox:Action_Name>
-   <cybox:Defined_Name>Create File</cybox:Defined_Name>
-  </cybox:Action_Name>
+ <maecBundle:Action type="Create" name="Create File" id="maec-example-act-1" >
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected" id="maec-example-obj-1">
     <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
@@ -63,10 +60,7 @@
   </cybox:Associated_Objects>
  </maecBundle:Action>
  
- <maecBundle:Action type="Create" id="maec-example-act-2">
-  <cybox:Action_Name>
-   <cybox:Defined_Name>Create Registry Key</cybox:Defined_Name>
-  </cybox:Action_Name>
+ <maecBundle:Action type="Create" name="Create Registry Key" id="maec-example-act-2">
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected" id="maec-example-obj-2">
     <cybox:Defined_Object xsi:type="WinRegistryKeyObj:WindowsRegistryKeyObjectType">
@@ -83,10 +77,7 @@
   </cybox:Associated_Objects>
  </maecBundle:Action>
  
- <maecBundle:Action type="Create" id="maec-example-act-3">
-  <cybox:Action_Name>
-   <cybox:Defined_Name>Create Mutex</cybox:Defined_Name>
-  </cybox:Action_Name>
+ <maecBundle:Action type="Create" name="Create Mutex" id="maec-example-act-3">
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected" id="maec-example-obj-3">
     <cybox:Defined_Object xsi:type="WinMutexObj:WindowsMutexObjectType" named="true">
@@ -96,10 +87,7 @@
   </cybox:Associated_Objects>
  </maecBundle:Action>
  
- <maecBundle:Action type="Create" id="maec-example-act-4">
-  <cybox:Action_Name>
-   <cybox:Undefined_Name>Create Memory Page in Process</cybox:Undefined_Name>
-  </cybox:Action_Name>
+ <maecBundle:Action type="Create" name="Inject Memory Page" id="maec-example-act-4">
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected" id="maec-example-obj-4">
     <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
@@ -112,10 +100,7 @@
   </cybox:Associated_Objects>
  </maecBundle:Action>
  
- <maecBundle:Action type="Create" id="maec-example-act-5">
-  <cybox:Action_Name>
-   <cybox:Undefined_Name>Create Memory Page in Process</cybox:Undefined_Name>
-  </cybox:Action_Name>
+ <maecBundle:Action type="Create" name="Inject Memory Page" id="maec-example-act-5">
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected" id="maec-example-obj-5">
     <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
@@ -128,10 +113,7 @@
   </cybox:Associated_Objects>
  </maecBundle:Action>
  
- <maecBundle:Action type="Create" id="maec-example-act-6">
-  <cybox:Action_Name>
-   <cybox:Undefined_Name>Create Memory Page in Process</cybox:Undefined_Name>
-  </cybox:Action_Name>
+ <maecBundle:Action type="Create" name="Inject Memory Page" id="maec-example-act-6">
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected" id="maec-example-obj-6">
     <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">

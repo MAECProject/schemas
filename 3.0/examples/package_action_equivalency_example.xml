@@ -85,10 +85,7 @@
     
     <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_output">
      <maecBundle:Actions>
-      <maecBundle:Action action_status="Success" context="Host" type="Create" id="maec-anubis_to_maec-act-1">
-       <cybox:Action_Name>
-        <cybox:Defined_Name>Create File</cybox:Defined_Name>
-       </cybox:Action_Name>
+      <maecBundle:Action action_status="Success" context="Host" type="Create" name="Create File" id="maec-anubis_to_maec-act-1">
        <cybox:Discovery_Method>
         <common:Tools>
          <common:Tool idref="analysis-tool-1"/>
