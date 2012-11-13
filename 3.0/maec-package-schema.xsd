@@ -35,7 +35,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-bundle-3"
 		schemaLocation="maec-bundle-schema.xsd"/>
-	<xs:element name="MAEC_Packages" type="maecPackage:PackageListType">
+	<xs:element name="MAEC_Package" type="maecPackage:PackageType">
 		<xs:annotation>
 			<xs:documentation>The root element of the MAEC Package schema is the MAEC_Package_List.</xs:documentation>
 		</xs:annotation>
@@ -317,18 +317,6 @@
 			<xs:element maxOccurs="unbounded" name="Analysis" type="maecPackage:AnalysisType">
 				<xs:annotation>
 					<xs:documentation>The Analysis element represents the metadata regarding a single analysis that was performed on the Malware Subject.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="PackageListType">
-		<xs:annotation>
-			<xs:documentation>The PackageListType captures a list of Packages.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Package" type="maecPackage:PackageType">
-				<xs:annotation>
-					<xs:documentation>The Package element specifies a single Package, which encompasses 1-n Malware Subjects and any associated metadata.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
