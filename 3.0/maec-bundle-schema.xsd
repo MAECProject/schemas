@@ -10,6 +10,7 @@
 	xmlns:WinSystemObj="http://cybox.mitre.org/XMLSchema/objects#WinSystemObject"
 	xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
 	xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject"
+	xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject"
 	xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="3.0">
 	<xs:import namespace="http://xml/metadataSharing.xsd"
 		schemaLocation="http://grouper.ieee.org/groups/malware/malwg/Schema1.2/metadataSharing.xsd"/>
@@ -210,11 +211,6 @@
 			<xs:element minOccurs="0" name="Objects" type="maecBundle:ObjectListType">
 				<xs:annotation>
 					<xs:documentation>The Objects element contains 1-n ObjectType objects, which function as the MAEC representation for any objects associated with the malware instance.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Artifacts">
-				<xs:annotation>
-					<xs:documentation>Placeholder for CybOX artifacts.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Candidate_Indicators"
