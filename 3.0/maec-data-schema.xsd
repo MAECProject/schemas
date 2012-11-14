@@ -6,9 +6,7 @@
 	xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1" version="1.0">
 	<xs:annotation>
 		<xs:documentation>The following is a description of the elements, types, and attributes that compose the Malware Attribute Enumeration and Characterization (MAEC) data schema.</xs:documentation>
-		<xs:documentation>The MAEC Schema is maintained by The Mitre Corporation. For more information, including how to get involved in the project, please visit the MAEC website at http://maec.mitre.org.</xs:documentation>
-		<xs:documentation>This schema imports the IEEE ICSG's Malware Metadata schema. More info on this schema can be found at http://grouper.ieee.org/groups/malware/malwg/Schema1.2/.</xs:documentation>
-		<xs:documentation>This schema imports the CyBOX schema and object schemas. More info on CybOX can be found at http://cybox.mitre.org.</xs:documentation>
+		<xs:documentation>The MAEC Data Schema is maintained by The Mitre Corporation. For more information, including how to get involved in the project, please visit the MAEC website at http://maec.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>MAEC Data Schema</schema>
 			<version>1.0</version>
@@ -40,7 +38,7 @@
 			<xs:documentation>The PackageListType captures a list of Packages.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Package" type="maecPackage:PackageType">
+			<xs:element maxOccurs="unbounded" name="Package" type="maecPackage:MalwarePackageType">
 				<xs:annotation>
 					<xs:documentation>The Package element specifies a single Package, which encompasses 1-n Malware Subjects and any associated metadata.</xs:documentation>
 				</xs:annotation>
