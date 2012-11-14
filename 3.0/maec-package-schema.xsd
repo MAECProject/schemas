@@ -508,11 +508,6 @@
 					<xs:documentation>The Malware_Family_Name element specifies the name of the malware family referred to by the 'same_malware_family' relationship type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Malware_Class_Name" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Malware_Family_Name element specifies the name of the malware class referered to by the 'same_malware_class' relationship type.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element minOccurs="0" name="Clustering_Metadata"
 				type="maecPackage:ClusteringMetadataType">
 				<xs:annotation>
@@ -549,9 +544,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ClusterEdgeNodesType">
+	<xs:complexType name="ClusterEdgeNodePairType">
 		<xs:annotation>
-			<xs:documentation>The ClusterEdgeNodesType describes a single edge in a malware cluster, along with the two Malware Subjects that correspond to the nodes connected to the edge (via references), representing the similarity index between the two Malware Subjects.</xs:documentation>
+			<xs:documentation>The ClusterEdgeNodePairType describes a single edge in a malware cluster, along with the two Malware Subjects that correspond to the nodes connected to the edge (via references), representing the similarity index between the two Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="1" name="Malware_Subject_Node"
@@ -582,10 +577,10 @@
 			<xs:documentation>The ClusterCompositionType captures the composition of a malware cluster via its edges and their respective connected nodes, as in an undirected graph.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Edge_Nodes"
-				type="maecPackage:ClusterEdgeNodesType">
+			<xs:element maxOccurs="unbounded" name="Edge_Node_Pair"
+				type="maecPackage:ClusterEdgeNodePairType">
 				<xs:annotation>
-					<xs:documentation>The Edge_Nodes element specifies a single edge and connected nodes in the malware cluster, representing the similarity index between two Malware Subjects.</xs:documentation>
+					<xs:documentation>The Cluster_Edge_Node_Pair element specifies a single edge and its connected nodes in the malware cluster, representing the similarity index between two Malware Subjects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
