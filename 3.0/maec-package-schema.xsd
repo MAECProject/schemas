@@ -35,9 +35,9 @@
 	</xs:annotation>
 	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-bundle-3"
 		schemaLocation="maec-bundle-schema.xsd"/>
-	<xs:element name="MAEC_Package" type="maecPackage:PackageType">
+	<xs:element name="MAEC_Package" type="maecPackage:MalwarePackageType">
 		<xs:annotation>
-			<xs:documentation>The root element of the MAEC Package schema is the MAEC_Package_List.</xs:documentation>
+			<xs:documentation>The root element of the MAEC Package schema is the MAEC_Package, which captures a single MAEC Package.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="AnalysisEnvironmentType">
@@ -45,10 +45,10 @@
 			<xs:documentation>The AnalysisEnvironmentType provides mechanisms for characterizing the particular hardware/software environment used in analyzing a malware instance.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Hypervisor_System"
+			<xs:element minOccurs="0" name="Hypervisor_Host_System"
 				type="maecPackage:HypervisorSystemType">
 				<xs:annotation>
-					<xs:documentation>The Hypervisor_System element characterizes the (physical) host system used in the analysis on which the VM Hypervisor runs. This element imports and extends the CybOX System Object.</xs:documentation>
+					<xs:documentation>The Hypervisor_Host_System element characterizes the (physical) host system used in the analysis on which the VM Hypervisor runs. This element imports and extends the CybOX System Object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Analysis_Systems"
@@ -251,7 +251,7 @@
 			<xs:element minOccurs="0" name="Findings_Bundle_Reference"
 				type="maecBundle:BundleReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Findings_Bundle_Reference specifies a reference to the MAEC Findings Bundle which encompasses the results and output of the Analysis in terms of the corresponding MAEC entities.</xs:documentation>
+					<xs:documentation>The Findings_Bundle_Reference specifies a reference to the MAEC Bundle which encompasses the results and output of the Analysis in terms of the corresponding MAEC entities.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Tools" type="maecPackage:ToolListType">
@@ -321,9 +321,21 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="PackageType">
+	<xs:complexType name="InstalledProgramsType">
 		<xs:annotation>
-			<xs:documentation>The PackageType captures either a single Malware Subject, or a collection of Malware Subjects that are related in some way (even if exact details of the relationship are unknown).</xs:documentation>
+			<xs:documentation>The InstalledProgramsType captures the programs installed on a particular operating system image.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Program" type="common:CPESpecificationType">
+				<xs:annotation>
+					<xs:documentation>The Program element specifies a single program that is installed on the system. It imports and uses the CPESpecificationType from the Cybox v1.0 Common Types draft.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MalwarePackageType">
+		<xs:annotation>
+			<xs:documentation>The MalwarePackageType captures either a single Malware Subject, or a collection of Malware Subjects that are related in some way (even if exact details of the relationship are unknown).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Malware_Subjects" type="maecPackage:MalwareSubjectListType">
@@ -390,7 +402,7 @@
 	</xs:complexType>
 	<xs:complexType name="MetaAnalysisType">
 		<xs:annotation>
-			<xs:documentation>The MetaAnalysisType captures meta-analysis entities associated with the Bundles found for a Malware Subject, such as Action Equivalencies.</xs:documentation>
+			<xs:documentation>The MetaAnalysisType captures meta-analysis entities associated with the Bundles that were captured for a Malware Subject, such as Action Equivalencies.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Action_Equivalencies"
@@ -442,7 +454,7 @@
 		<xs:annotation>
 			<xs:documentation>The MalwareSubjectReferenceType provides a mechanism for specifying a reference to a Malware Subject contained in the Package.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="malware_subject_idref" type="maecPackage:MalwareSubjectIDPattern"
+		<xs:attribute name="malware_subject_idref" type="maecPackage:MalwareSubjectIDREFPattern"
 			use="required">
 			<xs:annotation>
 				<xs:documentation>The malware_subject_idref attribute provides a reference to a Malware Subject contained in the Package, via its ID.</xs:documentation>
@@ -526,7 +538,54 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Clustering_Description" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Clustering_Description element provides a textual description of the malware cluster, such as its information about its composition, etc.</xs:documentation>
+					<xs:documentation>The Clustering_Description element provides a textual description of the malware cluster, such as information about its composition, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Cluster_Composition" minOccurs="0"
+				type="maecPackage:ClusterCompositionType">
+				<xs:annotation>
+					<xs:documentation>The Cluster_Composition element captures the composition of the malware cluster, including the similarity indices between its members, as a collection of edges and their corresponding nodes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ClusterEdgeNodesType">
+		<xs:annotation>
+			<xs:documentation>The ClusterEdgeNodesType describes a single edge in a malware cluster, along with the two Malware Subjects that correspond to the nodes connected to the edge (via references), representing the similarity index between the two Malware Subjects.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" name="Malware_Subject_Node"
+				type="maecPackage:MalwareSubjectReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Subject_Node element represents a node connected to the edge via a reference to a Malware Subject that is part of a malware cluster.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Malware_Subject_Node" type="maecPackage:MalwareSubjectReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Subject_Node element represents a node connected to the edge via a reference to a Malware Subject that is part of a malware cluster.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="similarity_index" type="xs:decimal">
+			<xs:annotation>
+				<xs:documentation>The similarity_index attribute specifies the similarity index  between the two Malware Subjects being referenced (indicating how similar they are), as a decimal value. This value should be equivalent to 1 minus the similarity distance value (if included).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="similarity_distance" type="xs:decimal">
+			<xs:annotation>
+				<xs:documentation>The similarity_index attribute specifies the similarity distance between the two Malware Subjects being referenced (indicating how dissimilar they are), as a decimal value. This value should be equivalent to 1 minus the similarity index value (if included).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ClusterCompositionType">
+		<xs:annotation>
+			<xs:documentation>The ClusterCompositionType captures the composition of a malware cluster via its edges and their respective connected nodes, as in an undirected graph.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Edge_Nodes"
+				type="maecPackage:ClusterEdgeNodesType">
+				<xs:annotation>
+					<xs:documentation>The Edge_Nodes element specifies a single edge and connected nodes in the malware cluster, representing the similarity index between two Malware Subjects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -536,7 +595,7 @@
 			<xs:documentation>The NetworkInfrastructureType captures specific details about the network infrastructure used in the analysis of a Malware Subject.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Captured_Protocols"
+			<xs:element minOccurs="1" name="Captured_Protocols"
 				type="maecPackage:CapturedProtocolListType">
 				<xs:annotation>
 					<xs:documentation>The Captured_Protocols element specifies a list of network protocols, along with the particular level of interaction, that the analysis environment captures or interacts with in some fashion.</xs:documentation>
@@ -648,11 +707,27 @@
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-pkg-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="PackageIDREFPattern">
+		<xs:annotation>
+			<xs:documentation>The PackageIDREFPattern defines the format for acceptable MAEC Package idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'pkg', and ending with an integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:IDREF">
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-pkg-[1-9][0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="MalwareSubjectIDPattern">
 		<xs:annotation>
 			<xs:documentation>The MalwareSubjectIDPattern defines the format for acceptable MAEC Malware Subject ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'sub', and ending with an integer.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
+		<xs:restriction base="xs:ID">
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-sub-[1-9][0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MalwareSubjectIDREFPattern">
+		<xs:annotation>
+			<xs:documentation>The MalwareSubjectIDPattern defines the format for acceptable MAEC Malware Subject idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'sub', and ending with an integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:IDREF">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-sub-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -686,7 +761,7 @@
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Triage"/>
-			<xs:enumeration value="In-depth/Manual"/>
+			<xs:enumeration value="Manual"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="AnalysisMethodEnum">
@@ -765,16 +840,4 @@
 			<xs:enumeration value="UDP"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="InstalledProgramsType">
-		<xs:annotation>
-			<xs:documentation>The InstalledProgramsType captures the programs installed on a particular operating system image.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Program" type="common:CPESpecificationType">
-				<xs:annotation>
-					<xs:documentation>The Program element specifies a single program that is installed on the system. It imports and uses the CPESpecificationType from the Cybox v1.0 Common Types draft.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 </xs:schema>
