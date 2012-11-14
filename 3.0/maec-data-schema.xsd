@@ -32,6 +32,21 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="id" type="maecData:DataIDPattern" use="required">
+			<xs:annotation>
+				<xs:documentation>The required id attribute specifies a unique ID for this Data. The ID must follow the pattern defined in the DataIDPattern simple type.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute fixed="1.0" name="schema_version" type="xs:decimal" use="required">
+			<xs:annotation>
+				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Data Schema that the document has been written in and that should be used for validation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="timestamp" type="xs:dateTime">
+			<xs:annotation>
+				<xs:documentation>The timestamp attribute specifies the date/time that the Data was generated.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="PackageListType">
 		<xs:annotation>
@@ -45,4 +60,12 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="DataIDPattern">
+		<xs:annotation>
+			<xs:documentation>The DataIDPattern defines the format for acceptable MAEC Malware Subject ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'dat', and ending with an integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:ID">
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-dat-[1-9][0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
