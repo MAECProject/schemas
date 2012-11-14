@@ -10,7 +10,7 @@
  Action Associated Objects that are used more than once (e.g. in multiple actions) are stored inside the <Objects> 
  Bundle element and then referenced with the idref attribute.
  
- Updated October 2012 for MAEC v3.0 and CybOX v1.0 draft-->
+ Updated November 2012 for MAEC v3.0 and CybOX v1.0 final-->
 <maecPackage:MAEC_Package
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"

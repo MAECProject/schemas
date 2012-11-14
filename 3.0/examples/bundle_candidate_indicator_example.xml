@@ -3,7 +3,7 @@
  MAEC Bundle Candidate Indicator
  based on ThreatExpert report http://www.threatexpert.com/report.aspx?md5=6519ed23fb22d0228e61a68d40f75c49
  
- Created November 2012 for MAEC v3.0 and CybOX v1.0 draft-->
+ Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
 <maecBundle:MAEC_Bundle xmlns:UserAccountObj="http://cybox.mitre.org/objects#UserAccountObject"
  xmlns:Common="http://cybox.mitre.org/Common_v1"
  xmlns:Account="http://cybox.mitre.org/objects#AccountObject"

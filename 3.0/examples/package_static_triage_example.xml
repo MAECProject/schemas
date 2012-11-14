@@ -5,7 +5,7 @@
  Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li 
  http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
  
- Updated October 2012 for MAEC v3.0 and CybOX v1.0 draft-->
+ Updated November 2012 for MAEC v3.0 and CybOX v1.0 final-->
 <maecPackage:MAEC_Package
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
