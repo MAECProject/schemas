@@ -10,10 +10,8 @@
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:mmdef="http://xml/metadataSharing.xsd"
  xmlns:common="http://cybox.mitre.org/Common_v1"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
- xmlns:URIObj="http://cybox.mitre.org/objects#URIObject"
  xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 ../maec-package-schema.xsd http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
@@ -39,6 +37,7 @@
       </FileObj:Packer_List>
      </cybox:Defined_Object>
    </maecPackage:Subject_Attributes>
+   
    <maecPackage:Analyses>
     <maecPackage:Analysis id="maec-example-ana-1" method="Static" type="Triage">
      <maecPackage:Source>
@@ -55,6 +54,7 @@
      </maecPackage:Tools>
     </maecPackage:Analysis>
    </maecPackage:Analyses>
+   
    <maecPackage:Findings_Bundles>
     <maecPackage:Bundle id="maec-tst-bnd-1" schema_version="3.0" defined_subject="false" content_type="extracted_from_subject">
      <maecBundle:Objects>

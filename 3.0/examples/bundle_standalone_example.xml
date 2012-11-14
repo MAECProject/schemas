@@ -4,21 +4,11 @@
  based on ThreatExpert report http://www.threatexpert.com/report.aspx?md5=6519ed23fb22d0228e61a68d40f75c49
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
-<maecBundle:MAEC_Bundle xmlns:UserAccountObj="http://cybox.mitre.org/objects#UserAccountObject"
+<maecBundle:MAEC_Bundle 
  xmlns:Common="http://cybox.mitre.org/Common_v1"
- xmlns:Account="http://cybox.mitre.org/objects#AccountObject"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:metadata="http://xml/metadataSharing.xsd"
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
- xmlns:URIObj="http://cybox.mitre.org/objects#URIObject"
- xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject"
- xmlns:WinSystemObj="http://cybox.mitre.org/XMLSchema/objects#WinSystemObject"
  xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
- xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject"
- xmlns:sch="http://purl.oclc.org/dsdl/schematron"
- xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject"
- xmlns:PortObj="http://cybox.mitre.org/objects#PortObject"
- xmlns:MemoryObj="http://cybox.mitre.org/objects#MemoryObject"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:MutexObj="http://cybox.mitre.org/objects#MutexObject"
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"

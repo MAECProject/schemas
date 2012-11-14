@@ -15,7 +15,6 @@
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:mmdef="http://xml/metadataSharing.xsd"
  xmlns:common="http://cybox.mitre.org/Common_v1"
  xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject"
  xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
