@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ MAEC Data Multiple Packages Example
+ -Demonstrates how to use the Data for capturing multiple Packages
+ -Captures Malware Subjects relating to two families of malware
+ 
+ Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
+<maecData:MAEC_Data xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
+ xmlns:metadata="http://xml/metadataSharing.xsd"
+ xmlns:cybox="http://cybox.mitre.org/cybox_v1"
+ xmlns:common="http://cybox.mitre.org/Common_v1"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
+ xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
+ xmlns:maecData="http://maec.mitre.org/XMLSchema/maec-data-1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-data-1 file:../maec-data-schema.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-dat-1" schema_version="1.0">
+    <maecData:Packages>
+        <maecData:Package id="maec-example-pkg-1" schema_version="1.0">
+            <maecPackage:Malware_Subjects>
+                <maecPackage:Malware_Subject id="maec-example-sub-1">
+                    <maecPackage:Subject_Attributes>
+                        <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                            <FileObj:Hashes>
+                                <common:Hash>
+                                    <common:Type datatype="String">MD5</common:Type>
+                                    <common:Simple_Hash_Value>32530b68d78e5bcbd73a138276f45490</common:Simple_Hash_Value>
+                                </common:Hash>
+                            </FileObj:Hashes>
+                        </cybox:Defined_Object>
+                    </maecPackage:Subject_Attributes>
+                </maecPackage:Malware_Subject>
+                
+                <maecPackage:Malware_Subject id="maec-example-sub-2">
+                    <maecPackage:Subject_Attributes>
+                        <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                            <FileObj:Hashes>
+                                <common:Hash>
+                                    <common:Type datatype="String">MD5</common:Type>
+                                    <common:Simple_Hash_Value>05a2d7b4d816c392632e40ac34a9d886</common:Simple_Hash_Value>
+                                </common:Hash>
+                            </FileObj:Hashes>
+                        </cybox:Defined_Object>
+                    </maecPackage:Subject_Attributes>
+                </maecPackage:Malware_Subject>
+            </maecPackage:Malware_Subjects>
+            
+            <maecPackage:Grouping_Relationship type="same_malware_family">
+                <maecPackage:Malware_Family_Name>Eyestye</maecPackage:Malware_Family_Name>
+            </maecPackage:Grouping_Relationship>
+        </maecData:Package>
+        
+        <maecData:Package id="maec-example-pkg-2" schema_version="1.0">
+            <maecPackage:Malware_Subjects>
+                <maecPackage:Malware_Subject id="maec-example-sub-3">
+                    <maecPackage:Subject_Attributes>
+                        <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                            <FileObj:Hashes>
+                                <common:Hash>
+                                    <common:Type datatype="String">MD5</common:Type>
+                                    <common:Simple_Hash_Value>05a2d7b4d816c392632e40ac34a9d886</common:Simple_Hash_Value>
+                                </common:Hash>
+                            </FileObj:Hashes>
+                        </cybox:Defined_Object>
+                    </maecPackage:Subject_Attributes>
+                </maecPackage:Malware_Subject>
+                
+                <maecPackage:Malware_Subject id="maec-example-sub-4">
+                    <maecPackage:Subject_Attributes>
+                        <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                            <FileObj:Hashes>
+                                <common:Hash>
+                                    <common:Type datatype="String">MD5</common:Type>
+                                    <common:Simple_Hash_Value>35a02499c0dfc1353717dd224d3ac87f</common:Simple_Hash_Value>
+                                </common:Hash>
+                            </FileObj:Hashes>
+                        </cybox:Defined_Object>
+                    </maecPackage:Subject_Attributes>
+                </maecPackage:Malware_Subject>
+            </maecPackage:Malware_Subjects>
+            
+            <maecPackage:Grouping_Relationship type="same_malware_family">
+                <maecPackage:Malware_Family_Name>Zeus</maecPackage:Malware_Family_Name>
+            </maecPackage:Grouping_Relationship>
+        </maecData:Package>
+    </maecData:Packages>
+</maecData:MAEC_Data>
