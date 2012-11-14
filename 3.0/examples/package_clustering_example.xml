@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ MAEC Package Clustering Example
+ -Demonstrates how to use the Package for capturing a malware cluster
+ -Based on real clustering output
+ 
+ Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
+<maecPackage:MAEC_Package
+ xmlns:Common="http://cybox.mitre.org/Common_v1"
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
+ xmlns:metadata="http://xml/metadataSharing.xsd"
+ xmlns:cybox="http://cybox.mitre.org/cybox_v1"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
+ xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-1 file:../maec-package-schema.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-pkg-1" schema_version="1.0">
+    <maecPackage:Malware_Subjects>
+        <maecPackage:Malware_Subject id="maec-example-sub-1">
+            <maecPackage:Subject_Attributes>
+                <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                    <FileObj:Hashes>
+                        <Common:Hash>
+                            <Common:Type datatype="String">MD5</Common:Type>
+                            <Common:Simple_Hash_Value>89c11cc1e7bcad1fa677201b29b46f5d</Common:Simple_Hash_Value>
+                        </Common:Hash>
+                    </FileObj:Hashes>
+                </cybox:Defined_Object>
+                <cybox:Domain-specific_Object_Attributes xsi:type="maecBundle:AVClassificationsType">
+                    <maecBundle:AV_Classification id="maec-example-avclass-1" type="dirty">
+                        <metadata:classificationName>TrojanClicker:Win32/Small</metadata:classificationName>
+                        <metadata:companyName>Microsoft</metadata:companyName>
+                    </maecBundle:AV_Classification>
+                </cybox:Domain-specific_Object_Attributes>
+            </maecPackage:Subject_Attributes>
+        </maecPackage:Malware_Subject>
+        
+        <maecPackage:Malware_Subject id="maec-example-sub-2">
+            <maecPackage:Subject_Attributes>
+                <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                    <FileObj:Hashes>
+                        <Common:Hash>
+                            <Common:Type datatype="String">MD5</Common:Type>
+                            <Common:Simple_Hash_Value>c4e0a16a8833a55e5ed8971783d09181</Common:Simple_Hash_Value>
+                        </Common:Hash>
+                    </FileObj:Hashes>
+                </cybox:Defined_Object>
+                <cybox:Domain-specific_Object_Attributes xsi:type="maecBundle:AVClassificationsType">
+                    <maecBundle:AV_Classification id="maec-example-avclass-2" type="dirty">
+                        <metadata:classificationName>TrojanClicker:Win32/Small.I</metadata:classificationName>
+                        <metadata:companyName>Microsoft</metadata:companyName>
+                    </maecBundle:AV_Classification>
+                </cybox:Domain-specific_Object_Attributes>
+            </maecPackage:Subject_Attributes>
+        </maecPackage:Malware_Subject>
+        
+        <maecPackage:Malware_Subject id="maec-example-sub-3">
+            <maecPackage:Subject_Attributes>
+                <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                    <FileObj:Hashes>
+                        <Common:Hash>
+                            <Common:Type datatype="String">MD5</Common:Type>
+                            <Common:Simple_Hash_Value>40b1b094f76d8f54f2564f69b6850102</Common:Simple_Hash_Value>
+                        </Common:Hash>
+                    </FileObj:Hashes>
+                </cybox:Defined_Object>
+                <cybox:Domain-specific_Object_Attributes xsi:type="maecBundle:AVClassificationsType">
+                    <maecBundle:AV_Classification id="maec-example-avclass-3" type="dirty">
+                        <metadata:classificationName>TrojanClicker:Win32/Small</metadata:classificationName>
+                        <metadata:companyName>Microsoft</metadata:companyName>
+                    </maecBundle:AV_Classification>
+                </cybox:Domain-specific_Object_Attributes>
+            </maecPackage:Subject_Attributes>
+        </maecPackage:Malware_Subject>
+    </maecPackage:Malware_Subjects>
+    
+    <maecPackage:Grouping_Relationship type="clustered_together">
+        <maecPackage:Clustering_Metadata>
+            <maecPackage:Cluster_Composition>
+                <maecPackage:Edge_Node_Pair similarity_index="0.666667">
+                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-1"/>
+                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-2"/>
+                </maecPackage:Edge_Node_Pair>
+                <maecPackage:Edge_Node_Pair similarity_index="1.0">
+                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-1"/>
+                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-3"/>
+                </maecPackage:Edge_Node_Pair>
+                <maecPackage:Edge_Node_Pair similarity_index="0.666667">
+                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-2"/>
+                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-3"/>
+                </maecPackage:Edge_Node_Pair>
+            </maecPackage:Cluster_Composition>
+        </maecPackage:Clustering_Metadata>
+    </maecPackage:Grouping_Relationship>
+</maecPackage:MAEC_Package>
