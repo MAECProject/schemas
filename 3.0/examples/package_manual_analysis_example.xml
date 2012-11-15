@@ -129,7 +129,7 @@
      </maecBundle:Objects>
     </maecPackage:Bundle>
     
-    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_output">
+    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_tool_output">
      <maecBundle:Process_Tree>
       <maecBundle:Root_Process id="maec-example-pro-1">
        <ProcessObj:Image_Info>

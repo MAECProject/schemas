@@ -70,7 +70,7 @@
    </maecPackage:Analyses>
    
    <maecPackage:Findings_Bundles>
-    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_output">
+    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_tool_output">
         <maecBundle:Collections>
              <maecBundle:Action_Collections>
                  <maecBundle:Action_Collection name="File System Actions" id="maec-anubis_to_maec-actc-1">
@@ -126,7 +126,7 @@
          </maecBundle:Collections>
     </maecPackage:Bundle>
     
-    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_output">
+       <maecPackage:Bundle id="maec-example-bnd-2" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_tool_output">
         <maecBundle:Collections>
             <maecBundle:Action_Collections>
                 <maecBundle:Action_Collection name="File System Actions" id="maec-threatexpert_to_maec-actc-1">

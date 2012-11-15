@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  MAEC Stand-alone Bundle Example
- based on ThreatExpert report http://www.threatexpert.com/report.aspx?md5=6519ed23fb22d0228e61a68d40f75c49
+ -A simple example of a standalone MAEC Bundle
+ -Based on ThreatExpert report http://www.threatexpert.com/report.aspx?md5=6519ed23fb22d0228e61a68d40f75c49
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
 <maecBundle:MAEC_Bundle 
@@ -20,7 +21,7 @@
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.2.xsd
  http://cybox.mitre.org/objects#WinRegistryKeyObject http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/Win_Registry_Key_Object_1.2.xsd
  http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/Win_Mutex_Object_1.1.xsd
- http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.2.xsd" defined_subject="true" content_type="dynamic_analysis_output">
+ http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.2.xsd" defined_subject="true" content_type="dynamic_analysis_tool_output">
 <maecBundle:Subject_Attributes>
  <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
   <FileObj:Size_In_Bytes datatype="UnsignedLong">332288</FileObj:Size_In_Bytes>
