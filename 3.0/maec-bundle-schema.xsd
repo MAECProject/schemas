@@ -1214,7 +1214,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="other">
 				<xs:annotation>
-					<xs:documentation>The mixed value specifies that the Bundle captures some other form of analysis or tool output that is not represented in the other enumeration values.</xs:documentation>
+					<xs:documentation>The other value specifies that the Bundle captures some other form of analysis or tool output that is not represented in the other enumeration values.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
