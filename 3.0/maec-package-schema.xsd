@@ -524,14 +524,30 @@
 			<xs:documentation>The ClusteringMetadataType specifies the metadata regarding a particular method used to cluster malware.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Clustering_Algorithm" type="xs:string">
+			<xs:element minOccurs="0" name="Algorithm_Name" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Cluster_Algorithm element specifies the name of the clustering algorithm used to cluster the malware.</xs:documentation>
+					<xs:documentation>The Algorithm_Name element specifies the name of the clustering algorithm used to cluster the malware.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Clustering_Description" type="xs:string">
+			<xs:element minOccurs="0" name="Algorithm_Version" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Clustering_Description element provides a textual description of the malware cluster, such as information about its composition, etc.</xs:documentation>
+					<xs:documentation>The Algorithm_Version element specifies the version of the algorithm used to cluster the malware.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Algorithm_Parameters"
+				type="maecPackage:ClusteringAlgorithmParametersType">
+				<xs:annotation>
+					<xs:documentation>The Algorithm_Parameters element specifies any parameters that may have been used in the clustering algorithm.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Cluster_Size" type="xs:positiveInteger">
+				<xs:annotation>
+					<xs:documentation>The Cluster_Size element specifies the size of the malware cluster.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Cluster_Description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Cluster_Description element provides a textual description of the malware cluster, such as information about its composition, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Cluster_Composition" minOccurs="0"
@@ -579,6 +595,28 @@
 				type="maecPackage:ClusterEdgeNodePairType">
 				<xs:annotation>
 					<xs:documentation>The Cluster_Edge_Node_Pair element specifies a single edge and its connected nodes in the malware cluster, representing the similarity index between two Malware Subjects.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="score_type" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>For clustering algorithms that may capture different types of scores, the score_type attribute specifies the type of score used to define the composition of this malware cluster.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ClusteringAlgorithmParametersType">
+		<xs:annotation>
+			<xs:documentation>The ClusteringAlgorithmParametersType captures any parameters that may have been used in a malware clustering algorithm.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Distance_Threshold" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>The Distance_Threshold element specifies the minimum distance threshold for the cluster, or the minimum distance between nodes in order for them to belong to the same cluster.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Number_of_Iterations" type="xs:positiveInteger">
+				<xs:annotation>
+					<xs:documentation>The Number_of_Iterations element specifies the number of times that the algorithm was executed to produce the cluster.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
