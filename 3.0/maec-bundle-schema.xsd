@@ -1187,11 +1187,36 @@
 			<xs:documentation>The BundleContentTypeEnum is a non-exhaustive enumeration of the general types of content that a Bundle can contain.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="dynamic_analysis_output"/>
-			<xs:enumeration value="static_analysis_output"/>
-			<xs:enumeration value="manual_analysis_output"/>
-			<xs:enumeration value="extracted_from_subject"/>
-			<xs:enumeration value="other"/>
+			<xs:enumeration value="dynamic_analysis_tool_output">
+				<xs:annotation>
+					<xs:documentation>The dynamic_analysis_tool_output value specifies that the Bundle primarily captures some form of dynamic analysis tool output, such as from a sandbox.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="static_analysis_tool_output">
+				<xs:annotation>
+					<xs:documentation>The static_analysis_output value specifies that the Bundle primarily captures some form of static analysis tool output, such as from a packer detection tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="manual_analysis_output">
+				<xs:annotation>
+					<xs:documentation>The manual_analysis_output value specifies that the Bundle primarily captures some form of manual analysis output, which may or may not involve the use of tools.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="extracted_from_subject">
+				<xs:annotation>
+					<xs:documentation>The extracted_from_subject value specifies that the Bundle primarily captures some data that extracted from the Malware Subject, such as some PE Header fields.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="mixed">
+				<xs:annotation>
+					<xs:documentation>The mixed value specifies that the Bundle captures some mixed forms of analysis or tool output for the Malware Subject, such as both dynamic and static analysis tool output.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="other">
+				<xs:annotation>
+					<xs:documentation>The mixed value specifies that the Bundle captures some other form of analysis or tool output that is not represented in the other enumeration values.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="MalwareEntityTypeEnum">
