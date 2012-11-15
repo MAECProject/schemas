@@ -374,6 +374,11 @@
 					<xs:documentation>The Subject_Attributes element captures the attributes of the object that represents the Malware Subject, via its corresponding CybOX Object. For example, a File Object would be represented via a CybOX File_Object and may have a file name, MD5 hash, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Field_Data" type="metadata:fieldDataEntry">
+				<xs:annotation>
+					<xs:documentation>The Field_Data element captures field data and prevalance information relating to the Malware Subject. It uses the fieldDataEntry type from the MMDEF v1.2 schema.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Analyses" type="maecPackage:AnalysisListType">
 				<xs:annotation>
 					<xs:documentation>The Analyses element captures any Analyses that were performed on the Malware Subject.</xs:documentation>
