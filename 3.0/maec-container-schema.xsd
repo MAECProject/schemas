@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
-	targetNamespace="http://maec.mitre.org/XMLSchema/maec-unit-1"
+	targetNamespace="http://maec.mitre.org/XMLSchema/maec-container-1"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:maecUnit="http://maec.mitre.org/XMLSchema/maec-unit-1"
+	xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-1"
 	xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1" version="1.0">
 	<xs:annotation>
-		<xs:documentation>The following is a description of the elements, types, and attributes that compose the Malware Attribute Enumeration and Characterization (MAEC) unit schema.</xs:documentation>
-		<xs:documentation>The MAEC Unit Schema is maintained by The Mitre Corporation. For more information, including how to get involved in the project, please visit the MAEC website at http://maec.mitre.org.</xs:documentation>
+		<xs:documentation>The following is a description of the elements, types, and attributes that compose the Malware Attribute Enumeration and Characterization (MAEC) container schema.</xs:documentation>
+		<xs:documentation>The MAEC Container Schema is maintained by The Mitre Corporation. For more information, including how to get involved in the project, please visit the MAEC website at http://maec.mitre.org.</xs:documentation>
 		<xs:appinfo>
-			<schema>MAEC Unit Schema</schema>
+			<schema>MAEC Container Schema</schema>
 			<version>1.0</version>
 			<date>11/16/2012</date>
 			<terms_of_use>Copyright (c) 2012, The MITRE Corporation. All rights reserved.  The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema.  When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
@@ -16,35 +16,35 @@
 	</xs:annotation>
 	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-package-1"
 		schemaLocation="maec-package-schema.xsd"/>
-	<xs:element name="MAEC_Unit" type="maecUnit:MAECUnitType">
+	<xs:element name="MAEC_Container" type="maecContainer:MAECContainerType">
 		<xs:annotation>
-			<xs:documentation>The root element of the MAEC Unit schema is MAEC_Unit.</xs:documentation>
+			<xs:documentation>The root element of the MAEC Container schema is MAEC_Container.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="MAECUnitType">
+	<xs:complexType name="MAECContainerType">
 		<xs:annotation>
-			<xs:documentation>The MAECUnitType encompasses all forms of MAEC data. Currently, this is represented as a list of Packages.</xs:documentation>
+			<xs:documentation>The MAECContainerType encompasses all forms of MAEC data. Currently, this is represented as a list of Packages.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Packages" type="maecUnit:PackageListType">
+			<xs:element name="Packages" type="maecContainer:PackageListType">
 				<xs:annotation>
 					<xs:documentation>The Packages element captures a list of MAEC Packages.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" type="maecUnit:UnitIDPattern" use="required">
+		<xs:attribute name="id" type="maecContainer:ContainerIDPattern" use="required">
 			<xs:annotation>
-				<xs:documentation>The required id attribute specifies a unique ID for this Unit. The ID must follow the pattern defined in the UnitIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id attribute specifies a unique ID for this Container. The ID must follow the pattern defined in the ContainerIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute fixed="1.0" name="schema_version" type="xs:decimal" use="required">
 			<xs:annotation>
-				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Unit Schema that the document has been written in and that should be used for validation.</xs:documentation>
+				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Container Schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The timestamp attribute specifies the date/time that the Unit was generated.</xs:documentation>
+				<xs:documentation>The timestamp attribute specifies the date/time that the Container was generated.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -60,9 +60,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="UnitIDPattern">
+	<xs:simpleType name="ContainerIDPattern">
 		<xs:annotation>
-			<xs:documentation>The UnitIDPattern defines the format for acceptable MAEC Unit ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'uni', and ending with an integer.</xs:documentation>
+			<xs:documentation>The ContainerIDPattern defines the format for acceptable MAEC Container ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'con', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-uni-[1-9][0-9]*"/>
