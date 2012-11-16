@@ -2,21 +2,21 @@
 <!--
  MAEC Data Multiple Packages Example
  -Demonstrates how to use the Data for capturing multiple Packages
- -Captures Malware Subjects relating to two families of malware
+ -Captures Malware Subjects related to two families of malware
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
-<maecData:MAEC_Data xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
+<maecUnit:MAEC_Unit xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
  xmlns:metadata="http://xml/metadataSharing.xsd"
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:common="http://cybox.mitre.org/Common_v1"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
- xmlns:maecData="http://maec.mitre.org/XMLSchema/maec-data-1"
+ xmlns:maecUnit="http://maec.mitre.org/XMLSchema/maec-unit-1"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-data-1 file:../maec-data-schema.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-dat-1" schema_version="1.0">
-    <maecData:Packages>
-        <maecData:Package id="maec-example-pkg-1" schema_version="1.0">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-unit-1 ../maec-unit-schema.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-uni-1" schema_version="1.0">
+    <maecUnit:Packages>
+        <maecUnit:Package id="maec-example-pkg-1" schema_version="1.0">
             <maecPackage:Malware_Subjects>
                 <maecPackage:Malware_Subject id="maec-example-sub-1">
                     <maecPackage:Subject_Attributes>
@@ -48,9 +48,9 @@
             <maecPackage:Grouping_Relationship type="same_malware_family">
                 <maecPackage:Malware_Family_Name>Eyestye</maecPackage:Malware_Family_Name>
             </maecPackage:Grouping_Relationship>
-        </maecData:Package>
+        </maecUnit:Package>
         
-        <maecData:Package id="maec-example-pkg-2" schema_version="1.0">
+        <maecUnit:Package id="maec-example-pkg-2" schema_version="1.0">
             <maecPackage:Malware_Subjects>
                 <maecPackage:Malware_Subject id="maec-example-sub-3">
                     <maecPackage:Subject_Attributes>
@@ -82,6 +82,6 @@
             <maecPackage:Grouping_Relationship type="same_malware_family">
                 <maecPackage:Malware_Family_Name>Zeus</maecPackage:Malware_Family_Name>
             </maecPackage:Grouping_Relationship>
-        </maecData:Package>
-    </maecData:Packages>
-</maecData:MAEC_Data>
+        </maecUnit:Package>
+    </maecUnit:Packages>
+</maecUnit:MAEC_Unit>
