@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- MAEC Data Multiple Packages Example
+ MAEC Container Multiple Packages Example
  -Demonstrates how to use the Data for capturing multiple Packages
  -Captures Malware Subjects related to two families of malware
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
-<maecUnit:MAEC_Unit xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
+<maecContainer:MAEC_Container xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
  xmlns:metadata="http://xml/metadataSharing.xsd"
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:common="http://cybox.mitre.org/Common_v1"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
- xmlns:maecUnit="http://maec.mitre.org/XMLSchema/maec-unit-1"
+ xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-1"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-unit-1 ../maec-unit-schema.xsd
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-unit-1 ../maec-container-schema.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-uni-1" schema_version="1.0">
     <maecUnit:Packages>
         <maecUnit:Package id="maec-example-pkg-1" schema_version="1.0">
@@ -84,4 +84,4 @@
             </maecPackage:Grouping_Relationship>
         </maecUnit:Package>
     </maecUnit:Packages>
-</maecUnit:MAEC_Unit>
+</maecContainer:MAEC_Container>
