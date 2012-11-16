@@ -23,7 +23,7 @@
 	</xs:element>
 	<xs:complexType name="MAECDataType">
 		<xs:annotation>
-			<xs:documentation>The MAECDataType captures all other forms of MAEC data. For now, this is represented as a list of MAEC Packages.</xs:documentation>
+			<xs:documentation>The MAECDataType encompasses all forms of MAEC data. For now, this is represented as a list of Packages.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Packages" type="maecData:PackageListType">
