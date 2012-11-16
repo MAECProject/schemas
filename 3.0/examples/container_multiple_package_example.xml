@@ -15,8 +15,8 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-unit-1 ../maec-container-schema.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-uni-1" schema_version="1.0">
-    <maecUnit:Packages>
-        <maecUnit:Package id="maec-example-pkg-1" schema_version="1.0">
+    <maecContainer:Packages>
+        <maecContainer:Package id="maec-example-pkg-1" schema_version="1.0">
             <maecPackage:Malware_Subjects>
                 <maecPackage:Malware_Subject id="maec-example-sub-1">
                     <maecPackage:Subject_Attributes>
@@ -48,9 +48,9 @@
             <maecPackage:Grouping_Relationship type="same_malware_family">
                 <maecPackage:Malware_Family_Name>Eyestye</maecPackage:Malware_Family_Name>
             </maecPackage:Grouping_Relationship>
-        </maecUnit:Package>
+        </maecContainer:Package>
         
-        <maecUnit:Package id="maec-example-pkg-2" schema_version="1.0">
+        <maecContainer:Package id="maec-example-pkg-2" schema_version="1.0">
             <maecPackage:Malware_Subjects>
                 <maecPackage:Malware_Subject id="maec-example-sub-3">
                     <maecPackage:Subject_Attributes>
@@ -82,6 +82,6 @@
             <maecPackage:Grouping_Relationship type="same_malware_family">
                 <maecPackage:Malware_Family_Name>Zeus</maecPackage:Malware_Family_Name>
             </maecPackage:Grouping_Relationship>
-        </maecUnit:Package>
-    </maecUnit:Packages>
+        </maecContainer:Package>
+    </maecContainer:Packages>
 </maecContainer:MAEC_Container>
