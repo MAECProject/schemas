@@ -16,14 +16,14 @@
 	</xs:annotation>
 	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-package-1"
 		schemaLocation="maec-package-schema.xsd"/>
-	<xs:element name="MAEC_Container" type="maecContainer:MAECContainerType">
+	<xs:element name="MAEC_Container" type="maecContainer:ContainerType">
 		<xs:annotation>
-			<xs:documentation>The root element of the MAEC Container schema is MAEC_Container.</xs:documentation>
+			<xs:documentation>The root element of the MAEC Container schema is MAEC_Container, which captures one or more Packages.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="MAECContainerType">
+	<xs:complexType name="ContainerType">
 		<xs:annotation>
-			<xs:documentation>The MAECContainerType encompasses all forms of MAEC data. Currently, this is represented as a list of Packages.</xs:documentation>
+			<xs:documentation>The ContainerType encompasses all forms of MAEC data. Currently, this entails a list of Packages.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Packages" type="maecContainer:PackageListType">
@@ -65,7 +65,7 @@
 			<xs:documentation>The ContainerIDPattern defines the format for acceptable MAEC Container ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'con', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-uni-[1-9][0-9]*"/>
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-con-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
