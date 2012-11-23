@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  MAEC Container Multiple Packages Example
- -Demonstrates how to use the Data for capturing multiple Packages
+ -Demonstrates how to use the Container for capturing multiple Packages
  -Captures Malware Subjects related to two families of malware
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
@@ -14,7 +14,7 @@
  xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-1"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-unit-1 ../maec-container-schema.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-uni-1" schema_version="1.0">
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-con-1" schema_version="1.0">
     <maecContainer:Packages>
         <maecContainer:Package id="maec-example-pkg-1" schema_version="1.0">
             <maecPackage:Malware_Subjects>
