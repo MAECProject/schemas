@@ -117,7 +117,7 @@
 					<xs:element minOccurs="0" name="Implementation"
 						type="maecBundle:ActionImplementationType">
 						<xs:annotation>
-							<xs:documentation>The Implementation element is optional and serves to capture attributes that are relevant to how the action is actually implemented in the malware, such as the specific API call that was used.</xs:documentation>
+							<xs:documentation>The Implementation element is optional and serves to capture attributes that are relevant to how the Action  is implemented in the malware, such as the specific API call that was used.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -126,7 +126,7 @@
 	</xs:complexType>
 	<xs:complexType name="BehaviorType">
 		<xs:annotation>
-			<xs:documentation>The BehaviorType is one of the MAEC foundational types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.</xs:documentation>
+			<xs:documentation>The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Purpose" type="maecBundle:BehaviorPurposeType">
@@ -185,17 +185,17 @@
 	</xs:complexType>
 	<xs:complexType name="BundleType">
 		<xs:annotation>
-			<xs:documentation>The BundleType serves as the high-level construct which encapsulates all Bundle elements, and represents all of the analysis data (from any arbitrary set of analyses) for a single malware instance.</xs:documentation>
+			<xs:documentation>The BundleType serves as the high-level construct which encapsulates all Bundle elements, and represents some characterized analysis data (from any arbitrary set of analyses) for a single malware instance in terms of its MAEC Components (e.g., Behaviors, Actions, Objects, etc.).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Subject_Attributes" type="cybox:ObjectType">
 				<xs:annotation>
-					<xs:documentation>The Subject_Attributes element characterizes the attributes of the object (most typically a malware instance) whose Behaviors, Actions, Objects, Process Tree, and Artifacts are characterized in this Bundle. This is equivalent to the Subject_Details inside of a Malware_Subject in the MAEC Package, and is therefore only required if this Bundle is to be used in a stand-alone fashion, i.e. without an accompanying MAEC Package and with the defined_subject attribute set to 'True'.</xs:documentation>
+					<xs:documentation>The Subject_Attributes element characterizes the attributes of the object (most typically a file) whose Behaviors, Actions, Objects, Process Tree, and Candidate Indicators are characterized in this Bundle. This is equivalent to the Subject_Attributes inside of a Malware_Subject in the MAEC Package, and is therefore only required if this Bundle is to be used in a stand-alone fashion, i.e. without an accompanying MAEC Package and with the defined_subject attribute set to 'True'.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Process_Tree" type="maecBundle:ProcessTreeType">
 				<xs:annotation>
-					<xs:documentation>The Process_Tree element specifies the observed process tree of execution for the malware instance, along with references to any corresponding actions, if applicable.</xs:documentation>
+					<xs:documentation>The Process_Tree element specifies the observed process tree of execution for the malware instance, along with references to any corresponding actions that were initiated, if applicable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behaviors" type="maecBundle:BehaviorListType">
@@ -205,7 +205,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Actions" type="maecBundle:ActionListType">
 				<xs:annotation>
-					<xs:documentation>The Actions element contains 1-n ActionType objects, which function as the MAEC representation for any lower-level malware actions that were observed for the malware instance. </xs:documentation>
+					<xs:documentation>The Actions element contains 1-n ActionType objects, which function as the MAEC representation for any lower-level actions that were observed for the malware instance. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Objects" type="maecBundle:ObjectListType">
@@ -216,12 +216,12 @@
 			<xs:element minOccurs="0" name="Candidate_Indicators"
 				type="maecBundle:CandidateIndicatorListType">
 				<xs:annotation>
-					<xs:documentation>The Candidate_Indicators element contains 1-n CandidateIndicatorType objects, for specifying any candidate indicators associated with the malware instance.</xs:documentation>
+					<xs:documentation>The Candidate_Indicators element contains 1-n CandidateIndicatorType objects, which function as the MAEC representation of any candidate indicators associated with the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Collections" type="maecBundle:CollectionsType">
 				<xs:annotation>
-					<xs:documentation>The Collections element contains the collection element types for Behaviors, Actions, Objects, Candidate Indicators.</xs:documentation>
+					<xs:documentation>The Collections element contains the collection element types for Behaviors, Actions, Objects, and Candidate Indicators.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -242,7 +242,7 @@
 		</xs:attribute>
 		<xs:attribute name="content_type" type="maecBundle:BundleContentTypeEnum">
 			<xs:annotation>
-				<xs:documentation>The content_type attribute specifies the general type of content contained in this Bundle, e.g. static analysis output, dynamic analysis output, etc.</xs:documentation>
+				<xs:documentation>The content_type attribute specifies the general type of content contained in this Bundle, e.g. static analysis tool output, dynamic analysis tool output, etc.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
@@ -271,7 +271,7 @@
 				</xs:sequence>
 				<xs:attribute name="id" use="required" type="maecBundle:BehaviorCollIDPattern">
 					<xs:annotation>
-						<xs:documentation>The id attribute specifies a unique ID for this MAEC Behavior Collection. The ID must follow the pattern defined in the BehaviorCollIDPattern simple type. </xs:documentation>
+						<xs:documentation>The id attribute specifies a unique ID for this Behavior Collection. The ID must follow the pattern defined in the BehaviorCollIDPattern simple type. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -387,20 +387,20 @@
 	</xs:complexType>
 	<xs:complexType name="ObjectCollectionType">
 		<xs:annotation>
-			<xs:documentation>The ObjectCollectionType provides a mechanism for characterizing collections of actions. For instance, it can be used to group all of the actions that are associated with a specific behavior.</xs:documentation>
+			<xs:documentation>The ObjectCollectionType provides a mechanism for characterizing collections of Objects. For instance, it can be used to group all of the Objects that are associated with a specific behavior.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="maecBundle:BaseCollectionType">
 				<xs:sequence>
 					<xs:element name="Object_List" type="maecBundle:ObjectListType">
 						<xs:annotation>
-							<xs:documentation>The Object_List element specifies a list of objects that make up the collection.</xs:documentation>
+							<xs:documentation>The Object_List element specifies a list of Objects that make up the collection.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="id" use="required" type="maecBundle:ObjectCollIDPattern">
 					<xs:annotation>
-						<xs:documentation>The id attribute specifies a unique ID for this MAEC Object Collection. The ID must follow the pattern defined in the ObjectCollIDPattern simple type. </xs:documentation>
+						<xs:documentation>The id attribute specifies a unique ID for this Object Collection. The ID must follow the pattern defined in the ObjectCollIDPattern simple type. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -648,7 +648,7 @@
 		<xs:sequence maxOccurs="1">
 			<xs:element maxOccurs="unbounded" name="Object" type="cybox:ObjectType">
 				<xs:annotation>
-					<xs:documentation>The Object element specifies a single CybOX Object in the list. For use in MAEC, the id attribute must be utilized.</xs:documentation>
+					<xs:documentation>The Object element specifies a single CybOX Object in the list. For use in MAEC, the id attribute at the top level of the Object must be utilized.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -665,7 +665,7 @@
 	</xs:complexType>
 	<xs:complexType name="ObjectReferenceType">
 		<xs:annotation>
-			<xs:documentation>The ObjectReferenceType serves as a method for linking to CyBOX Objects embedded in the MAEC Bundle.</xs:documentation>
+			<xs:documentation>The ObjectReferenceType serves as a method for linking to CybOX Objects embedded in the MAEC Bundle.</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="object_idref" type="xs:QName" use="required">
 			<xs:annotation>
@@ -695,7 +695,7 @@
 			<xs:extension base="cybox:ActionReferenceType">
 				<xs:attribute name="behavioral_ordering" type="xs:positiveInteger">
 					<xs:annotation>
-						<xs:documentation>The behavioral_ordering attribute defines the ordering of the Action with respect to the other Actions that make up the Behavior. So an Action with a behavioral_ordering of "1" would come before an Action with a behavioral_ordering of "2", etc.</xs:documentation>
+						<xs:documentation>The behavioral_ordering attribute defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of "1" would come before an Action with a behavioral_ordering of "2", etc.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -758,7 +758,7 @@
 	</xs:complexType>
 	<xs:complexType name="CandidateIndicatorType">
 		<xs:annotation>
-			<xs:documentation>The CandidateIndicatorType provides a way of defining MAEC entity-based Candidate Indicators, which specify the particular components that may signify the presence of a malware entity on a host system or network.</xs:documentation>
+			<xs:documentation>The CandidateIndicatorType provides a way of defining a MAEC entity-based Candidate Indicator, which specifies the particular components that may signify the presence of the malware instance on a host system or network.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Author" type="xs:string">
@@ -785,7 +785,7 @@
 		</xs:sequence>
 		<xs:attribute name="id" type="maecBundle:CandidateIndicatorIDPattern" use="required">
 			<xs:annotation>
-				<xs:documentation>The id attribute specifies a unique ID for this Candidate Indicator. The ID must follow the pattern defined in the IndicatorIDPattern simple type.</xs:documentation>
+				<xs:documentation>The id attribute specifies a unique ID for this Candidate Indicator. The ID must follow the pattern defined in the CandidateIndicatorIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="creation_datetime" type="xs:dateTime">
@@ -816,7 +816,7 @@
 	</xs:complexType>
 	<xs:complexType name="CandidateIndicatorListType">
 		<xs:annotation>
-			<xs:documentation>The IndicatorListType captures a list of Candidate Indicators.</xs:documentation>
+			<xs:documentation>The CandidateIndicatorListType captures a list of Candidate Indicators.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence maxOccurs="1" minOccurs="1">
 			<xs:element maxOccurs="unbounded" name="Candidate_Indicator"
@@ -834,7 +834,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Name" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Name element refers to the name of the Malware Instance, Malware Family, or Malware Class that the indicator or signature is written against.</xs:documentation>
+					<xs:documentation>The Name element refers to the name of the malware instance, malware family, or malware class that the indicator or signature is written against.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Description" type="xs:string">
@@ -857,13 +857,13 @@
 			<xs:element minOccurs="0" name="Behavior_Collections"
 				type="maecBundle:BehaviorCollectionListType">
 				<xs:annotation>
-					<xs:documentation>The Behavior_Collections element captures any collections of MAEC Behaviors in the Bundle.</xs:documentation>
+					<xs:documentation>The Behavior_Collections element captures any collections of Behaviors in the Bundle.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Action_Collections"
 				type="maecBundle:ActionCollectionListType">
 				<xs:annotation>
-					<xs:documentation>The Action_Collections element captures any collections of MAEC Actions in the Bundle.</xs:documentation>
+					<xs:documentation>The Action_Collections element captures any collections of Actions in the Bundle.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Object_Collections"
@@ -918,7 +918,7 @@
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="Spawned_Process"
 						type="maecBundle:ProcessTreeNodeType">
 						<xs:annotation>
-							<xs:documentation>The Spawned_Process element captures a single process spawned by this process.</xs:documentation>
+							<xs:documentation>The Spawned_Process element captures a single child process spawned by this process.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="Injected_Process"
@@ -992,6 +992,12 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
+				<xs:attribute name="id" type="maecBundle:CandidateIndicatorCollIDPattern"
+					use="required">
+					<xs:annotation>
+						<xs:documentation>The id attribute specifies a unique ID for this Candidate Indicator Collection. The ID must follow the pattern defined in the CandidateIndicatorCollIDPattern simple type. </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1016,7 +1022,7 @@
 			<xs:element maxOccurs="unbounded" name="Behavior_Collection"
 				type="maecBundle:BehaviorCollectionType">
 				<xs:annotation>
-					<xs:documentation>The Behavior_Collection element specifies a single collection of MAEC Behaviors in the Bundle.</xs:documentation>
+					<xs:documentation>The Behavior_Collection element specifies a single collection of Behaviors in the Bundle.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1073,7 +1079,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="BehaviorIDREFPattern">
 		<xs:annotation>
-			<xs:documentation>The BehaviorIDPattern defines the format for acceptable Behavior id references. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'bhv', and ending with an integer.</xs:documentation>
+			<xs:documentation>The BehaviorIDPattern defines the format for acceptable Behavior idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'bhv', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:IDREF">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bhv-[1-9][0-9]*"/>
@@ -1099,7 +1105,7 @@
 		<xs:annotation>
 			<xs:documentation>The ActionImpIDPattern defines the format for acceptable Action Implementation ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'imp', and ending with an integer.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
+		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-imp-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -1115,7 +1121,7 @@
 		<xs:annotation>
 			<xs:documentation>The ActionCollIDPattern defines the format for acceptable Action Collection ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the four letter code 'actc', and ending with an integer.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
+		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-actc-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -1129,7 +1135,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ObjectCollIDPattern">
 		<xs:annotation>
-			<xs:documentation>The ObjectCollIDPattern simple type defines the format for acceptable MAEC Object Collection ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the four letter code 'objc', and ending with an integer.</xs:documentation>
+			<xs:documentation>The ObjectCollIDPattern simple type defines the format for acceptable Object Collection ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the four letter code 'objc', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-objc-[1-9][0-9]*"/>
@@ -1153,7 +1159,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ActionEquivalencyIDREFPattern">
 		<xs:annotation>
-			<xs:documentation>The ActionEquivalencyIDREFPattern defines the format for acceptable MAEC Action Equivalency idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'acteq', and ending with an integer.</xs:documentation>
+			<xs:documentation>The ActionEquivalencyIDREFPattern defines the format for acceptable MAEC Action Equivalency idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'acteq', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:IDREF">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-acteq-[1-9][0-9]*"/>
@@ -1164,9 +1170,16 @@
 			<xs:documentation>The AnalysisMethodEnum represents an enumeration of action implementation types.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="API_Call"/>
-			<xs:enumeration value="Code"/>
-			<xs:enumeration value="Other"/>
+			<xs:enumeration value="API_Call">
+				<xs:annotation>
+					<xs:documentation>The API_Call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Code">
+				<xs:annotation>
+					<xs:documentation>The Code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ImportanceTypeEnum">
@@ -1174,12 +1187,36 @@
 			<xs:documentation>The ImportanceTypeEnum simple type is an enumeration of relative importance measures.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="High"/>
-			<xs:enumeration value="Medium"/>
-			<xs:enumeration value="Low"/>
-			<xs:enumeration value="Informational"/>
-			<xs:enumeration value="Numeric"/>
-			<xs:enumeration value="Unknown"/>
+			<xs:enumeration value="High">
+				<xs:annotation>
+					<xs:documentation>The High value specifies that the entity is of relative high importance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Medium">
+				<xs:annotation>
+					<xs:documentation>The Medium value specifies that the entity is of relative medium importance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Low">
+				<xs:annotation>
+					<xs:documentation>The Low value specifies that the entity is of relative low importance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Informational">
+				<xs:annotation>
+					<xs:documentation>The Informational value specifies that the entity is only informational in its importance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Numeric">
+				<xs:annotation>
+					<xs:documentation>The Numeric value specifies that the entity has a numeric importance value, which is defined in another attribute or element.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unknown">
+				<xs:annotation>
+					<xs:documentation>The Unknown value specifies that the relative importance for the entity is unknown.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="BundleContentTypeEnum">
@@ -1194,7 +1231,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="static_analysis_tool_output">
 				<xs:annotation>
-					<xs:documentation>The static_analysis_output value specifies that the Bundle primarily captures some form of static analysis tool output, such as from a packer detection tool.</xs:documentation>
+					<xs:documentation>The static_analysis_tool_output value specifies that the Bundle primarily captures some form of static analysis tool output, such as from a packer detection tool.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="manual_analysis_output">
@@ -1214,7 +1251,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="other">
 				<xs:annotation>
-					<xs:documentation>The other value specifies that the Bundle captures some other form of analysis or tool output that is not represented in the other enumeration values.</xs:documentation>
+					<xs:documentation>The other value specifies that the Bundle captures some other form of analysis or tool output that is not represented by the other enumeration values.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -1224,10 +1261,26 @@
 			<xs:documentation>The MalwareEntityTypeEnum is an enumeration of the different types of entities that a malware indicator or signature may be written against.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Instance"/>
-			<xs:enumeration value="Family"/>
-			<xs:enumeration value="Class"/>
-			<xs:enumeration value="Other"/>
+			<xs:enumeration value="Instance">
+				<xs:annotation>
+					<xs:documentation>The Instance value specifies that the particular malware entity being referred to is a single malware instance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Family">
+				<xs:annotation>
+					<xs:documentation>The Family value specifies that the particular malware entity being referred to is a single malware family.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Class">
+				<xs:annotation>
+					<xs:documentation>The Class value specifies that the particular malware entity being referred to is a single class of malware.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>The Other value specifies that the particular malware entity being referred to is of some other type not represented by the other enumeration values.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
