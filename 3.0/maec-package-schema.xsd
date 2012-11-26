@@ -404,16 +404,16 @@
 			<xs:documentation>The MetaAnalysisType captures meta-analysis entities associated with the Bundles that were captured for a Malware Subject, such as Action Equivalencies.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Action_Equivalencies"
-				type="maecPackage:ActionEquivalencyListType">
+			<xs:element minOccurs="0" name="Action_Equivalences"
+				type="maecPackage:ActionEquivalenceListType">
 				<xs:annotation>
-					<xs:documentation>The Action_Equivalencies element captures any equivalencies between Actions contained in one or more Bundles.</xs:documentation>
+					<xs:documentation>The Action_Equivalences element captures any equivalences between Actions contained in one or more Bundles.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Object_Equivalencies"
-				type="maecPackage:ObjectEquivalencyListType">
+			<xs:element minOccurs="0" name="Object_Equivalences"
+				type="maecPackage:ObjectEquivalenceListType">
 				<xs:annotation>
-					<xs:documentation>The Object_Equivalencies element captures any equivalencies between Objects contained in one or more Bundles.</xs:documentation>
+					<xs:documentation>The Object_Equivalences element captures any equivalences between Objects contained in one or more Bundles.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -640,9 +640,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ActionEquivalencyType">
+	<xs:complexType name="ActionEquivalenceType">
 		<xs:annotation>
-			<xs:documentation>The ActionEquivalencyType relates any Actions that are equivalent to each other, e.g., those that were found for the same Malware Subject when using different analysis tools. It can be used as a way of referencing equivalent actions as a single unit, such as for specifying the Action composition of a Behavior.</xs:documentation>
+			<xs:documentation>The ActionEquivalenceType relates any Actions that are equivalent to each other, e.g., those that were found for the same Malware Subject when using different analysis tools. It can be used as a way of referencing equivalent actions as a single unit, such as for specifying the Action composition of a Behavior.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Action_Reference"
@@ -652,21 +652,21 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecPackage:ActionEquivalencyIDPattern">
+		<xs:attribute name="id" use="required" type="maecPackage:ActionEquivalenceIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id attribute specifies the ID for the Action Equivalency, and must be of the format specified by the ActionEquivalencyIDPattern type.</xs:documentation>
+				<xs:documentation>The required id attribute specifies the ID for the Action Equivalence, and must be of the format specified by the ActionEquivalenceIDPattern type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="ActionEquivalencyListType">
+	<xs:complexType name="ActionEquivalenceListType">
 		<xs:annotation>
-			<xs:documentation>The ActionEquivalencyListType captures a list of Action Equivalencies.</xs:documentation>
+			<xs:documentation>The ActionEquivalenceListType captures a list of Action Equivalences.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Action_Equivalency"
-				type="maecPackage:ActionEquivalencyType">
+			<xs:element maxOccurs="unbounded" name="Action_Equivalence"
+				type="maecPackage:ActionEquivalenceType">
 				<xs:annotation>
-					<xs:documentation>The Action_Equivalency element captures a single Action Equivalency in the list.</xs:documentation>
+					<xs:documentation>The Action_Equivalence element captures a single Action Equivalence in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -709,29 +709,29 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="ObjectEquivalencyType">
+	<xs:complexType name="ObjectEquivalenceType">
 		<xs:annotation>
-			<xs:documentation>The ObjectEquivalencyType relates the Objects that are equivalent to each other, e.g., those that were found for the same Malware Subject when using different analysis tools.</xs:documentation>
+			<xs:documentation>The ObjectEquivalenceType relates the Objects that are equivalent to each other, e.g., those that were found for the same Malware Subject when using different analysis tools.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="maecBundle:ObjectReferenceListType">
-				<xs:attribute name="id" type="maecPackage:ObjectEquivalencyIDPattern" use="required">
+				<xs:attribute name="id" type="maecPackage:ObjectEquivalenceIDPattern" use="required">
 					<xs:annotation>
-						<xs:documentation>The required id attribute specifies the ID for the Object Equivalency, and must be of the format specified by the ObjectEquivalencyIDPattern type.</xs:documentation>
+						<xs:documentation>The required id attribute specifies the ID for the Object Equivalence, and must be of the format specified by the ObjectEquivalenceIDPattern type.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="ObjectEquivalencyListType">
+	<xs:complexType name="ObjectEquivalenceListType">
 		<xs:annotation>
-			<xs:documentation>The ObjectEquivalencyListType captures a list of Object Equivalencies.</xs:documentation>
+			<xs:documentation>The ObjectEquivalenceListType captures a list of Object Equivalences.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Object_Equivalency"
-				type="maecPackage:ObjectEquivalencyType">
+			<xs:element maxOccurs="unbounded" name="Object_Equivalence"
+				type="maecPackage:ObjectEquivalenceType">
 				<xs:annotation>
-					<xs:documentation>The Object_Equivalency element specifies a single Object Equivalency in the list.</xs:documentation>
+					<xs:documentation>The Object_Equivalence element specifies a single Object Equivalence in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -776,17 +776,17 @@
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-ana-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="ActionEquivalencyIDPattern">
+	<xs:simpleType name="ActionEquivalenceIDPattern">
 		<xs:annotation>
-			<xs:documentation>The ActionEquivalencyIDPattern defines the format for acceptable MAEC Action Equivalency ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'acteq', and ending with an integer.</xs:documentation>
+			<xs:documentation>The ActionEquivalenceIDPattern defines the format for acceptable MAEC Action Equivalence ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'acteq', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-acteq-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="ObjectEquivalencyIDPattern">
+	<xs:simpleType name="ObjectEquivalenceIDPattern">
 		<xs:annotation>
-			<xs:documentation>The ObjectEquivalencyIDPattern defines the format for acceptable MAEC Object Equivalency ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'objeq', and ending with an integer.</xs:documentation>
+			<xs:documentation>The ObjectEquivalenceIDPattern defines the format for acceptable MAEC Object Equivalence ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'objeq', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-objeq-[1-9][0-9]*"/>
