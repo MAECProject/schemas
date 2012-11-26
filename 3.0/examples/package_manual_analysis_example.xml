@@ -28,10 +28,10 @@
  http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/Win_Mutex_Object_1.1.xsd 
  http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.2.xsd 
  http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/URI_Object_1.1.xsd
- http://cybox.mitre.org/objects#WinRegistryKeyObject http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/Win_Registry_Key_Object_1.3.xsd" id="maec-tst-pkg-1" schema_version="1.0">
+ http://cybox.mitre.org/objects#WinRegistryKeyObject http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/Win_Registry_Key_Object_1.3.xsd" id="maec-example-pkg-1" schema_version="1.0">
 
  <maecPackage:Malware_Subjects>
-  <maecPackage:Malware_Subject id="maec-tst-sub-1">
+  <maecPackage:Malware_Subject id="maec-example-sub-1">
    <maecPackage:Subject_Attributes>
      <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
       <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>

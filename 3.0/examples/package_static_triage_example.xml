@@ -15,10 +15,10 @@
  xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 ../maec-package-schema.xsd http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.2.xsd" id="maec-tst-pkg-1" schema_version="1.0">
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-pkg-1" schema_version="1.0">
 
  <maecPackage:Malware_Subjects>
-  <maecPackage:Malware_Subject id="maec-tst-sub-1">
+  <maecPackage:Malware_Subject id="maec-example-sub-1">
    <maecPackage:Subject_Attributes>
      <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
       <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>
@@ -45,7 +45,7 @@
       <maecPackage:URL>http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814</maecPackage:URL>
      </maecPackage:Source>
      <maecPackage:Summary>A basic static triage of the subject binary using PEiD.</maecPackage:Summary>
-     <maecPackage:Findings_Bundle_Reference bundle_idref="maec-tst-bnd-1"/>
+     <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-1"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-1">
        <common:Name>PEiD</common:Name>
@@ -56,9 +56,9 @@
    </maecPackage:Analyses>
    
    <maecPackage:Findings_Bundles>
-    <maecPackage:Bundle id="maec-tst-bnd-1" schema_version="3.0" defined_subject="false" content_type="extracted_from_subject">
+    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="extracted_from_subject">
      <maecBundle:Objects>
-      <maecBundle:Object id="maec-tst-obj-1" type="File">
+      <maecBundle:Object id="maec-example-obj-1" type="File">
         <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
          <WinExecFileObj:PE_Attributes>
           <WinExecFileObj:Base_Address datatype="hexBinary" condition="Equals">036418</WinExecFileObj:Base_Address>

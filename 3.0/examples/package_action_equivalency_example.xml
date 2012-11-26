@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  MAEC Action Equivalency Example
+ -Demonstrates how an Action Equivalency is composed and used inside of a Behavior
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
 <maecPackage:MAEC_Package
