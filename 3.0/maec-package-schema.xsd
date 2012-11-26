@@ -6,12 +6,8 @@
 	xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
 	xmlns:metadata="http://xml/metadataSharing.xsd" xmlns:cybox="http://cybox.mitre.org/cybox_v1"
 	xmlns:common="http://cybox.mitre.org/Common_v1"
-	xmlns:URIObj="http://cybox.mitre.org/objects#URIObject"
 	xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject"
 	xmlns:WinSystemObj="http://cybox.mitre.org/XMLSchema/objects#WinSystemObject"
-	xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
-	xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
-	xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject"
 	xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="1.0">
 	<xs:import namespace="http://xml/metadataSharing.xsd"
 		schemaLocation="http://grouper.ieee.org/groups/malware/malwg/Schema1.2/metadataSharing.xsd"/>
@@ -27,24 +23,24 @@
 		<xs:appinfo>
 			<schema>MAEC Package Schema</schema>
 			<version>1.0</version>
-			<date>11/01/2012</date>
+			<date>11/23/2012</date>
 			<terms_of_use>Copyright (c) 2012, The MITRE Corporation. All rights reserved.  The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema.  When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-bundle-3"
 		schemaLocation="maec-bundle-schema.xsd"/>
-	<xs:element name="MAEC_Package" type="maecPackage:MalwarePackageType">
+	<xs:element name="MAEC_Package" type="maecPackage:PackageType">
 		<xs:annotation>
-			<xs:documentation>The root element of the MAEC Package schema is the MAEC_Package, which captures a single MAEC Package.</xs:documentation>
+			<xs:documentation>The root element of the MAEC Package schema is the MAEC_Package, which captures a single MAEC Package that encompasses one or more Malware Subjects and all of their associated MAEC entities.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="AnalysisEnvironmentType">
 		<xs:annotation>
-			<xs:documentation>The AnalysisEnvironmentType provides mechanisms for characterizing the particular hardware/software environment used in analyzing a malware instance.</xs:documentation>
+			<xs:documentation>The AnalysisEnvironmentType provides mechanisms for characterizing the particular hardware/software environment used in the analysis of a Malware Subject.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Hypervisor_Host_System"
-				type="maecPackage:HypervisorSystemType">
+				type="maecPackage:HypervisorHostSystemType">
 				<xs:annotation>
 					<xs:documentation>The Hypervisor_Host_System element characterizes the (physical) host system used in the analysis on which the VM Hypervisor runs. This element imports and extends the CybOX System Object.</xs:documentation>
 				</xs:annotation>
@@ -109,7 +105,7 @@
 	</xs:complexType>
 	<xs:complexType name="AnalysisSystemListType">
 		<xs:annotation>
-			<xs:documentation>The AnalysisSystemListType captures a list of the systems, physical or virtual, used in the analysis of the malware.</xs:documentation>
+			<xs:documentation>The AnalysisSystemListType captures a list of the systems, physical or virtual, used in the analysis of a Malware Subject.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Analysis_System"
@@ -122,7 +118,7 @@
 	</xs:complexType>
 	<xs:complexType name="ToolListType">
 		<xs:annotation>
-			<xs:documentation>The ToolsType characterizes one or more tools, most typically associated with the analysis of a Malware Subject.</xs:documentation>
+			<xs:documentation>The ToolsType characterizes one or more tools, such as those used in the analysis of a Malware Subject.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence maxOccurs="1">
 			<xs:element maxOccurs="unbounded" name="Tool" type="common:ToolInformationType"
@@ -166,7 +162,7 @@
 	</xs:complexType>
 	<xs:complexType name="AnalysisSystemType">
 		<xs:annotation>
-			<xs:documentation>The AnalysisSystemType is intended to characterize any systems on which malware analysis is performed. It imports and extends version 1.2 of the CybOX System Object.</xs:documentation>
+			<xs:documentation>The AnalysisSystemType is intended to characterize any systems on which malware analysis is performed. It imports and extends version 1.3 of the CybOX System Object.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SystemObj:SystemObjectType">
@@ -181,9 +177,9 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="HypervisorSystemType">
+	<xs:complexType name="HypervisorHostSystemType">
 		<xs:annotation>
-			<xs:documentation>The HypervisorSystemType characterizes the VM Hypervisor host system used in the malware analysis environment.</xs:documentation>
+			<xs:documentation>The HypervisorHostSystemType characterizes the VM Hypervisor host system used in the malware analysis environment.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SystemObj:SystemObjectType">
@@ -200,7 +196,7 @@
 	</xs:complexType>
 	<xs:complexType name="DynamicAnalysisMetadataType">
 		<xs:annotation>
-			<xs:documentation>The DynamicAnalysisMetadataType captures the metadata related to the particular dynamic analysis of a malware instance.</xs:documentation>
+			<xs:documentation>The DynamicAnalysisMetadataType captures any metadata specific to the dynamic analysis of a malware instance.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Command_Line" type="xs:string">
@@ -249,12 +245,12 @@
 			<xs:element minOccurs="0" name="Findings_Bundle_Reference"
 				type="maecBundle:BundleReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Findings_Bundle_Reference specifies a reference to the MAEC Bundle which encompasses the results and output of the Analysis in terms of the corresponding MAEC entities.</xs:documentation>
+					<xs:documentation>The Findings_Bundle_Reference specifies a reference to the Bundle which encompasses the results and output of the Analysis in terms of its corresponding MAEC entities, such as Behaviors and Actions.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Tools" type="maecPackage:ToolListType">
 				<xs:annotation>
-					<xs:documentation>The Tools element specifies information about the tool(s) used in the analysis, via the CybOX ToolInformationType.</xs:documentation>
+					<xs:documentation>The Tools element specifies information about the tool(s) used in the analysis, via the CybOX ToolInformationType. If only a single Tool is specified, then this implies that this tool was responsible for all of the findings contained in the Bundle referenced by the Findings_Bundle_Reference element.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Dynamic_Analysis_Metadata"
@@ -314,14 +310,14 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Analysis" type="maecPackage:AnalysisType">
 				<xs:annotation>
-					<xs:documentation>The Analysis element represents the metadata regarding a single analysis that was performed on the Malware Subject.</xs:documentation>
+					<xs:documentation>The Analysis element represents the metadata regarding a single analysis that was performed on a Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="InstalledProgramsType">
 		<xs:annotation>
-			<xs:documentation>The InstalledProgramsType captures the programs installed on a particular operating system image.</xs:documentation>
+			<xs:documentation>The InstalledProgramsType captures the programs installed on a particular operating system image, via a list of CPE identifiers.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Program" type="common:CPESpecificationType">
@@ -331,9 +327,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="MalwarePackageType">
+	<xs:complexType name="PackageType">
 		<xs:annotation>
-			<xs:documentation>The MalwarePackageType captures either a single Malware Subject, or a collection of Malware Subjects that are related in some way (even if exact details of the relationship are unknown).</xs:documentation>
+			<xs:documentation>The PackageType is the namesake type of the MAEC Package schema, and captures either a single Malware Subject, or a collection of Malware Subjects that are related in some way (even if exact details of the relationship are unknown). Unlike the MAEC Bundle, which captures only the MAEC-characterized analysis results for a malware instance, the Package permits the capture of additional metadata relating to the analysis, relationships between Malware Subjects, and similar types of entities.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Malware_Subjects" type="maecPackage:MalwareSubjectListType">
@@ -355,7 +351,7 @@
 		</xs:attribute>
 		<xs:attribute fixed="1.0" name="schema_version" type="xs:decimal" use="required">
 			<xs:annotation>
-				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Package Schema that the document has been written in and that should be used for validation.</xs:documentation>
+				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
@@ -366,28 +362,28 @@
 	</xs:complexType>
 	<xs:complexType name="MalwareSubjectType">
 		<xs:annotation>
-			<xs:documentation>The MalwareSubjectType captures the details of a single malware subject, including any corresponding Analyses, Findings Bundles, and relationships to other Malware Subjects.</xs:documentation>
+			<xs:documentation>The MalwareSubjectType captures all of the details pertaining to a single malware instance, including any corresponding Analyses, Field Data, Findings Bundles, and relationships to other Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" name="Subject_Attributes" type="cybox:ObjectType">
 				<xs:annotation>
-					<xs:documentation>The Subject_Attributes element captures the attributes of the object that represents the Malware Subject, via its corresponding CybOX Object. For example, a File Object would be represented via a CybOX File_Object and may have a file name, MD5 hash, etc.</xs:documentation>
+					<xs:documentation>The Subject_Attributes element captures the attributes of the object (most commonly a file) that represents the Malware Subject, via its corresponding CybOX Object. For example, a File Object would be represented via a CybOX File_Object and may have a file name, MD5 hash, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Field_Data" type="metadata:fieldDataEntry">
 				<xs:annotation>
-					<xs:documentation>The Field_Data element captures field data and prevalance information relating to the Malware Subject. It uses the fieldDataEntry type from the MMDEF v1.2 schema.</xs:documentation>
+					<xs:documentation>The Field_Data element captures field data and prevalance information relating to the Malware Subject. It imports and uses the fieldDataEntry type from the MMDEF v1.2 schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Analyses" type="maecPackage:AnalysisListType">
 				<xs:annotation>
-					<xs:documentation>The Analyses element captures any Analyses that were performed on the Malware Subject.</xs:documentation>
+					<xs:documentation>The Analyses element captures any Analyses (including their associated metadata such as tools used, etc.) that were performed on the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Findings_Bundles"
 				type="maecPackage:FindingsBundleListType">
 				<xs:annotation>
-					<xs:documentation>The Findings_Bundles element specifies any Behaviors, Actions, or Objects (as MAEC Bundle entities) that were discovered for the Malware Subject. These Bundles can either be abstract, or referenced as the result of an analysis that was performed on the malware.</xs:documentation>
+					<xs:documentation>The Findings_Bundles element specifies any MAEC Bundles pertaining to the Malware Subject, thus capturing any observed or discovered Behaviors, Actions, or Objects. These Bundles can either be abstract, or referenced as the result of an analysis that was performed on the malware.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Relationships"
@@ -442,13 +438,13 @@
 	</xs:complexType>
 	<xs:complexType name="MalwareSubjectRelationshipListType">
 		<xs:annotation>
-			<xs:documentation>The MalwareSubjectRelationshipListType captures a list of relationships between Malware Subjects.</xs:documentation>
+			<xs:documentation>The MalwareSubjectRelationshipListType captures a list of relationships between a Malware Subject and other Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Relationship" maxOccurs="unbounded"
 				type="maecPackage:MalwareSubjectRelationshipType">
 				<xs:annotation>
-					<xs:documentation>The Relationship element specifies a relationship that relates tbe Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
+					<xs:documentation>The Relationship element specifies a relationship that relates the Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -484,13 +480,13 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Meta_Analysis" type="maecPackage:MetaAnalysisType">
 				<xs:annotation>
-					<xs:documentation>The Meta_Analysis element captures any meta-analysis related entities for the Bundles inside the Findings_Bundle element, such as equivalencies.</xs:documentation>
+					<xs:documentation>The Meta_Analysis element captures any meta-analysis related entities for the Bundles captured for a Malware Subject, such as equivalencies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" name="Bundle" type="maecBundle:BundleType"
 				minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Findings_Bundle element captures a single MAEC Bundle, representing some set of results from analysis of the Malware Subject.</xs:documentation>
+					<xs:documentation>The Bundle element captures a single MAEC Bundle, representing some set of characterized entities resulting from  analysis of the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Bundle_External_Reference"
@@ -521,6 +517,11 @@
 		<xs:attribute name="type" type="maecPackage:GroupingRelationshipEnum" use="required">
 			<xs:annotation>
 				<xs:documentation>The type attribute specifies the type of relationship that groups the Malware Subjects in the Package.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="other_type" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The other_type attribute allows for the specification of an arbitrary grouping relationship type, if it cannot be captured via the enumeration specified in the 'type' attribute (i.e., when 'type' is set to 'other').</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -565,7 +566,7 @@
 	</xs:complexType>
 	<xs:complexType name="ClusterEdgeNodePairType">
 		<xs:annotation>
-			<xs:documentation>The ClusterEdgeNodePairType describes a single edge in a malware cluster, along with the two Malware Subjects that correspond to the nodes connected to the edge (via references), representing the similarity index between the two Malware Subjects.</xs:documentation>
+			<xs:documentation>The ClusterEdgeNodePairType captures a single edge-node pair in a malware cluster, which is composed of the two Malware Subjects that correspond to the nodes connected to the edge (via references), and represents the similarity index between the two Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="1" name="Malware_Subject_Node"
@@ -621,20 +622,20 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Number_of_Iterations" type="xs:positiveInteger">
 				<xs:annotation>
-					<xs:documentation>The Number_of_Iterations element specifies the number of times that the algorithm was executed to produce the cluster.</xs:documentation>
+					<xs:documentation>The Number_of_Iterations element specifies the number of times that the algorithm was executed in order to produce the cluster.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NetworkInfrastructureType">
 		<xs:annotation>
-			<xs:documentation>The NetworkInfrastructureType captures specific details about the network infrastructure used in the analysis of a Malware Subject.</xs:documentation>
+			<xs:documentation>The NetworkInfrastructureType captures specific details about the network infrastructure used in the malware analysis environment.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="1" name="Captured_Protocols"
 				type="maecPackage:CapturedProtocolListType">
 				<xs:annotation>
-					<xs:documentation>The Captured_Protocols element specifies a list of network protocols, along with the particular level of interaction, that the analysis environment captures or interacts with in some fashion.</xs:documentation>
+					<xs:documentation>The Captured_Protocols element specifies a list of network protocols, along with the particular level of interaction, that the malware analysis environment captures or interacts with in some fashion.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -685,7 +686,7 @@
 	</xs:complexType>
 	<xs:complexType name="CapturedProtocolType">
 		<xs:annotation>
-			<xs:documentation>The CapturedProtocolType specifies the details of a network protocol that is captured or otherwise manipulated during malware analysis.</xs:documentation>
+			<xs:documentation>The CapturedProtocolType specifies the details of a network protocol that may be captured or otherwise manipulated in the malware analysis environment.</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="layer7_protocol" type="maecPackage:Layer7ProtocolEnum">
 			<xs:annotation>
@@ -704,13 +705,13 @@
 		</xs:attribute>
 		<xs:attribute name="interaction_level" type="maecPackage:InteractionLevelEnum">
 			<xs:annotation>
-				<xs:documentation>The interaction_level element specifies the level of interaction that the analysis environment has for the specified network protocol.</xs:documentation>
+				<xs:documentation>The interaction_level element specifies the relative level of interaction that the analysis environment has with the specified network protocol.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="ObjectEquivalencyType">
 		<xs:annotation>
-			<xs:documentation>The ObjectEquivalencyType relates the Objects that are equivalent to each other, e.g., those that were found through for the same Malware Subject when using different analysis tools.</xs:documentation>
+			<xs:documentation>The ObjectEquivalencyType relates the Objects that are equivalent to each other, e.g., those that were found for the same Malware Subject when using different analysis tools.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="maecBundle:ObjectReferenceListType">
@@ -796,8 +797,16 @@
 			<xs:documentation>The AnalysisTypeEnum is an enumeration of types of malware analyses.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Triage"/>
-			<xs:enumeration value="Manual"/>
+			<xs:enumeration value="Triage">
+				<xs:annotation>
+					<xs:documentation>The Triage value specifies an cursory, or triage type of malware analysis, commonly automated in conjunction with one or more tools.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Manual">
+				<xs:annotation>
+					<xs:documentation>The Manual value specifies an in-depth, or manual type of malware analysis, that is typically performed by a human analyst.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="AnalysisMethodEnum">
@@ -805,9 +814,21 @@
 			<xs:documentation>The AnalysisMethodEnum is an enumeration of malware analysis methods.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Static"/>
-			<xs:enumeration value="Dynamic"/>
-			<xs:enumeration value="Combination"/>
+			<xs:enumeration value="Static">
+				<xs:annotation>
+					<xs:documentation>The Static value specifies a static malware analysis method, which is achieved by inspecting but not executing the malware instance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dynamic">
+				<xs:annotation>
+					<xs:documentation>The Dynamic value specifies a dynamic malware analysis method, which is achieved by executing but not inspecting the malware instance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Combination">
+				<xs:annotation>
+					<xs:documentation>The Combination value specifies a combination of dynamic and static malware analysis, achieved by both inspecting and executing the malware instance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="GroupingRelationshipEnum">
@@ -815,11 +836,31 @@
 			<xs:documentation>The GroupingRelationshipEnum is a non-exhaustive enumeration of Malware Subject grouping relationships.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="same_malware_family"/>
-			<xs:enumeration value="clustered_together"/>
-			<xs:enumeration value="observed_together"/>
-			<xs:enumeration value="part_of_intrusion_set"/>
-			<xs:enumeration value="other"/>
+			<xs:enumeration value="same_malware_family">
+				<xs:annotation>
+					<xs:documentation>The same_malware_family value indicates that the Malware Subjects in the Package are all part of the same malware family.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="clustered_together">
+				<xs:annotation>
+					<xs:documentation>The clustered_together value indicates that the Malware Subjects in the Package were clustered together by some algorithm or other mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="observed_together">
+				<xs:annotation>
+					<xs:documentation>The observed_together value indicates that the Malware Subjects in the Package were abstractly observed together, such as on a host system, in some archive, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="part_of_intrusion_set">
+				<xs:annotation>
+					<xs:documentation>The part_of_intrusion_set value indicates that the Malware Subjects in the Package were found as part of the same malware intrusion set.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="other">
+				<xs:annotation>
+					<xs:documentation>The other value indicates that the Malware Subjects in the Package are grouped by some other type of relationship not captured in this enumeration.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="MalwareSubjectRelationshipEnum">
@@ -827,10 +868,26 @@
 			<xs:documentation>The MalwareSubjectRelationshipEnum is a non-exhaustive enumeration of relationships between Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="downloaded_by"/>
-			<xs:enumeration value="dropped_by"/>
-			<xs:enumeration value="downloads"/>
-			<xs:enumeration value="drops"/>
+			<xs:enumeration value="downloaded_by">
+				<xs:annotation>
+					<xs:documentation>The downloaded_by value specifies that the current Malware Subject was downloaded by one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="dropped_by">
+				<xs:annotation>
+					<xs:documentation>The dropped_by value specifies that the current Malware Subject was dropped (or written to disk) by one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="downloads">
+				<xs:annotation>
+					<xs:documentation>The downloads value specifies that the Malware Subject downloads one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="drops">
+				<xs:annotation>
+					<xs:documentation>The drops value specifies that the Malware Subject drops (or writes to disk) one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="InteractionLevelEnum">
@@ -838,11 +895,31 @@
 			<xs:documentation>The InteractionLevelEnum is a non-exhaustive enumeration of interaction levels for network protocols in a malware analysis environment.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="high"/>
-			<xs:enumeration value="low"/>
-			<xs:enumeration value="honeytrap"/>
-			<xs:enumeration value="live"/>
-			<xs:enumeration value="none"/>
+			<xs:enumeration value="high">
+				<xs:annotation>
+					<xs:documentation>The high value specifies that, for the specified protocol, the analysis environment will establish the connection and attempt to decode/identify any common protocols used by the malware. The level of decode/protocol support can be subjective and dependent on the particular environment.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="low">
+				<xs:annotation>
+					<xs:documentation>The low value specifies that, for the specified protocol, the analysis environment will accept the packets and will identify the initial connection request. No further interaction is performed.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="honeytrap">
+				<xs:annotation>
+					<xs:documentation>The honeytrap value specifies that, for the specified protocol, the analysis environment will establish the connection and attempt to interact with outgoing requests. The level of interaction can be subjective and dependent on the particular environment.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="live">
+				<xs:annotation>
+					<xs:documentation>The live value specifies that, for the specified protocol, the analysis environment allows the malware to connect out to the real (unemulated) IP.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="none">
+				<xs:annotation>
+					<xs:documentation>The none value specifies that, for the specified protocol, the analysis environment does not support or perform any level of interaction.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="Layer7ProtocolEnum">
@@ -850,30 +927,103 @@
 			<xs:documentation>The Layer7ProtocolEnum is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="HTTP"/>
-			<xs:enumeration value="HTTPS"/>
-			<xs:enumeration value="FTP"/>
-			<xs:enumeration value="FTPS"/>
-			<xs:enumeration value="SMTP"/>
-			<xs:enumeration value="SMTPS"/>
-			<xs:enumeration value="POP3"/>
-			<xs:enumeration value="POP3S"/>
-			<xs:enumeration value="IRC"/>
-			<xs:enumeration value="DNS"/>
-			<xs:enumeration value="RDP"/>
-			<xs:enumeration value="RPC"/>
-			<xs:enumeration value="SSH"/>
-			<xs:enumeration value="Telnet"/>
-			<xs:enumeration value="Unknown"/>
+			<xs:enumeration value="HTTP">
+				<xs:annotation>
+					<xs:documentation>The HTTP value specifies the Hypertext Transfer Protocol (HTTP).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HTTPS">
+				<xs:annotation>
+					<xs:documentation>The HTTPS value specifies the Hypertext Transfer Protocol Secure (HTTPS).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FTP">
+				<xs:annotation>
+					<xs:documentation>The FTP value specifies the File Transfer Protocol (FTP). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FTPS">
+				<xs:annotation>
+					<xs:documentation>The FTPS value specifies the File Transfer Protocol Secure (FTPS). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SMTP">
+				<xs:annotation>
+					<xs:documentation>The SMTP value specifies the Simple Mail Transfer Protocol (SMTP). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SMTPS">
+				<xs:annotation>
+					<xs:documentation>The SMTPS value specifies the Simple Mail Transfer Protocol Secure (SMTPS). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="POP3">
+				<xs:annotation>
+					<xs:documentation>The POP3 value specifies the Post Office Protocol version 3 (POP3). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="POP3S">
+				<xs:annotation>
+					<xs:documentation>The POP3S value specifies the Post Office Protocol version 3 Secure (POP3S). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IRC">
+				<xs:annotation>
+					<xs:documentation>The IRC value specifies the Internet Relay Chat (IRC) protocol. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DNS">
+				<xs:annotation>
+					<xs:documentation>The DNS value specifies the Domain Name System (DNS) protocol. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RDP">
+				<xs:annotation>
+					<xs:documentation>The RDP value specifies the Remote Desktop Protocol (RDP). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RPC">
+				<xs:annotation>
+					<xs:documentation>The RPC value specifies some Remote Procedure Call (RPC) protocol, such as MSRPC. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SSH">
+				<xs:annotation>
+					<xs:documentation>The SSH value specifies the Secure Shell (SSH) protocol. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Telnet">
+				<xs:annotation>
+					<xs:documentation>The Telnet value specifies the Telnet protocol. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>The Other value specifies some other layer 7 network protocol not captured in this enumeration. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="Layer4ProtocolEnum">
 		<xs:annotation>
-			<xs:documentation>The Layer4ProtocolEnum is an enumeration of Layer 4 (OSI model) network protocols.</xs:documentation>
+			<xs:documentation>The Layer4ProtocolEnum is a non-exhaustive enumeration of Layer 4 (OSI model) network protocols.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="TCP"/>
-			<xs:enumeration value="UDP"/>
+			<xs:enumeration value="TCP">
+				<xs:annotation>
+					<xs:documentation>The TCP value specifies the Transport Control Protocol (TCP). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UDP">
+				<xs:annotation>
+					<xs:documentation>The UDP value specifies the User Datagram Protocol (UDP). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>The Other value specifies some other layer 4 network protocol not captured in this enumeration. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
