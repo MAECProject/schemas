@@ -28,7 +28,7 @@
 		<xs:appinfo>
 			<schema>MAEC Bundle Schema</schema>
 			<version>3.0</version>
-			<date>10/26/2012</date>
+			<date>11/23/2012</date>
 			<terms_of_use>Copyright (c) 2012, The MITRE Corporation. All rights reserved.  The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema.  When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
@@ -706,9 +706,9 @@
 			<xs:documentation>The BehavioralActionEquivalenceReferenceType defines an Action Equivalence reference that can be used as part of a Behavior. Since the Action Equivalency equates two or more actions to a single one, this can be thought of as specifying one of the aforementioned Actions as part of the composition of the Behavior.</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="action_equivalence_idref"
-			type="maecBundle:ActionEquivalencyIDREFPattern" use="required">
+			type="maecBundle:ActionEquivalenceIDREFPattern" use="required">
 			<xs:annotation>
-				<xs:documentation>The action_equivalence_idref attribute specifies the ID of a an Action Equivalence contained in the same MAEC document as the Behavior that utilizes it.</xs:documentation>
+				<xs:documentation>The action_equivalence_idref attribute specifies the ID of an Action Equivalence contained in the same MAEC document as the Behavior that utilizes it.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="behavioral_ordering" type="xs:positiveInteger">
@@ -1157,9 +1157,9 @@
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-pro-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="ActionEquivalencyIDREFPattern">
+	<xs:simpleType name="ActionEquivalenceIDREFPattern">
 		<xs:annotation>
-			<xs:documentation>The ActionEquivalencyIDREFPattern defines the format for acceptable MAEC Action Equivalency idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'acteq', and ending with an integer.</xs:documentation>
+			<xs:documentation>The ActionEquivalenceIDREFPattern defines the format for acceptable MAEC Action Equivalency idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the five letter code 'acteq', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:IDREF">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-acteq-[1-9][0-9]*"/>
