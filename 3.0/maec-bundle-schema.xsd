@@ -97,7 +97,7 @@
 			<xs:field xpath="@behavior_id"/>
 		</xs:keyref>
 	</xs:element>
-	<xs:element name="Action" type="maecBundle:ActionType">
+	<xs:element name="Action" type="maecBundle:MalwareActionType">
 		<xs:annotation>
 			<xs:documentation>The Action element enables description/specification of a single malware action. </xs:documentation>
 		</xs:annotation>
@@ -107,9 +107,9 @@
 			<xs:documentation>The Behavior element enables description/specification of a single malware behavior. </xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ActionType">
+	<xs:complexType name="MalwareActionType">
 		<xs:annotation>
-			<xs:documentation>The ActionType is one of the foundational MAEC types, and serves as a method for the characterization of actions found or observed in malware. Actions can be thought of as system state changes and similar operations that represent the fundamental low-level operation of malware. Some examples include the creation of a file, deletion of a registry key, and the sending of some  data on a socket. It imports and extends the CybOX ActionType. For MAEC, the id attribute is required and must follow the proper syntax: A dash-delimited format is used with the id or idref starting with the word maec followed by a unique string, followed by the three letter code 'act', and ending with an integer.</xs:documentation>
+			<xs:documentation>The MalwareActionType is one of the foundational MAEC types, and serves as a method for the characterization of actions found or observed in malware. Actions can be thought of as system state changes and similar operations that represent the fundamental low-level operation of malware. Some examples include the creation of a file, deletion of a registry key, and the sending of some  data on a socket. It imports and extends the CybOX ActionType. For MAEC, the id attribute is required and must follow the proper syntax: A dash-delimited format is used with the id or idref starting with the word maec followed by a unique string, followed by the three letter code 'act', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="cybox:ActionType">
@@ -633,7 +633,7 @@
 			<xs:documentation>The ActionListType captures a list of Actions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence maxOccurs="1">
-			<xs:element name="Action" type="maecBundle:ActionType" maxOccurs="unbounded"
+			<xs:element name="Action" type="maecBundle:MalwareActionType" maxOccurs="unbounded"
 				minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The Action element specifies a single Action in the list.</xs:documentation>
@@ -678,7 +678,7 @@
 			<xs:documentation>The BehavioralActionType defines an Action that can be used as part of a Behavior.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="maecBundle:ActionType">
+			<xs:extension base="maecBundle:MalwareActionType">
 				<xs:attribute name="behavioral_ordering" type="xs:positiveInteger">
 					<xs:annotation>
 						<xs:documentation>The behavioral_ordering attribute defines the ordering of the Action with respect to the other Actions that make up the behavior. So an action with a behavioral_ordering of "1" would come before an Action with a behavioral_ordering of "2", etc.</xs:documentation>
