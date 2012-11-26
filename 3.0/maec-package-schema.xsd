@@ -129,18 +129,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="PlatformListType">
-		<xs:annotation>
-			<xs:documentation>The PlatformListType specifies a list of software or hardware platforms.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Platform" type="common:CPESpecificationType">
-				<xs:annotation>
-					<xs:documentation>The Platform element specifies a single platform via a Common Platform Enumeration ID. It imports and uses the CPESpecificationType from the CybOX Common Types v1.0 draft.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="CommentType">
 		<xs:annotation>
 			<xs:documentation>The CommentType captures a comment relating to some MAEC entity.</xs:documentation>
