@@ -495,6 +495,11 @@
 					<xs:documentation>The Malware_Family_Name element specifies the name of the malware family referred to by the 'same_malware_family' relationship type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Malware_Toolkit_Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Malware_Toolkit_Name element specifies the name of the malware toolkit referred to by the 'same_malware_toolkit' relationship type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Clustering_Metadata"
 				type="maecPackage:ClusteringMetadataType">
 				<xs:annotation>
@@ -855,6 +860,11 @@
 			<xs:enumeration value="part_of_intrusion_set">
 				<xs:annotation>
 					<xs:documentation>The part_of_intrusion_set value indicates that the Malware Subjects in the Package were found as part of the same malware intrusion set.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="same_malware_toolkit">
+				<xs:annotation>
+					<xs:documentation>The same_malware_toolkit value indicates that the Malware Subjects in the Package were all created using the same malware toolkit, independent of toolkit version.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="other">
