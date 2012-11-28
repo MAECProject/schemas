@@ -10,7 +10,7 @@
 		<xs:appinfo>
 			<schema>MAEC Container Schema</schema>
 			<version>1.0</version>
-			<date>11/16/2012</date>
+			<date>11/23/2012</date>
 			<terms_of_use>Copyright (c) 2012, The MITRE Corporation. All rights reserved.  The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema.  When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
@@ -53,7 +53,7 @@
 			<xs:documentation>The PackageListType captures a list of Packages.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Package" type="maecPackage:MalwarePackageType">
+			<xs:element maxOccurs="unbounded" name="Package" type="maecPackage:PackageType">
 				<xs:annotation>
 					<xs:documentation>The Package element specifies a single Package, which encompasses 1-n Malware Subjects and any associated metadata.</xs:documentation>
 				</xs:annotation>
