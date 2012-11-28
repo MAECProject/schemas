@@ -75,25 +75,27 @@
         </maecPackage:Malware_Subject>
     </maecPackage:Malware_Subjects>
     
-    <maecPackage:Grouping_Relationship type="clustered_together">
-        <maecPackage:Clustering_Metadata>
-            <maecPackage:Algorithm_Name>Test Algorithm</maecPackage:Algorithm_Name>
-            <maecPackage:Algorithm_Version>1.0</maecPackage:Algorithm_Version>
-            <maecPackage:Cluster_Size>3</maecPackage:Cluster_Size>
-            <maecPackage:Cluster_Composition>
-                <maecPackage:Edge_Node_Pair similarity_index="0.666667">
-                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-1"/>
-                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-2"/>
-                </maecPackage:Edge_Node_Pair>
-                <maecPackage:Edge_Node_Pair similarity_index="1.0">
-                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-1"/>
-                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-3"/>
-                </maecPackage:Edge_Node_Pair>
-                <maecPackage:Edge_Node_Pair similarity_index="0.666667">
-                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-2"/>
-                    <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-3"/>
-                </maecPackage:Edge_Node_Pair>
-            </maecPackage:Cluster_Composition>
-        </maecPackage:Clustering_Metadata>
-    </maecPackage:Grouping_Relationship>
+    <maecPackage:Grouping_Relationships>
+        <maecPackage:Grouping_Relationship type="clustered_together">
+            <maecPackage:Clustering_Metadata>
+                <maecPackage:Algorithm_Name>Test Algorithm</maecPackage:Algorithm_Name>
+                <maecPackage:Algorithm_Version>1.0</maecPackage:Algorithm_Version>
+                <maecPackage:Cluster_Size>3</maecPackage:Cluster_Size>
+                <maecPackage:Cluster_Composition>
+                    <maecPackage:Edge_Node_Pair similarity_index="0.666667">
+                        <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-1"/>
+                        <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-2"/>
+                    </maecPackage:Edge_Node_Pair>
+                    <maecPackage:Edge_Node_Pair similarity_index="1.0">
+                        <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-1"/>
+                        <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-3"/>
+                    </maecPackage:Edge_Node_Pair>
+                    <maecPackage:Edge_Node_Pair similarity_index="0.666667">
+                        <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-2"/>
+                        <maecPackage:Malware_Subject_Node malware_subject_idref="maec-example-sub-3"/>
+                    </maecPackage:Edge_Node_Pair>
+                </maecPackage:Cluster_Composition>
+            </maecPackage:Clustering_Metadata>
+        </maecPackage:Grouping_Relationship>
+    </maecPackage:Grouping_Relationships>
 </maecPackage:MAEC_Package>
