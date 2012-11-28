@@ -10,6 +10,7 @@
 	xmlns:WinSystemObj="http://cybox.mitre.org/XMLSchema/objects#WinSystemObject"
 	xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
 	xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject"
+	xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-bundle-1"
 	xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject"
 	xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="3.0">
 	<xs:import namespace="http://xml/metadataSharing.xsd"
@@ -38,64 +39,6 @@
 		<xs:annotation>
 			<xs:documentation>The MAEC_Bundle element is the root element of this schema, and is of type BundleType. As such, it represents the characterization of a single malware instance, characterized in the top-level Subject_Details element, via its MAEC entities.</xs:documentation>
 		</xs:annotation>
-		<xs:key name="actionKey">
-			<xs:annotation>
-				<xs:documentation>Enforce uniqueness amongst the ids differentiating the individual action elements.</xs:documentation>
-			</xs:annotation>
-			<xs:selector
-				xpath="maecBundle:Actions/*|.//maecBundle:Behavior/maecBundle:Actions/maecBundle:Action|.//maecBundle:Action_List/maecBundle:Action"/>
-			<xs:field xpath="@id"/>
-		</xs:key>
-		<xs:key name="behaviorKey">
-			<xs:annotation>
-				<xs:documentation>Enforce uniqueness amongst the ids differentiating the individual behavior elements.</xs:documentation>
-			</xs:annotation>
-			<xs:selector
-				xpath="maecBundle:Behaviors/*|.//maecBundle:Behavior_List/maecBundle:Behavior"/>
-			<xs:field xpath="@id"/>
-		</xs:key>
-		<xs:key name="objectKey">
-			<xs:annotation>
-				<xs:documentation>Enforce uniqueness amongst the ids differentiating the individual object elements.</xs:documentation>
-			</xs:annotation>
-			<xs:selector xpath="maecBundle:Objects/*|.//maecBundle:Object_List/maecBundle:Object"/>
-			<xs:field xpath="@id"/>
-		</xs:key>
-		<xs:key name="behaviorCollectionKey">
-			<xs:annotation>
-				<xs:documentation>Enforce uniqueness amongst the ids differentiating the individual behavior collection elements.</xs:documentation>
-			</xs:annotation>
-			<xs:selector xpath="maecBundle:Collections/maecBundle:Behavior_Collections/*"/>
-			<xs:field xpath="@id"/>
-		</xs:key>
-		<xs:key name="actionCollectionKey">
-			<xs:annotation>
-				<xs:documentation>Enforce uniqueness amongst the ids differentiating the individual action collection elements.</xs:documentation>
-			</xs:annotation>
-			<xs:selector xpath="maecBundle:Collections/maecBundle:Action_Collections/*"/>
-			<xs:field xpath="@id"/>
-		</xs:key>
-		<xs:key name="objectCollectionKey">
-			<xs:annotation>
-				<xs:documentation>Enforce uniqueness amongst the ids differentiating the individual object collection elements.</xs:documentation>
-			</xs:annotation>
-			<xs:selector xpath="maecBundle:Collections/maecBundle:Object_Collections/*"/>
-			<xs:field xpath="@id"/>
-		</xs:key>
-		<xs:keyref name="actionKeyRef" refer="maecBundle:actionKey">
-			<xs:annotation>
-				<xs:documentation>Requires each action reference to refer to a valid behavior id.</xs:documentation>
-			</xs:annotation>
-			<xs:selector xpath=".//maecBundle:Action_Reference"/>
-			<xs:field xpath="@action_id"/>
-		</xs:keyref>
-		<xs:keyref name="behaviorKeyRef" refer="maecBundle:behaviorKey">
-			<xs:annotation>
-				<xs:documentation>Requires each behavior reference to refer to a valid behavior id.</xs:documentation>
-			</xs:annotation>
-			<xs:selector xpath=".//maecBundle:Behavior_Reference"/>
-			<xs:field xpath="@behavior_id"/>
-		</xs:keyref>
 	</xs:element>
 	<xs:element name="Action" type="maecBundle:MalwareActionType">
 		<xs:annotation>
