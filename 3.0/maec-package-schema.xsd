@@ -325,10 +325,10 @@
 					<xs:documentation>The Malware_Subjects element captures each of the Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Grouping_Relationship"
-				type="maecPackage:GroupingRelationshipType">
+			<xs:element minOccurs="0" name="Grouping_Relationships"
+				type="maecPackage:GroupingRelationshipListType">
 				<xs:annotation>
-					<xs:documentation>The Grouping_Relationship element specifies the particular relationship that serves to group the Malware Subjects encompassed in this Package. This is solely for cases where more than one Malware Subject is contained within the Package.</xs:documentation>
+					<xs:documentation>The Grouping_Relationships element specifies the particular relationships that serve to group the Malware Subjects encompassed in this Package. This is solely for cases where more than one Malware Subject is contained within the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -512,6 +512,19 @@
 				<xs:documentation>The other_type attribute allows for the specification of an arbitrary grouping relationship type, if it cannot be captured via the enumeration specified in the 'type' attribute (i.e., when 'type' is set to 'other').</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="GroupingRelationshipListType">
+		<xs:annotation>
+			<xs:documentation>The GroupingRelationshipListType captures a list of grouping relationships relating the Malware Subjects in a Package.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Grouping_Relationship"
+				type="maecPackage:GroupingRelationshipType">
+				<xs:annotation>
+					<xs:documentation>The Grouping_Relationship element specifies a single grouping relationship in the list.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ClusteringMetadataType">
 		<xs:annotation>
