@@ -45,9 +45,11 @@
                 </maecPackage:Malware_Subject>
             </maecPackage:Malware_Subjects>
             
-            <maecPackage:Grouping_Relationship type="same_malware_family">
-                <maecPackage:Malware_Family_Name>Eyestye</maecPackage:Malware_Family_Name>
-            </maecPackage:Grouping_Relationship>
+            <maecPackage:Grouping_Relationships>
+                <maecPackage:Grouping_Relationship type="same_malware_family">
+                    <maecPackage:Malware_Family_Name>Eyestye</maecPackage:Malware_Family_Name>
+                </maecPackage:Grouping_Relationship>
+            </maecPackage:Grouping_Relationships>
         </maecContainer:Package>
         
         <maecContainer:Package id="maec-example-pkg-2" schema_version="1.0">
@@ -79,9 +81,11 @@
                 </maecPackage:Malware_Subject>
             </maecPackage:Malware_Subjects>
             
-            <maecPackage:Grouping_Relationship type="same_malware_family">
-                <maecPackage:Malware_Family_Name>Zeus</maecPackage:Malware_Family_Name>
-            </maecPackage:Grouping_Relationship>
+            <maecPackage:Grouping_Relationships>
+                <maecPackage:Grouping_Relationship type="same_malware_family">
+                    <maecPackage:Malware_Family_Name>Zeus</maecPackage:Malware_Family_Name>
+                </maecPackage:Grouping_Relationship>
+            </maecPackage:Grouping_Relationships>
         </maecContainer:Package>
     </maecContainer:Packages>
 </maecContainer:MAEC_Container>
