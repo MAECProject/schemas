@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  MAEC Container Multiple Packages Example
- -Demonstrates how to use the Container for capturing multiple Packages
- -Captures Malware Subjects related to two families of malware
+ -Demonstrates use of the Container for capturing multiple Packages
+ -The captured Malware Subjects here are related to two families of malware
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
-<maecContainer:MAEC_Container xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
+<maecContainer:MAEC_Container
+ xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-1"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
  xmlns:metadata="http://xml/metadataSharing.xsd"
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
- xmlns:common="http://cybox.mitre.org/Common_v1"
+ xmlns:Common="http://cybox.mitre.org/Common_v1"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
- xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-1"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-unit-1 ../maec-container-schema.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" id="maec-example-con-1" schema_version="1.0">
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd"
+ id="maec-example-con-1" schema_version="1.0">
     <maecContainer:Packages>
         <maecContainer:Package id="maec-example-pkg-1" schema_version="1.0">
             <maecPackage:Malware_Subjects>
@@ -22,10 +24,10 @@
                     <maecPackage:Subject_Attributes>
                         <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
                             <FileObj:Hashes>
-                                <common:Hash>
-                                    <common:Type datatype="String">MD5</common:Type>
-                                    <common:Simple_Hash_Value>32530b68d78e5bcbd73a138276f45490</common:Simple_Hash_Value>
-                                </common:Hash>
+                                <Common:Hash>
+                                    <Common:Type datatype="String">MD5</Common:Type>
+                                    <Common:Simple_Hash_Value>32530b68d78e5bcbd73a138276f45490</Common:Simple_Hash_Value>
+                                </Common:Hash>
                             </FileObj:Hashes>
                         </cybox:Defined_Object>
                     </maecPackage:Subject_Attributes>
@@ -35,10 +37,10 @@
                     <maecPackage:Subject_Attributes>
                         <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
                             <FileObj:Hashes>
-                                <common:Hash>
-                                    <common:Type datatype="String">MD5</common:Type>
-                                    <common:Simple_Hash_Value>05a2d7b4d816c392632e40ac34a9d886</common:Simple_Hash_Value>
-                                </common:Hash>
+                                <Common:Hash>
+                                    <Common:Type datatype="String">MD5</Common:Type>
+                                    <Common:Simple_Hash_Value>05a2d7b4d816c392632e40ac34a9d886</Common:Simple_Hash_Value>
+                                </Common:Hash>
                             </FileObj:Hashes>
                         </cybox:Defined_Object>
                     </maecPackage:Subject_Attributes>
@@ -58,10 +60,10 @@
                     <maecPackage:Subject_Attributes>
                         <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
                             <FileObj:Hashes>
-                                <common:Hash>
-                                    <common:Type datatype="String">MD5</common:Type>
-                                    <common:Simple_Hash_Value>05a2d7b4d816c392632e40ac34a9d886</common:Simple_Hash_Value>
-                                </common:Hash>
+                                <Common:Hash>
+                                    <Common:Type datatype="String">MD5</Common:Type>
+                                    <Common:Simple_Hash_Value>05a2d7b4d816c392632e40ac34a9d886</Common:Simple_Hash_Value>
+                                </Common:Hash>
                             </FileObj:Hashes>
                         </cybox:Defined_Object>
                     </maecPackage:Subject_Attributes>
@@ -71,10 +73,10 @@
                     <maecPackage:Subject_Attributes>
                         <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
                             <FileObj:Hashes>
-                                <common:Hash>
-                                    <common:Type datatype="String">MD5</common:Type>
-                                    <common:Simple_Hash_Value>35a02499c0dfc1353717dd224d3ac87f</common:Simple_Hash_Value>
-                                </common:Hash>
+                                <Common:Hash>
+                                    <Common:Type datatype="String">MD5</Common:Type>
+                                    <Common:Simple_Hash_Value>35a02499c0dfc1353717dd224d3ac87f</Common:Simple_Hash_Value>
+                                </Common:Hash>
                             </FileObj:Hashes>
                         </cybox:Defined_Object>
                     </maecPackage:Subject_Attributes>

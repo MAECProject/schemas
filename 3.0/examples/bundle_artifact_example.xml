@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  MAEC Bundle Artifact Example
--Demonstrates how a network traffic for a Malware Subject may be encoded in a Bundle
--The network traffic was originally extracted from a PCAP file from Anubis: http://anubis.iseclab.org/index.php?action=result&task_id=8b9cf596ff6959e4e54ea3e4a12ce87c
+-Demonstrates how a network traffic observed for a Malware Subject may be encoded in a Bundle
+-The network traffic was extracted and truncated from a PCAP file from an Anubis analysis: http://anubis.iseclab.org/index.php?action=result&task_id=8b9cf596ff6959e4e54ea3e4a12ce87c
 -No encoding was used for the byte stream
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
-<maecBundle:MAEC_Bundle 
+<maecBundle:MAEC_Bundle
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3" 
  xmlns:Common="http://cybox.mitre.org/Common_v1"
- xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject"
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- id="maec-example-bnd-1" schema_version="3.0" xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 file:../maec-bundle-schema.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.2.xsd
- http://cybox.mitre.org/objects#ArtifactObject http://cybox.mitre.org/XMLSchema/objects/Artifact/Artifact_Object_1.0.xsd" defined_subject="true" content_type="dynamic_analysis_tool_output">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 file:../maec-bundle-schema.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
+ http://cybox.mitre.org/objects#ArtifactObject http://cybox.mitre.org/XMLSchema/objects/Artifact/Artifact_Object_1.0.xsd" 
+ id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="dynamic_analysis_tool_output">
 <maecBundle:Subject_Attributes>
  <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
   <FileObj:Size_In_Bytes datatype="UnsignedLong">24840</FileObj:Size_In_Bytes>

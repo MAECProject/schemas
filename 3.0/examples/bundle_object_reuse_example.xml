@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  MAEC Bundle Object Reuse Example
- -A simple example that demonstrates how objects may be re-used via references
+ -A simple example that demonstrates how objects (here in multiple actions) may be re-used via references
  -The Object that is used more than once (i.e., in multiple actions) is stored inside the <Objects> Bundle element and then referenced with the idref attribute.
- 
- Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li 
- http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
+ -Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li. http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
 <maecBundle:MAEC_Bundle
- xmlns:cybox="http://cybox.mitre.org/cybox_v1"
- xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:common="http://cybox.mitre.org/Common_v1"
+ xmlns:cybox="http://cybox.mitre.org/cybox_v1"
+ xmlns:Common="http://cybox.mitre.org/Common_v1"
  xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
  xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 ../maec-package-schema.xsd http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.2.xsd
- http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.2.xsd" id="maec-example-bnd-1" schema_version="3.0" defined_subject="true">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
+ http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.3.xsd" 
+ id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="mixed">
  
   <maecBundle:Subject_Attributes>
    <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
     <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>
     <FileObj:Size_In_Bytes datatype="UnsignedLong" condition="Equals">196608</FileObj:Size_In_Bytes>
     <FileObj:Hashes>
-     <common:Hash>
-      <common:Type datatype="String" condition="Equals">MD5</common:Type>
-      <common:Simple_Hash_Value datatype="hexBinary" condition="Equals">4EC0027BEF4D7E1786A04D021FA8A67F</common:Simple_Hash_Value>
-     </common:Hash>
+     <Common:Hash>
+      <Common:Type datatype="String" condition="Equals">MD5</Common:Type>
+      <Common:Simple_Hash_Value datatype="hexBinary" condition="Equals">4EC0027BEF4D7E1786A04D021FA8A67F</Common:Simple_Hash_Value>
+     </Common:Hash>
     </FileObj:Hashes>
    </cybox:Defined_Object>
   </maecBundle:Subject_Attributes>

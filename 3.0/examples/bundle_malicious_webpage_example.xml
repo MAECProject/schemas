@@ -6,19 +6,20 @@
  -Unlike most of the other examples, the subject here is a URL and not a file
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
-<maecBundle:MAEC_Bundle 
+<maecBundle:MAEC_Bundle
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3" 
  xmlns:Common="http://cybox.mitre.org/Common_v1"
- xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
  xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:URIObj="http://cybox.mitre.org/objects#URIObject"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- id="maec-example-bnd-1" schema_version="3.0" xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 file:../maec-bundle-schema.xsd
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 file:../maec-bundle-schema.xsd
  http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/URI_Object_1.2.xsd
  http://cybox.mitre.org/objects#ArtifactObject http://cybox.mitre.org/XMLSchema/objects/Artifact/Artifact_Object_1.0.xsd
  http://cybox.mitre.org/objects#CodeObject http://cybox.mitre.org/XMLSchema/objects/Code/Code_Object_1.1.xsd
- http://cybox.mitre.org/objects#FileObject http://cybox.mitre.org/XMLSchema/objects/File/File_Object_1.3.xsd" defined_subject="true" content_type="static_analysis_tool_output">
+ http://cybox.mitre.org/objects#FileObject http://cybox.mitre.org/XMLSchema/objects/File/File_Object_1.3.xsd" 
+ id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="static_analysis_tool_output">
 <maecBundle:Subject_Attributes>
  <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
   <URIObj:Value>http://samsonikonyou.ru:8080/navigator/jueoaritjuir.php</URIObj:Value>

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- MAEC Manual Triage Analysis Example
- 
- Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li 
- http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
- 
- This example builds upon the dynamic triage example (http://maec.mitre.org/language/version3.0/package_dynamic_triage_example.xml)
+ MAEC Package Manual Triage Analysis Example
+ -Demonstrates how a Package/Malware Subject can be used to capture manual malware analysis tool output for a malware instance
+ -Specifically, it shows how existing and new Actions can be used to construct Behaviors
+ -Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li. http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
+ -This example builds upon the dynamic triage example (http://maec.mitre.org/language/version3.0/package_dynamic_triage_example.xml)
  
  Updated November 2012 for MAEC v3.0 and CybOX v1.0 final-->
 <maecPackage:MAEC_Package
- xmlns:cybox="http://cybox.mitre.org/cybox_v1"
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:common="http://cybox.mitre.org/Common_v1"
+ xmlns:cybox="http://cybox.mitre.org/cybox_v1"
+ xmlns:Common="http://cybox.mitre.org/Common_v1"
  xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject"
  xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
  xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject"
@@ -23,12 +22,14 @@
  xmlns:WinRegistryKeyObj="http://cybox.mitre.org/objects#WinRegistryKeyObject"
  xmlns:URIObj="http://cybox.mitre.org/objects#URIObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 ../maec-package-schema.xsd http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.2.xsd
- http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/Win_Mutex_Object_1.1.xsd 
- http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.2.xsd 
- http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/URI_Object_1.1.xsd
- http://cybox.mitre.org/objects#WinRegistryKeyObject http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/Win_Registry_Key_Object_1.3.xsd" id="maec-example-pkg-1" schema_version="1.0">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 ../maec-package-schema.xsd 
+ http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
+ http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/Win_Mutex_Object_1.2.xsd 
+ http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.3.xsd 
+ http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/URI_Object_1.2.xsd
+ http://cybox.mitre.org/objects#WinRegistryKeyObject http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/Win_Registry_Key_Object_1.3.xsd" 
+ id="maec-example-pkg-1" schema_version="1.0">
 
  <maecPackage:Malware_Subjects>
   <maecPackage:Malware_Subject id="maec-example-sub-1">
@@ -37,10 +38,10 @@
       <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>
       <FileObj:Size_In_Bytes datatype="UnsignedLong" condition="Equals">196608</FileObj:Size_In_Bytes>
       <FileObj:Hashes>
-       <common:Hash>
-        <common:Type datatype="String" condition="Equals">MD5</common:Type>
-        <common:Simple_Hash_Value datatype="hexBinary" condition="Equals">4EC0027BEF4D7E1786A04D021FA8A67F</common:Simple_Hash_Value>
-       </common:Hash>
+       <Common:Hash>
+        <Common:Type datatype="String" condition="Equals">MD5</Common:Type>
+        <Common:Simple_Hash_Value datatype="hexBinary" condition="Equals">4EC0027BEF4D7E1786A04D021FA8A67F</Common:Simple_Hash_Value>
+       </Common:Hash>
       </FileObj:Hashes>
      </cybox:Defined_Object>
    </maecPackage:Subject_Attributes>
@@ -55,8 +56,8 @@
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-1"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-1">
-       <common:Name>PEiD</common:Name>
-       <common:Version>0.94</common:Version>
+       <Common:Name>PEiD</Common:Name>
+       <Common:Version>0.94</Common:Version>
       </maecPackage:Tool>
      </maecPackage:Tools>
     </maecPackage:Analysis>
@@ -71,37 +72,37 @@
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-2"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-2">
-       <common:Vendor>Zealand Honeynet Project</common:Vendor>
-       <common:Name>CaptureBAT</common:Name>
-       <common:Version>2.0.0</common:Version>
+       <Common:Vendor>Zealand Honeynet Project</Common:Vendor>
+       <Common:Name>CaptureBAT</Common:Name>
+       <Common:Version>2.0.0</Common:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-3">
-       <common:Name>Regshot</common:Name>
-       <common:Version>v1.8.2</common:Version>
+       <Common:Name>Regshot</Common:Name>
+       <Common:Version>v1.8.2</Common:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-4">
-       <common:Name>HandleDiff</common:Name>
-       <common:Version>v.0.2</common:Version>
+       <Common:Name>HandleDiff</Common:Name>
+       <Common:Version>v.0.2</Common:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-5">
-       <common:Vendor>Sysinternals</common:Vendor>
-       <common:Name>VMMap</common:Name>
-       <common:Version>3.1</common:Version>
+       <Common:Vendor>Sysinternals</Common:Vendor>
+       <Common:Name>VMMap</Common:Name>
+       <Common:Version>3.1</Common:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-6">
-       <common:Vendor>Wireshark.org</common:Vendor>
-       <common:Name>Wireshark</common:Name>
-       <common:Version>1.2.2</common:Version>
+       <Common:Vendor>Wireshark.org</Common:Vendor>
+       <Common:Name>Wireshark</Common:Name>
+       <Common:Version>1.2.2</Common:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-7">
-       <common:Vendor>Sysinternals</common:Vendor>
-       <common:Name>Process Monitor</common:Name>
-       <common:Version>15.0</common:Version>
+       <Common:Vendor>Sysinternals</Common:Vendor>
+       <Common:Name>Process Monitor</Common:Name>
+       <Common:Version>15.0</Common:Version>
       </maecPackage:Tool>
      </maecPackage:Tools>
     </maecPackage:Analysis>
@@ -115,9 +116,9 @@
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-3"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-8">
-       <common:Vendor>Hex-Rays SA</common:Vendor>
-       <common:Name>IDA Pro Freeware</common:Name>
-       <common:Version>5.0</common:Version>
+       <Common:Vendor>Hex-Rays SA</Common:Vendor>
+       <Common:Name>IDA Pro Freeware</Common:Name>
+       <Common:Version>5.0</Common:Version>
       </maecPackage:Tool>
      </maecPackage:Tools>
     </maecPackage:Analysis>
@@ -202,9 +203,9 @@
      <maecBundle:Actions>
        <maecBundle:Action id="maec-example-act-1" type="Create" name="Create File" context="Host" action_status="Success">
         <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-2" type="File" association_type="Affected">
@@ -219,9 +220,9 @@
      
        <maecBundle:Action id="maec-example-act-2" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-          <common:Tools>
-           <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+          <Common:Tools>
+           <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-3" type="File" association_type="Affected">
@@ -236,9 +237,9 @@
      
        <maecBundle:Action id="maec-example-act-3" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-4" type="File" association_type="Affected">
@@ -252,9 +253,9 @@
      
        <maecBundle:Action id="maec-example-act-4" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-5" type="File" association_type="Affected">
@@ -278,9 +279,9 @@
      
        <maecBundle:Action id="maec-example-act-5" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-7" type="File" association_type="Affected">
@@ -295,9 +296,9 @@
      
        <maecBundle:Action id="maec-example-act-6" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-8" type="File" association_type="Affected">
@@ -311,9 +312,9 @@
      
        <maecBundle:Action id="maec-example-act-7" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-9" type="File" association_type="Affected">
@@ -328,9 +329,9 @@
      
        <maecBundle:Action id="maec-example-act-8" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-3"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-3"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-10" type="File" association_type="Affected">
@@ -344,9 +345,9 @@
      
        <maecBundle:Action id="maec-example-act-9" type="Create" name="Create Mutex" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-4"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-4"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-11" type="Mutex" association_type="Affected">
@@ -359,9 +360,9 @@
      
        <maecBundle:Action id="maec-example-act-10" type="Write" name="Write to Process Virtual Memory" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-5"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-5"/>
+         </Common:Tools>
          </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-12" association_type="Utilized">
@@ -389,9 +390,9 @@
      
        <maecBundle:Action id="maec-example-act-11" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-6"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-6"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-14" type="URI" association_type="Utilized">
@@ -404,9 +405,9 @@
      
        <maecBundle:Action id="maec-example-act-12" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-6"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-6"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-15" type="URI" association_type="Utilized">
@@ -419,9 +420,9 @@
      
        <maecBundle:Action id="maec-example-act-13" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-6"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-6"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-16" type="URI" association_type="Utilized">
@@ -434,9 +435,9 @@
      
        <maecBundle:Action id="maec-example-act-14" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-6"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-6"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-17" type="URI" association_type="Utilized">
@@ -449,9 +450,9 @@
      
        <maecBundle:Action id="maec-example-act-15" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-6"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-6"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-18" type="URI" association_type="Utilized">
@@ -464,9 +465,9 @@
        
        <maecBundle:Action id="maec-example-act-16" type="Connect" name="Connect to IP" context="Network" network_protocol="TCP/IP" action_status="Fail">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-6"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-6"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-19" type="IP Address" association_type="Utilized">
@@ -479,9 +480,9 @@
      
        <maecBundle:Action id="maec-example-act-17" type="Connect" name="Connect to IP" context="Network" network_protocol="TCP/IP" action_status="Fail">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-6"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-6"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-20" type="IP Address" association_type="Utilized">
@@ -494,9 +495,9 @@
        
        <maecBundle:Action id="maec-example-act-18" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-21" type="File" association_type="Affected">
@@ -510,9 +511,9 @@
        
        <maecBundle:Action id="maec-example-act-19" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-22" type="File" association_type="Affected">
@@ -526,9 +527,9 @@
        
        <maecBundle:Action id="maec-example-act-20" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-23" type="File" association_type="Affected">
@@ -542,9 +543,9 @@
        
        <maecBundle:Action id="maec-example-act-21" type="Create" name="Create Process" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-7"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-7"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-24" type="Process" association_type="Affected">
@@ -560,9 +561,9 @@
      
        <maecBundle:Action id="maec-example-act-22" type="Create" name="Create Process" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-7"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-7"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-25" type="Process" association_type="Affected">
@@ -578,9 +579,9 @@
      
        <maecBundle:Action id="maec-example-act-23" type="Create" name="Create Process" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-7"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-7"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-26" association_type="Affected">
@@ -596,9 +597,9 @@
      
        <maecBundle:Action id="maec-example-act-24" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-27" type="File" association_type="Affected">
@@ -613,9 +614,9 @@
      
        <maecBundle:Action id="maec-example-act-25" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-28" type="File" association_type="Affected">
@@ -630,9 +631,9 @@
      
        <maecBundle:Action id="maec-example-act-26" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-29" type="File" association_type="Affected">
@@ -646,9 +647,9 @@
      
        <maecBundle:Action id="maec-example-act-27" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-30" type="File" association_type="Affected">
@@ -662,9 +663,9 @@
        
        <maecBundle:Action id="maec-example-act-28" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-31" type="File" association_type="Affected">
@@ -678,9 +679,9 @@
      
       <maecBundle:Action id="maec-example-act-29" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-32" type="File" association_type="Affected">
@@ -694,9 +695,9 @@
      
       <maecBundle:Action id="maec-example-act-30" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-33" type="File" association_type="Affected">
@@ -710,9 +711,9 @@
      
       <maecBundle:Action id="maec-example-act-31" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-34" type="File" association_type="Affected">
@@ -726,9 +727,9 @@
      
       <maecBundle:Action id="maec-example-act-32" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-35" type="File" association_type="Affected">
@@ -742,9 +743,9 @@
      
        <maecBundle:Action id="maec-example-act-33" type="Create" name="Create File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
-         <common:Tools>
-          <common:Tool idref="analysis-tool-2"/>
-         </common:Tools>
+         <Common:Tools>
+          <Common:Tool idref="analysis-tool-2"/>
+         </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
          <cybox:Associated_Object id="maec-example-obj-36" type="File" association_type="Affected">
@@ -846,9 +847,9 @@
      <maecBundle:Actions>
       <maecBundle:Action id="maec-example-act-34" type="Enumerate" name="Enumerate Registry Key Values" context="Host" action_status="Success">
        <cybox:Discovery_Method source_type="Tool">
-        <common:Tools>
-         <common:Tool idref="analysis-tool-8"/>
-        </common:Tools>
+        <Common:Tools>
+         <Common:Tool idref="analysis-tool-8"/>
+        </Common:Tools>
        </cybox:Discovery_Method>
        <cybox:Associated_Objects>
         <cybox:Associated_Object id="maec-example-obj-37" type="Registry Key/Key Group" association_type="Utilized">
@@ -862,9 +863,9 @@
       
       <maecBundle:Action id="maec-example-act-35" type="Modify" name="Set File Attributes" context="Host" action_status="Success">
        <cybox:Discovery_Method source_type="Tool">
-        <common:Tools>
-         <common:Tool idref="analysis-tool-8"/>
-        </common:Tools>
+        <Common:Tools>
+         <Common:Tool idref="analysis-tool-8"/>
+        </Common:Tools>
        </cybox:Discovery_Method>
        <cybox:Associated_Objects>
         <cybox:Associated_Object id="maec-example-obj-38" type="File" association_type="Affected">
@@ -879,9 +880,9 @@
       
       <maecBundle:Action id="maec-example-act-36" type="Copy/Duplicate" name="Copy File" context="Host" action_status="Success">
        <cybox:Discovery_Method source_type="Tool">
-        <common:Tools>
-         <common:Tool idref="analysis-tool-8"/>
-        </common:Tools>
+        <Common:Tools>
+         <Common:Tool idref="analysis-tool-8"/>
+        </Common:Tools>
        </cybox:Discovery_Method>
        <cybox:Associated_Objects>
         <cybox:Associated_Object id="maec-example-obj-39" type="File" association_type="Affected">
@@ -903,9 +904,9 @@
       
       <maecBundle:Action id="maec-example-act-37" type="Copy/Duplicate" name="Copy File" context="Host" action_status="Success">
        <cybox:Discovery_Method source_type="Tool">
-        <common:Tools>
-         <common:Tool idref="analysis-tool-8"/>
-        </common:Tools>
+        <Common:Tools>
+         <Common:Tool idref="analysis-tool-8"/>
+        </Common:Tools>
        </cybox:Discovery_Method>
        <cybox:Associated_Objects>
         <cybox:Associated_Object type="File" id="maec-example-obj-41" association_type="Affected">
