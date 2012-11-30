@@ -20,7 +20,7 @@
  http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.3.xsd" 
  id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="mixed">
  
-  <maecBundle:Subject_Attributes>
+ <maecBundle:Malware_Instance_Object_Attributes>
    <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
     <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>
     <FileObj:Size_In_Bytes datatype="UnsignedLong" condition="Equals">196608</FileObj:Size_In_Bytes>
@@ -31,7 +31,7 @@
      </Common:Hash>
     </FileObj:Hashes>
    </cybox:Defined_Object>
-  </maecBundle:Subject_Attributes>
+  </maecBundle:Malware_Instance_Object_Attributes>
  
   <maecBundle:Actions>
     <maecBundle:Action id="maec-example-act-1" type="Create" name="Create File" context="Host" action_status="Success">

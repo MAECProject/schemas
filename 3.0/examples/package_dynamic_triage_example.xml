@@ -31,7 +31,7 @@
  
  <maecPackage:Malware_Subjects>
   <maecPackage:Malware_Subject id="maec-example-sub-1">
-   <maecPackage:Subject_Attributes>
+   <maecPackage:Malware_Instance_Object_Attributes>
      <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
       <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>
       <FileObj:Size_In_Bytes datatype="UnsignedLong" condition="Equals">196608</FileObj:Size_In_Bytes>
@@ -42,7 +42,7 @@
        </Common:Hash>
       </FileObj:Hashes>
      </cybox:Defined_Object>
-   </maecPackage:Subject_Attributes>
+   </maecPackage:Malware_Instance_Object_Attributes>
    
    <maecPackage:Analyses>
     <maecPackage:Analysis id="maec-example-ana-1" method="Static" type="Triage">

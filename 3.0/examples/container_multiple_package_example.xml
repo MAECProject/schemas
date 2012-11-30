@@ -21,7 +21,7 @@
         <maecContainer:Package id="maec-example-pkg-1" schema_version="1.0">
             <maecPackage:Malware_Subjects>
                 <maecPackage:Malware_Subject id="maec-example-sub-1">
-                    <maecPackage:Subject_Attributes>
+                    <maecPackage:Malware_Instance_Object_Attributes>
                         <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
                             <FileObj:Hashes>
                                 <Common:Hash>
@@ -30,11 +30,11 @@
                                 </Common:Hash>
                             </FileObj:Hashes>
                         </cybox:Defined_Object>
-                    </maecPackage:Subject_Attributes>
+                    </maecPackage:Malware_Instance_Object_Attributes>
                 </maecPackage:Malware_Subject>
                 
                 <maecPackage:Malware_Subject id="maec-example-sub-2">
-                    <maecPackage:Subject_Attributes>
+                    <maecPackage:Malware_Instance_Object_Attributes>
                         <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
                             <FileObj:Hashes>
                                 <Common:Hash>
@@ -43,7 +43,7 @@
                                 </Common:Hash>
                             </FileObj:Hashes>
                         </cybox:Defined_Object>
-                    </maecPackage:Subject_Attributes>
+                    </maecPackage:Malware_Instance_Object_Attributes>
                 </maecPackage:Malware_Subject>
             </maecPackage:Malware_Subjects>
             
@@ -57,7 +57,7 @@
         <maecContainer:Package id="maec-example-pkg-2" schema_version="1.0">
             <maecPackage:Malware_Subjects>
                 <maecPackage:Malware_Subject id="maec-example-sub-3">
-                    <maecPackage:Subject_Attributes>
+                    <maecPackage:Malware_Instance_Object_Attributes>
                         <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
                             <FileObj:Hashes>
                                 <Common:Hash>
@@ -66,11 +66,11 @@
                                 </Common:Hash>
                             </FileObj:Hashes>
                         </cybox:Defined_Object>
-                    </maecPackage:Subject_Attributes>
+                    </maecPackage:Malware_Instance_Object_Attributes>
                 </maecPackage:Malware_Subject>
                 
                 <maecPackage:Malware_Subject id="maec-example-sub-4">
-                    <maecPackage:Subject_Attributes>
+                    <maecPackage:Malware_Instance_Object_Attributes>
                         <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
                             <FileObj:Hashes>
                                 <Common:Hash>
@@ -79,7 +79,7 @@
                                 </Common:Hash>
                             </FileObj:Hashes>
                         </cybox:Defined_Object>
-                    </maecPackage:Subject_Attributes>
+                    </maecPackage:Malware_Instance_Object_Attributes>
                 </maecPackage:Malware_Subject>
             </maecPackage:Malware_Subjects>
             

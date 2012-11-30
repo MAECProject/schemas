@@ -18,7 +18,7 @@
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
  http://cybox.mitre.org/objects#ArtifactObject http://cybox.mitre.org/XMLSchema/objects/Artifact/Artifact_Object_1.0.xsd" 
  id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="dynamic_analysis_tool_output">
-<maecBundle:Subject_Attributes>
+<maecBundle:Malware_Instance_Object_Attributes>
  <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
   <FileObj:Size_In_Bytes datatype="UnsignedLong">24840</FileObj:Size_In_Bytes>
   <FileObj:Hashes>
@@ -32,7 +32,7 @@
    </Common:Hash>
   </FileObj:Hashes>
  </cybox:Defined_Object>
-</maecBundle:Subject_Attributes>
+</maecBundle:Malware_Instance_Object_Attributes>
  
 <maecBundle:Objects>
  <maecBundle:Object id="maec-example-obj-1" type="Artifact">

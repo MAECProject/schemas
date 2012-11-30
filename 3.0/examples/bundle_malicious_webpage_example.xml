@@ -3,7 +3,7 @@
  MAEC Bundle Malicious Webpage Analysis Example
  -Demonstrates how a MAEC Bundle can be used to capture the malicious aspects of a webpage
  -Based on a Wepawet report: http://wepawet.cs.ucsb.edu/view.php?hash=aa6b3e11dbef24845608e5c7dae806d2&t=1333440059&type=js
- -Unlike most of the other examples, the subject here is a URL and not a file
+ -Unlike most of the other examples, the malware instance object here is a URL and not a file
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
 <maecBundle:MAEC_Bundle
@@ -20,11 +20,11 @@
  http://cybox.mitre.org/objects#CodeObject http://cybox.mitre.org/XMLSchema/objects/Code/Code_Object_1.1.xsd
  http://cybox.mitre.org/objects#FileObject http://cybox.mitre.org/XMLSchema/objects/File/File_Object_1.3.xsd" 
  id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="static_analysis_tool_output">
-<maecBundle:Subject_Attributes>
+<maecBundle:Malware_Instance_Object_Attributes>
  <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
   <URIObj:Value>http://samsonikonyou.ru:8080/navigator/jueoaritjuir.php</URIObj:Value>
  </cybox:Defined_Object>
-</maecBundle:Subject_Attributes>
+</maecBundle:Malware_Instance_Object_Attributes>
  
 <maecBundle:Behaviors>
  <maecBundle:Behavior id="maec-example-bhv-1">
