@@ -353,9 +353,10 @@
 			<xs:documentation>The MalwareSubjectType captures all of the details pertaining to a single malware instance, including any corresponding Analyses, Field Data, Findings Bundles, and relationships to other Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" name="Subject_Attributes" type="cybox:ObjectType">
+			<xs:element maxOccurs="1" name="Malware_Instance_Object_Attributes"
+				type="cybox:ObjectType">
 				<xs:annotation>
-					<xs:documentation>The Subject_Attributes element captures the attributes of the object (most commonly a file) that represents the Malware Subject, via its corresponding CybOX Object. For example, a File Object would be represented via a CybOX File_Object and may have a file name, MD5 hash, etc.</xs:documentation>
+					<xs:documentation>The Malware_Instance_Object_Attributes element captures the attributes of the malware instance object (most commonly a file) that is encompassed in the Malware Subject, via its corresponding CybOX Object. For example, a File Object would be represented via a CybOX File_Object and may have a file name, MD5 hash, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Field_Data" type="metadata:fieldDataEntry">

@@ -131,9 +131,10 @@
 			<xs:documentation>The BundleType serves as the high-level construct which encapsulates all Bundle elements, and represents some characterized analysis data (from any arbitrary set of analyses) for a single malware instance in terms of its MAEC Components (e.g., Behaviors, Actions, Objects, etc.).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Subject_Attributes" type="cybox:ObjectType">
+			<xs:element minOccurs="0" name="Malware_Instance_Object_Attributes"
+				type="cybox:ObjectType">
 				<xs:annotation>
-					<xs:documentation>The Subject_Attributes element characterizes the attributes of the object (most typically a file) whose Behaviors, Actions, Objects, Process Tree, and Candidate Indicators are characterized in this Bundle. This is equivalent to the Subject_Attributes inside of a Malware_Subject in the MAEC Package, and is therefore only required if this Bundle is to be used in a stand-alone fashion, i.e. without an accompanying MAEC Package and with the defined_subject attribute set to 'True'.</xs:documentation>
+					<xs:documentation>The Malware_Instance_Object_Attributes element characterizes the attributes of the object (most typically a file) that represents the malware instance whose Behaviors, Actions, Objects, Process Tree, and Candidate Indicators are characterized in this Bundle. This is equivalent to the Subject_Attributes inside of a Malware_Subject in the MAEC Package, and is therefore only required if this Bundle is to be used in a stand-alone fashion, i.e. without an accompanying MAEC Package and with the defined_subject attribute set to 'True'.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Process_Tree" type="maecBundle:ProcessTreeType">
@@ -917,7 +918,7 @@
 		</xs:sequence>
 		<xs:attribute name="operator" type="cybox:OperatorTypeEnum">
 			<xs:annotation>
-				<xs:documentation>The operator attribute specifies the boolean operator for this level of the Candidate Indicator's composition.</xs:documentation>
+				<xs:documentation>The operator attribute specifies the Boolean operator for this level of the Candidate Indicator's composition.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
