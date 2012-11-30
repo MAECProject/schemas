@@ -233,7 +233,7 @@
          </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-4" type="Create" name="Create File" context="Host" action_status="Success">
+       <maecBundle:Action id="maec-example-act-4" type="Modify" name="Modify File" context="Host" action_status="Success">
          <cybox:Discovery_Method source_type="Tool">
          <Common:Tools>
           <Common:Tool idref="analysis-tool-2"/>
@@ -245,16 +245,6 @@
            <FileObj:File_Name datatype="String" condition="Equals">netstat.exe</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\Windows\system32</FileObj:Full_Path>
           </cybox:Defined_Object>
-          <cybox:Related_Objects>
-           <cybox:Related_Object id="maec-example-obj-6" relationship="Injected_Into">
-            <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
-             <ProcessObj:Image_Info>
-              <ProcessObj:Command_Line datatype="String">explorer.exe</ProcessObj:Command_Line>
-              <ProcessObj:Path datatype="String">C:\Windows\</ProcessObj:Path>
-             </ProcessObj:Image_Info>
-            </cybox:Defined_Object>
-           </cybox:Related_Object>
-          </cybox:Related_Objects>
          </cybox:Associated_Object>
          </cybox:Associated_Objects>
        </maecBundle:Action>
@@ -266,7 +256,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-7" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-6" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">IECheck.exe</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Local
@@ -283,7 +273,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-8" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-7" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">IPsecstap.dat</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\Windows\system32</FileObj:Full_Path>
@@ -299,7 +289,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-9" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-8" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">Internet Explorer Security Check.lnk</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Start
@@ -316,7 +306,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-10" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-9" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">13605</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\Windows\system32</FileObj:Full_Path>
@@ -332,7 +322,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-11" type="Mutex" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-10" type="Mutex" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinMutexObj:WindowsMutexObjectType">
            <MutexObj:Name datatype="String" condition="Contains">VistaDLLProRUNNING</MutexObj:Name>
           </cybox:Defined_Object>
@@ -347,14 +337,14 @@
          </Common:Tools>
          </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-12" association_type="Utilized">
+         <cybox:Associated_Object id="maec-example-obj-11" association_type="Utilized">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">msvcr.dll</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Local
             Settings\\Application\\Data</FileObj:Full_Path>
           </cybox:Defined_Object>
          </cybox:Associated_Object>
-         <cybox:Associated_Object id="maec-example-obj-13" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-12" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
            <ProcessObj:Image_Info>
             <ProcessObj:Command_Line datatype="String">explorer.exe</ProcessObj:Command_Line>
@@ -377,7 +367,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-14" type="URI" association_type="Utilized">
+         <cybox:Associated_Object id="maec-example-obj-13" type="URI" association_type="Utilized">
           <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
            <URIObj:Value datatype="AnyURI" condition="Contains">test.3322.org.cn</URIObj:Value>
           </cybox:Defined_Object>
@@ -392,7 +382,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-15" type="URI" association_type="Utilized">
+         <cybox:Associated_Object id="maec-example-obj-14" type="URI" association_type="Utilized">
           <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
            <URIObj:Value datatype="AnyURI" condition="Contains">1.test.3322.org.cn</URIObj:Value>
           </cybox:Defined_Object>
@@ -407,7 +397,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-16" type="URI" association_type="Utilized">
+         <cybox:Associated_Object id="maec-example-obj-15" type="URI" association_type="Utilized">
           <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
            <URIObj:Value datatype="AnyURI" condition="Contains">2.test.3322.org.cn</URIObj:Value>
           </cybox:Defined_Object>
@@ -422,7 +412,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-17" type="URI" association_type="Utilized">
+         <cybox:Associated_Object id="maec-example-obj-16" type="URI" association_type="Utilized">
           <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
            <URIObj:Value datatype="AnyURI" condition="Contains">3.test.3322.org.cn</URIObj:Value>
           </cybox:Defined_Object>
@@ -437,7 +427,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-18" type="URI" association_type="Utilized">
+         <cybox:Associated_Object id="maec-example-obj-17" type="URI" association_type="Utilized">
           <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
            <URIObj:Value datatype="AnyURI" condition="Contains">4.test.3322.org.cn</URIObj:Value>
           </cybox:Defined_Object>
@@ -452,7 +442,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-19" type="IP Address" association_type="Utilized">
+         <cybox:Associated_Object id="maec-example-obj-18" type="IP Address" association_type="Utilized">
           <cybox:Defined_Object xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
            <AddressObj:Address_Value datatype="String" condition="Equals">172.16.0.61</AddressObj:Address_Value>
           </cybox:Defined_Object>
@@ -467,7 +457,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-20" type="IP Address" association_type="Utilized">
+         <cybox:Associated_Object id="maec-example-obj-19" type="IP Address" association_type="Utilized">
           <cybox:Defined_Object xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
            <AddressObj:Address_Value datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^115\..*\..*\.249</AddressObj:Address_Value>
           </cybox:Defined_Object>
@@ -482,7 +472,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-21" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-20" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">fvcwin32.exe</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug</FileObj:Full_Path>
@@ -498,7 +488,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-22" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-21" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">acvcwin32.exe</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug</FileObj:Full_Path>
@@ -514,7 +504,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-23" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-22" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">avcwin32.exe</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug</FileObj:Full_Path>
@@ -530,7 +520,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-24" type="Process" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-23" type="Process" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
            <ProcessObj:Image_Info>
             <ProcessObj:Command_Line datatype="String" condition="Equals">fvcwin32.exe</ProcessObj:Command_Line>
@@ -548,7 +538,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-25" type="Process" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-24" type="Process" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
            <ProcessObj:Image_Info>
             <ProcessObj:Command_Line datatype="String" condition="Equals">acvcwin32.exe</ProcessObj:Command_Line>
@@ -566,7 +556,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-26" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-25" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
            <ProcessObj:Image_Info>
             <ProcessObj:Command_Line datatype="String">avcwin32.exe</ProcessObj:Command_Line>
@@ -584,7 +574,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-27" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-26" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">AutoList.txt</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\.*\\Application
@@ -601,7 +591,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-28" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-27" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">AutoList.txt</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\.*\\Application
@@ -618,7 +608,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-29" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-28" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">SAM.dll</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
@@ -634,7 +624,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-30" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-29" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">system.dll</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
@@ -650,7 +640,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-31" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-30" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">system.dll</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
@@ -666,7 +656,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-32" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-31" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">Iestorage.dll</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
@@ -682,7 +672,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-33" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-32" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">SAM.dll</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
@@ -698,7 +688,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-34" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-33" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">system.dll</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
@@ -714,7 +704,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-35" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-34" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">iestorage.dll</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
@@ -730,7 +720,7 @@
          </Common:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-36" type="File" association_type="Affected">
+         <cybox:Associated_Object id="maec-example-obj-35" type="File" association_type="Affected">
           <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
            <FileObj:File_Name datatype="String" condition="Equals">drive.cab</FileObj:File_Name>
            <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
