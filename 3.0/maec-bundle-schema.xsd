@@ -134,7 +134,7 @@
 			<xs:element minOccurs="0" name="Malware_Instance_Object_Attributes"
 				type="cybox:ObjectType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Instance_Object_Attributes element characterizes the attributes of the object (most typically a file) that represents the malware instance whose Behaviors, Actions, Objects, Process Tree, and Candidate Indicators are characterized in this Bundle. This is equivalent to the Subject_Attributes inside of a Malware_Subject in the MAEC Package, and is therefore only required if this Bundle is to be used in a stand-alone fashion, i.e. without an accompanying MAEC Package and with the defined_subject attribute set to 'True'.</xs:documentation>
+					<xs:documentation>The Malware_Instance_Object_Attributes element characterizes the attributes of the object (most typically a file) that represents the malware instance whose Behaviors, Actions, Objects, Process Tree, and Candidate Indicators are characterized in this Bundle. This is equivalent to the Malware_Instance_Object_Attributes inside of a Malware_Subject in the MAEC Package, and is therefore only required if this Bundle is to be used in a stand-alone fashion, i.e. without an accompanying MAEC Package and with the defined_subject attribute set to 'True'.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Process_Tree" type="maecBundle:ProcessTreeType">
@@ -181,7 +181,7 @@
 		</xs:attribute>
 		<xs:attribute name="defined_subject" type="xs:boolean" use="required">
 			<xs:annotation>
-				<xs:documentation>The required defined_subject attribute specifies whether the subject attributes of the malware instance characterized here are included inside this Bundle (via the top-level Subject_Attributes element) or elsewhere (such as a MAEC Subject in a MAEC Package).</xs:documentation>
+				<xs:documentation>The required defined_subject attribute specifies whether the subject attributes of the malware instance characterized here are included inside this Bundle (via the top-level Malware_Instance_Object_Attributes element) or elsewhere (such as a MAEC Subject in a MAEC Package).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="content_type" type="maecBundle:BundleContentTypeEnum">
