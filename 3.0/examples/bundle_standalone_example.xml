@@ -79,7 +79,7 @@
   </cybox:Associated_Objects>
  </maecBundle:Action>
  
- <maecBundle:Action type="Create" name="Inject Memory Page" id="maec-example-act-4">
+ <maecBundle:Action type="Inject" name="Inject Memory Page" id="maec-example-act-4">
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected">
     <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
@@ -92,7 +92,7 @@
   </cybox:Associated_Objects>
  </maecBundle:Action>
  
- <maecBundle:Action type="Create" name="Inject Memory Page" id="maec-example-act-5">
+ <maecBundle:Action type="Inject" name="Inject Memory Page" id="maec-example-act-5">
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected">
     <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
@@ -105,7 +105,7 @@
   </cybox:Associated_Objects>
  </maecBundle:Action>
  
- <maecBundle:Action type="Create" name="Inject Memory Page" id="maec-example-act-6">
+ <maecBundle:Action type="Inject" name="Inject Memory Page" id="maec-example-dfgt-6">
   <cybox:Associated_Objects>
    <cybox:Associated_Object association_type="Affected">
     <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
