@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- MAEC Standalone Bundle Example
- -A simple example of a typical MAEC Bundle
+ MAEC Bundle Dynamic Triagle Tool Output Example
+ -A simple example of a typical MAEC Bundle that captures the output of some dynamic analysis tool
  -Based on ThreatExpert report http://www.threatexpert.com/report.aspx?md5=6519ed23fb22d0228e61a68d40f75c49
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
