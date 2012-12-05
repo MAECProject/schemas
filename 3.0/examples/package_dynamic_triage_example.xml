@@ -21,8 +21,8 @@
  xmlns:WinMutexObj="http://cybox.mitre.org/objects#WinMutexObject"
  xmlns:URIObj="http://cybox.mitre.org/objects#URIObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 ../maec-package-schema.xsd 
- http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 http://maec.mitre.org/language/version3.0/maec-package-schema.xsd 
+ http://maec.mitre.org/XMLSchema/maec-bundle-3 http://maec.mitre.org/language/version3.0/maec-bundle-schema.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
  http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/Win_Mutex_Object_1.2.xsd 
  http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.3.xsd 

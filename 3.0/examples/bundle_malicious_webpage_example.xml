@@ -14,7 +14,7 @@
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 file:../maec-bundle-schema.xsd
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 http://maec.mitre.org/language/version3.0/maec-bundle-schema.xsd
  http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/URI_Object_1.2.xsd
  http://cybox.mitre.org/objects#ArtifactObject http://cybox.mitre.org/XMLSchema/objects/Artifact/Artifact_Object_1.0.xsd
  http://cybox.mitre.org/objects#CodeObject http://cybox.mitre.org/XMLSchema/objects/Code/Code_Object_1.1.xsd

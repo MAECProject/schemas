@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  MAEC Bundle Object Reuse Example
- -A simple example that demonstrates how objects (here in multiple actions) may be re-used via references
- -The Object that is used more than once (i.e., in multiple actions) is stored inside the <Objects> Bundle element and then referenced with the idref attribute.
+ -A simple example that demonstrates how objects (here in multiple Actions) may be re-used via references
+ -The Object that is used more than once (i.e., in multiple Actions) is stored inside the <Objects> Bundle element and then referenced with the idref attribute.
  -Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li. http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
@@ -15,7 +15,7 @@
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 ../maec-bundle-schema.xsd 
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 http://maec.mitre.org/language/version3.0/maec-bundle-schema.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
  http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.3.xsd" 
  id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="mixed">

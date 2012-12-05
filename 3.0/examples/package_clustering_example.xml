@@ -14,7 +14,7 @@
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-1 file:../maec-package-schema.xsd
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-1 http://maec.mitre.org/language/version3.0/maec-package-schema.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" 
  id="maec-example-pkg-1" schema_version="1.0">
     <maecPackage:Malware_Subjects>

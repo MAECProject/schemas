@@ -4,18 +4,18 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-1"
 	xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1" version="1.0">
+	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-package-1"
+		schemaLocation="http://maec.mitre.org/language/version3.0/maec-package-schema.xsd"/>
 	<xs:annotation>
 		<xs:documentation>The following is a description of the elements, types, and attributes that compose the Malware Attribute Enumeration and Characterization (MAEC) container schema.</xs:documentation>
 		<xs:documentation>The MAEC Container Schema is maintained by The Mitre Corporation. For more information, including how to get involved in the project, please visit the MAEC website at http://maec.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>MAEC Container Schema</schema>
 			<version>1.0</version>
-			<date>11/23/2012</date>
+			<date>12/4/2012</date>
 			<terms_of_use>Copyright (c) 2012, The MITRE Corporation. All rights reserved.  The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema.  When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-package-1"
-		schemaLocation="maec-package-schema.xsd"/>
 	<xs:element name="MAEC_Container" type="maecContainer:ContainerType">
 		<xs:annotation>
 			<xs:documentation>The root element of the MAEC Container schema is MAEC_Container, which captures one or more Packages.</xs:documentation>
