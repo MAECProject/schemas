@@ -27,17 +27,17 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Hypervisor_Host_System" type="maecPackage:HypervisorHostSystemType">
 				<xs:annotation>
-					<xs:documentation>The Hypervisor_Host_System element characterizes the (physical) host system used in the analysis on which the VM Hypervisor runs. This element imports and extends the CybOX System Object.</xs:documentation>
+					<xs:documentation>The Hypervisor_Host_System field characterizes the (physical) host system used in the analysis on which the VM Hypervisor runs. This element imports and extends the CybOX System Object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Analysis_Systems" type="maecPackage:AnalysisSystemListType">
 				<xs:annotation>
-					<xs:documentation>The Analysis_Systems element characterizes the system(s) (real or virtual) on which the actual analysis was performed, including information about both the hardware and software, such as the properties of its BIOS, processor architecture, and operating system. This element imports and extends the CybOX System Object.</xs:documentation>
+					<xs:documentation>The Analysis_Systems field characterizes the system(s) (real or virtual) on which the actual analysis was performed, including information about both the hardware and software, such as the properties of its BIOS, processor architecture, and operating system. This element imports and extends the CybOX System Object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Network_Infrastructure" type="maecPackage:NetworkInfrastructureType">
 				<xs:annotation>
-					<xs:documentation>The Network_Infrastructure element captures details of the network infrastructure used in the analysis environment, such as any network protocols that are captured or manipulated.</xs:documentation>
+					<xs:documentation>The Network_Infrastructure field captures details of the network infrastructure used in the analysis environment, such as any network protocols that are captured or manipulated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -49,27 +49,27 @@
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Name element refers to the name of the person linked to the source.</xs:documentation>
+					<xs:documentation>The Name field refers to the name of the person linked to the source.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Method" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Method element provides an abstract way of specifying the method used to obtain the data that the Source element refers to.</xs:documentation>
+					<xs:documentation>The Method field provides an abstract way of specifying the method used to obtain the data that the Source element refers to.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Reference" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Reference element provides an abstract way of specifying a reference name or ID for the source.</xs:documentation>
+					<xs:documentation>The Reference field provides an abstract way of specifying a reference name or ID for the source.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Organization" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Organization element specifies the name of the organization from which the source originated.</xs:documentation>
+					<xs:documentation>The Organization field specifies the name of the organization from which the source originated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="URL" type="xs:anyURI">
 				<xs:annotation>
-					<xs:documentation>The URL element specifies the URl of the external source, if applicable.</xs:documentation>
+					<xs:documentation>The URL field specifies the URl of the external source, if applicable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -81,7 +81,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Comment" type="maecPackage:CommentType">
 				<xs:annotation>
-					<xs:documentation>The Comment element specifies a single comment pertaining to a particular MAEC entity.</xs:documentation>
+					<xs:documentation>The Comment field specifies a single comment pertaining to a particular MAEC entity.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -93,7 +93,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Analysis_System" type="maecPackage:AnalysisSystemType">
 				<xs:annotation>
-					<xs:documentation>The Analysis_System element captures a single analysis system.</xs:documentation>
+					<xs:documentation>The Analysis_System field captures a single analysis system.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -105,7 +105,7 @@
 		<xs:sequence maxOccurs="1">
 			<xs:element maxOccurs="unbounded" name="Tool" type="cyboxCommon:ToolInformationType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The Tool element specifies a single tool in the list.</xs:documentation>
+					<xs:documentation>The Tool field specifies a single tool in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -118,12 +118,12 @@
 			<xs:extension base="xs:string">
 				<xs:attribute name="author" type="xs:string">
 					<xs:annotation>
-						<xs:documentation>The author attribute specifies the name of the author that added the comment.</xs:documentation>
+						<xs:documentation>The author field specifies the name of the author that added the comment.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="timestamp" type="xs:dateTime">
 					<xs:annotation>
-						<xs:documentation>The timestamp attribute specifies the date/time that the comment was added.</xs:documentation>
+						<xs:documentation>The timestamp field specifies the date/time that the comment was added.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -138,7 +138,7 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="Installed_Programs" type="maecPackage:InstalledProgramsType">
 						<xs:annotation>
-							<xs:documentation>The Installed_Programs element specifies the programs installed on the OS that was used to perform the analysis. This can be useful for clarifying the nature of the analysis environment, for instance for determining whether an exploited piece of software was present, as well as for specifying any tools that may have been installed.</xs:documentation>
+							<xs:documentation>The Installed_Programs field specifies the programs installed on the OS that was used to perform the analysis. This can be useful for clarifying the nature of the analysis environment, for instance for determining whether an exploited piece of software was present, as well as for specifying any tools that may have been installed.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -154,7 +154,7 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="VM_Hypervisor" type="cyboxCommon:PlatformSpecificationType">
 						<xs:annotation>
-							<xs:documentation>The VM_Hypervisor element refers to the name of the VM Hypervisor that hosts the operating system(s) on which the analysis was performed, if applicable, via a Common Platform Enumeration (CPE) identifier. See http://cpe.mitre.org for more information on CPE.</xs:documentation>
+							<xs:documentation>The VM_Hypervisor field refers to the name of the VM Hypervisor that hosts the operating system(s) on which the analysis was performed, if applicable, via a Common Platform Enumeration (CPE) identifier. See http://cpe.mitre.org for more information on CPE.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -168,17 +168,17 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Command_Line" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Command_Line element specifies the command line used to launch the subject binary. </xs:documentation>
+					<xs:documentation>The Command_Line field specifies the command line used to launch the subject binary. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Analysis_Duration" type="xs:float">
 				<xs:annotation>
-					<xs:documentation>The Analysis_Duration element specifies the duration of the overall dynamic analysis process, in seconds.</xs:documentation>
+					<xs:documentation>The Analysis_Duration field specifies the duration of the overall dynamic analysis process, in seconds.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Exit_Code" type="xs:integer">
 				<xs:annotation>
-					<xs:documentation>The Exit_Code element specifies the exit code with which the subject binary exited. </xs:documentation>
+					<xs:documentation>The Exit_Code field specifies the exit code with which the subject binary exited. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -190,79 +190,79 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Source" type="maecPackage:SourceType">
 				<xs:annotation>
-					<xs:documentation>The Source element specifies information about the internal or external source of the analysis, if applicable.</xs:documentation>
+					<xs:documentation>The Source field specifies information about the internal or external source of the analysis, if applicable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Analysts" type="cyboxCommon:PersonnelType">
 				<xs:annotation>
-					<xs:documentation>The Analysts element specifies the analyst(s) who performed the analysis.</xs:documentation>
+					<xs:documentation>The Analysts field specifies the analyst(s) who performed the analysis.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Summary" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Summary element specifies a summary of the analysis that was performed.</xs:documentation>
+					<xs:documentation>The Summary field specifies a summary of the analysis that was performed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Comments" type="maecPackage:CommentListType">
 				<xs:annotation>
-					<xs:documentation>The Comments element specifies any comments regarding the analysis that was performed.</xs:documentation>
+					<xs:documentation>The Comments field specifies any comments regarding the analysis that was performed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Findings_Bundle_Reference" type="maecBundle:BundleReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Findings_Bundle_Reference specifies a reference to the Bundle which encompasses the results and output of the Analysis in terms of its corresponding MAEC entities, such as Behaviors and Actions.</xs:documentation>
+					<xs:documentation>The Findings_Bundle_Reference field specifies a reference to the Bundle which encompasses the results and output of the Analysis in terms of its corresponding MAEC entities, such as Behaviors and Actions.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Tools" type="maecPackage:ToolListType">
 				<xs:annotation>
-					<xs:documentation>The Tools element specifies information about the tool(s) used in the analysis, via the CybOX ToolInformationType. If only a single Tool is specified, then this implies that this tool was responsible for all of the findings contained in the Bundle referenced by the Findings_Bundle_Reference element.</xs:documentation>
+					<xs:documentation>The Tools field specifies information about the tool(s) used in the analysis, via the CybOX ToolInformationType. If only a single Tool is specified, then this implies that this tool was responsible for all of the findings contained in the Bundle referenced by the Findings_Bundle_Reference element.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Dynamic_Analysis_Metadata" type="maecPackage:DynamicAnalysisMetadataType">
 				<xs:annotation>
-					<xs:documentation>The Dynamic_Analysis_Metadata element specifies metadata pertaining to the dynamic analysis of the subject binary, such as the command line used, the duration of the analysis, etc.</xs:documentation>
+					<xs:documentation>The Dynamic_Analysis_Metadata field specifies metadata pertaining to the dynamic analysis of the subject binary, such as the command line used, the duration of the analysis, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Analysis_Environment" type="maecPackage:AnalysisEnvironmentType">
 				<xs:annotation>
-					<xs:documentation>The Analysis_Environment element specifies attributes for characterizing the analysis environment in which the analysis was performed.</xs:documentation>
+					<xs:documentation>The Analysis_Environment field specifies attributes for characterizing the analysis environment in which the analysis was performed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Report" type="cyboxCommon:StructuredTextType">
 				<xs:annotation>
-					<xs:documentation>The Report element specifies the textual report regarding the analysis performed on the malware.</xs:documentation>
+					<xs:documentation>The Report field specifies the textual report regarding the analysis performed on the malware.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="maecPackage:AnalysisIDPattern" use="required"/>
 		<xs:attribute name="type" type="maecPackage:AnalysisTypeEnum">
 			<xs:annotation>
-				<xs:documentation>The type attribute specifies the type of malware analysis being performed.</xs:documentation>
+				<xs:documentation>The type field specifies the type of malware analysis being performed.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="method" type="maecPackage:AnalysisMethodEnum">
 			<xs:annotation>
-				<xs:documentation>The method attribute specifies the analysis method used in the analysis. </xs:documentation>
+				<xs:documentation>The method field specifies the analysis method used in the analysis. </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
 			<xs:annotation>
-				<xs:documentation>The ordinal_position attribute specifies the ordering of the analysis with respect to the other analyses performed on the Malware Subject.</xs:documentation>
+				<xs:documentation>The ordinal_position field specifies the ordering of the analysis with respect to the other analyses performed on the Malware Subject.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="start_datetime" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The start_datetime attribute specifies the date/time the analysis was started.</xs:documentation>
+				<xs:documentation>The start_datetime field specifies the date/time the analysis was started.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="complete_datetime" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The complete_datetime attribute specifies the date/time the analysis was completed.</xs:documentation>
+				<xs:documentation>The complete_datetime field specifies the date/time the analysis was completed.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="lastupdate_datetime" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The lastupdate_datetime attribute specifies the date/time the analysis was last updated.</xs:documentation>
+				<xs:documentation>The lastupdate_datetime field specifies the date/time the analysis was last updated.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -273,7 +273,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Analysis" type="maecPackage:AnalysisType">
 				<xs:annotation>
-					<xs:documentation>The Analysis element represents the metadata regarding a single analysis that was performed on a Malware Subject.</xs:documentation>
+					<xs:documentation>The Analysis field represents the metadata regarding a single analysis that was performed on a Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -285,7 +285,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Program" type="cyboxCommon:PlatformSpecificationType">
 				<xs:annotation>
-					<xs:documentation>The Program element specifies a single program that is installed on the system. It imports and uses the CPESpecificationType from the Cybox v1.0 Common Types draft.</xs:documentation>
+					<xs:documentation>The Program field specifies a single program that is installed on the system. It imports and uses the CPESpecificationType from the Cybox v1.0 Common Types draft.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -297,28 +297,28 @@
 		<xs:sequence>
 			<xs:element name="Malware_Subjects" type="maecPackage:MalwareSubjectListType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subjects element captures each of the Malware Subjects contained in the Package.</xs:documentation>
+					<xs:documentation>The Malware_Subjects field captures each of the Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Grouping_Relationships" type="maecPackage:GroupingRelationshipListType">
 				<xs:annotation>
-					<xs:documentation>The Grouping_Relationships element specifies the particular relationships that serve to group the Malware Subjects encompassed in this Package. This is solely for cases where more than one Malware Subject is contained within the Package.</xs:documentation>
+					<xs:documentation>The Grouping_Relationships field specifies the particular relationships that serve to group the Malware Subjects encompassed in this Package. This is solely for cases where more than one Malware Subject is contained within the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="maecPackage:PackageIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id attribute specifies a unique ID for this Package. The ID must follow the pattern defined in the PackageIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Package. The ID must follow the pattern defined in the PackageIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute fixed="1.0" name="schema_version" type="xs:decimal" use="required">
 			<xs:annotation>
-				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation.</xs:documentation>
+				<xs:documentation>The required schema_version field specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The timestamp attribute specifies the date/time that the Package was generated.</xs:documentation>
+				<xs:documentation>The timestamp field specifies the date/time that the Package was generated.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -329,7 +329,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="1" name="Malware_Instance_Object_Attributes" type="cybox:ObjectType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Instance_Object_Attributes element captures the attributes of the malware instance object (most commonly a file) that is encompassed in the Malware Subject, via its corresponding CybOX Object. For example, a File Object would be represented via a CybOX File_Object and may have a file name, MD5 hash, etc.</xs:documentation>
+					<xs:documentation>The Malware_Instance_Object_Attributes field captures the attributes of the malware instance object (most commonly a file) that is encompassed in the Malware Subject, via its corresponding CybOX Object. For example, a File Object would be represented via a CybOX File_Object and may have a file name, MD5 hash, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Minor_Variants" type="maecPackage:MinorVariantListType">
@@ -339,28 +339,28 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Field_Data" type="metadata:fieldDataEntry">
 				<xs:annotation>
-					<xs:documentation>The Field_Data element captures field data and prevalance information relating to the Malware Subject. It imports and uses the fieldDataEntry type from the MMDEF v1.2 schema.</xs:documentation>
+					<xs:documentation>The Field_Data field captures field data and prevalance information relating to the Malware Subject. It imports and uses the fieldDataEntry type from the MMDEF v1.2 schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Analyses" type="maecPackage:AnalysisListType">
 				<xs:annotation>
-					<xs:documentation>The Analyses element captures any Analyses (including their associated metadata such as tools used, etc.) that were performed on the Malware Subject.</xs:documentation>
+					<xs:documentation>The Analyses field captures any Analyses (including their associated metadata such as tools used, etc.) that were performed on the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Findings_Bundles" type="maecPackage:FindingsBundleListType">
 				<xs:annotation>
-					<xs:documentation>The Findings_Bundles element specifies any MAEC Bundles pertaining to the Malware Subject, thus capturing any observed or discovered Behaviors, Actions, or Objects. These Bundles can either be abstract, or referenced as the result of an analysis that was performed on the malware.</xs:documentation>
+					<xs:documentation>The Findings_Bundles field specifies any MAEC Bundles pertaining to the Malware Subject, thus capturing any observed or discovered Behaviors, Actions, or Objects. These Bundles can either be abstract, or referenced as the result of an analysis that was performed on the malware.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Relationships" type="maecPackage:MalwareSubjectRelationshipListType">
 				<xs:annotation>
-					<xs:documentation>The Relationships element captures any relationships between the Malware Subject and other Malware Subjects.</xs:documentation>
+					<xs:documentation>The Relationships field captures any relationships between the Malware Subject and other Malware Subjects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="maecPackage:MalwareSubjectIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id attribute specifies a unique ID for this Malware Subject. The ID must follow the pattern defined in the MalwareSubjectIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Malware Subject. The ID must follow the pattern defined in the MalwareSubjectIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -371,12 +371,12 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Action_Equivalences" type="maecPackage:ActionEquivalenceListType">
 				<xs:annotation>
-					<xs:documentation>The Action_Equivalences element captures any equivalences between Actions contained in one or more Bundles.</xs:documentation>
+					<xs:documentation>The Action_Equivalences field captures any equivalences between Actions contained in one or more Bundles.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Object_Equivalences" type="maecPackage:ObjectEquivalenceListType">
 				<xs:annotation>
-					<xs:documentation>The Object_Equivalences element captures any equivalences between Objects contained in one or more Bundles.</xs:documentation>
+					<xs:documentation>The Object_Equivalences field captures any equivalences between Objects contained in one or more Bundles.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -388,13 +388,13 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Malware_Subject_Reference" type="maecPackage:MalwareSubjectReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subject_Reference element provides a reference to a single Malware Subject that this relationship pertains to.</xs:documentation>
+					<xs:documentation>The Malware_Subject_Reference field provides a reference to a single Malware Subject that this relationship pertains to.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="type" use="required" type="maecPackage:MalwareSubjectRelationshipEnum">
 			<xs:annotation>
-				<xs:documentation>The type attribute specifies the type of relationship being captured.</xs:documentation>
+				<xs:documentation>The type field specifies the type of relationship being captured.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -405,7 +405,7 @@
 		<xs:sequence>
 			<xs:element name="Relationship" maxOccurs="unbounded" type="maecPackage:MalwareSubjectRelationshipType">
 				<xs:annotation>
-					<xs:documentation>The Relationship element specifies a relationship that relates the Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
+					<xs:documentation>The Relationship field specifies a relationship that relates the Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -416,7 +416,7 @@
 		</xs:annotation>
 		<xs:attribute name="malware_subject_idref" type="maecPackage:MalwareSubjectIDREFPattern" use="required">
 			<xs:annotation>
-				<xs:documentation>The malware_subject_idref attribute provides a reference to a Malware Subject contained in the Package, via its ID.</xs:documentation>
+				<xs:documentation>The malware_subject_idref field provides a reference to a Malware Subject contained in the Package, via its ID.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -427,7 +427,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Malware_Subject" type="maecPackage:MalwareSubjectType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subject element represents a single Malware Subject (most commonly a file) and its associated metadata, such as Analyses, Bundles, relationships to other Malware Subjects, etc.</xs:documentation>
+					<xs:documentation>The Malware_Subject field represents a single Malware Subject (most commonly a file) and its associated metadata, such as Analyses, Bundles, relationships to other Malware Subjects, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -451,17 +451,17 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Meta_Analysis" type="maecPackage:MetaAnalysisType">
 				<xs:annotation>
-					<xs:documentation>The Meta_Analysis element captures any meta-analysis related entities for the Bundles captured for a Malware Subject, such as equivalencies.</xs:documentation>
+					<xs:documentation>The Meta_Analysis field captures any meta-analysis related entities for the Bundles captured for a Malware Subject, such as equivalencies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" name="Bundle" type="maecBundle:BundleType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Bundle element captures a single MAEC Bundle, representing some set of characterized entities resulting from  analysis of the Malware Subject.</xs:documentation>
+					<xs:documentation>The Bundle field captures a single MAEC Bundle, representing some set of characterized entities resulting from  analysis of the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Bundle_External_Reference" type="xs:anyURI">
 				<xs:annotation>
-					<xs:documentation>The Bundle_External_Reference element specifies a single externally located MAEC Bundle (such as a file or URL) via a URI, representing some set of results from analysis of the Malware Subject.</xs:documentation>
+					<xs:documentation>The Bundle_External_Reference field specifies a single externally located MAEC Bundle (such as a file or URL) via a URI, representing some set of results from analysis of the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -473,28 +473,28 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Malware_Family_Name" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Malware_Family_Name element specifies the name of the malware family referred to by the 'same_malware_family' relationship type.</xs:documentation>
+					<xs:documentation>The Malware_Family_Name field specifies the name of the malware family referred to by the 'same_malware_family' relationship type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Malware_Toolkit_Name" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Malware_Toolkit_Name element specifies the name of the malware toolkit referred to by the 'same_malware_toolkit' relationship type.</xs:documentation>
+					<xs:documentation>The Malware_Toolkit_Name field specifies the name of the malware toolkit referred to by the 'same_malware_toolkit' relationship type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Clustering_Metadata" type="maecPackage:ClusteringMetadataType">
 				<xs:annotation>
-					<xs:documentation>The Clustering_Metadata element specifies any metadata regarding the algorithm and/or methods used for cluster the Malware Subjects in this Package.</xs:documentation>
+					<xs:documentation>The Clustering_Metadata field specifies any metadata regarding the algorithm and/or methods used for cluster the Malware Subjects in this Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="type" type="maecPackage:GroupingRelationshipEnum" use="required">
 			<xs:annotation>
-				<xs:documentation>The type attribute specifies the type of relationship that groups the Malware Subjects in the Package.</xs:documentation>
+				<xs:documentation>The type field specifies the type of relationship that groups the Malware Subjects in the Package.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="other_type" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>The other_type attribute allows for the specification of an arbitrary grouping relationship type, if it cannot be captured via the enumeration specified in the 'type' attribute (i.e., when 'type' is set to 'other').</xs:documentation>
+				<xs:documentation>The other_type field allows for the specification of an arbitrary grouping relationship type, if it cannot be captured via the enumeration specified in the 'type' attribute (i.e., when 'type' is set to 'other').</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -505,7 +505,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Grouping_Relationship" type="maecPackage:GroupingRelationshipType">
 				<xs:annotation>
-					<xs:documentation>The Grouping_Relationship element specifies a single grouping relationship in the list.</xs:documentation>
+					<xs:documentation>The Grouping_Relationship field specifies a single grouping relationship in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -517,32 +517,32 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Algorithm_Name" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Algorithm_Name element specifies the name of the clustering algorithm used to cluster the malware.</xs:documentation>
+					<xs:documentation>The Algorithm_Name field specifies the name of the clustering algorithm used to cluster the malware.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Algorithm_Version" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Algorithm_Version element specifies the version of the algorithm used to cluster the malware.</xs:documentation>
+					<xs:documentation>The Algorithm_Version field specifies the version of the algorithm used to cluster the malware.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Algorithm_Parameters" type="maecPackage:ClusteringAlgorithmParametersType">
 				<xs:annotation>
-					<xs:documentation>The Algorithm_Parameters element specifies any parameters that may have been used in the clustering algorithm.</xs:documentation>
+					<xs:documentation>The Algorithm_Parameters field specifies any parameters that may have been used in the clustering algorithm.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Cluster_Size" type="xs:positiveInteger">
 				<xs:annotation>
-					<xs:documentation>The Cluster_Size element specifies the size of the malware cluster.</xs:documentation>
+					<xs:documentation>The Cluster_Size field specifies the size of the malware cluster.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Cluster_Description" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Cluster_Description element provides a textual description of the malware cluster, such as information about its composition, etc.</xs:documentation>
+					<xs:documentation>The Cluster_Description field provides a textual description of the malware cluster, such as information about its composition, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Cluster_Composition" minOccurs="0" type="maecPackage:ClusterCompositionType">
 				<xs:annotation>
-					<xs:documentation>The Cluster_Composition element captures the composition of the malware cluster, including the similarity indices between its members, as a collection of edges and their corresponding nodes.</xs:documentation>
+					<xs:documentation>The Cluster_Composition field captures the composition of the malware cluster, including the similarity indices between its members, as a collection of edges and their corresponding nodes.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -554,23 +554,23 @@
 		<xs:sequence>
 			<xs:element minOccurs="1" name="Malware_Subject_Node_A" type="maecPackage:MalwareSubjectReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subject_Node_A element represents a node connected to the edge via a reference to a Malware Subject that is part of a malware cluster.</xs:documentation>
+					<xs:documentation>The Malware_Subject_Node_A field represents a node connected to the edge via a reference to a Malware Subject that is part of a malware cluster.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Malware_Subject_Node_B" type="maecPackage:MalwareSubjectReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Subject_Node_B element represents a node connected to the edge via a reference to a Malware Subject that is part of a malware cluster.</xs:documentation>
+					<xs:documentation>The Malware_Subject_Node_B field represents a node connected to the edge via a reference to a Malware Subject that is part of a malware cluster.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="similarity_index" type="xs:decimal">
 			<xs:annotation>
-				<xs:documentation>The similarity_index attribute specifies the similarity index  between the two Malware Subjects being referenced (indicating how similar they are), as a decimal value. This value should be equivalent to 1 minus the similarity distance value (if included).</xs:documentation>
+				<xs:documentation>The similarity_index field specifies the similarity index  between the two Malware Subjects being referenced (indicating how similar they are), as a decimal value. This value should be equivalent to 1 minus the similarity distance value (if included).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="similarity_distance" type="xs:decimal">
 			<xs:annotation>
-				<xs:documentation>The similarity_index attribute specifies the similarity distance between the two Malware Subjects being referenced (indicating how dissimilar they are), as a decimal value. This value should be equivalent to 1 minus the similarity index value (if included).</xs:documentation>
+				<xs:documentation>The similarity_index field specifies the similarity distance between the two Malware Subjects being referenced (indicating how dissimilar they are), as a decimal value. This value should be equivalent to 1 minus the similarity index value (if included).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -581,7 +581,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Edge_Node_Pair" type="maecPackage:ClusterEdgeNodePairType">
 				<xs:annotation>
-					<xs:documentation>The Cluster_Edge_Node_Pair element specifies a single edge and its connected nodes in the malware cluster, representing the similarity index between two Malware Subjects.</xs:documentation>
+					<xs:documentation>The Cluster_Edge_Node_Pair field specifies a single edge and its connected nodes in the malware cluster, representing the similarity index between two Malware Subjects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -598,12 +598,12 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Distance_Threshold" type="xs:decimal">
 				<xs:annotation>
-					<xs:documentation>The Distance_Threshold element specifies the minimum distance threshold for the cluster, or the minimum distance between nodes in order for them to belong to the same cluster.</xs:documentation>
+					<xs:documentation>The Distance_Threshold field specifies the minimum distance threshold for the cluster, or the minimum distance between nodes in order for them to belong to the same cluster.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Number_of_Iterations" type="xs:positiveInteger">
 				<xs:annotation>
-					<xs:documentation>The Number_of_Iterations element specifies the number of times that the algorithm was executed in order to produce the cluster.</xs:documentation>
+					<xs:documentation>The Number_of_Iterations field specifies the number of times that the algorithm was executed in order to produce the cluster.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -615,7 +615,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="1" name="Captured_Protocols" type="maecPackage:CapturedProtocolListType">
 				<xs:annotation>
-					<xs:documentation>The Captured_Protocols element specifies a list of network protocols, along with the particular level of interaction, that the malware analysis environment captures or interacts with in some fashion.</xs:documentation>
+					<xs:documentation>The Captured_Protocols field specifies a list of network protocols, along with the particular level of interaction, that the malware analysis environment captures or interacts with in some fashion.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -627,13 +627,13 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Action_Reference" type="cybox:ActionReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Action_Reference element specifies a reference to a single Action that is part of the Action Equivalency.</xs:documentation>
+					<xs:documentation>The Action_Reference field specifies a reference to a single Action that is part of the Action Equivalency.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="maecPackage:ActionEquivalenceIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id attribute specifies the ID for the Action Equivalence, and must be of the format specified by the ActionEquivalenceIDPattern type.</xs:documentation>
+				<xs:documentation>The required id field specifies the ID for the Action Equivalence, and must be of the format specified by the ActionEquivalenceIDPattern type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -644,7 +644,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Action_Equivalence" type="maecPackage:ActionEquivalenceType">
 				<xs:annotation>
-					<xs:documentation>The Action_Equivalence element captures a single Action Equivalence in the list.</xs:documentation>
+					<xs:documentation>The Action_Equivalence field captures a single Action Equivalence in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -656,7 +656,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Protocol" type="maecPackage:CapturedProtocolType">
 				<xs:annotation>
-					<xs:documentation>The Protocol element specifies a single layer 4 or layer 7 network protocol captured or interacted with by the analysis environment.</xs:documentation>
+					<xs:documentation>The Protocol field specifies a single layer 4 or layer 7 network protocol captured or interacted with by the analysis environment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -667,22 +667,22 @@
 		</xs:annotation>
 		<xs:attribute name="layer7_protocol" type="maecPackage:Layer7ProtocolEnum">
 			<xs:annotation>
-				<xs:documentation>The layer7_protocol attribute specifies the name of the Layer 7 network protocol (OSI model) captured or manipulated by the analysis environment.</xs:documentation>
+				<xs:documentation>The layer7_protocol field specifies the name of the Layer 7 network protocol (OSI model) captured or manipulated by the analysis environment.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="layer4_protocol" type="maecPackage:Layer4ProtocolEnum">
 			<xs:annotation>
-				<xs:documentation>The layer4_protocol attribute specifies the name of the Layer 4 network protocol (OSI model) captured or manipulated by the analysis environment.</xs:documentation>
+				<xs:documentation>The layer4_protocol field specifies the name of the Layer 4 network protocol (OSI model) captured or manipulated by the analysis environment.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="port_number" type="xs:positiveInteger">
 			<xs:annotation>
-				<xs:documentation>The port_number attribute specifies the port number for this network protocol that is captured or manipulated by the analysis environment.</xs:documentation>
+				<xs:documentation>The port_number field specifies the port number for this network protocol that is captured or manipulated by the analysis environment.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="interaction_level" type="maecPackage:InteractionLevelEnum">
 			<xs:annotation>
-				<xs:documentation>The interaction_level element specifies the relative level of interaction that the analysis environment has with the specified network protocol.</xs:documentation>
+				<xs:documentation>The interaction_level field specifies the relative level of interaction that the analysis environment has with the specified network protocol.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -694,7 +694,7 @@
 			<xs:extension base="maecBundle:ObjectReferenceListType">
 				<xs:attribute name="id" type="maecPackage:ObjectEquivalenceIDPattern" use="required">
 					<xs:annotation>
-						<xs:documentation>The required id attribute specifies the ID for the Object Equivalence, and must be of the format specified by the ObjectEquivalenceIDPattern type.</xs:documentation>
+						<xs:documentation>The required id field specifies the ID for the Object Equivalence, and must be of the format specified by the ObjectEquivalenceIDPattern type.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -707,7 +707,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Object_Equivalence" type="maecPackage:ObjectEquivalenceType">
 				<xs:annotation>
-					<xs:documentation>The Object_Equivalence element specifies a single Object Equivalence in the list.</xs:documentation>
+					<xs:documentation>The Object_Equivalence field specifies a single Object Equivalence in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
