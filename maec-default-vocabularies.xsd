@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-4" targetNamespace="http://maec.mitre.org/default_vocabularies-4" elementFormDefault="qualified" version="4.0.0">
+	<xs:annotation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The MAEC XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:appinfo>
+			<schema>maec-default-vocabularies</schema>
+			<version>4.0.0</version>
+			<date>04/17/2013 9:00:00 AM</date>
+			<short_description>The following defines types for default controlled vocabularies used within MAEC. An individual vocabulary may be revised at any time. Revisions to vocabularies will result in the creation of new types with the new version number embedded in the name of those types. Vocabularies can be reference from MAEC elements through the use of xsi:Type. The individual elements where this may be done indicate the expected default vocabulary.</short_description>
+			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included. </terms_of_use>
+		</xs:appinfo>
+	</xs:annotation>
+</xs:schema>
