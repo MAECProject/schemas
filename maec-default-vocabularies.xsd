@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-4" targetNamespace="http://maec.mitre.org/default_vocabularies-4" elementFormDefault="qualified" version="4.0.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-4" targetNamespace="http://maec.mitre.org/default_vocabularies-4" elementFormDefault="qualified" version="4.0.0">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The MAEC XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
@@ -10,4 +10,42 @@
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="http://cybox.mitre.org/XMLSchema/common/2.0/cybox_common.xsd"/>
+	<xs:complexType name="ActionObjectAssociationTypeVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The ActionObjectAssocationVocab is the default MAEC vocabulary for Action-Object association types, captured via the AssociatedObjectType/Association_Type element in CybOX Core.</xs:documentation>
+			<xs:documentation>It should be used in place of the CybOX ActionObjectAssociationVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:ActionObjectAssociationTypeEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Action-Object Association Names" name="vocab_name" type="xs:string" use="optional"/>
+				<xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ActionObjectAssociationTypeEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>ActionObjectAssociationTypeEnum is a (non-exhaustive) enumeration of types of action-object associations.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="input">
+				<xs:annotation>
+					<xs:documentation>Specifies that the associated object serves as an input to the action.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="output">
+				<xs:annotation>
+					<xs:documentation>Specifies that the associated object serves as an output to the action.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="side-effect">
+				<xs:annotation>
+					<xs:documentation>Specifies that the associated object serves as a side-effect resulting from the action.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
