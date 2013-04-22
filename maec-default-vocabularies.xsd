@@ -299,89 +299,84 @@
 			<xs:documentation>The FileActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="copy file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of copying a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="create file">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="create file alternate data stream">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating an alternate data stream in a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="create file symbolic link">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a file symbolic link.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="create hidden file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a hidden file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete file">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of deleting a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of deleting an existing file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="copy file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of copying an existing file from one location to another.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create file alternate data stream">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating an alternate data stream in an existing file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create file symbolic link">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a symbolic link to an existing file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="find file">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of finding a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of searching for an existing file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get file attributes">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting file attributes.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="lock file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of locking a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="modify file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of modifying a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="move file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of moving a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="open file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening a file mapping.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="read file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of reading a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="rename file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of renaming a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the attributes of an existing file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="set file attributes">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting file attributes.</xs:documentation>
+					<xs:documentation>Specifies the defined action of setting the file attributes for an existing file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="unlock fille">
+			<xs:enumeration value="lock file">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of unmapping a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of locking an existing file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="unlock file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unlocking an existing file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="modify file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying an existing file in some manner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="move file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of moving an existing file from one location to another.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="open file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening an existing file for reading or writing.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="read file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading from an existing file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="write to file">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of writing to a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of writing to an existing file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="rename file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of renaming an existing file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
