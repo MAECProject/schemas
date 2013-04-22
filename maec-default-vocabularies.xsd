@@ -588,72 +588,72 @@
 	</xs:simpleType>
 	<xs:simpleType name="RegistryActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The RegistryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the registry.</xs:documentation>
+			<xs:documentation>The RegistryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Windows registry.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="close registry key">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of closing a registry key.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="create registry key">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a registry key.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="create registry key value">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a registry key value.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new registry key.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete registry key">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of deleting a registry key.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="delete registry key value">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of deleting a registry key value.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="enumerate registry key subkeys">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating registry key subkeys.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="enumerate registry key values">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating registry key values.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get registry key attributes">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the attributes of a registry key.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="modify registry key">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of modifying a registry key.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="modify registry key value">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of modifying a registry key value.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="monitor registry key">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of monitoring a registry key.</xs:documentation>
+					<xs:documentation>Specifies the defined action of deleting an existing registry key.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="open registry key">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening a registry key.</xs:documentation>
+					<xs:documentation>Specifies the defined action of opening an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="close registry key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of closing a handle to an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create registry key value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new named value under an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="delete registry key value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting an existing named value under an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumerate registry key subkeys">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating the registry key subkeys under an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumerate registry key values">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating the named values under an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get registry key attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the attributes of an existing registry key.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="read registry key value">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of reading a registry key value.</xs:documentation>
+					<xs:documentation>Specifies the defined action of reading an existing named value of an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="modify registry key value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying an existing named value of an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="modify registry key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying an existing registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="monitor registry key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of monitoring an existing registry key for changes.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
