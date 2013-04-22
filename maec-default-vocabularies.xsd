@@ -420,9 +420,14 @@
 			<xs:documentation>The NetworkActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a network.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="open port">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a network port.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="close port">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of closing a port.</xs:documentation>
+					<xs:documentation>Specifies the defined action of closing a network port.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="connect to ip">
@@ -430,44 +435,49 @@
 					<xs:documentation>Specifies the defined action of connecting to an IP address.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="disconnect from ip">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from a previously established connection with an IP address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="connect to url">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of connecting to a URL.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="connect to socket address">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a socket address, consisting of an IP address and port number.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="download file">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of downloading a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of downloading a file from a remote location.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="upload file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of uploading a file to a remote location.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="enumerate protocols">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating registry key subkeys.</xs:documentation>
+					<xs:documentation>Specifies the defined action of enumerating network protocols.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get host by address">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting host by address.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting information on a host from a local or remote host database by its IP address.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get host by name">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting host by name.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get host name">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the host name.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting information on a host from a local or remote host database by its name.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="listen on port">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of listening on a specific port.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="open port">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening a port.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="send email message">
@@ -480,16 +490,11 @@
 					<xs:documentation>Specifies the defined action of sending an ICMP request.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="upload file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of uploading a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="NetworkShareActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The NetworkShareActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a network share.</xs:documentation>
+			<xs:documentation>The NetworkShareActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with Windows network shares.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="add connection to network share">
@@ -499,27 +504,27 @@
 			</xs:enumeration>
 			<xs:enumeration value="add network share">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of adding a new network share.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="connect to network share">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of connecting to a network share.</xs:documentation>
+					<xs:documentation>Specifies the defined action of adding a new network share on a server.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete network share">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of deleting a network share.</xs:documentation>
+					<xs:documentation>Specifies the defined action of deleting an existing network share on a server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="connect to network share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to an existing network share.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="disconnect from network share">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of disconnecting from a network share.</xs:documentation>
+					<xs:documentation>Specifies the defined action of disconnecting from an existing network share.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="enumerate network shares">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating network shares.</xs:documentation>
+					<xs:documentation>Specifies the defined action of enumerating the available shared resources on a server.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -551,7 +556,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="create socket">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a socket.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new socket.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="disconnect from socket">
@@ -1067,6 +1072,11 @@
 			<xs:enumeration value="get elapsed system up time">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of getting the elapsed system up-time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get host name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the host name for the local system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get netbios name">
