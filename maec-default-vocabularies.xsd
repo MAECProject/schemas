@@ -658,28 +658,6 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="SystemAdminActionNameEnum-1.0">
-		<xs:annotation>
-			<xs:documentation>The SystemAdminActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with system administration.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="add scheduled task">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of adding a scheduled task.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="shutdown system">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of shutting down a system.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="sleep system">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sleeping a system.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="UserActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The UserActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with users.</xs:documentation>
@@ -1059,11 +1037,26 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="SystemInfoActionNameEnum-1.0">
+	<xs:simpleType name="SystemActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The SystemInfoActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with system information.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="add scheduled task">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a scheduled task to a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="shutdown system">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of shutting down a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sleep system">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sleeping a system for some period of time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="enumerate system handles">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of enumerating system handles.</xs:documentation>
