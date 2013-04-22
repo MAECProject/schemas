@@ -400,22 +400,17 @@
 	</xs:simpleType>
 	<xs:simpleType name="DNSActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with DNS.</xs:documentation>
+			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Domain Name System (DNS).</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="query dns">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of querying DNS.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="send dns query">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of sending a DNS query.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="send reverse dns query">
+			<xs:enumeration value="send reverse dns lookup">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sending a reverse DNS query.</xs:documentation>
+					<xs:documentation>Specifies the defined action of sending a reverse DNS lookup.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
