@@ -465,16 +465,6 @@
 					<xs:documentation>Specifies the defined action of enumerating network protocols.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="get host by address">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting information on a host from a local or remote host database by its IP address.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get host by name">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting information on a host from a local or remote host database by its name.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="listen on port">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of listening on a specific port.</xs:documentation>
@@ -531,7 +521,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="SocketActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The SocketActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a socket.</xs:documentation>
+			<xs:documentation>The SocketActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with network sockets.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="accept socket connection">
@@ -541,17 +531,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="bind address to socket">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of binding an address to a socket.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="close socket">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of closing a socket.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="connect to socket">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of connecting to a socket.</xs:documentation>
+					<xs:documentation>Specifies the defined action of binding a socket address to a socket.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="create socket">
@@ -559,29 +539,49 @@
 					<xs:documentation>Specifies the defined action of creating a new socket.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="close socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of closing an existing socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="connect to socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to an existing socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="disconnect from socket">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of disconnecting from a socket.</xs:documentation>
+					<xs:documentation>Specifies the defined action of disconnecting from an existing socket.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="listen on socket">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of listening on a socket.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="receive data on socket">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of receiving data on a socket.</xs:documentation>
+					<xs:documentation>Specifies the defined action of listening on an existing socket.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="send data on socket">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sending data on a socket.</xs:documentation>
+					<xs:documentation>Specifies the defined action of sending data on an existing, connected socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="receive data on socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of receiving data on an existing socket.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="send data to address on socket">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sending data to the address on a socket.</xs:documentation>
+					<xs:documentation>Specifies the defined action of sending data to a specified IP address on an existing, unconnected socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get host by address">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting information on a host from a local or remote host database by its IP address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get host by name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting information on a host from a local or remote host database by its name.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
