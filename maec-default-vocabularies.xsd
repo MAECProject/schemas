@@ -233,49 +233,24 @@
 			<xs:documentation>The LibraryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with libraries.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="create module">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a module.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="enumerate dlls">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating DLLs.</xs:documentation>
+					<xs:documentation>Specifies the defined action of enumerating the DLLs used by a process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="free library">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of freeing a library.</xs:documentation>
+					<xs:documentation>Specifies the defined action of freeing a library previously loaded into the address space of the calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get function address">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the function address.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get library file name">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the host name.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get library handle">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the library file name.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the address of an exported function or variable from a library.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="load library">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of loading a library.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="load module">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of loading a module.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="unload module">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of unlocking a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of loading a library into the address space of the calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -287,12 +262,12 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="create directory">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a new directory.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new directory on the filesystem.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete directory">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of deleting a directory.</xs:documentation>
+					<xs:documentation>Specifies the defined action of deleting an existing directory on the filesystem.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
