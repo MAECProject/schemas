@@ -270,6 +270,11 @@
 					<xs:documentation>Specifies the defined action of deleting an existing directory on the filesystem.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="monitor directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of monitoring an existing directory on the filesystem for changes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="DiskActionNameEnum-1.0">
@@ -277,19 +282,14 @@
 			<xs:documentation>The DiskActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a hard disk.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="get disk free space">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the amount of free space available on a disk.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="get disk type">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of getting the disk type.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="query disk attributes">
+			<xs:enumeration value="get disk attributes">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of querying disk attributes.</xs:documentation>
+					<xs:documentation>Specifies the defined action of querying the attributes of a disk, such as the amount of available free space.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
