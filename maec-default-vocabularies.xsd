@@ -1057,89 +1057,84 @@
 					<xs:documentation>Specifies the defined action of sleeping a system for some period of time.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="enumerate system handles">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating system handles.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="get elapsed system up time">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the elapsed system up-time.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get host name">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the host name for the local system.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the elapsed up-time for a system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get netbios name">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the NetBIOS name.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get system global flags">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the system global flags.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get system host name">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the system host name.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get system local time">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the local time on a system.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get system network parameters">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the system network parameters.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get system time">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the system time.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get username">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting a username.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get windows directory">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting a windows directory.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get windows system directory">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting a windows System directory.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get windows temporary files directory">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the Windows Temporary Files Directory.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the NetBIOS name of a system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="set netbios name">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting the NetBIOS name.</xs:documentation>
+					<xs:documentation>Specifies the defined action of setting the NetBIOS name of a system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="set system global flags">
+			<xs:enumeration value="get system host name">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting system global flags.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the host name of a system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="set system host name">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting the system host name.</xs:documentation>
+					<xs:documentation>Specifies the defined action of setting the system host name of a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get system time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system time of a system, represented in Coordinated Universal Time (UTC).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="set system time">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting the system time.</xs:documentation>
+					<xs:documentation>Specifies the defined action of setting the system time for a system, represented in Coordinated Universal Time (UTC).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get system local time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the local time of a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="set system local time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the local time of a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get username">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the username of the currently logged in user of a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumerate system handles">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating all open handles on a Windows system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get system global flags">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the enabled global flags on a Windows system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="set system global flags">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting system global flags on a Windows system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get windows directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the Windows installation directory on a Windows system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get windows system directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the Windows \System directory on a Windows system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get windows temporary files directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the Windows Temporary Files Directory on a Windows System.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
