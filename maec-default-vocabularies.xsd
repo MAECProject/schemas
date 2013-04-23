@@ -223,7 +223,12 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="check for remote debugger">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of checking for a remote debugger.</xs:documentation>
+					<xs:documentation>Specifies the defined action of checking for the presence of a remote debugger.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="check for kernel debugger">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of checking for the presence of a kernel debugger.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
