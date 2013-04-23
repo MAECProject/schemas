@@ -110,43 +110,6 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="BundleContentTypeEnum-1.0">
-		<xs:annotation>
-			<xs:documentation>The BundleContentTypeEnum is a (non-exhaustive) enumeration of the general types of content that a Bundle can contain.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="dynamic analysis tool output">
-				<xs:annotation>
-					<xs:documentation>The dynamic analysis tool output value specifies that the Bundle primarily captures some form of dynamic analysis tool output, such as from a sandbox.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="static analysis tool output">
-				<xs:annotation>
-					<xs:documentation>The static analysis tool output value specifies that the Bundle primarily captures some form of static analysis tool output, such as from a packer detection tool.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="manual analysis output">
-				<xs:annotation>
-					<xs:documentation>The manual analysis output value specifies that the Bundle primarily captures some form of manual analysis output, which may or may not involve the use of tools.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="extracted from subject">
-				<xs:annotation>
-					<xs:documentation>The extracted from subject value specifies that the Bundle primarily captures some data that extracted from the Malware Subject, such as some PE Header fields.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="mixed">
-				<xs:annotation>
-					<xs:documentation>The mixed value specifies that the Bundle captures some mixed forms of analysis or tool output for the Malware Subject, such as both dynamic and static analysis tool output.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="other">
-				<xs:annotation>
-					<xs:documentation>The other value specifies that the Bundle captures some other form of analysis or tool output that is not represented by the other enumeration values.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="MalwareEntityTypeEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The MalwareEntityTypeEnum is a (non-exhaustive) enumeration of the different types of entities that a malware indicator or signature may be written against.</xs:documentation>
@@ -174,44 +137,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="DeviceActionNameEnum-1.0">
+	<xs:simpleType name="DeviceDriverActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The DeviceActionNameEnum is a (non-exhaustive) enumeration of the different types of actions associated with a device.</xs:documentation>
+			<xs:documentation>The DeviceDriverActionNameEnum is a (non-exhaustive) enumeration of the different types of actions associated with device drivers.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="control driver">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of controlling a driver.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="load and call driver">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of loading and calling a driver.</xs:documentation>
+					<xs:documentation>Specifies the defined action of loading a driver into a system and then calling the loaded driver.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="load driver">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of loading a driver.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="send control code to file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sending a control code to a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="send control code to pipe">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sending a control code to a pipe.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="send control code to service">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sending control code to a service.</xs:documentation>
+					<xs:documentation>Specifies the defined action of loading a driver into a system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="unload driver">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of unloading a driver.</xs:documentation>
+					<xs:documentation>Specifies the defined action of unloading a driver from a system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -382,6 +325,11 @@
 			<xs:enumeration value="rename file">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of renaming an existing file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send control code to file">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a control code to a file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -675,22 +623,22 @@
 			</xs:enumeration>
 			<xs:enumeration value="delete user">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of deleting a user.</xs:documentation>
+					<xs:documentation>Specifies the defined action of deleting an existing user.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="enumerate users">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating users.</xs:documentation>
+					<xs:documentation>Specifies the defined action of enumerating all users.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get user attributes">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the attributes of a user.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the attributes of an existing user.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="logon as user">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of logging on as a user.</xs:documentation>
+					<xs:documentation>Specifies the defined action of logging on as a specific user.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -1006,6 +954,11 @@
 			<xs:enumeration value="start service">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of starting a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send control code to service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending control code to a service.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
