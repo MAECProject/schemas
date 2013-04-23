@@ -1139,44 +1139,44 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="WindowActionNameEnum-1.0">
+	<xs:simpleType name="GUIActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The WindowActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with windows.</xs:documentation>
+			<xs:documentation>The GUIActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with graphical user interfaces (GUIs).</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="create dialog box">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a dialog box.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="create window">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a window.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="enumerate windows">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating windows.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="find window">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of finding a window.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="hide window">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of hiding a window.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new window.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="kill window">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of killing a window.</xs:documentation>
+					<xs:documentation>Specifies the defined action of killing an existing window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create dialog box">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new dialog box.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumerate windows">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating all open windows.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="find window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of search for a particular window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="hide window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of hiding an existing window.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="show window">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of showing a window.</xs:documentation>
+					<xs:documentation>Specifies the defined action of showing an existing window.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
