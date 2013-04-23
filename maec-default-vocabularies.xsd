@@ -737,7 +737,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="map library into process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of mapping a library into the address space of theacalling process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of mapping a library into the address space of the calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
