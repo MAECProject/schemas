@@ -645,42 +645,52 @@
 	</xs:simpleType>
 	<xs:simpleType name="IPCActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The IPCActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with Inter-Process Communication.</xs:documentation>
+			<xs:documentation>The IPCActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with entities related to Inter-Process Communication (IPC).</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="connect to named pipe">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of connecting to a named pipe.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="create mailslot">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a mailslot.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="create named pipe">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a named pipe.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new named pipe.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete named pipe">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of deleting a named pipe.</xs:documentation>
+					<xs:documentation>Specifies the defined action of deleting an existing named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="connect to named pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to an existing named pipe.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="disconnect from named pipe">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of disconnecting from a named pipe.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="modify named pipe">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of modifying a named pipe.</xs:documentation>
+					<xs:documentation>Specifies the defined action of disconnecting from an existing named pipe.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="read from named pipe">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of reading from a named pipe.</xs:documentation>
+					<xs:documentation>Specifies the defined action of reading some data from an existing named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="write to named pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of writing some data to an existing named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create mailslot">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new Windows named mailslot.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="read from mailslot">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading some data from an existing Windows named mailslot.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="write to named pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of writing some data to an existing Windows named mailslot.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
