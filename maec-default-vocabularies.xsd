@@ -898,67 +898,42 @@
 	</xs:simpleType>
 	<xs:simpleType name="ServiceActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The ServiceActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a service.</xs:documentation>
+			<xs:documentation>The ServiceActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with services.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="change service configuration">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of changing the service configuration.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="configure service">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of configuring a service.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="control service">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of controlling a service.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="create service">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a service.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new service.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete service">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of deleting a service.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="enumerate services">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating services.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get service status">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the service status.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="modify service">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of modifying a service.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="open service">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening a service.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="open service control manager">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening a service control manager.</xs:documentation>
+					<xs:documentation>Specifies the defined action of deleting an existing service.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="start service">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of starting a service.</xs:documentation>
+					<xs:documentation>Specifies the defined action of starting an existing service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumerate services">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating a specific set of services on a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="modify service configuration">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying the configuration parameters of an existing service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="open service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening an existing service.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="send control code to service">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sending control code to a service.</xs:documentation>
+					<xs:documentation>Specifies the defined action of sending a control code to an existing service.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
