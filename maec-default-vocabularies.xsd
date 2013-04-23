@@ -191,14 +191,14 @@
 					<xs:documentation>Specifies the defined action of freeing a library previously loaded into the address space of the calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="get function address">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the address of an exported function or variable from a library.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="load library">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of loading a library into the address space of the calling process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get function address">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the address of an exported function or variable from a library.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -330,6 +330,16 @@
 			<xs:enumeration value="send control code to file">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of sending a control code to a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create file mapping">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new Windows file mapping object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="open file mapping">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening an existing Windows file mapping object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -695,64 +705,39 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="MemoryActionNameEnum-1.0">
+	<xs:simpleType name="ProcessMemoryActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The MemoryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with memory.</xs:documentation>
+			<xs:documentation>The ProcessMemoryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the memory regions of a process.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="allocate virtual memory in process">
+			<xs:enumeration value="allocate process virtual memory">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of allocating virtual memory in a process.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="create file mapping">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a new file mapping.</xs:documentation>
+					<xs:documentation>Specifies the defined action of allocating some virtual memory region in an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="free process virtual memory">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of freeing virtual memory from a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of freeing some virtual memory region from an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="inject memory page">
+			<xs:enumeration value="modify process virtual memory protection">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of injecting a memory page into a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of modifying the protection on a memory region in the virtual address space of an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="map file">
+			<xs:enumeration value="map file into process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of mapping a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of mapping an existing file into the address space of a calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="map library">
+			<xs:enumeration value="unmap file from process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of mapping a library.</xs:documentation>
+					<xs:documentation>Specifies the defined action of unmapping an existing file from the address space of a calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="map view of file">
+			<xs:enumeration value="map library into process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of mapping a view of a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="open file mapping">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening a file.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="protect virtual memory">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of protecting virtual memory.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="query process virtual memory">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of querying process virtual memory.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="unmap file">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of unmapping a file.</xs:documentation>
+					<xs:documentation>Specifies the defined action of mapping a library into the address space of theacalling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
