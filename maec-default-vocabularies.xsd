@@ -205,7 +205,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="DirectoryActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The DirectoryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file directory.</xs:documentation>
+			<xs:documentation>The DirectoryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file directories.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="create directory">
@@ -227,7 +227,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="DiskActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The DiskActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a hard disk.</xs:documentation>
+			<xs:documentation>The DiskActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with hard disks.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="get disk type">
@@ -260,11 +260,6 @@
 			<xs:enumeration value="copy file">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of copying an existing file from one location to another.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="create file alternate data stream">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating an alternate data stream in an existing file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="create file symbolic link">
@@ -327,6 +322,12 @@
 					<xs:documentation>Specifies the defined action of renaming an existing file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="create file alternate data stream">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating an alternate data stream in an existing file.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="send control code to file">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of sending a control code to a file.</xs:documentation>
@@ -382,9 +383,130 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="IRCActionNameEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Internet Relay Chat (IRC).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="connect to irc server">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to an existing IRC server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="disconnect from irc server">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from an existing IRC server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="set irc nickname">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting an IRC nickname on an IRC server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="join irc channel">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of joining a channel on an IRC server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="leave irc channel">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of leaving a channel on an IRC server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send irc private message">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a private message to another user on an IRC server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="receive irc private message">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of receiving a private message from another user on an IRC server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FTPActionNameEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The FTPActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the File Transfer Protocol (FTP).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="connect to ftp server">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to an existing FTP server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="disconnect from ftp server">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from an existing FTP server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send ftp command">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a command on an FTP server connection.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HTTPActionNameEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Hypertext Transfer Protocol (HTTP).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="send http get request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP GET client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send http head request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP HEAD client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send http post request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP HEAD client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send http put request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP PUT client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send http delete request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP DELETE client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send http trace request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP TRACE client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send http options request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP OPTIONS client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send http connect request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP CONNECT client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send http patch request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an HTTP PATCH client request to an existing server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="receive http response">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of receiving an HTTP server response for a prior HTTP request.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="NetworkActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The NetworkActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a network.</xs:documentation>
+			<xs:documentation>The NetworkActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with networking.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="open port">
@@ -769,7 +891,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ProcessActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The ProcessActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a process.</xs:documentation>
+			<xs:documentation>The ProcessActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with processes.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="create process">
@@ -837,7 +959,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ProcessThreadActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The ProcessThreadActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a process thread.</xs:documentation>
+			<xs:documentation>The ProcessThreadActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with process threads.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="create thread">
@@ -942,7 +1064,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="SynchronizationActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The SynchronizationActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with thread synchronization.</xs:documentation>
+			<xs:documentation>The SynchronizationActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with process and thread synchronization-related entities.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="create mutex">
@@ -1037,7 +1159,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="SystemActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The SystemInfoActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with system information.</xs:documentation>
+			<xs:documentation>The SystemInfoActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with system-related entities.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="add scheduled task">
