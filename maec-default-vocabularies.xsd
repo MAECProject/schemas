@@ -427,11 +427,6 @@
 					<xs:documentation>Specifies the defined action of uploading a file to a remote location.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="enumerate protocols">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating network protocols.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="listen on port">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of listening on a specific port.</xs:documentation>
