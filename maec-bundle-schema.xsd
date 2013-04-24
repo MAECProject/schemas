@@ -11,7 +11,7 @@
 		<xs:appinfo>
 			<schema>MAEC Bundle Schema</schema>
 			<version>4.0 ALPHA</version>
-			<date>4/17/2013</date>
+			<date>4/24/2013</date>
 			<terms_of_use>Copyright (c) 2013, The MITRE Corporation. All rights reserved.  The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema.  When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
@@ -156,7 +156,7 @@
 				<xs:documentation>The required id field specifies a unique ID for this MAEC Bundle. The ID must follow the pattern defined in the BundleIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="schema_version" type="xs:decimal" use="required" fixed="3.0">
+		<xs:attribute name="schema_version" type="xs:decimal" use="required" fixed="4.0">
 			<xs:annotation>
 				<xs:documentation>The required schema_version field specifies the version of the MAEC Bundle Schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
@@ -684,7 +684,7 @@
 					<xs:documentation>The Malware_Entity field specifies the particular malware entity that the Candidate Indicator is written against, whether it be a malware instance, family, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="1" name="Composition" type="maecBundle:CandidateIndicatorCompositionType">
+			<xs:element minOccurs="0" name="Composition" type="maecBundle:CandidateIndicatorCompositionType">
 				<xs:annotation>
 					<xs:documentation>The Composition field specifies the actual observables that the Candidate Indicator is composed of, via a reference to a one or more MAEC entities contained in the Bundle.</xs:documentation>
 				</xs:annotation>
@@ -1140,24 +1140,24 @@
 			<xs:documentation>The BundleContentTypeEnum is a non-exhaustive enumeration of the general types of content that a Bundle can contain.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="dynamic_analysis_tool_output">
+			<xs:enumeration value="dynamic analysis tool output">
 				<xs:annotation>
-					<xs:documentation>The dynamic_analysis_tool_output value specifies that the Bundle primarily captures some form of dynamic analysis tool output, such as from a sandbox.</xs:documentation>
+					<xs:documentation>The dynamic analysis tool output value specifies that the Bundle primarily captures some form of dynamic analysis tool output, such as from a sandbox.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="static_analysis_tool_output">
+			<xs:enumeration value="static analysis tool output">
 				<xs:annotation>
-					<xs:documentation>The static_analysis_tool_output value specifies that the Bundle primarily captures some form of static analysis tool output, such as from a packer detection tool.</xs:documentation>
+					<xs:documentation>The static analysis tool output value specifies that the Bundle primarily captures some form of static analysis tool output, such as from a packer detection tool.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="manual_analysis_output">
+			<xs:enumeration value="manual analysis output">
 				<xs:annotation>
-					<xs:documentation>The manual_analysis_output value specifies that the Bundle primarily captures some form of manual analysis output, which may or may not involve the use of tools.</xs:documentation>
+					<xs:documentation>The manual analysis output value specifies that the Bundle primarily captures some form of manual analysis output, which may or may not involve the use of tools.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="extracted_from_subject">
+			<xs:enumeration value="extracted from subject">
 				<xs:annotation>
-					<xs:documentation>The extracted_from_subject value specifies that the Bundle primarily captures some data that extracted from the Malware Subject, such as some PE Header fields.</xs:documentation>
+					<xs:documentation>The extracted from subject value specifies that the Bundle primarily captures some data that extracted from the Malware Subject, such as some PE Header fields.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="mixed">
