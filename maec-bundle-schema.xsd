@@ -738,6 +738,11 @@
 			<xs:documentation>The MalwareEntityType provides a mechanism for characterizing the particular entity that an indicator or signature is written against, whether it is a particular malware instance, family, etc.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="0" name="Type" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Type field refers to the specific type of malware entity that the indicator or signature is written against. This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is MalwareEntityTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Name" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>The Name field refers to the name of the malware instance, malware family, or malware class that the indicator or signature is written against.</xs:documentation>
@@ -749,11 +754,6 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="type" type="maecBundle:MalwareEntityTypeEnum" use="optional">
-			<xs:annotation>
-				<xs:documentation>The type field refers to the specific type of malware entity that the indicator or signature is written against.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="CollectionsType">
 		<xs:annotation>
@@ -1168,33 +1168,6 @@
 			<xs:enumeration value="other">
 				<xs:annotation>
 					<xs:documentation>The other value specifies that the Bundle captures some other form of analysis or tool output that is not represented by the other enumeration values.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="MalwareEntityTypeEnum">
-		<xs:annotation>
-			<xs:documentation>The MalwareEntityTypeEnum is an enumeration of the different types of entities that a malware indicator or signature may be written against.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Instance">
-				<xs:annotation>
-					<xs:documentation>The Instance value specifies that the particular malware entity being referred to is a single malware instance.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Family">
-				<xs:annotation>
-					<xs:documentation>The Family value specifies that the particular malware entity being referred to is a single malware family.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Class">
-				<xs:annotation>
-					<xs:documentation>The Class value specifies that the particular malware entity being referred to is a single class of malware.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Other">
-				<xs:annotation>
-					<xs:documentation>The Other value specifies that the particular malware entity being referred to is of some other type not represented by the other enumeration values.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
