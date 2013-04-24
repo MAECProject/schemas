@@ -669,6 +669,17 @@
 			<xs:documentation>The CandidateIndicatorType provides a way of defining a MAEC entity-based Candidate Indicator, which specifies the particular components that may signify the presence of the malware instance on a host system or network.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="0" name="Importance" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Importance field specifies the relative importance of the Candidate Indicator.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ImportanceTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Numeric_Importance" type="xs:positiveInteger">
+				<xs:annotation>
+					<xs:documentation>The Numeric_Importance field specifies the specific numeric importance of the Candidate Indicator.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Author" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>The Author field specifies the author of the Candidate Indicator.</xs:documentation>
@@ -705,16 +716,6 @@
 				<xs:documentation>The lastupdate_datetime field specifies the last date/time that the Candidate Indicator was updated.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="importance" type="maecBundle:ImportanceTypeEnum">
-			<xs:annotation>
-				<xs:documentation>The importance field specifies the relative importance of the Candidate Indicator.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="numeric_importance" type="xs:nonNegativeInteger">
-			<xs:annotation>
-				<xs:documentation>The numeric_importance field specifies the specific numeric importance of the Candidate Indicator.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 		<xs:attribute name="version" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>The version field specifies the version of the Candidate Indicator.</xs:documentation>
@@ -740,7 +741,8 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Type" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Type field refers to the specific type of malware entity that the indicator or signature is written against. This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is MalwareEntityTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>The Type field refers to the specific type of malware entity that the indicator or signature is written against.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is MalwareEntityTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Name" type="xs:string">
@@ -1094,43 +1096,6 @@
 			<xs:enumeration value="Code">
 				<xs:annotation>
 					<xs:documentation>The Code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ImportanceTypeEnum">
-		<xs:annotation>
-			<xs:documentation>The ImportanceTypeEnum simple type is an enumeration of relative importance measures.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="High">
-				<xs:annotation>
-					<xs:documentation>The High value specifies that the entity is of relative high importance.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Medium">
-				<xs:annotation>
-					<xs:documentation>The Medium value specifies that the entity is of relative medium importance.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Low">
-				<xs:annotation>
-					<xs:documentation>The Low value specifies that the entity is of relative low importance.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Informational">
-				<xs:annotation>
-					<xs:documentation>The Informational value specifies that the entity is only informational in its importance.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Numeric">
-				<xs:annotation>
-					<xs:documentation>The Numeric value specifies that the entity has a numeric importance value, which is defined in another attribute or element.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Unknown">
-				<xs:annotation>
-					<xs:documentation>The Unknown value specifies that the relative importance for the entity is unknown.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
