@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
-	xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-4"
-	targetNamespace="http://maec.mitre.org/default_vocabularies-4" elementFormDefault="qualified"
-	version="4.0.0">
+	xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+	targetNamespace="http://maec.mitre.org/default_vocabularies-1" elementFormDefault="qualified"
+	version="1.0.0">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The MAEC XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
 			<schema>maec-default-vocabularies</schema>
-			<version>4.0.0</version>
-			<date>04/17/2013 9:00:00 AM</date>
+			<version>1.0.0</version>
+			<date>04/24/2013 9:00:00 AM</date>
 			<short_description>The following defines types for default controlled vocabularies used within MAEC. An individual vocabulary may be revised at any time. Revisions to vocabularies will result in the creation of new types with the new version number embedded in the name of those types. Vocabularies can be reference from MAEC elements through the use of xsi:Type. The individual elements where this may be done indicate the expected default vocabulary.</short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -56,23 +56,23 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="ActionImplementationTypeEnum-1.0">
+	<xs:complexType name="ImportanceTypeVocab-1.0">
 		<xs:annotation>
-			<xs:documentation>The ActionImplementationTypeEnum is a (non-exhaustive) enumeration of action implementation types.</xs:documentation>
+			<xs:documentation>The ImportanceTypeVocab is the default MAEC vocabulary for relative importance measures, captured via the CandidateIndicatorType/Importance element in the MAEC Bundle.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="api call">
-				<xs:annotation>
-					<xs:documentation>The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="code">
-				<xs:annotation>
-					<xs:documentation>The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:ImportanceTypeEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Importance Types" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ImportanceTypeVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="ImportanceTypeEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The ImportanceTypeEnum is a (non-exhaustive) enumeration of relative importance measures.</xs:documentation>
@@ -110,6 +110,23 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="MalwareEntityTypeVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The MalwareEntityTypeVocab is the default MAEC vocabulary for malware entity types, captured via the CandidateIndicatorType/Malware_Entity/Type element in the MAEC Bundle.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:MalwareEntityTypeEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Malware Entity Types" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#MalwareEntityTypeVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="MalwareEntityTypeEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The MalwareEntityTypeEnum is a (non-exhaustive) enumeration of the different types of entities that a malware indicator or signature may be written against.</xs:documentation>
@@ -130,13 +147,26 @@
 					<xs:documentation>The class value specifies that the particular malware entity being referred to is a single class of malware.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="other">
-				<xs:annotation>
-					<xs:documentation>The other value specifies that the particular malware entity being referred to is of some other type not represented by the other enumeration values.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="DeviceDriverActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The DeviceDriverActionNameVocab is the default MAEC vocabulary for device driver action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For device driver action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:DeviceDriverActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Device Driver Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DeviceDriverActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="DeviceDriverActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The DeviceDriverActionNameEnum is a (non-exhaustive) enumeration of the different types of actions associated with device drivers.</xs:documentation>
@@ -159,6 +189,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="DebuggingActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The DebuggingActionNameVocab is the default MAEC vocabulary for debugging action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For debugging action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:DebuggingActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Debugging Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DebuggingActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="DebuggingActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The DebuggingActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with debugging.</xs:documentation>
@@ -176,6 +224,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="LibraryActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The LibraryActionNameVocab is the default MAEC vocabulary for library action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For library action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:LibraryActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Library Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#LibraryActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="LibraryActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The LibraryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with libraries.</xs:documentation>
@@ -203,6 +269,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="DirectoryActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The DirectoryActionNameVocab is the default MAEC vocabulary for directory action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For directory action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:DirectoryActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Directory Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DirectoryActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="DirectoryActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The DirectoryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file directories.</xs:documentation>
@@ -225,6 +309,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="DiskActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The DiskActionNameVocab is the default MAEC vocabulary for disk action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For disk action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:DiskActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Disk Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DiskActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="DiskActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The DiskActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with hard disks.</xs:documentation>
@@ -242,6 +344,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="FileActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The FileActionNameVocab is the default MAEC vocabulary for file action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For file action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:FileActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default File Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#FileActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="FileActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The FileActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file.</xs:documentation>
@@ -348,6 +468,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="HookingActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The HookingActionNameVocab is the default MAEC vocabulary for hooking action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For hooking action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:HookingActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Hooking Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#HookingActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="HookingActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The FunctionHookingActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with various kinds of hooking.</xs:documentation>
@@ -366,6 +504,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="DNSActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The DNSActionNameVocab is the default MAEC vocabulary for DNS action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For DNS action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:DNSActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default DNS Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DNSActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="DNSActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Domain Name System (DNS).</xs:documentation>
@@ -383,6 +539,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="IRCActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The IRCActionNameVocab is the default MAEC vocabulary for IRC action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For IRC action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:IRCActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default IRC Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#IRCActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="IRCActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Internet Relay Chat (IRC).</xs:documentation>
@@ -425,6 +599,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="FTPActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The FTPActionNameVocab is the default MAEC vocabulary for FTP action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For FTP action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:FTPActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default FTP Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#FTPActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="FTPActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The FTPActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the File Transfer Protocol (FTP).</xs:documentation>
@@ -447,6 +639,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="HTTPActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The HTTPActionNameVocab is the default MAEC vocabulary for HTTP action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For HTTP action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:HTTPActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default HTTP Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#HTTPActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="HTTPActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Hypertext Transfer Protocol (HTTP).</xs:documentation>
@@ -504,6 +714,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="NetworkActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The NetworkActionNameVocab is the default MAEC vocabulary for network action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For network action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:NetworkActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Network Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#NetworkActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="NetworkActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The NetworkActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with networking.</xs:documentation>
@@ -566,6 +794,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="NetworkShareActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The NetworkShareActionNameVocab is the default MAEC vocabulary for network share action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For network share action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:NetworkShareActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Network Share Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#NetworkShareActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="NetworkShareActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The NetworkShareActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with Windows network shares.</xs:documentation>
@@ -603,6 +849,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="SocketActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The SocketActionNameVocab is the default MAEC vocabulary for socket action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For socket action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:SocketActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Socket Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#SocketActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="SocketActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The SocketActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with network sockets.</xs:documentation>
@@ -670,6 +934,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="RegistryActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The RegistryActionNameVocab is the default MAEC vocabulary for registry action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For registry action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:RegistryActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Registry Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#RegistryActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="RegistryActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The RegistryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Windows registry.</xs:documentation>
@@ -755,6 +1037,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="UserActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The UserActionNameVocab is the default MAEC vocabulary for user action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For user action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:UserActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default User Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#UserActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="UserActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The UserActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with users.</xs:documentation>
@@ -787,6 +1087,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="IPCActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The IPCActionNameVocab is the default MAEC vocabulary for inter-process communication action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For IPC action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:IPCActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default IPC Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#IPCActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="IPCActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The IPCActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with entities related to Inter-Process Communication (IPC).</xs:documentation>
@@ -842,6 +1160,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="ProcessMemoryActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The ProcessMemoryActionNameVocab is the default MAEC vocabulary for process memory action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For process memory action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:ProcessMemoryActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Process Memory Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ProcessMemoryActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="ProcessMemoryActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The ProcessMemoryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the memory regions of a process.</xs:documentation>
@@ -889,6 +1225,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="ProcessActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The ProcessActionNameVocab is the default MAEC vocabulary for process action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For process action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:ProcessActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Process Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ProcessActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="ProcessActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The ProcessActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with processes.</xs:documentation>
@@ -957,6 +1311,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="ProcessThreadActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The ProcessThreadActionNameVocab is the default MAEC vocabulary for process thread action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For process thread action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:ProcessThreadActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Process Thread Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ProcessThreadActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="ProcessThreadActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The ProcessThreadActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with process threads.</xs:documentation>
@@ -1019,6 +1391,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="ServiceActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The ServiceActionNameVocab is the default MAEC vocabulary for service action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For service action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:ServiceActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Service Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ServiceActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="ServiceActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The ServiceActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with services or daemons.</xs:documentation>
@@ -1062,6 +1452,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="SynchronizationActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The SynchronizationActionNameVocab is the default MAEC vocabulary for synchronization action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For synchronization action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:SynchronizationActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Synchronization Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#SynchronizationActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="SynchronizationActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The SynchronizationActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with process and thread synchronization-related entities.</xs:documentation>
@@ -1157,6 +1565,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="SystemActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The SystemActionNameVocab is the default MAEC vocabulary for system action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For system action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:SystemActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default System Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#SystemActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="SystemActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The SystemInfoActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with system-related entities.</xs:documentation>
@@ -1265,6 +1691,24 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="GUIActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The GUIActionNameVocab is the default MAEC vocabulary for GUI action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>For GUI action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:GUIActionNameEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default GUI Action Names" name="vocab_name"
+					type="xs:string" use="optional"/>
+				<xs:attribute
+					fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#GUIActionNameVocab-1.0"
+					name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="GUIActionNameEnum-1.0">
 		<xs:annotation>
 			<xs:documentation>The GUIActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with graphical user interfaces (GUIs).</xs:documentation>
