@@ -769,12 +769,12 @@
 			<xs:documentation>The AnalysisTypeEnum is an enumeration of types of malware analyses.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Triage">
+			<xs:enumeration value="triage">
 				<xs:annotation>
 					<xs:documentation>The Triage value specifies an cursory, or triage type of malware analysis, commonly automated in conjunction with one or more tools.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Manual">
+			<xs:enumeration value="manual">
 				<xs:annotation>
 					<xs:documentation>The Manual value specifies an in-depth, or manual type of malware analysis, that is typically performed by a human analyst.</xs:documentation>
 				</xs:annotation>
@@ -786,19 +786,19 @@
 			<xs:documentation>The AnalysisMethodEnum is an enumeration of malware analysis methods.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Static">
+			<xs:enumeration value="static">
 				<xs:annotation>
-					<xs:documentation>The Static value specifies a static malware analysis method, which is achieved by inspecting but not executing the malware instance.</xs:documentation>
+					<xs:documentation>The static value specifies a static malware analysis method, which is achieved by inspecting but not executing the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Dynamic">
+			<xs:enumeration value="dynamic">
 				<xs:annotation>
-					<xs:documentation>The Dynamic value specifies a dynamic malware analysis method, which is achieved by executing but not inspecting the malware instance.</xs:documentation>
+					<xs:documentation>The dynamic value specifies a dynamic malware analysis method, which is achieved by executing but not inspecting the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Combination">
+			<xs:enumeration value="combination">
 				<xs:annotation>
-					<xs:documentation>The Combination value specifies a combination of dynamic and static malware analysis, achieved by both inspecting and executing the malware instance.</xs:documentation>
+					<xs:documentation>The combination value specifies a combination of dynamic and static malware analysis, achieved by both inspecting and executing the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -808,14 +808,14 @@
 			<xs:documentation>The MalwareSubjectRelationshipEnum is a non-exhaustive enumeration of relationships between Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="downloaded_by">
+			<xs:enumeration value="downloaded by">
 				<xs:annotation>
-					<xs:documentation>The downloaded_by value specifies that the current Malware Subject was downloaded by one or more other Malware Subject(s).</xs:documentation>
+					<xs:documentation>The downloaded by value specifies that the current Malware Subject was downloaded by one or more other Malware Subject(s).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="dropped_by">
+			<xs:enumeration value="dropped by">
 				<xs:annotation>
-					<xs:documentation>The dropped_by value specifies that the current Malware Subject was dropped (or written to disk) by one or more other Malware Subject(s).</xs:documentation>
+					<xs:documentation>The dropped by value specifies that the current Malware Subject was dropped (or written to disk) by one or more other Malware Subject(s).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="downloads">
@@ -867,79 +867,74 @@
 			<xs:documentation>The Layer7ProtocolEnum is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="HTTP">
+			<xs:enumeration value="http">
 				<xs:annotation>
-					<xs:documentation>The HTTP value specifies the Hypertext Transfer Protocol (HTTP).</xs:documentation>
+					<xs:documentation>The http value specifies the Hypertext Transfer Protocol (HTTP).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="HTTPS">
+			<xs:enumeration value="https">
 				<xs:annotation>
-					<xs:documentation>The HTTPS value specifies the Hypertext Transfer Protocol Secure (HTTPS).</xs:documentation>
+					<xs:documentation>The https value specifies the Hypertext Transfer Protocol Secure (HTTPS).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="FTP">
+			<xs:enumeration value="ftp">
 				<xs:annotation>
-					<xs:documentation>The FTP value specifies the File Transfer Protocol (FTP). </xs:documentation>
+					<xs:documentation>The ftp value specifies the File Transfer Protocol (FTP). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="FTPS">
+			<xs:enumeration value="ftps">
 				<xs:annotation>
-					<xs:documentation>The FTPS value specifies the File Transfer Protocol Secure (FTPS). </xs:documentation>
+					<xs:documentation>The ftps value specifies the File Transfer Protocol Secure (FTPS). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="SMTP">
+			<xs:enumeration value="smtp">
 				<xs:annotation>
-					<xs:documentation>The SMTP value specifies the Simple Mail Transfer Protocol (SMTP). </xs:documentation>
+					<xs:documentation>The smtp value specifies the Simple Mail Transfer Protocol (SMTP). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="SMTPS">
+			<xs:enumeration value="smtps">
 				<xs:annotation>
-					<xs:documentation>The SMTPS value specifies the Simple Mail Transfer Protocol Secure (SMTPS). </xs:documentation>
+					<xs:documentation>The smtps value specifies the Simple Mail Transfer Protocol Secure (SMTPS). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="POP3">
+			<xs:enumeration value="pop3">
 				<xs:annotation>
-					<xs:documentation>The POP3 value specifies the Post Office Protocol version 3 (POP3). </xs:documentation>
+					<xs:documentation>The pop3 value specifies the Post Office Protocol version 3 (POP3). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="POP3S">
+			<xs:enumeration value="pop3s">
 				<xs:annotation>
-					<xs:documentation>The POP3S value specifies the Post Office Protocol version 3 Secure (POP3S). </xs:documentation>
+					<xs:documentation>The pop3s value specifies the Post Office Protocol version 3 Secure (POP3S). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="IRC">
+			<xs:enumeration value="irc">
 				<xs:annotation>
-					<xs:documentation>The IRC value specifies the Internet Relay Chat (IRC) protocol. </xs:documentation>
+					<xs:documentation>The irc value specifies the Internet Relay Chat (IRC) protocol. </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="DNS">
+			<xs:enumeration value="dns">
 				<xs:annotation>
-					<xs:documentation>The DNS value specifies the Domain Name System (DNS) protocol. </xs:documentation>
+					<xs:documentation>The dns value specifies the Domain Name System (DNS) protocol. </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="RDP">
+			<xs:enumeration value="rdp">
 				<xs:annotation>
-					<xs:documentation>The RDP value specifies the Remote Desktop Protocol (RDP). </xs:documentation>
+					<xs:documentation>The rdp value specifies the Remote Desktop Protocol (RDP). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="RPC">
+			<xs:enumeration value="rpc">
 				<xs:annotation>
-					<xs:documentation>The RPC value specifies some Remote Procedure Call (RPC) protocol, such as MSRPC. </xs:documentation>
+					<xs:documentation>The rpc value specifies some Remote Procedure Call (RPC) protocol, such as MSRPC. </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="SSH">
+			<xs:enumeration value="ssh">
 				<xs:annotation>
-					<xs:documentation>The SSH value specifies the Secure Shell (SSH) protocol. </xs:documentation>
+					<xs:documentation>The ssh value specifies the Secure Shell (SSH) protocol. </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Telnet">
+			<xs:enumeration value="telnet">
 				<xs:annotation>
-					<xs:documentation>The Telnet value specifies the Telnet protocol. </xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Other">
-				<xs:annotation>
-					<xs:documentation>The Other value specifies some other layer 7 network protocol not captured in this enumeration. </xs:documentation>
+					<xs:documentation>The telnet value specifies the Telnet protocol. </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -949,19 +944,14 @@
 			<xs:documentation>The Layer4ProtocolEnum is a non-exhaustive enumeration of Layer 4 (OSI model) network protocols.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="TCP">
+			<xs:enumeration value="tcp">
 				<xs:annotation>
-					<xs:documentation>The TCP value specifies the Transport Control Protocol (TCP). </xs:documentation>
+					<xs:documentation>The tcp value specifies the Transport Control Protocol (TCP). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="UDP">
+			<xs:enumeration value="udp">
 				<xs:annotation>
-					<xs:documentation>The UDP value specifies the User Datagram Protocol (UDP). </xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Other">
-				<xs:annotation>
-					<xs:documentation>The Other value specifies some other layer 4 network protocol not captured in this enumeration. </xs:documentation>
+					<xs:documentation>The udp value specifies the User Datagram Protocol (UDP). </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
