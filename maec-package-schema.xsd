@@ -311,7 +311,7 @@
 				<xs:documentation>The required id field specifies a unique ID for this Package. The ID must follow the pattern defined in the PackageIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute fixed="1.0" name="schema_version" type="xs:decimal" use="required">
+		<xs:attribute fixed="2.0" name="schema_version" type="xs:decimal" use="required">
 			<xs:annotation>
 				<xs:documentation>The required schema_version field specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
