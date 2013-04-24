@@ -725,6 +725,16 @@
 					<xs:documentation>Specifies the defined action of modifying the protection on a memory region in the virtual address space of an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="read from process memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading from a memory region of an existing process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="write to process memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of writing to a memory region of an existing process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="map file into process">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of mapping an existing file into the address space of a calling process.</xs:documentation>
@@ -749,87 +759,62 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="create process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a process.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="create process as user">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a process as user.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="enumerate processes">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating processes.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="flush process instruction cache">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of flushing the Process Instruction Cache.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get process current directory">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the process's current directory.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get process environment variable">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the process environment variable.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get process startup information">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the process startup information.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get processes snapshot">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the processes snapshot.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="impersonate process">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of impersonating a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="kill process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of killing a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of killing an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="modify process">
+			<xs:enumeration value="create process as user">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of modifying a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new process in the security context of a specified user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumerate processes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating all of the running processes on a system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="open process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of opening an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="read from process memory">
+			<xs:enumeration value="flush process instruction cache">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of reading from process memory.</xs:documentation>
+					<xs:documentation>Specifies the defined action of flushing the instruction cache of an existing process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get process current directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the current directory of an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="set process current directory">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting the process current directory.</xs:documentation>
+					<xs:documentation>Specifies the defined action of setting the current directory of an existing process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get process environment variable">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting an environment variable used by an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="set process environment variable">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting the process environment variable.</xs:documentation>
+					<xs:documentation>Specifies the defined action of setting an environment variable used by an existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="sleep process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of sleeping a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of sleeping an existing process for some period of time.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="write to process virtual memory">
+			<xs:enumeration value="get process startupinfo">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of writing to process virtual memory.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the STARTUPINFO struct associated with an existing process on a Windows system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -887,6 +872,11 @@
 			<xs:enumeration value="set thread context">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of setting the thread context.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="impersonate process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of impersonating a process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
