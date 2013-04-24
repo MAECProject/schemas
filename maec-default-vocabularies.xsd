@@ -752,12 +752,12 @@
 			</xs:enumeration>
 			<xs:enumeration value="map file into process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of mapping an existing file into the address space of a calling process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of mapping an existing file into the address space of the calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="unmap file from process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of unmapping an existing file from the address space of a calling process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of unmapping an existing file from the address space of the calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="map library into process">
@@ -889,6 +889,12 @@
 					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="queue apc in thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of queing a new Asynchronized Procedure Call (APC) in the context of an existing thread.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ServiceActionNameEnum-1.0">
@@ -939,29 +945,92 @@
 			<xs:documentation>The SynchronizationActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with thread synchronization.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="create event">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating an event.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="create mutex">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a mutex.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new named mutex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="delete mutex">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting an existing named mutex.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="open mutex">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening a mutex.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="queue apc in thread">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of querying the Asynchronized Procedure Call (APC) in the context of a thread.</xs:documentation>
+					<xs:documentation>Specifies the defined action of opening an existing named mutex.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="release mutex">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of releasing a mutex.</xs:documentation>
+					<xs:documentation>Specifies the defined action of releasing ownership of an existing named mutex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create semaphore">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new named semaphore.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="delete semaphore">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting an existing named semaphore.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="open semaphore">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening an existing named semaphore.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="release semaphore">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of releasing ownership of an existing named semaphore.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create event">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new named event object.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="delete event">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting an existing named event object.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="open event">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening an existing named event object.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="reset event">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of resetting an existing named event object to the non-signaled state.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="create critical section">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new critical section.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="delete critical section">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting an existing critical section object.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="open critical section">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening an existing critical section object.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="release critical section">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of releasing an existing critical section object.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
