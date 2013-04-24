@@ -330,16 +330,19 @@
 			<xs:enumeration value="send control code to file">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of sending a control code to a file.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="create file mapping">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a new Windows file mapping object.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new file mapping object.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="open file mapping">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of opening an existing Windows file mapping object.</xs:documentation>
+					<xs:documentation>Specifies the defined action of opening an existing file mapping object.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -357,6 +360,7 @@
 			<xs:enumeration value="add windows hook">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of adding a new Windows application-defined hook procedure.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -557,66 +561,79 @@
 			<xs:enumeration value="create registry key">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of creating a new registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete registry key">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of deleting an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="open registry key">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of opening an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="close registry key">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of closing a handle to an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="create registry key value">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of creating a new named value under an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete registry key value">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of deleting an existing named value under an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="enumerate registry key subkeys">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of enumerating the registry key subkeys under an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="enumerate registry key values">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of enumerating the named values under an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get registry key attributes">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of getting the attributes of an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="read registry key value">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of reading an existing named value of an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="modify registry key value">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of modifying an existing named value of an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="modify registry key">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of modifying an existing registry key.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="monitor registry key">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of monitoring an existing registry key for changes.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -690,17 +707,20 @@
 			</xs:enumeration>
 			<xs:enumeration value="create mailslot">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a new Windows named mailslot.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new named mailslot.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="read from mailslot">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of reading some data from an existing Windows named mailslot.</xs:documentation>
+					<xs:documentation>Specifies the defined action of reading some data from an existing named mailslot.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="write to named pipe">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of writing some data to an existing Windows named mailslot.</xs:documentation>
+					<xs:documentation>Specifies the defined action of writing some data to an existing named mailslot.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -814,7 +834,8 @@
 			</xs:enumeration>
 			<xs:enumeration value="get process startupinfo">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the STARTUPINFO struct associated with an existing process on a Windows system.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the STARTUPINFO struct associated with an existing process.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -877,7 +898,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ServiceActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The ServiceActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with services.</xs:documentation>
+			<xs:documentation>The ServiceActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with services or daemons.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="create service">
@@ -913,6 +934,7 @@
 			<xs:enumeration value="send control code to service">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of sending a control code to an existing service.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -1021,32 +1043,38 @@
 			</xs:enumeration>
 			<xs:enumeration value="enumerate system handles">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating all open handles on a Windows system.</xs:documentation>
+					<xs:documentation>Specifies the defined action of enumerating all open handles on a system.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get system global flags">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the enabled global flags on a Windows system.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the enabled global flags on a system.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="set system global flags">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting system global flags on a Windows system.</xs:documentation>
+					<xs:documentation>Specifies the defined action of setting system global flags on a system.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get windows directory">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the Windows installation directory on a Windows system.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the Windows installation directory on a system.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get windows system directory">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the Windows \System directory on a Windows system.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the Windows \System directory on a system.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="get windows temporary files directory">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the Windows Temporary Files Directory on a Windows System.</xs:documentation>
+					<xs:documentation>Specifies the defined action of getting the Windows Temporary Files Directory on a System.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
