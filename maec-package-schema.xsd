@@ -471,6 +471,12 @@
 			<xs:documentation>The GroupingRelationshipType provides a mechanism for specifying the relationship that groups together the Malware Subjects in a Package.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="0" name="Type" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Type field specifies the type of relationship that groups the Malware Subjects in the Package.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is GroupingRelationshipTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Malware_Family_Name" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>The Malware_Family_Name field specifies the name of the malware family referred to by the 'same_malware_family' relationship type.</xs:documentation>
@@ -487,16 +493,6 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="type" type="maecPackage:GroupingRelationshipEnum" use="required">
-			<xs:annotation>
-				<xs:documentation>The type field specifies the type of relationship that groups the Malware Subjects in the Package.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="other_type" type="xs:string">
-			<xs:annotation>
-				<xs:documentation>The other_type field allows for the specification of an arbitrary grouping relationship type, if it cannot be captured via the enumeration specified in the 'type' attribute (i.e., when 'type' is set to 'other').</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="GroupingRelationshipListType">
 		<xs:annotation>
@@ -803,43 +799,6 @@
 			<xs:enumeration value="Combination">
 				<xs:annotation>
 					<xs:documentation>The Combination value specifies a combination of dynamic and static malware analysis, achieved by both inspecting and executing the malware instance.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="GroupingRelationshipEnum">
-		<xs:annotation>
-			<xs:documentation>The GroupingRelationshipEnum is a non-exhaustive enumeration of Malware Subject grouping relationships.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="same_malware_family">
-				<xs:annotation>
-					<xs:documentation>The same_malware_family value indicates that the Malware Subjects in the Package are all part of the same malware family.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="clustered_together">
-				<xs:annotation>
-					<xs:documentation>The clustered_together value indicates that the Malware Subjects in the Package were clustered together by some algorithm or other mechanism.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="observed_together">
-				<xs:annotation>
-					<xs:documentation>The observed_together value indicates that the Malware Subjects in the Package were abstractly observed together, such as on a host system, in some archive, etc.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="part_of_intrusion_set">
-				<xs:annotation>
-					<xs:documentation>The part_of_intrusion_set value indicates that the Malware Subjects in the Package were found as part of the same malware intrusion set.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="same_malware_toolkit">
-				<xs:annotation>
-					<xs:documentation>The same_malware_toolkit value indicates that the Malware Subjects in the Package were all created using the same malware toolkit, independent of toolkit version.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="other">
-				<xs:annotation>
-					<xs:documentation>The other value indicates that the Malware Subjects in the Package are grouped by some other type of relationship not captured in this enumeration.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
