@@ -1088,12 +1088,12 @@
 			<xs:documentation>The AnalysisMethodEnum represents an enumeration of action implementation types.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="API_Call">
+			<xs:enumeration value="api call">
 				<xs:annotation>
-					<xs:documentation>The API_Call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element.</xs:documentation>
+					<xs:documentation>The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Code">
+			<xs:enumeration value="code">
 				<xs:annotation>
 					<xs:documentation>The Code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element</xs:documentation>
 				</xs:annotation>
