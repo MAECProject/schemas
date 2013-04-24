@@ -824,59 +824,53 @@
 			<xs:documentation>The ProcessThreadActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a process thread.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="create remote thread in process">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a remote thread in a process.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="create thread">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of creating a thread.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="enumerate threads">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating threads.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="enumerate threads in process">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating threads in a process.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get thread context">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the thread context.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="get thread username">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the thread username.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="impersonate thread">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of impersonating a thread.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a new thread in the virtual address space of the calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="kill thread">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of killing a thread.</xs:documentation>
+					<xs:documentation>Specifies the defined action of killing a thread existing in the virtual address space of the calling process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="revert thread to self">
+			<xs:enumeration value="create remote thread in process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of reverting a thread to its self.</xs:documentation>
+					<xs:documentation>Specifies the defined action of creating a thread that runs in the virtual address space of another existing process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="set thread context">
+			<xs:enumeration value="enumerate threads">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of setting the thread context.</xs:documentation>
+					<xs:documentation>Specifies the defined action of enumerating all threads in the calling process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get thread username">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the name or ID of the user associated with an existing thread.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="impersonate process">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of impersonating a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of a thread in the calling process impersonating the security context of another existing process.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="revert thread to self">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reverting an existing thread to its own security context.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="get thread context">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the context structure (containing processor-specific register data) of an existing thread.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="set thread context">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the context structure (containing processor-specific register data) for an existing thread.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
