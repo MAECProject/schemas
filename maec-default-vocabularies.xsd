@@ -181,9 +181,9 @@
 			<xs:documentation>The LibraryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with libraries.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="enumerate dlls">
+			<xs:enumeration value="enumerate libraries">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of enumerating the DLLs used by a process.</xs:documentation>
+					<xs:documentation>Specifies the defined action of enumerating the libraries used by a process.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="free library">
