@@ -1085,7 +1085,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ActionImplementationTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The AnalysisMethodEnum represents an enumeration of action implementation types.</xs:documentation>
+			<xs:documentation>The ActionImplementationTypeEnum represents an enumeration of action implementation types.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="api call">
