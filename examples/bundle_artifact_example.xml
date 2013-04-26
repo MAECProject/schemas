@@ -12,6 +12,7 @@
  xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
  xmlns:cybox="http://cybox.mitre.org/cybox-2"
  xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
  xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject-2"
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
@@ -19,6 +20,7 @@
  xsi:schemaLocation=
  "http://maec.mitre.org/XMLSchema/maec-bundle-4 http://maec.mitre.org/language/version4.0/maec_bundle_schema.xsd
  http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.0/cybox_core.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.0/cybox_default_vocabularies.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0/Win_Executable_File_Object.xsd
  http://cybox.mitre.org/objects#ArtifactObject-2 http://cybox.mitre.org/XMLSchema/objects/Artifact/2.0/Artifact_Object.xsd" 
  id="maec-example-bnd-1" schema_version="4.0" defined_subject="true" content_type="dynamic analysis tool output">
@@ -27,11 +29,11 @@
   <FileObj:Size_In_Bytes>24840</FileObj:Size_In_Bytes>
   <FileObj:Hashes>
    <cyboxCommon:Hash>
-    <cyboxCommon:Type>MD5</cyboxCommon:Type>
+    <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
     <cyboxCommon:Simple_Hash_Value>3d23ec8b55840b95ea75197ce9446b6d</cyboxCommon:Simple_Hash_Value>
    </cyboxCommon:Hash>
    <cyboxCommon:Hash>
-    <cyboxCommon:Type>SHA1</cyboxCommon:Type>
+    <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
     <cyboxCommon:Simple_Hash_Value>272ce73adebba81983abbbf112155e463951d046</cyboxCommon:Simple_Hash_Value>
    </cyboxCommon:Hash>
   </FileObj:Hashes>
