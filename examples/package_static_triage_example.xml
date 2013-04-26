@@ -2,46 +2,48 @@
 <!--
  MAEC Package Static Triage Analysis Example
  -Demonstrates how basic static triage for a malware instance can be captured in a Malware Subject in a Package
- -The 'extracted_from_subject' Bundle content_type is used to show that the object in the Bundle is really just a collection of attributes extracted from the Malware Subject and not a new Object
+ -The 'extracted from subject' Bundle content_type is used to show that the object in the Bundle is really just a collection of attributes extracted from the Malware Subject and not a new Object
  -Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li. http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
  
- Updated November 2012 for MAEC v3.0 and CybOX v1.0 final-->
+ Updated November 2012 for MAEC v3.0 and CybOX v1.0 final
+ Updated April 2013 for MAEC v4.0 and CybOX v2.0 final -->
 <maecPackage:MAEC_Package
- xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
- xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:cybox="http://cybox.mitre.org/cybox_v1"
- xmlns:Common="http://cybox.mitre.org/Common_v1"
- xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
- xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 http://maec.mitre.org/language/version3.0/maec-package-schema.xsd
- http://maec.mitre.org/XMLSchema/maec-bundle-3 http://maec.mitre.org/language/version3.0/maec-bundle-schema.xsd 
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd" 
- id="maec-example-pkg-1" schema_version="1.0">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 http://maec.mitre.org/language/version4.0/maec_package_schema.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.0/cybox_default_vocabularies.xsd 
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0/Win_Executable_File_Object.xsd" 
+ id="maec-example-pkg-1" schema_version="2.0">
 
  <maecPackage:Malware_Subjects>
   <maecPackage:Malware_Subject id="maec-example-sub-1">
    <maecPackage:Malware_Instance_Object_Attributes>
-     <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-      <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>
-      <FileObj:Size_In_Bytes datatype="UnsignedLong" condition="Equals">196608</FileObj:Size_In_Bytes>
+     <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+      <FileObj:File_Name>dg003_improve_8080_V132.exe</FileObj:File_Name>
+      <FileObj:Size_In_Bytes>196608</FileObj:Size_In_Bytes>
       <FileObj:Hashes>
-       <Common:Hash>
-        <Common:Type datatype="String" condition="Equals">MD5</Common:Type>
-        <Common:Simple_Hash_Value datatype="hexBinary" condition="Equals">4EC0027BEF4D7E1786A04D021FA8A67F</Common:Simple_Hash_Value>
-       </Common:Hash>
+       <cyboxCommon:Hash>
+        <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+        <cyboxCommon:Simple_Hash_Value>4EC0027BEF4D7E1786A04D021FA8A67F</cyboxCommon:Simple_Hash_Value>
+       </cyboxCommon:Hash>
       </FileObj:Hashes>
       <FileObj:Packer_List>
        <FileObj:Packer>
-        <FileObj:Name datatype="String">UPX</FileObj:Name>
-        <FileObj:PEiD datatype="String">UPX v3.0.2</FileObj:PEiD>
+        <FileObj:Name>UPX</FileObj:Name>
+        <FileObj:Signature>UPX v3.0.2</FileObj:Signature>
        </FileObj:Packer>
       </FileObj:Packer_List>
-     </cybox:Defined_Object>
+     </cybox:Properties>
    </maecPackage:Malware_Instance_Object_Attributes>
    
    <maecPackage:Analyses>
-    <maecPackage:Analysis id="maec-example-ana-1" method="Static" type="Triage">
+    <maecPackage:Analysis id="maec-example-ana-1" method="static" type="triage">
      <maecPackage:Source>
       <maecPackage:Name>Frankie Li</maecPackage:Name>
       <maecPackage:URL>http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814</maecPackage:URL>
@@ -50,30 +52,28 @@
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-1"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-1">
-       <Common:Name>PEiD</Common:Name>
-       <Common:Version>0.94</Common:Version>
+       <cyboxCommon:Name>PEiD</cyboxCommon:Name>
+       <cyboxCommon:Version>0.94</cyboxCommon:Version>
       </maecPackage:Tool>
      </maecPackage:Tools>
     </maecPackage:Analysis>
    </maecPackage:Analyses>
    
    <maecPackage:Findings_Bundles>
-    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="extracted_from_subject">
+    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="4.0" defined_subject="false" content_type="extracted from subject">
      <maecBundle:Objects>
-      <maecBundle:Object id="maec-example-obj-1" type="File">
-        <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-         <WinExecFileObj:PE_Attributes>
-          <WinExecFileObj:Base_Address datatype="hexBinary" condition="Equals">036418</WinExecFileObj:Base_Address>
+      <maecBundle:Object id="maec-example-obj-1">
+        <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
           <WinExecFileObj:Headers>
            <WinExecFileObj:Optional_Header>
-            <WinExecFileObj:Major_Linker_Version datatype="hexBinary" condition="Equals">06</WinExecFileObj:Major_Linker_Version>
-            <WinExecFileObj:Minor_Linker_Version datatype="hexBinary" condition="Equals">00</WinExecFileObj:Minor_Linker_Version>
+            <WinExecFileObj:Major_Linker_Version>06</WinExecFileObj:Major_Linker_Version>
+            <WinExecFileObj:Minor_Linker_Version>00</WinExecFileObj:Minor_Linker_Version>
+            <WinExecFileObj:Base_Of_Code>036418</WinExecFileObj:Base_Of_Code>
+            <WinExecFileObj:Subsystem>Windows_GUI</WinExecFileObj:Subsystem>
            </WinExecFileObj:Optional_Header>
           </WinExecFileObj:Headers>
-          <WinExecFileObj:Subsystem datatype="String" condition="Equals">Windows_GUI</WinExecFileObj:Subsystem>
-          <WinExecFileObj:Type datatype="String" condition="Equals">Executable</WinExecFileObj:Type>
-         </WinExecFileObj:PE_Attributes>
-        </cybox:Defined_Object>
+          <WinExecFileObj:Type>Executable</WinExecFileObj:Type>
+        </cybox:Properties>
        </maecBundle:Object>
      </maecBundle:Objects>
     </maecPackage:Bundle>

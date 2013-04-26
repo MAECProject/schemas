@@ -4,48 +4,52 @@
  -Demonstrates how a Package/Malware Subject can be used to capture multiple dynamic analysis tool outputs for a malware instance
  -Also, shows how the Process Tree in the Bundle can be used to capture the details of the process tree associated with the executed malware subject
  -Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li. http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
- -This example builds upon the static triage example (http://maec.mitre.org/language/version3.0/static_triage_example.xml)
+ -This example builds upon the static triage example (http://maec.mitre.org/language/version4.0/static_triage_example.xml)
  
- Updated November 2012 for MAEC v3.0 and CybOX v1.0 final-->
+ Updated November 2012 for MAEC v3.0 and CybOX v1.0 final
+ Updated April 2013 for MAEC v4.0 and CybOX v2.0 final-->
 <maecPackage:MAEC_Package
- xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
- xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:cybox="http://cybox.mitre.org/cybox_v1"
- xmlns:Common="http://cybox.mitre.org/Common_v1"
- xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject"
- xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
- xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject"
- xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
- xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
- xmlns:MutexObj="http://cybox.mitre.org/objects#MutexObject"
- xmlns:WinMutexObj="http://cybox.mitre.org/objects#WinMutexObject"
- xmlns:URIObj="http://cybox.mitre.org/objects#URIObject"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+ xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2"
+ xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
+ xmlns:MutexObj="http://cybox.mitre.org/objects#MutexObject-2"
+ xmlns:WinMutexObj="http://cybox.mitre.org/objects#WinMutexObject-2"
+ xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 http://maec.mitre.org/language/version3.0/maec-package-schema.xsd 
- http://maec.mitre.org/XMLSchema/maec-bundle-3 http://maec.mitre.org/language/version3.0/maec-bundle-schema.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
- http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/Win_Mutex_Object_1.2.xsd 
- http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.3.xsd 
- http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/URI_Object_1.2.xsd" 
- id="maec-example-pkg-1" schema_version="1.0">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 http://maec.mitre.org/language/version4.0/maec_package_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.0/maec_default_vocabularies.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.0/cybox_default_vocabularies.xsd 
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0/Win_Executable_File_Object.xsd
+ http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/2.0/Win_Mutex_Object.xsd 
+ http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/2.0/Win_Process_Object.xsd 
+ http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/2.0/URI_Object.xsd" 
+ id="maec-example-pkg-1" schema_version="2.0">
  
  <maecPackage:Malware_Subjects>
   <maecPackage:Malware_Subject id="maec-example-sub-1">
    <maecPackage:Malware_Instance_Object_Attributes>
-     <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-      <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>
-      <FileObj:Size_In_Bytes datatype="UnsignedLong" condition="Equals">196608</FileObj:Size_In_Bytes>
+     <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+      <FileObj:File_Name>dg003_improve_8080_V132.exe</FileObj:File_Name>
+      <FileObj:Size_In_Bytes>196608</FileObj:Size_In_Bytes>
       <FileObj:Hashes>
-       <Common:Hash>
-        <Common:Type datatype="String" condition="Equals">MD5</Common:Type>
-        <Common:Simple_Hash_Value datatype="hexBinary" condition="Equals">4EC0027BEF4D7E1786A04D021FA8A67F</Common:Simple_Hash_Value>
-       </Common:Hash>
+       <cyboxCommon:Hash>
+        <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+        <cyboxCommon:Simple_Hash_Value>4EC0027BEF4D7E1786A04D021FA8A67F</cyboxCommon:Simple_Hash_Value>
+       </cyboxCommon:Hash>
       </FileObj:Hashes>
-     </cybox:Defined_Object>
+     </cybox:Properties>
    </maecPackage:Malware_Instance_Object_Attributes>
    
    <maecPackage:Analyses>
-    <maecPackage:Analysis id="maec-example-ana-1" method="Static" type="Triage">
+    <maecPackage:Analysis id="maec-example-ana-1" method="static" type="triage">
      <maecPackage:Source>
       <maecPackage:Name>Frankie Li</maecPackage:Name>
       <maecPackage:URL>http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814</maecPackage:URL>
@@ -54,80 +58,77 @@
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-1"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-1">
-       <Common:Name>PEiD</Common:Name>
-       <Common:Version>0.94</Common:Version>
+       <cyboxCommon:Name>PEiD</cyboxCommon:Name>
+       <cyboxCommon:Version>0.94</cyboxCommon:Version>
       </maecPackage:Tool>
      </maecPackage:Tools>
     </maecPackage:Analysis>
     
-    <maecPackage:Analysis id="maec-example-ana-2" method="Dynamic" type="Triage">
+    <maecPackage:Analysis id="maec-example-ana-2" method="dynamic" type="triage">
      <maecPackage:Source>
       <maecPackage:Name>Frankie Li</maecPackage:Name>
       <maecPackage:URL>http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814</maecPackage:URL>
      </maecPackage:Source>
-     <maecPackage:Summary>Dynamic (behavioral) and tool-based triage of the subject
-      binary.</maecPackage:Summary>
+     <maecPackage:Summary>Dynamic (behavioral) and tool-based triage of the subject binary.</maecPackage:Summary>
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-2"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-2">
-       <Common:Vendor>Zealand Honeynet Project</Common:Vendor>
-       <Common:Name>CaptureBAT</Common:Name>
-       <Common:Version>2.0.0</Common:Version>
+       <cyboxCommon:Name>CaptureBAT</cyboxCommon:Name>
+       <cyboxCommon:Vendor>Zealand Honeynet Project</cyboxCommon:Vendor>
+       <cyboxCommon:Version>2.0.0</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-3">
-       <Common:Name>Regshot</Common:Name>
-       <Common:Version>v1.8.2</Common:Version>
+       <cyboxCommon:Name>Regshot</cyboxCommon:Name>
+       <cyboxCommon:Version>v1.8.2</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-4">
-       <Common:Name>HandleDiff</Common:Name>
-       <Common:Version>v.0.2</Common:Version>
+       <cyboxCommon:Name>HandleDiff</cyboxCommon:Name>
+       <cyboxCommon:Version>v.0.2</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-5">
-       <Common:Vendor>Sysinternals</Common:Vendor>
-       <Common:Name>VMMap</Common:Name>
-       <Common:Version>3.1</Common:Version>
+       <cyboxCommon:Name>VMMap</cyboxCommon:Name>
+       <cyboxCommon:Vendor>Sysinternals</cyboxCommon:Vendor>
+       <cyboxCommon:Version>3.1</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-6">
-       <Common:Vendor>Wireshark.org</Common:Vendor>
-       <Common:Name>Wireshark</Common:Name>
-       <Common:Version>1.2.2</Common:Version>
+       <cyboxCommon:Name>Wireshark</cyboxCommon:Name>
+       <cyboxCommon:Vendor>Wireshark.org</cyboxCommon:Vendor>
+       <cyboxCommon:Version>1.2.2</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-7">
-       <Common:Vendor>Sysinternals</Common:Vendor>
-       <Common:Name>Process Monitor</Common:Name>
-       <Common:Version>15.0</Common:Version>
+       <cyboxCommon:Name>Process Monitor</cyboxCommon:Name>
+       <cyboxCommon:Vendor>Sysinternals</cyboxCommon:Vendor>
+       <cyboxCommon:Version>15.0</cyboxCommon:Version>
       </maecPackage:Tool>
      </maecPackage:Tools>
     </maecPackage:Analysis>
    </maecPackage:Analyses>
    
    <maecPackage:Findings_Bundles>
-    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="extracted_from_subject">
+    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="4.0" defined_subject="false" content_type="extracted from subject">
      <maecBundle:Objects>
-      <maecBundle:Object id="maec-example-obj-1" type="File">
-        <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-         <WinExecFileObj:PE_Attributes>
-          <WinExecFileObj:Base_Address datatype="hexBinary" condition="Equals">036418</WinExecFileObj:Base_Address>
+      <maecBundle:Object id="maec-example-obj-1">
+        <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
           <WinExecFileObj:Headers>
            <WinExecFileObj:Optional_Header>
-            <WinExecFileObj:Major_Linker_Version datatype="hexBinary" condition="Equals">06</WinExecFileObj:Major_Linker_Version>
-            <WinExecFileObj:Minor_Linker_Version datatype="hexBinary" condition="Equals">00</WinExecFileObj:Minor_Linker_Version>
+            <WinExecFileObj:Major_Linker_Version>06</WinExecFileObj:Major_Linker_Version>
+            <WinExecFileObj:Minor_Linker_Version>00</WinExecFileObj:Minor_Linker_Version>
+            <WinExecFileObj:Base_Of_Code>036418</WinExecFileObj:Base_Of_Code>
+            <WinExecFileObj:Subsystem>Windows_GUI</WinExecFileObj:Subsystem>
            </WinExecFileObj:Optional_Header>
           </WinExecFileObj:Headers>
-          <WinExecFileObj:Subsystem datatype="String" condition="Equals">Windows_GUI</WinExecFileObj:Subsystem>
-          <WinExecFileObj:Type datatype="String" condition="Equals">Executable</WinExecFileObj:Type>
-         </WinExecFileObj:PE_Attributes>
-        </cybox:Defined_Object>
+          <WinExecFileObj:Type>Executable</WinExecFileObj:Type>
+        </cybox:Properties>
        </maecBundle:Object>
      </maecBundle:Objects>
     </maecPackage:Bundle>
     
-    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_tool_output">
+    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="4.0" defined_subject="false" content_type="dynamic analysis tool output">
      <maecBundle:Process_Tree>
       <maecBundle:Root_Process id="maec-example-pro-1">
        <ProcessObj:Image_Info>
@@ -183,548 +184,609 @@
      </maecBundle:Process_Tree>
      
      <maecBundle:Actions>
-       <maecBundle:Action id="maec-example-act-1" type="Create" name="Create File" context="Host" action_status="Success">
+       <maecBundle:Action id="maec-example-act-1" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-2" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">ws2help.PNF</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Local
-            Settings\\Application\\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-2">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>ws2help.PNF</FileObj:File_Name>
+           <FileObj:Full_Path condition="FitsPattern" pattern_type="Regex">^C:\\Documents and Settings\\\s+user\s+\\Local Settings\\Application\\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
       </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-2" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-          <Common:Tools>
-           <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-2" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+          <cyboxCommon:Tools>
+           <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-3" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">msvcr.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Local
-            Settings\\Application\\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-3">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>msvcr.dll</FileObj:File_Name>
+           <FileObj:Full_Path condition="FitsPattern" pattern_type="Regex">^C:\\Documents and Settings\\\s+user\s+\\Local Settings\\Application\\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-3" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-3" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-4" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">1.txt</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\Windows\inf</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-4">
+          <cybox:Properties xsi:type="FileObj:FileObjectType">
+           <FileObj:File_Name>1.txt</FileObj:File_Name>
+           <FileObj:Full_Path>C:\Windows\inf</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
          </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-4" type="Modify" name="Modify File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-4" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">modify file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-5" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">netstat.exe</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\Windows\system32</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-5">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>netstat.exe</FileObj:File_Name>
+           <FileObj:Full_Path>C:\Windows\system32</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
          </cybox:Associated_Object>
          </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-5" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-5" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-6" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">IECheck.exe</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Local
-            Settings\\Application\\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-6">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>IECheck.exe</FileObj:File_Name>
+           <FileObj:Full_Path condition="FitsPattern" pattern_type="Regex">^C:\\Documents and Settings\\\s+user\s+\\Local Settings\\Application\\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-6" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-6" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-7" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">IPsecstap.dat</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\Windows\system32</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-7">
+          <cybox:Properties xsi:type="FileObj:FileObjectType">
+           <FileObj:File_Name>IPsecstap.dat</FileObj:File_Name>
+           <FileObj:Full_Path>C:\Windows\system32</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-7" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-7" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-8" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">Internet Explorer Security Check.lnk</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Start
-            Menu\\Programs\\Startup</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-8">
+          <cybox:Properties xsi:type="FileObj:FileObjectType">
+           <FileObj:File_Name>Internet Explorer Security Check.lnk</FileObj:File_Name>
+           <FileObj:Full_Path condition="FitsPattern" pattern_type="Regex">^C:\\Documents and Settings\\\s+user\s+\\Start Menu\\Programs\\Startup</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
          </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-8" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-3"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-8" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-3"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-9" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">13605</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\Windows\system32</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-9">
+          <cybox:Properties xsi:type="FileObj:FileObjectType">
+           <FileObj:File_Name>13605</FileObj:File_Name>
+           <FileObj:Full_Path>C:\Windows\system32</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-9" type="Create" name="Create Mutex" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-4"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-9" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:SynchronizationActionNameVocab-1.0">create mutex</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-4"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-10" type="Mutex" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinMutexObj:WindowsMutexObjectType">
-           <MutexObj:Name datatype="String" condition="Contains">VistaDLLProRUNNING</MutexObj:Name>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-10">
+          <cybox:Properties xsi:type="WinMutexObj:WindowsMutexObjectType">
+           <MutexObj:Name condition="Contains">VistaDLLProRUNNING</MutexObj:Name>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-10" type="Write" name="Write to Process Virtual Memory" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-5"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-10" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:ProcessThreadActionNameVocab-1.0">create remote thread in process</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-5"/>
+         </cyboxCommon:Tools>
          </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-11" association_type="Utilized">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">msvcr.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Local
-            Settings\\Application\\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-11">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>msvcr.dll</FileObj:File_Name>
+           <FileObj:Full_Path condition="FitsPattern" pattern_type="Regex">^C:\\Documents and Settings\\\s+user\s+\\Local Settings\\Application\\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
          </cybox:Associated_Object>
-         <cybox:Associated_Object id="maec-example-obj-12" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
+         <cybox:Associated_Object id="maec-example-obj-12">
+          <cybox:Properties xsi:type="WinProcessObj:WindowsProcessObjectType">
            <ProcessObj:Image_Info>
-            <ProcessObj:Command_Line datatype="String">explorer.exe</ProcessObj:Command_Line>
-            <ProcessObj:Path datatype="String">C:\Windows\</ProcessObj:Path>
+            <ProcessObj:Command_Line>explorer.exe</ProcessObj:Command_Line>
+            <ProcessObj:Path>C:\Windows\</ProcessObj:Path>
            </ProcessObj:Image_Info>
-          </cybox:Defined_Object>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
         <cybox:Relationships>
-         <cybox:Relationship type="Preceded_By">
+         <cybox:Relationship>
+          <cybox:Type xsi:type="cyboxVocabs:ActionRelationshipTypeVocab-1.0">Preceded_By</cybox:Type>
           <cybox:Action_Reference action_id="maec-example-act-2"/>
          </cybox:Relationship>
         </cybox:Relationships>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-11" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-6"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-11" context="Network" action_status="Fail">
+        <cybox:Name xsi:type="maecVocabs:DNSActionNameVocab-1.0">send dns query</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-6"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-13" type="URI" association_type="Utilized">
-          <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
-           <URIObj:Value datatype="AnyURI" condition="Contains">test.3322.org.cn</URIObj:Value>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-13">
+          <cybox:Properties xsi:type="URIObj:URIObjectType">
+           <URIObj:Value>test.3322.org.cn</URIObj:Value>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-12" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-6"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-12" context="Network" action_status="Fail">
+        <cybox:Name xsi:type="maecVocabs:DNSActionNameVocab-1.0">send dns query</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-6"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-14" type="URI" association_type="Utilized">
-          <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
-           <URIObj:Value datatype="AnyURI" condition="Contains">1.test.3322.org.cn</URIObj:Value>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-14">
+          <cybox:Properties xsi:type="URIObj:URIObjectType">
+           <URIObj:Value>1.test.3322.org.cn</URIObj:Value>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-13" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-6"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-13" context="Network" action_status="Fail">
+        <cybox:Name xsi:type="maecVocabs:DNSActionNameVocab-1.0">send dns query</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-6"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-15" type="URI" association_type="Utilized">
-          <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
-           <URIObj:Value datatype="AnyURI" condition="Contains">2.test.3322.org.cn</URIObj:Value>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-15">
+          <cybox:Properties xsi:type="URIObj:URIObjectType">
+           <URIObj:Value>2.test.3322.org.cn</URIObj:Value>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-14" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-6"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-14" context="Network" action_status="Fail">
+        <cybox:Name xsi:type="maecVocabs:DNSActionNameVocab-1.0">send dns query</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-6"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-16" type="URI" association_type="Utilized">
-          <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
-           <URIObj:Value datatype="AnyURI" condition="Contains">3.test.3322.org.cn</URIObj:Value>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-16">
+          <cybox:Properties xsi:type="URIObj:URIObjectType">
+           <URIObj:Value>3.test.3322.org.cn</URIObj:Value>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
+         </cybox:Associated_Object> 
+        </cybox:Associated_Objects>
+       </maecBundle:Action>
+     
+       <maecBundle:Action id="maec-example-act-15" context="Network" action_status="Fail">
+        <cybox:Name xsi:type="maecVocabs:DNSActionNameVocab-1.0">send dns query</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-6"/>
+         </cyboxCommon:Tools>
+        </cybox:Discovery_Method>
+        <cybox:Associated_Objects>
+         <cybox:Associated_Object id="maec-example-obj-17">
+          <cybox:Properties xsi:type="URIObj:URIObjectType">
+           <URIObj:Value>4.test.3322.org.cn</URIObj:Value>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
+         </cybox:Associated_Object>
+        </cybox:Associated_Objects>
+       </maecBundle:Action>
+       
+       <maecBundle:Action id="maec-example-act-16" context="Network" action_status="Fail">
+        <cybox:Name xsi:type="maecVocabs:NetworkActionNameVocab-1.0">connect to ip</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-6"/>
+         </cyboxCommon:Tools>
+        </cybox:Discovery_Method>
+        <cybox:Associated_Objects>
+         <cybox:Associated_Object id="maec-example-obj-18">
+          <cybox:Properties xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
+           <AddressObj:Address_Value>172.16.0.61</AddressObj:Address_Value>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-15" type="Query" name="Query DNS" context="Network" network_protocol="DNS" action_status="Fail">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-6"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-17"  context="Network" action_status="Fail">
+        <cybox:Name xsi:type="maecVocabs:NetworkActionNameVocab-1.0">connect to ip</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-6"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-17" type="URI" association_type="Utilized">
-          <cybox:Defined_Object xsi:type="URIObj:URIObjectType">
-           <URIObj:Value datatype="AnyURI" condition="Contains">4.test.3322.org.cn</URIObj:Value>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-19">
+          <cybox:Properties xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
+           <AddressObj:Address_Value condition="FitsPattern" pattern_type="Regex">^115\..*\..*\.249</AddressObj:Address_Value>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
        
-       <maecBundle:Action id="maec-example-act-16" type="Connect" name="Connect to IP" context="Network" network_protocol="TCP/IP" action_status="Fail">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-6"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-18" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-18" type="IP Address" association_type="Utilized">
-          <cybox:Defined_Object xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
-           <AddressObj:Address_Value datatype="String" condition="Equals">172.16.0.61</AddressObj:Address_Value>
-          </cybox:Defined_Object>
-         </cybox:Associated_Object>
-        </cybox:Associated_Objects>
-       </maecBundle:Action>
-     
-       <maecBundle:Action id="maec-example-act-17" type="Connect" name="Connect to IP" context="Network" network_protocol="TCP/IP" action_status="Fail">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-6"/>
-         </Common:Tools>
-        </cybox:Discovery_Method>
-        <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-19" type="IP Address" association_type="Utilized">
-          <cybox:Defined_Object xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
-           <AddressObj:Address_Value datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^115\..*\..*\.249</AddressObj:Address_Value>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-20">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>fvcwin32.exe</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
        
-       <maecBundle:Action id="maec-example-act-18" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-19" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-20" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">fvcwin32.exe</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-21">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>acvcwin32.exe</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
        
-       <maecBundle:Action id="maec-example-act-19" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-20" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-21" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">acvcwin32.exe</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-22">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>avcwin32.exe</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
        
-       <maecBundle:Action id="maec-example-act-20" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-21" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:ProcessActionNameVocab-1.0">create process</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-7"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-22" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">avcwin32.exe</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug</FileObj:Full_Path>
-          </cybox:Defined_Object>
-         </cybox:Associated_Object>
-        </cybox:Associated_Objects>
-       </maecBundle:Action>
-       
-       <maecBundle:Action id="maec-example-act-21" type="Create" name="Create Process" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-7"/>
-         </Common:Tools>
-        </cybox:Discovery_Method>
-        <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-23" type="Process" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
+         <cybox:Associated_Object id="maec-example-obj-23">
+          <cybox:Properties xsi:type="WinProcessObj:WindowsProcessObjectType">
            <ProcessObj:Image_Info>
-            <ProcessObj:Command_Line datatype="String" condition="Equals">fvcwin32.exe</ProcessObj:Command_Line>
-            <ProcessObj:Path datatype="String" condition="Equals">C:\WINDOWS\Debug</ProcessObj:Path>
+            <ProcessObj:Command_Line>fvcwin32.exe</ProcessObj:Command_Line>
+            <ProcessObj:Path>C:\WINDOWS\Debug</ProcessObj:Path>
            </ProcessObj:Image_Info>
-          </cybox:Defined_Object>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-22" type="Create" name="Create Process" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-7"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-22" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:ProcessActionNameVocab-1.0">create process</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-7"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-24" type="Process" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
+         <cybox:Associated_Object id="maec-example-obj-24">
+          <cybox:Properties xsi:type="WinProcessObj:WindowsProcessObjectType">
            <ProcessObj:Image_Info>
-            <ProcessObj:Command_Line datatype="String" condition="Equals">acvcwin32.exe</ProcessObj:Command_Line>
-            <ProcessObj:Path datatype="String" condition="Equals">C:\WINDOWS\Debug</ProcessObj:Path>
+            <ProcessObj:Command_Line>acvcwin32.exe</ProcessObj:Command_Line>
+            <ProcessObj:Path>C:\WINDOWS\Debug</ProcessObj:Path>
            </ProcessObj:Image_Info>
-          </cybox:Defined_Object>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-23" type="Create" name="Create Process" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-7"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-23" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:ProcessActionNameVocab-1.0">create process</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-7"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-25" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
+         <cybox:Associated_Object id="maec-example-obj-25">
+          <cybox:Properties xsi:type="WinProcessObj:WindowsProcessObjectType">
            <ProcessObj:Image_Info>
-            <ProcessObj:Command_Line datatype="String">avcwin32.exe</ProcessObj:Command_Line>
-            <ProcessObj:Path datatype="String">C:\WINDOWS\Debug</ProcessObj:Path>
+            <ProcessObj:Command_Line>avcwin32.exe</ProcessObj:Command_Line>
+            <ProcessObj:Path>C:\WINDOWS\Debug</ProcessObj:Path>
            </ProcessObj:Image_Info>
-          </cybox:Defined_Object>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-24" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-24" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-26" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">AutoList.txt</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\.*\\Application
-            Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-26">
+          <cybox:Properties xsi:type="FileObj:FileObjectType">
+           <FileObj:File_Name>AutoList.txt</FileObj:File_Name>
+           <FileObj:Full_Path condition="FitsPattern" pattern_type="Regex">^C:\\Documents and Settings\\.*\\Application Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-25" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-25" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-27" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">AutoList.txt</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\.*\\Application
-            Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-27">
+          <cybox:Properties xsi:type="FileObj:FileObjectType">
+           <FileObj:File_Name>AutoList.txt</FileObj:File_Name>
+           <FileObj:Full_Path condition="FitsPattern" pattern_type="Regex">^C:\\Documents and Settings\\.*\\Application Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-26" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-26" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-28" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">SAM.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-28">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>SAM.dll</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-27" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-27" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-29" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">system.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-29">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>system.dll</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
        
-       <maecBundle:Action id="maec-example-act-28" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-28" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-30" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">system.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-30">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>system.dll</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-29" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-29" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-31" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">Iestorage.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-31">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>Iestorage.dll</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-30" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-30" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-32" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">SAM.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-32">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>SAM.dll</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-31" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-31" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-33" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">system.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-33">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>system.dll</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-32" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-32" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-34" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">iestorage.dll</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-34">
+          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+           <FileObj:File_Name>iestorage.dll</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>
      
-       <maecBundle:Action id="maec-example-act-33" type="Create" name="Create File" context="Host" action_status="Success">
-         <cybox:Discovery_Method source_type="Tool">
-         <Common:Tools>
-          <Common:Tool idref="analysis-tool-2"/>
-         </Common:Tools>
+       <maecBundle:Action id="maec-example-act-33" context="Host" action_status="Success">
+        <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
+        <cybox:Discovery_Method source_type="Tool">
+         <cyboxCommon:Tools>
+          <cyboxCommon:Tool idref="analysis-tool-2"/>
+         </cyboxCommon:Tools>
         </cybox:Discovery_Method>
         <cybox:Associated_Objects>
-         <cybox:Associated_Object id="maec-example-obj-35" type="File" association_type="Affected">
-          <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-           <FileObj:File_Name datatype="String" condition="Equals">drive.cab</FileObj:File_Name>
-           <FileObj:Full_Path datatype="String" condition="Equals">C:\WINDOWS\Debug\Data</FileObj:Full_Path>
-          </cybox:Defined_Object>
+         <cybox:Associated_Object id="maec-example-obj-35">
+          <cybox:Properties xsi:type="FileObj:FileObjectType">
+           <FileObj:File_Name>drive.cab</FileObj:File_Name>
+           <FileObj:Full_Path>C:\WINDOWS\Debug\Data</FileObj:Full_Path>
+          </cybox:Properties>
+          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
          </cybox:Associated_Object>
         </cybox:Associated_Objects>
        </maecBundle:Action>

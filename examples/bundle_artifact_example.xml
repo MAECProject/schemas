@@ -5,42 +5,46 @@
 -The network traffic was extracted and truncated from a PCAP file from an Anubis analysis: http://anubis.iseclab.org/index.php?action=result&task_id=8b9cf596ff6959e4e54ea3e4a12ce87c
 -No encoding was used for the byte stream
  
- Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
+  Created November 2012 for MAEC v3.0 and CybOX v1.0 final
+  Updated April 2013 for MAEC v4.0 and CybOX v2.0-->
 <maecBundle:MAEC_Bundle
- xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3" 
- xmlns:Common="http://cybox.mitre.org/Common_v1"
- xmlns:cybox="http://cybox.mitre.org/cybox_v1"
- xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
- xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject"
- xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4" 
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject-2"
+ xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 http://maec.mitre.org/language/version3.0/maec-bundle-schema.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
- http://cybox.mitre.org/objects#ArtifactObject http://cybox.mitre.org/XMLSchema/objects/Artifact/Artifact_Object_1.0.xsd" 
- id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="dynamic_analysis_tool_output">
+ xsi:schemaLocation=
+ "http://maec.mitre.org/XMLSchema/maec-bundle-4 http://maec.mitre.org/language/version4.0/maec_bundle_schema.xsd
+ http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.0/cybox_core.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0/Win_Executable_File_Object.xsd
+ http://cybox.mitre.org/objects#ArtifactObject-2 http://cybox.mitre.org/XMLSchema/objects/Artifact/2.0/Artifact_Object.xsd" 
+ id="maec-example-bnd-1" schema_version="4.0" defined_subject="true" content_type="dynamic analysis tool output">
 <maecBundle:Malware_Instance_Object_Attributes>
- <cybox:Defined_Object xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
-  <FileObj:Size_In_Bytes datatype="UnsignedLong">24840</FileObj:Size_In_Bytes>
+ <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+  <FileObj:Size_In_Bytes>24840</FileObj:Size_In_Bytes>
   <FileObj:Hashes>
-   <Common:Hash>
-    <Common:Type datatype="String">MD5</Common:Type>
-    <Common:Simple_Hash_Value datatype="hexBinary">3d23ec8b55840b95ea75197ce9446b6d</Common:Simple_Hash_Value>
-   </Common:Hash>
-   <Common:Hash>
-    <Common:Type datatype="String">SHA1</Common:Type>
-    <Common:Simple_Hash_Value datatype="hexBinary">272ce73adebba81983abbbf112155e463951d046</Common:Simple_Hash_Value>
-   </Common:Hash>
+   <cyboxCommon:Hash>
+    <cyboxCommon:Type>MD5</cyboxCommon:Type>
+    <cyboxCommon:Simple_Hash_Value>3d23ec8b55840b95ea75197ce9446b6d</cyboxCommon:Simple_Hash_Value>
+   </cyboxCommon:Hash>
+   <cyboxCommon:Hash>
+    <cyboxCommon:Type>SHA1</cyboxCommon:Type>
+    <cyboxCommon:Simple_Hash_Value>272ce73adebba81983abbbf112155e463951d046</cyboxCommon:Simple_Hash_Value>
+   </cyboxCommon:Hash>
   </FileObj:Hashes>
- </cybox:Defined_Object>
+ </cybox:Properties>
 </maecBundle:Malware_Instance_Object_Attributes>
  
 <maecBundle:Objects>
- <maecBundle:Object id="maec-example-obj-1" type="Artifact">
-  <cybox:Defined_Object xsi:type="ArtifactObj:ArtifactType" type="Network Traffic">
+ <maecBundle:Object id="maec-example-obj-1">
+  <cybox:Properties xsi:type="ArtifactObj:ArtifactObjectType" type="Network Traffic">
    <ArtifactObj:Raw_Artifact>
     <![CDATA[11DF01000001000000000000057961686F6F03636F6D00000F00010011DF8180000100070007000E057961686F6F03636F6D00000F0001C00C000F000100001C20000E00010161026D78046D61696CC00CC00C000F000100001C20000600010162C02BC00C000F000100001C20000600010163C02BC00C000F000100001C20000600010164C02BC00C000F000100001C20000600010165C02BC00C000F000100001C20000600010166C02BC00C000F000100001C20000600010167C02BC00C0002000100016AB10006036E7336C00CC00C0002000100016AB10006036E7338C00CC00C0002000100016AB10006036E7331C00CC00C0002000100016AB10006036E7332C00CC00C0002000100016AB10006036E7333C00CC00C0002000100016AB10006036E7334C00CC00C0002000100016AB10006036E7335C00CC0290001000100000708000443C3A81FC0430001000100000708000442C461FAC05500010001000007080004D8273502C05500010001000007080004D8273503C0670001000100000708000442C45207C07900010001000007080004D8273501C08B00010001000007080004448ECAF7C08B00010001000007080004628936EDC09D00010001000007080004CEBE35BFC09D00010001000007080004D1BF7667C0D10001000100016312000444B48310C0E300010001000163120004448EFF10C0F50001000100016312000479659863C10700010001000163120004448EC43F]]>
    </ArtifactObj:Raw_Artifact>
-  </cybox:Defined_Object>
+  </cybox:Properties>
  </maecBundle:Object>
 </maecBundle:Objects>
 </maecBundle:MAEC_Bundle>

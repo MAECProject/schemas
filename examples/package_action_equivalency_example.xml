@@ -4,66 +4,71 @@
  -Demonstrates composition and usage of an Action Equivalency in a Package
  -The created Action Equivalency is used inside of a Behavior
  
- Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
+ Created November 2012 for MAEC v3.0 and CybOX v1.0 final
+ Updated April 2013 for MAEC v4.0 and CybOX v2.0 final -->
 <maecPackage:MAEC_Package
- xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-1"
- xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:cybox="http://cybox.mitre.org/cybox_v1"
- xmlns:Common="http://cybox.mitre.org/Common_v1"
- xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
- xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-3 http://maec.mitre.org/language/version3.0/maec-package-schema.xsd
- http://maec.mitre.org/XMLSchema/maec-bundle-3 http://maec.mitre.org/language/version3.0/maec-bundle-schema.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
- http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/Win_Mutex_Object_1.2.xsd 
- http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.3.xsd 
- http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/URI_Object_1.2.xsd" 
- id="maec-example-pkg-1" schema_version="1.0">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 ../maec_package_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.0/maec_default_vocabularies.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.0/cybox_default_vocabularies.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0/Win_Executable_File_Object.xsd
+ http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/2.0/Win_Mutex_Object.xsd 
+ http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/2.0/Win_Process_Object.xsd 
+ http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/2.0/URI_Object.xsd" 
+ id="maec-example-pkg-1" schema_version="2.0">
 
  <maecPackage:Malware_Subjects>
   <maecPackage:Malware_Subject id="maec-example-sub-1">
    <maecPackage:Malware_Instance_Object_Attributes>
-     <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-      <FileObj:File_Name datatype="String">2ed2386bfb.exe</FileObj:File_Name>
-      <FileObj:File_Path datatype="String">C:\2ed2386bfb.exe</FileObj:File_Path>
-      <FileObj:Size_In_Bytes datatype="UnsignedLong">379077</FileObj:Size_In_Bytes>
+     <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+      <FileObj:File_Name>2ed2386bfb.exe</FileObj:File_Name>
+      <FileObj:File_Path>C:\2ed2386bfb.exe</FileObj:File_Path>
+      <FileObj:Size_In_Bytes>379077</FileObj:Size_In_Bytes>
       <FileObj:Hashes>
-       <Common:Hash>
-        <Common:Type datatype="String">MD5</Common:Type>
-        <Common:Simple_Hash_Value datatype="hexBinary">2ed2386bfbd31a1104e402a0c97c1aa6</Common:Simple_Hash_Value>
-       </Common:Hash>
-       <Common:Hash>
-        <Common:Type datatype="String">SHA1</Common:Type>
-        <Common:Simple_Hash_Value datatype="hexBinary">611a0dae515ea4606c1e3b768145af902ed5f349</Common:Simple_Hash_Value>
-       </Common:Hash>
+       <cyboxCommon:Hash>
+        <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+        <cyboxCommon:Simple_Hash_Value>2ed2386bfbd31a1104e402a0c97c1aa6</cyboxCommon:Simple_Hash_Value>
+       </cyboxCommon:Hash>
+       <cyboxCommon:Hash>
+        <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+        <cyboxCommon:Simple_Hash_Value>611a0dae515ea4606c1e3b768145af902ed5f349</cyboxCommon:Simple_Hash_Value>
+       </cyboxCommon:Hash>
       </FileObj:Hashes>
-     </cybox:Defined_Object>
+     </cybox:Properties>
    </maecPackage:Malware_Instance_Object_Attributes>
+   
    <maecPackage:Analyses>
-    <maecPackage:Analysis id="maec-example-ana-1" method="Dynamic" type="Triage">
-     <maecPackage:Summary>Dynamic (behavioral)  triage of the subject binary.</maecPackage:Summary>
+    <maecPackage:Analysis id="maec-example-ana-1" method="dynamic" type="triage">
+     <maecPackage:Summary>Dynamic (behavioral) triage of the subject binary.</maecPackage:Summary>
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-1"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-1">
-       <Common:Vendor>IsecLab</Common:Vendor>
-       <Common:Name>Anubis</Common:Name>
+       <cyboxCommon:Name>Anubis</cyboxCommon:Name>
+       <cyboxCommon:Vendor>IsecLab</cyboxCommon:Vendor>
       </maecPackage:Tool>
      </maecPackage:Tools>
     </maecPackage:Analysis>
     
-    <maecPackage:Analysis id="maec-example-ana-2" method="Dynamic" type="Triage">
+    <maecPackage:Analysis id="maec-example-ana-2" method="dynamic" type="triage">
      <maecPackage:Summary>Dynamic (behavioral) and tool-based triage of the subject binary.</maecPackage:Summary>
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-2"/>
      <maecPackage:Tools>
       <maecPackage:Tool id="analysis-tool-2">
-       <Common:Vendor>Symantec</Common:Vendor>
-       <Common:Name>ThreatExpert</Common:Name>
+       <cyboxCommon:Name>ThreatExpert</cyboxCommon:Name>
+       <cyboxCommon:Vendor>Symantec</cyboxCommon:Vendor>
       </maecPackage:Tool>
      </maecPackage:Tools>
     </maecPackage:Analysis>
     
-    <maecPackage:Analysis id="maec-example-ana-3" method="Static" type="Manual">
+    <maecPackage:Analysis id="maec-example-ana-3" method="static" type="manual">
      <maecPackage:Summary>Manual analysis of the subject binary.</maecPackage:Summary>
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-3"/>
     </maecPackage:Analysis>
@@ -79,57 +84,61 @@
      </maecPackage:Action_Equivalences>
     </maecPackage:Meta_Analysis>
     
-    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_tool_output">
+    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="4.0" defined_subject="false" content_type="dynamic analysis tool output">
      <maecBundle:Actions>
-      <maecBundle:Action action_status="Success" context="Host" type="Create" name="Create File" id="maec-anubis_to_maec-act-1">
+      <maecBundle:Action action_status="Success" context="Host" id="maec-anubis_to_maec-act-1">
+       <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
        <cybox:Discovery_Method>
-        <Common:Tools>
-         <Common:Tool idref="analysis-tool-1"/>
-        </Common:Tools>
+        <cyboxCommon:Tools>
+         <cyboxCommon:Tool idref="analysis-tool-1"/>
+        </cyboxCommon:Tools>
        </cybox:Discovery_Method>
        <cybox:Associated_Objects>
-        <cybox:Associated_Object type="File" id="maec-anubis_to_maec-obj-1" association_type="Affected">
-         <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-          <FileObj:File_Name datatype="String">taskmgrsx.exe</FileObj:File_Name>
-          <FileObj:File_Path datatype="String">C:\Documents and Settings\Administrator\Start Menu\Programs\Startup\</FileObj:File_Path>
-         </cybox:Defined_Object>
+        <cybox:Associated_Object id="maec-anubis_to_maec-obj-1">
+         <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+          <FileObj:File_Name>taskmgrsx.exe</FileObj:File_Name>
+          <FileObj:File_Path>C:\Documents and Settings\Administrator\Start Menu\Programs\Startup\</FileObj:File_Path>
+         </cybox:Properties>
+         <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
         </cybox:Associated_Object>
        </cybox:Associated_Objects>
       </maecBundle:Action>
      </maecBundle:Actions>
     </maecPackage:Bundle>
     
-    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="3.0" defined_subject="false" content_type="dynamic_analysis_tool_output">
+    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="4.0" defined_subject="false" content_type="dynamic analysis tool output">
      <maecBundle:Actions>
-      <maecBundle:Action action_status="Success" type="Create" id="maec-threatexpert_to_maec-act-1">
+      <maecBundle:Action action_status="Success" context="Host" id="maec-threatexpert_to_maec-act-1">
+       <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name>
        <cybox:Discovery_Method>
-        <Common:Tools>
-         <Common:Tool idref="analysis-tool-2"/>
-        </Common:Tools>
+        <cyboxCommon:Tools>
+         <cyboxCommon:Tool idref="analysis-tool-2"/>
+        </cyboxCommon:Tools>
        </cybox:Discovery_Method>
        <cybox:Associated_Objects>
-        <cybox:Associated_Object type="File" id="maec-threatexpert_to_maec-obj-2" association_type="Affected">
-         <cybox:Defined_Object xsi:type="FileObj:FileObjectType">
-          <FileObj:File_Name datatype="String">taskmgrsx.exe</FileObj:File_Name>
-          <FileObj:File_Path datatype="String">%Programs%\Startup\</FileObj:File_Path>
+        <cybox:Associated_Object id="maec-threatexpert_to_maec-obj-2">
+         <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+          <FileObj:File_Name>taskmgrsx.exe</FileObj:File_Name>
+          <FileObj:File_Path>%Programs%\Startup\</FileObj:File_Path>
           <FileObj:Hashes>
-           <Common:Hash>
-            <Common:Type datatype="String">SHA1</Common:Type>
-            <Common:Simple_Hash_Value datatype="hexBinary">BBC170B55793F66793A3A33D084161B75C232D8D</Common:Simple_Hash_Value>
-           </Common:Hash>
-           <Common:Hash>
-            <Common:Type datatype="String">MD5</Common:Type>
-            <Common:Simple_Hash_Value datatype="hexBinary">3D0FB1FAB61BE9B7E7ADF51ED08558E0</Common:Simple_Hash_Value>
-           </Common:Hash>
+           <cyboxCommon:Hash>
+            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+            <cyboxCommon:Simple_Hash_Value>BBC170B55793F66793A3A33D084161B75C232D8D</cyboxCommon:Simple_Hash_Value>
+           </cyboxCommon:Hash>
+           <cyboxCommon:Hash>
+            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+            <cyboxCommon:Simple_Hash_Value>3D0FB1FAB61BE9B7E7ADF51ED08558E0</cyboxCommon:Simple_Hash_Value>
+           </cyboxCommon:Hash>
           </FileObj:Hashes>
-         </cybox:Defined_Object>
+         </cybox:Properties>
+         <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
         </cybox:Associated_Object>
        </cybox:Associated_Objects>
       </maecBundle:Action>
      </maecBundle:Actions>
     </maecPackage:Bundle>
     
-    <maecPackage:Bundle id="maec-example-bnd-3" schema_version="3.0" defined_subject="false" content_type="manual_analysis_output">
+    <maecPackage:Bundle id="maec-example-bnd-3" schema_version="4.0" defined_subject="false" content_type="manual analysis output">
      <maecBundle:Behaviors>
       <maecBundle:Behavior id="maec-example-bhv-1">
        <maecBundle:Description>A persistence after reboot behavior using the Windows startup folder.</maecBundle:Description>

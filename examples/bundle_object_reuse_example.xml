@@ -5,63 +5,76 @@
  -The Object that is used more than once (i.e., in multiple Actions) is stored inside the <Objects> Bundle element and then referenced with the idref attribute.
  -Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li. http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
  
- Created November 2012 for MAEC v3.0 and CybOX v1.0 final-->
+ Created November 2012 for MAEC v3.0 and CybOX v1.0 final
+ Updated April 2013 for MAEC v4.0 and CybOX v2.0-->
 <maecBundle:MAEC_Bundle
- xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
- xmlns:cybox="http://cybox.mitre.org/cybox_v1"
- xmlns:Common="http://cybox.mitre.org/Common_v1"
- xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject"
- xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject"
- xmlns:FileObj="http://cybox.mitre.org/objects#FileObject"
- xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject"
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject-2"
+ xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-3 http://maec.mitre.org/language/version3.0/maec-bundle-schema.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/Win_Executable_File_Object_1.3.xsd
- http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/Win_Process_Object_1.3.xsd" 
- id="maec-example-bnd-1" schema_version="3.0" defined_subject="true" content_type="mixed">
+ xsi:schemaLocation=
+ "http://maec.mitre.org/XMLSchema/maec-bundle-4 http://maec.mitre.org/language/version4.0/maec_bundle_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.0/maec_default_vocabularies.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.0/cybox_default_vocabularies.xsd 
+ http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.0/cybox_core.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0/Win_Executable_File_Object.xsd
+ http://cybox.mitre.org/objects#WinProcessObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Process/2.0/Win_Process_Object.xsd" 
+ id="maec-example-bnd-1" schema_version="4.0" defined_subject="true" content_type="mixed">
  
  <maecBundle:Malware_Instance_Object_Attributes>
-   <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-    <FileObj:File_Name datatype="String" condition="Equals">dg003_improve_8080_V132.exe</FileObj:File_Name>
-    <FileObj:Size_In_Bytes datatype="UnsignedLong" condition="Equals">196608</FileObj:Size_In_Bytes>
+   <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+    <FileObj:File_Name>dg003_improve_8080_V132.exe</FileObj:File_Name>
+    <FileObj:Size_In_Bytes>196608</FileObj:Size_In_Bytes>
     <FileObj:Hashes>
-     <Common:Hash>
-      <Common:Type datatype="String" condition="Equals">MD5</Common:Type>
-      <Common:Simple_Hash_Value datatype="hexBinary" condition="Equals">4EC0027BEF4D7E1786A04D021FA8A67F</Common:Simple_Hash_Value>
-     </Common:Hash>
+     <cyboxCommon:Hash>
+      <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+      <cyboxCommon:Simple_Hash_Value>4EC0027BEF4D7E1786A04D021FA8A67F</cyboxCommon:Simple_Hash_Value>
+     </cyboxCommon:Hash>
     </FileObj:Hashes>
-   </cybox:Defined_Object>
+   </cybox:Properties>
   </maecBundle:Malware_Instance_Object_Attributes>
  
   <maecBundle:Actions>
-    <maecBundle:Action id="maec-example-act-1" type="Create" name="Create File" context="Host" action_status="Success">
+    <maecBundle:Action id="maec-example-act-1" context="Host" action_status="Success">
+     <cybox:Name xsi:type="maecVocabs:FileActionNameVocab-1.0">create file</cybox:Name> 
      <cybox:Associated_Objects>
-      <cybox:Associated_Object idref="maec-example-obj-1" type="File" association_type="Affected"/>
+      <cybox:Associated_Object idref="maec-example-obj-1">
+       <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type> 
+      </cybox:Associated_Object>
      </cybox:Associated_Objects>
     </maecBundle:Action>
   
-    <maecBundle:Action id="maec-example-act-2" type="Write" name="Write to Process Virtual Memory" context="Host" action_status="Success">
+    <maecBundle:Action id="maec-example-act-2" context="Host" action_status="Success">
+     <cybox:Name xsi:type="maecVocabs:ProcessMemoryActionNameVocab-1.0">write to process memory</cybox:Name> 
      <cybox:Associated_Objects>
-      <cybox:Associated_Object idref="maec-example-obj-1" association_type="Utilized"/>
-      <cybox:Associated_Object id="maec-example-obj-2" association_type="Affected">
-       <cybox:Defined_Object xsi:type="WinProcessObj:WindowsProcessObjectType">
+      <cybox:Associated_Object idref="maec-example-obj-1">
+       <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>       
+      </cybox:Associated_Object>
+      <cybox:Associated_Object id="maec-example-obj-2">
+       <cybox:Properties xsi:type="WinProcessObj:WindowsProcessObjectType">
         <ProcessObj:Image_Info>
-         <ProcessObj:Command_Line datatype="String">explorer.exe</ProcessObj:Command_Line>
-         <ProcessObj:Path datatype="String">C:\Windows\</ProcessObj:Path>
+         <ProcessObj:Command_Line>explorer.exe</ProcessObj:Command_Line>
+         <ProcessObj:Path>C:\Windows\</ProcessObj:Path>
         </ProcessObj:Image_Info>
-       </cybox:Defined_Object>
+       </cybox:Properties>
+       <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>      
       </cybox:Associated_Object>
      </cybox:Associated_Objects>
     </maecBundle:Action>
    </maecBundle:Actions>
  
   <maecBundle:Objects>
-   <maecBundle:Object id="maec-example-obj-1" type="File">
-    <cybox:Defined_Object xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
-     <FileObj:File_Name datatype="String" condition="Equals">msvcr.dll</FileObj:File_Name>
-     <FileObj:Full_Path datatype="String" condition="FitsPattern" pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Local
-      Settings\\Application\\Data</FileObj:Full_Path>
-    </cybox:Defined_Object>
+   <maecBundle:Object id="maec-example-obj-1">
+    <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+     <FileObj:File_Name>msvcr.dll</FileObj:File_Name>
+     <FileObj:Full_Path pattern_type="Regex" regex_syntax="PCRE">^C:\\Documents and Settings\\\s+user\s+\\Local Settings\\Application\\Data</FileObj:Full_Path>
+    </cybox:Properties>
    </maecBundle:Object>
   </maecBundle:Objects>
 </maecBundle:MAEC_Bundle>
