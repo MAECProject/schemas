@@ -1727,4 +1727,55 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="MalwareSubjectRelationshipTypeVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The GroupingRelationshipTypeVocab is the default MAEC vocabulary for the Malware Subject relatonships in a Package, captured via the MalwareSubjectRelationshipType/Type element in the MAEC Package.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:MalwareSubjectRelationshipEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Malware Subject Relationship Types" name="vocab_name" type="xs:string" use="optional"/>
+				<xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#MalwareSubjectRelationshipTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="MalwareSubjectRelationshipEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The MalwareSubjectRelationshipEnum is a non-exhaustive enumeration of relationships between Malware Subjects.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="downloads">
+				<xs:annotation>
+					<xs:documentation>The downloads value specifies that the Malware Subject downloads one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="downloaded by">
+				<xs:annotation>
+					<xs:documentation>The downloaded by value specifies that the current Malware Subject was downloaded by one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="drops">
+				<xs:annotation>
+					<xs:documentation>The drops value specifies that the Malware Subject drops (or writes to disk) one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="dropped by">
+				<xs:annotation>
+					<xs:documentation>The dropped by value specifies that the current Malware Subject was dropped (or written to disk) by one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="extracts">
+				<xs:annotation>
+					<xs:documentation>The extracts value specifies that the Malware Subject extracts (from an embedded archive or another container) one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="extracted from">
+				<xs:annotation>
+					<xs:documentation>The extracts value specifies that the current Malware Subject was extracted from one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
