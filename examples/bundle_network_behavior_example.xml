@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ MAEC Bundle Network Behavior
+ -Demonstrates how a network-based behavior can be captured in a MAEC Bundle
+ -Based on Securelist Red October report: http://www.securelist.com/en/analysis/204792265/Red_October_Detailed_Malware_Description_1_First_Stage_of_Attack
+ 
+ Created April 2013 for MAEC v4.0 and CybOX v2.0 -->
+<maecBundle:MAEC_Bundle
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
+ xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-4 ../maec_bundle_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 ../maec_default_vocabularies.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.0/cybox_default_vocabularies.xsd 
+ http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.0/cybox_core.xsd
+ http://cybox.mitre.org/objects#HTTPSessionObject-2 http://cybox.mitre.org/XMLSchema/objects/HTTP_Session/2.0/HTTP_Session_Object.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0/Win_Executable_File_Object.xsd" 
+ id="maec-example-bnd-1" schema_version="4.0" defined_subject="true" content_type="mixed">
+<maecBundle:Malware_Instance_Object_Attributes>
+ <cybox:Description>Red October Downloader</cybox:Description>
+ <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+  <FileObj:Hashes>
+   <cyboxCommon:Hash>
+    <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+    <cyboxCommon:Simple_Hash_Value>c3b0d1403ba35c3aba8f4529f43fb300</cyboxCommon:Simple_Hash_Value>
+   </cyboxCommon:Hash>
+  </FileObj:Hashes>
+ </cybox:Properties>
+</maecBundle:Malware_Instance_Object_Attributes>
+ 
+ <maecBundle:Behaviors>
+  <maecBundle:Behavior id="maec-example-bhv-1">
+   <maecBundle:Purpose>
+    <maecBundle:Description>A Command and Control Server Connection Loop. Every 180 seconds the malware subject
+    seconds an HTTP Post request to its C2 server with some data uniquely identifying the victim machine
+    and reporting on the status of the execution of the malware.
+    </maecBundle:Description>
+   </maecBundle:Purpose>
+   <maecBundle:Action_Composition>
+    <maecBundle:Action_Reference action_id="maec-example-act-1"/>
+   </maecBundle:Action_Composition>
+  </maecBundle:Behavior>
+ </maecBundle:Behaviors>
+ 
+<maecBundle:Actions>
+ <maecBundle:Action id="maec-example-act-1" context="Network">
+  <cybox:Name xsi:type="maecVocabs:HTTPActionNameVocab-1.0">send http post request</cybox:Name>
+  <cybox:Associated_Objects>
+   <cybox:Associated_Object id="maec-example-obj-1">
+    <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
+     <HTTPSessionObj:HTTP_Request_Response>
+      <HTTPSessionObj:HTTP_Client_Request>
+       <HTTPSessionObj:HTTP_Request_Line>
+        <HTTPSessionObj:HTTP_Method datatype="string">POST</HTTPSessionObj:HTTP_Method>
+        <HTTPSessionObj:Value>http://www.dailyinfonews.net/reportdatas.php</HTTPSessionObj:Value>
+        <HTTPSessionObj:Version>HTTP/1.0</HTTPSessionObj:Version>
+       </HTTPSessionObj:HTTP_Request_Line>
+       <HTTPSessionObj:HTTP_Message_Body>
+        <HTTPSessionObj:Message_Body condition="FitsPattern" pattern_type="Regex">id=(\d|\w)+&amp;A=\d+&amp;B=(0|1)&amp;C=\d+</HTTPSessionObj:Message_Body>
+       </HTTPSessionObj:HTTP_Message_Body>
+      </HTTPSessionObj:HTTP_Client_Request>
+     </HTTPSessionObj:HTTP_Request_Response>
+    </cybox:Properties>
+    <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">input</cybox:Association_Type>
+   </cybox:Associated_Object>
+  </cybox:Associated_Objects>
+  <cybox:Frequency rate="1" units="seconds" scale="180"/>
+ </maecBundle:Action>
+</maecBundle:Actions>
+</maecBundle:MAEC_Bundle>
