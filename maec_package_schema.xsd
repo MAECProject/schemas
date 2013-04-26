@@ -390,17 +390,18 @@
 			<xs:documentation>The MalwareSubjectRelationshipType provides a mechanism for capturing the relationships between a Malware Subject and one or more other Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="1" name="Type" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Type field specifies the type of relationship being captured.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is MalwareSubjectRelationshipTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" name="Malware_Subject_Reference" type="maecPackage:MalwareSubjectReferenceType">
 				<xs:annotation>
 					<xs:documentation>The Malware_Subject_Reference field provides a reference to a single Malware Subject that this relationship pertains to.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="type" use="required" type="maecPackage:MalwareSubjectRelationshipEnum">
-			<xs:annotation>
-				<xs:documentation>The type field specifies the type of relationship being captured.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="MalwareSubjectRelationshipListType">
 		<xs:annotation>
@@ -803,43 +804,6 @@
 			<xs:enumeration value="combination">
 				<xs:annotation>
 					<xs:documentation>The combination value specifies a combination of dynamic and static malware analysis, achieved by both inspecting and executing the malware instance.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="MalwareSubjectRelationshipEnum">
-		<xs:annotation>
-			<xs:documentation>The MalwareSubjectRelationshipEnum is a non-exhaustive enumeration of relationships between Malware Subjects.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="downloads">
-				<xs:annotation>
-					<xs:documentation>The downloads value specifies that the Malware Subject downloads one or more other Malware Subject(s).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="downloaded by">
-				<xs:annotation>
-					<xs:documentation>The downloaded by value specifies that the current Malware Subject was downloaded by one or more other Malware Subject(s).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="drops">
-				<xs:annotation>
-					<xs:documentation>The drops value specifies that the Malware Subject drops (or writes to disk) one or more other Malware Subject(s).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="dropped by">
-				<xs:annotation>
-					<xs:documentation>The dropped by value specifies that the current Malware Subject was dropped (or written to disk) by one or more other Malware Subject(s).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="extracts">
-				<xs:annotation>
-					<xs:documentation>The extracts value specifies that the Malware Subject extracts (from an embedded archive or another container) one or more other Malware Subject(s).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="extracted from">
-				<xs:annotation>
-					<xs:documentation>The extracts value specifies that the current Malware Subject was extracted from one or more other Malware Subject(s).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
