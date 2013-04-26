@@ -812,9 +812,19 @@
 			<xs:documentation>The MalwareSubjectRelationshipEnum is a non-exhaustive enumeration of relationships between Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="downloads">
+				<xs:annotation>
+					<xs:documentation>The downloads value specifies that the Malware Subject downloads one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="downloaded by">
 				<xs:annotation>
 					<xs:documentation>The downloaded by value specifies that the current Malware Subject was downloaded by one or more other Malware Subject(s).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="drops">
+				<xs:annotation>
+					<xs:documentation>The drops value specifies that the Malware Subject drops (or writes to disk) one or more other Malware Subject(s).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="dropped by">
@@ -822,14 +832,14 @@
 					<xs:documentation>The dropped by value specifies that the current Malware Subject was dropped (or written to disk) by one or more other Malware Subject(s).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="downloads">
+			<xs:enumeration value="extracts">
 				<xs:annotation>
-					<xs:documentation>The downloads value specifies that the Malware Subject downloads one or more other Malware Subject(s).</xs:documentation>
+					<xs:documentation>The extracts value specifies that the Malware Subject extracts (from an embedded archive or another container) one or more other Malware Subject(s).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="drops">
+			<xs:enumeration value="extracted from">
 				<xs:annotation>
-					<xs:documentation>The drops value specifies that the Malware Subject drops (or writes to disk) one or more other Malware Subject(s).</xs:documentation>
+					<xs:documentation>The extracts value specifies that the current Malware Subject was extracted from one or more other Malware Subject(s).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
