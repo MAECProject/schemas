@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1" targetNamespace="http://maec.mitre.org/default_vocabularies-1" elementFormDefault="qualified" version="1.0.0">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The MAEC XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The MAEC XML Schema implementation is maintained by The MITRE Corporation and developed by the open MAEC Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the MAEC website at http://maec.mitre.org. </xs:documentation>
 		<xs:appinfo>
 			<schema>maec-default-vocabularies</schema>
 			<version>1.0.0</version>
-			<date>04/24/2013 9:00:00 AM</date>
+			<date>04/26/2013</date>
 			<short_description>The following defines types for default controlled vocabularies used within MAEC. An individual vocabulary may be revised at any time. Revisions to vocabularies will result in the creation of new types with the new version number embedded in the name of those types. Vocabularies can be reference from MAEC elements through the use of xsi:Type. The individual elements where this may be done indicate the expected default vocabulary.</short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -33,17 +33,17 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="input">
 				<xs:annotation>
-					<xs:documentation>Specifies that the associated object serves as an input to the action.</xs:documentation>
+					<xs:documentation>Specifies that the associated object serves as an input to the action. This includes cases where an object is used by the action or an existing object is modified by the action.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="output">
 				<xs:annotation>
-					<xs:documentation>Specifies that the associated object serves as an output to the action.</xs:documentation>
+					<xs:documentation>Specifies that the associated object serves as an output to the action. This includes cases where the object is created anew by the action or otherwise returned by the action.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="side-effect">
 				<xs:annotation>
-					<xs:documentation>Specifies that the associated object serves as a side-effect resulting from the action.</xs:documentation>
+					<xs:documentation>Specifies that the associated object serves as a side-effect resulting from the action. This includes cases where the object is modified indirectly by the action.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -313,6 +313,16 @@
 					<xs:documentation>Specifies the defined action of querying the attributes of a disk, such as the amount of available free space.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="mount disk">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of mounting an existing file system to a mounting point.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="unmount disk">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unmounting an existing file system from a mounting point.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="FileActionNameVocab-1.0">
@@ -395,7 +405,7 @@
 					<xs:documentation>Specifies the defined action of opening an existing file for reading or writing.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="read file">
+			<xs:enumeration value="read from file">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of reading from an existing file.</xs:documentation>
 				</xs:annotation>
@@ -746,7 +756,7 @@
 	</xs:simpleType>
 	<xs:complexType name="NetworkShareActionNameVocab-1.0">
 		<xs:annotation>
-			<xs:documentation>The NetworkShareActionNameVocab is the default MAEC vocabulary for network share action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>The NetworkShareActionNameVocab is the default MAEC vocabulary for Windows network share action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
 			<xs:documentation>For network share action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
@@ -767,31 +777,37 @@
 			<xs:enumeration value="add connection to network share">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of adding a connection to an existing network share.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="add network share">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of adding a new network share on a server.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="delete network share">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of deleting an existing network share on a server.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="connect to network share">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of connecting to an existing network share.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="disconnect from network share">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of disconnecting from an existing network share.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="enumerate network shares">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of enumerating the available shared resources on a server.</xs:documentation>
+					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -1087,7 +1103,7 @@
 					<xs:documentation>Windows-specific.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="write to named pipe">
+			<xs:enumeration value="write to mailslot">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of writing some data to an existing named mailslot.</xs:documentation>
 					<xs:documentation>Windows-specific.</xs:documentation>
