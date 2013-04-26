@@ -16,7 +16,7 @@
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
  xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 ../maec_package_schema.xsd
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 http://maec.mitre.org/language/version4.0/maec_package_schema.xsd
  http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.0/maec_default_vocabularies.xsd
  http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.0/cybox_default_vocabularies.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0/Win_Executable_File_Object.xsd
