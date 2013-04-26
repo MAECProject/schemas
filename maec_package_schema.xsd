@@ -115,7 +115,7 @@
 			<xs:documentation>The CommentType captures a comment relating to some MAEC entity.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
-			<xs:extension base="xs:string">
+			<xs:extension base="cyboxCommon:StructuredTextType">
 				<xs:attribute name="author" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>The author field specifies the name of the author that added the comment.</xs:documentation>
@@ -198,7 +198,7 @@
 					<xs:documentation>The Analysts field specifies the analyst(s) who performed the analysis.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Summary" type="xs:string">
+			<xs:element minOccurs="0" name="Summary" type="cyboxCommon:StructuredTextType">
 				<xs:annotation>
 					<xs:documentation>The Summary field specifies a summary of the analysis that was performed.</xs:documentation>
 				</xs:annotation>
