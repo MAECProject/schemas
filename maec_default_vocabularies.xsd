@@ -463,7 +463,7 @@
 	</xs:complexType>
 	<xs:simpleType name="HookingActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The FunctionHookingActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with various kinds of hooking.</xs:documentation>
+			<xs:documentation>The HookingActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with various kinds of hooking.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="add system call hook">
@@ -528,7 +528,7 @@
 	</xs:complexType>
 	<xs:simpleType name="IRCActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Internet Relay Chat (IRC).</xs:documentation>
+			<xs:documentation>The IRCActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Internet Relay Chat (IRC).</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="connect to irc server">
@@ -622,7 +622,7 @@
 	</xs:complexType>
 	<xs:simpleType name="HTTPActionNameEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>The DNSActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Hypertext Transfer Protocol (HTTP).</xs:documentation>
+			<xs:documentation>The HTTPActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with the Hypertext Transfer Protocol (HTTP).</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="send http get request">
