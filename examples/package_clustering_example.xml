@@ -47,7 +47,7 @@
                 </maecPackage:Analysis>
             </maecPackage:Analyses>
             <maecPackage:Findings_Bundles>
-                <maecPackage:Bundle schema_version="4.0" id="maec-example-bnd-1" defined_subject="false" content_type="static analysis tool output">
+                <maecPackage:Bundle schema_version="4.0.1" id="maec-example-bnd-1" defined_subject="false" content_type="static analysis tool output">
                     <maecBundle:AV_Classifications>
                         <maecBundle:AV_Classification>
                             <maecBundle:Classification_Name>TrojanClicker:Win32/Small</maecBundle:Classification_Name>
