@@ -6,7 +6,7 @@
                 xmlns:schold="http://www.ascc.net/xml/schematron"
                 xmlns:iso="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
-                xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-3"
+                xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
                 version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is 
     the preferred method for meta-stylesheets to use where possible. -->
 <xsl:param name="archiveDirParameter"/>
