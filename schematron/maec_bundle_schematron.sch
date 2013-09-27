@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--MAEC v2.1 schematron validation rules
+<!--MAEC v4.0.1 schematron validation rules
     Currently, these only apply to MAEC Actions and Objects-->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
-    <sch:ns prefix="maecBundle" uri="http://maec.mitre.org/XMLSchema/maec-bundle-3"/>
+    <sch:ns prefix="maecBundle" uri="http://maec.mitre.org/XMLSchema/maec-bundle-4"/>
     <sch:pattern id="actionIDpattern">
         <sch:rule context="/*//maecBundle:Action">
             <sch:assert test="matches(@id, '^maec-[A-Za-z0-9_\-\.]+-act-[1-9][0-9]*$')">The Action id attribute is required and must follow the correct syntax. A dash-delimited format is used with the id or idref starting with the word maec followed by a unique string, followed by the three letter code 'act', and ending with an integer.</sch:assert>
