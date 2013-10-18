@@ -1729,7 +1729,7 @@
 	</xs:simpleType>
 	<xs:complexType name="MalwareSubjectRelationshipTypeVocab-1.0">
 		<xs:annotation>
-			<xs:documentation>The GroupingRelationshipTypeVocab is the default MAEC vocabulary for the Malware Subject relatonships in a Package, captured via the MalwareSubjectRelationshipType/Type element in the MAEC Package.</xs:documentation>
+			<xs:documentation>The MalwareSubjectRelationshipTypeVocab is the default MAEC vocabulary for the Malware Subject relationships in a Package, captured via the MalwareSubjectRelationshipType/Type element in the MAEC Package.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -1777,5 +1777,1158 @@
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MalwareMechanismVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The MalwareMechanismVocab is the default MAEC vocabulary for Mechanism names, captured via the MechanismType/Name element in the MAEC Bundle.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:MalwareMechanismEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Malware Mechanism Types" name="vocab_name" type="xs:string" use="optional"/>
+				<xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#MalwareMechanismVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="MalwareMechanismEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The MalwareMechanismNameEnum is an enumeration of MAEC Malware Mechanisms.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		    <xs:enumeration value="infection">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the infection malware mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="persistence">
+				<xs:annotation>
+					<xs:documentation>The persistence value specifies the persistence malware mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="security degradation">
+				<xs:annotation>
+					<xs:documentation>The security degradation value specifies the security degradation malware mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="anti-detection">
+				<xs:annotation>
+					<xs:documentation>The anti-detection value specifies the anti-detection malware mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="anti-removal">
+				<xs:annotation>
+					<xs:documentation>The anti-removal value specifies the anti-removal malware mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="anti-code analysis">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the anti code analysis malware mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="anti-behavioral analysis">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the anti behavioral analysis malware mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="command and control">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the command and control malware mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="remote machine control">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the remote machine control mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="remote machine access">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the remote machine access mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="elevate privilege">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the elevate privilege mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="data exfiltration">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the data exfiltration mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="data theft">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the data theft mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="spying">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the spying mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="annoyance">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the annoyance mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="destruction">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the destruction mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="integrity violation">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the integrity violation mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="availability violation">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the availability violation mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="fraud">
+				<xs:annotation>
+					<xs:documentation>The infection value specifies the fraud mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MechanismStrategicObjectiveVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The MechanismStrategicObjectiveVocab is the default MAEC vocabulary for Mechanism Strategic Objectives, captured via the MechanismType/Name element in the MAEC Bundle.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:MechanismStrategicObjectiveEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Malware Mechanism Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+				<xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#MechanismStrategicObjectiveVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="MechanismStrategicObjectiveEnum-1.0">
+    <xs:annotation>
+        <xs:documentation>The MechanismStrategicObjectiveEnum-1.0 is an enumeration of MAEC Malware Mechanism Strategic Objectives.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="anti-vm">
+            <xs:annotation>
+                <xs:documentation>The anti-vm value specifies the anti-vm mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="anti-sandbox">
+            <xs:annotation>
+                <xs:documentation>The anti-sandbox value specifies the anti-sandbox mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="anti-debugging">
+            <xs:annotation>
+                <xs:documentation>The anti-debugging value specifies the anti-debugging mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="anti-disassembly">
+            <xs:annotation>
+                <xs:documentation>The anti-disassembly value specifies the anti-disassembly mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="code obfuscation">
+            <xs:annotation>
+                <xs:documentation>The code obfuscation value specifies the code obfuscation mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="prevent memory access">
+            <xs:annotation>
+                <xs:documentation>The prevent memory access value specifies the prevent memory access mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="prevent malware artifact deletion">
+            <xs:annotation>
+                <xs:documentation>The prevent malware artifact deletion value specifies the prevent malware artifact deletion mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="prevent malware artifact access">
+            <xs:annotation>
+                <xs:documentation>The prevent malware artifact access value specifies the prevent malware artifact access mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="hide malware artifacts">
+            <xs:annotation>
+                <xs:documentation>The hide malware artifacts value specifies the hide malware artifacts mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="hide executing code">
+            <xs:annotation>
+                <xs:documentation>The hide executing code value specifies the hide executing code mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="anti-memory forensics">
+            <xs:annotation>
+                <xs:documentation>The anti-memory forensics value specifies the anti-memory forensics mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="stealthy code execution">
+            <xs:annotation>
+                <xs:documentation>The stealthy code execution value specifies the stealthy code execution mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="security software evasion">
+            <xs:annotation>
+                <xs:documentation>The security software evasion value specifies the security software evasion mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="self-modification">
+            <xs:annotation>
+                <xs:documentation>The self-modification value specifies the self-modification mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="persist to continuously execute on system">
+            <xs:annotation>
+                <xs:documentation>The persist to continuously execute on system value specifies the persist to continuously execute on system mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="persist to re-infect system">
+            <xs:annotation>
+                <xs:documentation>The persist to re-infect system value specifies the persist to re-infect system mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="gather info to improve">
+            <xs:annotation>
+                <xs:documentation>The gather info to improve value specifies the gather info to improve mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="disable os security features">
+            <xs:annotation>
+                <xs:documentation>The disable os security features value specifies the disable os security features mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="disable access controls">
+            <xs:annotation>
+                <xs:documentation>The disable access controls value specifies the disable access controls mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="disable system updates">
+            <xs:annotation>
+                <xs:documentation>The disable system updates value specifies the disable system updates mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="degrade security programs">
+            <xs:annotation>
+                <xs:documentation>The degrade security programs value specifies the degrade security programs mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="maintain botnet">
+            <xs:annotation>
+                <xs:documentation>The maintain botnet value specifies the maintain botnet mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="communicate with servers">
+            <xs:annotation>
+                <xs:documentation>The communicate with servers value specifies the communicate with servers mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="exploit application vulnerability">
+            <xs:annotation>
+                <xs:documentation>The exploit application vulnerability value specifies the exploit application vulnerability mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="exploit configuration vulnerabiity">
+            <xs:annotation>
+                <xs:documentation>The exploit configuration vulnerabiity value specifies the exploit configuration vulnerabiity mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="elevate user privilege">
+            <xs:annotation>
+                <xs:documentation>The elevate user privilege value specifies the elevate user privilege mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="elevate cpu mode">
+            <xs:annotation>
+                <xs:documentation>The elevate cpu mode value specifies the elevate cpu mode mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="exfiltrate stolen data">
+            <xs:annotation>
+                <xs:documentation>The exfiltrate stolen data value specifies the exfiltrate stolen data mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="steal authentication credentials">
+            <xs:annotation>
+                <xs:documentation>The steal authentication credentials value specifies the steal authentication credentials mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="steal stored information">
+            <xs:annotation>
+                <xs:documentation>The steal stored information value specifies the steal stored information mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="steal cryptocurrency">
+            <xs:annotation>
+                <xs:documentation>The steal cryptocurrency value specifies the steal cryptocurrency mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="steal user data">
+            <xs:annotation>
+                <xs:documentation>The steal user data value specifies the steal user data mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="steal system information">
+            <xs:annotation>
+                <xs:documentation>The steal system information value specifies the steal system information mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="steal database content">
+            <xs:annotation>
+                <xs:documentation>The steal database content value specifies the steal database content mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="capture user input">
+            <xs:annotation>
+                <xs:documentation>The capture user input value specifies the capture user input mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="capture system data">
+            <xs:annotation>
+                <xs:documentation>The capture system data value specifies the capture system data mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="capture peripheral input">
+            <xs:annotation>
+                <xs:documentation>The capture peripheral input value specifies the capture peripheral input mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="annoy user">
+            <xs:annotation>
+                <xs:documentation>The annoy user value specifies the annoy user mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="physical entity destruction">
+            <xs:annotation>
+                <xs:documentation>The physical entity destruction value specifies the physical entity destruction mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="virtual entity destruction">
+            <xs:annotation>
+                <xs:documentation>The virtual entity destruction value specifies the virtual entity destruction mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="system operational integrity compromise">
+            <xs:annotation>
+                <xs:documentation>The system operational integrity compromise value specifies the system operational integrity compromise mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="system data integrity compromise">
+            <xs:annotation>
+                <xs:documentation>The system data integrity compromise value specifies the system data integrity compromise mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="user data integrity compromise">
+            <xs:annotation>
+                <xs:documentation>The user data integrity compromise value specifies the user data integrity compromise mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="purposeful resource consumption">
+            <xs:annotation>
+                <xs:documentation>The purposeful resource consumption value specifies the purposeful resource consumption mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="system availability compromise">
+            <xs:annotation>
+                <xs:documentation>The system availability compromise value specifies the system availability compromise mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="data availability compromise">
+            <xs:annotation>
+                <xs:documentation>The data availability compromise value specifies the data availability compromise mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="premium rate fraud">
+            <xs:annotation>
+                <xs:documentation>The premium rate fraud value specifies the premium rate fraud mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="click fraud">
+            <xs:annotation>
+                <xs:documentation>The click fraud value specifies the click fraud mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="gain access">
+            <xs:annotation>
+                <xs:documentation>The gain access value specifies the gain access mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="infect machine">
+            <xs:annotation>
+                <xs:documentation>The infect machine value specifies the infect machine mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="infect file">
+            <xs:annotation>
+                <xs:documentation>The infect file value specifies the infect file mechanism strategic objective.</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+    </xs:restriction>
+    </xs:simpleType>
+	<xs:complexType name="MechanismTacticalObjectiveVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The MechanismStrategicObjectiveVocab is the default MAEC vocabulary for Mechanism Tactical Objectives, captured via the MechanismType/Name element in the MAEC Bundle.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="maecVocabs:MechanismTacticalObjectiveEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute fixed="MAEC Default Malware Mechanism Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+				<xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#MechanismTacticalObjectiveVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="MechanismTacticalObjectiveEnum-1.0">
+	    <xs:annotation>
+	        <xs:documentation>The MechanismTacticalObjectiveEnum-1.0 is an enumeration of MAEC Malware Mechanism Tactical Objectives.</xs:documentation>
+	    </xs:annotation>
+	    <xs:restriction base="xs:string">
+	        <xs:enumeration value="detect execution in vm">
+	            <xs:annotation>
+	                <xs:documentation>The detect execution in vm value specifies the detect execution in vm mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent execution in vm">
+	            <xs:annotation>
+	                <xs:documentation>The prevent execution in vm value specifies the prevent execution in vm mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="sandbox environment detection">
+	            <xs:annotation>
+	                <xs:documentation>The sandbox environment detection value specifies the sandbox environment detection mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="sandbox overloading">
+	            <xs:annotation>
+	                <xs:documentation>The sandbox overloading value specifies the sandbox overloading mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="detect debugging">
+	            <xs:annotation>
+	                <xs:documentation>The detect debugging value specifies the detect debugging mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent debugging">
+	            <xs:annotation>
+	                <xs:documentation>The prevent debugging value specifies the prevent debugging mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="defeat linear disassembler">
+	            <xs:annotation>
+	                <xs:documentation>The defeat linear disassembler value specifies the defeat linear disassembler mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="defeat flow-oriented (recursive traversal) disassembler">
+	            <xs:annotation>
+	                <xs:documentation>The defeat flow-oriented (recursive traversal) disassembler value specifies the defeat flow-oriented (recursive traversal) disassembler mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="defeat call graph generation">
+	            <xs:annotation>
+	                <xs:documentation>The defeat call graph generation value specifies the defeat call graph generation mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="obfuscate imports">
+	            <xs:annotation>
+	                <xs:documentation>The obfuscate imports value specifies the obfuscate imports mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="restructure arrays">
+	            <xs:annotation>
+	                <xs:documentation>The restructure arrays value specifies the restructure arrays mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="runtime code obfuscation">
+	            <xs:annotation>
+	                <xs:documentation>The runtime code obfuscation value specifies the runtime code obfuscation mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="instruction obfuscation">
+	            <xs:annotation>
+	                <xs:documentation>The instruction obfuscation value specifies the instruction obfuscation mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="control flow transformation">
+	            <xs:annotation>
+	                <xs:documentation>The control flow transformation value specifies the control flow transformation mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent registry deletion">
+	            <xs:annotation>
+	                <xs:documentation>The prevent registry deletion value specifies the prevent registry deletion mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent file deletion">
+	            <xs:annotation>
+	                <xs:documentation>The prevent file deletion value specifies the prevent file deletion mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent api unhooking">
+	            <xs:annotation>
+	                <xs:documentation>The prevent api unhooking value specifies the prevent api unhooking mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent registry access">
+	            <xs:annotation>
+	                <xs:documentation>The prevent registry access value specifies the prevent registry access mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent file access">
+	            <xs:annotation>
+	                <xs:documentation>The prevent file access value specifies the prevent file access mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide file system artifacts">
+	            <xs:annotation>
+	                <xs:documentation>The hide file system artifacts value specifies the hide file system artifacts mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide registry artifacts">
+	            <xs:annotation>
+	                <xs:documentation>The hide registry artifacts value specifies the hide registry artifacts mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide open network ports">
+	            <xs:annotation>
+	                <xs:documentation>The hide open network ports value specifies the hide open network ports mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide network traffic">
+	            <xs:annotation>
+	                <xs:documentation>The hide network traffic value specifies the hide network traffic mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="timestomping">
+	            <xs:annotation>
+	                <xs:documentation>The timestomping value specifies the timestomping mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide processes">
+	            <xs:annotation>
+	                <xs:documentation>The hide processes value specifies the hide processes mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide threads">
+	            <xs:annotation>
+	                <xs:documentation>The hide threads value specifies the hide threads mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide userspace libraries">
+	            <xs:annotation>
+	                <xs:documentation>The hide userspace libraries value specifies the hide userspace libraries mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide kernel modules">
+	            <xs:annotation>
+	                <xs:documentation>The hide kernel modules value specifies the hide kernel modules mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="execute before/external to kernel/hypervisor">
+	            <xs:annotation>
+	                <xs:documentation>The execute before/external to kernel/hypervisor value specifies the execute before/external to kernel/hypervisor mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide services">
+	            <xs:annotation>
+	                <xs:documentation>The hide services value specifies the hide services mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="execute non-main cpu code through device infection">
+	            <xs:annotation>
+	                <xs:documentation>The execute non-main cpu code through device infection value specifies the execute non-main cpu code through device infection mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="execute non-main cpu code through native support/injection">
+	            <xs:annotation>
+	                <xs:documentation>The execute non-main cpu code through native support/injection value specifies the execute non-main cpu code through native support/injection mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide code in exif header of jpeg image">
+	            <xs:annotation>
+	                <xs:documentation>The hide code in exif header of jpeg image value specifies the hide code in exif header of jpeg image mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exploit application/os to bypass security features">
+	            <xs:annotation>
+	                <xs:documentation>The exploit application/os to bypass security features value specifies the exploit application/os to bypass security features mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent physical memory aquisition">
+	            <xs:annotation>
+	                <xs:documentation>The prevent physical memory aquisition value specifies the prevent physical memory aquisition mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="feed misinformation during physical memory aquisition">
+	            <xs:annotation>
+	                <xs:documentation>The feed misinformation during physical memory aquisition value specifies the feed misinformation during physical memory aquisition mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hide arbitrary virtual memory">
+	            <xs:annotation>
+	                <xs:documentation>The hide arbitrary virtual memory value specifies the hide arbitrary virtual memory mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exploit tool weaknesses to hide information">
+	            <xs:annotation>
+	                <xs:documentation>The exploit tool weaknesses to hide information value specifies the exploit tool weaknesses to hide information mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="execute stealthy kernel code">
+	            <xs:annotation>
+	                <xs:documentation>The execute stealthy kernel code value specifies the execute stealthy kernel code mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="execute stealthy userspace code">
+	            <xs:annotation>
+	                <xs:documentation>The execute stealthy userspace code value specifies the execute stealthy userspace code mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent native api hooking">
+	            <xs:annotation>
+	                <xs:documentation>The prevent native api hooking value specifies the prevent native api hooking mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="use alternate encoding">
+	            <xs:annotation>
+	                <xs:documentation>The use alternate encoding value specifies the use alternate encoding mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="use bridge building">
+	            <xs:annotation>
+	                <xs:documentation>The use bridge building value specifies the use bridge building mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="dns filter">
+	            <xs:annotation>
+	                <xs:documentation>The dns filter value specifies the dns filter mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="xor encryption">
+	            <xs:annotation>
+	                <xs:documentation>The xor encryption value specifies the xor encryption mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="variable-key encryption">
+	            <xs:annotation>
+	                <xs:documentation>The variable-key encryption value specifies the variable-key encryption mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="phone home update">
+	            <xs:annotation>
+	                <xs:documentation>The phone home update value specifies the phone home update mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="change/add content">
+	            <xs:annotation>
+	                <xs:documentation>The change/add content value specifies the change/add content mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="persist after os install/reinstall">
+	            <xs:annotation>
+	                <xs:documentation>The persist after os install/reinstall value specifies the persist after os install/reinstall mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="persist independent of hard disk/os changes">
+	            <xs:annotation>
+	                <xs:documentation>The persist independent of hard disk/os changes value specifies the persist independent of hard disk/os changes mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="persist after system reboot">
+	            <xs:annotation>
+	                <xs:documentation>The persist after system reboot value specifies the persist after system reboot mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="persist amid warnings">
+	            <xs:annotation>
+	                <xs:documentation>The persist amid warnings value specifies the persist amid warnings mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="reinstantiate self after initial detection">
+	            <xs:annotation>
+	                <xs:documentation>The reinstantiate self after initial detection value specifies the reinstantiate self after initial detection mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="drop/retrieve debug log file">
+	            <xs:annotation>
+	                <xs:documentation>The drop/retrieve debug log file value specifies the drop/retrieve debug log file mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable kernel patching protection">
+	            <xs:annotation>
+	                <xs:documentation>The disable kernel patching protection value specifies the disable kernel patching protection mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable system file overwrite protection">
+	            <xs:annotation>
+	                <xs:documentation>The disable system file overwrite protection value specifies the disable system file overwrite protection mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable os security alerts">
+	            <xs:annotation>
+	                <xs:documentation>The disable os security alerts value specifies the disable os security alerts mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable user account control (uac)">
+	            <xs:annotation>
+	                <xs:documentation>The disable user account control (uac) value specifies the disable user account control (uac) mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable firewall">
+	            <xs:annotation>
+	                <xs:documentation>The disable firewall value specifies the disable firewall mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable access right checking">
+	            <xs:annotation>
+	                <xs:documentation>The disable access right checking value specifies the disable access right checking mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable privilege limiting">
+	            <xs:annotation>
+	                <xs:documentation>The disable privilege limiting value specifies the disable privilege limiting mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable system service pack/patch installation">
+	            <xs:annotation>
+	                <xs:documentation>The disable system service pack/patch installation value specifies the disable system service pack/patch installation mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="disable system update services/daemons">
+	            <xs:annotation>
+	                <xs:documentation>The disable system update services/daemons value specifies the disable system update services/daemons mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="gather security product info">
+	            <xs:annotation>
+	                <xs:documentation>The gather security product info value specifies the gather security product info mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="prevent security program from running">
+	            <xs:annotation>
+	                <xs:documentation>The prevent security program from running value specifies the prevent security program from running mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="modify security program configuration">
+	            <xs:annotation>
+	                <xs:documentation>The modify security program configuration value specifies the modify security program configuration mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="stop execution of security program">
+	            <xs:annotation>
+	                <xs:documentation>The stop execution of security program value specifies the stop execution of security program mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="update bot configuration">
+	            <xs:annotation>
+	                <xs:documentation>The update bot configuration value specifies the update bot configuration mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="update bot list (beaconing)">
+	            <xs:annotation>
+	                <xs:documentation>The update bot list (beaconing) value specifies the update bot list (beaconing) mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="url generation">
+	            <xs:annotation>
+	                <xs:documentation>The url generation value specifies the url generation mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="command execution">
+	            <xs:annotation>
+	                <xs:documentation>The command execution value specifies the command execution mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="scan for vulnerabilities">
+	            <xs:annotation>
+	                <xs:documentation>The scan for vulnerabilities value specifies the scan for vulnerabilities mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="compromise host">
+	            <xs:annotation>
+	                <xs:documentation>The compromise host value specifies the compromise host mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="password brute force">
+	            <xs:annotation>
+	                <xs:documentation>The password brute force value specifies the password brute force mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="feature abuse">
+	            <xs:annotation>
+	                <xs:documentation>The feature abuse value specifies the feature abuse mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="default passwords">
+	            <xs:annotation>
+	                <xs:documentation>The default passwords value specifies the default passwords mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exploit acl issues">
+	            <xs:annotation>
+	                <xs:documentation>The exploit acl issues value specifies the exploit acl issues mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="stolen credentials">
+	            <xs:annotation>
+	                <xs:documentation>The stolen credentials value specifies the stolen credentials mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="trick user into running with elevated privilege">
+	            <xs:annotation>
+	                <xs:documentation>The trick user into running with elevated privilege value specifies the trick user into running with elevated privilege mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="user uac auto-elevation">
+	            <xs:annotation>
+	                <xs:documentation>The user uac auto-elevation value specifies the user uac auto-elevation mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exploit vulnerability">
+	            <xs:annotation>
+	                <xs:documentation>The exploit vulnerability value specifies the exploit vulnerability mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exploit vulnerability">
+	            <xs:annotation>
+	                <xs:documentation>The exploit vulnerability value specifies the exploit vulnerability mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="load own kernel mode driver">
+	            <xs:annotation>
+	                <xs:documentation>The load own kernel mode driver value specifies the load own kernel mode driver mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exfiltrate via network">
+	            <xs:annotation>
+	                <xs:documentation>The exfiltrate via network value specifies the exfiltrate via network mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exfiltrate via physical media">
+	            <xs:annotation>
+	                <xs:documentation>The exfiltrate via physical media value specifies the exfiltrate via physical media mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exfiltrate via covert channel">
+	            <xs:annotation>
+	                <xs:documentation>The exfiltrate via covert channel value specifies the exfiltrate via covert channel mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exfiltrate via dumpster dive">
+	            <xs:annotation>
+	                <xs:documentation>The exfiltrate via dumpster dive value specifies the exfiltrate via dumpster dive mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exfiltrate via voip/phone">
+	            <xs:annotation>
+	                <xs:documentation>The exfiltrate via voip/phone value specifies the exfiltrate via voip/phone mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exfiltrate via fax">
+	            <xs:annotation>
+	                <xs:documentation>The exfiltrate via fax value specifies the exfiltrate via fax mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="cookie theft">
+	            <xs:annotation>
+	                <xs:documentation>The cookie theft value specifies the cookie theft mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="pki software certificate theft">
+	            <xs:annotation>
+	                <xs:documentation>The pki software certificate theft value specifies the pki software certificate theft mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="password hashes theft">
+	            <xs:annotation>
+	                <xs:documentation>The password hashes theft value specifies the password hashes theft mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="web/network credential theft">
+	            <xs:annotation>
+	                <xs:documentation>The web/network credential theft value specifies the web/network credential theft mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal serial numbers">
+	            <xs:annotation>
+	                <xs:documentation>The steal serial numbers value specifies the steal serial numbers mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal documents">
+	            <xs:annotation>
+	                <xs:documentation>The steal documents value specifies the steal documents mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal images">
+	            <xs:annotation>
+	                <xs:documentation>The steal images value specifies the steal images mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="bitcoin wallet theft">
+	            <xs:annotation>
+	                <xs:documentation>The bitcoin wallet theft value specifies the bitcoin wallet theft mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="bitcoin miner capability">
+	            <xs:annotation>
+	                <xs:documentation>The bitcoin miner capability value specifies the bitcoin miner capability mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal contact list data">
+	            <xs:annotation>
+	                <xs:documentation>The steal contact list data value specifies the steal contact list data mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal email data">
+	            <xs:annotation>
+	                <xs:documentation>The steal email data value specifies the steal email data mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal sms (text) database">
+	            <xs:annotation>
+	                <xs:documentation>The steal sms (text) database value specifies the steal sms (text) database mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal referer urls">
+	            <xs:annotation>
+	                <xs:documentation>The steal referer urls value specifies the steal referer urls mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal browser history">
+	            <xs:annotation>
+	                <xs:documentation>The steal browser history value specifies the steal browser history mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="steal dialed phone numbers">
+	            <xs:annotation>
+	                <xs:documentation>The steal dialed phone numbers value specifies the steal dialed phone numbers mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="network address theft">
+	            <xs:annotation>
+	                <xs:documentation>The network address theft value specifies the network address theft mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="open port theft">
+	            <xs:annotation>
+	                <xs:documentation>The open port theft value specifies the open port theft mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="make/model theft">
+	            <xs:annotation>
+	                <xs:documentation>The make/model theft value specifies the make/model theft mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="sql injection ">
+	            <xs:annotation>
+	                <xs:documentation>The sql injection  value specifies the sql injection  mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="capture keyboard input">
+	            <xs:annotation>
+	                <xs:documentation>The capture keyboard input value specifies the capture keyboard input mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="capture mouse input">
+	            <xs:annotation>
+	                <xs:documentation>The capture mouse input value specifies the capture mouse input mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="capture phone conversations">
+	            <xs:annotation>
+	                <xs:documentation>The capture phone conversations value specifies the capture phone conversations mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="capture dialed numbers">
+	            <xs:annotation>
+	                <xs:documentation>The capture dialed numbers value specifies the capture dialed numbers mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="screen capture">
+	            <xs:annotation>
+	                <xs:documentation>The screen capture value specifies the screen capture mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="image capture">
+	            <xs:annotation>
+	                <xs:documentation>The image capture value specifies the image capture mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="video capture">
+	            <xs:annotation>
+	                <xs:documentation>The video capture value specifies the video capture mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="network traffic capture">
+	            <xs:annotation>
+	                <xs:documentation>The network traffic capture value specifies the network traffic capture mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="gather security product info">
+	            <xs:annotation>
+	                <xs:documentation>The gather security product info value specifies the gather security product info mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="capture location">
+	            <xs:annotation>
+	                <xs:documentation>The capture location value specifies the capture location mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="microphone capture">
+	            <xs:annotation>
+	                <xs:documentation>The microphone capture value specifies the microphone capture mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="camera capture">
+	            <xs:annotation>
+	                <xs:documentation>The camera capture value specifies the camera capture mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="annoy local system user">
+	            <xs:annotation>
+	                <xs:documentation>The annoy local system user value specifies the annoy local system user mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="annoy remote user">
+	            <xs:annotation>
+	                <xs:documentation>The annoy remote user value specifies the annoy remote user mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="hardware destruction">
+	            <xs:annotation>
+	                <xs:documentation>The hardware destruction value specifies the hardware destruction mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="firmware destruction">
+	            <xs:annotation>
+	                <xs:documentation>The firmware destruction value specifies the firmware destruction mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="data erasure">
+	            <xs:annotation>
+	                <xs:documentation>The data erasure value specifies the data erasure mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="industrial control system manipulation">
+	            <xs:annotation>
+	                <xs:documentation>The industrial control system manipulation value specifies the industrial control system manipulation mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="data corruption">
+	            <xs:annotation>
+	                <xs:documentation>The data corruption value specifies the data corruption mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="data corruption">
+	            <xs:annotation>
+	                <xs:documentation>The data corruption value specifies the data corruption mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="bitcoin mining">
+	            <xs:annotation>
+	                <xs:documentation>The bitcoin mining value specifies the bitcoin mining mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="password cracking">
+	            <xs:annotation>
+	                <xs:documentation>The password cracking value specifies the password cracking mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="network server availability compromise (dos)">
+	            <xs:annotation>
+	                <xs:documentation>The network server availability compromise (dos) value specifies the network server availability compromise (dos) mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="local system availability compromise">
+	            <xs:annotation>
+	                <xs:documentation>The local system availability compromise value specifies the local system availability compromise mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="lockout message delivery">
+	            <xs:annotation>
+	                <xs:documentation>The lockout message delivery value specifies the lockout message delivery mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exploit application vulnerability">
+	            <xs:annotation>
+	                <xs:documentation>The exploit application vulnerability value specifies the exploit application vulnerability mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="exploit configuration vulnerabiity">
+	            <xs:annotation>
+	                <xs:documentation>The exploit configuration vulnerabiity value specifies the exploit configuration vulnerabiity mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="self-extraction">
+	            <xs:annotation>
+	                <xs:documentation>The self-extraction value specifies the self-extraction mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="file drop/download">
+	            <xs:annotation>
+	                <xs:documentation>The file drop/download value specifies the file drop/download mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="sync connection">
+	            <xs:annotation>
+	                <xs:documentation>The sync connection value specifies the sync connection mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="commandeer search engine use">
+	            <xs:annotation>
+	                <xs:documentation>The commandeer search engine use value specifies the commandeer search engine use mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="install browser extension">
+	            <xs:annotation>
+	                <xs:documentation>The install browser extension value specifies the install browser extension mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="identify target">
+	            <xs:annotation>
+	                <xs:documentation>The identify target value specifies the identify target mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="file upload">
+	            <xs:annotation>
+	                <xs:documentation>The file upload value specifies the file upload mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="malicious email delivery">
+	            <xs:annotation>
+	                <xs:documentation>The malicious email delivery value specifies the malicious email delivery mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="malicious social networking message">
+	            <xs:annotation>
+	                <xs:documentation>The malicious social networking message value specifies the malicious social networking message mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="malicious text delivery">
+	            <xs:annotation>
+	                <xs:documentation>The malicious text delivery value specifies the malicious text delivery mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="identify file">
+	            <xs:annotation>
+	                <xs:documentation>The identify file value specifies the identify file mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="modify file">
+	            <xs:annotation>
+	                <xs:documentation>The modify file value specifies the modify file mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="code injection">
+	            <xs:annotation>
+	                <xs:documentation>The code injection value specifies the code injection mechanism tactical objective.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	    </xs:restriction>
 	</xs:simpleType>
 </xs:schema>
