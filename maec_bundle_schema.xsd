@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-bundle-4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4" xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2" xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject-2" xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject" xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="4.0.1">
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-bundle-4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1" xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4" xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2" xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject-2" xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject" xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="4.0.1">
 	<xs:import namespace="http://cybox.mitre.org/cybox-2" schemaLocation="http://cybox.mitre.org/XMLSchema/core/2.0.1/cybox_core.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="http://cybox.mitre.org/XMLSchema/common/2.0.1/cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#CodeObject-2" schemaLocation="http://cybox.mitre.org/XMLSchema/objects/Code/2.0.1/Code_Object.xsd"/>
@@ -16,6 +16,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/objects#ProcessObject-2" schemaLocation="http://cybox.mitre.org/XMLSchema/objects/Process/2.0.1/Process_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/default_vocabularies-2" schemaLocation="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd"/>
+	<xs:import namespace="http://maec.mitre.org/default_vocabularies-1" schemaLocation="../Development/Git/Schemas/maec_default_vocabularies.xsd"/>
 	<xs:element name="MAEC_Bundle" type="maecBundle:BundleType">
 		<xs:annotation>
 			<xs:documentation>The MAEC_Bundle element is the root element of this schema, and is of type BundleType. As such, it represents the characterization of a single malware instance, characterized in the top-level Subject_Details element, via its MAEC entities.</xs:documentation>
@@ -122,6 +123,11 @@
 			<xs:element minOccurs="0" name="Process_Tree" type="maecBundle:ProcessTreeType">
 				<xs:annotation>
 					<xs:documentation>The Process_Tree field specifies the observed process tree of execution for the malware instance, along with references to any corresponding actions that were initiated, if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Mechanisms">
+				<xs:annotation>
+					<xs:documentation>The Mechanisms field contains 1-n MechanismType objects, which serve to describe the high-level goal(s) and possible intent of the malware author(s) present in the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behaviors" type="maecBundle:BehaviorListType">
@@ -1136,4 +1142,35 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="MechanismType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Name" type="maecVocabs:HTTPActionNameVocab-1.0"/>
+			<xs:element minOccurs="0" name="Strategic_Objectives" type="maecBundle:StrategicObjectiveListType"/>
+			<xs:element minOccurs="0" name="Tactical_Objectives" type="maecBundle:TacticalObjectiveListType"/>
+			<xs:element minOccurs="0" name="Behaviors" type="maecBundle:BehaviorListType"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="StrategicObjectiveType">
+		<xs:sequence>
+			<xs:element name="Name"/>
+			<xs:element name="Tactical_Objectives" type="maecBundle:TacticalObjectiveListType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StrategicObjectiveListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Strategic_Objective" type="maecBundle:StrategicObjectiveType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TacticalObjectiveType">
+		<xs:sequence>
+			<xs:element name="Name"/>
+			<xs:element name="Behaviors" type="maecBundle:BehaviorListType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TacticalObjectiveListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Tactical_Objective" type="maecBundle:TacticalObjectiveType"/>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
