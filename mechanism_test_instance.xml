@@ -34,6 +34,9 @@
   </maecBundle:Mechanism>
   <maecBundle:Mechanism id="maec-test-mch-2">
    <maecBundle:Name>botnet command and control</maecBundle:Name>
+   <maecBundle:Strategic_Objective>
+    <maecBundle:Name>communicate with servers</maecBundle:Name>
+   </maecBundle:Strategic_Objective>
    <maecBundle:Properties xsi:type="maecBundle:BotnetC2Properties">
     <maecBundle:Proxy_Aware>Yes</maecBundle:Proxy_Aware>
     <maecBundle:Layer7_Protocols>
