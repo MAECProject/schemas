@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maecBundle:MAEC_Bundle xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1"
+ xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2"
+ xmlns:DNSQueryObj="http://cybox.mitre.org/objects#DNSQueryObject-2"
+ xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2"
+ xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2"
+ xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2"
+ xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject-2"
+ xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject"
+ xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+ xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+ xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2"
+ xmlns:DNSRecordObj="http://cybox.mitre.org/objects#DNSRecordObject-2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-4 file:/C:/Users/ikirillov/Documents/Projects/MAEC/Development/Git/Schemas/maec_bundle_schema.xsd" id="maec-test-bnd-1" schema_version="4.0.1" defined_subject="false">
+ <maecBundle:Mechanisms>
+  <maecBundle:Mechanism id="maec-tst-mch-1">
+   <maecBundle:Name>spying</maecBundle:Name>
+   <maecBundle:Strategic_Objective>
+    <maecBundle:Name>capture user input</maecBundle:Name>
+    <maecBundle:Tactical_Objective>
+      <maecBundle:Name>capture keyboard input</maecBundle:Name>
+    </maecBundle:Tactical_Objective>
+    <maecBundle:Tactical_Objective>
+     <maecBundle:Name>capture mouse input</maecBundle:Name>
+    </maecBundle:Tactical_Objective>
+   </maecBundle:Strategic_Objective>
+  </maecBundle:Mechanism>
+  <maecBundle:Mechanism id="maec-test-mch-2">
+   <maecBundle:Name>botnet command and control</maecBundle:Name>
+   <maecBundle:Properties xsi:type="maecBundle:BotnetC2Properties">
+    <maecBundle:Proxy_Aware>Yes</maecBundle:Proxy_Aware>
+    <maecBundle:Layer7_Protocols>
+     <maecBundle:Layer7_Protocol>IRC</maecBundle:Layer7_Protocol>
+    </maecBundle:Layer7_Protocols>
+   </maecBundle:Properties>
+  </maecBundle:Mechanism>
+ </maecBundle:Mechanisms>
+</maecBundle:MAEC_Bundle>
