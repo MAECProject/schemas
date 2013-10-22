@@ -1206,7 +1206,7 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:MechanismIDREFPattern">
+		<xs:attribute name="id" use="required" type="maecBundle:MechanismIDPattern">
 			<xs:annotation>
 				<xs:documentation>The required id field specifies a unique ID for this MAEC Mechanism. The ID must follow the pattern defined in the MechanismIDPattern simple type.</xs:documentation>
 			</xs:annotation>
