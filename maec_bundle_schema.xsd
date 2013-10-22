@@ -993,6 +993,38 @@
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bnd-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="MechanismIDPattern">
+		<xs:annotation>
+			<xs:documentation>The MechanismIDPattern defines the format for acceptable Mechanism ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'mch', and ending with an integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:ID">
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-mch-[1-9][0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MechanismIDREFPattern">
+		<xs:annotation>
+			<xs:documentation>The MechanismIDREFPattern defines the format for acceptable Mechanism idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'mch', and ending with an integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:IDREF">
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-mch-[1-9][0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MechanismObjectiveIDPattern">
+		<xs:annotation>
+			<xs:documentation>The MechanismObjectiveIDPattern defines the format for acceptable Mechanism Objective (both Strategic and Tactical) ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:ID">
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obj-[1-9][0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MechanismObjectiveIDREFPattern">
+		<xs:annotation>
+			<xs:documentation>The MechanismObjectiveIDREFPattern defines the format for acceptable Mechanism Objective (both Strategic and Tactical) idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:IDREF">
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obj-[1-9][0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="BehaviorIDPattern">
 		<xs:annotation>
 			<xs:documentation>The BehaviorIDPattern defines the format for acceptable Behavior ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'bhv', and ending with an integer.</xs:documentation>
@@ -1144,30 +1176,273 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="MechanismType">
+		<xs:annotation>
+			<xs:documentation>The MechanismType captures details of a Mechanism that may be implemented in the malware instance and its properties, including its Strategic and Tactical Objectives.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Name" type="maecVocabs:MalwareMechanismVocab-1.0"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective" type="maecBundle:MechanismStrategicObjectiveType"/>
-			<xs:element minOccurs="0" name="Properties"/>
+			<xs:element minOccurs="0" name="Description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Description field captures a basic textual description of the Mechanism.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Properties" type="maecBundle:MechanismPropertiesType">
+				<xs:annotation>
+					<xs:documentation>The Properties field is an abstract placeholder for various predefined Mechanism types can be instantiated in its place through extension of the MechanismPropertiesType. This mechanism enables the capture of a broad range of properties that may be specific to certain types of Mechanisms, such as those for Persistence, Command and Control, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective" type="maecBundle:MechanismStrategicObjectiveType">
+				<xs:annotation>
+					<xs:documentation>The Strategic_Objective field captures a single Strategic Objective that the Mechanism attempts to achieve. It can be considered as a more granular way of expounding upon Mechanisms to better capture the intent of the malware author(s). </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Tactical_Objective" type="maecBundle:MechanismTacticalObjectiveType">
+				<xs:annotation>
+					<xs:documentation>The Tactical_Objective field captures a single Tactical Objective that the Mechanism attempts to achieve, typically in the context of a Strategic Objective. It can be considered as a more granular way of expounding upon Strategic Objectives to better capture the intent of the malware author(s). </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Relationship" maxOccurs="unbounded" type="maecBundle:MechanismRelationshipType">
+				<xs:annotation>
+					<xs:documentation>The Relationship field captures a relationship from the Mechanism to one or more other Mechanisms.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required"/>
+		<xs:attribute name="id" use="required" type="maecBundle:MechanismIDREFPattern">
+			<xs:annotation>
+				<xs:documentation>The required id field specifies a unique ID for this MAEC Mechanism. The ID must follow the pattern defined in the MechanismIDPattern simple type.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="maecVocabs:MalwareMechanismEnum-1.0">
+			<xs:annotation>
+				<xs:documentation>The name field captures the name of the Mechanism. It uses the MalwareMechanismEnum enumeration from the MAEC Vocabularies schema.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="MechanismListType">
+		<xs:annotation>
+			<xs:documentation>The MechanismListType captures a list of Mechanisms.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Mechanism" type="maecBundle:MechanismType"/>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Mechanism" type="maecBundle:MechanismType">
+				<xs:annotation>
+					<xs:documentation>The Mechanism field captures a single Mechanism in the list.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="MechanismStrategicObjectiveType">
+		<xs:annotation>
+			<xs:documentation>The MechanismStrategicObjectiveType captures details of a Mechanism Strategic Objective may be implemented in the malware instance and its properties.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Name" minOccurs="0" type="maecVocabs:MechanismStrategicObjectiveVocab-1.0"/>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Tactical_Objective" type="maecBundle:MechanismTacticalObjectiveType"/>
-			<xs:element minOccurs="0" name="Properties"/>
+			<xs:element name="Name" minOccurs="0" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Name field captures the name of the Mechanism Strategic Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Description field captures a textual description of the Strategic Objective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Properties" type="maecBundle:MechanismStrategicObjectivePropertiesType">
+				<xs:annotation>
+					<xs:documentation>The Properties field is an abstract placeholder for various predefined Mechanism Strategic Objective types can be instantiated in its place through extension of the MechanismStrategicObjectivePropertiesType. This mechanism enables the capture of a broad range of properties that may be specific to certain types of Strategic Objectives, such as those for Anti-Debugging, User Input Capture, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:MechanismObjectiveRelationshipType">
+				<xs:annotation>
+					<xs:documentation>The Relationship field captures a relationship from the Strategic Objective to one or more other Strategic or Tactical Objectives.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="id" use="required" type="maecBundle:MechanismObjectiveIDPattern">
+			<xs:annotation>
+				<xs:documentation>The required id field specifies a unique ID for this Mechanism Strategic Objective. The ID must follow the pattern defined in the MechanismObjectiveIDPattern simple type.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="MechanismTacticalObjectiveType">
+		<xs:annotation>
+			<xs:documentation>The MechanismTacticalObjectiveType captures details of a Mechanism Tactical Objective may be implemented in the malware instance and its properties.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Name" minOccurs="0" type="maecVocabs:MechanismTacticalObjectiveVocab-1.0"/>
-			<xs:element minOccurs="0" name="Properties"/>
-			<xs:element name="Behaviors" type="maecBundle:BehaviorListType" minOccurs="0"/>
+			<xs:element name="Name" minOccurs="0" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Name field captures the name of the Mechanism Tactical Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Description field captures a textual description of the Tactical Objective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Properties" type="maecBundle:MechanismTacticalObjectivePropertiesType">
+				<xs:annotation>
+					<xs:documentation>The Properties field is an abstract placeholder for various predefined Mechanism Tactical Objective types can be instantiated in its place through extension of the MechanismTacticalObjectivePropertiesType. This mechanism enables the capture of a broad range of properties that may be specific to certain types of Tactical Objectives, such as those for Capture Keyboard Input, Detect Debugging, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Behaviors" type="maecBundle:BehaviorReferenceListType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Behaviors field captures references to one or more Behaviors that may be used to implement the Tactical Objective.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:MechanismObjectiveRelationshipType">
+				<xs:annotation>
+					<xs:documentation>The Relationship field captures a relationship from the Tactical Objective to one or more other Tactical or Strategic Objectives.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="id" use="required" type="maecBundle:MechanismObjectiveIDPattern">
+			<xs:annotation>
+				<xs:documentation>The required id field specifies a unique ID for this Mechanism Tactical Objective. The ID must follow the pattern defined in the MechanismObjectiveIDPattern simple type.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
+			<xs:annotation>
+				<xs:documentation>The ordinal_position field captures the ordinal position of the tactical objective with respect to other tactical objectives employed by the parent strategic objective. </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="MechanismPropertiesType">
+		<xs:annotation>
+			<xs:documentation>The MechanismPropertiesType is an abstract type used for extending with context-specific properties for use in Mechanisms.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
+				<xs:annotation>
+					<xs:documentation>The Custom_Properties field permits the capture of custom properties that are relevant to the parent type but may not yet be defined in the schema implementation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="MechanismStrategicObjectivePropertiesType">
+		<xs:annotation>
+			<xs:documentation>The MechanismStrategicObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Mechanism Strategic Objectives.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
+				<xs:annotation>
+					<xs:documentation>The Custom_Properties field permits the capture of custom properties that are relevant to the parent type but may not yet be defined in the schema implementation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="MechanismTacticalObjectivePropertiesType">
+		<xs:annotation>
+			<xs:documentation>The MechanismTacticalObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Mechanism Tactical Objectives.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
+				<xs:annotation>
+					<xs:documentation>The Custom_Properties field permits the capture of custom properties that are relevant to the parent type but may not yet be defined in the schema implementation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C2MechanismPropertiesType">
+		<xs:annotation>
+			<xs:documentation>The C2MechanismPropertiesType is an extension of the MechanismPropertiesType for capturing properties specific to Command and Control (C2) Mechanisms.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="maecBundle:MechanismPropertiesType">
+
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="Utilized_Protocol" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The Utilized_Protocol field captures the network protocol(s) used by the command and control mechanism.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="is_proxy_aware" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_proxy_aware field captures whether the command and control mechanism is proxy aware.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BotnetC2MechanismPropertiesType">
+		<xs:annotation>
+			<xs:documentation>The BotnetC2MechanismPropertiesType is an extension of the MechanismPropertiesType for capturing properties specific to Botnet Command and Control (C2) Mechanisms.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="maecBundle:C2MechanismPropertiesType">
+				<xs:attribute name="uses_fast_flux" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The uses_fast_flux field captures whether the malware command and control mechanism uses DNS Fast Flux.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AntiSandboxTacticalObjectivePropertiesType">
+		<xs:annotation>
+			<xs:documentation>The AntiSandboxTacticalObjectivePropertiesType captures properties inherent to the tactical objectives of the Anti-Sandbox Strategic Objective of the Anti Behavioral Analysis mechanism, including but not limited to Sandbox Environment Detection and Sandbox Overloading.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="maecBundle:MechanismTacticalObjectivePropertiesType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="Affected_Sandbox" type="cyboxCommon:ToolInformationType">
+						<xs:annotation>
+							<xs:documentation>The Affected_Sandbox field captures the details of the sandbox(-es) affected by the Anti-Sandbox Tactical Objective.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MechanismRelationshipType">
+		<xs:annotation>
+			<xs:documentation>The MechanismObjectiveRelationshipType captures a relationship between a Mechanism and one or more other Mechanisms.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Relationship_Type" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Mechanisms.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Mechanism_Reference" type="maecBundle:MechanismReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Mechanism_Reference field references a single Mechanism in the relationship.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MechanismReferenceType">
+		<xs:annotation>
+			<xs:documentation>The MechanismReferenceType serves as a method for referencing existing Mechanisms contained in the Bundle.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="mechanism_idref" type="maecBundle:MechanismObjectiveIDREFPattern" use="required">
+			<xs:annotation>
+				<xs:documentation>The mechanism_idref field references the ID of a Mechanism Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MechanismObjectiveRelationshipType">
+		<xs:annotation>
+			<xs:documentation>The MechanismObjectiveRelationshipType captures a relationship between a Strategic or Tactical Objective and one or more other Strategic or Tactical Objectives.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Relationship_Type" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Objectives (either Strategic or Tactical).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Objective_Reference" type="maecBundle:MechanismObjectiveReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Objective_Reference field references a single Mechanism Objective (either Strategic or Objective) in the relationship.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MechanismObjectiveReferenceType">
+		<xs:annotation>
+			<xs:documentation>The MechanismObjectiveReferenceType serves as a method for referencing existing Mechanism Objectives (either Strategic or Tactical) contained in the Bundle.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="objective_idref" type="maecBundle:MechanismObjectiveIDREFPattern" use="required">
+			<xs:annotation>
+				<xs:documentation>The objective_idref field references the ID of a Mechanism Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 </xs:schema>
