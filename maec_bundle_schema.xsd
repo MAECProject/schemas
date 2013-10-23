@@ -1338,22 +1338,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="AntiSandboxTacticalObjectivePropertiesType">
-		<xs:annotation>
-			<xs:documentation>The AntiSandboxTacticalObjectivePropertiesType captures properties inherent to the tactical objectives of the Anti-Sandbox Strategic Objective of the Anti Behavioral Analysis mechanism, including but not limited to Sandbox Environment Detection and Sandbox Overloading.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecBundle:MechanismTacticalObjectivePropertiesType">
-				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="Affected_Sandbox" type="cyboxCommon:ToolInformationType">
-						<xs:annotation>
-							<xs:documentation>The Affected_Sandbox field captures the details of the sandbox(-es) affected by the Anti-Sandbox Tactical Objective.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="MechanismRelationshipType">
 		<xs:annotation>
 			<xs:documentation>The MechanismObjectiveRelationshipType captures a relationship between a Mechanism and one or more other Mechanisms.</xs:documentation>
