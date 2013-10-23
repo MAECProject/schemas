@@ -17,7 +17,6 @@
 	<xs:import namespace="http://cybox.mitre.org/objects#ProcessObject-2" schemaLocation="http://cybox.mitre.org/XMLSchema/objects/Process/2.0.1/Process_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/default_vocabularies-2" schemaLocation="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd"/>
 	<xs:import namespace="http://maec.mitre.org/default_vocabularies-1" schemaLocation="maec_default_vocabularies.xsd"/>
-	<xs:import namespace="http://maec.mitre.org/default_vocabularies-1" schemaLocation="maec_default_vocabularies.xsd"/>
 	<xs:element name="MAEC_Bundle" type="maecBundle:BundleType">
 		<xs:annotation>
 			<xs:documentation>The MAEC_Bundle element is the root element of this schema, and is of type BundleType. As such, it represents the characterization of a single malware instance, characterized in the top-level Subject_Details element, via its MAEC entities.</xs:documentation>
@@ -1338,42 +1337,6 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="C2MechanismPropertiesType">
-		<xs:annotation>
-			<xs:documentation>The C2MechanismPropertiesType is an extension of the MechanismPropertiesType for capturing properties specific to Command and Control (C2) Mechanisms.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecBundle:MechanismPropertiesType">
-
-				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="Utilized_Protocol" type="xs:string">
-						<xs:annotation>
-							<xs:documentation>The Utilized_Protocol field captures the network protocol(s) used by the command and control mechanism.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-				<xs:attribute name="is_proxy_aware" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>The is_proxy_aware field captures whether the command and control mechanism is proxy aware.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="BotnetC2MechanismPropertiesType">
-		<xs:annotation>
-			<xs:documentation>The BotnetC2MechanismPropertiesType is an extension of the MechanismPropertiesType for capturing properties specific to Botnet Command and Control (C2) Mechanisms.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecBundle:C2MechanismPropertiesType">
-				<xs:attribute name="uses_fast_flux" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>The uses_fast_flux field captures whether the malware command and control mechanism uses DNS Fast Flux.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="AntiSandboxTacticalObjectivePropertiesType">
 		<xs:annotation>
