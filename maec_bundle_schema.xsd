@@ -9,8 +9,8 @@
 		<xs:documentation>This schema imports the CyBOX schema and object schemas. More info on CybOX can be found at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>MAEC Bundle Schema</schema>
-			<version>4.0.1</version>
-			<date>9/13/2013</date>
+			<version>4.1 BETA</version>
+			<date>11/06/2013</date>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
@@ -1204,6 +1204,11 @@
 					<xs:documentation>The Relationship field captures a relationship from the Mechanism to one or more other Mechanisms.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Behaviors" type="maecBundle:BehaviorReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Behaviors field captures references to one or more Behaviors that may be used to implement the Mechanism or its Objectives.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="maecBundle:MechanismIDPattern">
 			<xs:annotation>
@@ -1278,11 +1283,6 @@
 			<xs:element minOccurs="0" name="Properties" type="maecBundle:MechanismTacticalObjectivePropertiesType">
 				<xs:annotation>
 					<xs:documentation>The Properties field is an abstract placeholder for various predefined Mechanism Tactical Objective types can be instantiated in its place through extension of the MechanismTacticalObjectivePropertiesType. This mechanism enables the capture of a broad range of properties that may be specific to certain types of Tactical Objectives, such as those for Capture Keyboard Input, Detect Debugging, etc.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Behaviors" type="maecBundle:BehaviorReferenceListType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The Behaviors field captures references to one or more Behaviors that may be used to implement the Tactical Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:MechanismObjectiveRelationshipType">
