@@ -1199,9 +1199,9 @@
 					<xs:documentation>The Tactical_Objective field captures a single Tactical Objective that the Mechanism attempts to achieve, typically in the context of a Strategic Objective. It can be considered as a more granular way of expounding upon Strategic Objectives to better capture the intent of the malware author(s). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Behaviors" type="maecBundle:BehaviorReferenceListType">
+			<xs:element minOccurs="0" name="Behavior" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Behaviors field captures references to one or more Behaviors that may be used to implement the Mechanism or its Objectives.</xs:documentation>
+					<xs:documentation>The Behavior field captures a reference to a Behavior that may be used to implement the Mechanism or its Objectives.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Relationship" maxOccurs="unbounded" type="maecBundle:MechanismRelationshipType">
