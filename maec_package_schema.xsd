@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-package-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2" xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4" xmlns:metadata="http://xml/metadataSharing.xsd" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:WinSystemObj="http://cybox.mitre.org/XMLSchema/objects#WinSystemObject-2" xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="2.1.0">
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-package-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2" xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4" xmlns:metadata="http://xml/metadataSharing.xsd" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:WinSystemObj="http://cybox.mitre.org/XMLSchema/objects#WinSystemObject-2" xmlns:sch="http://purl.oclc.org/dsdl/schematron" version="2.1">
 	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-bundle-4" schemaLocation="http://maec.mitre.org/language/version4.0.1/maec_bundle_schema.xsd"/>
 	<xs:import namespace="http://xml/metadataSharing.xsd" schemaLocation="http://grouper.ieee.org/groups/malware/malwg/Schema1.2/metadataSharing.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/cybox-2" schemaLocation="http://cybox.mitre.org/XMLSchema/core/2.0.1/cybox_core.xsd"/>
@@ -11,11 +11,13 @@
 		<xs:documentation>The imported MMDEF v1.2 schema is copyright 2013 IEEE-SA.</xs:documentation>
 		<xs:appinfo>
 			<schema>MAEC Package Schema</schema>
-			<version>2.1.0</version>
+			<version>2.1</version>
 			<date>11/12/2013</date>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/objects#URIObject-2" schemaLocation="http://cybox.mitre.org/XMLSchema/objects/URI/2.0.1/URI_Object.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#FileObject-2" schemaLocation="http://cybox.mitre.org/XMLSchema/objects/File/2.0.1/File_Object.xsd"/>
 	<xs:element name="MAEC_Package" type="maecPackage:PackageType">
 		<xs:annotation>
 			<xs:documentation>The root element of the MAEC Package schema is the MAEC_Package, which captures a single MAEC Package that encompasses one or more Malware Subjects and all of their associated MAEC entities.</xs:documentation>
@@ -304,6 +306,10 @@
 				<xs:annotation>
 					<xs:documentation>The Malware_Subjects field captures each of the Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
+				<xs:unique name="unique-subject-id">
+					<xs:selector xpath=".//maecPackage:*"/>
+					<xs:field xpath="@id"/>
+				</xs:unique>
 			</xs:element>
 			<xs:element minOccurs="0" name="Grouping_Relationships" type="maecPackage:GroupingRelationshipListType">
 				<xs:annotation>
@@ -337,14 +343,14 @@
 					<xs:documentation>The Malware_Instance_Object_Attributes field captures the attributes of the malware instance object (most commonly a file) that is encompassed in the Malware Subject, via its corresponding CybOX Object. For example, a File Object would be represented via a CybOX File_Object and may have a file name, MD5 hash, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Configuration_Details" type="maecPackage:MalwareConfigurationDetailsType">
+				<xs:annotation>
+					<xs:documentation>The Configuration_Details field captures details of the configuration specified for the Malware Subject, such as configuration parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Minor_Variants" type="maecPackage:MinorVariantListType">
 				<xs:annotation>
 					<xs:documentation>The Minor_Variants field captures any minor variants of the malware instance object, such as the same file but with different filenames.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Configuration_Parameter" type="maecPackage:ConfigurationParameterType">
-				<xs:annotation>
-					<xs:documentation>The Configuration_Parameter field captures a single configuration parameter that may be defined for the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Field_Data" type="metadata:fieldDataEntry">
@@ -719,9 +725,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ConfigurationParameterType">
+	<xs:complexType name="MalwareConfigurationParameterType">
 		<xs:annotation>
-			<xs:documentation>The ConfigurationParameterType captures a single configuration parameter that may be defined for a malware instance, as a name/value pair.</xs:documentation>
+			<xs:documentation>The MalwareConfigurationParameterType captures a single configuration parameter that may be defined for a malware instance, as a name/value pair.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
@@ -735,6 +741,69 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MalwareConfigurationDetailsType">
+		<xs:annotation>
+			<xs:documentation>The MalwareConfigurationDetailsType captures details of malware configuration parameters and associated metadata.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Packaging" type="maecPackage:MalwareConfigurationPackagingDetailsType">
+				<xs:annotation>
+					<xs:documentation>The Packaging field captures details of the how the malware configuration parameters may be packaged, e.g. in a separate file, in memory, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Encryption" type="maecPackage:MalwareConfigurationEncryptionDetailsType">
+				<xs:annotation>
+					<xs:documentation>The Encryption field captures the details of the encryption that may be used in encrypting the malware configuration parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Configuration_Parameter" type="maecPackage:MalwareConfigurationParameterType">
+				<xs:annotation>
+					<xs:documentation>The Configuration_Parameter field captures a single configuration parameter that may be defined for the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MalwareConfigurationEncryptionDetailsType">
+		<xs:annotation>
+			<xs:documentation>The MalwareConfigurationEncryptionDetailsType captures details relating to the encryption of malware configuration parameters.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Decryption_Key" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Decryption_Key field captures the key used to decrypt the configuration parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Encryption_Algorithm" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Encryption_Algorithm field captures an encryption algorithm that may be used for encrypting the configuration parameters. More than one encryption algorithm may be specified by using multiple occurrences of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MalwareConfigurationPackagingDetailsType">
+		<xs:annotation>
+			<xs:documentation>The MalwareConfigurationPackagingDetailsType captures details relating to the packaging of malware configuration parameters.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="File" type="FileObj:FileObjectType">
+				<xs:annotation>
+					<xs:documentation>The File field captures the properties of a configuration file, for cases where the Malware Subject stores its configuration parameters in a separate file.</xs:documentation>
+					<xs:documentation>This field uses the FileObjectType from the imported CybOX File Object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="URL" type="URIObj:URIObjectType">
+				<xs:annotation>
+					<xs:documentation>The URL field captures a URL at which the configuration parameters for the Malware Subject may be stored. This field may be included more than once for specifying multiple URLs where the configuration parameters may be stored.</xs:documentation>
+					<xs:documentation>This field uses the URIObjectType from the import CybOX URI Object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="in_malware_binary" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The in_malware_binary field specifies whether the configuration parameters for the malware are stored in its binary.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:simpleType name="PackageIDPattern">
 		<xs:annotation>
