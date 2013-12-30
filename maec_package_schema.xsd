@@ -754,12 +754,12 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Encryption" type="maecPackage:MalwareConfigurationEncryptionDetailsType">
 				<xs:annotation>
-					<xs:documentation>The Encryption field captures the details of the encryption that may be used in encrypting the malware configuration parameters.</xs:documentation>
+					<xs:documentation>The Encryption field captures details of encryption used to obfuscate the malware configuration parameters, if applicable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Configuration_Parameter" type="maecPackage:MalwareConfigurationParameterType">
 				<xs:annotation>
-					<xs:documentation>The Configuration_Parameter field captures a single configuration parameter that may be defined for the Malware Subject.</xs:documentation>
+					<xs:documentation>The Configuration_Parameter field captures a single configuration parameter that may be defined for the Malware Subject. More than one configuration parameter may be specified by using multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -794,7 +794,7 @@
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="URL" type="URIObj:URIObjectType">
 				<xs:annotation>
-					<xs:documentation>The URL field captures a URL at which the configuration parameters for the Malware Subject may be stored. This field may be included more than once for specifying multiple URLs where the configuration parameters may be stored.</xs:documentation>
+					<xs:documentation>The URL field captures a URL at which the configuration parameters for the Malware Subject may be stored. More than one such URL may be specified by using multiple occurrences of this field.</xs:documentation>
 					<xs:documentation>This field uses the URIObjectType from the import CybOX URI Object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
