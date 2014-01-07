@@ -129,6 +129,11 @@
 						<xs:documentation>The timestamp field specifies the date/time that the comment was added.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="observation_name" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The observation_name field captures the name, type, or identifier of an observation, for comments that refer to the observation of particular entities. For example, a comment that refers to a command and control (C2) encryption key could have an observation_name of "C2 Encryption Key".</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -371,6 +376,11 @@
 			<xs:element minOccurs="0" name="Relationships" type="maecPackage:MalwareSubjectRelationshipListType">
 				<xs:annotation>
 					<xs:documentation>The Relationships field captures any relationships between the Malware Subject and other Malware Subjects.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Compatible_Platform" type="cyboxCommon:PlatformSpecificationType">
+				<xs:annotation>
+					<xs:documentation>The Compatible_Platform field specifies a single platform that the Malware Subject is compatible with (i.e. can execute on). It uses the PlatformSpecificationType from the imported CybOX Common schema. More than one compatible platform can be specified by using multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
