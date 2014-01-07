@@ -125,9 +125,9 @@
 					<xs:documentation>The Process_Tree field specifies the observed process tree of execution for the malware instance, along with references to any corresponding actions that were initiated, if applicable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Mechanisms" type="maecBundle:MechanismListType">
+			<xs:element minOccurs="0" name="Capabilities" type="maecBundle:CapabilityListType">
 				<xs:annotation>
-					<xs:documentation>The Mechanisms field contains 1-n MechanismType objects, which serve to describe the high-level goal(s) and possible intent of the malware author(s) present in the malware instance.</xs:documentation>
+					<xs:documentation>The Capabilities field contains 1-n CapabilityType objects, which serve to describe the high-level goal(s) and possible intent of the malware author(s) present in the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behaviors" type="maecBundle:BehaviorListType">
@@ -184,7 +184,7 @@
 	</xs:complexType>
 	<xs:complexType name="BehaviorCollectionType">
 		<xs:annotation>
-			<xs:documentation>The BehaviorCollectionType provides a mechanism for characterizing collections of behaviors.</xs:documentation>
+			<xs:documentation>The BehaviorCollectionType provides a Capability for characterizing collections of behaviors.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="maecBundle:BaseCollectionType">
@@ -316,7 +316,7 @@
 	</xs:complexType>
 	<xs:complexType name="ObjectCollectionType">
 		<xs:annotation>
-			<xs:documentation>The ObjectCollectionType provides a mechanism for characterizing collections of Objects. For instance, it can be used to group all of the Objects that are associated with a specific behavior.</xs:documentation>
+			<xs:documentation>The ObjectCollectionType provides a Capability for characterizing collections of Objects. For instance, it can be used to group all of the Objects that are associated with a specific behavior.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="maecBundle:BaseCollectionType">
@@ -677,7 +677,7 @@
 			<xs:element minOccurs="0" name="Importance" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
 					<xs:documentation>The Importance field specifies the relative importance of the Candidate Indicator.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ImportanceTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension Capability. The default vocabulary type is ImportanceTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Numeric_Importance" type="xs:positiveInteger">
@@ -741,13 +741,13 @@
 	</xs:complexType>
 	<xs:complexType name="MalwareEntityType">
 		<xs:annotation>
-			<xs:documentation>The MalwareEntityType provides a mechanism for characterizing the particular entity that an indicator or signature is written against, whether it is a particular malware instance, family, etc.</xs:documentation>
+			<xs:documentation>The MalwareEntityType provides a Capability for characterizing the particular entity that an indicator or signature is written against, whether it is a particular malware instance, family, etc.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Type" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
 					<xs:documentation>The Type field refers to the specific type of malware entity that the indicator or signature is written against.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is MalwareEntityTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension Capability. The default vocabulary type is MalwareEntityTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Name" type="xs:string">
@@ -883,7 +883,7 @@
 	</xs:complexType>
 	<xs:complexType name="CandidateIndicatorCollectionType">
 		<xs:annotation>
-			<xs:documentation>The CandidateIndicatorCollectionType provides a mechanism for characterizing collections of Candidate Indicators.</xs:documentation>
+			<xs:documentation>The CandidateIndicatorCollectionType provides a Capability for characterizing collections of Candidate Indicators.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="maecBundle:BaseCollectionType">
@@ -992,33 +992,33 @@
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bnd-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="MechanismIDPattern">
+	<xs:simpleType name="CapabilityIDPattern">
 		<xs:annotation>
-			<xs:documentation>The MechanismIDPattern defines the format for acceptable Mechanism ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'mch', and ending with an integer.</xs:documentation>
+			<xs:documentation>The CapabilityIDPattern defines the format for acceptable Capability ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'mch', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-mch-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="MechanismIDREFPattern">
+	<xs:simpleType name="CapabilityIDREFPattern">
 		<xs:annotation>
-			<xs:documentation>The MechanismIDREFPattern defines the format for acceptable Mechanism idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'mch', and ending with an integer.</xs:documentation>
+			<xs:documentation>The CapabilityIDREFPattern defines the format for acceptable Capability idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'mch', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:IDREF">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-mch-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="MechanismObjectiveIDPattern">
+	<xs:simpleType name="CapabilityObjectiveIDPattern">
 		<xs:annotation>
-			<xs:documentation>The MechanismObjectiveIDPattern defines the format for acceptable Mechanism Objective (both Strategic and Tactical) ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
+			<xs:documentation>The CapabilityObjectiveIDPattern defines the format for acceptable Capability Objective (both Strategic and Tactical) ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obj-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="MechanismObjectiveIDREFPattern">
+	<xs:simpleType name="CapabilityObjectiveIDREFPattern">
 		<xs:annotation>
-			<xs:documentation>The MechanismObjectiveIDREFPattern defines the format for acceptable Mechanism Objective (both Strategic and Tactical) idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
+			<xs:documentation>The CapabilityObjectiveIDREFPattern defines the format for acceptable Capability Objective (both Strategic and Tactical) idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:IDREF">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obj-[1-9][0-9]*"/>
@@ -1174,73 +1174,73 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="MechanismType">
+	<xs:complexType name="CapabilityType">
 		<xs:annotation>
-			<xs:documentation>The MechanismType captures details of a Mechanism that may be implemented in the malware instance and its properties, including its Strategic and Tactical Objectives.</xs:documentation>
+			<xs:documentation>The CapabilityType captures details of a Capability that may be implemented in the malware instance and its properties, including its Strategic and Tactical Objectives.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Description" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Description field captures a basic textual description of the Mechanism.</xs:documentation>
+					<xs:documentation>The Description field captures a basic textual description of the Capability.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Properties" type="maecBundle:MechanismPropertiesType">
+			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityPropertiesType">
 				<xs:annotation>
-					<xs:documentation>The Properties field is an abstract placeholder for various predefined Mechanism types can be instantiated in its place through extension of the MechanismPropertiesType. This mechanism enables the capture of a broad range of properties that may be specific to certain types of Mechanisms, such as those for Persistence, Command and Control, etc.</xs:documentation>
+					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability types can be instantiated in its place through extension of the CapabilityPropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Capabilitys, such as those for Persistence, Command and Control, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective" type="maecBundle:MechanismStrategicObjectiveType">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective" type="maecBundle:CapabilityStrategicObjectiveType">
 				<xs:annotation>
-					<xs:documentation>The Strategic_Objective field captures a single Strategic Objective that the Mechanism attempts to achieve. It can be considered as a more granular way of expounding upon Mechanisms to better capture the intent of the malware author(s). </xs:documentation>
+					<xs:documentation>The Strategic_Objective field captures a single Strategic Objective that the Capability attempts to achieve. It can be considered as a more granular way of expounding upon Capabilitys to better capture the intent of the malware author(s). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Tactical_Objective" type="maecBundle:MechanismTacticalObjectiveType">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Tactical_Objective" type="maecBundle:CapabilityTacticalObjectiveType">
 				<xs:annotation>
-					<xs:documentation>The Tactical_Objective field captures a single Tactical Objective that the Mechanism attempts to achieve, typically in the context of a Strategic Objective. It can be considered as a more granular way of expounding upon Strategic Objectives to better capture the intent of the malware author(s). </xs:documentation>
+					<xs:documentation>The Tactical_Objective field captures a single Tactical Objective that the Capability attempts to achieve, typically in the context of a Strategic Objective. It can be considered as a more granular way of expounding upon Strategic Objectives to better capture the intent of the malware author(s). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behavior" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Behavior field captures a reference to a Behavior that may be used to implement the Mechanism or its Objectives.</xs:documentation>
+					<xs:documentation>The Behavior field captures a reference to a Behavior that may be used to implement the Capability or its Objectives.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Relationship" maxOccurs="unbounded" type="maecBundle:MechanismRelationshipType">
+			<xs:element minOccurs="0" name="Relationship" maxOccurs="unbounded" type="maecBundle:CapabilityRelationshipType">
 				<xs:annotation>
-					<xs:documentation>The Relationship field captures a relationship from the Mechanism to one or more other Mechanisms.</xs:documentation>
+					<xs:documentation>The Relationship field captures a relationship from the Capability to one or more other Capabilitys.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:MechanismIDPattern">
+		<xs:attribute name="id" use="required" type="maecBundle:CapabilityIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this MAEC Mechanism. The ID must follow the pattern defined in the MechanismIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this MAEC Capability. The ID must follow the pattern defined in the CapabilityIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="name" type="maecVocabs:MalwareMechanismEnum-1.0">
+		<xs:attribute name="name" type="maecVocabs:MalwareCapabilityEnum-1.0">
 			<xs:annotation>
-				<xs:documentation>The name field captures the name of the Mechanism. It uses the MalwareMechanismEnum enumeration from the MAEC Vocabularies schema.</xs:documentation>
+				<xs:documentation>The name field captures the name of the Capability. It uses the MalwareCapabilityEnum enumeration from the MAEC Vocabularies schema.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="MechanismListType">
+	<xs:complexType name="CapabilityListType">
 		<xs:annotation>
-			<xs:documentation>The MechanismListType captures a list of Mechanisms.</xs:documentation>
+			<xs:documentation>The CapabilityListType captures a list of Capabilities.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Mechanism" type="maecBundle:MechanismType">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability" type="maecBundle:CapabilityType">
 				<xs:annotation>
-					<xs:documentation>The Mechanism field captures a single Mechanism in the list.</xs:documentation>
+					<xs:documentation>The Capability field captures a single Capability in the list.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="MechanismStrategicObjectiveType">
+	<xs:complexType name="CapabilityStrategicObjectiveType">
 		<xs:annotation>
-			<xs:documentation>The MechanismStrategicObjectiveType captures details of a Mechanism Strategic Objective may be implemented in the malware instance and its properties.</xs:documentation>
+			<xs:documentation>The CapabilityStrategicObjectiveType captures details of a Capability Strategic Objective may be implemented in the malware instance and its properties.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" minOccurs="0" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Name field captures the name of the Mechanism Strategic Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema.</xs:documentation>
+					<xs:documentation>The Name field captures the name of the Capability Strategic Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Description" type="xs:string">
@@ -1248,31 +1248,31 @@
 					<xs:documentation>The Description field captures a textual description of the Strategic Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Properties" type="maecBundle:MechanismStrategicObjectivePropertiesType">
+			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityStrategicObjectivePropertiesType">
 				<xs:annotation>
-					<xs:documentation>The Properties field is an abstract placeholder for various predefined Mechanism Strategic Objective types can be instantiated in its place through extension of the MechanismStrategicObjectivePropertiesType. This mechanism enables the capture of a broad range of properties that may be specific to certain types of Strategic Objectives, such as those for Anti-Debugging, User Input Capture, etc.</xs:documentation>
+					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability Strategic Objective types can be instantiated in its place through extension of the CapabilityStrategicObjectivePropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Strategic Objectives, such as those for Anti-Debugging, User Input Capture, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:MechanismObjectiveRelationshipType">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:CapabilityObjectiveRelationshipType">
 				<xs:annotation>
 					<xs:documentation>The Relationship field captures a relationship from the Strategic Objective to one or more other Strategic or Tactical Objectives.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:MechanismObjectiveIDPattern">
+		<xs:attribute name="id" use="required" type="maecBundle:CapabilityObjectiveIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Mechanism Strategic Objective. The ID must follow the pattern defined in the MechanismObjectiveIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Capability Strategic Objective. The ID must follow the pattern defined in the CapabilityObjectiveIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="MechanismTacticalObjectiveType">
+	<xs:complexType name="CapabilityTacticalObjectiveType">
 		<xs:annotation>
-			<xs:documentation>The MechanismTacticalObjectiveType captures details of a Mechanism Tactical Objective may be implemented in the malware instance and its properties.</xs:documentation>
+			<xs:documentation>The CapabilityTacticalObjectiveType captures details of a Capability Tactical Objective may be implemented in the malware instance and its properties.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" minOccurs="0" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Name field captures the name of the Mechanism Tactical Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema.</xs:documentation>
+					<xs:documentation>The Name field captures the name of the Capability Tactical Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Description" type="xs:string">
@@ -1280,20 +1280,20 @@
 					<xs:documentation>The Description field captures a textual description of the Tactical Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Properties" type="maecBundle:MechanismTacticalObjectivePropertiesType">
+			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityTacticalObjectivePropertiesType">
 				<xs:annotation>
-					<xs:documentation>The Properties field is an abstract placeholder for various predefined Mechanism Tactical Objective types can be instantiated in its place through extension of the MechanismTacticalObjectivePropertiesType. This mechanism enables the capture of a broad range of properties that may be specific to certain types of Tactical Objectives, such as those for Capture Keyboard Input, Detect Debugging, etc.</xs:documentation>
+					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability Tactical Objective types can be instantiated in its place through extension of the CapabilityTacticalObjectivePropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Tactical Objectives, such as those for Capture Keyboard Input, Detect Debugging, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:MechanismObjectiveRelationshipType">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:CapabilityObjectiveRelationshipType">
 				<xs:annotation>
 					<xs:documentation>The Relationship field captures a relationship from the Tactical Objective to one or more other Tactical or Strategic Objectives.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:MechanismObjectiveIDPattern">
+		<xs:attribute name="id" use="required" type="maecBundle:CapabilityObjectiveIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Mechanism Tactical Objective. The ID must follow the pattern defined in the MechanismObjectiveIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Capability Tactical Objective. The ID must follow the pattern defined in the CapabilityObjectiveIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
@@ -1302,9 +1302,9 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType abstract="true" name="MechanismPropertiesType">
+	<xs:complexType abstract="true" name="CapabilityPropertiesType">
 		<xs:annotation>
-			<xs:documentation>The MechanismPropertiesType is an abstract type used for extending with context-specific properties for use in Mechanisms.</xs:documentation>
+			<xs:documentation>The CapabilityPropertiesType is an abstract type used for extending with context-specific properties for use in Capabilitys.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
@@ -1314,9 +1314,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType abstract="true" name="MechanismStrategicObjectivePropertiesType">
+	<xs:complexType abstract="true" name="CapabilityStrategicObjectivePropertiesType">
 		<xs:annotation>
-			<xs:documentation>The MechanismStrategicObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Mechanism Strategic Objectives.</xs:documentation>
+			<xs:documentation>The CapabilityStrategicObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Capability Strategic Objectives.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
@@ -1326,9 +1326,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType abstract="true" name="MechanismTacticalObjectivePropertiesType">
+	<xs:complexType abstract="true" name="CapabilityTacticalObjectivePropertiesType">
 		<xs:annotation>
-			<xs:documentation>The MechanismTacticalObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Mechanism Tactical Objectives.</xs:documentation>
+			<xs:documentation>The CapabilityTacticalObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Capability Tactical Objectives.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
@@ -1338,36 +1338,36 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="MechanismRelationshipType">
+	<xs:complexType name="CapabilityRelationshipType">
 		<xs:annotation>
-			<xs:documentation>The MechanismObjectiveRelationshipType captures a relationship between a Mechanism and one or more other Mechanisms.</xs:documentation>
+			<xs:documentation>The CapabilityObjectiveRelationshipType captures a relationship between a Capability and one or more other Capabilitys.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Relationship_Type" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Mechanisms.</xs:documentation>
+					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Capabilitys.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Mechanism_Reference" type="maecBundle:MechanismReferenceType">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability_Reference" type="maecBundle:CapabilityReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Mechanism_Reference field references a single Mechanism in the relationship.</xs:documentation>
+					<xs:documentation>The Capability_Reference field references a single Capability in the relationship.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="MechanismReferenceType">
+	<xs:complexType name="CapabilityReferenceType">
 		<xs:annotation>
-			<xs:documentation>The MechanismReferenceType serves as a method for referencing existing Mechanisms contained in the Bundle.</xs:documentation>
+			<xs:documentation>The CapabilityReferenceType serves as a method for referencing existing Capabilitys contained in the Bundle.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="mechanism_idref" type="maecBundle:MechanismObjectiveIDREFPattern" use="required">
+		<xs:attribute name="Capability_idref" type="maecBundle:CapabilityObjectiveIDREFPattern" use="required">
 			<xs:annotation>
-				<xs:documentation>The mechanism_idref field references the ID of a Mechanism Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
+				<xs:documentation>The Capability_idref field references the ID of a Capability Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="MechanismObjectiveRelationshipType">
+	<xs:complexType name="CapabilityObjectiveRelationshipType">
 		<xs:annotation>
-			<xs:documentation>The MechanismObjectiveRelationshipType captures a relationship between a Strategic or Tactical Objective and one or more other Strategic or Tactical Objectives.</xs:documentation>
+			<xs:documentation>The CapabilityObjectiveRelationshipType captures a relationship between a Strategic or Tactical Objective and one or more other Strategic or Tactical Objectives.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Relationship_Type" type="cyboxCommon:ControlledVocabularyStringType">
@@ -1375,20 +1375,20 @@
 					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Objectives (either Strategic or Tactical).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Objective_Reference" type="maecBundle:MechanismObjectiveReferenceType">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Objective_Reference" type="maecBundle:CapabilityObjectiveReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Objective_Reference field references a single Mechanism Objective (either Strategic or Objective) in the relationship.</xs:documentation>
+					<xs:documentation>The Objective_Reference field references a single Capability Objective (either Strategic or Objective) in the relationship.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="MechanismObjectiveReferenceType">
+	<xs:complexType name="CapabilityObjectiveReferenceType">
 		<xs:annotation>
-			<xs:documentation>The MechanismObjectiveReferenceType serves as a method for referencing existing Mechanism Objectives (either Strategic or Tactical) contained in the Bundle.</xs:documentation>
+			<xs:documentation>The CapabilityObjectiveReferenceType serves as a method for referencing existing Capability Objectives (either Strategic or Tactical) contained in the Bundle.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="objective_idref" type="maecBundle:MechanismObjectiveIDREFPattern" use="required">
+		<xs:attribute name="objective_idref" type="maecBundle:CapabilityObjectiveIDREFPattern" use="required">
 			<xs:annotation>
-				<xs:documentation>The objective_idref field references the ID of a Mechanism Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
+				<xs:documentation>The objective_idref field references the ID of a Capability Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
