@@ -844,6 +844,11 @@
 						<xs:documentation>The parent_action_idref field specifies the id of the action that created or injected this process.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="ordinal_position" type="xs:positiveInteger">
+					<xs:annotation>
+						<xs:documentation>The ordinal_position field specifies the ordinal position of the process with respect to the other processes spawned or injected by the malware.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
