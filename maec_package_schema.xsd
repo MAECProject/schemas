@@ -373,6 +373,11 @@
 					<xs:documentation>The Relationships field captures any relationships between the Malware Subject and other Malware Subjects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Compatible_Platform" type="cyboxCommon:PlatformSpecificationType">
+				<xs:annotation>
+					<xs:documentation>The Compatible_Platform field specifies a single platform that the Malware Subject is compatible with (i.e. can execute on). It uses the PlatformSpecificationType from the imported CybOX Common schema. More than one compatible platform can be specified by using multiple occurrences of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="maecPackage:MalwareSubjectIDPattern">
 			<xs:annotation>
