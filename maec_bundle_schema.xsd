@@ -554,6 +554,7 @@
 			<xs:element name="Action" type="maecBundle:MalwareActionType" maxOccurs="unbounded" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The Action field specifies a single Action in the list.</xs:documentation>
+					<xs:documentation>The recommended syntax for Action IDs is a dash-delimited format that starts with the word maec, followed by a unique string, followed by the three letter code 'act', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-act-[1-9][0-9]*.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -839,7 +840,7 @@
 						<xs:documentation>The required id field specifies a unique ID for the Process Node. The ID must follow the pattern defined in the ProcessTreeNodeIDPattern simple type.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="parent_action_idref" type="maecBundle:ActionIDREFPattern">
+				<xs:attribute name="parent_action_idref" type="xs:QName">
 					<xs:annotation>
 						<xs:documentation>The parent_action_idref field specifies the id of the action that created or injected this process.</xs:documentation>
 					</xs:annotation>
@@ -1043,22 +1044,6 @@
 		</xs:annotation>
 		<xs:restriction base="xs:IDREF">
 			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bhv-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ActionIDREFPattern">
-		<xs:annotation>
-			<xs:documentation>The ActionIDREFPattern defines the format for acceptable Action idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'act', and ending with an integer.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-act-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ObjectIDPattern">
-		<xs:annotation>
-			<xs:documentation>The ObjectIDPattern simple type defines the format for acceptable MAEC Object ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obj-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ActionImplementationIDPattern">
