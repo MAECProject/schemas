@@ -554,6 +554,7 @@
 			<xs:element name="Action" type="maecBundle:MalwareActionType" maxOccurs="unbounded" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The Action field specifies a single Action in the list.</xs:documentation>
+					<xs:documentation>The recommended syntax for Action IDs is a dash-delimited format that starts with the word maec, followed by a unique string, followed by the three letter code 'act', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-act-[1-9][0-9]*.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
