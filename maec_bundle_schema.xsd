@@ -1010,18 +1010,18 @@
 	</xs:simpleType>
 	<xs:simpleType name="CapabilityObjectiveIDPattern">
 		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveIDPattern defines the format for acceptable Capability Objective (both Strategic and Tactical) ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
+			<xs:documentation>The CapabilityObjectiveIDPattern defines the format for acceptable Capability Objective (both Strategic and Tactical) ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obt', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obj-[1-9][0-9]*"/>
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obt-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="CapabilityObjectiveIDREFPattern">
 		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveIDREFPattern defines the format for acceptable Capability Objective (both Strategic and Tactical) idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obj', and ending with an integer.</xs:documentation>
+			<xs:documentation>The CapabilityObjectiveIDREFPattern defines the format for acceptable Capability Objective (both Strategic and Tactical) idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'obt', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obj-[1-9][0-9]*"/>
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obt-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="BehaviorIDPattern">
