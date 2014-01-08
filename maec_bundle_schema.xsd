@@ -994,18 +994,18 @@
 	</xs:simpleType>
 	<xs:simpleType name="CapabilityIDPattern">
 		<xs:annotation>
-			<xs:documentation>The CapabilityIDPattern defines the format for acceptable Capability ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'mch', and ending with an integer.</xs:documentation>
+			<xs:documentation>The CapabilityIDPattern defines the format for acceptable Capability ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'cpb', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-mch-[1-9][0-9]*"/>
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-cpb-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="CapabilityIDREFPattern">
 		<xs:annotation>
-			<xs:documentation>The CapabilityIDREFPattern defines the format for acceptable Capability idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'mch', and ending with an integer.</xs:documentation>
+			<xs:documentation>The CapabilityIDREFPattern defines the format for acceptable Capability idrefs. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'cpb', and ending with an integer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-mch-[1-9][0-9]*"/>
+			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-cpb-[1-9][0-9]*"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="CapabilityObjectiveIDPattern">
