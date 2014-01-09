@@ -7,7 +7,8 @@
  
   Created November 2012 for MAEC v3.0 and CybOX v1.0 final
   Updated April 2013 for MAEC v4.0 and CybOX v2.0
-  Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1 -->
+  Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
+  Updated January 2014 for MAEC v4.1 and CybOX v2.1 -->
 <maecBundle:MAEC_Bundle
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4" 
  xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
@@ -19,12 +20,12 @@
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation=
- "http://maec.mitre.org/XMLSchema/maec-bundle-4 http://maec.mitre.org/language/version4.0.1/maec_bundle_schema.xsd
+ "http://maec.mitre.org/XMLSchema/maec-bundle-4 ../maec_bundle_schema.xsd
  http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.0.1/cybox_core.xsd
  http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0.1/Win_Executable_File_Object.xsd
  http://cybox.mitre.org/objects#ArtifactObject-2 http://cybox.mitre.org/XMLSchema/objects/Artifact/2.0.1/Artifact_Object.xsd" 
- id="maec-example-bnd-1" schema_version="4.0.1" defined_subject="true" content_type="dynamic analysis tool output">
+ id="maec-example-bnd-1" schema_version="4.1" defined_subject="true" content_type="dynamic analysis tool output">
 <maecBundle:Malware_Instance_Object_Attributes>
  <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
   <FileObj:Size_In_Bytes>24840</FileObj:Size_In_Bytes>
