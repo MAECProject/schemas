@@ -23,7 +23,7 @@
                     <xs:union memberTypes="maecVocabs:ActionObjectAssociationTypeEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Action-Object Association Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -59,7 +59,7 @@
                     <xs:union memberTypes="maecVocabs:ImportanceTypeEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Importance Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ImportanceTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ImportanceTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -110,7 +110,7 @@
                     <xs:union memberTypes="maecVocabs:MalwareEntityTypeEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Malware Entity Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#MalwareEntityTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareEntityTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -147,7 +147,7 @@
                     <xs:union memberTypes="maecVocabs:DeviceDriverActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Device Driver Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DeviceDriverActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DeviceDriverActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -184,7 +184,7 @@
                     <xs:union memberTypes="maecVocabs:DebuggingActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Debugging Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DebuggingActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DebuggingActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -216,7 +216,7 @@
                     <xs:union memberTypes="maecVocabs:LibraryActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Library Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#LibraryActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#LibraryActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -258,7 +258,7 @@
                     <xs:union memberTypes="maecVocabs:DirectoryActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Directory Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DirectoryActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DirectoryActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -295,7 +295,7 @@
                     <xs:union memberTypes="maecVocabs:DiskActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Disk Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DiskActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DiskActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -337,7 +337,7 @@
                     <xs:union memberTypes="maecVocabs:FileActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default File Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#FileActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#FileActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -458,7 +458,7 @@
                     <xs:union memberTypes="maecVocabs:HookingActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Hooking Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#HookingActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#HookingActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -491,7 +491,7 @@
                     <xs:union memberTypes="maecVocabs:DNSActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default DNS Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#DNSActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DNSActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -523,7 +523,7 @@
                     <xs:union memberTypes="maecVocabs:IRCActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default IRC Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#IRCActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#IRCActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -580,7 +580,7 @@
                     <xs:union memberTypes="maecVocabs:FTPActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default FTP Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#FTPActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#FTPActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -617,7 +617,7 @@
                     <xs:union memberTypes="maecVocabs:HTTPActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default HTTP Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#HTTPActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#HTTPActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -689,7 +689,7 @@
                     <xs:union memberTypes="maecVocabs:NetworkActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Network Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#NetworkActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#NetworkActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -766,7 +766,7 @@
                     <xs:union memberTypes="maecVocabs:NetworkShareActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Network Share Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#NetworkShareActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#NetworkShareActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -824,7 +824,7 @@
                     <xs:union memberTypes="maecVocabs:SocketActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Socket Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#SocketActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SocketActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -906,7 +906,7 @@
                     <xs:union memberTypes="maecVocabs:RegistryActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Registry Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#RegistryActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#RegistryActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1006,7 +1006,7 @@
                     <xs:union memberTypes="maecVocabs:UserActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default User Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#UserActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#UserActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1053,7 +1053,7 @@
                     <xs:union memberTypes="maecVocabs:IPCActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default IPC Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#IPCActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#IPCActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1123,7 +1123,7 @@
                     <xs:union memberTypes="maecVocabs:ProcessMemoryActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Process Memory Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ProcessMemoryActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ProcessMemoryActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1185,7 +1185,7 @@
                     <xs:union memberTypes="maecVocabs:ProcessActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Process Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ProcessActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ProcessActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1268,7 +1268,7 @@
                     <xs:union memberTypes="maecVocabs:ProcessThreadActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Process Thread Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ProcessThreadActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ProcessThreadActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1345,7 +1345,7 @@
                     <xs:union memberTypes="maecVocabs:ServiceActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Service Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#ServiceActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ServiceActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1403,7 +1403,7 @@
                     <xs:union memberTypes="maecVocabs:SynchronizationActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Synchronization Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#SynchronizationActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SynchronizationActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1513,7 +1513,7 @@
                     <xs:union memberTypes="maecVocabs:SystemActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default System Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#SystemActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SystemActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1636,7 +1636,7 @@
                     <xs:union memberTypes="maecVocabs:GUIActionNameEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default GUI Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#GUIActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#GUIActionNameVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1692,7 +1692,7 @@
                     <xs:union memberTypes="maecVocabs:GroupingRelationshipEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Grouping Relationship Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#GroupingRelationshipTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#GroupingRelationshipTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1738,7 +1738,7 @@
                     <xs:union memberTypes="maecVocabs:MalwareSubjectRelationshipEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Default Malware Subject Relationship Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.0/maec_default_vocabularies.xsd#MalwareSubjectRelationshipTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareSubjectRelationshipTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
