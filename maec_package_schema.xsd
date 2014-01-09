@@ -11,9 +11,10 @@
 		<xs:documentation>The imported MMDEF v1.2 schema is copyright 2013 IEEE-SA.</xs:documentation>
 		<xs:appinfo>
 			<schema>MAEC Package Schema</schema>
-			<version>2.1</version>
-			<date>11/12/2013</date>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
+			<version>2.1 DRAFT</version>
+			<date>01/09/2014</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>			
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/objects#URIObject-2" schemaLocation="http://cybox.mitre.org/XMLSchema/objects/URI/2.0.1/URI_Object.xsd"/>
@@ -327,7 +328,7 @@
 				<xs:documentation>The required id field specifies a unique ID for this Package. The ID must follow the pattern defined in the PackageIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute fixed="2.0.1" name="schema_version" type="xs:string" use="required">
+		<xs:attribute fixed="2.1" name="schema_version" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>The required schema_version field specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
