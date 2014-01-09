@@ -69,32 +69,32 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="high">
                 <xs:annotation>
-                    <xs:documentation>The high value specifies that the entity is of relative high importance.</xs:documentation>
+                    <xs:documentation>The high value specifies that the field is of relative high importance.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="medium">
                 <xs:annotation>
-                    <xs:documentation>The medium value specifies that the entity is of relative medium importance.</xs:documentation>
+                    <xs:documentation>The medium value specifies that the field is of relative medium importance.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="low">
                 <xs:annotation>
-                    <xs:documentation>The low value specifies that the entity is of relative low importance.</xs:documentation>
+                    <xs:documentation>The low value specifies that the field is of relative low importance.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="informational">
                 <xs:annotation>
-                    <xs:documentation>The informational value specifies that the entity is only informational in its importance.</xs:documentation>
+                    <xs:documentation>The informational value specifies that the field is only informational in its importance.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="numeric">
                 <xs:annotation>
-                    <xs:documentation>The numeric value specifies that the entity has a numeric importance value, which is defined in another attribute or element.</xs:documentation>
+                    <xs:documentation>The numeric value specifies that the field has a numeric importance value, which is defined in another attribute or element.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="unknown">
                 <xs:annotation>
-                    <xs:documentation>The unknown value specifies that the relative importance for the entity is unknown.</xs:documentation>
+                    <xs:documentation>The unknown value specifies that the relative importance for the field is unknown.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
