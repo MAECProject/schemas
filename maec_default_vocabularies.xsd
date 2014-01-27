@@ -1781,106 +1781,1730 @@
     </xs:simpleType>
     <xs:complexType name="MalwareCapabilityVocab-1.0">
         <xs:annotation>
-            <xs:documentation>The MalwareCapabilityVocab is the default MAEC vocabulary for Malware Mechanism Types.</xs:documentation>
+            <xs:documentation>The MalwareCapabilyVocab-1.0 is the default MAEC Vocabulary for Malware Capabilities.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:MalwareCapabilityEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Capability Types" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Capabilities" name="vocab_name" type="xs:string" use="optional"/>
                 <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareCapabilityVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="MalwareCapabilityEnum-1.0">
         <xs:annotation>
-            <xs:documentation>The MalwareCapabilityEnum-1.0 is a non-exhaustive enumeration of MAEC Malware Capabilities.</xs:documentation>
+            <xs:documentation>The MalwareCapabilityEnum-1.0 is an enumeration of Malware Capabilities.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="anti-behavioral analysis">
+            <xs:enumeration value="command and control">
                 <xs:annotation>
-                    <xs:documentation>The anti-behavioral analysis value specifies the anti-behavioral analysis malware capability.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="anti-code analysis">
-                <xs:annotation>
-                    <xs:documentation>The anti-code analysis value specifies the anti-code analysis malware capability.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="anti-removal">
-                <xs:annotation>
-                    <xs:documentation>The anti-removal value specifies the anti-removal malware capability.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="anti-detection">
-                <xs:annotation>
-                    <xs:documentation>The anti-detection value specifies the anti-detection malware capability.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="persistence">
-                <xs:annotation>
-                    <xs:documentation>The persistence value specifies the persistence malware capability.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="security degradation">
-                <xs:annotation>
-                    <xs:documentation>The security degradation value specifies the security degradation malware capability.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="command and control (c2)">
-                <xs:annotation>
-                    <xs:documentation>The command and control (c2) value specifies the command and control (c2) malware capability.</xs:documentation>
+                    <xs:documentation>"The 'command and control' (C2) Capability indicates that the malware instance is able to receive and execute remotely submitted commands. This also includes botnet-related operations</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="remote machine manipulation">
                 <xs:annotation>
-                    <xs:documentation>The remote machine manipulation value specifies the remote machine manipulation malware capability.</xs:documentation>
+                    <xs:documentation>The 'remote machine manipulation' Capability indicates that the malware instance is able to remotely manipulate one or more machines.  Examples include backdoor and RAT malware.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="privilege escalation">
                 <xs:annotation>
-                    <xs:documentation>The privilege escalation value specifies the privilege escalation malware capability.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="data exfiltration">
-                <xs:annotation>
-                    <xs:documentation>The data exfiltration value specifies the data exfiltration malware capability.</xs:documentation>
+                    <xs:documentation>The 'privilege escalation' Capability indicates that the malware instance is able to elevate the privileges under which it executes.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="data theft">
                 <xs:annotation>
-                    <xs:documentation>The data theft value specifies the data theft malware capability.</xs:documentation>
+                    <xs:documentation>The 'data theft' Capability indicates that the malware instance is able to steal data from the system on which it executes.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="spying">
                 <xs:annotation>
-                    <xs:documentation>The spying value specifies the spying malware capability.</xs:documentation>
+                    <xs:documentation>"The 'spying' Capability indicates that the malware instance is able to capture information from a system related to user or system activity (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="destruction">
+            <xs:enumeration value="anti-detection">
                 <xs:annotation>
-                    <xs:documentation>The destruction value specifies the destruction malware capability.</xs:documentation>
+                    <xs:documentation>The 'anti-detection' Capability indicates that the malware instance is able to prevent itself and its components from being detected on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="anti-code analysis">
+                <xs:annotation>
+                    <xs:documentation>The 'anti-code analysis' Capability indicates that the malware instance is able to prevent code analysis or make it more difficult.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="infection/propagation">
+                <xs:annotation>
+                    <xs:documentation>"The 'infection/propagation' Capability indicates that the malware instance is able to propagate through the infection of a machine or is able to infect a file after executing on a system.  The malware instance may infect actively (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="anti-behavioral analysis">
+                <xs:annotation>
+                    <xs:documentation>The 'anti-behavioral analysis' Capability indicates that the malware instance is able to prevent behavioral analysis or make it more difficult.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="integrity violation">
                 <xs:annotation>
-                    <xs:documentation>The integrity violation value specifies the integrity violation malware capability.</xs:documentation>
+                    <xs:documentation>The 'integrity violation' Capability indicates that the malware instance is able to compromise the integrity of a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="data exfiltration">
+                <xs:annotation>
+                    <xs:documentation>The 'data exfiltration' Capability indicates that the malware instance is able to exfiltrate stolen data or perform tasks related to the exfiltration of stolen data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="anti-removal">
+                <xs:annotation>
+                    <xs:documentation>The 'anti-removal' Capability indicates that the malware instance is able to prevent itself and its components from being removed from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="security degradation">
+                <xs:annotation>
+                    <xs:documentation>The �security degradation� Capability indicates that the malware instance is able to bypass or disable security features and/or controls.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="availability violation">
                 <xs:annotation>
-                    <xs:documentation>The availability violation value specifies the availability violation malware capability.</xs:documentation>
+                    <xs:documentation>The 'availability violation' Capability indicates that the malware instance is able to compromise the availability of a system or some aspect of the system.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="fraud">
+            <xs:enumeration value="post-operation">
                 <xs:annotation>
-                    <xs:documentation>The fraud value specifies the fraud malware capability.</xs:documentation>
+                    <xs:documentation>The 'post-operation' Capability indicates that the malware instance is able to achieve additional objectives after completing its primary operations.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="infection">
+            <xs:enumeration value="persistence">
                 <xs:annotation>
-                    <xs:documentation>The infection value specifies the infection malware capability.</xs:documentation>
+                    <xs:documentation>The 'persistence' Capability indicates that the malware instance is able to persist and remain on a system regardless of system events.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="destruction">
+                <xs:annotation>
+                    <xs:documentation>The 'destruction' Capability indicates that the malware instance is able to destroy some aspect of a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="CommandandControlStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The CommandandControlStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Command and Control Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:CommandandControlStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Command and Control Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CommandandControlStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="CommandandControlStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The CommandandControlStrategicObjectivesEnum-1.0 is an enumeration of Command and Control Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="control behavior">
+                <xs:annotation>
+                    <xs:documentation>"The 'control behavior' value indicates that the malware instance is able to control its behavior through some external stimulus (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="communicate with c2 servers">
+                <xs:annotation>
+                    <xs:documentation>The 'communicate with c2 servers' value indicates that the malware instance is able to communicate with one or more command and control (C2) servers.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="maintain botnet">
+                <xs:annotation>
+                    <xs:documentation>The 'maintain botnet' value indicates that the malware instance is able to maintain or update itself as a member of a botnet.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="CommandandControlTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The CommandandControlTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Command and Control Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:CommandandControlTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Command and Control Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CommandandControlTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="CommandandControlTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The CommandandControlTacticalObjectivesEnum-1.0 is an enumeration of Command and Control Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="determine c2 server">
+                <xs:annotation>
+                    <xs:documentation>The 'determine c2 server' value indicates that the malware instance is able to identify one or more command and control (C2) servers with which to communicate.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute remote command">
+                <xs:annotation>
+                    <xs:documentation>"The 'execute remote command' value indicates that the malware instance is able to execute commands issued to it from a remote source</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="update bot configuration">
+                <xs:annotation>
+                    <xs:documentation>The 'update bot configuration' value indicates that the malware instance is able to update itself with the latest configuration profile for bots as dictated by the botnet of which it is a member.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="update bot list">
+                <xs:annotation>
+                    <xs:documentation>The 'update bot list' value indicates that the malware instance is able to report its presence to its parent botnet in order to update the list of active bots.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="RemoteMachineManipulationStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The RemoteMachineManipulationStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Remote Machine Manipulation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:RemoteMachineManipulationStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Remote Machine Manipulation Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#RemoteMachineManipulationStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="RemoteMachineManipulationStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The RemoteMachineManipulationStrategicObjectivesEnum-1.0 is an enumeration of Remote Machine Manipulation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="control machine">
+                <xs:annotation>
+                    <xs:documentation>"The 'control machine' value indicates that the malware instance is able to control the machine on which it is resident.  Examples of malware with this capability include bots</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="access remote machine">
+                <xs:annotation>
+                    <xs:documentation>The 'access remote machine' value indicates that the malware instance is able to access a remote machine.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="search for remote machines">
+                <xs:annotation>
+                    <xs:documentation>The 'scan for remote machines' value indicates that the malware instance is able to search for remote machines to target for manipulation.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="RemoteMachineManipulationTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The RemoteMachineManipulationTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Remote Machine Manipulation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:RemoteMachineManipulationTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Remote Machine Manipulation Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#RemoteMachineManipulationTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="RemoteMachineManipulationTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The RemoteMachineManipulationTacticalObjectivesEnum-1.0 is an enumeration of Remote Machine Manipulation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="compromise remote machine">
+                <xs:annotation>
+                    <xs:documentation>The 'compromise remote machine' value indicates that the malware instance is able to gain control of a remote machine through compromise.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute remote command">
+                <xs:annotation>
+                    <xs:documentation>"The 'execute remote command' value indicates that the malware instance executes commands issued to it from a remote source</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="PrivilegeEscalationStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The PrivilegeEscalationStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Privilege Escalation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:PrivilegeEscalationStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Privilege Escalation Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PrivilegeEscalationStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PrivilegeEscalationStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The PrivilegeEscalationStrategicObjectivesEnum-1.0 is an enumeration of Privilege Escalation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="impersonate user">
+                <xs:annotation>
+                    <xs:documentation>The 'impersonate user' value indicates that the malware instance is able to impersonate another user to operate within a different security context (also known as horizontal privilege escalation).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="escalate user privilege">
+                <xs:annotation>
+                    <xs:documentation>The 'escalate user privilege' indicates that the malware instance is able to obtain a higher level of access than intended by the system (also known as vertical privilege escalation).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="PrivilegeEscalationTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The PrivilegeEscalationTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Privilege Escalation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:PrivilegeEscalationTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Privilege Escalation Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PrivilegeEscalationTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PrivilegeEscalationTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The PrivilegeEscalationTacticalObjectivesEnum-1.0 is an enumeration of Privilege Escalation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="elevate cpu mode">
+                <xs:annotation>
+                    <xs:documentation>The 'elevate cpu mode' value indicates that the malware instance is able to elevate the CPU (processor) mode under which it executes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DataTheftStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataTheftStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Data Theft Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DataTheftStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Data Theft Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DataTheftStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DataTheftStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataTheftStrategicObjectivesEnum-1.0 is an enumeration of Data Theft Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="steal stored information">
+                <xs:annotation>
+                    <xs:documentation>"The 'steal stored information' value indicates that the malware instance is able to steal information stored on a system (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal user data">
+                <xs:annotation>
+                    <xs:documentation>"The 'steal user data' value indicates that the malware instance is able to steal user data (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal system information">
+                <xs:annotation>
+                    <xs:documentation>"The 'steal system information' value indicates that the malware instance is able to steal information about a system (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal authentication credentials">
+                <xs:annotation>
+                    <xs:documentation>The 'steal authentication credentials' value indicates that the malware instance is able to steal authentication credentials.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DataTheftTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataTheftTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Data Theft Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DataTheftTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Data Theft Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DataTheftTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DataTheftTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataTheftTacticalObjectivesEnum-1.0 is an enumeration of Data Theft Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="steal dialed phone numbers">
+                <xs:annotation>
+                    <xs:documentation>The 'steal dialed phone numbers' value indicates that the malware instance is able to steal the list of phone numbers that a user has dialed.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal email data">
+                <xs:annotation>
+                    <xs:documentation>The 'steal email data' value indicates that the malware instance is able to steal a user's email data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal referrer urls">
+                <xs:annotation>
+                    <xs:documentation>The 'steal referer urls' value indicates that the malware instance is able to steal HTTP referrer information (URL of the webpage that linked to the resource being requested).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal cryptocurrency data">
+                <xs:annotation>
+                    <xs:documentation>"The 'steal cryptocurrency data' value indicates that the malware instance is able to steal cryptocurrency data (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal pki software certificate">
+                <xs:annotation>
+                    <xs:documentation>The 'steal pki software certificate' value indicates that the malware instance is able to steal one or more public key infrastructure (PKI) software certficates.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal serial numbers">
+                <xs:annotation>
+                    <xs:documentation>The 'steal serial numbers' values indicates that the malware instance is able to steal serial numbers stored on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal sms database">
+                <xs:annotation>
+                    <xs:documentation>The 'steal sms database' value indicates that the malware instance is able to steal a user's short message service (SMS) (text messaging) database.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal cookie">
+                <xs:annotation>
+                    <xs:documentation>The 'steal cookie' value indicates that the malware instance is able to steal cookies.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal network address">
+                <xs:annotation>
+                    <xs:documentation>The 'steal network address' value indicates that the malware instance is able to steal information about the network addresses used by a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal make/model">
+                <xs:annotation>
+                    <xs:documentation>The 'steal make/model' value indicates that the malware instance is able to steal the information on the make and/or model of a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal documents">
+                <xs:annotation>
+                    <xs:documentation>The 'steal documents' value indicates that the malware instance is able to steal document files stored on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal password hashes">
+                <xs:annotation>
+                    <xs:documentation>The 'steal password hashes' value indicates that the malware instance is able to steal password hashes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal images">
+                <xs:annotation>
+                    <xs:documentation>The 'steal images' value indicates that the malware instance is able to steal image files stored on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal browser history">
+                <xs:annotation>
+                    <xs:documentation>The 'steal browser history' value indicates that the malware instance is able to steal a user's browser history.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal web/network credential">
+                <xs:annotation>
+                    <xs:documentation>"The 'steal web/network credential' value indicates that the malware instance is able to steal usernames</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal database content">
+                <xs:annotation>
+                    <xs:documentation>The 'steal database content' value indicates that the malware instance is able to steal database content.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal contact list data">
+                <xs:annotation>
+                    <xs:documentation>The 'steal contact list data' value indicates that the malware instance is able to steal a user's contact list.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="steal open port">
+                <xs:annotation>
+                    <xs:documentation>The 'steal open port' value indicates that the malware instance is able to steal information about the open ports on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SpyingStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The SpyingStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Spying Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:SpyingStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Spying Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SpyingStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="SpyingStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The SpyingStrategicObjectivesEnum-1.0 is an enumeration of Spying Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="capture system input peripheral data">
+                <xs:annotation>
+                    <xs:documentation>The 'capture system input peripheral data' value indicates that the malware instance is able to capture data from a system's input peripheral devices.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture system state data">
+                <xs:annotation>
+                    <xs:documentation>"The 'capture system state data' value indicates that the malware instance is able to capture information about a system's state (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture system interface data">
+                <xs:annotation>
+                    <xs:documentation>The 'capture system interface data' value indicates that the malware instance is able to capture data from a system's interfaces.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture system output peripheral data">
+                <xs:annotation>
+                    <xs:documentation>The 'capture system output peripheral data' value indicates that the malware instance is able to capture data sent to a system's output peripheral devices.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SpyingTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The SpyingTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Spying Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:SpyingTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Spying Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SpyingTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="SpyingTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The SpyingTacticalObjectivesEnum-1.0 is an enumeration of Spying Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="capture system screenshot">
+                <xs:annotation>
+                    <xs:documentation>"The 'capture system screenshot' value indicates that the malware instance is able to capture images of what is currently being displayed on a system's screen</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture camera input">
+                <xs:annotation>
+                    <xs:documentation>The 'capture camera input' value indicates that the malware instance is able to capture data from a system's camera.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture file system">
+                <xs:annotation>
+                    <xs:documentation>The 'capture file system' value indicates that the malware instance is able to capture data from a system's file system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture printer output">
+                <xs:annotation>
+                    <xs:documentation>The 'capture printer output' value indicates that the malware instance is able to capture data sent to a system's printer.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture gps data">
+                <xs:annotation>
+                    <xs:documentation>The 'capture gps data' value indicates that the malware instance is able to capture system GPS data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture keyboard input">
+                <xs:annotation>
+                    <xs:documentation>The 'capture keyboard input' value indicates that the malware instance is able to capture data from a system's keyboard.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture mouse input">
+                <xs:annotation>
+                    <xs:documentation>The 'capture mouse input' value indicates that the malware instance is able to capture data from a system's mouse.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture microphone input">
+                <xs:annotation>
+                    <xs:documentation>The 'capture microphone input' value indicates that the malware instance is able to capture data from a system's microphone.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture system network traffic">
+                <xs:annotation>
+                    <xs:documentation>The 'capture system network traffic' value indicates that the malware instance is able to capture system network traffic.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture touchscreen input">
+                <xs:annotation>
+                    <xs:documentation>The 'capture touchscreen input' value indicates that the malware instance is able to capture data from a system's touchscreen.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="capture system memory">
+                <xs:annotation>
+                    <xs:documentation>The 'capture system memory' value indicates that the malware instance is able to capture data from a system's RAM.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AntiDetectionStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiDetectionStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Anti-Detection Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AntiDetectionStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Anti-Detection Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiDetectionStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiDetectionStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiDetectionStrategicObjectivesEnum-1.0 is an enumeration of Anti-Detection Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="security software evasion">
+                <xs:annotation>
+                    <xs:documentation>"The 'security software evasion' value indicates that the malware instance is able to evade security software (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide executing code">
+                <xs:annotation>
+                    <xs:documentation>The 'hide executing code' value indicates that the malware instance is able to hide its executing code.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="self-modification">
+                <xs:annotation>
+                    <xs:documentation>The 'self-modification' value indicates that the malware instance is able to modify itself.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="anti-memory forensics">
+                <xs:annotation>
+                    <xs:documentation>The 'anti-memory forensics' value indicates that the malware instance is able to prevent or make memory forensics more difficult.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide non-executing code">
+                <xs:annotation>
+                    <xs:documentation>The 'hide non-executing code' value indicates that the malware instance is able to hide its non-executing code.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide malware artifacts">
+                <xs:annotation>
+                    <xs:documentation>The 'hide malware artifacts' value indicates that the malware instance is able to hide its artifacts.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AntiDetectionTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiDetectionTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Anti-Detection Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AntiDetectionTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Anti-Detection Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiDetectionTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiDetectionTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiDetectionTacticalObjectivesEnum-1.0 is an enumeration of Anti-Detection Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="hide open network ports">
+                <xs:annotation>
+                    <xs:documentation>The 'hide open network ports' value indicates that the malware instance is able to hide its open network ports.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute before/external to kernel/hypervisor">
+                <xs:annotation>
+                    <xs:documentation>"The 'execute before/external to kernel/hypervisor' value indicates that the malware instance is able to execute some or all of its code before or external to the system's kernel or hypervisor (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="encrypt self">
+                <xs:annotation>
+                    <xs:documentation>The 'encrypt self' value indicates that the malware is able to encrypt itself.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide processes">
+                <xs:annotation>
+                    <xs:documentation>The 'hide processes' value indicates that the malware instance is able to hide its processes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide network traffic">
+                <xs:annotation>
+                    <xs:documentation>The 'hide network traffic' value indicates that the malware instance is able to hide its network traffic.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="change/add content">
+                <xs:annotation>
+                    <xs:documentation>The 'change/add content' value indicates that the malware instance is able to change or add to its content.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute stealthy code">
+                <xs:annotation>
+                    <xs:documentation>"The 'execute stealthy code' value indicates that the malware instance is able to execute some or all of its code in a hidden manner (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide registry artifacts">
+                <xs:annotation>
+                    <xs:documentation>The 'hide registry artifacts' value indicates that the malware instance is able to hide its Windows registry artifacts.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide userspace libraries">
+                <xs:annotation>
+                    <xs:documentation>The 'hide userspace libraries' value indicates that the malware instance is able to hide its usage of userspace libraries.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide arbitrary virtual memory">
+                <xs:annotation>
+                    <xs:documentation>The 'hide arbitrary virtual memory' value indicates that the malware instance is able to hide arbitrary virtual memory to prevent retrieval.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute non-main cpu code">
+                <xs:annotation>
+                    <xs:documentation>"The 'execute non-main cpu code' value indicates that the malware instance is able to execute some or all of its code on a secondary</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="feed misinformation during physical memory acquisition">
+                <xs:annotation>
+                    <xs:documentation>The 'feed misinformation during physical memory acquisition' value indicates that the malware instance is able to report inaccurate data when the content of physical memory is retrieved. </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent physical memory acquisition">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent physical memory acquisition' value indicates that the malware instance is able to prevent the contents of a system's physical memory from being retrieved.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent native api hooking">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent native api hooking' value indicates that the malware instance is able to prevent other software from hooking native APIs. </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="obfuscate artifact properties">
+                <xs:annotation>
+                    <xs:documentation>"The 'obfuscate artifact properties' value indicates that the malware instance is able to hide the properties of its artifacts (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide kernel modules">
+                <xs:annotation>
+                    <xs:documentation>The 'hide kernel modules' value indicates that the malware instance is able to hide its usage of kernel modules.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide code in file">
+                <xs:annotation>
+                    <xs:documentation>The 'hide code in file' value indicates that the malware instance is able to hide its code in a file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide services">
+                <xs:annotation>
+                    <xs:documentation>The 'hide services' value indicates that the malware instance is able to hide any system services it creates or injects itself into.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide file system artifacts">
+                <xs:annotation>
+                    <xs:documentation>The 'hide file system artifacts' value indicates that the malware instance is able to hide its file system artifacts.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide threads">
+                <xs:annotation>
+                    <xs:documentation>The 'hide threads' value indicates that the malware instance is able to hide its threads.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AntiCodeAnalysisStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiCodeAnalysisStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Anti-Code Analysis Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AntiCodeAnalysisStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Anti-Code Analysis Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiCodeAnalysisStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiCodeAnalysisStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiCodeAnalysisStrategicObjectivesEnum-1.0 is an enumeration of Anti-Code Analysis Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="anti-debugging">
+                <xs:annotation>
+                    <xs:documentation>The 'anti-debugging' value indicates that the malware instance is able to prevent itself from being debugged and/or from being run in a debugger or is able to make debugging more difficult.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="code obfuscation">
+                <xs:annotation>
+                    <xs:documentation>The 'code obfuscation' value indicates that the malware instance is able to obfuscate its code.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="anti-disassembly">
+                <xs:annotation>
+                    <xs:documentation>The 'anti-disassembly' value indicates that the malware instance is able to prevent itself from being disassembled or make disassembly more difficult.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AntiCodeAnalysisTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiCodeAnalysisTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Anti-Code Analysis Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AntiCodeAnalysisTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Anti-Code Analysis Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiCodeAnalysisTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiCodeAnalysisTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiCodeAnalysisTacticalObjectivesEnum-1.0 is an enumeration of Anti-Code Analysis Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="transform control flow">
+                <xs:annotation>
+                    <xs:documentation>The 'transform control flow' value indicates that the malware instance is able to transform its control flow.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="restructure arrays">
+                <xs:annotation>
+                    <xs:documentation>"The 'restructure arrays' value indicates that the malware instance is able to restructure its arrays</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="detect debugging">
+                <xs:annotation>
+                    <xs:documentation>The 'detect debugging' value indicates that the malware instance is able to detect its execution in a debugger.  </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent debugging">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent debugging' value indicates that the malware instance is able to prevent its execution in a debugger.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="defeat flow-oriented (recursive traversal) disassembler">
+                <xs:annotation>
+                    <xs:documentation>The 'defeat flow-oriented disassembler' value indicates that the malware instance is able to defeat its disassembly in a flow-oriented (recursive traversal) disassembler.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="defeat linear disassembler">
+                <xs:annotation>
+                    <xs:documentation>The 'defeat linear disassembler' value indicates that the malware instance is able to prevent its disassembly in a linear disassembler.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="obfuscate instructions">
+                <xs:annotation>
+                    <xs:documentation>The 'obfuscate instructions' value indicates that the malware instance obfuscates its instructions.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="obfuscate imports">
+                <xs:annotation>
+                    <xs:documentation>"The 'obfuscate imports' value indicates that the malware instance is able to obfuscate its import table</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="defeat call graph generation">
+                <xs:annotation>
+                    <xs:documentation>The 'defeat call graph generation' value indicates that the malware instance is able to defeat accurate call graph generation during disassembly.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="obfuscate runtime code">
+                <xs:annotation>
+                    <xs:documentation>The 'obfuscate runtime code' value indicates that the malware instance is able to obfuscate its runtime code.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="InfectionPropagationStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The InfectionPropagationStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Infection/Propagation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:InfectionPropagationStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Infection/Propagation Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#InfectionPropagationStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="InfectionPropagationStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The InfectionPropagationStrategicObjectivesEnum-1.0 is an enumeration of Infection/Propagation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="infect file">
+                <xs:annotation>
+                    <xs:documentation>The 'infect file' value denotes that the malware instance is able to infect a file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="infect remote machine">
+                <xs:annotation>
+                    <xs:documentation>The 'infect remote machine' value indicates that the malware instance is able to self-propagate or infect a machine with malware that is different than itself. </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="InfectionPropagationTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The InfectionPropagationTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Infection/Propagation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:InfectionPropagationTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Infection/Propagation Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#InfectionPropagationTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="InfectionPropagationTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The InfectionPropagationTacticalObjectivesEnum-1.0 is an enumeration of Infection/Propagation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="write code into file">
+                <xs:annotation>
+                    <xs:documentation>The 'write code into file' value indicates that the malware instance is able to write code into a file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="identify file">
+                <xs:annotation>
+                    <xs:documentation>"The 'identify file' value indicates that the malware instance is able to identify a file or files on a local</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="perform social-engineering based remote infection">
+                <xs:annotation>
+                    <xs:documentation>"The 'perform social-engineering based remote infection' value indicates that the malware instance is able to infect remote machines via some method that involves social engineering (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="identify target machine(s)">
+                <xs:annotation>
+                    <xs:documentation>"The 'identify target machine(s)' value indicates that the malware instance is able to identify one or more machines to be targeted for infection via some remote means (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="perform autonomous remote infection">
+                <xs:annotation>
+                    <xs:documentation>"The 'perform autonomous remote infection' value indicates that the malware instance is able to infect a remote machine autonomously</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AntiBehavioralAnalysisStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiBehavioralAnalysisStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Anti-Behavioral Analysis Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AntiBehavioralAnalysisStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Anti-Behavioral Analysis Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiBehavioralAnalysisStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiBehavioralAnalysisStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiBehavioralAnalysisStrategicObjectivesEnum-1.0 is an enumeration of Anti-Behavioral Analysis Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="anti-vm">
+                <xs:annotation>
+                    <xs:documentation>The 'anti-vm' value indicates that the malware instance is able to prevent virtual machine (VM) based behavioral analysis or make it more difficult.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="anti-sandbox">
+                <xs:annotation>
+                    <xs:documentation>The 'anti-sandbox' value specifies that the malware instance is able to prevent sandbox-based behavioral analysis or make it more difficult.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AntiBehavioralAnalysisTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiBehavioralAnalysisTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Anti-Behavioral Analysis Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AntiBehavioralAnalysisTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Anti-Behavioral Analysis Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiBehavioralAnalysisTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiBehavioralAnalysisTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiBehavioralAnalysisTacticalObjectivesEnum-1.0 is an enumeration of Anti-Behavioral Analysis Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="detect vm environment">
+                <xs:annotation>
+                    <xs:documentation>The 'detect vm environment' value indicates that the malware instance is able to detect whether it is being executed in a virtual machine (VM).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="overload sandbox">
+                <xs:annotation>
+                    <xs:documentation>"The 'overload sandbox' value indicates that the malware instance is able to overload a sandbox (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent execution in sandbox">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent execution in sandbox' value indicates that the malware instance is able to prevent its execution in a sandbox.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="detect sandbox environment">
+                <xs:annotation>
+                    <xs:documentation>The 'detect sandbox environment' value indicates that the malware instance is able to detect whether it is being executed in a sandbox environment.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent execution in vm">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent execution in wm' value indicates that the malware instance is able to prevent its execution in a virtual machine (VM).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="IntegrityViolationStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The IntegrityViolationStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Integrity Violation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:IntegrityViolationStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Integrity Violation Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#IntegrityViolationStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="IntegrityViolationStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The IntegrityViolationStrategicObjectivesEnum-1.0 is an enumeration of Integrity Violation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="compromise system operational integrity ">
+                <xs:annotation>
+                    <xs:documentation>The 'compromise system operational integrity' value indicates that the malware instance is able to compromise the operational integrity of a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="compromise user data integrity ">
+                <xs:annotation>
+                    <xs:documentation>The 'compromise user data integrity' value indicates that the malware instance is able to compromise a system's user data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="annoy user">
+                <xs:annotation>
+                    <xs:documentation>The 'annoy user' value indicates that the malware instance is able to annoy the users of a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="compromise system data integrity ">
+                <xs:annotation>
+                    <xs:documentation>The 'compromise system data integrity' value indicates that the malware instance is able to compromise the integrity of a system's data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="IntegrityViolationTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The IntegrityViolationTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Integrity Violation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:IntegrityViolationTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Integrity Violation Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#IntegrityViolationTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="IntegrityViolationTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The IntegrityViolationTacticalObjectivesEnum-1.0 is an enumeration of Integrity Violation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="annoy local system user">
+                <xs:annotation>
+                    <xs:documentation>The 'annoy local system user' value indicates that the malware instance is able to annoy local system users.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="subvert system">
+                <xs:annotation>
+                    <xs:documentation>The 'subvert system' value indicates that the malware instance is able to subvert a system to perform beyond its operational boundaries or to perform tasks for which it was not originally intended.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="corrupt system data">
+                <xs:annotation>
+                    <xs:documentation>The 'corrupt system data' value indicates that the malware instance is able to corrupt a system's data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="annoy remote user">
+                <xs:annotation>
+                    <xs:documentation>The 'annoy remote user' value indicates that the malware instance is able to annoy a remote user.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="corrupt user data">
+                <xs:annotation>
+                    <xs:documentation>The 'corrupt user data' value indicates that the malware instance is able to corrupt a system's user data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DataExfiltrationStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataExfiltrationStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Data Exfiltration Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DataExfiltrationStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Data Exfiltration Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DataExfiltrationStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DataExfiltrationStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataExfiltrationStrategicObjectivesEnum-1.0 is an enumeration of Data Exfiltration Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="perform data exfiltration">
+                <xs:annotation>
+                    <xs:documentation>The 'perform data exfiltration' value indicates that the malware instance is able to perform data exfiltration via some physical or virtual means.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="obfuscate data for exfiltration">
+                <xs:annotation>
+                    <xs:documentation>The 'obfuscate data for exfiltration' value indicates that the malware is able to obfuscate data that will be exfiltrated.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="stage data for exfiltration">
+                <xs:annotation>
+                    <xs:documentation>The 'stage data for exfiltration' value indicates that the malware instance is able to gather and prepare data for exfiltration.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DataExfiltrationTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataExfiltrationTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Data Exfiltration Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DataExfiltrationTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Data Exfiltration Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DataExfiltrationTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DataExfiltrationTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataExfiltrationTacticalObjectivesEnum-1.0 is an enumeration of Data Exfiltration Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="exfiltrate via covert channel">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate via covert channel' value indicates that the malware instance is able to exfiltrate data using a covert channel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate via fax">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate via fax' value indicates that the malware instance is able to exfiltrate data using a fax system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate via physical media">
+                <xs:annotation>
+                    <xs:documentation>"The 'exfiltrate via physical media' value indicates that the malware instance is able to exfiltrate data using physical media (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="encrypt data">
+                <xs:annotation>
+                    <xs:documentation>The 'encrypt data' value indicates that the malware instance is able to encrypt data that will be exfiltrated.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate via network">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate via network' value indicates that the malware instance is able to exfiltrate data across the network.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide data">
+                <xs:annotation>
+                    <xs:documentation>The 'hide data in other formats' value indicates that the malware instance is able to hide data that will be exfiltrated in other formats (also known as steganography).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="package data">
+                <xs:annotation>
+                    <xs:documentation>The 'package data' value indicates that the malware instance is able to package data for exfiltration.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate via dumpster dive">
+                <xs:annotation>
+                    <xs:documentation>"The 'exfiltrate via dumpster dive' value indicates that the malware instance is able to exfiltrate data via dumpster dive (i.e.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="move data to staging server">
+                <xs:annotation>
+                    <xs:documentation>The 'move data to staging server' value indicates that the malware instance is able to move data to be exfiltrated to a particular server to prepare for exfiltration.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate via voip/phone">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate via VoIP/phone' value indicates that the malware instance is able to exfiltrate data (encoded as audio) using a phone system.  </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AntiRemovalStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiRemovalStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Anti-Removal Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AntiRemovalStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Anti-Removal Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiRemovalStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiRemovalStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiRemovalStrategicObjectivesEnum-1.0 is an enumeration of Anti-Removal Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="prevent malware artifact access">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent malware artifact access' value indicates that the malware instance is able to prevent its artifacts from being accessed.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent malware artifact deletion">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent malware artifact deletion' value indicates that the malware instance is able to prevent its artifacts from being deleted from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AntiRemovalTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiRemovalTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Anti-Removal Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AntiRemovalTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Anti-Removal Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiRemovalTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AntiRemovalTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AntiRemovalTacticalObjectivesEnum-1.0 is an enumeration of Anti-Removal Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="prevent registry deletion">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent registry deletion' value indicates that the malware instance is able to prevent its Windows registry entries from being deleted from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent api unhooking">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent api unhooking' value indicates that the malware instance is able to prevent its API hooks from being removed.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent file access">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent file access' value indicates that the malware instance is able to prevent access to the file system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent memory access">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent memory access' value indicates that the malware instance is able to prevent access to system memory where it may be storing code or data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent registry access">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent registry access' value indicates that the malware instance is able to prevent access to the Windows registry.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent file deletion">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent file deletion' value indicates that the malware instance is able to prevent its files from being deleted from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SecurityDegradationStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The SecurityDegradationStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Security Degradation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:SecurityDegradationStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Security Degradation Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SecurityDegradationStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="SecurityDegradationStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The SecurityDegradationStrategicObjectivesEnum-1.0 is an enumeration of Security Degradation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="disable service provider security features">
+                <xs:annotation>
+                    <xs:documentation>The �disable service provider security features� value indicates that the malware instance is able to bypass or disable third-party security features that would otherwise identify or notify users of its presence.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="degrade security programs">
+                <xs:annotation>
+                    <xs:documentation>"The 'degrade security programs' value indicates that the malware instance is able to degrade security programs running on a system</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable system updates">
+                <xs:annotation>
+                    <xs:documentation>The 'disable system updates' values indicates that the malware instance is able to disable the downloading and installation of system updates.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable os security features">
+                <xs:annotation>
+                    <xs:documentation>The 'disable os security features' value indicates that the malware instance is able to bypass inherent operating system security mechanisms that typically involve elevated privileges.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable [host-based or os] access controls">
+                <xs:annotation>
+                    <xs:documentation>The 'disable access controls' value indicates that the malware instance is able to bypass access control mechanisms designed to prevent unauthorized or unprivileged use or execution of applications or files.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SecurityDegradationTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The SecurityDegradationTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Security Degradation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:SecurityDegradationTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Security Degradation Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SecurityDegradationTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="SecurityDegradationTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The SecurityDegradationTacticalObjectivesEnum-1.0 is an enumeration of Security Degradation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="stop execution of security program">
+                <xs:annotation>
+                    <xs:documentation>The 'stop execution of security program' value indicates that the malware instance is able to stop one or more security programs that may already be executing on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable firewall">
+                <xs:annotation>
+                    <xs:documentation>The 'disable firewall' value indicates that the malware instance is able to evade or disable the host-based firewall or otherwise prevent the blocking of network communications.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable access right checking">
+                <xs:annotation>
+                    <xs:documentation>"The 'disable access right checking' value indicates that the malware instance is able to bypass</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable kernel patching protection">
+                <xs:annotation>
+                    <xs:documentation>The 'disable kernel patch protection' value indicates that the malware instance is able to bypass or disable PatchGuard; thus it is capable of operating at the same level as the kernel and kernel mode drivers (KMD).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent access to security websites">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent access to security websites' value indicates that the malware instance is able to prevent access from a system to one or more security vendor or security-related websites.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="remove sms warning messages">
+                <xs:annotation>
+                    <xs:documentation>The 'remove sms warning messages' value indicates that the malware instance is able to capture the message body of incoming SMS messages and abort the broadcasting of a message that meets a certain criteria.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="modify security program configuration">
+                <xs:annotation>
+                    <xs:documentation>The 'modify security program configuration' value indicates that the malware instance is able to modify the configuration of one or more security programs running on a system in order to hamper their usefulness and ability to detect the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent security program from running">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent security program from running' value indicates that the malware instance is able to prevent one or more security programs from running on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable system update services/daemons">
+                <xs:annotation>
+                    <xs:documentation>The 'disable system update services/daemons' value indicates that the malware instance is able to disable system update services or daemons that may be running on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable system service pack/patch installation">
+                <xs:annotation>
+                    <xs:documentation>The 'disable system service pack/patch installation' value indicates that the malware instance is able to disable the system's ability to install service packs or patches.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable system file overwrite protection">
+                <xs:annotation>
+                    <xs:documentation>"The 'disable system file overwrite protection' value indicates that the malware instance is able to bypass or disable the Windows file protection feature; thus</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable privilege limiting">
+                <xs:annotation>
+                    <xs:documentation>The 'disable privilege limiting' value indicates that the malware instance is able to bypass controls that limit the privileges that can be granted to a user or entity.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="gather security product info">
+                <xs:annotation>
+                    <xs:documentation>The 'gather security product info' value indicates that the malware instance is able to gather information about the security products installed or running on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable os security alerts">
+                <xs:annotation>
+                    <xs:documentation>The 'disable os security alerts' value indicates that the malware instance is able to evade or disable identification and/or notification of its presence by inherent features of the operating system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable user account control">
+                <xs:annotation>
+                    <xs:documentation>"The 'disable user account control' value indicates that the malware instance is able to bypass or disable user account control (UAC); thus</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AvailabilityViolationStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AvailabilityViolationStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Availability Violation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AvailabilityViolationStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Availability Violation Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AvailabilityViolationStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AvailabilityViolationStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AvailabilityViolationStrategicObjectivesEnum-1.0 is an enumeration of Availability Violation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="compromise data availability ">
+                <xs:annotation>
+                    <xs:documentation>The 'compromise data availabilty' value indicates that the malware instance is able to compromise the availability of data on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="compromise system availability ">
+                <xs:annotation>
+                    <xs:documentation>The 'compromise system availability' value indicates that the malware instance compromises the availability of the system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="consume system resources">
+                <xs:annotation>
+                    <xs:documentation>The 'consume system resources' value indicates that the malware instance is able to consume system resources for its own purposes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="AvailabilityViolationTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AvailabilityViolationTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Availability Violation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AvailabilityViolationTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Availability Violation Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AvailabilityViolationTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AvailabilityViolationTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AvailabilityViolationTacticalObjectivesEnum-1.0 is an enumeration of Availability Violation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="denial of service">
+                <xs:annotation>
+                    <xs:documentation>"The 'denial of service' value indicates that the malware instance is able to cause a server to be unavailable</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="compromise local system availability">
+                <xs:annotation>
+                    <xs:documentation>The 'compromise local system availability' value indicates that the malware instance is able to cause the local system to be unavailable.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="crack passwords">
+                <xs:annotation>
+                    <xs:documentation>The 'crack passwords' value indicates that the malware instance is able to consume system resources for password cracking.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mine for cryptocurrency">
+                <xs:annotation>
+                    <xs:documentation>The 'mine for cryptocurrency' value indicates that the malware instance is able to consume system resources for cryptocurrency mining.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="compromise access to information assets">
+                <xs:annotation>
+                    <xs:documentation>"The 'compromise access to information assets' value indicates that the malware instance is able to prevent data from being accessed (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="PostOperationStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The PostOperationStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Post-Operation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:PostOperationStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Post-Operation Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PostOperationStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PostOperationStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The PostOperationStrategicObjectivesEnum-1.0 is an enumeration of Post-Operation Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="remove traces of infection">
+                <xs:annotation>
+                    <xs:documentation>The 'remove traces of infection' value indicates that the malware instance is able to remove traces of its infection of a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="install other components">
+                <xs:annotation>
+                    <xs:documentation>"The 'install other components' value indicates that the malware instance is able to install additional components.  This encompasses the dropping/downloading of other malicious components such as libraries</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="PostOperationTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The PostOperationTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Post-Operation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:PostOperationTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Post-Operation Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PostOperationTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PostOperationTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The PostOperationTacticalObjectivesEnum-1.0 is an enumeration of Post-Operation Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="install secondary module">
+                <xs:annotation>
+                    <xs:documentation>The 'install secondary module' value indicates that the malware instance is able to install a secondary module (typically related to itself).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="install secondary malware">
+                <xs:annotation>
+                    <xs:documentation>The 'install secondary malware' value indicates that the malware instance is able to install another malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="remove self">
+                <xs:annotation>
+                    <xs:documentation>The 'remove self' value indicates that the malware instance is able to remove itself from the system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="remove system artifacts">
+                <xs:annotation>
+                    <xs:documentation>The 'remove system artifacts' value indicates that the malware instance is able to remove its artifacts from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="PersistenceStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The PersistenceStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Persistence Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:PersistenceStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Persistence Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PersistenceStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PersistenceStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The PersistenceStrategicObjectivesEnum-1.0 is an enumeration of Persistence Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="persist to re-infect system">
+                <xs:annotation>
+                    <xs:documentation>The 'persist to re-infect system' value indicates that the malware instance is able to re-infect a system after some of its components have been removed.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="gather information for improvement">
+                <xs:annotation>
+                    <xs:documentation>The 'gather information for improvement' value indicates that the malware instance is able to gather information from its environment to make itself less likely to be detected.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="persist to continuously execute on system">
+                <xs:annotation>
+                    <xs:documentation>"The 'persist to continuously execute on system' value indicates that the malware instance is able to continue to execute on a system after significant system events (e.g.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="PersistenceTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The PersistenceTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Persistence Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:PersistenceTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Persistence Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PersistenceTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PersistenceTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The PersistenceTacticalObjectivesEnum-1.0 is an enumeration of Persistence Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="persist independent of hard disk/os changes">
+                <xs:annotation>
+                    <xs:documentation>The 'persist independent of hard disk/os changes' value indicates that the malware instance is able to continue to execute after changes to the hard disk or the operating system have been made.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="persist after os install/reinstall">
+                <xs:annotation>
+                    <xs:documentation>The 'persist after os install/reinstall' value indicates that the malware instance is able to continue to execute after the operating system is installed or reinstalled.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="persist after system reboot">
+                <xs:annotation>
+                    <xs:documentation>The 'persist after system reboot' value indicates that the malware instance is able to continue to execute after a system reboot.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="reinstantiate self after initial detection">
+                <xs:annotation>
+                    <xs:documentation>The 'reinstantiate self after initial detection' value indicates that the malware instance is able to re-establish itself on the system after it is initially detected.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="drop/retrieve debug log file">
+                <xs:annotation>
+                    <xs:documentation>The 'drop/retrieve debug log file' value indicates that the malware instance is able to generate and retrieve a log file of errors associated with the malware.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DestructionStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The DestructionStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Destruction Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DestructionStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Destruction Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DestructionStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DestructionStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DestructionStrategicObjectivesEnum-1.0 is an enumeration of Destruction Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="destroy physical entity">
+                <xs:annotation>
+                    <xs:documentation>The 'destroy physical entity' value indicates that the malware instance is able to destroy a physical entity.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="destroy virtual entity">
+                <xs:annotation>
+                    <xs:documentation>The 'destroy virtual entity' value indicates that the malware instance is able to destroy a virtual entity.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DestructionTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The DestructionTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Destruction Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DestructionTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Destruction Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DestructionTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DestructionTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DestructionTacticalObjectivesEnum-1.0 is an enumeration of Destruction Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="erase data">
+                <xs:annotation>
+                    <xs:documentation>The 'erase data' value indicates that the malware instance is able to destroy data by erasure.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="destroy firmware">
+                <xs:annotation>
+                    <xs:documentation>The 'destroy firmware' value indicates that the malware instance is able to destroy a system's firmware.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="destroy hardware">
+                <xs:annotation>
+                    <xs:documentation>The 'destroy hardware' value indicates that the malware instance is able to destroy a system's hardware.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
