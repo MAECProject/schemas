@@ -1190,14 +1190,14 @@
 					<xs:documentation>The Tactical_Objective field captures a single Tactical Objective that the Capability attempts to achieve, typically in the context of a Strategic Objective. It can be considered as a more granular way of expounding upon Strategic Objectives to better capture the intent of the malware author(s). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Behavior" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
+			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Behavior field captures a reference to a Behavior that may be used to implement the Capability or its Objectives.</xs:documentation>
+					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that implements the Capability. For Behaviors that implement specific Strategic or Tactical Objectives, the Behavior_Reference field under the Strategic_Objective or Tactical_Objective fields should be used, respectively.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Relationship" maxOccurs="unbounded" type="maecBundle:CapabilityRelationshipType">
 				<xs:annotation>
-					<xs:documentation>The Relationship field captures a relationship from the Capability to one or more other Capabilitys.</xs:documentation>
+					<xs:documentation>The Relationship field captures a relationship from the Capability to one or more other Capabilities.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1244,6 +1244,11 @@
 					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability Strategic Objective types can be instantiated in its place through extension of the CapabilityStrategicObjectivePropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Strategic Objectives, such as those for Anti-Debugging, User Input Capture, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that implements the Strategic Objective. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:CapabilityObjectiveRelationshipType">
 				<xs:annotation>
 					<xs:documentation>The Relationship field captures a relationship from the Strategic Objective to one or more other Strategic or Tactical Objectives.</xs:documentation>
@@ -1274,6 +1279,11 @@
 			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityTacticalObjectivePropertiesType">
 				<xs:annotation>
 					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability Tactical Objective types can be instantiated in its place through extension of the CapabilityTacticalObjectivePropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Tactical Objectives, such as those for Capture Keyboard Input, Detect Debugging, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that implements the Tactical Objective. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:CapabilityObjectiveRelationshipType">
