@@ -45,10 +45,11 @@
                                     <maecBundle:Objective_Reference objective_idref="maec-tst-obt-1"/>
                                 </maecBundle:Relationship>
                             </maecBundle:Tactical_Objective>
+                            <maecBundle:Behavior behavior_idref="maec-tst-bhv-1"/>
                         </maecBundle:Capability>
                     </maecBundle:Capabilities>
                     <maecBundle:Behaviors>
-                        <maecBundle:Behavior id="maec-test-bhv-1">
+                        <maecBundle:Behavior id="maec-tst-bhv-1">
                             <maecBundle:Description>System Reboot Persistence via Registry Startup</maecBundle:Description>
                             <maecBundle:Action_Composition>
                                 <maecBundle:Action_Reference action_id="maec-tst-act-1"/>
