@@ -1175,9 +1175,9 @@
 					<xs:documentation>The Description field captures a basic textual description of the Capability.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityPropertiesType">
+			<xs:element minOccurs="0" name="Property" type="cyboxCommon:ControlledVocabularyStringType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability types can be instantiated in its place through extension of the CapabilityPropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Capabilitys, such as those for Persistence, Command and Control, etc.</xs:documentation>
+					<xs:documentation>The Property field permits the capture of a single property of the Capability, as a key/value pair. The name of the key can be free form text or a standardized string via a vocabulary included in the MAEC Default Vocabularies schema. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective" type="maecBundle:CapabilityStrategicObjectiveType">
@@ -1239,9 +1239,9 @@
 					<xs:documentation>The Description field captures a textual description of the Strategic Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityObjectivePropertiesType">
+			<xs:element minOccurs="0" name="Property" type="cyboxCommon:ControlledVocabularyStringType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability Strategic Objective types can be instantiated in its place through extension of the CapabilityStrategicObjectivePropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Strategic Objectives, such as those for Anti-Debugging, User Input Capture, etc.</xs:documentation>
+					<xs:documentation>The Property field permits the capture of a single property of the Strategic Objective, as a key/value pair. The name of the key can be free form text or a standardized string via a vocabulary included in the MAEC Default Vocabularies schema. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
@@ -1276,9 +1276,9 @@
 					<xs:documentation>The Description field captures a textual description of the Tactical Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityObjectivePropertiesType">
+			<xs:element minOccurs="0" name="Property" type="cyboxCommon:ControlledVocabularyStringType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability Tactical Objective types can be instantiated in its place through extension of the CapabilityTacticalObjectivePropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Tactical Objectives, such as those for Capture Keyboard Input, Detect Debugging, etc.</xs:documentation>
+					<xs:documentation>The Property field permits the capture of a single property of the Tactical Objective, as a key/value pair. The name of the key can be free form text or a standardized string via a vocabulary included in the MAEC Default Vocabularies schema. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
@@ -1302,30 +1302,6 @@
 				<xs:documentation>The ordinal_position field captures the ordinal position of the tactical objective with respect to other tactical objectives employed by the parent strategic objective. </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType abstract="true" name="CapabilityPropertiesType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityPropertiesType is an abstract type used for extending with context-specific properties for use in Capabilitys.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
-				<xs:annotation>
-					<xs:documentation>The Custom_Properties field permits the capture of custom properties that are relevant to the parent type but may not yet be defined in the schema implementation.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType abstract="true" name="CapabilityObjectivePropertiesType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Capability Strategic or Tactical Objectives.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
-				<xs:annotation>
-					<xs:documentation>The Custom_Properties field permits the capture of custom properties that are relevant to the parent type but may not yet be defined in the schema implementation.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CapabilityRelationshipType">
 		<xs:annotation>
