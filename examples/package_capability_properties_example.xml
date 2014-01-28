@@ -10,12 +10,10 @@
  xmlns:cybox="http://cybox.mitre.org/cybox-2"
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
- xmlns:antiBehavioralAnalysisCap="http://maec.mitre.org/anti-behavioral-analysis-capability-1"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 file:../maec_package_schema.xsd
  http://maec.mitre.org/default_vocabularies-1 file:../maec_default_vocabularies.xsd
- http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd
- http://maec.mitre.org/anti-behavioral-analysis-capability-1 file:../capabilities/anti_behavioral_analysis_capability.xsd" id="maec-test-pkg-1" schema_version="2.1">
+ http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd" id="maec-test-pkg-1" schema_version="2.1">
     <maecPackage:Malware_Subjects>
         <maecPackage:Malware_Subject id="maec-test-sub-1">
             <maecPackage:Malware_Instance_Object_Attributes id="maec-tst-obj-1">
@@ -41,12 +39,10 @@
                             </maecBundle:Strategic_Objective>
                             <maecBundle:Tactical_Objective id="maec-tst-obt-2">
                                 <maecBundle:Name xsi:type="maecVocabs:AntiBehavioralAnalysisTacticalObjectivesVocab-1.0">detect sandbox environment</maecBundle:Name>
-                                <maecBundle:Properties xsi:type="antiBehavioralAnalysisCap:AntiSandboxObjectivePropertiesType">
-                                    <antiBehavioralAnalysisCap:Targeted_Sandbox>
-                                        <cyboxCommon:Name>ThreatExpert</cyboxCommon:Name>
-                                        <cyboxCommon:Vendor>Symantec</cyboxCommon:Vendor>
-                                    </antiBehavioralAnalysisCap:Targeted_Sandbox>
-                                </maecBundle:Properties>
+                                <maecBundle:Property>
+                                    <maecBundle:Name xsi:type="maecVocabs:AntiBehavioralAnalysisPropertiesVocab-1.0">targeted sandbox</maecBundle:Name>
+                                    <maecBundle:Value>ThreatExpert</maecBundle:Value>
+                                </maecBundle:Property>
                                 <maecBundle:Relationship>
                                     <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
                                     <maecBundle:Objective_Reference objective_idref="maec-tst-obt-1"/>
