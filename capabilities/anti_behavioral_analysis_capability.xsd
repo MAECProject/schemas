@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4" xmlns:antiBehavioralAnalysisCap="http://maec.mitre.org/anti-behavioral-analysis-capability-1" targetNamespace="http://maec.mitre.org/anti-behavioral-analysis-capability-1" elementFormDefault="qualified" version="1.0">
+    <xs:annotation>
+        <xs:documentation>This schema was originally developed by The MITRE Corporation. The MAEC XML Schema implementation is maintained by The MITRE Corporation and developed by the open MAEC Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the MAEC website at http://maec.mitre.org. </xs:documentation>
+        <xs:appinfo>
+			<schema>anti-behavioral-analysis-capability-properties</schema>
+			<version>1.0 DRAFT</version>
+            <date>01/09/2014</date>
+            <notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>		
+			<short_description>The following defines types for default controlled vocabularies used within MAEC. An individual vocabulary may be revised at any time. Revisions to vocabularies will result in the creation of new types with the new version number embedded in the name of those types. Vocabularies can be reference from MAEC elements through the use of xsi:Type. The individual elements where this may be done indicate the expected default vocabulary.</short_description>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included. </terms_of_use>
+		</xs:appinfo>
+    </xs:annotation>
+    <xs:import namespace="http://maec.mitre.org/XMLSchema/maec-bundle-4" schemaLocation="../maec_bundle_schema.xsd"/>
+    <xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="http://cybox.mitre.org/XMLSchema/common/2.1/cybox_common.xsd"/>
+    <xs:complexType name="AntiVMObjectivePropertiesType">
+        <xs:annotation>
+            <xs:documentation>The AntiVMObjectPropertiesType is intended to capture properties of the Anti-VM Strategic Objective of the Anti-Behavioral Analysis Capability. It can also be applicable to any of its child Tactical Objectives, such as the Detect VM Environment Tactical Objective.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="maecBundle:CapabilityObjectivePropertiesType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Targeted_VM" maxOccurs="unbounded" type="cyboxCommon:ToolInformationType">
+                        <xs:annotation>
+                            <xs:documentation>The Targeted_VM field captures the information about a single virtual machine targeted by the Anti-VM Strategic Objective or one of its child Tactical Objectives. It uses the ToolInformationType from the imported CybOX Common schema. Multiple virtual machine can be specified by including multiple occurrences of this field.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AntiSandboxObjectivePropertiesType">
+        <xs:annotation>
+            <xs:documentation>The AntiSandboxObjectPropertiesType is intended to capture properties of the Anti-Sandbox Strategic Objective of the Anti-Behavioral Analysis Capability. It can also be applicable to any of its child Tactical Objectives, such as the Detect Sandbox Environment Tactical Objective.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="maecBundle:CapabilityObjectivePropertiesType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Targeted_Sandbox" maxOccurs="unbounded" type="cyboxCommon:ToolInformationType">
+                        <xs:annotation>
+                            <xs:documentation>The Targeted_Sandbox field captures the information about a single sandbox targeted by the Anti-Sandbox Strategic Objective or one of its child Tactical Objectives. It uses the ToolInformationType from the imported CybOX Common schema. Multiple targeted sandboxes can be specified by including multiple occurrences of this field.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
