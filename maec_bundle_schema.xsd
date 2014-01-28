@@ -1219,7 +1219,7 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability" type="maecBundle:CapabilityType">
 				<xs:annotation>
-					<xs:documentation>The Capability field captures a single Capability in the list.</xs:documentation>
+					<xs:documentation>The Capability field captures a single Capability in the list, and therefore a single Capability that the malware instance possesses. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
