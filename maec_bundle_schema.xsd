@@ -1239,7 +1239,7 @@
 					<xs:documentation>The Description field captures a textual description of the Strategic Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityStrategicObjectivePropertiesType">
+			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityObjectivePropertiesType">
 				<xs:annotation>
 					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability Strategic Objective types can be instantiated in its place through extension of the CapabilityStrategicObjectivePropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Strategic Objectives, such as those for Anti-Debugging, User Input Capture, etc.</xs:documentation>
 				</xs:annotation>
@@ -1276,7 +1276,7 @@
 					<xs:documentation>The Description field captures a textual description of the Tactical Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityTacticalObjectivePropertiesType">
+			<xs:element minOccurs="0" name="Properties" type="maecBundle:CapabilityObjectivePropertiesType">
 				<xs:annotation>
 					<xs:documentation>The Properties field is an abstract placeholder for various predefined Capability Tactical Objective types can be instantiated in its place through extension of the CapabilityTacticalObjectivePropertiesType. This Capability enables the capture of a broad range of properties that may be specific to certain types of Tactical Objectives, such as those for Capture Keyboard Input, Detect Debugging, etc.</xs:documentation>
 				</xs:annotation>
@@ -1315,21 +1315,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType abstract="true" name="CapabilityStrategicObjectivePropertiesType">
+	<xs:complexType abstract="true" name="CapabilityObjectivePropertiesType">
 		<xs:annotation>
-			<xs:documentation>The CapabilityStrategicObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Capability Strategic Objectives.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
-				<xs:annotation>
-					<xs:documentation>The Custom_Properties field permits the capture of custom properties that are relevant to the parent type but may not yet be defined in the schema implementation.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType abstract="true" name="CapabilityTacticalObjectivePropertiesType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityTacticalObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Capability Tactical Objectives.</xs:documentation>
+			<xs:documentation>The CapabilityObjectivePropertiesType is an abstract type used for extending with context-specific properties for use in Capability Strategic or Tactical Objectives.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Custom_Properties" type="cyboxCommon:CustomPropertiesType">
