@@ -1175,9 +1175,9 @@
 					<xs:documentation>The Description field captures a basic textual description of the Capability.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Property" type="cyboxCommon:ControlledVocabularyStringType" maxOccurs="unbounded">
+			<xs:element minOccurs="0" name="Property" type="maecBundle:CapabilityPropertyType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Property field permits the capture of a single property of the Capability, as a key/value pair. The name of the key can be free form text or a standardized string via a vocabulary included in the MAEC Default Vocabularies schema. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
+					<xs:documentation>The Property field permits the capture of a single property of the Capability, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective" type="maecBundle:CapabilityStrategicObjectiveType">
@@ -1239,9 +1239,9 @@
 					<xs:documentation>The Description field captures a textual description of the Strategic Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Property" type="cyboxCommon:ControlledVocabularyStringType" maxOccurs="unbounded">
+			<xs:element minOccurs="0" name="Property" type="maecBundle:CapabilityPropertyType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Property field permits the capture of a single property of the Strategic Objective, as a key/value pair. The name of the key can be free form text or a standardized string via a vocabulary included in the MAEC Default Vocabularies schema. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
+					<xs:documentation>The Property field permits the capture of a single property of the Strategic Objective, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
@@ -1276,9 +1276,9 @@
 					<xs:documentation>The Description field captures a textual description of the Tactical Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Property" type="cyboxCommon:ControlledVocabularyStringType" maxOccurs="unbounded">
+			<xs:element minOccurs="0" name="Property" type="maecBundle:CapabilityPropertyType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Property field permits the capture of a single property of the Tactical Objective, as a key/value pair. The name of the key can be free form text or a standardized string via a vocabulary included in the MAEC Default Vocabularies schema. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
+					<xs:documentation>The Property field permits the capture of a single property of the Tactical Objective, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
@@ -1356,5 +1356,22 @@
 				<xs:documentation>The objective_idref field references the ID of a Capability Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CapabilityPropertyType">
+		<xs:annotation>
+			<xs:documentation>The CapabilityPropertyType captures a single property of a Capability or Capability Objective.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Name field specifies the name of the property being captured. The name can be either free form text or a standardized string via a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Value" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Value field specifies the value of the property being captured.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
