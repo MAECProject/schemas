@@ -455,7 +455,7 @@
 					<xs:documentation>The Description field contains a prose text description of the purpose of the Behavior, whether it was successful or not.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Vulnerability_Exploit" type="maecBundle:VulnerabilityExploitType">
+			<xs:element minOccurs="0" name="Vulnerability_Exploit" type="maecBundle:ExploitType">
 				<xs:annotation>
 					<xs:documentation>The Vulnerability_Exploit field characterizes any vulnerability that a Behavior may have attempted to exploit, whether or not the exploitation was successful (where success is not necessarily known).</xs:documentation>
 				</xs:annotation>
@@ -474,14 +474,19 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="VulnerabilityExploitType">
+	<xs:complexType name="ExploitType">
 		<xs:annotation>
-			<xs:documentation>The VulnerabilityExploitType characterizes any vulnerability that may be exploited by malware through a Behavior.</xs:documentation>
+			<xs:documentation>The ExploitType characterizes any exploitable weakness that may be targeted for exploitation by a malware instance through a Behavior. Most commonly, this refers to a known and identifiable vulnerability, but it may also refer to one or more weaknesses.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="CVE" type="maecBundle:CVEVulnerabilityType">
 				<xs:annotation>
 					<xs:documentation>The CVE field specifies the CVE ID and description of the vulnerability targeted by the exploit, if available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="CWE_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The CWE_ID field captures the ID of the Common Weakness Enumeration (CWE) entry that represents the type of weakness targeted by the exploit. More than one such CWE ID can be specified by using multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Targeted_Platforms" type="maecBundle:PlatformListType">
