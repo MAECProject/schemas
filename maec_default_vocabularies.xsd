@@ -1815,7 +1815,7 @@
             </xs:enumeration>
             <xs:enumeration value="data theft">
                 <xs:annotation>
-                    <xs:documentation>The 'data theft' Capability indicates that the malware instance is able to steal data from the system on which it executes.</xs:documentation>
+                    <xs:documentation>The 'data theft' Capability indicates that the malware instance is able to steal data from the system on which it executes. This includes data stored in some form, e.g. in a file, as well as data that may be entered into some application such as a web-browser.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="spying">
@@ -3567,6 +3567,63 @@
             <xs:enumeration value="targeted sandbox">
                 <xs:annotation>
                     <xs:documentation>The 'targeted sandbox' value refers to the name of a sandbox targeted by the Anti-Behavioral Analysis Capability or one of its child Objectives.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="InfectionPropagationPropertiesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The InfectionPropagationPropertiesVocab-1.0 is the default MAEC Vocabulary for Infection/Propagation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:InfectionPropagationPropertiesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Infection/Propagation Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#InfectionPropagationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="InfectionPropagationPropertiesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The InfectionPropagationPropertiesEnum-1.0 is an enumeration of Infection/Propagation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="scope">
+                <xs:annotation>
+                    <xs:documentation>The 'scope' value refers to the scope of the infection or propagation performed by the malware instance via the Infection/Propagation Capability, i.e. whether it infects just the local machine or actively propagates to other machines as well. </xs:documentation>
+                    <xs:documentation>Recommended values are: 'local', or 'remote'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="infection targeting">
+                <xs:annotation>
+                    <xs:documentation>The 'targeting' value refers to the type of targeting employed by the Infect Remote Machine Strategic Objective, i.e. whether the targeted machines are randomly selected, or chosen from some particular set. </xs:documentation>
+                    <xs:documentation>Recommended values are: 'targeted', 'semi-targeted', or 'untargeted'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="autonomy">
+                <xs:annotation>
+                    <xs:documentation>The 'autonomy' value refers to the type of autonomy emplyed by the Infect Remote Machine Strategic Objective, i.e. whether the remote infection is performed autonomously.</xs:documentation>
+                    <xs:documentation>Recommended values are: 'semi-autonomous', 'autonomous'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="targeted file type">
+                <xs:annotation>
+                    <xs:documentation>The 'targeted file type' value refers to the types of files targeted by the Infect File Strategic Objective.</xs:documentation>
+                    <xs:documentation>It is recommended that files be specified via their extension, e.g. "exe", "pdf", etc.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="targeted file architecture type">
+                <xs:annotation>
+                    <xs:documentation>The 'targeted file architecture' value refers to type of file architecture targeted by the Infect File Strategic Objective.</xs:documentation>
+                    <xs:documentation>>Recommended values are: '32 bit', or '64 bit'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="file infection type">
+                <xs:annotation>
+                    <xs:documentation>The 'file infection type' value refers to the type of file infection employed by the Infect File Strategic Objective.</xs:documentation>
+                    <xs:documentation>Recommended values are: 'appending', 'prepending', 'overwriting', 'companion', 'variable key', 'polymorphic', or 'metamorphic'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
