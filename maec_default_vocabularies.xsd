@@ -1860,7 +1860,7 @@
             </xs:enumeration>
             <xs:enumeration value="security degradation">
                 <xs:annotation>
-                    <xs:documentation>The �security degradation� Capability indicates that the malware instance is able to bypass or disable security features and/or controls.</xs:documentation>
+                    <xs:documentation>The 'security degradation' Capability indicates that the malware instance is able to bypass or disable security features and/or controls.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="availability violation">
@@ -1904,19 +1904,19 @@
             <xs:documentation>The CommandandControlStrategicObjectivesEnum-1.0 is an enumeration of Command and Control Capability Strategic Objectives.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="control behavior">
+            <xs:enumeration value="determine c2 server">
+                <xs:annotation>
+                    <xs:documentation>The 'determine c2 server' value indicates that the malware instance is able to identify one or more command and control (C2) servers with which to communicate.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="receive data from c2 server">
                 <xs:annotation>
                     <xs:documentation>"The 'control behavior' value indicates that the malware instance is able to control its behavior through some external stimulus (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="communicate with c2 servers">
+            <xs:enumeration value="send data to c2 server">
                 <xs:annotation>
-                    <xs:documentation>The 'communicate with c2 servers' value indicates that the malware instance is able to communicate with one or more command and control (C2) servers.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="maintain botnet">
-                <xs:annotation>
-                    <xs:documentation>The 'maintain botnet' value indicates that the malware instance is able to maintain or update itself as a member of a botnet.</xs:documentation>
+                    <xs:documentation>The 'send data to c2 server' value indicates that the malware instance is able to send some data to a command and control server.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -1940,24 +1940,29 @@
             <xs:documentation>The CommandandControlTacticalObjectivesEnum-1.0 is an enumeration of Command and Control Capability Tactical Objectives.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="determine c2 server">
-                <xs:annotation>
-                    <xs:documentation>The 'determine c2 server' value indicates that the malware instance is able to identify one or more command and control (C2) servers with which to communicate.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="execute remote command">
                 <xs:annotation>
-                    <xs:documentation>"The 'execute remote command' value indicates that the malware instance is able to execute commands issued to it from a remote source</xs:documentation>
+                    <xs:documentation>"The 'execute remote command' value indicates that the malware instance is able to execute commands issued to it from a remote source such as a command and control server</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="update bot configuration">
+            <xs:enumeration value="generate c2 domain name">
                 <xs:annotation>
-                    <xs:documentation>The 'update bot configuration' value indicates that the malware instance is able to update itself with the latest configuration profile for bots as dictated by the botnet of which it is a member.</xs:documentation>
+                    <xs:documentation>The 'generate c2 domain name' value indicates that the malware instance is able to generate the domain name of the command and control server to which it connects to.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="update bot list">
+            <xs:enumeration value="send system information">
                 <xs:annotation>
-                    <xs:documentation>The 'update bot list' value indicates that the malware instance is able to report its presence to its parent botnet in order to update the list of active bots.</xs:documentation>
+                    <xs:documentation>The 'send system information' value indicates that the malware instance is able to send data regarding the system on which it is executing to a command and control server.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="send heartbeat data">
+                <xs:annotation>
+                    <xs:documentation>"The 'send heartbeat data' value indicates that the malware instance is able to send heartbeat data to a command and control server</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="update configuration">
+                <xs:annotation>
+                    <xs:documentation>The 'update configuration' value indicates that the malware instance is able to update its configuration using data received from a command and control server.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
