@@ -3685,20 +3685,14 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="is proxy aware">
                 <xs:annotation>
-                    <xs:documentation>The 'is proxy aware' value refers to whether the Command and Control capability can get around or make use of proxies, i.e. whether it is proxy aware.</xs:documentation>
+                    <xs:documentation>The 'is proxy aware' value refers to whether the Command and Control capability or its Objectives can get around or make use of proxies, i.e. whether it is proxy aware.</xs:documentation>
                     <xs:documentation>Recommended values are: 'yes', 'no'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="protocol used">
                 <xs:annotation>
-                    <xs:documentation>The 'protocol used' value refers to the name of the network protocol employed by the Command and Control capability.</xs:documentation>
+                    <xs:documentation>The 'protocol used' value refers to the name of the network protocol employed by the Command and Control capability or its Objectives.</xs:documentation>
                     <xs:documentation>It is recommended that protocols be specified by their acronym or abbreviated name, e.g. "IRC", "HTTP".</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="uses domain generation">
-                <xs:annotation>
-                    <xs:documentation>The 'uses domain generation' value refers to whether the Communicate with C2 Servers Strategic Objective uses some form of domain generation algorithm to determine the domain name of the C2 server to connect to.</xs:documentation>
-                    <xs:documentation>Recommended values are: 'yes', 'no'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
