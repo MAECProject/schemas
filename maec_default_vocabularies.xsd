@@ -3724,4 +3724,31 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="DestructionPropertiesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The DestructionPropertiesVocab-1.0 is the default MAEC Vocabulary for Destruction Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DestructionPropertiesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Destruction Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DestructionPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DestructionPropertiesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DestructionPropertiesEnum-1.0 is an enumeration of Privilege Escalation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="erasure scope">
+                <xs:annotation>
+                    <xs:documentation>The 'erasure scope' value refers to the scope of the erasure performed by the Erase Data Tactical Objective.</xs:documentation>
+                    <xs:documentation>Recommended values are: 'whole disk', or 'targeted files'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>
