@@ -3535,12 +3535,22 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="child of">
                 <xs:annotation>
-                    <xs:documentation>The child of value indicates that the Objective is a child of the Objective being referenced.</xs:documentation>
+                    <xs:documentation>The 'child of' value indicates that the Objective is a child of the Objective being referenced.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parent of">
                 <xs:annotation>
-                    <xs:documentation>The parent of value indicates that the Objective is a parent of the Objective being referenced.</xs:documentation>
+                    <xs:documentation>The 'parent of' value indicates that the Objective is a parent of the Objective being referenced.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="incorporates">
+                <xs:annotation>
+                    <xs:documentation>The 'incorporates' value indicates that the Objective incorporates the Objective being referenced.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="incorporated by">
+                <xs:annotation>
+                    <xs:documentation>The 'incorporated by' value indicates that the Objective is incorporated by the Objective being referenced.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
