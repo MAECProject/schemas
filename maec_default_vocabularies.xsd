@@ -1800,7 +1800,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="command and control">
                 <xs:annotation>
-                    <xs:documentation>"The 'command and control' (C2) Capability indicates that the malware instance is able to receive and execute remotely submitted commands. This also includes botnet-related operations</xs:documentation>
+                    <xs:documentation>The 'command and control' (C2) Capability indicates that the malware instance is able to receive and execute remotely submitted commands. </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="remote machine manipulation">
@@ -1815,7 +1815,7 @@
             </xs:enumeration>
             <xs:enumeration value="data theft">
                 <xs:annotation>
-                    <xs:documentation>The 'data theft' Capability indicates that the malware instance is able to steal data from the system on which it executes. This includes data stored in some form, e.g. in a file, as well as data that may be entered into some application such as a web-browser.</xs:documentation>
+                    <xs:documentation>"The 'data theft' Capability indicates that the malware instance is able to steal data from the system on which it executes. This includes data stored in some form</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="spying">
@@ -1860,7 +1860,7 @@
             </xs:enumeration>
             <xs:enumeration value="security degradation">
                 <xs:annotation>
-                    <xs:documentation>The 'security degradation' Capability indicates that the malware instance is able to bypass or disable security features and/or controls.</xs:documentation>
+                    <xs:documentation>The �security degradation� Capability indicates that the malware instance is able to bypass or disable security features and/or controls.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="availability violation">
@@ -1868,9 +1868,19 @@
                     <xs:documentation>The 'availability violation' Capability indicates that the malware instance is able to compromise the availability of a system or some aspect of the system.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="probing">
+                <xs:annotation>
+                    <xs:documentation>The 'probing' Capability indicates that the malware instance is able to probe its host system or network environment; most often this is done to support other Capabilities and their Objectives.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="post-operation">
                 <xs:annotation>
                     <xs:documentation>The 'post-operation' Capability indicates that the malware instance is able to achieve additional objectives after completing its primary operations.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="fraud">
+                <xs:annotation>
+                    <xs:documentation>The 'fraud' Capability indicates that the malware instance is able to defraud a user or a system.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="persistence">
@@ -3586,6 +3596,135 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="ProbingStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The ProbingStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Probing Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:ProbingStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Probing Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ProbingStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="ProbingStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The ProbingStrategicObjectivesEnum-1.0 is an enumeration of Probing Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="probe host configuration">
+                <xs:annotation>
+                    <xs:documentation>The 'probe host configuration' value indicates that the malware instance is able to probe the configuration of the host system on which it executes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="probe network environment">
+                <xs:annotation>
+                    <xs:documentation>"The 'probe network environment' value indicates that the malware instance is able to probe the properties of its network environment</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="ProbingTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The ProbingTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Probing Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:ProbingTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Probing Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ProbingTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="ProbingTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The ProbingTacticalObjectivesEnum-1.0 is an enumeration of Probing Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="map local network">
+                <xs:annotation>
+                    <xs:documentation>The 'map local network' value indicates that the malware instance is able to map the layout of the local network environment in which it executes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="check for firewall">
+                <xs:annotation>
+                    <xs:documentation>The 'check for firewall' value indicates that the malware instance is able to check whether the network environment in which it executes contains a hardware or software firewall.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="check for proxy">
+                <xs:annotation>
+                    <xs:documentation>The 'check for proxy' value indicates that the malware instance is able to check whether the network environment in which it executes contains a hardware or software proxy.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="check for internet connectivity">
+                <xs:annotation>
+                    <xs:documentation>The 'check for internet connectivity' value indicates that the malware instance is able to check whether the network environment in which it executes is connected to the internet.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="FraudStrategicObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The FraudStrategicObjectivesVocab-1.0 is the default MAEC Vocabulary for Fraud Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:FraudStrategicObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Fraud Capability Strategic Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#FraudStrategicObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="FraudStrategicObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The FraudStrategicObjectivesEnum-1.0 is an enumeration of Fraud Capability Strategic Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="premium rate fraud">
+                <xs:annotation>
+                    <xs:documentation>The 'premium rate fraud' value indicates that the malware instance is able to send text messages or dial phone numbers that are charged at premium rates.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="click fraud">
+                <xs:annotation>
+                    <xs:documentation>The 'click fraud' value indicates that the malware instance is able to simulate clicks on website advertisements for the purpose of revenue generation.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="FraudTacticalObjectivesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The FraudTacticalObjectivesVocab-1.0 is the default MAEC Vocabulary for Fraud Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:FraudTacticalObjectivesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Fraud Capability Tactical Objectives" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#FraudTacticalObjectivesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="FraudTacticalObjectivesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The FraudTacticalObjectivesEnum-1.0 is an enumeration of Fraud Capability Tactical Objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="access premium service">
+                <xs:annotation>
+                    <xs:documentation>The 'access premium service' value indicates that the malware instance is able to access a premium service.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="InfectionPropagationPropertiesVocab-1.0">
         <xs:annotation>
             <xs:documentation>The InfectionPropagationPropertiesVocab-1.0 is the default MAEC Vocabulary for Infection/Propagation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
@@ -3693,12 +3832,6 @@
             <xs:documentation>The CommandandControlPropertiesEnum-1.0 is an enumeration of Command and Control Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="is proxy aware">
-                <xs:annotation>
-                    <xs:documentation>The 'is proxy aware' value refers to whether the Command and Control capability or its Objectives can get around or make use of proxies, i.e. whether it is proxy aware.</xs:documentation>
-                    <xs:documentation>Recommended values are: 'yes', 'no'.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="protocol used">
                 <xs:annotation>
                     <xs:documentation>The 'protocol used' value refers to the name of the network protocol employed by the Command and Control capability or its Objectives.</xs:documentation>
