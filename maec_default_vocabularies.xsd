@@ -3545,12 +3545,12 @@
             </xs:enumeration>
             <xs:enumeration value="incorporates">
                 <xs:annotation>
-                    <xs:documentation>The 'incorporates' value indicates that the Objective incorporates the Objective being referenced.</xs:documentation>
+                    <xs:documentation>The 'incorporates' value indicates that the Objective incorporates the Objective being referenced in a supporting or enabling role.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="incorporated by">
                 <xs:annotation>
-                    <xs:documentation>The 'incorporated by' value indicates that the Objective is incorporated by the Objective being referenced.</xs:documentation>
+                    <xs:documentation>The 'incorporated by' value indicates that the Objective is incorporated in a supporting or enabling role by the Objective being referenced.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
