@@ -1731,6 +1731,7 @@
     <xs:complexType name="MalwareSubjectRelationshipTypeVocab-1.0">
         <xs:annotation>
             <xs:documentation>The MalwareSubjectRelationshipTypeVocab is the default MAEC vocabulary for the Malware Subject relationships in a Package, captured via the MalwareSubjectRelationshipType/Type element in the MAEC Package.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -1745,6 +1746,7 @@
     <xs:simpleType name="MalwareSubjectRelationshipEnum-1.0">
         <xs:annotation>
             <xs:documentation>The MalwareSubjectRelationshipEnum is a non-exhaustive enumeration of relationships between Malware Subjects.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="downloads">
@@ -1782,6 +1784,7 @@
     <xs:complexType name="MalwareSubjectRelationshipTypeVocab-1.1">
         <xs:annotation>
             <xs:documentation>The MalwareSubjectRelationshipTypeVocab is the default MAEC vocabulary for the Malware Subject relationships in a Package, captured via the MalwareSubjectRelationshipType/Type element in the MAEC Package.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, this vocabulary should be used in place of the deprecated MalwareSubjectRelationshipTypeVocab-1.0.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
