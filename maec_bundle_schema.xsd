@@ -1206,9 +1206,14 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:CapabilityIDPattern">
+		<xs:attribute name="id" use="optional" type="maecBundle:CapabilityIDPattern">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this MAEC Capability. The ID must follow the pattern defined in the CapabilityIDPattern simple type.</xs:documentation>
+				<xs:documentation>The id field specifies a unique ID for this MAEC Capability. The ID must follow the pattern defined in the CapabilityIDPattern simple type.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="idref" type="xs:IDREF">
+			<xs:annotation>
+				<xs:documentation>The idref field is used to reference an existing Capability defined elsewhere in the MAEC document.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="name" type="maecVocabs:MalwareCapabilityEnum-1.0">
