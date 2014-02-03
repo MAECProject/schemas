@@ -190,6 +190,11 @@
 					<xs:documentation>The Exit_Code field specifies the exit code with which the subject binary exited. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Raised_Exception" type="maecPackage:MalwareExceptionType">
+				<xs:annotation>
+					<xs:documentation>The Raised_Exception field captures a single exception that was raised (or thrown) during the execution of the malware instance. More than one exception may be captured through the use of multiple instances of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AnalysisType">
@@ -815,6 +820,37 @@
 				<xs:documentation>The in_malware_binary field specifies whether the configuration parameters for the malware are stored in its binary.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MalwareExceptionType">
+		<xs:annotation>
+			<xs:documentation>The MalwareExceptionType captures details of exceptions that may be raised as a result of a malware instance executing on a system.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cyboxCommon:ErrorType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Exception_Code" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The Exception_Code field captures the particular code that identifies the type of exception that occurred. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Faulting_Address" type="xs:hexBinary">
+						<xs:annotation>
+							<xs:documentation>The Faulting_Address field captures the memory address where the exception occurred.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Description" type="xs:short">
+						<xs:annotation>
+							<xs:documentation>The Description field captures the textual description of the exception.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="is_fatal" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_fatal field specifies whether the exception is fatal; that is, whether it caused the malware instance to terminate.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:simpleType name="PackageIDPattern">
 		<xs:annotation>
