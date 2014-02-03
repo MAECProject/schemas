@@ -1866,6 +1866,36 @@
                     <xs:documentation>The 'unpacked version of' value specifies that the current Malware Subject represents an unpacked version (in terms of executable binary packing) of one or more other Malware Subject(s).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="installs">
+                <xs:annotation>
+                    <xs:documentation>The 'installs' value specifies that the current Malware Subject installs one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="installed by">
+                <xs:annotation>
+                    <xs:documentation>The 'installed by' value specifies that the current Malware Subject is installed by one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="64-bit version of">
+                <xs:annotation>
+                    <xs:documentation>The '64-bit version of' value specifies that the current Malware Subject is a 64-bit version of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="32-bit version of">
+                <xs:annotation>
+                    <xs:documentation>The '32-bit version of' value specifies that the current Malware Subject is a 32-bit version of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="encrypted version of">
+                <xs:annotation>
+                    <xs:documentation>The 'encrypted version of' value specifies that the current Malware Subject is an encrypted version of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="decrypted version of">
+                <xs:annotation>
+                    <xs:documentation>The 'decrypted version of' value specifies that the current Malware Subject is a decrypted version of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="MalwareCapabilityVocab-1.0">
