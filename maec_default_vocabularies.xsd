@@ -140,6 +140,7 @@
         <xs:annotation>
             <xs:documentation>The DeviceDriverActionNameVocab is the default MAEC vocabulary for device driver action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For device driver action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -152,6 +153,45 @@
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="DeviceDriverActionNameEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DeviceDriverActionNameEnum is a (non-exhaustive) enumeration of the different types of actions associated with device drivers.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="load and call driver">
+                <xs:annotation>
+                    <xs:documentation>The 'load and call' value specifies the defined action of loading a driver into a system and then calling the loaded driver.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="load driver">
+                <xs:annotation>
+                    <xs:documentation>The 'load driver' value specifies the defined action of loading a driver into a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="unload driver">
+                <xs:annotation>
+                    <xs:documentation>The 'unload driver' value specifies the defined action of unloading a driver from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DeviceDriverActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The DeviceDriverActionNameVocab is the default MAEC vocabulary for device driver action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For device driver action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated DeviceDriverActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DeviceDriverActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Device Driver Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DeviceDriverActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DeviceDriverActionNameEnum-1.1">
         <xs:annotation>
             <xs:documentation>The DeviceDriverActionNameEnum is a (non-exhaustive) enumeration of the different types of actions associated with device drivers.</xs:documentation>
         </xs:annotation>
@@ -169,6 +209,11 @@
             <xs:enumeration value="unload driver">
                 <xs:annotation>
                     <xs:documentation>The 'unload driver' value specifies the defined action of unloading a driver from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="emulate driver">
+                <xs:annotation>
+                    <xs:documentation>The 'emulate driver' value specifies the defined action of emulating an existing driver on a system.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -209,6 +254,7 @@
         <xs:annotation>
             <xs:documentation>The LibraryActionNameVocab is the default MAEC vocabulary for library action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For library action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -223,6 +269,7 @@
     <xs:simpleType name="LibraryActionNameEnum-1.0">
         <xs:annotation>
             <xs:documentation>The LibraryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with libraries.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="enumerate libraries">
@@ -247,10 +294,59 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="LibraryActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The LibraryActionNameVocab is the default MAEC vocabulary for library action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For library action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated LibraryActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:LibraryActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Library Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#LibraryActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="LibraryActionNameEnum-1.1">
+        <xs:annotation>
+            <xs:documentation>The LibraryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with libraries.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="enumerate libraries">
+                <xs:annotation>
+                    <xs:documentation>The 'enumerate libraries' value specifies the defined action of enumerating the libraries used by a process.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="free library">
+                <xs:annotation>
+                    <xs:documentation>The 'free library' value specifies the defined action of freeing a library previously loaded into the address space of the calling process.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="load library">
+                <xs:annotation>
+                    <xs:documentation>The 'load library' value specifies the defined action of loading a library into the address space of the calling process.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="get function address">
+                <xs:annotation>
+                    <xs:documentation>The 'get function address' value specifies the defined action of getting the address of an exported function or variable from a library.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="call library function">
+                <xs:annotation>
+                    <xs:documentation>The 'call library function' value specifies the defined action of calling a function exported by a library.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="DirectoryActionNameVocab-1.0">
         <xs:annotation>
             <xs:documentation>The DirectoryActionNameVocab is the default MAEC vocabulary for directory action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For directory action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -265,6 +361,7 @@
     <xs:simpleType name="DirectoryActionNameEnum-1.0">
         <xs:annotation>
             <xs:documentation>The DirectoryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file directories.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="create directory">
@@ -284,10 +381,54 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="DirectoryActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The DirectoryActionNameVocab is the default MAEC vocabulary for directory action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For directory action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated DirectoryActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DirectoryActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Directory Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DirectoryActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DirectoryActionNameEnum-1.1">
+        <xs:annotation>
+            <xs:documentation>The DirectoryActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file directories.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="create directory">
+                <xs:annotation>
+                    <xs:documentation>The 'create directory' value specifies the defined action of creating a new directory on the filesystem.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="delete directory">
+                <xs:annotation>
+                    <xs:documentation>The 'delete directory' value specifies the defined action of deleting an existing directory on the filesystem.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="monitor directory">
+                <xs:annotation>
+                    <xs:documentation>The 'monitor directory' value specifies the defined action of monitoring an existing directory on the filesystem for changes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide directory">
+                <xs:annotation>
+                    <xs:documentation>The 'hide directory' value specifies the defined action of hiding an existing directory.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="DiskActionNameVocab-1.0">
         <xs:annotation>
             <xs:documentation>The DiskActionNameVocab is the default MAEC vocabulary for disk action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For disk action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -302,6 +443,7 @@
     <xs:simpleType name="DiskActionNameEnum-1.0">
         <xs:annotation>
             <xs:documentation>The DiskActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with hard disks.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="get disk type">
@@ -326,10 +468,69 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="DiskActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The DiskActionNameVocab is the default MAEC vocabulary for disk action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For disk action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated DiskActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DiskActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Disk Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DiskActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DiskActionNameEnum-1.1">
+        <xs:annotation>
+            <xs:documentation>The DiskActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with hard disks.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="get disk type">
+                <xs:annotation>
+                    <xs:documentation>The 'get disk type' value specifies the defined action of getting the disk type.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="get disk attributes">
+                <xs:annotation>
+                    <xs:documentation>The 'get disk attributes' value specifies the defined action of querying the attributes of a disk, such as the amount of available free space.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mount disk">
+                <xs:annotation>
+                    <xs:documentation>The 'mount disk' value specifies the defined action of mounting an existing file system to a mounting point.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="unmount disk">
+                <xs:annotation>
+                    <xs:documentation>The 'unmount disk' value specifies the defined action of unmounting an existing file system from a mounting point.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="emulate disk">
+                <xs:annotation>
+                    <xs:documentation>The 'emulate disk' value specifies the defined action of emulating an existing disk.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="list disks">
+                <xs:annotation>
+                    <xs:documentation>The 'list disks' value specifies the defined action of listing all disks available on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="monitor disk">
+                <xs:annotation>
+                    <xs:documentation>The 'monitor disk' value specifies the defined action of monitoring an existing disk for changes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="FileActionNameVocab-1.0">
         <xs:annotation>
             <xs:documentation>The FileActionNameVocab is the default MAEC vocabulary for file action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For file action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -344,6 +545,7 @@
     <xs:simpleType name="FileActionNameEnum-1.0">
         <xs:annotation>
             <xs:documentation>The FileActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="create file">
@@ -447,10 +649,148 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="FileActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The FileActionNameVocab is the default MAEC vocabulary for file action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For file action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated FileActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:FileActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default File Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#FileActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="FileActionNameEnum-1.1">
+        <xs:annotation>
+            <xs:documentation>The FileActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with a file.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="create file">
+                <xs:annotation>
+                    <xs:documentation>The 'create file' value specifies the defined action of creating a new file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="delete file">
+                <xs:annotation>
+                    <xs:documentation>The 'delete file' value specifies the defined action of deleting an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="copy file">
+                <xs:annotation>
+                    <xs:documentation>The 'copy file' value specifies the defined action of copying an existing file from one location to another.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="create file symbolic link">
+                <xs:annotation>
+                    <xs:documentation>The 'create file symbolic link' value specifies the defined action of creating a symbolic link to an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="find file">
+                <xs:annotation>
+                    <xs:documentation>The 'find file' value specifies the defined action of searching for an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="get file attributes">
+                <xs:annotation>
+                    <xs:documentation>The 'get file attributes' value specifies the defined action of getting the attributes of an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="set file attributes">
+                <xs:annotation>
+                    <xs:documentation>The 'set file attributes' value specifies the defined action of setting the file attributes for an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="lock file">
+                <xs:annotation>
+                    <xs:documentation>The 'lock file' value specifies the defined action of locking an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="unlock file">
+                <xs:annotation>
+                    <xs:documentation>The 'unlock file' value specifies the defined action of unlocking an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="modify file">
+                <xs:annotation>
+                    <xs:documentation>The 'modify file' value specifies the defined action of modifying an existing file in some manner.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="move file">
+                <xs:annotation>
+                    <xs:documentation>The 'move file' value specifies the defined action of moving an existing file from one location to another.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="open file">
+                <xs:annotation>
+                    <xs:documentation>The 'open file' value specifies the defined action of opening an existing file for reading or writing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="read from file">
+                <xs:annotation>
+                    <xs:documentation>The 'read from file' value specifies the defined action of reading from an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="write to file">
+                <xs:annotation>
+                    <xs:documentation>The 'write to file' value specifies the defined action of writing to an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="rename file">
+                <xs:annotation>
+                    <xs:documentation>The 'rename file' value specifies the defined action of renaming an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="create file alternate data stream">
+                <xs:annotation>
+                    <xs:documentation>The 'create file alternate data stream' value specifies the defined action of creating an alternate data stream in an existing file.</xs:documentation>
+                    <xs:documentation>Windows-specific.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="send control code to file">
+                <xs:annotation>
+                    <xs:documentation>The 'send control code to file' value specifies the defined action of sending a control code to a file.</xs:documentation>
+                    <xs:documentation>Windows-specific.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="create file mapping">
+                <xs:annotation>
+                    <xs:documentation>The 'create file mapping' value specifies the defined action of creating a new file mapping object.</xs:documentation>
+                    <xs:documentation>Windows-specific.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="open file mapping">
+                <xs:annotation>
+                    <xs:documentation>The 'open file mapping' value specifies the defined action of opening an existing file mapping object.</xs:documentation>
+                    <xs:documentation>Windows-specific.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute file">
+                <xs:annotation>
+                    <xs:documentation>The 'execute file' value specifies the defined action of executing an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide file">
+                <xs:annotation>
+                    <xs:documentation>The 'hide file' value specifies the defined action of hiding an existing file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="close file">
+                <xs:annotation>
+                    <xs:documentation>The 'close file' value specifies the defined action of closing an existing file that previously opened for reading or writing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="HookingActionNameVocab-1.0">
         <xs:annotation>
             <xs:documentation>The HookingActionNameVocab is the default MAEC vocabulary for hooking action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For hooking action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -465,6 +805,7 @@
     <xs:simpleType name="HookingActionNameEnum-1.0">
         <xs:annotation>
             <xs:documentation>The HookingActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with various kinds of hooking.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="add system call hook">
@@ -476,6 +817,45 @@
                 <xs:annotation>
                     <xs:documentation>The 'add windows hook' value specifies the defined action of adding a new Windows application-defined hook procedure.</xs:documentation>
                     <xs:documentation>Windows-specific.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="HookingActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The HookingActionNameVocab is the default MAEC vocabulary for hooking action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For hooking action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated HookingActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:HookingActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Hooking Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#HookingActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="HookingActionNameEnum-1.1">
+        <xs:annotation>
+            <xs:documentation>The HookingActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with various kinds of hooking.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="add system call hook">
+                <xs:annotation>
+                    <xs:documentation>The 'add system call hook' value specifies the defined action of adding a new system call hook.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="add windows hook">
+                <xs:annotation>
+                    <xs:documentation>The 'add windows hook' value specifies the defined action of adding a new Windows application-defined hook procedure.</xs:documentation>
+                    <xs:documentation>Windows-specific.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide hook">
+                <xs:annotation>
+                    <xs:documentation>The 'hide hook' value specifies the defined action of hiding an existing hook.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -682,6 +1062,7 @@
         <xs:annotation>
             <xs:documentation>The NetworkActionNameVocab is the default MAEC vocabulary for network action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For network action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -694,6 +1075,85 @@
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="NetworkActionNameEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The NetworkActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with networking.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="open port">
+                <xs:annotation>
+                    <xs:documentation>The 'open port' value specifies the defined action of opening a network port.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="close port">
+                <xs:annotation>
+                    <xs:documentation>The 'close port' value specifies the defined action of closing a network port.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="connect to ip">
+                <xs:annotation>
+                    <xs:documentation>The 'connect to ip' value specifies the defined action of connecting to an IP address.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disconnect from ip">
+                <xs:annotation>
+                    <xs:documentation>The 'disconnect from ip' value specifies the defined action of disconnecting from a previously established connection to an IP address.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="connect to url">
+                <xs:annotation>
+                    <xs:documentation>The 'connect to url' value specifies the defined action of connecting to a URL.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="connect to socket address">
+                <xs:annotation>
+                    <xs:documentation>The 'connect to socket address' value specifies the defined action of connecting to a socket address, consisting of an IP address and port number.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="download file">
+                <xs:annotation>
+                    <xs:documentation>The 'download file' value specifies the defined action of downloading a file from a remote location.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="upload file">
+                <xs:annotation>
+                    <xs:documentation>The 'upload file' value specifies the defined action of uploading a file to a remote location.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="listen on port">
+                <xs:annotation>
+                    <xs:documentation>The 'listen on port' value specifies the defined action of listening on a specific port.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="send email message">
+                <xs:annotation>
+                    <xs:documentation>The 'send email message' value specifies the defined action of sending an email message.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="send icmp request">
+                <xs:annotation>
+                    <xs:documentation>The 'send icmp request' value specifies the defined action of sending an ICMP request.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="NetworkActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The NetworkActionNameVocab is the default MAEC vocabulary for network action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For network action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated NetworkActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:NetworkActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Network Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#NetworkActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="NetworkActionNameEnum-1.1">
         <xs:annotation>
             <xs:documentation>The NetworkActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with networking.</xs:documentation>
         </xs:annotation>
@@ -751,6 +1211,16 @@
             <xs:enumeration value="send icmp request">
                 <xs:annotation>
                     <xs:documentation>The 'send icmp request' value specifies the defined action of sending an ICMP request.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="send network packet">
+                <xs:annotation>
+                    <xs:documentation>The 'send network packet' value specifies the defined action of sending a packet on a network.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="receive network packet">
+                <xs:annotation>
+                    <xs:documentation>The 'receive network packet' value specifies the defined action of receiving a packet on a network.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -999,6 +1469,7 @@
         <xs:annotation>
             <xs:documentation>The UserActionNameVocab is the default MAEC vocabulary for user action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For user action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -1011,6 +1482,55 @@
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="UserActionNameEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The UserActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with users.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="add user">
+                <xs:annotation>
+                    <xs:documentation>The 'add user' value specifies the defined action of adding a new user.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="delete user">
+                <xs:annotation>
+                    <xs:documentation>The 'delete user' value specifies the defined action of deleting an existing user.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="enumerate users">
+                <xs:annotation>
+                    <xs:documentation>The 'enumerate users' value specifies the defined action of enumerating all users.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="get user attributes">
+                <xs:annotation>
+                    <xs:documentation>The 'get user attributes' value specifies the defined action of getting the attributes of an existing user.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="logon as user">
+                <xs:annotation>
+                    <xs:documentation>The 'logon as user' value specifies the defined action of logging on as a specific user.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="UserActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The UserActionNameVocab is the default MAEC vocabulary for user action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For user action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated UserActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:UserActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default User Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#UserActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="UserActionNameEnum-1.1">
         <xs:annotation>
             <xs:documentation>The UserActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with users.</xs:documentation>
         </xs:annotation>
@@ -1038,6 +1558,26 @@
             <xs:enumeration value="logon as user">
                 <xs:annotation>
                     <xs:documentation>The 'logon as user' value specifies the defined action of logging on as a specific user.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="change password">
+                <xs:annotation>
+                    <xs:documentation>The 'change password' value specifies the defined action of changing an existing user's password.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="add user to group">
+                <xs:annotation>
+                    <xs:documentation>The 'add user to group' value specifies the defined action of adding an existing user to an existing group.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="remove user from group">
+                <xs:annotation>
+                    <xs:documentation>The 'remove user from group' value specifies the defined action of removing an existing user from existing group.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="invoke user privilege">
+                <xs:annotation>
+                    <xs:documentation>The 'invoke user privilege' value specifies the defined action of invoking a privilege given to an existing user.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -1338,6 +1878,7 @@
         <xs:annotation>
             <xs:documentation>The ServiceActionNameVocab is the default MAEC vocabulary for service action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For service action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -1350,6 +1891,66 @@
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="ServiceActionNameEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The ServiceActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with services or daemons.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="create service">
+                <xs:annotation>
+                    <xs:documentation>The 'create service' value specifies the defined action of creating a new service.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="delete service">
+                <xs:annotation>
+                    <xs:documentation>The 'delete service' value specifies the defined action of deleting an existing service.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="start service">
+                <xs:annotation>
+                    <xs:documentation>The 'start service' value specifies the defined action of starting an existing service.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="enumerate services">
+                <xs:annotation>
+                    <xs:documentation>The 'enumerate services' value specifies the defined action of enumerating a specific set of services on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="modify service configuration">
+                <xs:annotation>
+                    <xs:documentation>The 'modify service configuration' value specifies the defined action of modifying the configuration parameters of an existing service.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="open service">
+                <xs:annotation>
+                    <xs:documentation>The 'open service' value specifies the defined action of opening an existing service.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="send control code to service">
+                <xs:annotation>
+                    <xs:documentation>The 'send control code to service' value specifies the defined action of sending a control code to an existing service.</xs:documentation>
+                    <xs:documentation>Windows-specific.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="ServiceActionNameVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The ServiceActionNameVocab is the default MAEC vocabulary for service action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+            <xs:documentation>For service action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated ServiceActionNameVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:ServiceActionNameEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Service Action Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ServiceActionNameVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="ServiceActionNameEnum-1.1">
         <xs:annotation>
             <xs:documentation>The ServiceActionNameEnum is a (non-exhaustive) enumeration of the different actions associated with services or daemons.</xs:documentation>
         </xs:annotation>
@@ -1367,6 +1968,11 @@
             <xs:enumeration value="start service">
                 <xs:annotation>
                     <xs:documentation>The 'start service' value specifies the defined action of starting an existing service.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="stop service">
+                <xs:annotation>
+                    <xs:documentation>The 'stop service' value specifies the defined action of stopping an existing service.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="enumerate services">
