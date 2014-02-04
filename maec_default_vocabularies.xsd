@@ -1731,6 +1731,7 @@
     <xs:complexType name="MalwareSubjectRelationshipTypeVocab-1.0">
         <xs:annotation>
             <xs:documentation>The MalwareSubjectRelationshipTypeVocab is the default MAEC vocabulary for the Malware Subject relationships in a Package, captured via the MalwareSubjectRelationshipType/Type element in the MAEC Package.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -1743,6 +1744,59 @@
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="MalwareSubjectRelationshipEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The MalwareSubjectRelationshipEnum is a non-exhaustive enumeration of relationships between Malware Subjects.</xs:documentation>
+            <xs:documentation>Deprecated as of MAEC 4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="downloads">
+                <xs:annotation>
+                    <xs:documentation>The 'downloads' value specifies that the Malware Subject downloads one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="downloaded by">
+                <xs:annotation>
+                    <xs:documentation>The 'downloaded by' value specifies that the current Malware Subject was downloaded by one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="drops">
+                <xs:annotation>
+                    <xs:documentation>The 'drops' value specifies that the Malware Subject drops (or writes to disk) one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="dropped by">
+                <xs:annotation>
+                    <xs:documentation>The 'dropped by' value specifies that the current Malware Subject was dropped (or written to disk) by one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="extracts">
+                <xs:annotation>
+                    <xs:documentation>The 'extracts' value specifies that the Malware Subject extracts (from an embedded archive or another container) one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="extracted from">
+                <xs:annotation>
+                    <xs:documentation>The 'extracted from' value specifies that the current Malware Subject was extracted from one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="MalwareSubjectRelationshipTypeVocab-1.1">
+        <xs:annotation>
+            <xs:documentation>The MalwareSubjectRelationshipTypeVocab is the default MAEC vocabulary for the Malware Subject relationships in a Package, captured via the MalwareSubjectRelationshipType/Type element in the MAEC Package.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, this vocabulary should be used in place of the deprecated MalwareSubjectRelationshipTypeVocab-1.0.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:MalwareSubjectRelationshipEnum-1.1"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Malware Subject Relationship Types" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareSubjectRelationshipTypeVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="MalwareSubjectRelationshipEnum-1.1">
         <xs:annotation>
             <xs:documentation>The MalwareSubjectRelationshipEnum is a non-exhaustive enumeration of relationships between Malware Subjects.</xs:documentation>
         </xs:annotation>
@@ -1775,6 +1829,71 @@
             <xs:enumeration value="extracted from">
                 <xs:annotation>
                     <xs:documentation>The 'extracted from' value specifies that the current Malware Subject was extracted from one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="direct descendant of">
+                <xs:annotation>
+                    <xs:documentation>The 'direct descendant of' value specifies that the current Malware Subject is a direct descendant (i.e. in terms of development lineage) of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="direct ancestor of">
+                <xs:annotation>
+                    <xs:documentation>The 'direct ancestor of' value specifies that the current Malware Subject is a direct ancestor (i.e. in terms of development lineage) of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="memory image of">
+                <xs:annotation>
+                    <xs:documentation>The 'memory image of' value specifies that the current Malware Subject represents a memory image associated with one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disk image of">
+                <xs:annotation>
+                    <xs:documentation>The 'disk image of' value specifies that the current Malware Subject represents a disk image associated with one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="network traffic capture of">
+                <xs:annotation>
+                    <xs:documentation>The 'network traffic capture of' value specifies that the current Malware Subject represents captured network traffic associated with one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="packed version of">
+                <xs:annotation>
+                    <xs:documentation>The 'packed version of' value specifies that the current Malware Subject represents a packed version (in terms of executable binary packing) of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="unpacked version of">
+                <xs:annotation>
+                    <xs:documentation>The 'unpacked version of' value specifies that the current Malware Subject represents an unpacked version (in terms of executable binary packing) of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="installs">
+                <xs:annotation>
+                    <xs:documentation>The 'installs' value specifies that the current Malware Subject installs one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="installed by">
+                <xs:annotation>
+                    <xs:documentation>The 'installed by' value specifies that the current Malware Subject is installed by one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="64-bit version of">
+                <xs:annotation>
+                    <xs:documentation>The '64-bit version of' value specifies that the current Malware Subject is a 64-bit version of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="32-bit version of">
+                <xs:annotation>
+                    <xs:documentation>The '32-bit version of' value specifies that the current Malware Subject is a 32-bit version of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="encrypted version of">
+                <xs:annotation>
+                    <xs:documentation>The 'encrypted version of' value specifies that the current Malware Subject is an encrypted version of one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="decrypted version of">
+                <xs:annotation>
+                    <xs:documentation>The 'decrypted version of' value specifies that the current Malware Subject is a decrypted version of one or more other Malware Subject(s).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
