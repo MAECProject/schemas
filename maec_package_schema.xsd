@@ -354,6 +354,11 @@
 					<xs:documentation>The Malware_Instance_Object_Attributes field characterizes the attributes of the malware instance object (most commonly a file) that is encompassed in the Malware_Subject, via its corresponding CybOX Object. For example, a file would be represented via a CybOX File field of type FileObj:FileObjectType and may have a file name, MD5 hash, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Label" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Label field specifies a single commonly accepted label to describe the Malware Subject, e.g. "worm". The default vocabulary for this field is the MalwareLabelVocab-1.0 from the MAEC Default Vocabularies schema. More than one label may be specified through the use of multiple instances of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Configuration_Details" type="maecPackage:MalwareConfigurationDetailsType">
 				<xs:annotation>
 					<xs:documentation>The Configuration_Details field captures details of the configuration specified for the Malware Subject, such as configuration parameters.</xs:documentation>
