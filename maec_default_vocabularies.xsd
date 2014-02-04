@@ -1815,12 +1815,12 @@
             </xs:enumeration>
             <xs:enumeration value="data theft">
                 <xs:annotation>
-                    <xs:documentation>"The 'data theft' Capability indicates that the malware instance is able to steal data from the system on which it executes. This includes data stored in some form</xs:documentation>
+                    <xs:documentation>The 'data theft' Capability indicates that the malware instance is able to steal data from the system on which it executes. This includes data stored in some form, e.g. in a file, as well as data that may be entered into some application such as a web-browser.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="spying">
                 <xs:annotation>
-                    <xs:documentation>"The 'spying' Capability indicates that the malware instance is able to capture information from a system related to user or system activity (e.g.</xs:documentation>
+                    <xs:documentation>The 'spying' Capability indicates that the malware instance is able to capture information from a system related to user or system activity (e.g., from a system's peripheral devices).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="anti-detection">
@@ -1835,7 +1835,7 @@
             </xs:enumeration>
             <xs:enumeration value="infection/propagation">
                 <xs:annotation>
-                    <xs:documentation>"The 'infection/propagation' Capability indicates that the malware instance is able to propagate through the infection of a machine or is able to infect a file after executing on a system.  The malware instance may infect actively (e.g.</xs:documentation>
+                    <xs:documentation>The 'infection/propagation' Capability indicates that the malware instance is able to propagate through the infection of a machine or is able to infect a file after executing on a system.  The malware instance may infect actively (e.g., gain access to a machine directly) or passively (e.g., send malicious email).  This Capability does not encompass any aspects of the initial infection that is done independently of the malware instance itself.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="anti-behavioral analysis">
@@ -1921,7 +1921,7 @@
             </xs:enumeration>
             <xs:enumeration value="receive data from c2 server">
                 <xs:annotation>
-                    <xs:documentation>"The 'receive data from c2 server' value indicates that the malware instance is able receive data from a command and control server, e.g. for the purpose of executing a command.</xs:documentation>
+                    <xs:documentation>The 'receive data from c2 server' value indicates that the malware instance is able receive data from a command and control server, e.g. for the purpose of executing a command.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="send data to c2 server">
@@ -1952,7 +1952,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="execute remote command">
                 <xs:annotation>
-                    <xs:documentation>"The 'execute remote command' value indicates that the malware instance is able to execute commands issued to it from a remote source such as a command and control server</xs:documentation>
+                    <xs:documentation>The 'execute remote command' value indicates that the malware instance is able to execute commands issued to it from a remote source such as a command and control server</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="generate c2 domain name">
@@ -1967,7 +1967,7 @@
             </xs:enumeration>
             <xs:enumeration value="send heartbeat data">
                 <xs:annotation>
-                    <xs:documentation>"The 'send heartbeat data' value indicates that the malware instance is able to send heartbeat data to a command and control server</xs:documentation>
+                    <xs:documentation>The 'send heartbeat data' value indicates that the malware instance is able to send heartbeat data to a command and control server</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="update configuration">
@@ -1998,7 +1998,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="control machine">
                 <xs:annotation>
-                    <xs:documentation>"The 'control machine' value indicates that the malware instance is able to control the machine on which it is resident.  Examples of malware with this capability include bots</xs:documentation>
+                    <xs:documentation>The 'control machine' value indicates that the malware instance is able to control the machine on which it is resident.  Examples of malware with this capability include bots</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="access remote machine">
@@ -2039,7 +2039,7 @@
             </xs:enumeration>
             <xs:enumeration value="execute remote command">
                 <xs:annotation>
-                    <xs:documentation>"The 'execute remote command' value indicates that the malware instance executes commands issued to it from a remote source</xs:documentation>
+                    <xs:documentation>The 'execute remote command' value indicates that the malware instance executes commands issued to it from a remote source</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -2122,17 +2122,17 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="steal stored information">
                 <xs:annotation>
-                    <xs:documentation>"The 'steal stored information' value indicates that the malware instance is able to steal information stored on a system (e.g.</xs:documentation>
+                    <xs:documentation>The 'steal stored information' value indicates that the malware instance is able to steal information stored on a system (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="steal user data">
                 <xs:annotation>
-                    <xs:documentation>"The 'steal user data' value indicates that the malware instance is able to steal user data (e.g.</xs:documentation>
+                    <xs:documentation>The 'steal user data' value indicates that the malware instance is able to steal user data (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="steal system information">
                 <xs:annotation>
-                    <xs:documentation>"The 'steal system information' value indicates that the malware instance is able to steal information about a system (e.g.</xs:documentation>
+                    <xs:documentation>The 'steal system information' value indicates that the malware instance is able to steal information about a system (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="steal authentication credentials">
@@ -2178,7 +2178,7 @@
             </xs:enumeration>
             <xs:enumeration value="steal cryptocurrency data">
                 <xs:annotation>
-                    <xs:documentation>"The 'steal cryptocurrency data' value indicates that the malware instance is able to steal cryptocurrency data (e.g.</xs:documentation>
+                    <xs:documentation>The 'steal cryptocurrency data' value indicates that the malware instance is able to steal cryptocurrency data (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="steal pki software certificate">
@@ -2233,7 +2233,7 @@
             </xs:enumeration>
             <xs:enumeration value="steal web/network credential">
                 <xs:annotation>
-                    <xs:documentation>"The 'steal web/network credential' value indicates that the malware instance is able to steal usernames</xs:documentation>
+                    <xs:documentation>The 'steal web/network credential' value indicates that the malware instance is able to steal usernames</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="steal database content">
@@ -2279,7 +2279,7 @@
             </xs:enumeration>
             <xs:enumeration value="capture system state data">
                 <xs:annotation>
-                    <xs:documentation>"The 'capture system state data' value indicates that the malware instance is able to capture information about a system's state (e.g.</xs:documentation>
+                    <xs:documentation>The 'capture system state data' value indicates that the malware instance is able to capture information about a system's state (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="capture system interface data">
@@ -2315,7 +2315,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="capture system screenshot">
                 <xs:annotation>
-                    <xs:documentation>"The 'capture system screenshot' value indicates that the malware instance is able to capture images of what is currently being displayed on a system's screen</xs:documentation>
+                    <xs:documentation>The 'capture system screenshot' value indicates that the malware instance is able to capture images of what is currently being displayed on a system's screen</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="capture camera input">
@@ -2391,7 +2391,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="security software evasion">
                 <xs:annotation>
-                    <xs:documentation>"The 'security software evasion' value indicates that the malware instance is able to evade security software (e.g.</xs:documentation>
+                    <xs:documentation>The 'security software evasion' value indicates that the malware instance is able to evade security software (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="hide executing code">
@@ -2447,7 +2447,7 @@
             </xs:enumeration>
             <xs:enumeration value="execute before/external to kernel/hypervisor">
                 <xs:annotation>
-                    <xs:documentation>"The 'execute before/external to kernel/hypervisor' value indicates that the malware instance is able to execute some or all of its code before or external to the system's kernel or hypervisor (e.g.</xs:documentation>
+                    <xs:documentation>The 'execute before/external to kernel/hypervisor' value indicates that the malware instance is able to execute some or all of its code before or external to the system's kernel or hypervisor (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="encrypt self">
@@ -2472,7 +2472,7 @@
             </xs:enumeration>
             <xs:enumeration value="execute stealthy code">
                 <xs:annotation>
-                    <xs:documentation>"The 'execute stealthy code' value indicates that the malware instance is able to execute some or all of its code in a hidden manner (e.g.</xs:documentation>
+                    <xs:documentation>The 'execute stealthy code' value indicates that the malware instance is able to execute some or all of its code in a hidden manner (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="hide registry artifacts">
@@ -2492,7 +2492,7 @@
             </xs:enumeration>
             <xs:enumeration value="execute non-main cpu code">
                 <xs:annotation>
-                    <xs:documentation>"The 'execute non-main cpu code' value indicates that the malware instance is able to execute some or all of its code on a secondary</xs:documentation>
+                    <xs:documentation>The 'execute non-main cpu code' value indicates that the malware instance is able to execute some or all of its code on a secondary</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="feed misinformation during physical memory acquisition">
@@ -2512,7 +2512,7 @@
             </xs:enumeration>
             <xs:enumeration value="obfuscate artifact properties">
                 <xs:annotation>
-                    <xs:documentation>"The 'obfuscate artifact properties' value indicates that the malware instance is able to hide the properties of its artifacts (e.g.</xs:documentation>
+                    <xs:documentation>The 'obfuscate artifact properties' value indicates that the malware instance is able to hide the properties of its artifacts (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="hide kernel modules">
@@ -2604,7 +2604,7 @@
             </xs:enumeration>
             <xs:enumeration value="restructure arrays">
                 <xs:annotation>
-                    <xs:documentation>"The 'restructure arrays' value indicates that the malware instance is able to restructure its arrays</xs:documentation>
+                    <xs:documentation>The 'restructure arrays' value indicates that the malware instance is able to restructure its arrays</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="detect debugging">
@@ -2634,7 +2634,7 @@
             </xs:enumeration>
             <xs:enumeration value="obfuscate imports">
                 <xs:annotation>
-                    <xs:documentation>"The 'obfuscate imports' value indicates that the malware instance is able to obfuscate its import table</xs:documentation>
+                    <xs:documentation>The 'obfuscate imports' value indicates that the malware instance is able to obfuscate its import table</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="defeat call graph generation">
@@ -2706,22 +2706,22 @@
             </xs:enumeration>
             <xs:enumeration value="identify file">
                 <xs:annotation>
-                    <xs:documentation>"The 'identify file' value indicates that the malware instance is able to identify a file or files on a local</xs:documentation>
+                    <xs:documentation>The 'identify file' value indicates that the malware instance is able to identify a file or files on a local</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="perform social-engineering based remote infection">
                 <xs:annotation>
-                    <xs:documentation>"The 'perform social-engineering based remote infection' value indicates that the malware instance is able to infect remote machines via some method that involves social engineering (e.g.</xs:documentation>
+                    <xs:documentation>The 'perform social-engineering based remote infection' value indicates that the malware instance is able to infect remote machines via some method that involves social engineering (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="identify target machine(s)">
                 <xs:annotation>
-                    <xs:documentation>"The 'identify target machine(s)' value indicates that the malware instance is able to identify one or more machines to be targeted for infection via some remote means (e.g.</xs:documentation>
+                    <xs:documentation>The 'identify target machine(s)' value indicates that the malware instance is able to identify one or more machines to be targeted for infection via some remote means (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="perform autonomous remote infection">
                 <xs:annotation>
-                    <xs:documentation>"The 'perform autonomous remote infection' value indicates that the malware instance is able to infect a remote machine autonomously</xs:documentation>
+                    <xs:documentation>The 'perform autonomous remote infection' value indicates that the malware instance is able to infect a remote machine autonomously</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -2783,7 +2783,7 @@
             </xs:enumeration>
             <xs:enumeration value="overload sandbox">
                 <xs:annotation>
-                    <xs:documentation>"The 'overload sandbox' value indicates that the malware instance is able to overload a sandbox (e.g.</xs:documentation>
+                    <xs:documentation>The 'overload sandbox' value indicates that the malware instance is able to overload a sandbox (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="prevent execution in sandbox">
@@ -2957,7 +2957,7 @@
             </xs:enumeration>
             <xs:enumeration value="exfiltrate via physical media">
                 <xs:annotation>
-                    <xs:documentation>"The 'exfiltrate via physical media' value indicates that the malware instance is able to exfiltrate data using physical media (e.g.</xs:documentation>
+                    <xs:documentation>The 'exfiltrate via physical media' value indicates that the malware instance is able to exfiltrate data using physical media (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="encrypt data">
@@ -2982,7 +2982,7 @@
             </xs:enumeration>
             <xs:enumeration value="exfiltrate via dumpster dive">
                 <xs:annotation>
-                    <xs:documentation>"The 'exfiltrate via dumpster dive' value indicates that the malware instance is able to exfiltrate data via dumpster dive (i.e.</xs:documentation>
+                    <xs:documentation>The 'exfiltrate via dumpster dive' value indicates that the malware instance is able to exfiltrate data via dumpster dive (i.e.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="move data to staging server">
@@ -3105,7 +3105,7 @@
             </xs:enumeration>
             <xs:enumeration value="degrade security programs">
                 <xs:annotation>
-                    <xs:documentation>"The 'degrade security programs' value indicates that the malware instance is able to degrade security programs running on a system</xs:documentation>
+                    <xs:documentation>The 'degrade security programs' value indicates that the malware instance is able to degrade security programs running on a system</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="disable system updates">
@@ -3156,7 +3156,7 @@
             </xs:enumeration>
             <xs:enumeration value="disable access right checking">
                 <xs:annotation>
-                    <xs:documentation>"The 'disable access right checking' value indicates that the malware instance is able to bypass</xs:documentation>
+                    <xs:documentation>The 'disable access right checking' value indicates that the malware instance is able to bypass</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="disable kernel patching protection">
@@ -3196,7 +3196,7 @@
             </xs:enumeration>
             <xs:enumeration value="disable system file overwrite protection">
                 <xs:annotation>
-                    <xs:documentation>"The 'disable system file overwrite protection' value indicates that the malware instance is able to bypass or disable the Windows file protection feature; thus</xs:documentation>
+                    <xs:documentation>The 'disable system file overwrite protection' value indicates that the malware instance is able to bypass or disable the Windows file protection feature; thus</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="disable privilege limiting">
@@ -3216,7 +3216,7 @@
             </xs:enumeration>
             <xs:enumeration value="disable user account control">
                 <xs:annotation>
-                    <xs:documentation>"The 'disable user account control' value indicates that the malware instance is able to bypass or disable user account control (UAC); thus</xs:documentation>
+                    <xs:documentation>The 'disable user account control' value indicates that the malware instance is able to bypass or disable user account control (UAC); thus</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -3278,7 +3278,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="denial of service">
                 <xs:annotation>
-                    <xs:documentation>"The 'denial of service' value indicates that the malware instance is able to cause a server to be unavailable</xs:documentation>
+                    <xs:documentation>The 'denial of service' value indicates that the malware instance is able to cause a server to be unavailable</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="compromise local system availability">
@@ -3298,7 +3298,7 @@
             </xs:enumeration>
             <xs:enumeration value="compromise access to information assets">
                 <xs:annotation>
-                    <xs:documentation>"The 'compromise access to information assets' value indicates that the malware instance is able to prevent data from being accessed (e.g.</xs:documentation>
+                    <xs:documentation>The 'compromise access to information assets' value indicates that the malware instance is able to prevent data from being accessed (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -3329,7 +3329,7 @@
             </xs:enumeration>
             <xs:enumeration value="install other components">
                 <xs:annotation>
-                    <xs:documentation>"The 'install other components' value indicates that the malware instance is able to install additional components.  This encompasses the dropping/downloading of other malicious components such as libraries</xs:documentation>
+                    <xs:documentation>The 'install other components' value indicates that the malware instance is able to install additional components.  This encompasses the dropping/downloading of other malicious components such as libraries</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -3406,7 +3406,7 @@
             </xs:enumeration>
             <xs:enumeration value="persist to continuously execute on system">
                 <xs:annotation>
-                    <xs:documentation>"The 'persist to continuously execute on system' value indicates that the malware instance is able to continue to execute on a system after significant system events (e.g.</xs:documentation>
+                    <xs:documentation>The 'persist to continuously execute on system' value indicates that the malware instance is able to continue to execute on a system after significant system events (e.g.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -3622,7 +3622,7 @@
             </xs:enumeration>
             <xs:enumeration value="probe network environment">
                 <xs:annotation>
-                    <xs:documentation>"The 'probe network environment' value indicates that the malware instance is able to probe the properties of its network environment</xs:documentation>
+                    <xs:documentation>The 'probe network environment' value indicates that the malware instance is able to probe the properties of its network environment</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
