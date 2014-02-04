@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MAEC Capability/Objective Properties Example 
-     Describes a notional Anti-Behavioral Analysis capability
-     Captures a sandbox targeted by the Detect Sandbox Environment Tactical Objective-->
+<!-- 
+MAEC Capability/Objective Properties Example 
+-Describes a notional Anti-Behavioral Analysis capability
+-Captures a sandbox targeted by the Detect Sandbox Environment Tactical Objective
+
+Added February 2014 for MAEC v4.1 -->
 <maecPackage:MAEC_Package 
  xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
  xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"

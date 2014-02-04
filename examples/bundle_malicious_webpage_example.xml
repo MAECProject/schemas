@@ -22,12 +22,10 @@
  xsi:schemaLocation=
  "http://maec.mitre.org/XMLSchema/maec-bundle-4 ../maec_bundle_schema.xsd
  http://maec.mitre.org/default_vocabularies-1 ../maec_default_vocabularies.xsd
- http://cybox.mitre.org/common-2 http://cybox.mitre.org/XMLSchema/common/2.0.1/cybox_common.xsd
- http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.0.1/cybox_core.xsd
- http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd
- http://cybox.mitre.org/objects#URIObject-2 http://cybox.mitre.org/XMLSchema/objects/URI/2.0.1/URI_Object.xsd
- http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.0.1/File_Object.xsd
- http://cybox.mitre.org/objects#CodeObject-2 http://cybox.mitre.org/XMLSchema/objects/Code/2.0.1/Code_Object.xsd"
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd
+ http://cybox.mitre.org/objects#URIObject-2 http://cybox.mitre.org/XMLSchema/objects/URI/2.1/URI_Object.xsd
+ http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd
+ http://cybox.mitre.org/objects#CodeObject-2 http://cybox.mitre.org/XMLSchema/objects/Code/2.1/Code_Object.xsd"
  id="maec-example-bnd-1" schema_version="4.1" defined_subject="true" content_type="static analysis tool output">
 <maecBundle:Malware_Instance_Object_Attributes>
  <cybox:Properties xsi:type="URIObj:URIObjectType">
