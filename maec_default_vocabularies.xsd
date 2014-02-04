@@ -1728,6 +1728,57 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="MalwareConfigurationParameterVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The MalwareConfigurationParameterVocab is the default MAEC vocabulary for malware configuration parameter names, captured via the MalwareConfigurationParameterType/Name element in the MAEC Package.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:MalwareConfigurationParameterEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Malware Configuration Parameter Names" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareConfigurationParameterVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="MalwareConfigurationParameterEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The MalwareConfigurationParameterEnum is a non-exhaustive enumeration of malware configuration parameter names.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="magic number">
+                <xs:annotation>
+                    <xs:documentation>The 'magic number' value refers to a configuration parameter that captures a file signature that may be used to identify or validate the content the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="id">
+                <xs:annotation>
+                    <xs:documentation>The 'id' value refers to a configuration parameter that captures an identifier for the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="group id">
+                <xs:annotation>
+                    <xs:documentation>The 'group id' value refers to a configuration parameter that captures an identifier for a collection of malware instances.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mutex">
+                <xs:annotation>
+                    <xs:documentation>The 'mutex' value refers to a configuration parameter that captures a unique mutex value associated the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="filename">
+                <xs:annotation>
+                    <xs:documentation>The 'filename' value refers to a configuration parameter that captures the name of a malicious binary such as one that is downloaded or embedded within the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="installation path">
+                <xs:annotation>
+                    <xs:documentation>The 'installation path' value refers to a configuration parameter that captures a location on disk to which the malware instance is installed, copied, or moved.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="MalwareSubjectRelationshipTypeVocab-1.0">
         <xs:annotation>
             <xs:documentation>The MalwareSubjectRelationshipTypeVocab is the default MAEC vocabulary for the Malware Subject relationships in a Package, captured via the MalwareSubjectRelationshipType/Type element in the MAEC Package.</xs:documentation>
