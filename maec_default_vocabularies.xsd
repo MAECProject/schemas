@@ -298,7 +298,7 @@
         <xs:annotation>
             <xs:documentation>The LibraryActionNameVocab is the default MAEC vocabulary for library action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For library action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
-            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated LibraryActionNameVocab-1.1.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated LibraryActionNameVocab-1.0.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -385,7 +385,7 @@
         <xs:annotation>
             <xs:documentation>The DirectoryActionNameVocab is the default MAEC vocabulary for directory action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For directory action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
-            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated DirectoryActionNameVocab-1.1.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated DirectoryActionNameVocab-1.0.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -472,7 +472,7 @@
         <xs:annotation>
             <xs:documentation>The DiskActionNameVocab is the default MAEC vocabulary for disk action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For disk action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
-            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated DiskActionNameVocab-1.1.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated DiskActionNameVocab-1.0.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -825,7 +825,7 @@
         <xs:annotation>
             <xs:documentation>The HookingActionNameVocab is the default MAEC vocabulary for hooking action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For hooking action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
-            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated HookingActionNameVocab-1.1.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated HookingActionNameVocab-1.0.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -1141,7 +1141,7 @@
         <xs:annotation>
             <xs:documentation>The NetworkActionNameVocab is the default MAEC vocabulary for network action names, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
             <xs:documentation>For network action names, it should be used in place of the CybOX ActionNameVocab-1.0.</xs:documentation>
-            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated NetworkActionNameVocab-1.1.</xs:documentation>
+            <xs:documentation>Starting with MAEC 4.1, it should be used in place of the deprecated NetworkActionNameVocab-1.0.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
