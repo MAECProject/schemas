@@ -190,6 +190,11 @@
 					<xs:documentation>The Exit_Code field specifies the exit code with which the subject binary exited. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Raised_Exception" type="maecPackage:MalwareExceptionType">
+				<xs:annotation>
+					<xs:documentation>The Raised_Exception field captures a single exception that was raised (or thrown) during the execution of the malware instance. More than one exception may be captured through the use of multiple instances of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AnalysisType">
@@ -349,9 +354,19 @@
 					<xs:documentation>The Malware_Instance_Object_Attributes field characterizes the attributes of the malware instance object (most commonly a file) that is encompassed in the Malware_Subject, via its corresponding CybOX Object. For example, a file would be represented via a CybOX File field of type FileObj:FileObjectType and may have a file name, MD5 hash, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Label" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Label field specifies a single commonly accepted label to describe the Malware Subject, e.g. "worm". The default vocabulary for this field is the MalwareLabelVocab-1.0 from the MAEC Default Vocabularies schema. More than one label may be specified through the use of multiple instances of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Configuration_Details" type="maecPackage:MalwareConfigurationDetailsType">
 				<xs:annotation>
 					<xs:documentation>The Configuration_Details field captures details of the configuration specified for the Malware Subject, such as configuration parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Development_Environment" type="maecPackage:MalwareDevelopmentEnvironmentType">
+				<xs:annotation>
+					<xs:documentation>The Development_Environment field captures details of the development environment used in the creation of the malware instance characterized by the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Minor_Variants" type="maecPackage:MinorVariantListType">
@@ -743,12 +758,12 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Name field specifies the name of the malware configuration parameter. It uses the "insert name here" vocabulary from the MAEC Default Vocabularies schemas as its default vocabulary.</xs:documentation>
+					<xs:documentation>The Name field specifies the name of the malware configuration parameter. It uses the MalwareConfigurationParameterVocab vocabulary from the MAEC Default Vocabularies schemas as its default vocabulary. Parameters that are not included in this vocabulary may also be specified, in which case it is recommended to use the exact name of the parameter.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Value" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Value field captures the value of the configuration parameter.</xs:documentation>
+					<xs:documentation>The Value field captures the value of the malware configuration parameter.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -758,14 +773,14 @@
 			<xs:documentation>The MalwareConfigurationDetailsType captures details of malware configuration parameters and associated metadata.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Packaging" type="maecPackage:MalwareConfigurationPackagingDetailsType">
+			<xs:element minOccurs="0" name="Storage" type="maecPackage:MalwareConfigurationStorageDetailsType">
 				<xs:annotation>
-					<xs:documentation>The Packaging field captures details of the how the malware configuration parameters may be packaged, e.g. in a separate file, in memory, etc.</xs:documentation>
+					<xs:documentation>The Storage field captures details of the how the malware configuration parameters may be stored, e.g. in a separate file, in memory, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Encryption" type="maecPackage:MalwareConfigurationEncryptionDetailsType">
+			<xs:element minOccurs="0" name="Obfuscation" type="maecPackage:MalwareConfigurationObfuscationDetailsType">
 				<xs:annotation>
-					<xs:documentation>The Encryption field captures details of encryption used to obfuscate the malware configuration parameters, if applicable.</xs:documentation>
+					<xs:documentation>The Encryption field captures details of how the malware configuration parameters may be obfuscated, if applicable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Configuration_Parameter" type="maecPackage:MalwareConfigurationParameterType">
@@ -775,28 +790,60 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="MalwareConfigurationEncryptionDetailsType">
+	<xs:complexType name="MalwareConfigurationObfuscationDetailsType">
 		<xs:annotation>
-			<xs:documentation>The MalwareConfigurationEncryptionDetailsType captures details relating to the encryption of malware configuration parameters.</xs:documentation>
+			<xs:documentation>The MalwareConfigurationObfuscationDetailsType captures details relating to the obfuscation of malware configuration parameters.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Decryption_Key" type="xs:string">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Algorithm_Details" type="maecPackage:MalwareConfigurationObfuscationAlgorithmType">
 				<xs:annotation>
-					<xs:documentation>The Decryption_Key field captures the key used to decrypt the configuration parameters.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Encryption_Algorithm" type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Encryption_Algorithm field captures an encryption algorithm that may be used for encrypting the configuration parameters. More than one encryption algorithm may be specified by using multiple occurrences of this field.</xs:documentation>
+					<xs:documentation>The Algorithm_Details field captures an the details of the algorithm used to encode or encrypt the malware configuration parameters, including the name of the algorithm and its key. More than one encryption or encoding algorithm may be specified by using multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="is_encoded" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The is_encoded field specifies that the malware configuration parameters are encoded with the algorithm captured in the Algorithm_Details field.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="is_encrypted" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The is_encrypted field specifies that the malware configuration parameters are encrypted with the algorithm captured in the Algorithm_Details field.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="MalwareConfigurationPackagingDetailsType">
+	<xs:complexType name="MalwareConfigurationObfuscationAlgorithmType">
 		<xs:annotation>
-			<xs:documentation>The MalwareConfigurationPackagingDetailsType captures details relating to the packaging of malware configuration parameters.</xs:documentation>
+			<xs:documentation>The MalwareConfigurationObfuscationDetailsType captures of an algorithm used to encode or encrypt malware configuration parameters.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element minOccurs="0" name="Key" type="xs:hexBinary">
+				<xs:annotation>
+					<xs:documentation>The Key field captures the hexadecimal key used to decrypt the configuration parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Algorithm_Name" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Algorithm_Name field captures the name of the encoding or encryption algorithm used to obfuscate the malware configuration parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
+			<xs:annotation>
+				<xs:documentation>The ordinal_position field specifies the explicit ordering of the usage of the algorithm with respect to the other algorithms used to encrypt or encode the malware configuration parameters, for cases where more than one algorithm was used.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MalwareConfigurationStorageDetailsType">
+		<xs:annotation>
+			<xs:documentation>The MalwareConfigurationStorageDetailsType captures details relating to the storage of malware configuration parameters.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Malware_Binary" type="maecPackage:MalwareBinaryConfigurationStorageDetailsType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Binary field captures properties related to the storage of malware configuration parameters inside the malware binary captured in the Malware_Instance_Object_Attributes field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="File" type="FileObj:FileObjectType">
 				<xs:annotation>
 					<xs:documentation>The File field captures the properties of a configuration file, for cases where the Malware Subject stores its configuration parameters in a separate file.</xs:documentation>
@@ -810,11 +857,76 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="in_malware_binary" type="xs:boolean">
-			<xs:annotation>
-				<xs:documentation>The in_malware_binary field specifies whether the configuration parameters for the malware are stored in its binary.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MalwareBinaryConfigurationStorageDetailsType">
+		<xs:annotation>
+			<xs:documentation>The MalwareBinaryConfigurationStorageDetailsType captures details relating to the storage of malware configuration parameters inside the malware binary itself.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="File_Offset" type="xs:hexBinary">
+				<xs:annotation>
+					<xs:documentation>The File_Offset field specifies the offset to the start of the malware configuration parameters in the malware binary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Section_Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Section_Name field specifies the name of the PE section in the malware binary thta contains the malware configuration parameters, for PE file malware binaries.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Section_Offset" type="xs:hexBinary">
+				<xs:annotation>
+					<xs:documentation>The Section_Offset field specifies the offset in the PE section in the malware binary that contains the malware configuration parameters to the start of the parameters themselves, for PE file malware binaries.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MalwareDevelopmentEnvironmentType">
+		<xs:annotation>
+			<xs:documentation>The MalwareDevelopmentEnvironmentType captures details of the development environment used in developing the malware instance, such as information on any tools that were used.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Tools" type="cyboxCommon:ToolsInformationType">
+				<xs:annotation>
+					<xs:documentation>The Tools field captures the properties of one or more tools used in the development of the malware instance. For the Type field in each Tool, the MAEC MalwareDevelopmentToolVocab (from the MAEC Default Vocabularies Schema) should be used as the default vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Debugging_File" type="FileObj:FileObjectType">
+				<xs:annotation>
+					<xs:documentation>The Debugging_File field captures the properties of a debugging file associated with the malware instance, such as a PDB file. It uses the FileObjectType from the imported File Object Schema. More than one Debugging_File can be specified by using multiple instances of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MalwareExceptionType">
+		<xs:annotation>
+			<xs:documentation>The MalwareExceptionType captures details of exceptions that may be raised as a result of a malware instance executing on a system.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cyboxCommon:ErrorType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Exception_Code" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The Exception_Code field captures the particular code that identifies the type of exception that occurred. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Faulting_Address" type="xs:hexBinary">
+						<xs:annotation>
+							<xs:documentation>The Faulting_Address field captures the memory address where the exception occurred.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Description" type="xs:short">
+						<xs:annotation>
+							<xs:documentation>The Description field captures the textual description of the exception.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="is_fatal" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_fatal field specifies whether the exception is fatal; that is, whether it caused the malware instance to terminate.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:simpleType name="PackageIDPattern">
 		<xs:annotation>
