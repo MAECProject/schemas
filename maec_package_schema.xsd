@@ -359,6 +359,11 @@
 					<xs:documentation>The Configuration_Details field captures details of the configuration specified for the Malware Subject, such as configuration parameters.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Development_Environment" type="maecPackage:MalwareDevelopmentEnvironmentType">
+				<xs:annotation>
+					<xs:documentation>The Development_Environment field captures details of the development environment used in the creation of the malware instance characterized by the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Minor_Variants" type="maecPackage:MinorVariantListType">
 				<xs:annotation>
 					<xs:documentation>The Minor_Variants field captures any minor variants of the malware instance object, such as the same file but with different filenames.</xs:documentation>
@@ -820,6 +825,23 @@
 				<xs:documentation>The in_malware_binary field specifies whether the configuration parameters for the malware are stored in its binary.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MalwareDevelopmentEnvironmentType">
+		<xs:annotation>
+			<xs:documentation>The MalwareDevelopmentEnvironmentType captures details of the development environment used in developing the malware instance, such as information on any tools that were used.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Tools" type="cyboxCommon:ToolsInformationType">
+				<xs:annotation>
+					<xs:documentation>The Tools field captures the properties of one or more tools used in the development of the malware instance. For the Type field in each Tool, the MAEC MalwareDevelopmentToolVocab (from the MAEC Default Vocabularies Schema) should be used as the default vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Debugging_File" type="FileObj:FileObjectType">
+				<xs:annotation>
+					<xs:documentation>The Debugging_File field captures the properties of a debugging file associated with the malware instance, such as a PDB file. It uses the FileObjectType from the imported File Object Schema. More than one Debugging_File can be specified by using multiple instances of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="MalwareExceptionType">
 		<xs:annotation>
