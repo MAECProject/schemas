@@ -1898,6 +1898,57 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="MalwareDevelopmentToolVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The MalwareDevelopmentToolVocab is the default MAEC vocabulary for the Type field in the CybOX ToolInformationType, as used in the Development_Environment/Tools/Tool field in the Malware Subject.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:MalwareDevelopmentToolEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Malware Development Tool Types" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareDevelopmentToolVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="MalwareDevelopmentToolEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The GroupingRelationshipEnum is a non-exhaustive enumeration tools used in the development of malware.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="builder">
+                <xs:annotation>
+                    <xs:documentation>The 'builder' value specifies a malware builder tool (commonly used to mass-produce malware) that was used to generate the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="compiler">
+                <xs:annotation>
+                    <xs:documentation>The 'compiler' value specifies a compiler tool that was used to compile the code composing the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linker">
+                <xs:annotation>
+                    <xs:documentation>The 'linker' value specifies a linker tool that was used to link the object files associated with the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="packer">
+                <xs:annotation>
+                    <xs:documentation>The 'packer' value specifies a packer tool that was used to shrink the size of the executable binary associated with the malware instance. Packers are also sometimes referred to as 'compressors'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="crypter">
+                <xs:annotation>
+                    <xs:documentation>The 'crypter' value specifies a crypter tool that was used to encrypt the executable binary associated with the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="protector">
+                <xs:annotation>
+                    <xs:documentation>The 'protector' value specifies a protector tool that was used to obfuscate the executable binary associated with the malware instance to make it more difficult to reverse engineer.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="MalwareCapabilityVocab-1.0">
         <xs:annotation>
             <xs:documentation>The MalwareCapabilyVocab-1.0 is the default MAEC Vocabulary for Malware Capabilities.</xs:documentation>
