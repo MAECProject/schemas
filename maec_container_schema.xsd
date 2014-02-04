@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-container-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-2" xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2" version="2.0.1">
-	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-package-2" schemaLocation="http://maec.mitre.org/language/version4.0.1/maec_package_schema.xsd"/>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-container-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-2" xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2" version="2.1">
+	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-package-2" schemaLocation="maec_package_schema.xsd"/>
 	<xs:annotation>
 		<xs:documentation>The following is a description of the elements, types, and attributes that compose the Malware Attribute Enumeration and Characterization (MAEC) container schema.</xs:documentation>
 		<xs:documentation>The MAEC Container Schema is maintained by The Mitre Corporation. For more information, including how to get involved in the project, please visit the MAEC website at http://maec.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>MAEC Container Schema</schema>
-			<version>2.0.1</version>
-			<date>9/13/2013</date>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
+			<version>2.1 DRAFT</version>
+			<date>01/09/2014</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:element name="MAEC_Container" type="maecContainer:ContainerType">
@@ -32,7 +33,7 @@
 				<xs:documentation>The required id attribute specifies a unique ID for this Container. The ID must follow the pattern defined in the ContainerIDPattern simple type.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute fixed="2.0.1" name="schema_version" type="xs:string" use="required">
+		<xs:attribute fixed="2.1" name="schema_version" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Container Schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>

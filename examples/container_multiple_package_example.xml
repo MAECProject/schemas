@@ -6,7 +6,8 @@
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final
  Updated April 2013 for MAEC v4.0 and CybOX v2.0
- Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1 -->
+ Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 -->
 <maecContainer:MAEC_Container
  xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-2"
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
@@ -18,14 +19,14 @@
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation=
- "http://maec.mitre.org/XMLSchema/maec-container-2 http://maec.mitre.org/language/version4.0.1/maec_container_schema.xsd
- http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.0.1/maec_default_vocabularies.xsd
+ "http://maec.mitre.org/XMLSchema/maec-container-2 ../maec_container_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 ../maec_default_vocabularies.xsd
  http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd
  http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.0.1/cybox_core.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0.1/Win_Executable_File_Object.xsd"
- id="maec-example-con-1" schema_version="2.0.1">
+ id="maec-example-con-1" schema_version="2.1">
     <maecContainer:Packages>
-        <maecContainer:Package id="maec-example-pkg-1" schema_version="2.0.1">
+        <maecContainer:Package id="maec-example-pkg-1" schema_version="2.1">
             <maecPackage:Malware_Subjects>
                 <maecPackage:Malware_Subject id="maec-example-sub-1">
                     <maecPackage:Malware_Instance_Object_Attributes>
@@ -62,7 +63,7 @@
             </maecPackage:Grouping_Relationships>
         </maecContainer:Package>
         
-        <maecContainer:Package id="maec-example-pkg-2" schema_version="2.0.1">
+        <maecContainer:Package id="maec-example-pkg-2" schema_version="2.1">
             <maecPackage:Malware_Subjects>
                 <maecPackage:Malware_Subject id="maec-example-sub-3">
                     <maecPackage:Malware_Instance_Object_Attributes>

@@ -6,7 +6,8 @@
  
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final
  Updated April 2013 for MAEC v4.0 and CybOX v2.0 final
- Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1-->
+ Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 -->
 <maecPackage:MAEC_Package
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
@@ -17,11 +18,11 @@
  xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 http://maec.mitre.org/language/version4.0.1/maec_package_schema.xsd
- http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.0.1/maec_default_vocabularies.xsd
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 ../maec_package_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 ../maec_default_vocabularies.xsd
  http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd
  http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0.1/Win_Executable_File_Object.xsd" 
- id="maec-example-pkg-1" schema_version="2.0.1">
+ id="maec-example-pkg-1" schema_version="2.1">
     <maecPackage:Malware_Subjects>
         <maecPackage:Malware_Subject id="maec-example-sub-1">
             <maecPackage:Malware_Instance_Object_Attributes>
@@ -47,7 +48,7 @@
                 </maecPackage:Analysis>
             </maecPackage:Analyses>
             <maecPackage:Findings_Bundles>
-                <maecPackage:Bundle schema_version="4.0.1" id="maec-example-bnd-1" defined_subject="false" content_type="static analysis tool output">
+                <maecPackage:Bundle schema_version="4.1" id="maec-example-bnd-1" defined_subject="false" content_type="static analysis tool output">
                     <maecBundle:AV_Classifications>
                         <maecBundle:AV_Classification>
                             <maecBundle:Classification_Name>TrojanClicker:Win32/Small</maecBundle:Classification_Name>
@@ -78,7 +79,7 @@
                 </maecPackage:Analysis>
             </maecPackage:Analyses>
             <maecPackage:Findings_Bundles>
-                <maecPackage:Bundle schema_version="4.0.1" id="maec-example-bnd-2" defined_subject="false" content_type="static analysis tool output">
+                <maecPackage:Bundle schema_version="4.1" id="maec-example-bnd-2" defined_subject="false" content_type="static analysis tool output">
                     <maecBundle:AV_Classifications>
                         <maecBundle:AV_Classification>
                             <maecBundle:Classification_Name>TrojanClicker:Win32/Small.I</maecBundle:Classification_Name>
@@ -109,7 +110,7 @@
                 </maecPackage:Analysis>
             </maecPackage:Analyses>
             <maecPackage:Findings_Bundles>
-                <maecPackage:Bundle schema_version="4.0.1" id="maec-example-bnd-3" defined_subject="false" content_type="static analysis tool output">
+                <maecPackage:Bundle schema_version="4.1" id="maec-example-bnd-3" defined_subject="false" content_type="static analysis tool output">
                     <maecBundle:AV_Classifications>
                         <maecBundle:AV_Classification>
                             <cyboxCommon:Name>Microsoft Security Essentials</cyboxCommon:Name>
