@@ -1897,7 +1897,7 @@
     </xs:simpleType>
     <xs:complexType name="MalwareLabelVocab-1.0">
         <xs:annotation>
-            <xs:documentation>The MalwareLabelVocab-1.0 is the default MAEC Vocabulary for common Malware Labels.</xs:documentation>
+            <xs:documentation>The MalwareLabelVocab-1.0 is the default MAEC Vocabulary for common malware labels.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -1911,7 +1911,7 @@
     </xs:complexType>
     <xs:simpleType name="MalwareLabelEnum-1.0">
         <xs:annotation>
-            <xs:documentation>The MalwareLabelEnum-1.0 is an enumeration of common Malware Labels.</xs:documentation>
+            <xs:documentation>The MalwareLabelEnum-1.0 is a non-exhaustive enumeration of common malware labels.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="adware">
@@ -1936,12 +1936,7 @@
             </xs:enumeration>
             <xs:enumeration value="bot">
                 <xs:annotation>
-                    <xs:documentation>The 'bot' value specifies a program which resides on an infected system, communicating with a bothered and forming part of a botnet. The bot may be implanted by a worm or trojan, which opens a backdoor. The bot then monitors the backdoor for further instructions.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="botnet">
-                <xs:annotation>
-                    <xs:documentation>The 'botnet' value specifies a network of compromised systems infected with bots or backdoors, which can be controlled centrally by a botherder. Examples of botnet use includes sending out malicious code to infect new victims, send spam, host or visit websites, participate in DDoS (Distributed Denial of Service) attacks.</xs:documentation>
+                    <xs:documentation>The 'bot' value specifies a program which resides on an infected system, communicating with and forming part of a botnet. The bot may be implanted by a worm or trojan, which opens a backdoor. The bot then monitors the backdoor for further instructions.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="clicker">
@@ -2054,6 +2049,11 @@
                     <xs:documentation>The 'polymorphic virus' value specifies a type of virus that encrypts its code differently with each infection, or generation of infections.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="premium dialer/smser">
+                <xs:annotation>
+                    <xs:documentation>The 'premium dialer/smser' value specifies a piece of malware whose primary aim is to dial or send SMS messages to premium rate numbers..</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="prepender">
                 <xs:annotation>
                     <xs:documentation>The 'prepender' value specifies a file-infecting virus which inserts code at the beginning of the files it infects.</xs:documentation>
@@ -2062,6 +2062,11 @@
             <xs:enumeration value="ransomware">
                 <xs:annotation>
                     <xs:documentation>The 'ransomware' value specifies a type of malware that encrypts files on a victim's system, demanding payment of ransom in return for the access codes required to unlock files.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="rat">
+                <xs:annotation>
+                    <xs:documentation>The 'rat' value specifies a remote access trojan or RAT, which is a trojan horse capable of controlling a machine through commands issue by a remote attacker.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="rogue anti-malware">
@@ -2114,6 +2119,11 @@
                     <xs:documentation>The 'web bug' value specifies a piece of code, generally a small file such as a tiny, transparent GIF image, which is used to track data on those viewing the page or mail in which it is hidden.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="wiper">
+                <xs:annotation>
+                    <xs:documentation>The 'wiper' value specifies a piece of malware whose primary aim is to delete files or entire disks on a machine.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>           
             <xs:enumeration value="worm">
                 <xs:annotation>
                     <xs:documentation>The 'worm' value specifies 1. A self-replicating malicious program that replicates using a network and does not require human interaction. 2. A self-replicating, self-propagating, self-contained program that uses networking mechanisms to spread itself.</xs:documentation>
