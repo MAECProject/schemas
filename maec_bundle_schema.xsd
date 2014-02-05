@@ -22,16 +22,28 @@
 		<xs:annotation>
 			<xs:documentation>The MAEC_Bundle element is the root element of this schema, and is of type BundleType. As such, it represents the characterization of a single malware instance, characterized in the top-level Subject_Details element, via its MAEC entities.</xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-bundle-id">
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
 	</xs:element>
 	<xs:element name="Action" type="maecBundle:MalwareActionType">
 		<xs:annotation>
 			<xs:documentation>The Action element enables description/specification of a single malware action. </xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-action-id">
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
 	</xs:element>
 	<xs:element name="Behavior" type="maecBundle:BehaviorType">
 		<xs:annotation>
 			<xs:documentation>The Behavior element enables description/specification of a single malware behavior. </xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-behavior-id">
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="MalwareActionType">
 		<xs:annotation>
@@ -85,9 +97,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:BehaviorIDPattern">
+		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Behavior. The ID must follow the pattern defined in the BehaviorIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Behavior.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
@@ -157,9 +169,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:BundleIDPattern">
+		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this MAEC Bundle. The ID must follow the pattern defined in the BundleIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this MAEC Bundle. </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="schema_version" type="xs:string" use="required" fixed="4.1">
@@ -201,9 +213,9 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="id" use="required" type="maecBundle:BehaviorCollIDPattern">
+				<xs:attribute name="id" use="required" type="xs:QName">
 					<xs:annotation>
-						<xs:documentation>The id field specifies a unique ID for this Behavior Collection. The ID must follow the pattern defined in the BehaviorCollIDPattern simple type. </xs:documentation>
+						<xs:documentation>The id field specifies a unique ID for this Behavior Collection.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -222,9 +234,9 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="id" use="required" type="maecBundle:ActionCollIDPattern">
+				<xs:attribute name="id" use="required" type="xs:QName">
 					<xs:annotation>
-						<xs:documentation>The id field specifies a unique ID for this Action Collection. The ID must follow the pattern defined in the ActionCollIDPattern simple type. </xs:documentation>
+						<xs:documentation>The id field specifies a unique ID for this Action Collection.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -287,9 +299,9 @@
 				</xs:element>
 			</xs:choice>
 		</xs:sequence>
-		<xs:attribute name="id" use="optional" type="maecBundle:ActionImplementationIDPattern">
+		<xs:attribute name="id" use="optional" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The id field specifies a unique ID for this Action Implementation. The ID must follow the pattern defined in the ActionImpIDPattern simple type. </xs:documentation>
+				<xs:documentation>The id field specifies a unique ID for this Action Implementation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="type" use="required" type="maecBundle:ActionImplementationTypeEnum">
@@ -328,9 +340,9 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="id" use="required" type="maecBundle:ObjectCollIDPattern">
+				<xs:attribute name="id" use="required" type="xs:QName">
 					<xs:annotation>
-						<xs:documentation>The id attribute specifies a unique ID for this Object Collection. The ID must follow the pattern defined in the ObjectCollIDPattern simple type. </xs:documentation>
+						<xs:documentation>The id attribute specifies a unique ID for this Object Collection. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -581,7 +593,7 @@
 		<xs:annotation>
 			<xs:documentation>The BehaviorReferenceType serves as a method for referencing existing behaviors contained in the Bundle.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="behavior_idref" type="maecBundle:BehaviorIDREFPattern" use="required">
+		<xs:attribute name="behavior_idref" type="xs:QName" use="required">
 			<xs:annotation>
 				<xs:documentation>The behavior_idref field specifies the id of the Behavior being referenced; this Behavior must be present in the current Bundle.</xs:documentation>
 			</xs:annotation>
@@ -629,7 +641,7 @@
 		<xs:annotation>
 			<xs:documentation>The BehavioralActionEquivalenceReferenceType defines an Action Equivalence reference that can be used as part of a Behavior. Since the Action Equivalency equates two or more actions to a single one, this can be thought of as specifying one of the aforementioned Actions as part of the composition of the Behavior.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="action_equivalence_idref" type="maecBundle:ActionEquivalenceIDREFPattern" use="required">
+		<xs:attribute name="action_equivalence_idref" type="xs:QName" use="required">
 			<xs:annotation>
 				<xs:documentation>The action_equivalence_idref field specifies the ID of an Action Equivalence contained in the same MAEC document as the Behavior that utilizes it.</xs:documentation>
 			</xs:annotation>
@@ -713,9 +725,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" type="maecBundle:CandidateIndicatorIDPattern" use="required">
+		<xs:attribute name="id" type="xs:QName" use="required">
 			<xs:annotation>
-				<xs:documentation>The id field specifies a unique ID for this Candidate Indicator. The ID must follow the pattern defined in the CandidateIndicatorIDPattern simple type.</xs:documentation>
+				<xs:documentation>The id field specifies a unique ID for this Candidate Indicator.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="creation_datetime" type="xs:dateTime">
@@ -800,7 +812,7 @@
 		<xs:annotation>
 			<xs:documentation>The BundleReferenceType serves as a method for linking to Bundles embedded in other locations.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="bundle_idref" type="maecBundle:BundleIDREFPattern" use="required">
+		<xs:attribute name="bundle_idref" type="xs:QName" use="required">
 			<xs:annotation>
 				<xs:documentation>The bundle_idref field references the ID of a Bundle contained inside the current MAEC document.</xs:documentation>
 			</xs:annotation>
@@ -841,9 +853,9 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="id" type="maecBundle:ProcessTreeNodeIDPattern" use="required">
+				<xs:attribute name="id" type="xs:QName" use="required">
 					<xs:annotation>
-						<xs:documentation>The required id field specifies a unique ID for the Process Node. The ID must follow the pattern defined in the ProcessTreeNodeIDPattern simple type.</xs:documentation>
+						<xs:documentation>The required id field specifies a unique ID for the Process Node.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="parent_action_idref" type="xs:QName">
@@ -906,9 +918,9 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="id" type="maecBundle:CandidateIndicatorCollIDPattern" use="required">
+				<xs:attribute name="id" type="xs:QName" use="required">
 					<xs:annotation>
-						<xs:documentation>The id field specifies a unique ID for this Candidate Indicator Collection. The ID must follow the pattern defined in the CandidateIndicatorCollIDPattern simple type. </xs:documentation>
+						<xs:documentation>The id field specifies a unique ID for this Candidate Indicator Collection. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -988,134 +1000,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:simpleType name="BundleIDPattern">
-		<xs:annotation>
-			<xs:documentation>The BundleIDPattern defines the format for acceptable Bundle IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the three letter code 'bnd', and ending with an integer. The regular expression validating these IDs is:  maec-[A-Za-z0-9_\-\.]+-bnd-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bnd-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="BundleIDREFPattern">
-		<xs:annotation>
-			<xs:documentation>The BundleIDREFPattern defines the format for acceptable Bundle IDREFs. A dash-delimited format is used with the IDREF starting with the word maec, followed by a unique string, followed by the three letter code 'bnd', and ending with an integer. The regular expression validating these IDREFs is:  maec-[A-Za-z0-9_\-\.]+-bnd-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bnd-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="CapabilityIDPattern">
-		<xs:annotation>
-			<xs:documentation>The CapabilityIDPattern defines the format for acceptable Capability IDs. A dash-delimited format is used with the ID starting with the word maec followed by a unique string, followed by the three letter code 'cpb', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-cpb-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-cpb-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="CapabilityIDREFPattern">
-		<xs:annotation>
-			<xs:documentation>The CapabilityIDREFPattern defines the format for acceptable Capability IDREFs. A dash-delimited format is used with the IDREF starting with the word maec, followed by a unique string, followed by the three letter code 'cpb', and ending with an integer. The regular expression validating these IDREFs is: maec-[A-Za-z0-9_\-\.]+-objc-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-cpb-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="CapabilityObjectiveIDPattern">
-		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveIDPattern defines the format for acceptable Capability Objective (both Strategic and Tactical) IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the three letter code 'obt', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-obt-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obt-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="CapabilityObjectiveIDREFPattern">
-		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveIDREFPattern defines the format for acceptable Capability Objective (both Strategic and Tactical) IDREFs. A dash-delimited format is used with the IDREF starting with the word maec, followed by a unique string, followed by the three letter code 'obt', and ending with an integer. The regular expression validating these IDREFs is: maec-[A-Za-z0-9_\-\.]+-obt-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-obt-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="BehaviorIDPattern">
-		<xs:annotation>
-			<xs:documentation>The BehaviorIDPattern defines the format for acceptable Behavior IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the three letter code 'bhv', and ending with an integer. The regular expression validating these IDs is:  maec-[A-Za-z0-9_\-\.]+-bhv-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bhv-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="BehaviorIDREFPattern">
-		<xs:annotation>
-			<xs:documentation>The BehaviorIDREFPattern defines the format for acceptable Behavior IDREFs. A dash-delimited format is used with the IDREF starting with the word maec, followed by a unique string, followed by the three letter code 'bhv', and ending with an integer. The regular expression validating these IDREFs is:  maec-[A-Za-z0-9_\-\.]+-bhv-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bhv-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ActionImplementationIDPattern">
-		<xs:annotation>
-			<xs:documentation>The ActionImpIDPattern defines the format for acceptable Action Implementation IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the three letter code 'imp', and ending with an integer. The regular expression validating these IDs is:  maec-[A-Za-z0-9_\-\.]+-imp-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-imp-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="CandidateIndicatorIDPattern">
-		<xs:annotation>
-			<xs:documentation>The CandidateIndicatorIDPattern simple type defines the format for acceptable Candidate Indicator IDs. A dash-delimited format is used with the ID starting with the word maec followed by a unique string, followed by the three letter code 'ind', and ending with an integer. The regular expression validating these IDs is:  maec-[A-Za-z0-9_\-\.]+-ind-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-ind-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ActionCollIDPattern">
-		<xs:annotation>
-			<xs:documentation>The ActionCollIDPattern defines the format for acceptable Action Collection IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the four letter code 'actc', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-actc-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-actc-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="BehaviorCollIDPattern">
-		<xs:annotation>
-			<xs:documentation>The BehaviorCollIDPattern defines the format for acceptable Behavior Collection IDs. A dash-delimited format is used with the IDstarting with the word maec, followed by a unique string, followed by the four letter code 'bhvc', and ending with an integer. The regular expression validating these IDs is:  maec-[A-Za-z0-9_\-\.]+-bhvc-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-bhvc-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ObjectCollIDPattern">
-		<xs:annotation>
-			<xs:documentation>The ObjectCollIDPattern simple type defines the format for acceptable Object Collection IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the four letter code 'objc', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-objc-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-objc-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="CandidateIndicatorCollIDPattern">
-		<xs:annotation>
-			<xs:documentation>The IndicatorCollIDPattern simple type defines the format for acceptable Candidate Indicator Collection IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the four letter code 'indc', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-indc-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-indc-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ProcessTreeNodeIDPattern">
-		<xs:annotation>
-			<xs:documentation>The ProcessTreeNodeIDPattern defines the format for acceptable Process Tree Node IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the four letter code 'pro', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-pro-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-pro-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ActionEquivalenceIDREFPattern">
-		<xs:annotation>
-			<xs:documentation>The ActionEquivalenceIDREFPattern defines the format for acceptable MAEC Action Equivalency IDREFs. A dash-delimited format is used with the IDREF starting with the word maec, followed by a unique string, followed by the five letter code 'acteq', and ending with an integer. The regular expression validating these IDREFs is:  maec-[A-Za-z0-9_\-\.]+-acteq-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-acteq-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="ActionImplementationTypeEnum">
 		<xs:annotation>
 			<xs:documentation>The ActionImplementationTypeEnum represents an enumeration of action implementation types.</xs:documentation>
@@ -1206,9 +1090,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="optional" type="maecBundle:CapabilityIDPattern">
+		<xs:attribute name="id" use="optional" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The id field specifies a unique ID for this MAEC Capability. The ID must follow the pattern defined in the CapabilityIDPattern simple type.</xs:documentation>
+				<xs:documentation>The id field specifies a unique ID for this MAEC Capability.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="idref" type="xs:IDREF">
@@ -1265,9 +1149,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:CapabilityObjectiveIDPattern">
+		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Capability Strategic Objective. The ID must follow the pattern defined in the CapabilityObjectiveIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Capability Strategic Objective.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -1302,9 +1186,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecBundle:CapabilityObjectiveIDPattern">
+		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Capability Tactical Objective. The ID must follow the pattern defined in the CapabilityObjectiveIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Capability Tactical Objective.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
@@ -1334,9 +1218,9 @@
 		<xs:annotation>
 			<xs:documentation>The CapabilityReferenceType serves as a method for referencing existing Capabilitys contained in the Bundle.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="capability_idref" type="maecBundle:CapabilityObjectiveIDREFPattern" use="required">
+		<xs:attribute name="capability_idref" type="xs:QName" use="required">
 			<xs:annotation>
-				<xs:documentation>The Capability_idref field references the ID of a Capability Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
+				<xs:documentation>The capability_idref field references the ID of a Capability Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -1361,7 +1245,7 @@
 		<xs:annotation>
 			<xs:documentation>The CapabilityObjectiveReferenceType serves as a method for referencing existing Capability Objectives (either Strategic or Tactical) contained in the Bundle.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="objective_idref" type="maecBundle:CapabilityObjectiveIDREFPattern" use="required">
+		<xs:attribute name="objective_idref" type="xs:QName" use="required">
 			<xs:annotation>
 				<xs:documentation>The objective_idref field references the ID of a Capability Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
 			</xs:annotation>
