@@ -23,6 +23,10 @@
 		<xs:annotation>
 			<xs:documentation>The root element of the MAEC Package schema is the MAEC_Package, which captures a single MAEC Package that encompasses one or more Malware Subjects and all of their associated MAEC entities.</xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-package-id">
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="AnalysisEnvironmentType">
 		<xs:annotation>
@@ -248,9 +252,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" type="maecPackage:AnalysisIDPattern" use="required">
+		<xs:attribute name="id" type="xs:QName" use="required">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Analysis. The ID must follow the pattern defined in the AnalysisIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Analysis.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="type" type="maecPackage:AnalysisTypeEnum">
@@ -317,10 +321,6 @@
 				<xs:annotation>
 					<xs:documentation>The Malware_Subjects field captures each of the Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
-				<xs:unique name="unique-subject-id">
-					<xs:selector xpath=".//maecPackage:*"/>
-					<xs:field xpath="@id"/>
-				</xs:unique>
 			</xs:element>
 			<xs:element minOccurs="0" name="Grouping_Relationships" type="maecPackage:GroupingRelationshipListType">
 				<xs:annotation>
@@ -328,9 +328,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecPackage:PackageIDPattern">
+		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Package. The ID must follow the pattern defined in the PackageIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Package.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute fixed="2.1" name="schema_version" type="xs:string" use="required">
@@ -400,9 +400,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecPackage:MalwareSubjectIDPattern">
+		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Malware Subject. The ID must follow the pattern defined in the MalwareSubjectIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Malware Subject.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -457,7 +457,7 @@
 		<xs:annotation>
 			<xs:documentation>The MalwareSubjectReferenceType provides a mechanism for specifying a reference to a Malware Subject contained in the Package.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="malware_subject_idref" type="maecPackage:MalwareSubjectIDREFPattern" use="required">
+		<xs:attribute name="malware_subject_idref" type="xs:QName" use="required">
 			<xs:annotation>
 				<xs:documentation>The malware_subject_idref field provides a reference to a Malware Subject contained in the Package, via its ID.</xs:documentation>
 			</xs:annotation>
@@ -670,9 +670,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="required" type="maecPackage:ActionEquivalenceIDPattern">
+		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies the ID for the Action Equivalence, and must be of the format specified by the ActionEquivalenceIDPattern type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for the Action Equivalence.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -731,9 +731,9 @@
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="maecBundle:ObjectReferenceListType">
-				<xs:attribute name="id" type="maecPackage:ObjectEquivalenceIDPattern" use="required">
+				<xs:attribute name="id" type="xs:QName" use="required">
 					<xs:annotation>
-						<xs:documentation>The required id field specifies the ID for the Object Equivalence, and must be of the format specified by the ObjectEquivalenceIDPattern type.</xs:documentation>
+						<xs:documentation>The required id field specifies a unique ID for the Object Equivalence.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -928,62 +928,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:simpleType name="PackageIDPattern">
-		<xs:annotation>
-			<xs:documentation>The PackageIDPattern defines the format for acceptable MAEC Package IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the three letter code 'pkg', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-pkg-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-pkg-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="PackageIDREFPattern">
-		<xs:annotation>
-			<xs:documentation>The PackageIDREFPattern defines the format for acceptable MAEC Package IDREFs. A dash-delimited format is used with the IDREF starting with the word maec, followed by a unique string, followed by the three letter code 'pkg', and ending with an integer. The regular expression validating these IDREFs is: maec-[A-Za-z0-9_\-\.]+-pkg-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-pkg-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="MalwareSubjectIDPattern">
-		<xs:annotation>
-			<xs:documentation>The MalwareSubjectIDPattern defines the format for acceptable MAEC Malware Subject IDds. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the three letter code 'sub', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-sub-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-sub-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="MalwareSubjectIDREFPattern">
-		<xs:annotation>
-			<xs:documentation>The MalwareSubjectIDREFPattern defines the format for acceptable MAEC Malware Subject IDREFs. A dash-delimited format is used with the IDREF starting with the word maec, followed by a unique string, followed by the three letter code 'sub', and ending with an integer. The regular expression validating these IDREFs is: maec-[A-Za-z0-9_\-\.]+-sub-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:IDREF">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-sub-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="AnalysisIDPattern">
-		<xs:annotation>
-			<xs:documentation>The AnalysisIDPattern defines the format for acceptable MAEC Analysis IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the three letter code 'ana', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-ana-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-ana-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ActionEquivalenceIDPattern">
-		<xs:annotation>
-			<xs:documentation>The ActionEquivalenceIDPattern defines the format for acceptable MAEC Action Equivalence IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the five letter code 'acteq', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-acteq-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-acteq-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ObjectEquivalenceIDPattern">
-		<xs:annotation>
-			<xs:documentation>The ObjectEquivalenceIDPattern defines the format for acceptable MAEC Object Equivalence IDs. A dash-delimited format is used with the ID starting with the word maec, followed by a unique string, followed by the five letter code 'objeq', and ending with an integer. The regular expression validating these IDs is: maec-[A-Za-z0-9_\-\.]+-objeq-[1-9][0-9]*.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-objeq-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="AnalysisTypeEnum">
 		<xs:annotation>
 			<xs:documentation>The AnalysisTypeEnum is an enumeration of types of malware analyses.</xs:documentation>
