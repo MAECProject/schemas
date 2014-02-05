@@ -16,6 +16,10 @@
 		<xs:annotation>
 			<xs:documentation>The root element of the MAEC Container schema is MAEC_Container, which captures one or more Packages.</xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-container-id">
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ContainerType">
 		<xs:annotation>
@@ -24,23 +28,23 @@
 		<xs:sequence>
 			<xs:element name="Packages" type="maecContainer:PackageListType">
 				<xs:annotation>
-					<xs:documentation>The Packages element captures a list of MAEC Packages.</xs:documentation>
+					<xs:documentation>The Packages field captures a list of MAEC Packages.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" type="maecContainer:ContainerIDPattern" use="required">
+		<xs:attribute name="id" type="xs:QName" use="required">
 			<xs:annotation>
-				<xs:documentation>The required id attribute specifies a unique ID for this Container. The ID must follow the pattern defined in the ContainerIDPattern simple type.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Container.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute fixed="2.1" name="schema_version" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>The required schema_version attribute specifies the version of the MAEC Container Schema that the document has been written in and that should be used for validation.</xs:documentation>
+				<xs:documentation>The required schema_version field specifies the version of the MAEC Container Schema that the document has been written in and that should be used for validation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The timestamp attribute specifies the date/time that the Container was generated.</xs:documentation>
+				<xs:documentation>The timestamp field specifies the date/time that the Container was generated.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -51,17 +55,9 @@
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Package" type="maecPackage:PackageType">
 				<xs:annotation>
-					<xs:documentation>The Package element specifies a single Package, which encompasses 1-n Malware Subjects and any associated metadata.</xs:documentation>
+					<xs:documentation>The Package field specifies a single Package, which encompasses 1-n Malware Subjects and any associated metadata.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="ContainerIDPattern">
-		<xs:annotation>
-			<xs:documentation>The ContainerIDPattern defines the format for acceptable MAEC Container ids. A dash-delimited format is used with the id starting with the word maec followed by a unique string, followed by the three letter code 'con', and ending with an integer.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:ID">
-			<xs:pattern value="maec-[A-Za-z0-9_\-\.]+-con-[1-9][0-9]*"/>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>
