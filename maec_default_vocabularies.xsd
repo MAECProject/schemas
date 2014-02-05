@@ -4897,6 +4897,11 @@
                     <xs:documentation>The 'gather information for improvement' value indicates that the malware instance is able to gather information from its environment to make itself less likely to be detected.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="ensure compatibility">
+                <xs:annotation>
+                    <xs:documentation>The 'ensure compatibility' value indicates that the malware instance is able to manipulate or modify the system on which it executes to ensure that it is able to continue executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="persist to continuously execute on system">
                 <xs:annotation>
                     <xs:documentation>The 'persist to continuously execute on system' value indicates that the malware instance is able to continue to execute on a system after significant system events (e.g., after a reboot).</xs:documentation>
@@ -4923,9 +4928,14 @@
             <xs:documentation>The PersistenceTacticalObjectivesEnum-1.0 is an enumeration of Persistence Capability Tactical Objectives.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="persist independent of hard disk/os changes">
+            <xs:enumeration value="reinstantiate self after initial detection">
                 <xs:annotation>
-                    <xs:documentation>The 'persist independent of hard disk/os changes' value indicates that the malware instance is able to continue to execute after changes to the hard disk or the operating system have been made.</xs:documentation>
+                    <xs:documentation>The 'reinstantiate self after initial detection' value indicates that the malware instance is able to re-establish itself on the system after it is initially detected.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="limit application type/version">
+                <xs:annotation>
+                    <xs:documentation>The 'limit application type/version' value indicates that the malware instance is able to limit the type or version of an application that runs on a system in order to ensure that it is able to continue executing.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="persist after os install/reinstall">
@@ -4933,19 +4943,19 @@
                     <xs:documentation>The 'persist after os install/reinstall' value indicates that the malware instance is able to continue to execute after the operating system is installed or reinstalled.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="persist after system reboot">
-                <xs:annotation>
-                    <xs:documentation>The 'persist after system reboot' value indicates that the malware instance is able to continue to execute after a system reboot.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="reinstantiate self after initial detection">
-                <xs:annotation>
-                    <xs:documentation>The 'reinstantiate self after initial detection' value indicates that the malware instance is able to re-establish itself on the system after it is initially detected.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="drop/retrieve debug log file">
                 <xs:annotation>
                     <xs:documentation>The 'drop/retrieve debug log file' value indicates that the malware instance is able to generate and retrieve a log file of errors associated with the malware.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="persist independent of hard disk/os changes">
+                <xs:annotation>
+                    <xs:documentation>The 'persist independent of hard disk/os changes' value indicates that the malware instance is able to continue to execute after changes to the hard disk or the operating system have been made.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="persist after system reboot">
+                <xs:annotation>
+                    <xs:documentation>The 'persist after system reboot' value indicates that the malware instance is able to continue to execute after a system reboot.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
