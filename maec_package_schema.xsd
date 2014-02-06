@@ -226,9 +226,9 @@
 					<xs:documentation>The Comments field specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the Report.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Findings_Bundle_Reference" type="maecBundle:BundleReferenceType">
+			<xs:element minOccurs="0" name="Findings_Bundle_Reference" type="maecBundle:BundleReferenceType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Findings_Bundle_Reference field specifies a reference to the Bundle which encompasses the results and output of the Analysis in terms of its corresponding MAEC entities, such as Behaviors and Actions.</xs:documentation>
+					<xs:documentation>The Findings_Bundle_Reference field specifies a reference to the Bundle which encompasses the results and output of the Analysis in terms of its corresponding MAEC entities, such as Behaviors and Actions. More than one Bundle may be referenced by using multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Tools" type="maecPackage:ToolListType">
