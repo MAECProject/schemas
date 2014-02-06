@@ -2503,14 +2503,29 @@
                     <xs:documentation>The 'memory image of' value specifies that the current Malware Subject represents a memory image associated with one or more other Malware Subject(s).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="contained in memory image">
+                <xs:annotation>
+                    <xs:documentation>The 'contained in memory image' value specifies that the current Malware Subject is a malware binary or component contained in one or more other Malware Subject(s) that represent memory images.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="disk image of">
                 <xs:annotation>
                     <xs:documentation>The 'disk image of' value specifies that the current Malware Subject represents a disk image associated with one or more other Malware Subject(s).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="contained in disk image">
+                <xs:annotation>
+                    <xs:documentation>The 'contained in disk image' value specifies that the current Malware Subject is a malware binary or component contained in one or more other Malware Subject(s) that represent disk images.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="network traffic capture of">
                 <xs:annotation>
                     <xs:documentation>The 'network traffic capture of' value specifies that the current Malware Subject represents captured network traffic associated with one or more other Malware Subject(s).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="contained in network traffic capture">
+                <xs:annotation>
+                    <xs:documentation>The 'contained in network traffic capture' value specifies that the current Malware Subject is a malware binary or component contained in one or more other Malware Subject(s) that represent captures of network traffic.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="packed version of">
