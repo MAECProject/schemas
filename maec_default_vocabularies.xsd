@@ -3082,6 +3082,33 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="PersistencePropertiesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The PrivilegeEscalationPropertiesVocab-1.0 is the default MAEC Vocabulary for Persistence Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:PersistencePropertiesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Persistence Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PersistencePropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PersistencePropertiesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The PersistencePropertiesEnum-1.0 is an enumeration of Persistence Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="scope">
+                <xs:annotation>
+                    <xs:documentation>The 'scope' value refers to the scope of persistence employed by the Persistence Capability, i.e. whether the malware instance make itself persist, or whether it makes other malware components persist.</xs:documentation>
+                    <xs:documentation>Recommended values are: 'self', or 'other malware/components'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="DestructionPropertiesVocab-1.0">
         <xs:annotation>
             <xs:documentation>The DestructionPropertiesVocab-1.0 is the default MAEC Vocabulary for Destruction Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
