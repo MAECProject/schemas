@@ -938,9 +938,9 @@
 					<xs:documentation>The Triage value specifies an cursory, or triage type of malware analysis, commonly automated in conjunction with one or more tools.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="manual">
+			<xs:enumeration value="in-depth">
 				<xs:annotation>
-					<xs:documentation>The Manual value specifies an in-depth, or manual type of malware analysis, that is typically performed by a human analyst.</xs:documentation>
+					<xs:documentation>The in-depth value specifies a detailed type of malware analysis that is typically performed by a human analyst.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
