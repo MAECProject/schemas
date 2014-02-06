@@ -3047,6 +3047,12 @@
                     <xs:documentation>It is recommended that protocols be specified by their acronym or abbreviated name, e.g. "IRC", "HTTP".</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="frequency">
+                <xs:annotation>
+                    <xs:documentation>The 'frequency' value refers to a description of the frequency that the Receive Data from C2 Server and Send Data to C2 Server Strategic Objectives, as well as their child Tactical Objectives, are employed.</xs:documentation>
+                    <xs:documentation>It is recommended that the description follow the format of "every x [units]", e.g. "every 5 minutes".</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="PrivilegeEscalationPropertiesVocab-1.0">
