@@ -3723,7 +3723,7 @@
                     <xs:documentation>The 'remove traces of infection' value indicates that the malware instance is able to remove traces of its infection of a system.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="log activity ">
+            <xs:enumeration value="log activity">
                 <xs:annotation>
                     <xs:documentation>The 'log activity' value indicates that the malware instance is able to log its own activity.</xs:documentation>
                 </xs:annotation>
@@ -4253,12 +4253,12 @@
             <xs:documentation>The IntegrityViolationStrategicObjectivesEnum-1.0 is an enumeration of Integrity Violation Capability Strategic Objectives.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="compromise system operational integrity ">
+            <xs:enumeration value="compromise system operational integrity">
                 <xs:annotation>
                     <xs:documentation>The 'compromise system operational integrity' value indicates that the malware instance is able to compromise the operational integrity of a system.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="compromise user data integrity ">
+            <xs:enumeration value="compromise user data integrity">
                 <xs:annotation>
                     <xs:documentation>The 'compromise user data integrity' value indicates that the malware instance is able to compromise a system's user data.</xs:documentation>
                 </xs:annotation>
@@ -4273,7 +4273,7 @@
                     <xs:documentation>The 'compromise network operational integrity' value indicates that the malware instance is able to compromise the operational integrity of a network. </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="compromise system data integrity ">
+            <xs:enumeration value="compromise system data integrity">
                 <xs:annotation>
                     <xs:documentation>The 'compromise system data integrity' value indicates that the malware instance is able to compromise the integrity of a system's data.</xs:documentation>
                 </xs:annotation>
@@ -4681,12 +4681,12 @@
             <xs:documentation>The AvailabilityViolationStrategicObjectivesEnum-1.0 is an enumeration of Availability Violation Capability Strategic Objectives.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="compromise data availability ">
+            <xs:enumeration value="compromise data availability">
                 <xs:annotation>
                     <xs:documentation>The 'compromise data availabilty' value indicates that the malware instance is able to compromise the availability of data on a system.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="compromise system availability ">
+            <xs:enumeration value="compromise system availability">
                 <xs:annotation>
                     <xs:documentation>The 'compromise system availability' value indicates that the malware instance compromises the availability of the system.</xs:documentation>
                 </xs:annotation>
