@@ -31,6 +31,10 @@
                     </FileObj:Hashes>
                 </cybox:Properties>
             </maecPackage:Malware_Instance_Object_Attributes>
+            
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">mass-mailer</maecPackage:Label>
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">worm</maecPackage:Label>
+            
             <maecPackage:Findings_Bundles>
                 <maecPackage:Bundle id="maec-tst-bnd-1" defined_subject="false" schema_version="4.1">
                     <maecBundle:Capabilities>

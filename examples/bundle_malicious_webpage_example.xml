@@ -8,7 +8,8 @@
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final
  Updated April 2013 for MAEC v4.0 and CybOX v2.0
  Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
- Updated January 2014 for MAEC v4.1 and CybOX v2.1 -->
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1
+ Updated February 2014 with MAEC v4.1 Capability content -->
 <maecBundle:MAEC_Bundle
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
  xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
@@ -32,6 +33,21 @@
   <URIObj:Value>http://samsonikonyou.ru:8080/navigator/jueoaritjuir.php</URIObj:Value>
  </cybox:Properties>
 </maecBundle:Malware_Instance_Object_Attributes>
+ 
+<maecBundle:Capabilities>
+
+  <maecBundle:Capability id="maec-tst-cpb-1" name="infection/propagation">
+   <maecBundle:Strategic_Objective id="maec-tst-obt-1">
+    <maecBundle:Name xsi:type="maecVocabs:InfectionPropagationStrategicObjectivesVocab-1.0">infect remote machine</maecBundle:Name>
+   </maecBundle:Strategic_Objective>
+   <maecBundle:Tactical_Objective id="maec-tst-obt-2">
+    <maecBundle:Name xsi:type="maecVocabs:InfectionPropagationTacticalObjectivesVocab-1.0">perform autonomous remote infection</maecBundle:Name>
+    <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-1"/>
+    <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-2"/>
+   </maecBundle:Tactical_Objective>
+  </maecBundle:Capability>
+ 
+</maecBundle:Capabilities>
  
 <maecBundle:Behaviors>
  <maecBundle:Behavior id="maec-example-bhv-1">

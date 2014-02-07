@@ -7,7 +7,8 @@
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final
  Updated April 2013 for MAEC v4.0 and CybOX v2.0 final 
  Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
- Updated January 2014 for MAEC v4.1 and CybOX v2.1 -->
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 
+ Updated February 2014 with MAEC v4.1 Capability and label content -->
 <maecPackage:MAEC_Package
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
@@ -47,6 +48,8 @@
      </cybox:Properties>
    </maecPackage:Malware_Instance_Object_Attributes>
    
+   <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">dropper file</maecPackage:Label>
+   
    <maecPackage:Analyses>
     <maecPackage:Analysis id="maec-example-ana-1" method="dynamic" type="triage">
      <maecPackage:Summary>Dynamic (behavioral) triage of the subject binary.</maecPackage:Summary>
@@ -70,7 +73,7 @@
      </maecPackage:Tools>
     </maecPackage:Analysis>
     
-    <maecPackage:Analysis id="maec-example-ana-3" method="static" type="manual">
+    <maecPackage:Analysis id="maec-example-ana-3" method="static" type="in-depth">
      <maecPackage:Summary>Manual analysis of the subject binary.</maecPackage:Summary>
      <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-3"/>
     </maecPackage:Analysis>
@@ -141,6 +144,23 @@
     </maecPackage:Bundle>
     
     <maecPackage:Bundle id="maec-example-bnd-3" schema_version="4.1" defined_subject="false" content_type="manual analysis output">
+     
+     <maecBundle:Capabilities>
+      <maecBundle:Capability id="maec-example-cpb-1" name="persistence">
+       <maecBundle:Strategic_Objective id="maec-example-obt-1">
+        <maecBundle:Name xsi:type="maecVocabs:PersistenceStrategicObjectivesVocab-1.0">persist to continuously execute on system</maecBundle:Name>
+       </maecBundle:Strategic_Objective>
+       <maecBundle:Tactical_Objective id="maec-example-obt-2">
+        <maecBundle:Name xsi:type="maecVocabs:PersistenceTacticalObjectivesVocab-1.0">persist after system reboot</maecBundle:Name>
+        <maecBundle:Property>
+         <maecBundle:Name xsi:type="maecVocabs:PersistencePropertiesVocab-1.0">scope</maecBundle:Name>
+         <maecBundle:Value>self</maecBundle:Value>                                   
+        </maecBundle:Property>
+       <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-1"/>
+       </maecBundle:Tactical_Objective>
+      </maecBundle:Capability>
+     </maecBundle:Capabilities>
+     
      <maecBundle:Behaviors>
       <maecBundle:Behavior id="maec-example-bhv-1">
        <maecBundle:Description>A persistence after reboot behavior using the Windows startup folder.</maecBundle:Description>

@@ -9,7 +9,8 @@
  Updated November 2012 for MAEC v3.0 and CybOX v1.0 final
  Updated April 2013 for MAEC v4.0 and CybOX v2.0 final
  Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1 
- Updated January 2014 for MAEC v4.1 and CybOX v2.1 -->
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 
+ Updated February 2014 with MAEC v4.1 Capability and label content -->
 <maecPackage:MAEC_Package
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
@@ -51,6 +52,8 @@
      </FileObj:Hashes>
     </cybox:Properties>
    </maecPackage:Malware_Instance_Object_Attributes>
+   
+   <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">dropper file</maecPackage:Label>
    
    <maecPackage:Analyses>
     <maecPackage:Analysis id="maec-example-ana-1" method="static" type="triage">
@@ -113,7 +116,7 @@
      </maecPackage:Tools>
     </maecPackage:Analysis>
     
-    <maecPackage:Analysis id="maec-example-ana-3" method="static" type="manual">
+    <maecPackage:Analysis id="maec-example-ana-3" method="static" type="in-depth">
      <maecPackage:Source>
       <maecPackage:Name>Frankie Li</maecPackage:Name>
       <maecPackage:URL>http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814</maecPackage:URL>
@@ -132,6 +135,7 @@
    
    <maecPackage:Findings_Bundles>
     <maecPackage:Bundle id="maec-example-bnd-1" schema_version="4.1" defined_subject="false" content_type="extracted from subject">
+    
      <maecBundle:Objects>
       <maecBundle:Object id="maec-example-obj-1">
         <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
@@ -836,6 +840,96 @@
     </maecPackage:Bundle>
     
     <maecPackage:Bundle id="maec-example-bnd-3" schema_version="4.1" defined_subject="false" content_type="manual analysis output">
+
+     <maecBundle:Capabilities>
+      <maecBundle:Capability id="maec-example-cpb-1" name="probing">
+       <maecBundle:Strategic_Objective id="maec-example-obt-1">
+        <maecBundle:Name xsi:type="maecVocabs:ProbingStrategicObjectivesVocab-1.0">probe host configuration</maecBundle:Name>
+       </maecBundle:Strategic_Objective>
+       <maecBundle:Tactical_Objective id="maec-example-obt-2">
+        <maecBundle:Name xsi:type="maecVocabs:ProbingTacticalObjectivesVocab-1.0">inventory system applications</maecBundle:Name>
+        <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-1"/>
+       </maecBundle:Tactical_Objective>
+      </maecBundle:Capability>
+      
+      <maecBundle:Capability id="maec-example-cpb-2" name="anti-detection">
+       <maecBundle:Strategic_Objective id="maec-example-obt-3">
+        <maecBundle:Name xsi:type="maecVocabs:AntiDetectionStrategicObjectivesVocab-1.0">hide non-executing code</maecBundle:Name>
+        <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-3"/>
+        <maecBundle:Relationship>
+         <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-4"/>
+        </maecBundle:Relationship>
+       </maecBundle:Strategic_Objective>
+       <maecBundle:Strategic_Objective id="maec-example-obt-5">
+        <maecBundle:Name xsi:type="maecVocabs:AntiDetectionStrategicObjectivesVocab-1.0">hide malware artifacts</maecBundle:Name>
+        <maecBundle:Relationship>
+         <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-6"/>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-7"/>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-8"/>
+        </maecBundle:Relationship>
+        <maecBundle:Relationship>
+         <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporated by</maecBundle:Relationship_Type>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-10"/>
+        </maecBundle:Relationship>
+       </maecBundle:Strategic_Objective>
+       <maecBundle:Tactical_Objective id="maec-example-obt-4">
+        <maecBundle:Name xsi:type="maecVocabs:AntiDetectionTacticalObjectivesVocab-1.0">hide code in file</maecBundle:Name>
+        <maecBundle:Relationship>
+         <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-3"/>
+        </maecBundle:Relationship>
+       </maecBundle:Tactical_Objective>
+       <maecBundle:Tactical_Objective id="maec-example-obt-6">
+        <maecBundle:Name xsi:type="maecVocabs:AntiDetectionTacticalObjectivesVocab-1.0">obfuscate artifact properties</maecBundle:Name>
+        <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-5"/>
+        <maecBundle:Relationship>
+         <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-5"/>
+        </maecBundle:Relationship>
+       </maecBundle:Tactical_Objective>
+       <maecBundle:Tactical_Objective id="maec-example-obt-7">
+        <maecBundle:Name xsi:type="maecVocabs:AntiDetectionTacticalObjectivesVocab-1.0">hide file system artifacts</maecBundle:Name>
+        <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-5"/>
+        <maecBundle:Relationship>
+         <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-5"/>
+        </maecBundle:Relationship>
+       </maecBundle:Tactical_Objective>
+       <maecBundle:Tactical_Objective id="maec-example-obt-8">
+        <maecBundle:Name xsi:type="maecVocabs:AntiDetectionTacticalObjectivesVocab-1.0">hide network traffic</maecBundle:Name>
+        <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-6"/>
+        <maecBundle:Relationship>
+         <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-5"/>
+        </maecBundle:Relationship>
+       </maecBundle:Tactical_Objective>
+      </maecBundle:Capability>
+      
+      <maecBundle:Capability id="maec-example-cpb-3" name="secondary operation">
+       <maecBundle:Strategic_Objective id="maec-example-obt-9">
+        <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationStrategicObjectivesVocab-1.0">install other components</maecBundle:Name>
+       </maecBundle:Strategic_Objective>
+       <maecBundle:Tactical_Objective id="maec-example-obt-10">
+        <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationTacticalObjectivesVocab-1.0">install secondary module</maecBundle:Name>
+        <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-4"/>
+        <maecBundle:Relationship>
+         <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporates</maecBundle:Relationship_Type>
+         <maecBundle:Objective_Reference objective_idref="maec-example-obt-5"/>
+        </maecBundle:Relationship>
+       </maecBundle:Tactical_Objective>
+      </maecBundle:Capability>
+      
+      <maecBundle:Capability id="maec-example-cpb-4" name="infection/propagation">
+       <maecBundle:Strategic_Objective id="maec-example-obt-11">
+        <maecBundle:Name xsi:type="maecVocabs:InfectionPropagationStrategicObjectivesVocab-1.0">prevent duplicate infection</maecBundle:Name>
+        <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-2"/>
+       </maecBundle:Strategic_Objective>
+      </maecBundle:Capability>
+      
+     </maecBundle:Capabilities>
+
      <maecBundle:Behaviors>
       <maecBundle:Behavior id="maec-example-bhv-1" ordinal_position="1" status="Success">
        <maecBundle:Description>Anti-virus software checking behavior. 

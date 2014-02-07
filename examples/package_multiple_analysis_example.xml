@@ -8,7 +8,8 @@
  Created November 2012 for MAEC v3.0 and CybOX v1.0 final
  Updated April 2013 for MAEC v4.0 and CybOX v2.0
  Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
- Updated January 2014 for MAEC v4.1 and CybOX v2.1 -->
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 
+ Updated February 2014 with MAEC v4.1 label content -->
 <maecPackage:MAEC_Package
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
@@ -52,6 +53,11 @@
       </FileObj:Hashes>
      </cybox:Properties>
    </maecPackage:Malware_Instance_Object_Attributes>
+      
+   <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">trojan horse</maecPackage:Label>
+   <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">bot</maecPackage:Label>
+   <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">keylogger</maecPackage:Label>
+   <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">password stealer</maecPackage:Label>
    
    <maecPackage:Analyses>
     <maecPackage:Analysis id="maec-example-ana-1" method="dynamic" type="triage" >

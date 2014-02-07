@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MAEC Capability/Objective Properties Example 
+     Describes Snifula capabilities
+     Based on https://www.circl.lu/files/tr-13/tr-13-snifula-analysis-report-v1.3.pdf
+     Added February 2014 for MAEC v4.1 -->
+<maecPackage:MAEC_Package 
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1" 
+ xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 ../maec_package_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 ../maec_default_vocabularies.xsd
+ http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd  
+ http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd" 
+ id="maec-tst-pkg-1" schema_version="2.1">
+    
+    <maecPackage:Malware_Subjects>
+        <!-- Dropper Component -->
+        <maecPackage:Malware_Subject id="maec-tst-sub-1">
+            <maecPackage:Malware_Instance_Object_Attributes id="maec-tst-obj-1">
+                <cybox:Properties xsi:type="FileObj:FileObjectType">
+                    <FileObj:File_Name>2a7.exe</FileObj:File_Name>
+                    <FileObj:Hashes>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>eaa5e4f26028c41ba3935a4ac455892c</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>049db2d7030bf7563974a2c25671aef046cabf99</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                    </FileObj:Hashes>
+                </cybox:Properties>
+            </maecPackage:Malware_Instance_Object_Attributes>
+            
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">dropper file</maecPackage:Label>        
+           
+            <maecPackage:Relationships>                
+                <maecPackage:Relationship> 
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">contained in memory image</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-2"/>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-4"/>
+                </maecPackage:Relationship>             
+            </maecPackage:Relationships>
+            
+        </maecPackage:Malware_Subject>
+        
+        <!-- Installer Component -->
+        <maecPackage:Malware_Subject id="maec-tst-sub-2">
+            <maecPackage:Malware_Instance_Object_Attributes id="maec-tst-obj-2">
+                <cybox:Properties xsi:type="FileObj:FileObjectType">
+                    <FileObj:File_Name>dump_006D0000.bin</FileObj:File_Name>
+                    <FileObj:Hashes>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>d819facd7c980b01bf44ea7efbf6af42</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>abfe4e74b345669a0fcd8a34bff9c9a0a7bc9c44</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                    </FileObj:Hashes>
+                </cybox:Properties>
+            </maecPackage:Malware_Instance_Object_Attributes>
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">dropper file</maecPackage:Label>
+            <maecPackage:Findings_Bundles>
+                <maecPackage:Bundle id="maec-tst-bnd-2" defined_subject="false" schema_version="4.1">
+                    <maecBundle:Capabilities>
+                        
+                        <maecBundle:Capability id="maec-tst-cpb-2" name="probing">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-4">
+                                <maecBundle:Name xsi:type="maecVocabs:ProbingStrategicObjectivesVocab-1.0">probe host configuration</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-5">
+                                <maecBundle:Name xsi:type="maecVocabs:ProbingTacticalObjectivesVocab-1.0">identify os</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>
+                        
+                        <maecBundle:Capability id="maec-tst-cpb-3" name="anti-detection">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-6">
+                                <maecBundle:Name xsi:type="maecVocabs:AntiDetectionStrategicObjectivesVocab-1.0">hide malware artifacts</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-7">                                
+                                <maecBundle:Name xsi:type="maecVocabs:AntiDetectionTacticalObjectivesVocab-1.0">obfuscate artifact properties</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>
+                        
+                        <maecBundle:Capability id="maec-tst-cpb-4" name="persistence">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-8">
+                                <maecBundle:Name xsi:type="maecVocabs:PersistenceStrategicObjectivesVocab-1.0">persist to continuously execute on system</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-9">
+                                <maecBundle:Name xsi:type="maecVocabs:PersistenceTacticalObjectivesVocab-1.0">persist after system reboot</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>                   
+                                             
+                        <maecBundle:Capability id="maec-tst-cpb-5" name="secondary operation">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-10">
+                                <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationStrategicObjectivesVocab-1.0">install other components</maecBundle:Name>                             
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-11">
+                                <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationTacticalObjectivesVocab-1.0">install secondary module</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>
+                    </maecBundle:Capabilities>
+                </maecPackage:Bundle>
+            </maecPackage:Findings_Bundles>
+            <maecPackage:Relationships>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">memory image of</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-1"/>
+                </maecPackage:Relationship>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">drops</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-3"/>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-6"/>
+                </maecPackage:Relationship>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">installs</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-3"/>
+                </maecPackage:Relationship>
+            </maecPackage:Relationships>
+        </maecPackage:Malware_Subject>
+        
+        <!-- DLL (Main) Component -->
+        <maecPackage:Malware_Subject id="maec-tst-sub-3">
+            <maecPackage:Malware_Instance_Object_Attributes id="maec-tst-obj-3">
+                <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                    <FileObj:File_Name>ctfmreg.dll</FileObj:File_Name>
+                    <FileObj:Hashes>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>f9005fd7eb85a81f2f9b1474bba61be0</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                        <cyboxCommon:Hash>  
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>89196b0ed3189e8571924144e57aa867f72164bd</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                    </FileObj:Hashes>
+                    <WinExecutableFileObj:Exports>
+                        <WinExecutableFileObj:Number_Of_Functions>46</WinExecutableFileObj:Number_Of_Functions>
+                    </WinExecutableFileObj:Exports>
+                </cybox:Properties>
+            </maecPackage:Malware_Instance_Object_Attributes>
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">backdoor</maecPackage:Label>           
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">password stealer</maecPackage:Label>
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">spyware</maecPackage:Label>
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">trojan horse</maecPackage:Label>
+            <maecPackage:Analyses> <!-- wasn't the type options going to change to "triage" and "indepth" (instead of "manual")?-->
+                <maecPackage:Analysis id="maec-example-ana-1" method="combination" type="in-depth">
+                    <maecPackage:Source>
+                        <maecPackage:Name>Computer Incident Response Center Luxembourg and National CERT of Luxembourg</maecPackage:Name>
+                        <maecPackage:URL>https://www.circl.lu/files/tr-13/tr-13-snifula-analysis-report-v1.3.pdf</maecPackage:URL>
+                    </maecPackage:Source>
+                    <maecPackage:Summary>Malware analysis of a Backdoor.Snifula variant</maecPackage:Summary>
+                    <maecPackage:Comments>
+                        <maecPackage:Comment>The malware binary exports 46 functions, but it seems most are used for camouflage, with only a single function actually being used.</maecPackage:Comment>
+                    </maecPackage:Comments>                    
+                    <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-1"/>
+                    <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-2"/>
+                    <maecPackage:Findings_Bundle_Reference bundle_idref="maec-example-bnd-3"/>                    
+                </maecPackage:Analysis>
+            </maecPackage:Analyses>
+            <maecPackage:Findings_Bundles>
+                <maecPackage:Bundle id="maec-tst-bnd-3" defined_subject="false" schema_version="4.1">
+                    <maecBundle:Capabilities>
+                        
+                        <maecBundle:Capability id="maec-tst-cpb-6" name="security degradation">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-12">
+                                <maecBundle:Name xsi:type="maecVocabs:SecurityDegradationStrategicObjectivesVocab-1.0">degrade security programs</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-13">
+                                <maecBundle:Name xsi:type="maecVocabs:SecurityDegradationTacticalObjectivesVocab-1.0">prevent security program from running</maecBundle:Name>
+                                <maecBundle:Property>
+                                    <maecBundle:Name xsi:type="maecVocabs:SecurityDegradationPropertiesVocab-1.0">targeted program</maecBundle:Name>
+                                    <maecBundle:Value>procmon.exe</maecBundle:Value>                                   
+                                </maecBundle:Property>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>
+                        
+                        <maecBundle:Capability id="maec-tst-cpb-7" name="persistence">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-14">
+                                <maecBundle:Name xsi:type="maecVocabs:PersistenceStrategicObjectivesVocab-1.0">ensure compatibility</maecBundle:Name>                           
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-15"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-46">
+                                <maecBundle:Name xsi:type="maecVocabs:PersistenceStrategicObjectivesVocab-1.0">persist to continuously execute on system</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-47"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-15">
+                                <maecBundle:Name xsi:type="maecVocabs:PersistenceTacticalObjectivesVocab-1.0">limit application type/version</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-14"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>        
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-47">
+                                <maecBundle:Name xsi:type="maecVocabs:PersistenceTacticalObjectivesVocab-1.0">persist after system reboot</maecBundle:Name>
+                                <maecBundle:Property>
+                                    <maecBundle:Name xsi:type="maecVocabs:PersistencePropertiesVocab-1.0">scope</maecBundle:Name>
+                                    <maecBundle:Value>other malware/components</maecBundle:Value>                                   
+                                </maecBundle:Property>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-46"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporated by</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-45"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>                    
+                       
+                        <maecBundle:Capability id="maec-tst-cpb-8" name="command and control">
+                            <maecBundle:Property>
+                                <maecBundle:Name xsi:type="maecVocabs:CommandandControlPropertiesVocab-1.0">protocol used</maecBundle:Name>
+                                <maecBundle:Value>HTTP</maecBundle:Value>
+                            </maecBundle:Property>
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-16">
+                                <maecBundle:Name xsi:type="maecVocabs:CommandandControlStrategicObjectivesVocab-1.0">receive data from c2 server</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-20"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-21"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                            
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-17">
+                                <maecBundle:Name xsi:type="maecVocabs:CommandandControlStrategicObjectivesVocab-1.0">send data to c2 server</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-18"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-19"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                            
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-18">
+                                <maecBundle:Name xsi:type="maecVocabs:CommandandControlTacticalObjectivesVocab-1.0">check for payload</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-17"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                            
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-19">
+                                <maecBundle:Name xsi:type="maecVocabs:CommandandControlTacticalObjectivesVocab-1.0">send system information</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-17"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                            
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-20">
+                                <maecBundle:Name xsi:type="maecVocabs:CommandandControlTacticalObjectivesVocab-1.0">control malware via remote command</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-16"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                            
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-21">
+                                <maecBundle:Name xsi:type="maecVocabs:CommandandControlTacticalObjectivesVocab-1.0">update configuration</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-16"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>                          
+                                               
+                        <maecBundle:Capability id="maec-tst-cpb-9" name="secondary operation">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-22">
+                                <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationStrategicObjectivesVocab-1.0">log activity</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporated by</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-20"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporates</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-17"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-45">
+                                <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationStrategicObjectivesVocab-1.0">install other components</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporated by</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-20"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporates</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-16"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporates</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-47"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                        </maecBundle:Capability>
+                                          
+                        <maecBundle:Capability id="maec-tst-cpb-10" name="probing">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-23">
+                                <maecBundle:Name xsi:type="maecVocabs:ProbingStrategicObjectivesVocab-1.0">probe network environment</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-24">
+                                <maecBundle:Name xsi:type="maecVocabs:ProbingTacticalObjectivesVocab-1.0">check for internet connectivity</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporated by</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-17"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>                            
+                        </maecBundle:Capability>
+                       
+                        <maecBundle:Capability id="maec-tst-cpb-11" name="data theft">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-25">
+                                <maecBundle:Name xsi:type="maecVocabs:DataTheftStrategicObjectivesVocab-1.0">steal authentication credentials</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-28"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-29"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-32"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-26">
+                                <maecBundle:Name xsi:type="maecVocabs:DataTheftStrategicObjectivesVocab-1.0">steal user data</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-27"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-30"/>
+                                </maecBundle:Relationship>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-31"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>                            
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-27">
+                                <maecBundle:Name xsi:type="maecVocabs:DataTheftTacticalObjectivesVocab-1.0">steal cookie</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-26"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-28">
+                                <maecBundle:Name xsi:type="maecVocabs:DataTheftTacticalObjectivesVocab-1.0">steal pki software certificate</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-25"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-29">
+                                <maecBundle:Name xsi:type="maecVocabs:DataTheftTacticalObjectivesVocab-1.0">steal pki key</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-25"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>                            
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-30">
+                                <maecBundle:Name xsi:type="maecVocabs:DataTheftTacticalObjectivesVocab-1.0">steal browser history</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-26"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-31">
+                                <maecBundle:Name xsi:type="maecVocabs:DataTheftTacticalObjectivesVocab-1.0">steal browser cache</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-26"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>        
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-32">
+                                <maecBundle:Name xsi:type="maecVocabs:DataTheftTacticalObjectivesVocab-1.0">steal web/network credential</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-25"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective> 
+                        </maecBundle:Capability>
+                        
+                        <maecBundle:Capability id="maec-tst-cpb-12" name="spying">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-33">
+                                <maecBundle:Name xsi:type="maecVocabs:SpyingStrategicObjectivesVocab-1.0">capture system input peripheral data</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-34">
+                                <maecBundle:Name xsi:type="maecVocabs:SpyingTacticalObjectivesVocab-1.0">capture system screenshot</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>
+                        
+                        <maecBundle:Capability id="maec-tst-cpb-13" name="data exfiltration">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-35">
+                                <maecBundle:Name xsi:type="maecVocabs:DataExfiltrationStrategicObjectivesVocab-1.0">stage data for exfiltration</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-36">
+                                <maecBundle:Name xsi:type="maecVocabs:DataExfiltrationStrategicObjectivesVocab-1.0">obfuscate data for exfiltration</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-37">
+                                <maecBundle:Name xsi:type="maecVocabs:DataExfiltrationStrategicObjectivesVocab-1.0">perform data exfiltration</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-38">
+                                <maecBundle:Name xsi:type="maecVocabs:DataExfiltrationTacticalObjectivesVocab-1.0">package data</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-39">
+                                <maecBundle:Name xsi:type="maecVocabs:DataExfiltrationTacticalObjectivesVocab-1.0">encrypt data</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-40">
+                                <maecBundle:Name xsi:type="maecVocabs:DataExfiltrationTacticalObjectivesVocab-1.0">exfiltrate via network</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">incorporates</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-17"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>
+                        
+                        <maecBundle:Capability id="maec-tst-cpb-14" name="integrity violation">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-41">
+                                <maecBundle:Name xsi:type="maecVocabs:IntegrityViolationStrategicObjectivesVocab-1.0">compromise network operational integrity</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-43"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-42">
+                                <maecBundle:Name xsi:type="maecVocabs:IntegrityViolationStrategicObjectivesVocab-1.0">compromise system data integrity</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">parent of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-44"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-43">
+                                <maecBundle:Name xsi:type="maecVocabs:IntegrityViolationTacticalObjectivesVocab-1.0">intercept/manipulate network traffic</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-41"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-44">
+                                <maecBundle:Name xsi:type="maecVocabs:IntegrityViolationTacticalObjectivesVocab-1.0">corrupt system data</maecBundle:Name>
+                                <maecBundle:Relationship>
+                                    <maecBundle:Relationship_Type xsi:type="maecVocabs:CapabilityObjectiveRelationshipTypeVocab-1.0">child of</maecBundle:Relationship_Type>
+                                    <maecBundle:Objective_Reference objective_idref="maec-tst-obt-42"/>
+                                </maecBundle:Relationship>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>
+                                                
+                    </maecBundle:Capabilities>
+                </maecPackage:Bundle>
+            </maecPackage:Findings_Bundles>
+            <maecPackage:Relationships>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">dropped by</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-2"/>
+                </maecPackage:Relationship>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">encrypted version of</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-4"/>
+                </maecPackage:Relationship>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">32-bit version of</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-5"/>
+                </maecPackage:Relationship>
+            </maecPackage:Relationships>
+        </maecPackage:Malware_Subject>
+        
+        <!-- Decrypted DLL Component -->
+        <maecPackage:Malware_Subject id="maec-tst-sub-4">
+            <maecPackage:Malware_Instance_Object_Attributes id="maec-tst-obj-4">
+                <cybox:Properties xsi:type="FileObj:FileObjectType">
+                    <FileObj:File_Name>dump_00E30000.bin</FileObj:File_Name>
+                    <FileObj:Hashes>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>a6bf4ae086b8d28612de4bc0d7ec4abe</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>2b6b4fbc77553425b00ee3135e2e83386ebd797f</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                    </FileObj:Hashes>
+                </cybox:Properties>
+            </maecPackage:Malware_Instance_Object_Attributes>      
+            <maecPackage:Relationships>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">memory image of</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-1"/>
+                </maecPackage:Relationship>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">decrypted version of</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-3"/>
+                </maecPackage:Relationship>
+            </maecPackage:Relationships>
+        </maecPackage:Malware_Subject>        
+        
+        <!-- 64-bit DLL Component -->
+        <maecPackage:Malware_Subject id="maec-tst-sub-5">
+            <maecPackage:Malware_Instance_Object_Attributes id="maec-tst-obj-5">
+                <cybox:Properties xsi:type="FileObj:FileObjectType">
+                    <FileObj:File_Name>ctfmreg64.dll</FileObj:File_Name>
+                    <FileObj:Hashes>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>edb1c6fa185dc818e9cf1d107974561a</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>383b76f23ac1d469a59a85af1a8d9c1d3f932e2f</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                    </FileObj:Hashes>
+                </cybox:Properties>
+            </maecPackage:Malware_Instance_Object_Attributes>          
+            <maecPackage:Relationships>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">extracted from</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-2"/>
+                </maecPackage:Relationship>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">64-bit version of</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-3"/>
+                </maecPackage:Relationship>
+            </maecPackage:Relationships>
+        </maecPackage:Malware_Subject>        
+        
+        <!-- Batch File Cleanup Component -->
+        <maecPackage:Malware_Subject id="maec-tst-sub-6">
+            <maecPackage:Malware_Instance_Object_Attributes id="maec-tst-obj-6">
+                <cybox:Description>Batch cleaup file. Name of the file is based on GetTickCount value.</cybox:Description>
+                <cybox:Properties xsi:type="FileObj:FileObjectType">
+                    <FileObj:File_Name condition="FitsPattern" pattern_type="Regex">[0-9]{8}\.bat</FileObj:File_Name>
+                    <FileObj:Hashes>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>d226a657b279c5fc0a892748230a56ff</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                        <cyboxCommon:Hash>
+                            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+                            <cyboxCommon:Simple_Hash_Value>fa7e4fb6d6de3c4769001cbfce0a00ba02ef28a5</cyboxCommon:Simple_Hash_Value>
+                        </cyboxCommon:Hash>
+                    </FileObj:Hashes>
+                </cybox:Properties>
+            </maecPackage:Malware_Instance_Object_Attributes>          
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">wiper</maecPackage:Label>
+            <maecPackage:Findings_Bundles>
+                <maecPackage:Bundle id="maec-tst-bnd-1" defined_subject="false" schema_version="4.1">
+                    <maecBundle:Capabilities>
+                        <maecBundle:Capability id="maec-tst-cpb-1" name="secondary operation">
+                            <maecBundle:Strategic_Objective id="maec-tst-obt-1">
+                                <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationStrategicObjectivesVocab-1.0">remove traces of infection</maecBundle:Name>
+                            </maecBundle:Strategic_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-2">
+                                <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationTacticalObjectivesVocab-1.0">remove self</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                            <maecBundle:Tactical_Objective id="maec-tst-obt-3">
+                                <maecBundle:Name xsi:type="maecVocabs:SecondaryOperationTacticalObjectivesVocab-1.0">remove system artifacts</maecBundle:Name>
+                            </maecBundle:Tactical_Objective>
+                        </maecBundle:Capability>
+                    </maecBundle:Capabilities>
+                </maecPackage:Bundle>
+            </maecPackage:Findings_Bundles>
+            <maecPackage:Relationships>
+                <maecPackage:Relationship>
+                    <maecPackage:Type xsi:type="maecVocabs:MalwareSubjectRelationshipTypeVocab-1.1">dropped by</maecPackage:Type>
+                    <maecPackage:Malware_Subject_Reference malware_subject_idref="maec-tst-sub-2"/>
+                </maecPackage:Relationship>
+            </maecPackage:Relationships>
+        </maecPackage:Malware_Subject>
+    </maecPackage:Malware_Subjects>
+</maecPackage:MAEC_Package>

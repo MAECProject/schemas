@@ -6,7 +6,8 @@
  
  Created April 2013 for MAEC v4.0 and CybOX v2.0 
  Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
- Updated January 2014 for MAEC v4.1 and CybOX v2.1 -->
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 
+ Updated February 2014 with MAEC v4.1 Capability content -->
 <maecBundle:MAEC_Bundle
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
  xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
@@ -35,11 +36,23 @@
  </cybox:Properties>
 </maecBundle:Malware_Instance_Object_Attributes>
  
+ <maecBundle:Capabilities>
+  <maecBundle:Capability id="maec-example-cpb-1" name="command and control">
+   <maecBundle:Strategic_Objective id="maec-example-obt-1">
+    <maecBundle:Name xsi:type="maecVocabs:CommandandControlStrategicObjectivesVocab-1.0">send data to c2 server</maecBundle:Name>
+   </maecBundle:Strategic_Objective>
+   <maecBundle:Tactical_Objective id="maec-example-obt-2">
+    <maecBundle:Name xsi:type="maecVocabs:CommandandControlTacticalObjectivesVocab-1.0">send system information</maecBundle:Name>
+    <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-1"/>
+   </maecBundle:Tactical_Objective>
+  </maecBundle:Capability>
+ </maecBundle:Capabilities>
+ 
  <maecBundle:Behaviors>
   <maecBundle:Behavior id="maec-example-bhv-1">
    <maecBundle:Purpose>
     <maecBundle:Description>A Command and Control Server Connection Loop. Every 180 seconds the malware subject
-    seconds an HTTP Post request to its C2 server with some data uniquely identifying the victim machine
+    sends an HTTP Post request to its C2 server with some data uniquely identifying the victim machine
     and reporting on the status of the execution of the malware.
     </maecBundle:Description>
    </maecBundle:Purpose>
