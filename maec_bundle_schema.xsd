@@ -1055,7 +1055,7 @@
 	</xs:simpleType>
 	<xs:complexType name="CapabilityType">
 		<xs:annotation>
-			<xs:documentation>The CapabilityType captures details of a Capability that may be implemented in the malware instance and its properties, including its Strategic and Tactical Objectives.</xs:documentation>
+			<xs:documentation>The CapabilityType captures details of a Capability that may be implemented in the malware instance, along with its child Strategic and Tactical Objectives.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Description" type="xs:string">
@@ -1068,19 +1068,19 @@
 					<xs:documentation>The Property field permits the capture of a single property of the Capability, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective" type="maecBundle:CapabilityStrategicObjectiveType">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective" type="maecBundle:CapabilityObjectiveType">
 				<xs:annotation>
-					<xs:documentation>The Strategic_Objective field captures a single Strategic Objective that the Capability attempts to achieve. It can be considered as a more granular way of expounding upon Capabilitys to better capture the intent of the malware author(s). </xs:documentation>
+					<xs:documentation>The Strategic_Objective field captures a single Strategic Objective that the Capability attempts to achieve. It can be considered as a more granular way of capturing the Capabilities present in the malware instance. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Tactical_Objective" type="maecBundle:CapabilityTacticalObjectiveType">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Tactical_Objective" type="maecBundle:CapabilityObjectiveType">
 				<xs:annotation>
-					<xs:documentation>The Tactical_Objective field captures a single Tactical Objective that the Capability attempts to achieve, typically in the context of a Strategic Objective. It can be considered as a more granular way of expounding upon Strategic Objectives to better capture the intent of the malware author(s). </xs:documentation>
+					<xs:documentation>The Tactical_Objective field captures a single Tactical Objective that the Capability attempts to achieve, typically in the context of a broader Strategic Objective. It can be considered as a way of expounding upon Strategic Objectives to capture the Capabilities of the malware instance in more detail. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that implements the Capability. For Behaviors that implement specific Strategic or Tactical Objectives, the Behavior_Reference field under the Strategic_Objective or Tactical_Objective fields should be used, respectively.</xs:documentation>
+					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that serves as an implementation of the Capability. For Behaviors that serve as implementations of specific Strategic or Tactical Objectives, the Behavior_Reference field under the Strategic_Objective or Tactical_Objective fields should be used, respectively.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Relationship" maxOccurs="unbounded" type="maecBundle:CapabilityRelationshipType">
@@ -1089,14 +1089,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="id" use="optional" type="xs:QName">
+		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The id field specifies a unique ID for this MAEC Capability.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="idref" type="xs:IDREF">
-			<xs:annotation>
-				<xs:documentation>The idref field is used to reference an existing Capability defined elsewhere in the MAEC document.</xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this MAEC Capability.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="name" type="maecVocabs:MalwareCapabilityEnum-1.0">
@@ -1109,90 +1104,63 @@
 		<xs:annotation>
 			<xs:documentation>The CapabilityListType captures a list of Capabilities.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability" type="maecBundle:CapabilityType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element maxOccurs="1" minOccurs="1" name="Capability" type="maecBundle:CapabilityType">
 				<xs:annotation>
-					<xs:documentation>The Capability field captures a single Capability in the list, and therefore a single Capability that the malware instance possesses. </xs:documentation>
+					<xs:documentation>The Capability field captures a single Capability in the list, and therefore represents a single Capability possessed by the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
+			<xs:element name="Capability_Reference" type="maecBundle:CapabilityReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Capability_Reference field references a single Capability defined elsewhere in the MAEC document, and therefore represents a single Capability possessed by the malware instance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="CapabilityStrategicObjectiveType">
+	<xs:complexType name="CapabilityReferenceType">
 		<xs:annotation>
-			<xs:documentation>The CapabilityStrategicObjectiveType captures details of a Capability Strategic Objective may be implemented in the malware instance and its properties.</xs:documentation>
+			<xs:documentation>The CapabilityReferenceType serves as a method for referencing existing Capabilities contained in the MAEC document.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="capability_idref" type="xs:QName" use="required">
+			<xs:annotation>
+				<xs:documentation>The capability_idref field references the ID of a Capability contained inside the current MAEC document.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CapabilityObjectiveType">
+		<xs:annotation>
+			<xs:documentation>The CapabilityObjectiveType captures details of a Capability Strategic or Tactical Objective may be implemented in the malware instance and its properties.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" minOccurs="0" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Name field captures the name of the Capability Strategic Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema.</xs:documentation>
+					<xs:documentation>The Name field captures the name of the Capability Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema. It uses the ControlledVocabularyStringType from the imported CybOX Common schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Description" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>The Description field captures a textual description of the Strategic Objective.</xs:documentation>
+					<xs:documentation>The Description field captures a basic textual description of the Capability Objective.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Property" type="maecBundle:CapabilityPropertyType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Property field permits the capture of a single property of the Strategic Objective, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
+					<xs:documentation>The Property field permits the capture of a single property of the Capability Objective, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that implements the Strategic Objective. </xs:documentation>
+					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that functions as an implementation of the Capability Objective. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:CapabilityObjectiveRelationshipType">
 				<xs:annotation>
-					<xs:documentation>The Relationship field captures a relationship from the Strategic Objective to one or more other Strategic or Tactical Objectives.</xs:documentation>
+					<xs:documentation>The Relationship field captures a relationship from the Capability Objective to one or more other Capability Objectives.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Capability Strategic Objective.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="CapabilityTacticalObjectiveType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityTacticalObjectiveType captures details of a Capability Tactical Objective may be implemented in the malware instance and its properties.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Name" minOccurs="0" type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Name field captures the name of the Capability Tactical Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Description" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Description field captures a textual description of the Tactical Objective.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Property" type="maecBundle:CapabilityPropertyType" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The Property field permits the capture of a single property of the Tactical Objective, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Behavior_Reference" type="maecBundle:BehaviorReferenceType" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that implements the Tactical Objective. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship" type="maecBundle:CapabilityObjectiveRelationshipType">
-				<xs:annotation>
-					<xs:documentation>The Relationship field captures a relationship from the Tactical Objective to one or more other Tactical or Strategic Objectives.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="id" use="required" type="xs:QName">
-			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Capability Tactical Objective.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
-			<xs:annotation>
-				<xs:documentation>The ordinal_position field captures the ordinal position of the tactical objective with respect to other tactical objectives employed by the parent strategic objective. </xs:documentation>
+				<xs:documentation>The required id field specifies a unique ID for this Capability Objective.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -1203,25 +1171,15 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Relationship_Type" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Capabilitys.</xs:documentation>
+					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Capabilities.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability_Reference" type="maecBundle:CapabilityReferenceType">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability_Reference" type="maecBundle:CapabilityType">
 				<xs:annotation>
-					<xs:documentation>The Capability_Reference field references a single Capability in the relationship.</xs:documentation>
+					<xs:documentation>The Capability_Reference field references a single Capability in the relationship, via its ID.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CapabilityReferenceType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityReferenceType serves as a method for referencing existing Capabilitys contained in the Bundle.</xs:documentation>
-		</xs:annotation>
-		<xs:attribute name="capability_idref" type="xs:QName" use="required">
-			<xs:annotation>
-				<xs:documentation>The capability_idref field references the ID of a Capability Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="CapabilityObjectiveRelationshipType">
 		<xs:annotation>
@@ -1257,7 +1215,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Name field specifies the name of the property being captured. The name can be either free form text or a standardized string via a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema.</xs:documentation>
+					<xs:documentation>The Name field specifies the name of the property being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Value" type="cyboxCommon:StringObjectPropertyType">
