@@ -6,9 +6,8 @@
 		<xs:documentation>The MAEC Container Schema is maintained by The Mitre Corporation. For more information, including how to get involved in the project, please visit the MAEC website at http://maec.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>MAEC Container Schema</schema>
-			<version>2.1 RELEASE CANDIDATE</version>
-			<date>02/04/2014</date>
-			<notice>RELEASE CANDIDATE: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
+			<version>2.1</version>
+			<date>02/11/2014</date>
 			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
