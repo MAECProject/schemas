@@ -1174,7 +1174,7 @@
 					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Capabilities.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability_Reference" type="maecBundle:CapabilityType">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability_Reference" type="maecBundle:CapabilityReferenceType">
 				<xs:annotation>
 					<xs:documentation>The Capability_Reference field references a single Capability in the relationship, via its ID.</xs:documentation>
 				</xs:annotation>
