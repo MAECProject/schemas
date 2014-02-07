@@ -1129,7 +1129,7 @@
 	</xs:complexType>
 	<xs:complexType name="CapabilityObjectiveType">
 		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveType captures details of a Capability Strategic or Tactical Objective may be implemented in the malware instance and its properties.</xs:documentation>
+			<xs:documentation>The CapabilityObjectiveType captures details of a Capability Strategic or Tactical Objective.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" minOccurs="0" type="cyboxCommon:ControlledVocabularyStringType">
