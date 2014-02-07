@@ -139,7 +139,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Capabilities" type="maecBundle:CapabilityListType">
 				<xs:annotation>
-					<xs:documentation>The Capabilities field contains 1-n CapabilityType objects, which serve to describe the high-level goal(s) and possible intent of the malware author(s) present in the malware instance.</xs:documentation>
+					<xs:documentation>The Capabilities field contains 1-n CapabilityType objects, which serve to describe the high-level capabilities and objectives of the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behaviors" type="maecBundle:BehaviorListType">
