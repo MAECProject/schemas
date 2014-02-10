@@ -3213,6 +3213,48 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="DataExfiltrationPropertiesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataExfiltrationPropertiesVocab-1.0 is the default MAEC Vocabulary for Data Exfiltration Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:DataExfiltrationPropertiesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Data Exfiltration Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DataExfiltrationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="DataExfiltrationPropertiesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The DataExfiltrationPropertiesEnum-1.0 is an enumeration of Data Exfiltration Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="encryption algorithm">
+                <xs:annotation>
+                    <xs:documentation>The 'encryption algorithm' value refers to the name of the encryption algorithm used in the Obfuscate Data for Exfiltration Strategic Objective and/or its Encrypt Data Tactical Objective.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="archive type">
+                <xs:annotation>
+                    <xs:documentation>The 'archive type' value refers to the name of the file archive format used in the Stage Data for Exfiltration Strategic Objective and/or its Package Data Tactical Objective.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="file type">
+                <xs:annotation>
+                    <xs:documentation>The 'file type' value refers to the name of the file format used for storing data to be exfiltrated as part of the Data Exfiltration Capability or its child Objectives.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="protocol used">
+                <xs:annotation>
+                    <xs:documentation>The 'protocol used' value refers to the name of the network protocol employed by the Stage Data for Exfiltration Strategic Objective and/or its Move Data to Staging Server Tactical Objective.</xs:documentation>
+                    <xs:documentation>It is recommended that protocols be specified by their acronym or abbreviated name, e.g. "IRC", "HTTP".</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="MalwareCapabilityVocab-1.0">
         <xs:annotation>
             <xs:documentation>The MalwareCapabilyVocab-1.0 is the default MAEC Vocabulary for Malware Capabilities.</xs:documentation>
