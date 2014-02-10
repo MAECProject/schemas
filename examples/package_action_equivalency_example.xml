@@ -125,16 +125,6 @@
          <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
           <FileObj:File_Name>taskmgrsx.exe</FileObj:File_Name>
           <FileObj:File_Path>%Programs%\Startup\</FileObj:File_Path>
-          <FileObj:Hashes>
-           <cyboxCommon:Hash>
-            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
-            <cyboxCommon:Simple_Hash_Value>BBC170B55793F66793A3A33D084161B75C232D8D</cyboxCommon:Simple_Hash_Value>
-           </cyboxCommon:Hash>
-           <cyboxCommon:Hash>
-            <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
-            <cyboxCommon:Simple_Hash_Value>3D0FB1FAB61BE9B7E7ADF51ED08558E0</cyboxCommon:Simple_Hash_Value>
-           </cyboxCommon:Hash>
-          </FileObj:Hashes>
          </cybox:Properties>
          <cybox:Association_Type xsi:type="maecVocabs:ActionObjectAssociationTypeVocab-1.0">output</cybox:Association_Type>
         </cybox:Associated_Object>
