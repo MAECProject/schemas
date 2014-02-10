@@ -72,7 +72,7 @@
      <WinRegistryKeyObj:Values>
       <WinRegistryKeyObj:Value>
        <WinRegistryKeyObj:Name>Zcxaxz</WinRegistryKeyObj:Name>
-       <WinRegistryKeyObj:Data>"%AppData%\Zcxaxz.exe"</WinRegistryKeyObj:Data>
+       <WinRegistryKeyObj:Data>%AppData%\Zcxaxz.exe</WinRegistryKeyObj:Data>
       </WinRegistryKeyObj:Value>
      </WinRegistryKeyObj:Values>
     </cybox:Properties>
