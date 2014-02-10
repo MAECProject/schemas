@@ -3255,6 +3255,32 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="AvailabilityViolationPropertiesVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The AvailabilityViolationPropertiesVocab-1.0 is the default MAEC Vocabulary for Availability Violation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:AvailabilityViolationPropertiesEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Default Availability Violation Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AvailabilityViolationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="AvailabilityViolationPropertiesEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The AvailabilityViolationPropertiesEnum-1.0 is an enumeration of Availability Violation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="cryptocurrency type">
+                <xs:annotation>
+                    <xs:documentation>The 'cryptocurrency type' value refers to the type of cryptocurrency targeted by the Mine for CryptoCurrency Strategic Objective.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="MalwareCapabilityVocab-1.0">
         <xs:annotation>
             <xs:documentation>The MalwareCapabilyVocab-1.0 is the default MAEC Vocabulary for Malware Capabilities.</xs:documentation>
