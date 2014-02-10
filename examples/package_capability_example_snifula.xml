@@ -151,7 +151,7 @@
             <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">password stealer</maecPackage:Label>
             <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">spyware</maecPackage:Label>
             <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">trojan horse</maecPackage:Label>
-            <maecPackage:Analyses> <!-- wasn't the type options going to change to "triage" and "indepth" (instead of "manual")?-->
+            <maecPackage:Analyses>
                 <maecPackage:Analysis id="maec-example-ana-1" method="combination" type="in-depth">
                     <maecPackage:Source>
                         <maecPackage:Name>Computer Incident Response Center Luxembourg and National CERT of Luxembourg</maecPackage:Name>
