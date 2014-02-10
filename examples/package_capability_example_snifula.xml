@@ -224,7 +224,7 @@
                        
                         <maecBundle:Capability id="maec-tst-cpb-8" name="command and control">
                             <maecBundle:Property>
-                                <maecBundle:Name xsi:type="maecVocabs:CommandandControlPropertiesVocab-1.0">protocol used</maecBundle:Name>
+                                <maecBundle:Name xsi:type="maecVocabs:CommonCapabilityPropertiesVocab-1.0">protocol used</maecBundle:Name>
                                 <maecBundle:Value>HTTP</maecBundle:Value>
                             </maecBundle:Property>
                             <maecBundle:Strategic_Objective id="maec-tst-obt-16">
