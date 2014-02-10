@@ -88,12 +88,12 @@
       
       <maecPackage:Tool id="analysis-tool-3">
        <cyboxCommon:Name>Regshot</cyboxCommon:Name>
-       <cyboxCommon:Version>v1.8.2</cyboxCommon:Version>
+       <cyboxCommon:Version>1.8.2</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-4">
        <cyboxCommon:Name>HandleDiff</cyboxCommon:Name>
-       <cyboxCommon:Version>v.0.2</cyboxCommon:Version>
+       <cyboxCommon:Version>0.2</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-5">
