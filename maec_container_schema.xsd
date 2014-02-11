@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-container-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecContainer="http://maec.mitre.org/XMLSchema/maec-container-2" xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2" version="2.1">
-	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-package-2" schemaLocation="maec_package_schema.xsd"/>
+	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-package-2" schemaLocation="http://maec.mitre.org/language/version4.1/maec_package_schema.xsd"/>
 	<xs:annotation>
 		<xs:documentation>The following is a description of the elements, types, and attributes that compose the Malware Attribute Enumeration and Characterization (MAEC) container schema.</xs:documentation>
 		<xs:documentation>The MAEC Container Schema is maintained by The Mitre Corporation. For more information, including how to get involved in the project, please visit the MAEC website at http://maec.mitre.org.</xs:documentation>

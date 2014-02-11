@@ -16,7 +16,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/objects#ProcessObject-2" schemaLocation="http://cybox.mitre.org/XMLSchema/objects/Process/2.1/Process_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/default_vocabularies-2" schemaLocation="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd"/>
-	<xs:import namespace="http://maec.mitre.org/default_vocabularies-1" schemaLocation="maec_default_vocabularies.xsd"/>
+	<xs:import namespace="http://maec.mitre.org/default_vocabularies-1" schemaLocation="http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd"/>
 	<xs:element name="MAEC_Bundle" type="maecBundle:BundleType">
 		<xs:annotation>
 			<xs:documentation>The MAEC_Bundle element is the root element of this schema, and is of type BundleType. As such, it represents the characterization of a single malware instance, characterized in the top-level Subject_Details element, via its MAEC entities.</xs:documentation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-package-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2" xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4" xmlns:metadata="http://xml/metadataSharing.xsd" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" version="2.1">
-	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-bundle-4" schemaLocation="maec_bundle_schema.xsd"/>
+	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-bundle-4" schemaLocation="http://maec.mitre.org/language/version4.1/maec_bundle_schema.xsd"/>
 	<xs:import namespace="http://xml/metadataSharing.xsd" schemaLocation="http://grouper.ieee.org/groups/malware/malwg/Schema1.2/metadataSharing.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/cybox-2" schemaLocation="http://cybox.mitre.org/XMLSchema/core/2.1/cybox_core.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#SystemObject-2" schemaLocation="http://cybox.mitre.org/XMLSchema/objects/System/2.1/System_Object.xsd"/>
