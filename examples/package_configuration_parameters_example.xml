@@ -35,13 +35,13 @@
                 </cybox:Properties>
             </maecPackage:Malware_Instance_Object_Attributes>
 
-            <maecPackage:Configuration_Details xsi:type="maecPackage:MalwareConfigurationDetailsType">
+            <maecPackage:Configuration_Details>
                 <maecPackage:Configuration_Parameter>
-                    <maecPackage:Name>filename</maecPackage:Name>
+                    <maecPackage:Name xsi:type="maecVocabs:MalwareConfigurationParameterVocab-1.0">filename</maecPackage:Name>
                     <maecPackage:Value>wmiserver.exe</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
                 <maecPackage:Configuration_Parameter>
-                    <maecPackage:Name>installation_path</maecPackage:Name>
+                    <maecPackage:Name xsi:type="maecVocabs:MalwareConfigurationParameterVocab-1.0">installation path</maecPackage:Name>
                     <maecPackage:Value>%System%</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
                 <maecPackage:Configuration_Parameter>
@@ -49,11 +49,11 @@
                     <maecPackage:Value>wwwst@Admin</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
                 <maecPackage:Configuration_Parameter>
-                    <maecPackage:Name>id</maecPackage:Name>
+                    <maecPackage:Name xsi:type="maecVocabs:MalwareConfigurationParameterVocab-1.0">id</maecPackage:Name>
                     <maecPackage:Value>aubok</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
                 <maecPackage:Configuration_Parameter>
-                    <maecPackage:Name>mutex</maecPackage:Name>
+                    <maecPackage:Name xsi:type="maecVocabs:MalwareConfigurationParameterVocab-1.0">mutex</maecPackage:Name>
                     <maecPackage:Value>801JsYqFulHpg</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
             </maecPackage:Configuration_Details>
