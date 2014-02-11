@@ -4,6 +4,9 @@
     - Demonstrates how to specify configuration parameters related to a malware instance characterized by a Malware Subject.
     - This can be use to capture the configuration parameters for tools such as remote access tools or reverse shell utilities and can include mutual exclusions, passwords, or IDs, for example.
     - References: http://www.fireeye.com/blog/technical/2013/10/know-your-enemy-tracking-a-rapidly-evolving-apt-actor.html
+    
+    Added February 2014 for MAEC v4.1
+
 -->
 <maecPackage:MAEC_Package
     xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
@@ -37,11 +40,11 @@
 
             <maecPackage:Configuration_Details>
                 <maecPackage:Configuration_Parameter>
-                    <maecPackage:Name>filename</maecPackage:Name>
+                    <maecPackage:Name xsi:type="maecVocabs:MalwareConfigurationParameterVocab-1.0">filename</maecPackage:Name>
                     <maecPackage:Value>wmiserver.exe</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
                 <maecPackage:Configuration_Parameter>
-                    <maecPackage:Name>installation_path</maecPackage:Name>
+                    <maecPackage:Name xsi:type="maecVocabs:MalwareConfigurationParameterVocab-1.0">installation path</maecPackage:Name>
                     <maecPackage:Value>%System%</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
                 <maecPackage:Configuration_Parameter>
@@ -49,11 +52,11 @@
                     <maecPackage:Value>wwwst@Admin</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
                 <maecPackage:Configuration_Parameter>
-                    <maecPackage:Name>id</maecPackage:Name>
+                    <maecPackage:Name xsi:type="maecVocabs:MalwareConfigurationParameterVocab-1.0">id</maecPackage:Name>
                     <maecPackage:Value>aubok</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
                 <maecPackage:Configuration_Parameter>
-                    <maecPackage:Name>mutex</maecPackage:Name>
+                    <maecPackage:Name xsi:type="maecVocabs:MalwareConfigurationParameterVocab-1.0">mutex</maecPackage:Name>
                     <maecPackage:Value>801JsYqFulHpg</maecPackage:Value>
                 </maecPackage:Configuration_Parameter>
             </maecPackage:Configuration_Details>
