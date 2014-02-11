@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     MAEC Package Development Environment Example
-    - Demonstrates how to capture components of developers' systems and applications to include, but not limited to, compilers, linkers, or IDEs.-->
+    - Demonstrates how to specify components of the environment used in the development of a malware instance characterized by a Malware Subject.
+    - This can be use to capture details of applications used in malware development including, but not limited to, compilers, linkers, or IDEs.
+-->
 <maecPackage:MAEC_Package
     xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
     xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
