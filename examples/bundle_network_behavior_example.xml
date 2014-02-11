@@ -5,7 +5,9 @@
  -Based on Securelist Red October report: http://www.securelist.com/en/analysis/204792265/Red_October_Detailed_Malware_Description_1_First_Stage_of_Attack
  
  Created April 2013 for MAEC v4.0 and CybOX v2.0 
- Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1 -->
+ Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 
+ Updated February 2014 with MAEC v4.1 Capability content -->
 <maecBundle:MAEC_Bundle
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
  xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
@@ -16,13 +18,12 @@
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-4 http://maec.mitre.org/language/version4.0.1/maec_bundle_schema.xsd
- http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.0.1/maec_default_vocabularies.xsd
- http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd 
- http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.0.1/cybox_core.xsd
- http://cybox.mitre.org/objects#HTTPSessionObject-2 http://cybox.mitre.org/XMLSchema/objects/HTTP_Session/2.0.1/HTTP_Session_Object.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0.1/Win_Executable_File_Object.xsd" 
- id="maec-example-bnd-1" schema_version="4.0.1" defined_subject="true" content_type="mixed">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-bundle-4 http://maec.mitre.org/language/version4.1/maec_bundle_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
+ http://cybox.mitre.org/objects#HTTPSessionObject-2 http://cybox.mitre.org/XMLSchema/objects/HTTP_Session/2.1/HTTP_Session_Object.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd" 
+ id="maec-example-bnd-1" schema_version="4.1" defined_subject="true" content_type="mixed">
 <maecBundle:Malware_Instance_Object_Attributes>
  <cybox:Description>Red October Downloader</cybox:Description>
  <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
@@ -35,11 +36,23 @@
  </cybox:Properties>
 </maecBundle:Malware_Instance_Object_Attributes>
  
+ <maecBundle:Capabilities>
+  <maecBundle:Capability id="maec-example-cpb-1" name="command and control">
+   <maecBundle:Strategic_Objective id="maec-example-obt-1">
+    <maecBundle:Name xsi:type="maecVocabs:CommandandControlStrategicObjectivesVocab-1.0">send data to c2 server</maecBundle:Name>
+   </maecBundle:Strategic_Objective>
+   <maecBundle:Tactical_Objective id="maec-example-obt-2">
+    <maecBundle:Name xsi:type="maecVocabs:CommandandControlTacticalObjectivesVocab-1.0">send system information</maecBundle:Name>
+    <maecBundle:Behavior_Reference behavior_idref="maec-example-bhv-1"/>
+   </maecBundle:Tactical_Objective>
+  </maecBundle:Capability>
+ </maecBundle:Capabilities>
+ 
  <maecBundle:Behaviors>
   <maecBundle:Behavior id="maec-example-bhv-1">
    <maecBundle:Purpose>
     <maecBundle:Description>A Command and Control Server Connection Loop. Every 180 seconds the malware subject
-    seconds an HTTP Post request to its C2 server with some data uniquely identifying the victim machine
+    sends an HTTP Post request to its C2 server with some data uniquely identifying the victim machine
     and reporting on the status of the execution of the malware.
     </maecBundle:Description>
    </maecBundle:Purpose>
@@ -50,7 +63,7 @@
  </maecBundle:Behaviors>
  
 <maecBundle:Actions>
- <maecBundle:Action id="maec-example-act-1" context="Network">
+ <maecBundle:Action id="maec-example-act-1">
   <cybox:Name xsi:type="maecVocabs:HTTPActionNameVocab-1.0">send http post request</cybox:Name>
   <cybox:Associated_Objects>
    <cybox:Associated_Object id="maec-example-obj-1">

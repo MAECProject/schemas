@@ -8,7 +8,9 @@
  
  Updated November 2012 for MAEC v3.0 and CybOX v1.0 final
  Updated April 2013 for MAEC v4.0 and CybOX v2.0 final
- Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1 -->
+ Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1 
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 
+ Updated February 2014 with MAEC v4.1 label content -->
 <maecPackage:MAEC_Package
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
@@ -25,14 +27,14 @@
  xmlns:WinMutexObj="http://cybox.mitre.org/objects#WinMutexObject-2"
  xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 http://maec.mitre.org/language/version4.0.1/maec_package_schema.xsd
- http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.0.1/maec_default_vocabularies.xsd
- http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd 
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.0.1/Win_Executable_File_Object.xsd
- http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/2.0.1/Win_Mutex_Object.xsd 
- http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/2.0.1/Win_Process_Object.xsd 
- http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/2.0.1/URI_Object.xsd" 
- id="maec-example-pkg-1" schema_version="2.0.1">
+ xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 http://maec.mitre.org/language/version4.1/maec_package_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd
+ http://cybox.mitre.org/objects#WinMutexObject http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/2.1/Win_Mutex_Object.xsd 
+ http://cybox.mitre.org/objects#WinProcessObject http://cybox.mitre.org/XMLSchema/objects/Win_Process/2.1/Win_Process_Object.xsd 
+ http://cybox.mitre.org/objects#URIObject http://cybox.mitre.org/XMLSchema/objects/URI/2.1/URI_Object.xsd" 
+ id="maec-example-pkg-1" schema_version="2.1">
  
  <maecPackage:Malware_Subjects>
   <maecPackage:Malware_Subject id="maec-example-sub-1">
@@ -48,6 +50,8 @@
       </FileObj:Hashes>
      </cybox:Properties>
    </maecPackage:Malware_Instance_Object_Attributes>
+   
+   <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">dropper file</maecPackage:Label>
    
    <maecPackage:Analyses>
     <maecPackage:Analysis id="maec-example-ana-1" method="static" type="triage">
@@ -81,12 +85,12 @@
       
       <maecPackage:Tool id="analysis-tool-3">
        <cyboxCommon:Name>Regshot</cyboxCommon:Name>
-       <cyboxCommon:Version>v1.8.2</cyboxCommon:Version>
+       <cyboxCommon:Version>1.8.2</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-4">
        <cyboxCommon:Name>HandleDiff</cyboxCommon:Name>
-       <cyboxCommon:Version>v.0.2</cyboxCommon:Version>
+       <cyboxCommon:Version>0.2</cyboxCommon:Version>
       </maecPackage:Tool>
       
       <maecPackage:Tool id="analysis-tool-5">
@@ -111,7 +115,7 @@
    </maecPackage:Analyses>
    
    <maecPackage:Findings_Bundles>
-    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="4.0.1" defined_subject="false" content_type="extracted from subject">
+    <maecPackage:Bundle id="maec-example-bnd-1" schema_version="4.1" defined_subject="false" content_type="extracted from subject">
      <maecBundle:Objects>
       <maecBundle:Object id="maec-example-obj-1">
         <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
@@ -129,7 +133,7 @@
      </maecBundle:Objects>
     </maecPackage:Bundle>
     
-    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="4.0.1" defined_subject="false" content_type="dynamic analysis tool output">
+    <maecPackage:Bundle id="maec-example-bnd-2" schema_version="4.1" defined_subject="false" content_type="dynamic analysis tool output">
      <maecBundle:Process_Tree>
       <maecBundle:Root_Process id="maec-example-pro-1">
        <ProcessObj:Image_Info>
