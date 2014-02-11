@@ -18,8 +18,8 @@
     xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
     xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 ../offline/maec_package_schema.xsd
-    http://maec.mitre.org/default_vocabularies-1 ../offline/maec_default_vocabularies.xsd
+    xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 http://maec.mitre.org/language/version4.1/maec_package_schema.xsd
+    http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
     http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
     http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd" 
     id="maec-example-pkg-1" schema_version="2.1">
