@@ -3,6 +3,8 @@
     MAEC Package Development Environment Example
     - Demonstrates how to specify components of the environment used in the development of a malware instance characterized by a Malware Subject.
     - This can be use to capture details of applications used in malware development including, but not limited to, compilers, linkers, or IDEs.
+    
+    Added February 2014 for MAEC v4.1
 -->
 <maecPackage:MAEC_Package
     xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
