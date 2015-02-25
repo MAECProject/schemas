@@ -3387,7 +3387,7 @@
             </xs:enumeration>
             <xs:enumeration value="security degradation">
                 <xs:annotation>
-                    <xs:documentation>The �security degradation� Capability indicates that the malware instance is able to bypass or disable security features and/or controls.</xs:documentation>
+                    <xs:documentation>The 'security degradation' Capability indicates that the malware instance is able to bypass or disable security features and/or controls.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="availability violation">
