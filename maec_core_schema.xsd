@@ -1163,10 +1163,23 @@
 		<xs:annotation>
 			<xs:documentation>The ProcessTreeReferenceType captures a reference to an existing Process Tree defined in the MAEC document.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="processtree_idref" type="xs:QName" use="required">
+		<xs:attribute name="process_tree_idref" type="xs:QName" use="required">
 			<xs:annotation>
 				<xs:documentation>The required processtree_idref field references an existing Process Tree defined in the MAEC document, via its ID.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ProcessTreeReferenceListType">
+		<xs:annotation>
+			<xs:documentation>The ProcessTreeReferenceListType captures a list of references to Process Trees defined in the MAEC document.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Process_Tree_Reference"
+				type="maecCore:ProcessTreeReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Process_Tree_Reference field captures a reference to a single Process Tree defined in the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
