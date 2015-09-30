@@ -612,102 +612,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CandidateIndicatorType">
-		<xs:annotation>
-			<xs:documentation>The CandidateIndicatorType provides a way of defining a MAEC entity-based Candidate Indicator, which specifies the particular components that may signify the presence of the malware instance on a host system or network.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Importance"
-				type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Importance field specifies the relative importance of the Candidate Indicator.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension Capability. The default vocabulary type is ImportanceTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Numeric_Importance" type="xs:positiveInteger">
-				<xs:annotation>
-					<xs:documentation>The Numeric_Importance field specifies the specific numeric importance of the Candidate Indicator.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Author" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Author field specifies the author of the Candidate Indicator.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Description" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Description field provides a brief description of the Candidate Indicator.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Malware_Entity" type="maecCore:MalwareEntityType">
-				<xs:annotation>
-					<xs:documentation>The Malware_Entity field specifies the particular malware entity that the Candidate Indicator is written against, whether it be a malware instance, family, etc.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Composition"
-				type="maecCore:CandidateIndicatorCompositionType">
-				<xs:annotation>
-					<xs:documentation>The Composition field specifies the actual observables that the Candidate Indicator is composed of, via a reference to a one or more MAEC entities contained in the Bundle.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="id" type="xs:QName" use="required">
-			<xs:annotation>
-				<xs:documentation>The id field specifies a unique ID for this Candidate Indicator.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="creation_datetime" type="xs:dateTime">
-			<xs:annotation>
-				<xs:documentation>The creation_datetime field specifies the date/time that the Candidate Indicator was created.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="lastupdate_datetime" type="xs:dateTime">
-			<xs:annotation>
-				<xs:documentation>The lastupdate_datetime field specifies the last date/time that the Candidate Indicator was updated.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="version" type="xs:string">
-			<xs:annotation>
-				<xs:documentation>The version field specifies the version of the Candidate Indicator.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="CandidateIndicatorListType">
-		<xs:annotation>
-			<xs:documentation>The CandidateIndicatorListType captures a list of Candidate Indicators.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence maxOccurs="1" minOccurs="1">
-			<xs:element maxOccurs="unbounded" name="Candidate_Indicator"
-				type="maecCore:CandidateIndicatorType">
-				<xs:annotation>
-					<xs:documentation>The Candidate_Indicator field specifies a single Candidate Indicator in the list.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="MalwareEntityType">
-		<xs:annotation>
-			<xs:documentation>The MalwareEntityType provides a Capability for characterizing the particular entity that an indicator or signature is written against, whether it is a particular malware instance, family, etc.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Type" type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Type field refers to the specific type of malware entity that the indicator or signature is written against.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension Capability. The default vocabulary type is MalwareEntityTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Name" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Name field refers to the name of the malware instance, malware family, or malware class that the indicator or signature is written against.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Description" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Description field is intended to provide a brief description of the entity that the indicator or signature is written against.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="CollectionsType">
 		<xs:annotation>
 			<xs:documentation>The CollectionsType captures the various types of MAEC entity collections.</xs:documentation>
@@ -729,12 +633,6 @@
 				type="maecCore:ObjectCollectionListType">
 				<xs:annotation>
 					<xs:documentation>The Objects_Collections field captures any collections of CybOX Objects in the Bundle.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Candidate_Indicator_Collections"
-				type="maecCore:CandidateIndicatorCollectionListType">
-				<xs:annotation>
-					<xs:documentation>The Candidate_Indicator_Collections field captures any collections of Candidate Indicators in the Bundle.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -794,78 +692,6 @@
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="CandidateIndicatorCompositionType">
-		<xs:annotation>
-			<xs:documentation>The CandidateIndicatorCompositionType captures the composition of a Candidate Indicator, via references to any corresponding MAEC entities contained in the Bundle.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:choice maxOccurs="unbounded">
-				<xs:element minOccurs="0" name="Behavior_Reference"
-					type="maecCore:BehaviorReferenceType">
-					<xs:annotation>
-						<xs:documentation>The Behavior_Reference field specifies a reference to a single Behavior in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element minOccurs="0" name="Action_Reference" type="cybox:ActionReferenceType">
-					<xs:annotation>
-						<xs:documentation>The Action_Reference field specifies a reference to a single Action in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element minOccurs="0" name="Object_Reference"
-					type="maecCore:ObjectReferenceType">
-					<xs:annotation>
-						<xs:documentation>The Object_Reference field specifies a reference to a single Object in the Bundle that is part of the candidate indicator's composition.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:choice>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Sub_Composition"
-				type="maecCore:CandidateIndicatorCompositionType">
-				<xs:annotation>
-					<xs:documentation>The Sub_Composition field captures any sub-compositions in this Candidate Indicator, for expressing more complex Candidate Indicators.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="operator" type="cybox:OperatorTypeEnum">
-			<xs:annotation>
-				<xs:documentation>The operator field specifies the Boolean operator for this level of the Candidate Indicator's composition.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="CandidateIndicatorCollectionType">
-		<xs:annotation>
-			<xs:documentation>The CandidateIndicatorCollectionType provides a Capability for characterizing collections of Candidate Indicators.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecCore:BaseCollectionType">
-				<xs:sequence>
-					<xs:element name="Candidate_Indicator_List"
-						type="maecCore:CandidateIndicatorListType">
-						<xs:annotation>
-							<xs:documentation>The Candidate_Indicator_List field specifies a list of Candidate Indicators that make up the collection.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-				<xs:attribute name="id" type="xs:QName" use="required">
-					<xs:annotation>
-						<xs:documentation>The id field specifies a unique ID for this Candidate Indicator Collection. </xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="CandidateIndicatorCollectionListType">
-		<xs:annotation>
-			<xs:documentation>The CandidateIndicatorCollectionListType captures a list of Candidate Indicators.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Candidate_Indicator_Collection"
-				type="maecCore:CandidateIndicatorCollectionType">
-				<xs:annotation>
-					<xs:documentation>The Candidate_Indicator_Collection field specifies a single collection of Candidate Indicators.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BehaviorCollectionListType">
 		<xs:annotation>
