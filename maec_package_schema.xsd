@@ -250,6 +250,12 @@
 					<xs:documentation>The Comments field specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the Report.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Discovered_Entities"
+				type="maecPackage:EntityReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Discovered_Entities field references any MAEC entities, such as Actions or Behaviors, that were discovered through the analysis.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0" name="Tools" type="maecPackage:ToolListType">
 				<xs:annotation>
 					<xs:documentation>The Tools field specifies information about the tool(s) used in the analysis, via the CybOX ToolInformationType. If only a single Tool is specified, then this implies that this tool was responsible for all of the findings contained in the Bundle referenced by the Findings_Bundle_Reference element.</xs:documentation>
@@ -953,6 +959,38 @@
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EntityReferenceListType">
+		<xs:annotation>
+			<xs:documentation>The EntityReferenceListType captures one or more references to an existing MAEC entity defined in the document, such as an Action or Behavior.</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="Action_Reference" type="cybox:ActionReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Action_Reference field references an existing Action defined in the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Behavior_Reference" type="maecCore:BehaviorReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Behavior_Reference field references an existing Behavior defined in the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Capability_Reference" type="maecCore:CapabilityReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Capability_Reference field references an existing Capability defined in the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Object_Reference" type="maecCore:ObjectReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Object_Reference field references an existing Object defined in the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProcessTree_Reference" type="maecCore:ProcessTreeReferenceType">
+				<xs:annotation>
+					<xs:documentation>The ProcessTree_Reference field references an existing Process Tree defined in the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
 	</xs:complexType>
 	<xs:simpleType name="AnalysisTypeEnum">
 		<xs:annotation>
