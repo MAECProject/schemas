@@ -378,10 +378,9 @@
 			<xs:documentation>The MalwareSubjectType captures all of the details pertaining to a single malware instance, including any corresponding Analyses, Field Data, Findings Bundles, and relationships to other Malware Subjects.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" name="Malware_Instance_Object_Attributes"
-				type="cybox:ObjectType">
+			<xs:element maxOccurs="1" name="Instance_Object" type="cybox:ObjectType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Instance_Object_Attributes field characterizes the attributes of the malware instance object (most commonly a file) that is encompassed in the Malware_Subject, via its corresponding CybOX Object. For example, a file would be represented via a CybOX File field of type FileObj:FileObjectType and may have a file name, MD5 hash, etc.</xs:documentation>
+					<xs:documentation>The Instance_Object field characterizes the properties of the CybOX Object (most commonly a File Object) that represents the malware instance whose Capabilities, Behaviors, Actions, Objects, and Process Tree are characterized in a Malware Subject of a MAEC Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Label"
