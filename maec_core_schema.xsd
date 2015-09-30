@@ -1029,6 +1029,19 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	<xs:complexType name="CapabilityReferenceListType">
+		<xs:annotation>
+			<xs:documentation>The CapabilityReferenceListType captures a list of references to Capabilities defined in the MAEC document.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Capability_Reference"
+				type="maecCore:CapabilityReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Capability_Reference field captures a reference to a single Capability defined in the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="CapabilityObjectiveType">
 		<xs:annotation>
 			<xs:documentation>The CapabilityObjectiveType captures details of a Capability Strategic or Tactical Objective.</xs:documentation>
