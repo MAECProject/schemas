@@ -402,6 +402,12 @@
 					<xs:documentation>The Development_Environment field captures details of the development environment used in the creation of the malware instance characterized by the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Compatible_Platform"
+				type="cyboxCommon:PlatformSpecificationType">
+				<xs:annotation>
+					<xs:documentation>The Compatible_Platform field specifies a single platform that the Malware Subject is compatible with (i.e. can execute on). It uses the PlatformSpecificationType from the imported CybOX Common schema. More than one compatible platform can be specified by using multiple occurrences of this field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Minor_Variants" type="maecPackage:MinorVariantListType">
 				<xs:annotation>
 					<xs:documentation>The Minor_Variants field captures any minor variants of the malware instance object, such as the same file but with different filenames.</xs:documentation>
@@ -417,16 +423,37 @@
 					<xs:documentation>The Analyses field captures any Analyses (including their associated metadata such as tools used, etc.) that were performed on the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Capabilities"
+				type="maecCore:CapabilityReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Capabilities field specifies a set of one or more Capabilities possessed by the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Behaviors" type="maecCore:BehaviorReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Behaviors field specifies a set of one or more Behaviors exhibited by the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Actions" type="maecCore:ActionReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Actions field specifies a set of one or more Actions discovered for the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Process_Trees"
+				type="maecCore:ProcessTreeReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Process_Trees field specifies a set of one or more Process Trees observed during one or more executions of the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Static_Features" type="maecCore:ObjectReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Static_Features field specifies a set of one or more Static Features, represented as CybOX Objects, associated with the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Relationships"
 				type="maecPackage:MalwareSubjectRelationshipListType">
 				<xs:annotation>
 					<xs:documentation>The Relationships field captures any relationships between the Malware Subject and other Malware Subjects.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Compatible_Platform"
-				type="cyboxCommon:PlatformSpecificationType">
-				<xs:annotation>
-					<xs:documentation>The Compatible_Platform field specifies a single platform that the Malware Subject is compatible with (i.e. can execute on). It uses the PlatformSpecificationType from the imported CybOX Common schema. More than one compatible platform can be specified by using multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -985,9 +1012,9 @@
 					<xs:documentation>The Object_Reference field references an existing Object defined in the MAEC document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ProcessTree_Reference" type="maecCore:ProcessTreeReferenceType">
+			<xs:element name="Process_Tree_Reference" type="maecCore:ProcessTreeReferenceType">
 				<xs:annotation>
-					<xs:documentation>The ProcessTree_Reference field references an existing Process Tree defined in the MAEC document.</xs:documentation>
+					<xs:documentation>The Process_Tree_Reference field references an existing Process Tree defined in the MAEC document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
