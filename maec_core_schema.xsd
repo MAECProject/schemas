@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://maec.mitre.org/XMLSchema/maec-core-1"
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
+	targetNamespace="http://maec.mitre.org/XMLSchema/maec-core-1"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
 	xmlns:maecCore="http://maec.mitre.org/XMLSchema/maec-core-1"
 	xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
-	xmlns:cybox="http://cybox.mitre.org/cybox-2" 
-	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+	xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
 	xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2"
 	xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject-2" version="1.0">
 	<xs:import namespace="http://cybox.mitre.org/cybox-2"
@@ -107,7 +107,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	
+
 	<xs:complexType name="BehaviorCollectionType">
 		<xs:annotation>
 			<xs:documentation>The BehaviorCollectionType provides a Capability for characterizing collections of behaviors.</xs:documentation>
@@ -200,8 +200,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:choice>
-				<xs:element name="API_Call" maxOccurs="1" minOccurs="0"
-					type="maecCore:APICallType">
+				<xs:element name="API_Call" maxOccurs="1" minOccurs="0" type="maecCore:APICallType">
 					<xs:annotation>
 						<xs:documentation>The API_Call field allows for the characterization of a system-level API call that was used to implement the action. Software must make use of such calls to talk to 			hardware and perform system-specific functions.</xs:documentation>
 					</xs:annotation>
@@ -449,8 +448,7 @@
 			<xs:documentation>The BehavioralActionsType is intended to capture the Actions or Action Collections that make up a Behavior.</xs:documentation>
 		</xs:annotation>
 		<xs:choice maxOccurs="unbounded">
-			<xs:element minOccurs="1" name="Action_Collection"
-				type="maecCore:ActionCollectionType">
+			<xs:element minOccurs="1" name="Action_Collection" type="maecCore:ActionCollectionType">
 				<xs:annotation>
 					<xs:documentation>The Action_Collection field specifies an Action Collection that is part of the behavioral composition.</xs:documentation>
 				</xs:annotation>
@@ -741,16 +739,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="BundleReferenceType">
-		<xs:annotation>
-			<xs:documentation>The BundleReferenceType serves as a method for linking to Bundles embedded in other locations.</xs:documentation>
-		</xs:annotation>
-		<xs:attribute name="bundle_idref" type="xs:QName" use="required">
-			<xs:annotation>
-				<xs:documentation>The bundle_idref field references the ID of a Bundle contained inside the current MAEC document.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
 	<xs:complexType name="ProcessTreeType">
 		<xs:annotation>
 			<xs:documentation>The ProcessTreeType captures the process tree for the malware instance, including the parent process and processes spawned by it, along with any Actions initiated by each.</xs:documentation>
@@ -961,7 +949,7 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:complexType name="CapabilityType">
 		<xs:annotation>
 			<xs:documentation>The CapabilityType captures details of a Capability that may be implemented in the malware instance, along with its child Strategic and Tactical Objectives.</xs:documentation>
@@ -1019,8 +1007,7 @@
 			<xs:documentation>The CapabilityListType captures a list of Capabilities.</xs:documentation>
 		</xs:annotation>
 		<xs:choice maxOccurs="unbounded">
-			<xs:element maxOccurs="1" minOccurs="1" name="Capability"
-				type="maecCore:CapabilityType">
+			<xs:element maxOccurs="1" minOccurs="1" name="Capability" type="maecCore:CapabilityType">
 				<xs:annotation>
 					<xs:documentation>The Capability field captures a single Capability in the list, and therefore represents a single Capability possessed by the malware instance.</xs:documentation>
 				</xs:annotation>
