@@ -1134,4 +1134,16 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="ProcessTreeListType">
+		<xs:annotation>
+			<xs:documentation>The ProcessTreeListType captures a list of Process Trees.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Process_Tree" type="maecCore:ProcessTreeType">
+				<xs:annotation>
+					<xs:documentation>The Process_Tree field specifies a single process tree of execution, as recorded during an execution of the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
