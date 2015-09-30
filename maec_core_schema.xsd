@@ -1146,4 +1146,14 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="ProcessTreeReferenceType">
+		<xs:annotation>
+			<xs:documentation>The ProcessTreeReferenceType captures a reference to an existing Process Tree defined in the MAEC document.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="processtree_idref" type="xs:QName" use="required">
+			<xs:annotation>
+				<xs:documentation>The required processtree_idref field references an existing Process Tree defined in the MAEC document, via its ID.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
 </xs:schema>
