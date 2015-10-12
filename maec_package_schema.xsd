@@ -462,25 +462,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="MetaAnalysisType">
-		<xs:annotation>
-			<xs:documentation>The MetaAnalysisType captures meta-analysis entities associated with the Bundles that were captured for a Malware Subject, such as Action Equivalencies.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Action_Equivalences"
-				type="maecPackage:ActionEquivalenceListType">
-				<xs:annotation>
-					<xs:documentation>The Action_Equivalences field captures any equivalences between Actions contained in one or more Bundles.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Object_Equivalences"
-				type="maecPackage:ObjectEquivalenceListType">
-				<xs:annotation>
-					<xs:documentation>The Object_Equivalences field captures any equivalences between Objects contained in one or more Bundles.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="MalwareSubjectRelationshipType">
 		<xs:annotation>
 			<xs:documentation>The MalwareSubjectRelationshipType provides a mechanism for capturing the relationships between a Malware Subject and one or more other Malware Subjects.</xs:documentation>
@@ -706,37 +687,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ActionEquivalenceType">
-		<xs:annotation>
-			<xs:documentation>The ActionEquivalenceType relates any Actions that are equivalent to each other, e.g., those that were found for the same Malware Subject when using different analysis tools. It can be used as a way of referencing equivalent actions as a single unit, such as for specifying the Action composition of a Behavior.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Action_Reference"
-				type="cybox:ActionReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Action_Reference field specifies a reference to a single Action that is part of the Action Equivalency.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="id" use="required" type="xs:QName">
-			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for the Action Equivalence.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="ActionEquivalenceListType">
-		<xs:annotation>
-			<xs:documentation>The ActionEquivalenceListType captures a list of Action Equivalences.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Action_Equivalence"
-				type="maecPackage:ActionEquivalenceType">
-				<xs:annotation>
-					<xs:documentation>The Action_Equivalence field captures a single Action Equivalence in the list.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="CapturedProtocolListType">
 		<xs:annotation>
 			<xs:documentation>The CapturedProtocolListType specifies a list of network protocols that a malware analysis environment may capture or interact with.</xs:documentation>
@@ -774,33 +724,6 @@
 				<xs:documentation>The interaction_level field specifies the relative level of interaction that the analysis environment has with the specified network protocol.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="ObjectEquivalenceType">
-		<xs:annotation>
-			<xs:documentation>The ObjectEquivalenceType relates the Objects that are equivalent to each other, e.g., those that were found for the same Malware Subject when using different analysis tools.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecCore:ObjectReferenceListType">
-				<xs:attribute name="id" type="xs:QName" use="required">
-					<xs:annotation>
-						<xs:documentation>The required id field specifies a unique ID for the Object Equivalence.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="ObjectEquivalenceListType">
-		<xs:annotation>
-			<xs:documentation>The ObjectEquivalenceListType captures a list of Object Equivalences.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Object_Equivalence"
-				type="maecPackage:ObjectEquivalenceType">
-				<xs:annotation>
-					<xs:documentation>The Object_Equivalence field specifies a single Object Equivalence in the list.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="MalwareConfigurationParameterType">
 		<xs:annotation>
