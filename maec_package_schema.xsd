@@ -965,7 +965,7 @@
 			<xs:element minOccurs="0" name="Malware_Family_Name"
 				type="maecPackage:NameConfidenceType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Family_Name field captures the name of the malware family to which the malware instance characterized by the Malware Subject belongs to.</xs:documentation>
+					<xs:documentation>The Malware_Family_Name field captures the name of the malware family to which the malware instance characterized by the Malware Subject belongs.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Source" type="maecPackage:SourceType">
