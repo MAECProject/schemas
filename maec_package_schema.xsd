@@ -383,6 +383,16 @@
 					<xs:documentation>The Instance_Object field characterizes the properties of the CybOX Object (most commonly a File Object) that represents the malware instance whose Capabilities, Behaviors, Actions, Objects, and Process Tree are characterized in a Malware Subject of a MAEC Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Malware_Name" type="maecPackage:MalwareNameType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Name field captures the name of the malware instance characterized by the Malware Subject and also the malware family that it belongs to. These names are assigned by the producer of the MAEC document, and may come from various sources, including from an analyst or as reported by a tool (e.g., an AV classification tool).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Malware_Aliases" type="maecPackage:MalwareAliasType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Aliases field captures any aliases for the malware instance name or malware family name associated with the Malware Subject, as reported by sources other than the producer of the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Label"
 				type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
@@ -941,6 +951,53 @@
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
+	<xs:complexType name="MalwareNameType">
+		<xs:annotation>
+			<xs:documentation>The MalwareNameType captures name information associated with a malware instance.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Malware_Instance_Name"
+				type="maecPackage:NameConfidenceType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Instance_Name field captures the name of the malware instance that is characterized by the Malware Subject.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Malware_Family_Name"
+				type="maecPackage:NameConfidenceType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Family_Name field captures the name of the malware family to which the malware instance characterized by the Malware Subject belongs to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Source" type="maecPackage:SourceType">
+				<xs:annotation>
+					<xs:documentation>The Source field specifies the source of the malware instance and family names captured, respectively, in the Malware_Instance_Name and Malware_Family_Name fields.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameConfidenceType">
+		<xs:annotation>
+			<xs:documentation>The NameConfidenceType captures the relative confidence of a malware instance or family name.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="confidence" type="maecPackage:ConfidenceMeasureEnum" use="optional">
+			<xs:annotation>
+				<xs:documentation>The confidence field specifies the relative confidence in the accuracy of the assigned malware instance or malware family name.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MalwareAliasType">
+		<xs:annotation>
+			<xs:documentation>The MalwareAliasType serves to capture any aliases for the malware instance name or malware family name provided by the MAEC document producer, and thus be a useful means of correlating between different names</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Malware_Analysis"
+				type="maecPackage:MalwareNameType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Alias field captures a single alias for the malware instance name or malware family name (captured in the Malware_Name field) provided by the MAEC document producer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:simpleType name="AnalysisTypeEnum">
 		<xs:annotation>
 			<xs:documentation>The AnalysisTypeEnum is an enumeration of types of malware analyses.</xs:documentation>
@@ -1102,6 +1159,38 @@
 			<xs:enumeration value="udp">
 				<xs:annotation>
 					<xs:documentation>The udp value specifies the User Datagram Protocol (UDP). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConfidenceMeasureEnum">
+		<xs:annotation>
+			<xs:documentation>The ConfidenceMeasureEnum represents an enumeration of relative confidence measures, and aligns with the values in the HighMediumLow Vocabulary from STIX.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Low">
+				<xs:annotation>
+					<xs:documentation>A low relative measure of confidence. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Medium">
+				<xs:annotation>
+					<xs:documentation>A medium relative measure of confidence. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="High">
+				<xs:annotation>
+					<xs:documentation>A high relative measure of confidence. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="None">
+				<xs:annotation>
+					<xs:documentation>No measure of confidence. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unknown">
+				<xs:annotation>
+					<xs:documentation>An unknown measure of confidence. </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
