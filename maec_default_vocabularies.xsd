@@ -2861,6 +2861,253 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="MalwareLabelEnum-1.1">
+        <xs:annotation>
+            <xs:documentation>The MalwareLabelEnum-1.0 is a non-exhaustive enumeration of common malware labels.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="adware">
+                <xs:annotation>
+                    <xs:documentation>The 'adware' value specifies any software that is funded by advertising. Some adware may install itself in such a manner as to become difficult to remove, hiding components and disabling removal techniques. Adware may also gather sensitive user information from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="appender">
+                <xs:annotation>
+                    <xs:documentation>The 'appender' value specifies a file-infecting virus that places its code at the end of the files it infects, adjusting the file's entry point to cause its code to be executed before that of the original file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="backdoor">
+                <xs:annotation>
+                    <xs:documentation>The 'backdoor' value specifies a piece of software which, once running on a system, opens a communication vector to the outside so that the computer can be accessed remotely by an attacker.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="boot sector virus">
+                <xs:annotation>
+                    <xs:documentation>The 'boot sector virus' value specifies a virus that infects the master boot record of a storage device.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="bot">
+                <xs:annotation>
+                    <xs:documentation>The 'bot' value specifies a program which resides on an infected system, communicating with and forming part of a botnet. The bot may be implanted by a worm or trojan, which opens a backdoor. The bot then monitors the backdoor for further instructions.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="clicker">
+                <xs:annotation>
+                    <xs:documentation>The 'clicker' value specifies a trojan that makes a system visit a specific web page, often very frequently and usually with the aim of increasing the traffic recorded by the site and thus increasing revenue from advertising. Clickers may also be used to carry out DDoS attacks.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="companion virus">
+                <xs:annotation>
+                    <xs:documentation>The 'companion virus' value specifies a virus that takes the place of a particular file on a system instead of injecting code into it.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="cavity filler">
+                <xs:annotation>
+                    <xs:documentation>The 'cavity filler' value specifies a type of file-infecting virus which seeks out unused space within the files it infects, inserting its code into these gaps to avoid changing the size of the file and thus not alerting integrity-checking software to its presence.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="data diddler">
+                <xs:annotation>
+                    <xs:documentation>The 'data diddler' value specifies a type of malware that makes small, random changes to data, such as data in a spreadsheet, to render the data contained in a document inaccurate and in some cases worthless.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="downloader">
+                <xs:annotation>
+                    <xs:documentation>The 'downloader' value specifies a small trojan file programmed to download and execute other files, usually more complex malware.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="dropper file">
+                <xs:annotation>
+                    <xs:documentation>The 'dropper file' value specifies a type of Trojan that deposits an enclosed payload onto a destination host computer by loading itself into memory, extracting the malicious payload, and then writing it to the file system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="file infector virus">
+                <xs:annotation>
+                    <xs:documentation>The 'file infector virus' value specifies a virus that infects a system by inserting itself somewhere in existing files; this is the "classic" form of virus.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="fork bomb">
+                <xs:annotation>
+                    <xs:documentation>The 'fork bomb' value specifies a program that replicates many times on one system, usually until the system runs out of memory or disk space, causing a denial of service. The replicated programs also replicate so that the number grows exponentially. A fork bomb is a type of wabbit.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="greyware">
+                <xs:annotation>
+                    <xs:documentation>The 'greyware' value specifies software that, while not definitely malicious, has a suspicious or potentially unwanted aspect.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="implant">
+                <xs:annotation>
+                    <xs:documentation>The 'implant' value specifies code inserted into an existing program using a code patcher or other tool.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="infector">
+                <xs:annotation>
+                    <xs:documentation>The 'infector' value specifies a function of malware that alters target files for the purpose of persisting and hiding the injected malware.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="joke program">
+                <xs:annotation>
+                    <xs:documentation>The 'joke program' value specifies a program that interferes with the normal behavior of a machine, creating a nuisance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="keylogger">
+                <xs:annotation>
+                    <xs:documentation>The 'keylogger' value specifies a type of program implanted on a system to monitor the keys pressed and thus record any sensitive data, such as passwords, entered by the user.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="kleptographic worm">
+                <xs:annotation>
+                    <xs:documentation>The 'kleptographic worm' value specifies a worm that encrypts information assets on compromised systems so they can only be decrypted by the worm's author, also known as information-stealing worm.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="macro virus">
+                <xs:annotation>
+                    <xs:documentation>The 'macro virus' value specifies a virus that uses a macro language, for example in Microsoft Office documents.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mass-mailer">
+                <xs:annotation>
+                    <xs:documentation>The 'mass-mailer' value specifies a worm that uses email to propagate across the internet.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="metamorphic virus">
+                <xs:annotation>
+                    <xs:documentation>The 'metamorphic virus' value specifies a virus that changes its own code with each infection.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mid-infector">
+                <xs:annotation>
+                    <xs:documentation>The 'mid-infector' value specifies a type of file-infecting virus which places its code in the middle of files it infects. It may move a section of the original code to the end of the file, or simply push the code aside to make space for its own code.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mobile code">
+                <xs:annotation>
+                    <xs:documentation>The 'mobile code' value specifies 1. Code received from remote, possibly untrusted systems, but executed on a local system. 2. Software transferred between systems (e.g across a network) and executed on a local system without explicit installation or execution by the recipient.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="multipartite virus">
+                <xs:annotation>
+                    <xs:documentation>The 'multipartite virus' value specifies malware that infects boot records, boot sectors, and files.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="parental control">
+                <xs:annotation>
+                    <xs:documentation>The 'parental control' value specifies a program that monitors or limits machine usage. They can run undetected and can transmit monitoring information to another machine.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="password stealer">
+                <xs:annotation>
+                    <xs:documentation>The 'password stealer' value specifies a type of trojan designed to steal passwords, personal data and details, or other sensitive information from the infected system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="polymorphic virus">
+                <xs:annotation>
+                    <xs:documentation>The 'polymorphic virus' value specifies a type of virus that encrypts its code differently with each infection, or generation of infections.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="premium dialer/smser">
+                <xs:annotation>
+                    <xs:documentation>The 'premium dialer/smser' value specifies a piece of malware whose primary aim is to dial or send SMS messages to premium rate numbers..</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prepender">
+                <xs:annotation>
+                    <xs:documentation>The 'prepender' value specifies a file-infecting virus which inserts code at the beginning of the files it infects.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ransomware">
+                <xs:annotation>
+                    <xs:documentation>The 'ransomware' value specifies a type of malware that encrypts files on a victim's system, demanding payment of ransom in return for the access codes required to unlock files.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="rat">
+                <xs:annotation>
+                    <xs:documentation>The 'rat' value specifies a remote access trojan or RAT, which is a trojan horse capable of controlling a machine through commands issue by a remote attacker.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="rogue anti-malware">
+                <xs:annotation>
+                    <xs:documentation>The 'rogue anti-malware' value specifies a fake security product that demands money to clean phony infections.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="rootkit">
+                <xs:annotation>
+                    <xs:documentation>The 'rootkit' value generally refers to a method of hiding files or processes from normal methods of monitoring, and is often used by malware to conceal its presence and activities. Originally, the term applied to UNIX-based operating systems - a root kit was a collection of tools to enable a user to obtain root (administrator-level) access to a system and conceal any changes they might make. Such tools often included trojanized versions of standard monitoring software which would hide the root kit operators' activities. More recently the term has generally been applied to malware using stealth techniques. Rootkits can operate at a number of levels, from the application level - simply replacing or adjusting the settings of system software to prevent the display of certain information - through hooking certain functions or inserting modules or drivers into the operating system kernel, to the deeper level of firmware or virtualization rook kits, which are activated before the operating system and thus even harder to detect while the system is running.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="scareware">
+                <xs:annotation>
+                    <xs:documentation>The 'scareware' value specifies a program that reports false or signficantly misleading information on the presence of security risks, threats, or system issues on the target computer.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="security assessment tool">
+                <xs:annotation>
+                    <xs:documentation>The 'security assessment tool' value specifies a program that can be used to gather information for unauthorized access to computer systems.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="shellcode">
+                <xs:annotation>
+                    <xs:documentation>The 'shellcode' value specifies 1. A small piece of code that activates a command-line interface to a system that can be used to disable security measures, open a backdoor, or download further malicious code. 2. A small piece of code that opens a system up for exploitation, sometimes by not necessarily involving a command-line shell.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="spaghetti packer">
+                <xs:annotation>
+                    <xs:documentation>A packer that obfuscates programs by emitting "spaghetti" code with a complex and tangled control structure.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="spyware">
+                <xs:annotation>
+                    <xs:documentation>The 'spyware' value specifies software that gathers information and passes it to a third-party without adequate permission from the owner of the data. It may also be used in a wider sense, to include software that makes changes to a system or any of its component software, or which makes use of system resources without the full understanding and consent of the system owner.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="trackware">
+                <xs:annotation>
+                    <xs:documentation>The 'trackware' value specifies a program that traces a user's path on the Internet and sends information to third parties. Compare to spyware, which monitors system activity to capture confidential information such as passwords.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="trojan horse">
+                <xs:annotation>
+                    <xs:documentation>The 'trojan horse' value specifies a piece of malicious code disguised as something inert or benign.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="variant">
+                <xs:annotation>
+                    <xs:documentation>The 'variant' value refers to the fact that types of malware can be subdivided into a number of families, or groups sharing many similarities, generally based on the same blocks of code and sharing similar behaviours. Within a family, a variant signifies a single individual item that is uniquely different from other members of the same family.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="virus">
+                <xs:annotation>
+                    <xs:documentation>The 'virus' value specifies 1. A self-replicating malicious program that requires human interaction to replicate. 2. A self-replicating program that runs and spreads by modifying other programs or files.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="wabbit">
+                <xs:annotation>
+                    <xs:documentation>The 'wabbit' value specifies a form of self-replicating malware. Unlike worms, wabbits do not attempt to spread across networks. Also known as a 'rabbit'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="web bug">
+                <xs:annotation>
+                    <xs:documentation>The 'web bug' value specifies a piece of code, generally a small file such as a tiny, transparent GIF image, which is used to track data on those viewing the page or mail in which it is hidden.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="wiper">
+                <xs:annotation>
+                    <xs:documentation>The 'wiper' value specifies a piece of malware whose primary aim is to delete files or entire disks on a machine.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>           
+            <xs:enumeration value="worm">
+                <xs:annotation>
+                    <xs:documentation>The 'worm' value specifies 1. A self-replicating malicious program that replicates using a network and does not require human interaction. 2. A self-replicating, self-propagating, self-contained program that uses networking mechanisms to spread itself.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="zip bomb">
+                <xs:annotation>
+                    <xs:documentation>The 'zip bomb' value specifies a file compressed into some archive format and that expands to an enormous size when uncompressed, often by looping over the extraction code until the system's resources are exhausted.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>    
     <xs:complexType name="CapabilityObjectiveRelationshipTypeVocab-1.0">
         <xs:annotation>
             <xs:documentation>The CapabilityObjectiveRelationshipTypeVocab is the default MAEC vocabulary for relationships between Malware Capability Objectives.</xs:documentation>
