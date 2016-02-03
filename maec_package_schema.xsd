@@ -388,7 +388,7 @@
 					<xs:documentation>The Malware_Name field captures the name of the malware instance characterized by the Malware Subject and also the malware family that it belongs to. These names are assigned by the producer of the MAEC document, and may come from various sources, including from an analyst or as reported by a tool (e.g., an AV classification tool).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Malware_Aliases" type="maecPackage:MalwareAliasType">
+			<xs:element minOccurs="0" name="Malware_Aliases" type="maecPackage:MalwareAliasesType">
 				<xs:annotation>
 					<xs:documentation>The Malware_Aliases field captures any aliases for the malware instance name or malware family name associated with the Malware Subject, as reported by sources other than the producer of the MAEC document.</xs:documentation>
 				</xs:annotation>
@@ -985,12 +985,12 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="MalwareAliasType">
+	<xs:complexType name="MalwareAliasesType">
 		<xs:annotation>
-			<xs:documentation>The MalwareAliasType serves to capture any aliases for the malware instance name or malware family name provided by the MAEC document producer, and thus be a useful means of correlating between different names</xs:documentation>
+			<xs:documentation>The MalwareAliasesType serves to capture any aliases for the malware instance name or malware family name provided by the MAEC document producer, and thus be a useful means of correlating between different names</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Malware_Analysis"
+			<xs:element maxOccurs="unbounded" name="Malware_Alias"
 				type="maecPackage:MalwareNameType">
 				<xs:annotation>
 					<xs:documentation>The Malware_Alias field captures a single alias for the malware instance name or malware family name (captured in the Malware_Name field) provided by the MAEC document producer.</xs:documentation>
