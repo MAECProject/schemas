@@ -53,36 +53,26 @@
 			<xs:documentation>The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Purpose" type="maecCore:BehaviorPurposeType">
+			<xs:element form="qualified" name="Name"
+				type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Purpose field specifies the intended purpose of the Behavior. Since a Behavior is not always successful, and may not be fully observed, this is meant as way to state the nature of the Behavior apart from its constituent actions.</xs:documentation>
+					<xs:documentation>The required Name field captures the name of the Behavior. The default vocabulary for this field is the BehaviorVocab from the MAEC Default Vocabularies schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Description" type="xs:string">
+			<xs:element minOccurs="0" name="Description" type="cyboxCommon:StructuredTextType">
 				<xs:annotation>
-					<xs:documentation>The Description field specifies a prose textual description of the Behavior.</xs:documentation>
+					<xs:documentation>The Description field contains a basic textual description of the Behavior.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Discovery_Method" type="cyboxCommon:MeasureSourceType">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Attribute">
 				<xs:annotation>
-					<xs:documentation>The Discovery_Method field specifies the method used to discover the Behavior.</xs:documentation>
+					<xs:documentation>The Attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Action_Composition"
-				type="maecCore:BehavioralActionsType">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Action_Reference"
+				type="maecCore:BehavioralActionReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Action_Composition field captures the Actions that compose the Behavior.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Associated_Code" type="maecCore:AssociatedCodeType">
-				<xs:annotation>
-					<xs:documentation>The Associated_Code field specifies any code snippets that may be associated with the Behavior.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Relationships"
-				type="maecCore:BehaviorRelationshipListType">
-				<xs:annotation>
-					<xs:documentation>The Relationships field specifies any relationships between this Behavior and any other Behaviors.</xs:documentation>
+					<xs:documentation>The Action_Reference field specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -91,19 +81,14 @@
 				<xs:documentation>The required id field specifies a unique ID for this Behavior.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
-			<xs:annotation>
-				<xs:documentation>The ordinal_position field specifies the ordinal position of the Behavior with respect to the execution of the malware.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 		<xs:attribute name="status" type="cybox:ActionStatusTypeEnum">
 			<xs:annotation>
-				<xs:documentation>The status field specifies the execution status of the Behavior being characterized.</xs:documentation>
+				<xs:documentation>The status field specifies the execution status of the Behavior, i.e. whether it was successful or not.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="duration" type="xs:duration">
+		<xs:attribute name="reference" type="xs:anyURI">
 			<xs:annotation>
-				<xs:documentation>The duration field specifies the duration of the Behavior. One way to derive such a value may be to calculate the difference between the timestamps of the first and last actions that compose the behavior.</xs:documentation>
+				<xs:documentation>The reference field specifies the URL of the corresponding entry in the MAEC Semantic MediaWiki for the Behavior.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -221,23 +206,6 @@
 		<xs:attribute name="type" use="required" type="maecCore:ActionImplementationTypeEnum">
 			<xs:annotation>
 				<xs:documentation>The required type field refers to the type of Action Implementation being characterized in this element. </xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="CVEVulnerabilityType">
-		<xs:annotation>
-			<xs:documentation>The CVEVulnerabilityType provides a way of referencing specific vulnerabilities that malware exploits or attempts to exploit via a Common Vulnerabilities and Exposures (CVE) identifier. For more information on CVE please see http://cve.mitre.org. </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Description" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The Description field specifies the textual description of the vulnerability referenced by the cve_id.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="cve_id" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation>The cve_id attribute contains the ID of the CVE that is being referenced, e.g., CVE-1999-0002.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -373,62 +341,17 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="BehaviorPurposeType">
-		<xs:annotation>
-			<xs:documentation>The BehaviorPurposeType captures the purpose behind a malware Behavior.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Description" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Description field contains a prose text description of the purpose of the Behavior, whether it was successful or not.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Vulnerability_Exploit" type="maecCore:ExploitType">
-				<xs:annotation>
-					<xs:documentation>The Vulnerability_Exploit field characterizes any vulnerability that a Behavior may have attempted to exploit, whether or not the exploitation was successful (where success is not necessarily known).</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="PlatformListType">
 		<xs:annotation>
 			<xs:documentation>The PlatformListType captures a list of software or hardware platforms.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Platform"
-				type="cyboxCommon:PlatformSpecificationType">
+			<xs:element maxOccurs="unbounded" name="Platform" type="cyboxCommon:PlatformSpecificationType">
 				<xs:annotation>
 					<xs:documentation>The Platform field specifies a single Platform in the list via a common platform enumeration ID. It uses the PlatformSpecificationType type from the CybOX Common schema v2.0.1.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ExploitType">
-		<xs:annotation>
-			<xs:documentation>The ExploitType characterizes any exploitable weakness that may be targeted for exploitation by a malware instance through a Behavior. Most commonly, this refers to a known and identifiable vulnerability, but it may also refer to one or more weaknesses.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="CVE" type="maecCore:CVEVulnerabilityType">
-				<xs:annotation>
-					<xs:documentation>The CVE field specifies the CVE ID and description of the vulnerability targeted by the exploit, if available.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="CWE_ID" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The CWE_ID field captures the ID of the Common Weakness Enumeration (CWE) entry that represents the type of weakness targeted by the exploit. More than one such CWE ID can be specified by using multiple occurrences of this field.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Targeted_Platforms" type="maecCore:PlatformListType">
-				<xs:annotation>
-					<xs:documentation>The Targeted_Platforms field specifies the platforms(s) targeted by the vulnerability exploit.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="known_vulnerability" type="xs:boolean">
-			<xs:annotation>
-				<xs:documentation>The known_vulnerability field specifies whether the vulnerability that the malware is exploiting has been previously identified. If so, it should be referenced via a CVE ID in the CVE element. If not, the platform(s) targeted by the vulnerability exploitation behavior may be specified in the Targeted_Platforms element.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="BehaviorRelationshipListType">
 		<xs:annotation>
@@ -442,34 +365,6 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="BehavioralActionsType">
-		<xs:annotation>
-			<xs:documentation>The BehavioralActionsType is intended to capture the Actions or Action Collections that make up a Behavior.</xs:documentation>
-		</xs:annotation>
-		<xs:choice maxOccurs="unbounded">
-			<xs:element minOccurs="1" name="Action_Collection" type="maecCore:ActionCollectionType">
-				<xs:annotation>
-					<xs:documentation>The Action_Collection field specifies an Action Collection that is part of the behavioral composition.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="1" name="Action" type="maecCore:BehavioralActionType">
-				<xs:annotation>
-					<xs:documentation>The Action field specifies a single Action that is part of the behavioral composition.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Action_Reference" type="maecCore:BehavioralActionReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Action_Reference field specifies a reference to a single Action that is part of the behavioral composition.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Action_Equivalence_Reference"
-				type="maecCore:BehavioralActionEquivalenceReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Action_Equivalence_Reference field specifies a reference to a single Action Equivalence that is part of the behavioral composition.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="BehaviorListType">
 		<xs:annotation>
@@ -530,20 +425,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="BehavioralActionType">
-		<xs:annotation>
-			<xs:documentation>The BehavioralActionType type defines an Action field that can be used as part of a Behavior.  It extends the MAEC MalwareActionType type, which in turn extends the CybOX ActionType type.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecCore:MalwareActionType">
-				<xs:attribute name="behavioral_ordering" type="xs:positiveInteger">
-					<xs:annotation>
-						<xs:documentation>The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the behavior. So an action with a behavioral_ordering of "1" would come before an Action with a behavioral_ordering of "2", etc.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="BehavioralActionReferenceType">
 		<xs:annotation>
 			<xs:documentation>The BehavioralActionReferenceType defines an action reference that can be used as part of a Behavior.</xs:documentation>
@@ -558,21 +439,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="BehavioralActionEquivalenceReferenceType">
-		<xs:annotation>
-			<xs:documentation>The BehavioralActionEquivalenceReferenceType defines an Action Equivalence reference that can be used as part of a Behavior. Since the Action Equivalency equates two or more actions to a single one, this can be thought of as specifying one of the aforementioned Actions as part of the composition of the Behavior.</xs:documentation>
-		</xs:annotation>
-		<xs:attribute name="action_equivalence_idref" type="xs:QName" use="required">
-			<xs:annotation>
-				<xs:documentation>The action_equivalence_idref field specifies the ID of an Action Equivalence contained in the same MAEC document as the Behavior that utilizes it.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="behavioral_ordering" type="xs:positiveInteger">
-			<xs:annotation>
-				<xs:documentation>The behavioral_ordering field defines the ordering of the Action Equivalency with respect to the other actions that make up the behavior. So an action with a behavioral_ordering of "1" would come before an action with a behavioral_ordering of "2", etc.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
 	<xs:complexType name="BehaviorReferenceListType">
 		<xs:annotation>
 			<xs:documentation>The BehaviorReferenceListType captures a list of Behavior References.</xs:documentation>
@@ -582,6 +448,23 @@
 				type="maecCore:BehaviorReferenceType">
 				<xs:annotation>
 					<xs:documentation>The Behavior_Reference field specifies a reference to a single Behavior.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BehaviorAttributeType">
+		<xs:annotation>
+			<xs:documentation>The BehaviorAttributeType captures a single attribute of a Behavior.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Name field specifies the name of the Behavioral attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. The default vocabulary for this field is the BehaviorAttributeVocab from the MAEC Default Vocabularies schema.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Value" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Value field specifies the value of the Behavioral attribute being captured.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -775,33 +658,30 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<xs:complexType name="CapabilityType">
 		<xs:annotation>
-			<xs:documentation>The CapabilityType captures details of a Capability that may be implemented in the malware instance, along with its child Strategic and Tactical Objectives.</xs:documentation>
+			<xs:documentation>The CapabilityType captures details of a Capability that may be implemented in the malware instance.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Description" type="xs:string">
+			<xs:element name="Name" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The required Name field captures the name of the Capability. The default vocabulary for this field is the CapabilityVocab from the MAEC Default Vocabularies schema.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Refined_Capability" type="maecCore:CapabilityType">
+				<xs:annotation>
+					<xs:documentation>The optional Refined_Capability field captures a refined name of the Capability. The default vocabulary for this field is the RefinedCapabilityVocab from the MAEC Default Vocabularies schema.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Description" type="cyboxCommon:StructuredTextType">
 				<xs:annotation>
 					<xs:documentation>The Description field captures a basic textual description of the Capability.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Property" type="maecCore:CapabilityPropertyType"
-				maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Attribute"
+				type="maecCore:CapabilityAttributeType">
 				<xs:annotation>
-					<xs:documentation>The Property field permits the capture of a single property of the Capability, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Strategic_Objective"
-				type="maecCore:CapabilityObjectiveType">
-				<xs:annotation>
-					<xs:documentation>The Strategic_Objective field captures a single Strategic Objective that the Capability attempts to achieve. It can be considered as a more granular way of capturing the Capabilities present in the malware instance. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Tactical_Objective"
-				type="maecCore:CapabilityObjectiveType">
-				<xs:annotation>
-					<xs:documentation>The Tactical_Objective field captures a single Tactical Objective that the Capability attempts to achieve, typically in the context of a broader Strategic Objective. It can be considered as a way of expounding upon Strategic Objectives to capture the Capabilities of the malware instance in more detail. </xs:documentation>
+					<xs:documentation>The Attribute field permits the capture of a single attribute of the Capability, as a name/value pair. More than one attribute can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behavior_Reference"
@@ -810,21 +690,15 @@
 					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that serves as an implementation of the Capability. For Behaviors that serve as implementations of specific Strategic or Tactical Objectives, the Behavior_Reference field under the Strategic_Objective or Tactical_Objective fields should be used, respectively.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Relationship" maxOccurs="unbounded"
-				type="maecCore:CapabilityRelationshipType">
-				<xs:annotation>
-					<xs:documentation>The Relationship field captures a relationship from the Capability to one or more other Capabilities.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The required id field specifies a unique ID for this MAEC Capability.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="name" type="maecVocabs:MalwareCapabilityEnum-1.0">
+		<xs:attribute name="reference" type="xs:anyURI" use="optional">
 			<xs:annotation>
-				<xs:documentation>The name field captures the name of the Capability. It uses the MalwareCapabilityEnum-1.0 enumeration from the MAEC Vocabularies schema.</xs:documentation>
+				<xs:documentation>The reference field specifies the URL of the corresponding entry in the MAEC Semantic MediaWiki for the Capability.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -868,46 +742,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CapabilityObjectiveType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveType captures details of a Capability Strategic or Tactical Objective.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Name" minOccurs="0" type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Name field captures the name of the Capability Objective. There are several default vocabularies for this usage included in the MAEC Vocabularies schema. It uses the ControlledVocabularyStringType from the imported CybOX Common schema.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Description" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Description field captures a basic textual description of the Capability Objective.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Property" type="maecCore:CapabilityPropertyType"
-				maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The Property field permits the capture of a single property of the Capability Objective, as a key/value pair. More than one property can be specified via multiple occurrences of this field.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Behavior_Reference"
-				type="maecCore:BehaviorReferenceType" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The Behavior_Reference field captures a reference to a Behavior that functions as an implementation of the Capability Objective. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Relationship"
-				type="maecCore:CapabilityObjectiveRelationshipType">
-				<xs:annotation>
-					<xs:documentation>The Relationship field captures a relationship from the Capability Objective to one or more other Capability Objectives.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="id" use="required" type="xs:QName">
-			<xs:annotation>
-				<xs:documentation>The required id field specifies a unique ID for this Capability Objective.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
 	<xs:complexType name="CapabilityRelationshipType">
 		<xs:annotation>
 			<xs:documentation>The CapabilityObjectiveRelationshipType captures a relationship between a Capability and one or more other Capabilitys.</xs:documentation>
@@ -927,48 +761,19 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CapabilityObjectiveRelationshipType">
+	<xs:complexType name="CapabilityAttributeType">
 		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveRelationshipType captures a relationship between a Strategic or Tactical Objective and one or more other Strategic or Tactical Objectives.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Relationship_Type"
-				type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Objectives (either Strategic or Tactical).</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Objective_Reference"
-				type="maecCore:CapabilityObjectiveReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Objective_Reference field references a single Capability Objective (either Strategic or Objective) in the relationship.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CapabilityObjectiveReferenceType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveReferenceType serves as a method for referencing existing Capability Objectives (either Strategic or Tactical) contained in the Bundle.</xs:documentation>
-		</xs:annotation>
-		<xs:attribute name="objective_idref" type="xs:QName" use="required">
-			<xs:annotation>
-				<xs:documentation>The objective_idref field references the ID of a Capability Objective (either Strategic or Tactical) contained inside the current MAEC document.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="CapabilityPropertyType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityPropertyType captures a single property of a Capability or Capability Objective.</xs:documentation>
+			<xs:documentation>The CapabilityAttributeType captures a single attribute of a Capability.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Name field specifies the name of the property being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema.</xs:documentation>
+					<xs:documentation>The Name field specifies the name of the attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Value" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Value field specifies the value of the property being captured.</xs:documentation>
+					<xs:documentation>The Value field specifies the value of the attribute being captured.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
