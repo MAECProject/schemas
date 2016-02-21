@@ -3611,6 +3611,705 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="PlatformVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The PlatformVocab-1.0 is the default MAEC Vocabulary for operating system platforms.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:PlatformEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC OS Platforms" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PlatformVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PlatformEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The PlatformEnum-1.0 is a non-exhaustive enumeration of operting system platforms.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="android">
+                <xs:annotation>
+                    <xs:documentation>The 'Android' value indicates the Android platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 1.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 1.0.x' value indicates the Android 1.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 1.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 1.1.x' value indicates the Android 1.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 1.5.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 1.5.x' value indicates the Android 1.5.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 1.6.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 1.6.x' value indicates the Android 1.6.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 2.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 2.0.x' value indicates the Android 2.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 2.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 2.1.x' value indicates the Android 2.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>            
+            <xs:enumeration value="android 2.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 2.2.x' value indicates the Android 2.2.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 2.3.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 2.3.x' value indicates the Android 2.3.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 3.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 3.0.x' value indicates the Android 3.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>            
+            <xs:enumeration value="android 3.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 3.1.x' value indicates the Android 3.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 3.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 3.2.x' value indicates the Android 3.2.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 4.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 4.0.x' value indicates the Android 4.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 4.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 4.1.x' value indicates the Android 4.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 4.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 4.2.x' value indicates the Android 4.2.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 4.3.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 4.3.x' value indicates the Android 4.3.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 4.4.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 4.4.x' value indicates the Android 4.4.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 5.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 5.0.x' value indicates the Android 5.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="android 5.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'android 5.1.x' value indicates the Android 5.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS unknown version">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS unknown version' value indicates an unknown version of the iOS platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 1.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 1.0.x' value indicates the iOS 1.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 1.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 1.1.x' value indicates the iOS 1.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 2.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 2.0.x' value indicates the iOS 2.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 2.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 2.1.x' value indicates the iOS 2.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 2.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 2.2.x' value indicates the iOS 2.2.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 3.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 3.0.x' value indicates the iOS 3.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 3.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 3.1.x' value indicates the iOS 3.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 3.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 3.2.x' value indicates the iOS 3.2.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 4.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 4.0.x' value indicates the iOS 4.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 4.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 4.1.x' value indicates the iOS 4.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 4.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 4.2.x' value indicates the iOS 4.2.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 4.3.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 4.3.x' value indicates the iOS 4.3.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 5.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 5.0.x' value indicates the iOS 5.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 5.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 5.1.x' value indicates the iOS 5.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 6.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 6.0.x' value indicates the iOS 6.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 6.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 6.1.x' value indicates the iOS 6.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 7.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 7.0.x' value indicates the iOS 7.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 7.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 7.1.x' value indicates the iOS 7.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 8.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 8.0.x' value indicates the iOS 8.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 8.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 8.1.x' value indicates the iOS 8.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 8.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 8.2.x' value indicates the iOS 8.2.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 8.3.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 8.3.x' value indicates the iOS 8.3.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="iOS 8.4.x">
+                <xs:annotation>
+                    <xs:documentation>The 'iOS 8.4.x' value indicates the iOS 8.4.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux unknown kernel version">
+                <xs:annotation>
+                    <xs:documentation>The 'linux unknown kernel version' value indicates an unknown version of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 2.4.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 2.4.x' value indicates version 2.4.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 2.6.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 2.6.x' value indicates version 2.6.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.0.x' value indicates version 3.0.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.1.x' value indicates version 3.1.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.10.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.10.x' value indicates version 3.10.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.11.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.11.x' value indicates version 3.11.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.12.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.12.x' value indicates version 3.12.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.13.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.13.x' value indicates version 3.13.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.14.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.14.x' value indicates version 3.14.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.15.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.15.x' value indicates version 3.15.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.16.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.16.x' value indicates version 3.16.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.17.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.17.x' value indicates version 3.17.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.18.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.18.x' value indicates version 3.18.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.19.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.19.x' value indicates version 3.19.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.2.x' value indicates version 3.2.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.3.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.3.x' value indicates version 3.3.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.4.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.4.x' value indicates version 3.4.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.5.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.5.x' value indicates version 3.5.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.6.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.6.x' value indicates version 3.6.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.7.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.7.x' value indicates version 3.7.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.8.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.8.x' value indicates version 3.8.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 3.9.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 3.9.x' value indicates version 3.9.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 4.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 4.0.x' value indicates version 4.0.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linux kernel 4.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'linux kernel 4.1.x' value indicates version 4.1.x of the linux kernel.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x unknown version">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x unknown version' value indicates an unknown version of the Mac OS X platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.0.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.0.x' value indicates the Mac OS X 10.0.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.1.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.1.x' value indicates the Mac OS X 10.1.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.10.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.10.x' value indicates the Mac OS X 10.10.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.11.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.11.x' value indicates the Mac OS X 10.11.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.2.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.2.x' value indicates the Mac OS X 10.2.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.3.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.3.x' value indicates the Mac OS X 10.3.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.4.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.4.x' value indicates the Mac OS X 10.4.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.5.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.5.x' value indicates the Mac OS X 10.5.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.6.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.6.x' value indicates the Mac OS X 10.6.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.7.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.7.x' value indicates the Mac OS X 10.7.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.8.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.8.x' value indicates the Mac OS X 10.8.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mac os x 10.9.x">
+                <xs:annotation>
+                    <xs:documentation>The 'mac os x 10.9.x' value indicates the Mac OS X 10.9.x platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows unknown version">
+                <xs:annotation>
+                    <xs:documentation>The 'windows unknown version' value indicates an unknown version of the Windows platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows 10">
+                <xs:annotation>
+                    <xs:documentation>The 'windows 10' value indicates the Windows 10 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows 7">
+                <xs:annotation>
+                    <xs:documentation>The 'windows 7' value indicates the Windows 7 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows 7 sp1">
+                <xs:annotation>
+                    <xs:documentation>The 'windows 7 sp1' value indicates the Windows 7 SP1 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows 8">
+                <xs:annotation>
+                    <xs:documentation>The 'windows 8' value indicates the Windows 8 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows 8.1">
+                <xs:annotation>
+                    <xs:documentation>The 'windows 8.1' value indicates the Windows 8.1 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2003">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2003' value indicates the Windows Server 2003 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2003 sp1">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2003 sp1' value indicates the Windows Server 2003 SP1 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2003 sp2">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2003 sp2' value indicates the Windows Server 2003 SP2 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2008">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2008' value indicates the Windows Server 2008 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2008 r2">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2008 r2' value indicates the Windows Server 2008 R2 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2008 r2 sp1">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2008 r2 sp1' value indicates the Windows Server 2008 R2 SP1 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2008 sp1">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2008 sp1' value indicates the Windows Server 2008 SP1 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2008 sp2">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2008 sp2' value indicates the Windows Server 2008 SP2 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2012">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2012' value indicates the Windows Server 2012 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows server 2012 r2">
+                <xs:annotation>
+                    <xs:documentation>The 'windows server 2012 r2' value indicates the Windows Server 2012 R2 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows vista">
+                <xs:annotation>
+                    <xs:documentation>The 'windows vista' value indicates the Windows Vista platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows vista sp1">
+                <xs:annotation>
+                    <xs:documentation>The 'windows vista sp1' value indicates the Windows Vista SP1 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows vista sp2">
+                <xs:annotation>
+                    <xs:documentation>The 'windows vista sp2' value indicates the Windows Vista SP2 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows xp">
+                <xs:annotation>
+                    <xs:documentation>The 'windows xp' value indicates the Windows XP platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows vista sp1">
+                <xs:annotation>
+                    <xs:documentation>The 'windows xp sp1' value indicates the Windows XP SP1 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows vista sp2">
+                <xs:annotation>
+                    <xs:documentation>The 'windows xp sp2' value indicates the Windows XP SP2 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows vista sp3">
+                <xs:annotation>
+                    <xs:documentation>The 'windows xp sp3' value indicates the Windows XP SP3 platform.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EncryptionAlgorithmVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The EncryptionAlgorithmVocab-1.0 is the default MAEC Vocabulary for common encryption algorithms.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:EncryptionAlgorithmEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Encryption Algorithms" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#EncryptionAlgorithmsVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="EncryptionAlgorithmEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The EncryptionAlgorithmEnum-1.0 is a non-exhaustive enumeration of encryption algorithms.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="aes256">
+                <xs:annotation>
+                    <xs:documentation>The 'aes256' value specifies the 256-bit version of the Advanced Encryption Standard (AES).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="rc4">
+                <xs:annotation>
+                    <xs:documentation>The 'rc4' value specifies the RC4 encryption algorithm.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="rsa">
+                <xs:annotation>
+                    <xs:documentation>The 'rsa' value specifies the RSA encryption algorithm.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="Layer7ProtocolVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The Layer7ProtocolVocab-1.0 is the default MAEC Vocabulary for Layer 7 (OSI model) network protocols.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:Layer7ProtocolEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Layer7 Network Protocols" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#Layer7ProtocolVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="Layer7ProtocolEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The Layer7ProtocolEnum-1.0 is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ftp">
+                <xs:annotation>
+                    <xs:documentation>The 'ftp' value specifies the File Transfer Protocol (FTP).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="http">
+                <xs:annotation>
+                    <xs:documentation>The 'http' value specifies the Hypertext Transfer Protocol (HTTP).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="https">
+                <xs:annotation>
+                    <xs:documentation>The 'https' value specifies the HTTP protocol over TLS or SSL.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="irc">
+                <xs:annotation>
+                    <xs:documentation>The 'irc' value specifies the internet relay chat (IRC) protocol.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="smtp">
+                <xs:annotation>
+                    <xs:documentation>The 'smtp' value specifies the simple mail transfer protocol (SMTP).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="TechniqueVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The TechniqueVocab-1.0 is the default MAEC Vocabulary for techniques associated with instances of Behaviors.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:TechniqueEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="MAEC Behavior Instance Techniques" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#TechniqueVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="TechniqueEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The TechniqueEnum-1.0 is an enumeration of techniques associated with instances of Behaviors.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="api call checking">
+                <xs:annotation>
+                    <xs:documentation>The 'api call checking' value refers to the technique of checking api calls.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="bios manipulation">
+                <xs:annotation>
+                    <xs:documentation>The 'bios manipulation' value refers to the technique of manipulating the bios.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="direct kernel object manipulation">
+                <xs:annotation>
+                    <xs:documentation>The 'direct kernel object manipulation' value refers to the technique of directly manipulating a kernel object.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="dll search path hijacking">
+                <xs:annotation>
+                    <xs:documentation>The 'dll search path hijacking' value refers to the technique of hijacking a dll search path.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="file system manipulation">
+                <xs:annotation>
+                    <xs:documentation>The `file system manipulation' value refers to the technique of manipulating a file system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="firmware manipulation">
+                <xs:annotation>
+                    <xs:documentation>The 'firmware manipulation' value refers to the technique of manipulating firmware.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="inline/iat/eat hooking">
+                <xs:annotation>
+                    <xs:documentation>The 'inline/iat/eat hooking' value refers to the technique of inline/iat/eat hooking.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="irp filtering">
+                <xs:annotation>
+                    <xs:documentation>The 'irp filtering' value refers to the technique of filtering an irp.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="periodic check/recreation">
+                <xs:annotation>
+                    <xs:documentation>The 'periodic check/recreation' value refers to the technique of periodically checking or recreating something.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows registry manipulation">
+                <xs:annotation>
+                    <xs:documentation>The 'windows registry manipulation' value refers to the technique of manipulating the windows registry.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="windows service manipulation">
+                <xs:annotation>
+                    <xs:documentation>The 'windows service manipulation' value refers to the technique of manipulating a windows service.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="CapabilityVocab-1.0">
         <xs:annotation>
             <xs:documentation>The CapabilityVocab-1.0 is the default MAEC Vocabulary for Capabilities.</xs:documentation>
@@ -4132,9 +4831,449 @@
                     <xs:documentation>The 'defeat linear disassembler' Behavior prevent the disassembly of the malware instance in a linear disassembler.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="xx">
+            <xs:enumeration value="degrade security program">
                 <xs:annotation>
-                    <xs:documentation>XXX</xs:documentation>
+                    <xs:documentation>The 'degrade security program' Behavior degrades one or more security programs running on a system, either by stopping them from executing or by making changes to their code or configuration parameters.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="denial of service">
+                <xs:annotation>
+                    <xs:documentation>The 'denial of service' Behavior causes the local machine on which the malware instance is executing and/or a remote network resource to be unavailable.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="destroy hardware">
+                <xs:annotation>
+                    <xs:documentation>The 'destroy hardware' Behavior physically destroys a piece of hardware, e.g., by causing it to overheat.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="detect debugging">
+                <xs:annotation>
+                    <xs:documentation>The 'detect debugging' Behavior detects whether the malware instance is being executed inside of a debugger.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="detect sandbox environment">
+                <xs:annotation>
+                    <xs:documentation>The 'detect sandbox environment' Behavior detects whether the malware instance is being executed in a sandbox environment.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="detect VM environment">
+                <xs:annotation>
+                    <xs:documentation>The 'detect VM environment' Behavior detects whether the malware instance is being executed in a virtual machine (VM).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="determine host IP address">
+                <xs:annotation>
+                    <xs:documentation>The 'determine host ip address' Behavior determines the IP address of the host system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable access rights checking">
+                <xs:annotation>
+                    <xs:documentation>The ‘disable access rights checking’ Behavior bypasses, disables, or modifies access tokens or access control lists, thereby enabling the malware instance to read, write, or execute a file with one or more of these controls set.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable firewall">
+                <xs:annotation>
+                    <xs:documentation>The ‘disable firewall’ Behavior evades or disables the host-based firewall running on the system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable kernel patch protection">
+                <xs:annotation>
+                    <xs:documentation>The ‘disable kernel patch protection’ Behavior bypasses or disables kernel patch protection mechanisms such as Windows' PatchGuard, enabling the malware instance to operate at the same level as the operating system kernel and kernel mode drivers (KMD).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable OS security alerts">
+                <xs:annotation>
+                    <xs:documentation>The ‘disable OS security alerts’ Behavior disables operating system (OS) security alert messages that could lead to identification and/or notification of the presence of the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable privilege limiting">
+                <xs:annotation>
+                    <xs:documentation>The 'disable privilege limiting' Behavior bypasses or disables mechanisms that limit the privileges that can be granted to a user or entity.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable service pack/patch installation">
+                <xs:annotation>
+                    <xs:documentation>The 'disable service pack/patch installation' Behavior disables the system's ability to install service packs and/or patches.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable system file overwrite protection">
+                <xs:annotation>
+                    <xs:documentation>The ‘disable system file overwrite protection’ Behavior disables system file overwrite protection mechanisms such as Windows file protection, thereby enabling system files to be modified or replaced.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable update services/daemons">
+                <xs:annotation>
+                    <xs:documentation>The 'disable update services/daemons' Behavior disables system update services or daemons that may be already be running on the system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="disable user account control">
+                <xs:annotation>
+                    <xs:documentation>The ‘disable user account control’ Behavior bypasses or disables Windows' user account control (UAC), enabling the malware instance and/or its component to execute with elevated privileges.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="drop/retrive debug log file">
+                <xs:annotation>
+                    <xs:documentation>The 'drop/retrieve debug log file' Behavior generates and retrieves a log file of errors relating to the execution of the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="elevate privilege">
+                <xs:annotation>
+                    <xs:documentation>The 'elevate privilege' Behavior elevates the privilege level under which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="encrypt data">
+                <xs:annotation>
+                    <xs:documentation>The 'encrypt data' Behavior encrypts data that will be exfiltrated.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="encrypt files">
+                <xs:annotation>
+                    <xs:documentation>The 'encrypt files' Behavior encrypts one or more files on the system on which the malware instance is executing, to make them unavailable for use by the users of the system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="encrypt self">
+                <xs:annotation>
+                    <xs:documentation>The 'encrypt self' Behavior encrypts the executing code (in memory) that belongs to the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="erase data">
+                <xs:annotation>
+                    <xs:documentation>The 'erase data' Behavior destroys data stored on a disk or in memory by erasure.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute before/external to kernel/hypervisor">
+                <xs:annotation>
+                    <xs:documentation>The 'execute before/external to kernel/hypervisor' Behavior executes some or all of the malware instance's code before or external to the system's kernel or hypervisor (e.g., through the BIOS).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute non-main CPU code">
+                <xs:annotation>
+                    <xs:documentation>The 'execute non-main cpu code' Behavior executes some or all of the code of the malware instance on a secondary, non-CPU processor (e.g., a GPU).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="execute stealthy code">
+                <xs:annotation>
+                    <xs:documentation>The 'execute stealthy code' Behavior executes some or all of the code of the malware instance in a hidden manner (e.g., by injecting it into a benign process).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate data via covert channel">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate data via covert channel' Behavior exfiltrates data using a covert channel, such as a DNS tunnel or NTP.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate data via dumpster dive">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate via dumpster dive' Behavior exfiltrates data via dumpster dive - i.e, encoded data printed by malware is viewed as garbage and thrown away to then be physically picked up.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate data via fax">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate data via fax' Behavior exfiltrates data using a fax system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate data via network">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate data via network' Behavior exfiltrates data through the computer network connected to the system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate data via physical media">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate data via physical media' Behavior exfiltrates data by writing it to physical media (e.g., to a USB flash drive).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="exfiltrate data via VoIP/phone">
+                <xs:annotation>
+                    <xs:documentation>The 'exfiltrate data via VoIP/phone' Behavior behaviors exfiltrate data (encoded as audio) using a phone system, such as through voice over IP (VoIP).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="feed misinformation during physical memory acquisition">
+                <xs:annotation>
+                    <xs:documentation>The 'feed misinformation during physical memory acquisition' Behavior reports inaccurate data when the contents of the physical memory of the system on which the malware instance is executing is retrieved.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="fingerprint host">
+                <xs:annotation>
+                    <xs:documentation>The 'fingerprint host' Behavior creates a unique fingerprint for the system on which the malware instance is executing, e.g., based on the applications that are installed on the system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="generate c2 domain name(s)">
+                <xs:annotation>
+                    <xs:documentation>The 'generate c2 domain name(s)' Behavior generates the domain name of the command and control server to which it connects to.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide arbitrary virtual memory">
+                <xs:annotation>
+                    <xs:documentation>The 'hide arbitrary virtual memory' Behavior hides arbitrary segments of virtual memory belonging to the malware instance in order to prevent their retrieval.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide data in other formats">
+                <xs:annotation>
+                    <xs:documentation>The 'hide data in other formats' Behavior hides data that will be exfiltrated in other formats (e.g., image files).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide file system artifacts">
+                <xs:annotation>
+                    <xs:documentation>The 'hide file system artifacts' Behavior hides one or more file system artifacts (e.g., files and/or directories) associated with the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide kernel modules">
+                <xs:annotation>
+                    <xs:documentation>The 'hide kernel modules' Behavior hides the usage of any kernel modules by the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide network traffic">
+                <xs:annotation>
+                    <xs:documentation>The 'hide network traffic' Behavior hides network traffic associated with the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide open network ports">
+                <xs:annotation>
+                    <xs:documentation>The 'hide open network ports' Behavior hides one or more open network ports associated with the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide processes">
+                <xs:annotation>
+                    <xs:documentation>The 'hide processes' Behavior hides one or more of the processes in which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide registry artifacts">
+                <xs:annotation>
+                    <xs:documentation>The 'hide registry artifacts' Behavior hides one or more Windows registry artifacts (e.g., keys and/or values) associated with the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide services">
+                <xs:annotation>
+                    <xs:documentation>The 'hide services' Behavior hides any system services that the malware instance creates or injects itself into.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide threads">
+                <xs:annotation>
+                    <xs:documentation>The 'hide threads' Behavior hides one or more threads that belong to the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="hide userspace libraries">
+                <xs:annotation>
+                    <xs:documentation>The 'hide userspace libraries' Behavior hides the usage of userspace libraries by the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="identify file">
+                <xs:annotation>
+                    <xs:documentation>The 'identify file' Behavior identifies one or more files on a local, removable, and/or network drive for infection.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="identify OS">
+                <xs:annotation>
+                    <xs:documentation>The 'identify os' Behavior identifies the operating system under which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="identify target machines">
+                <xs:annotation>
+                    <xs:documentation>The 'identify target machine(s)' Behavior identifies one or more machines to be targeted for infection via some remote means (e.g., via email or the network).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="impersonate user">
+                <xs:annotation>
+                    <xs:documentation>The 'impersonate user' Behavior impersonates another user in order to operate within a different security context.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="install backdoor">
+                <xs:annotation>
+                    <xs:documentation>The 'install backdoor' Behavior installs a backdoor on the system on which the malware instance is executing, capable of providing covert remote access to the system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="install legitimate software">
+                <xs:annotation>
+                    <xs:documentation>The 'install legitimate software' Behavior install legitimate (i.e. non-malware) software on the same system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="install secondary malware">
+                <xs:annotation>
+                    <xs:documentation>The 'install secondary malware' Behavior installs another, different malware instance on the system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="install secondary module">
+                <xs:annotation>
+                    <xs:documentation>The 'install secondary module' Behavior installs a secondary module (typically related to the malware instance itself) on the same system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="intercept/manipulate network traffic">
+                <xs:annotation>
+                    <xs:documentation>The 'intercept/manipulate network traffic' Behavior intercepts and/or manipulates network traffic going to or originating from the system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="inventory security products">
+                <xs:annotation>
+                    <xs:documentation>The 'inventory security products' Behavior creates an inventory of the security products installed or running on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="inventory system applications">
+                <xs:annotation>
+                    <xs:documentation>The 'inventory system applications' Behavior inventories the applications installed on the system on which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="inventory victims">
+                <xs:annotation>
+                    <xs:documentation>The 'inventory victims' Behavior keeps an inventory of the victims that are remotely infected by the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="limit application type/version">
+                <xs:annotation>
+                    <xs:documentation>The 'limit application type/version' Behavior limits the type or version of an application that runs on a system in order to ensure that the malware instance is able to continue executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="log activity">
+                <xs:annotation>
+                    <xs:documentation>The 'log activity' Behavior logs the activity of the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="manipulate file system data">
+                <xs:annotation>
+                    <xs:documentation>The 'manipulate file system data' Behavior manipulates data stored on the file system of the system on which the malware instance is executing in order to compromise its integrity.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="map local network">
+                <xs:annotation>
+                    <xs:documentation>The 'map local network' Behavior maps the layout of the local network environment in which the malware instance is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mine for cryptocurrency">
+                <xs:annotation>
+                    <xs:documentation>The 'mine for cryptocurrency' Behavior consumes system resources for cryptocurrency (e.g., Bitcoin, Litecoin, etc.) mining.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="modify file">
+                <xs:annotation>
+                    <xs:documentation>The 'modify file' Behavior modifies a file in some other manner than writing code to it, such as packing it (in terms of binary executable packing).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="modify security software configuration">
+                <xs:annotation>
+                    <xs:documentation>The 'modify security software configuration' Behavior modifies the configuration of one or more instances of security software (e.g., anti-virus) running on a system in order to negatively impact their usefulness and ability to detect the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="move data to staging server">
+                <xs:annotation>
+                    <xs:documentation>The 'move data to staging server' Behavior moves data to be exfiltrated to a particular server, to prepare it for exfiltration.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="obfuscate artifact properties">
+                <xs:annotation>
+                    <xs:documentation>The 'obfuscate artifact properties' Behavior hides the properties of one or more artifacts associated with the malware instance (e.g., by altering file system timestamps).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="overload sandbox">
+                <xs:annotation>
+                    <xs:documentation>The 'overload sandbox' Behavior overloads a sandbox (e.g., by generating a flood of meaningless behavioral data).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="package data">
+                <xs:annotation>
+                    <xs:documentation>The 'package data' Behavior packages data for exfiltration, e.g., by adding it to an archive file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="persist after hardware changes">
+                <xs:annotation>
+                    <xs:documentation>The 'persist after hardware changes' Behavior continues the execution of the malware instance after hardware changes to the system on which it is executing have been made, such as replacement of the hard drive on which the operating system was residing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="persist after os changes">
+                <xs:annotation>
+                    <xs:documentation>The 'persist after os changes' Behavior continues the execution of the malware instance after the operating system under which it is executing is modified, such as being installed or reinstalled.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="persist after system reboot">
+                <xs:annotation>
+                    <xs:documentation>The 'persist after system reboot' Behavior continues the execution of the malware instance after a system reboot.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent API unhooking">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent api unhooking' Behavior prevent the API hooks installed by the malware instance from being removed.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent debugging">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent debugging' Behavior prevents the execution of the malware instance in a debugger.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent file access">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent file access' Behavior prevents access to the file system, including to specific files and/or directories associated with the malware instance.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent file deletion">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent file deletion' Behavior prevents files and/or directories associated with the malware instance from being deleted from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent memory access">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent memory access' Behavior prevents access to system memory where the malware instance may be storing code or data.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent native API hooking">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent native api hooking' Behavior prevents other software from hooking native system APIs.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent physical memory acquisition">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent physical memory acquisition' Behavior prevents the contents of the physical memory of the system on which the malware instance is executing from being retrieved.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent registry access">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent registry access' Behavior prevents access to the Windows registry, including to the entire registry and/or to particular registry keys/values.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent registry deletion">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent registry deletion' Behavior prevent Windows registry keys and/or values associated with the malware instance from being deleted from a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="prevent security software from executing">
+                <xs:annotation>
+                    <xs:documentation>The 'prevent security software from executing' Behavior prevents one or more instances of security software from executing on a system.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="re-instantiate self">
+                <xs:annotation>
+                    <xs:documentation>The 're-instantiate self' Behavior re-establishes the malware instance on the system after it is initially detected and partially removed.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="remove self">
+                <xs:annotation>
+                    <xs:documentation>The 'remove self' Behavior removes the malware instance from the system on which it is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="remove SMS warning messages">
+                <xs:annotation>
+                    <xs:documentation>The ‘remove SMS warning messages’ Behavior captures the message body of incoming SMS messages and aborts displaying messages that meets a certain criteria.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="remove system artifacts">
+                <xs:annotation>
+                    <xs:documentation>The 'remove system artifacts' Behavior removes artifacts associated with the malware instance (e.g., files, directories, Windows registry keys, etc.) from the system on which it is executing.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="request email address list">
+                <xs:annotation>
+                    <xs:documentation>The 'request email address list' Behavior requests the current list of email addresses, for sending email spam messages to, from the command and control server.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="request email template">
+                <xs:annotation>
+                    <xs:documentation>The 'request email template' Behavior requests the current template, for use in generating email spam messages, from the command and control server.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="search for remote machines">
+                <xs:annotation>
+                    <xs:documentation>The 'search for remote machines' Behavior searches for one or more remote machines to target.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="send beacon">
+                <xs:annotation>
+                    <xs:documentation>The 'send beacon' Behavior sends 'beacon' data to a command and control server, indicating that it is still active on the host system and able to communicate.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="steal email data">
