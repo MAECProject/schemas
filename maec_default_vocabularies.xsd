@@ -3511,68 +3511,23 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="CapabilityAttributeVocab-1.0">
+    <xs:complexType name="CommonAttributeVocab-1.0">
         <xs:annotation>
-            <xs:documentation>The CapabilityAttributeVocab-1.0 is a MAEC Vocabulary of common attributes of Capabilities.</xs:documentation>
+            <xs:documentation>The CommonAttributesVocab-1.0 is a MAEC Vocabulary of common attributes of Capabilities and Behaviors.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
                 <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:CapabilityAttributeEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Capability Attributes" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CapabilityAttributeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="CapabilityAttributeEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The CapabilityAttributesEnum-1.0 is an enumeration of common attributes of Capabilities.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="applicable platform">
-                <xs:annotation>
-                    <xs:documentation>The 'applicable platform' value refers to the name of the network protocol used.</xs:documentation>
-                    <xs:documentation>The default vocabulary for use with this value is PlatformVocab-1.0.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="encryption algorithm">
-                <xs:annotation>
-                    <xs:documentation>The 'encryption algorithm' value refers to the name of the encryption algorithm.</xs:documentation>
-                    <xs:documentation>The default vocabulary for use with this value is EncryptionAlgorithmVocab-1.0.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="network protocol">
-                <xs:annotation>
-                    <xs:documentation>The 'network protocol' value refers to the name of the network protocol used.</xs:documentation>
-                    <xs:documentation>The default vocabulary for use with this value is Layer7ProtocolVocab-1.0.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="technique">
-                <xs:annotation>
-                    <xs:documentation>The 'technique' value refers to the name of the technique used.</xs:documentation>
-                    <xs:documentation>The default vocabulary for use with this value is TechniqueVocab-1.0.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="BehaviorAttributeVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The BehaviorAttributesVocab-1.0 is a MAEC Vocabulary of common attributes of Behavior.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:BehaviorAttributeEnum-1.0"/>
+                    <xs:union memberTypes="maecVocabs:CommonAttributeEnum-1.0"/>
                 </xs:simpleType>
                 <xs:attribute fixed="MAEC Behavior Attributes" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#BehaviorAttributeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CommonAttributeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
-    <xs:simpleType name="BehaviorAttributeEnum-1.0">
+    <xs:simpleType name="CommonAttributeEnum-1.0">
         <xs:annotation>
-            <xs:documentation>The BehaviorAttributeEnum-1.0 is an enumeration of common attributes of Behaviors.</xs:documentation>
+            <xs:documentation>The CommonAttributeEnum-1.0 is an enumeration of common attributes of Capabilities and Behaviors.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="applicable platform">

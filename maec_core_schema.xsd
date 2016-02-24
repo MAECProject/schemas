@@ -64,7 +64,8 @@
 					<xs:documentation>The Description field contains a basic textual description of the Behavior.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="Attribute">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Attribute"
+				type="maecCore:AttributeType">
 				<xs:annotation>
 					<xs:documentation>The Attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
@@ -346,7 +347,8 @@
 			<xs:documentation>The PlatformListType captures a list of software or hardware platforms.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Platform" type="cyboxCommon:PlatformSpecificationType">
+			<xs:element maxOccurs="unbounded" name="Platform"
+				type="cyboxCommon:PlatformSpecificationType">
 				<xs:annotation>
 					<xs:documentation>The Platform field specifies a single Platform in the list via a common platform enumeration ID. It uses the PlatformSpecificationType type from the CybOX Common schema v2.0.1.</xs:documentation>
 				</xs:annotation>
@@ -448,23 +450,6 @@
 				type="maecCore:BehaviorReferenceType">
 				<xs:annotation>
 					<xs:documentation>The Behavior_Reference field specifies a reference to a single Behavior.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="BehaviorAttributeType">
-		<xs:annotation>
-			<xs:documentation>The BehaviorAttributeType captures a single attribute of a Behavior.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Name field specifies the name of the Behavioral attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. The default vocabulary for this field is the BehaviorAttributeVocab from the MAEC Default Vocabularies schema.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Value" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Value field specifies the value of the Behavioral attribute being captured.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -665,12 +650,13 @@
 		<xs:sequence>
 			<xs:element name="Name" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The required Name field captures the name of the Capability. The default vocabulary for this field is the CapabilityVocab from the MAEC Default Vocabularies schema.</xs:documentation>
+					<xs:documentation>The required Name field captures the name of the Capability. The default vocabulary for this field is the CapabilityVocab from the MAEC Default Vocabularies schema. When used as part of a refined Capability, the default vocabulary is the RefinedCapabilityVocab.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Refined_Capability" type="maecCore:CapabilityType">
+			<xs:element minOccurs="0" name="Refined_Capability" type="maecCore:CapabilityType"
+				maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The optional Refined_Capability field captures a refined name of the Capability. The default vocabulary for this field is the RefinedCapabilityVocab from the MAEC Default Vocabularies schema.</xs:documentation>
+					<xs:documentation>The optional Refined_Capability field is a refinement of the Capability using the same structure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Description" type="cyboxCommon:StructuredTextType">
@@ -679,7 +665,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Attribute"
-				type="maecCore:CapabilityAttributeType">
+				type="maecCore:AttributeType">
 				<xs:annotation>
 					<xs:documentation>The Attribute field permits the capture of a single attribute of the Capability, as a name/value pair. More than one attribute can be specified via multiple occurrences of this field.</xs:documentation>
 				</xs:annotation>
@@ -742,38 +728,19 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CapabilityRelationshipType">
+	<xs:complexType name="AttributeType">
 		<xs:annotation>
-			<xs:documentation>The CapabilityObjectiveRelationshipType captures a relationship between a Capability and one or more other Capabilitys.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Relationship_Type"
-				type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Relationship_Type field captures the type of relationship being expressed between Capabilities.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability_Reference"
-				type="maecCore:CapabilityReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Capability_Reference field references a single Capability in the relationship, via its ID.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CapabilityAttributeType">
-		<xs:annotation>
-			<xs:documentation>The CapabilityAttributeType captures a single attribute of a Capability.</xs:documentation>
+			<xs:documentation>The AttributeType captures a single attribute of a Capability, Behavior, etc.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Name field specifies the name of the attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema.</xs:documentation>
+					<xs:documentation>The Name field specifies the name of the attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema. The default vocabulary for use with this field is the CommonAttributeVocab-1.0.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Value" type="cyboxCommon:StringObjectPropertyType">
+			<xs:element minOccurs="0" name="Value" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The Value field specifies the value of the attribute being captured.</xs:documentation>
+					<xs:documentation>The Value field specifies the value of the attribute being captured. See the annotations for the enumerations in CommonAttributeEnum-1.0 for default vocabularies associated with these values.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
