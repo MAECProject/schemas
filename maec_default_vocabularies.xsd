@@ -3520,7 +3520,7 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:CommonAttributeEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Behavior Attributes" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="MAEC Common Attributes" name="vocab_name" type="xs:string" use="optional"/>
                 <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CommonAttributeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
@@ -3556,12 +3556,12 @@
             </xs:enumeration>
             <xs:enumeration value="vulnerability ID (CVE)">
                 <xs:annotation>
-                    <xs:documentation>The 'vulnerability ID (CVE)' field specifies the Common Vulnerabilities and Exposures (CVE) ID of a vulnerability that may be exploited by the Behavior.</xs:documentation>
+                    <xs:documentation>The 'vulnerability ID (CVE)' field specifies the Common Vulnerabilities and Exposures (CVE) ID of a vulnerability that may be exploited.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="vulnerability ID (OSVDB)">
                 <xs:annotation>
-                    <xs:documentation>The 'vulnerability ID (OSVDB)' field specifies the Open Source Vulnerability Database (OSVDB) ID of a vulnerability that may be exploited by the Behavior.</xs:documentation>
+                    <xs:documentation>The 'vulnerability ID (OSVDB)' field specifies the Open Source Vulnerability Database (OSVDB) ID of a vulnerability that may be exploited.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
