@@ -38,7 +38,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
 				<xs:annotation>
-					<xs:documentation>The name field captures the name of the Malware Action. The default vocabulary for this field is the ActionNameVocabulary from the MAEC Default Vocabularies schema.</xs:documentation>
+					<xs:documentation>The name field captures the name of the Malware Action. The default vocabulary for this field is the MalwareActionVocabulary from the MAEC Default Vocabularies schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Description" type="cyboxCommon:StructuredTextType">

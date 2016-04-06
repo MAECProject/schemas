@@ -997,56 +997,79 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="AntiBehavioralAnalysisPropertiesVocab-1.0">
+    <xs:complexType name="CapabilityAttributeVocab-1.0">
         <xs:annotation>
-            <xs:documentation>The AntiBehavioralAnalysisPropertiesVocab-1.0 is the default MAEC Vocabulary for Anti-Behavioral Analysis Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+            <xs:documentation>The CapabilityAttributeVocab-1.0 is the default MAEC Vocabulary for Capability attributes.</xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
                 <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:AntiBehavioralAnalysisPropertiesEnum-1.0"/>
+                    <xs:union memberTypes="maecVocabs:CapabilityAttributeEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Anti-Behavioral Analysis Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AntiBehavioralAnalysisPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Capability Attributes" name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CapabilityAttributeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
-    <xs:simpleType name="AntiBehavioralAnalysisPropertiesEnum-1.0">
+    <xs:simpleType name="CapabilityAttributeEnum-1.0">
         <xs:annotation>
-            <xs:documentation>The AntiBehavioralAnalysisStrategicObjectivesEnum-1.0 is an enumeration of Anti-Behavioral Analysis Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
+            <xs:documentation>The CapabilityAttributeEnum-1.0 is an enumeration of Capability attributes.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
+            <xs:enumeration value="cryptocurrency type">
+                <xs:annotation>
+                    <xs:documentation>The 'cryptocurrency type' value refers to the type of cryptocurrency targeted by the Mine for CryptoCurrency Capability.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="frequency">
+                <xs:annotation>
+                    <xs:documentation>The 'frequency' value refers to a description of the frequency that the Receive Data from C2 Server and Send Data to C2 Server Capability employs.</xs:documentation>
+                    <xs:documentation>It is recommended that the description follow the format of "every x [units]", e.g. "every 5 minutes".</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="user privilege escalation type">
+                <xs:annotation>
+                    <xs:documentation>The 'user privilege escalation type' value refers to the type of user privilege escalation employed by the Escalate User Privilege Capability.</xs:documentation>
+                    <xs:documentation>Recommended values are: 'horizontal', or 'vertical'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="scope">
+                <xs:annotation>
+                    <xs:documentation>The 'scope' value refers to the scope of persistence employed by the Persistence Capability, i.e. whether the malware instance make itself persist, or whether it makes other malware components persist.</xs:documentation>
+                    <xs:documentation>Recommended values are: 'self', or 'other malware/components'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="erasure scope">
+                <xs:annotation>
+                    <xs:documentation>The 'erasure scope' value refers to the scope of the erasure performed by the Erase Data Capability.</xs:documentation>
+                    <xs:documentation>Recommended values are: 'whole disk', or 'targeted files'.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="targeted program">
+                <xs:annotation>
+                    <xs:documentation>The 'targeted program' value refers to the name of a program targeted by the Degrade Security Programs Capability.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="trigger type">
+                <xs:annotation>
+                    <xs:documentation>The 'trigger type' value refers to a description of the trigger used to wake or terminate the malware instance in the Lie Dormant or Suicide Exit Capabilities, respectively.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="backdoor type">
+                <xs:annotation>
+                    <xs:documentation>The 'backdoor type' value refers to the type of backdoor, e.g. reverse shell, employed by the Install Backdoor Capability.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="targeted vm">
                 <xs:annotation>
-                    <xs:documentation>The 'targeted vm' value refers to the name of a virtual machine (VM) targeted by the Anti-Behavioral Analysis Capability or one of its child Objectives.</xs:documentation>
+                    <xs:documentation>The 'targeted vm' value refers to the name of a virtual machine (VM) targeted by the Anti-Behavioral Analysis Capability.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="targeted sandbox">
                 <xs:annotation>
-                    <xs:documentation>The 'targeted sandbox' value refers to the name of a sandbox targeted by the Anti-Behavioral Analysis Capability or one of its child Objectives.</xs:documentation>
+                    <xs:documentation>The 'targeted sandbox' value refers to the name of a sandbox targeted by the Anti-Behavioral Analysis Capability.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="InfectionPropagationPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The InfectionPropagationPropertiesVocab-1.0 is the default MAEC Vocabulary for Infection/Propagation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:InfectionPropagationPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Infection/Propagation Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#InfectionPropagationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="InfectionPropagationPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The InfectionPropagationPropertiesEnum-1.0 is an enumeration of Infection/Propagation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
             <xs:enumeration value="scope">
                 <xs:annotation>
                     <xs:documentation>The 'scope' value refers to the scope of the infection or propagation performed by the malware instance via the Infection/Propagation Capability, i.e. whether it infects just the local machine or actively propagates to other machines as well. </xs:documentation>
@@ -1055,306 +1078,52 @@
             </xs:enumeration>
             <xs:enumeration value="infection targeting">
                 <xs:annotation>
-                    <xs:documentation>The 'targeting' value refers to the type of targeting employed by the Infect Remote Machine Strategic Objective, i.e. whether the targeted machines are randomly selected, or chosen from some particular set. </xs:documentation>
+                    <xs:documentation>The 'targeting' value refers to the type of targeting employed by the Infect Remote Machine Capability, i.e. whether the targeted machines are randomly selected, or chosen from some particular set. </xs:documentation>
                     <xs:documentation>Recommended values are: 'targeted', 'semi-targeted', or 'untargeted'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="autonomy">
                 <xs:annotation>
-                    <xs:documentation>The 'autonomy' value refers to the type of autonomy emplyed by the Infect Remote Machine Strategic Objective, i.e. whether the remote infection is performed autonomously.</xs:documentation>
+                    <xs:documentation>The 'autonomy' value refers to the type of autonomy emplyed by the Infect Remote Machine Capability, i.e. whether the remote infection is performed autonomously.</xs:documentation>
                     <xs:documentation>Recommended values are: 'semi-autonomous', 'autonomous'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="targeted file type">
                 <xs:annotation>
-                    <xs:documentation>The 'targeted file type' value refers to the types of files targeted by the Infect File Strategic Objective.</xs:documentation>
+                    <xs:documentation>The 'targeted file type' value refers to the types of files targeted by the Infect File Capability.</xs:documentation>
                     <xs:documentation>It is recommended that files be specified via their extension, e.g. "exe", "pdf", etc.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="targeted file architecture type">
                 <xs:annotation>
-                    <xs:documentation>The 'targeted file architecture' value refers to type of file architecture targeted by the Infect File Strategic Objective.</xs:documentation>
+                    <xs:documentation>The 'targeted file architecture' value refers to type of file architecture targeted by the Infect File Capability.</xs:documentation>
                     <xs:documentation>>Recommended values are: '32 bit', or '64 bit'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="file infection type">
                 <xs:annotation>
-                    <xs:documentation>The 'file infection type' value refers to the type of file infection employed by the Infect File Strategic Objective.</xs:documentation>
+                    <xs:documentation>The 'file infection type' value refers to the type of file infection employed by the Infect File Capability.</xs:documentation>
                     <xs:documentation>Recommended values are: 'appending', 'prepending', 'overwriting', 'companion', 'variable key', 'polymorphic', or 'metamorphic'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="DataTheftPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The DataTheftPropertiesVocab-1.0 is the default MAEC Vocabulary for Data Theft Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:DataTheftPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Data Theft Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DataTheftPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="DataTheftPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The DataTheftPropertiesEnum-1.0 is an enumeration of Data Theft Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="targeted application">
-                <xs:annotation>
-                    <xs:documentation>The 'targeted application' value refers to the name of an application targeted by the Steal Authentication Credentials Strategic Objective.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="targeted website">
-                <xs:annotation>
-                    <xs:documentation>The 'targeted website' value refers to the domain name of a website targeted by the Steal Web/Network Credential Tactical Objective.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="CommandandControlPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The CommandandControlPropertiesVocab-1.0 is the default MAEC Vocabulary for Command and Control Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:CommandandControlPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Command and Control Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CommandandControlPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="CommandandControlPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The CommandandControlPropertiesEnum-1.0 is an enumeration of Command and Control Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="frequency">
-                <xs:annotation>
-                    <xs:documentation>The 'frequency' value refers to a description of the frequency that the Receive Data from C2 Server and Send Data to C2 Server Strategic Objectives, as well as their child Tactical Objectives, are employed.</xs:documentation>
-                    <xs:documentation>It is recommended that the description follow the format of "every x [units]", e.g. "every 5 minutes".</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="PrivilegeEscalationPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The PrivilegeEscalationPropertiesVocab-1.0 is the default MAEC Vocabulary for Privilege Escalation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:PrivilegeEscalationPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Privilege Escalation Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PrivilegeEscalationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="PrivilegeEscalationPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The PrivilegeEscalationPropertiesEnum-1.0 is an enumeration of Privilege Escalation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="user privilege escalation type">
-                <xs:annotation>
-                    <xs:documentation>The 'user privilege escalation type' value refers to the type of user privilege escalation employed by the Escalate User Privilege Strategic Objective.</xs:documentation>
-                    <xs:documentation>Recommended values are: 'horizontal', or 'vertical'.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="PersistencePropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The PrivilegeEscalationPropertiesVocab-1.0 is the default MAEC Vocabulary for Persistence Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:PersistencePropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Persistence Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PersistencePropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="PersistencePropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The PersistencePropertiesEnum-1.0 is an enumeration of Persistence Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="scope">
-                <xs:annotation>
-                    <xs:documentation>The 'scope' value refers to the scope of persistence employed by the Persistence Capability, i.e. whether the malware instance make itself persist, or whether it makes other malware components persist.</xs:documentation>
-                    <xs:documentation>Recommended values are: 'self', or 'other malware/components'.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="DestructionPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The DestructionPropertiesVocab-1.0 is the default MAEC Vocabulary for Destruction Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:DestructionPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Destruction Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DestructionPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="DestructionPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The DestructionPropertiesEnum-1.0 is an enumeration of Destruction Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="erasure scope">
-                <xs:annotation>
-                    <xs:documentation>The 'erasure scope' value refers to the scope of the erasure performed by the Erase Data Tactical Objective.</xs:documentation>
-                    <xs:documentation>Recommended values are: 'whole disk', or 'targeted files'.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="SecurityDegradationPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The SecurityDegradationPropertiesVocab-1.0 is the default MAEC Vocabulary for Security Degradation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:SecurityDegradationPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Security Degradation Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SecurityDegradationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="SecurityDegradationPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The SecurityDegradationPropertiesEnum-1.0 is an enumeration of Security Degradation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="targeted program">
-                <xs:annotation>
-                    <xs:documentation>The 'targeted program' value refers to the name of a program targeted by the Degrade Security Programs Strategic Objective or one of its child Tactical Objectives.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="SecondaryOperationPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The SecondaryOperationPropertiesVocab-1.0 is the default MAEC Vocabulary for Secondary Operation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:SecondaryOperationPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Secondary Operation Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#SecondaryOperationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="SecondaryOperationPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The SecondaryOperationPropertiesEnum-1.0 is an enumeration of Secondary Operation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="trigger type">
-                <xs:annotation>
-                    <xs:documentation>The 'trigger type' value refers to a description of the trigger used to wake or terminate the malware instance in the Lie Dormant or Suicide Exit Strategic Objectives, respectively.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="MachineAccessControlPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The MachineAccessControlPropertiesVocab-1.0 is the default MAEC Vocabulary for Machine Access/Control Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:MachineAccessControlPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Machine Access/Control Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MachineAccessControlPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="MachineAccessControlPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The MachineAccessControlPropertiesEnum-1.0 is an enumeration of Machine Access/Control Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="backdoor type">
-                <xs:annotation>
-                    <xs:documentation>The 'backdoor type' value refers to the type of backdoor, e.g. reverse shell, employed by the Install Backdoor Strategic Objective.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="DataExfiltrationPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The DataExfiltrationPropertiesVocab-1.0 is the default MAEC Vocabulary for Data Exfiltration Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:DataExfiltrationPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Data Exfiltration Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#DataExfiltrationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="DataExfiltrationPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The DataExfiltrationPropertiesEnum-1.0 is an enumeration of Data Exfiltration Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
             <xs:enumeration value="archive type">
                 <xs:annotation>
-                    <xs:documentation>The 'archive type' value refers to the name of the file archive format used in the Stage Data for Exfiltration Strategic Objective and/or its Package Data Tactical Objective.</xs:documentation>
+                    <xs:documentation>The 'archive type' value refers to the name of the file archive format used in the Stage Data for Exfiltration Capability and/or the Package Data Capability.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="file type">
                 <xs:annotation>
-                    <xs:documentation>The 'file type' value refers to the name of the file format used for storing data to be exfiltrated as part of the Data Exfiltration Capability or its child Objectives.</xs:documentation>
+                    <xs:documentation>The 'file type' value refers to the name of the file format used for storing data to be exfiltrated as part of the Data Exfiltration Capability.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:complexType name="AvailabilityViolationPropertiesVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The AvailabilityViolationPropertiesVocab-1.0 is the default MAEC Vocabulary for Availability Violation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:AvailabilityViolationPropertiesEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Availability Violation Capability and Objective Properties" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#AvailabilityViolationPropertiesVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="AvailabilityViolationPropertiesEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The AvailabilityViolationPropertiesEnum-1.0 is an enumeration of Availability Violation Capability/Strategic Objective/Tactical Objective Properties.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="cryptocurrency type">
+            <xs:enumeration value="targeted application">
                 <xs:annotation>
-                    <xs:documentation>The 'cryptocurrency type' value refers to the type of cryptocurrency targeted by the Mine for CryptoCurrency Strategic Objective.</xs:documentation>
+                    <xs:documentation>The 'targeted application' value refers to the name of an application targeted by the Steal Authentication Credentials Capability.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="targeted website">
+                <xs:annotation>
+                    <xs:documentation>The 'targeted website' value refers to the domain name of a website targeted by the Steal Web/Network Credential Capability.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -2229,7 +1998,7 @@
             </xs:enumeration>        
         </xs:restriction>
     </xs:simpleType>
-        <xs:complexType name="RefinedCapabilityVocab-1.0">
+    <xs:complexType name="RefinedCapabilityVocab-1.0">
         <xs:annotation>
             <xs:documentation>The RefinedCapabilityVocab-1.0 is the default MAEC Vocabulary for refined Capabilities.</xs:documentation>
         </xs:annotation>
