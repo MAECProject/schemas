@@ -33,20 +33,56 @@
 		schemaLocation="http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd"/>
 	<xs:complexType name="MalwareActionType">
 		<xs:annotation>
-			<xs:documentation>The MalwareActionType is one of the foundational MAEC types, and serves as a method for the characterization of actions found or observed in malware. Actions can be thought of as system state changes and similar operations that represent the fundamental low-level operation of malware. Some examples include the creation of a file, deletion of a registry key, and the sending of some  data on a socket. It imports and extends the CybOX ActionType. For MAEC, the id attribute is required.</xs:documentation>
+			<xs:documentation>The MalwareActionType is one of the foundational MAEC types, and serves as a method for the characterization of actions found or observed in malware. Actions can be thought of as system state changes and similar operations that represent the fundamental low-level operation of malware. Some examples include the creation of a file, deletion of a registry key, and the sending of some  data on a socket.</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="cybox:ActionType">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="Implementation"
-						type="maecCore:ActionImplementationType">
-						<xs:annotation>
-							<xs:documentation>The Implementation field is optional and serves to capture attributes that are relevant to how the Action is implemented in the malware, such as the specific API call that was used.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Name" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The name field captures the name of the Malware Action. The default vocabulary for this field is the ActionNameVocabulary from the MAEC Default Vocabularies schema.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Description" type="cyboxCommon:StructuredTextType">
+				<xs:annotation>
+					<xs:documentation>The Description field contains a textual description of the Malware Action.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Associated_Object_Reference"
+				type="maecCore:AssociatedObjectReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Associated_Object_Reference captures a reference to a CybOX Object associated with the Malware Action, including those used as input into the Malware Action, resulting as output from the Malware Action, and resulting as a side effect from the Malware Action.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Implementation" type="maecCore:ActionImplementationType">
+				<xs:annotation>
+					<xs:documentation>The Implementation field is optional and serves to capture attributes that are relevant to how the Malware Action is implemented, such as the specific API call that was used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:QName" use="required">
+			<xs:annotation>
+				<xs:documentation>The required id field specifies a unique id for this Malware Action.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="timestamp" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>The timestamp field represents the local or relative time at which the action occurred or was observed. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known, via the timestamp_precision field.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="timestamp_precision" type="cyboxCommon:DateTimePrecisionEnum">
+			<xs:annotation>
+				<xs:documentation>Represents the precision of the associated timestamp value. If omitted, the default is "second", meaning the timestamp is precise to the full field value. Digits in the timestamp that are required by the xs:dateTime datatype but are beyond the specified precision should be zeroed out.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="action_status" type="cybox:ActionStatusTypeEnum">
+			<xs:annotation>
+				<xs:documentation>The action_status field captures the status of the Malware Action, with respect to the success of its execution.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="count" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>The count field captures how many times the Malware Action was observed, for cases where the same action is seen multiple times. In such cases, the timestamp field should be used to capture the first time the action was observed.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="BehaviorType">
 		<xs:annotation>
@@ -779,5 +815,18 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssociatedObjectReferenceType">
+		<xs:attribute name="object_idref" type="xs:QName" use="required">
+			<xs:annotation>
+				<xs:documentation>The object_idref field serves as a reference to an existing CybOX Object in the MAEC document, via its ID.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="association_type" type="maecVocabs:ActionObjectAssociationTypeEnum-1.0"
+			use="required">
+			<xs:annotation>
+				<xs:documentation>The object_idref field serves as a reference to an existing CybOX Object in the MAEC document, via its ID.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 </xs:schema>
