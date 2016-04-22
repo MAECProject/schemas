@@ -456,7 +456,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Static_Features" type="maecCore:ObjectReferenceListType">
 				<xs:annotation>
-					<xs:documentation>The Static_Features field specifies a set of one or more Static Features, represented as CybOX Objects, associated with the Malware Subject.</xs:documentation>
+					<xs:documentation>The Static_Features field specifies a set of one or more Object references related to the malware instance characterized by the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Relationships"

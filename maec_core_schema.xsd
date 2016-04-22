@@ -651,6 +651,11 @@
 						<xs:documentation>The scan_date field specifies the date and time of the scan. This field can be used to capture how a scan changes over time.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="detected" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The detected field specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Subject.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
