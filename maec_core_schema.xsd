@@ -321,19 +321,6 @@
 			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="AVClassificationsType">
-		<xs:annotation>
-			<xs:documentation>The AVClassificationsType captures any Anti-Virus (AV) tool classifications for an Object.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="AV_Classification"
-				type="maecCore:AVClassificationType">
-				<xs:annotation>
-					<xs:documentation>The AV_Classification field captures a single AV classication of the malware instance object. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="ParameterType">
 		<xs:annotation>
 			<xs:documentation>The ParameterType characterizes function parameters.</xs:documentation>
@@ -638,27 +625,32 @@
 	</xs:complexType>
 	<xs:complexType name="AVClassificationType">
 		<xs:annotation>
-			<xs:documentation>The AVClassificationType captures information on AV scanner classifications for the malware instance object captured in the Bundle or Package.</xs:documentation>
+			<xs:documentation>The AVClassificationType captures information on AV scanner classifications.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ToolInformationType">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="Engine_Version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>The Engine_Version field captures the version of the AV engine used by the AV scanner tool that assigned the classification to the malware instance object.</xs:documentation>
+							<xs:documentation>The Engine_Version field captures the version of the AV engine used by the AV scanner tool.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="Definition_Version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>The Definition_Version field captures the version of the AV definitions used by the AV scanner tool that assigned the classification to the malware instance object.</xs:documentation>
+							<xs:documentation>The Definition_Version field captures the version of the AV definitions used by the AV scanner tool.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="Classification_Name" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>The Classification_Name field captures the classification assigned to the malware instance object by the AV scanner tool characterized in the Company_Name and Product_Name fields.</xs:documentation>
+							<xs:documentation>The Classification_Name field captures the classification assigned to the malware instance object by the AV scanner tool.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
+				<xs:attribute name="scan_date" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation>The scan_date field specifies the date and time of the scan. This field can be used to capture how a scan changes over time.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

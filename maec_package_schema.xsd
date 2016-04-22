@@ -998,6 +998,23 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="AVClassificationsType">
+		<xs:annotation>
+			<xs:documentation>The AVClassificationsType captures a set of one or more AV classifications of CybOX Objects.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cybox:DomainSpecificObjectPropertiesType">
+				<xs:sequence>
+					<xs:element name="AV_Classification" type="maecCore:AVClassificationType"
+						maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The AV_Classification field captures a single AV classification of a CybOX Object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:simpleType name="AnalysisTypeEnum">
 		<xs:annotation>
 			<xs:documentation>The AnalysisTypeEnum is an enumeration of types of malware analyses.</xs:documentation>
