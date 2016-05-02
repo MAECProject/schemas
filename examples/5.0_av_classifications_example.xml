@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ MAEC AV Classifications Example
+ -Demonstrates how to use the AV_Classifications element in the Malware Subject of a Package to capture AV Classifications for a malware instance object
+ 
+ Created April 2013 for MAEC v4.0 and CybOX v2.0 
+ Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 
+ Updated May 2016 for MAEC v5.0 and CybOX v2.1 -->
+<maecPackage:MAEC_Package
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:maecCore="http://maec.mitre.org/XMLSchema/maec-core-1"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-5"
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation=
+ "http://maec.mitre.org/XMLSchema/maec-package-5 ..\maec_package_schema.xsd
+ http://maec.mitre.org/XMLSchema/maec-core-1 ..\maec_core_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
+ http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd" 
+ id="maec-example-pkg-1" schema_version="5.0">
+<maecPackage:Malware_Subjects>
+ <maecPackage:Malware_Subject id="maec-example-sub-1">
+  <maecPackage:Instance_Object>
+   <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+    <FileObj:File_Name>a92e5b2bae.exe</FileObj:File_Name>
+    <FileObj:File_Path>C:\a92e5b2bae.exe</FileObj:File_Path>
+    <FileObj:Size_In_Bytes>77312</FileObj:Size_In_Bytes>
+    <FileObj:Hashes>
+     <cyboxCommon:Hash>
+      <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+      <cyboxCommon:Simple_Hash_Value>a92e5b2bae0b4b3a3d81c85610b95cd4</cyboxCommon:Simple_Hash_Value>
+     </cyboxCommon:Hash>
+     <cyboxCommon:Hash>
+      <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA1</cyboxCommon:Type>
+      <cyboxCommon:Simple_Hash_Value>5374e08903744ceeaedd8f5e1bfc06b2c4688e76</cyboxCommon:Simple_Hash_Value>
+     </cyboxCommon:Hash>
+    </FileObj:Hashes>
+   </cybox:Properties>
+   <cybox:Domain_Specific_Object_Properties xsi:type="maecPackage:AVClassificationsType">
+    <maecPackage:AV_Classification id="avclass-1" scan_date="2010-05-15T03:38:44" detected="false">
+     <cyboxCommon:Name>Security Essentials</cyboxCommon:Name>
+     <cyboxCommon:Vendor>Microsoft</cyboxCommon:Vendor>
+     <maecCore:Engine_Version>4.2.3</maecCore:Engine_Version>
+     <maecCore:Definition_Version>032415-0011</maecCore:Definition_Version>
+    </maecPackage:AV_Classification>
+    <maecPackage:AV_Classification id="avclass-2" scan_date="2012-02-11T08:36:14" detected="true">
+     <cyboxCommon:Name>Security Essentials</cyboxCommon:Name>
+     <cyboxCommon:Vendor>Microsoft</cyboxCommon:Vendor>
+     <cyboxCommon:Engine_Version>5.1.0</cyboxCommon:Engine_Version>
+     <maecCore:Definition_Version>053514-0062</maecCore:Definition_Version>
+     <maecCore:Classification_Name>Zeus.D.C</maecCore:Classification_Name>
+    </maecPackage:AV_Classification>
+   </cybox:Domain_Specific_Object_Properties>
+  </maecPackage:Instance_Object>
+ </maecPackage:Malware_Subject>
+</maecPackage:Malware_Subjects>
+</maecPackage:MAEC_Package>
