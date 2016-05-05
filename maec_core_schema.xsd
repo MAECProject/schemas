@@ -21,8 +21,8 @@
 		<xs:appinfo>
 			<schema>MAEC Core Schema</schema>
 			<version>5.0</version>
-			<date>09/30/2015</date>
-			<terms_of_use>Copyright (c) 2012-2015, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
+			<date>5/5/2016</date>
+			<terms_of_use>Copyright (c) 2012-2016, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/objects#ProcessObject-2"
@@ -227,10 +227,10 @@
 						<xs:documentation>The API_Call field allows for the characterization of a system-level API call that was used to implement the action. Software must make use of such calls to talk to 			hardware and perform system-specific functions.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Code" maxOccurs="unbounded" type="CodeObj:CodeObjectType"
+				<xs:element name="Code" maxOccurs="unbounded" type="maecCore:ObjectReferenceType"
 					minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Code field contains any form of code that was used to implement the action.</xs:documentation>
+						<xs:documentation>The Code field references a CybOX Object, which MUST be a Code Object that was that was used to implement the action.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
@@ -358,9 +358,10 @@
 			<xs:documentation>The AssociatedCodeType serves as generic way of specifying any code snippets associated with a MAEC entity, such as a Behavior.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Code_Snippet" type="CodeObj:CodeObjectType">
+			<xs:element maxOccurs="unbounded" name="Code_Snippet"
+				type="maecCore:ObjectReferenceType">
 				<xs:annotation>
-					<xs:documentation>The Code_Snippet field captures a single snippet of code, via the CybOX CodeObjectType.</xs:documentation>
+					<xs:documentation>The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

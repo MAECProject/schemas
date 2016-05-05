@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ MAEC Package Static Triage Analysis Example
+ -Demonstrates how basic static triage for a malware instance can be captured in a Malware Subject in a Package
+ -Based on SANS Reading Room Paper: A Detailed Analysis of an Advanced Persistent Threat Malware, by Frankie Li. http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814
+ 
+ Updated November 2012 for MAEC v3.0 and CybOX v1.0 final
+ Updated April 2013 for MAEC v4.0 and CybOX v2.0 final
+ Updated September 2013 for MAEC v4.0.1 and CybOX v2.0.1
+ Updated January 2014 for MAEC v4.1 and CybOX v2.1 
+ Updated February 2014 with MAEC v4.1 label content 
+ Updated May 2016 for MAEC v5.0-->
+<maecPackage:MAEC_Package
+ xmlns:maecCore="http://maec.mitre.org/XMLSchema/maec-core-1"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-5"
+ xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinExecFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation=
+ "http://maec.mitre.org/XMLSchema/maec-package-5 ../maec_package_schema.xsd
+ http://maec.mitre.org/XMLSchema/maec-core-1 ../maec_core_schema.xsd
+ http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
+ http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd" 
+ id="maec-example-pkg-1" schema_version="5.0">
+
+ <maecPackage:Malware_Subjects>
+  <maecPackage:Malware_Subject id="maec-example-sub-1">
+   
+   <maecPackage:Instance_Object object_idref="maec-example-obj-1"/>
+   
+   <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">dropper file</maecPackage:Label>
+   
+   <maecPackage:Analyses>
+    <maecPackage:Analysis id="maec-example-ana-1" method="static" type="triage">
+     <maecPackage:Source>
+      <maecPackage:Name>Frankie Li</maecPackage:Name>
+      <maecPackage:URL>http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814</maecPackage:URL>
+     </maecPackage:Source>
+     <maecPackage:Summary>A basic static triage of the subject binary using PEiD.</maecPackage:Summary>
+     <maecPackage:Discovered_Entities>
+      <maecPackage:Behavior_Reference behavior_idref="maec-tst-bhv-1"/>
+      <maecPackage:Capability_Reference capability_idref="maec-tst-cpb-1"/>
+     </maecPackage:Discovered_Entities>
+     <maecPackage:Tools>
+      <maecPackage:Tool id="analysis-tool-1">
+       <cyboxCommon:Name>PEiD</cyboxCommon:Name>
+       <cyboxCommon:Version>0.94</cyboxCommon:Version>
+      </maecPackage:Tool>
+     </maecPackage:Tools>
+    </maecPackage:Analysis>
+   </maecPackage:Analyses>
+
+   <maecPackage:Static_Features>
+    <maecCore:Object_Reference object_idref="maec-example-obj-2"/>
+   </maecPackage:Static_Features>
+  </maecPackage:Malware_Subject>
+ </maecPackage:Malware_Subjects>
+ 
+ <maecPackage:Objects>
+  <maecCore:Object id="maec-example-obj-1">
+  <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+   <FileObj:File_Name>dg003_improve_8080_V132.exe</FileObj:File_Name>
+   <FileObj:Size_In_Bytes>196608</FileObj:Size_In_Bytes>
+   <FileObj:Hashes>
+    <cyboxCommon:Hash>
+     <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+     <cyboxCommon:Simple_Hash_Value>4EC0027BEF4D7E1786A04D021FA8A67F</cyboxCommon:Simple_Hash_Value>
+    </cyboxCommon:Hash>
+   </FileObj:Hashes>
+   <FileObj:Packer_List>
+    <FileObj:Packer>
+     <FileObj:Name>UPX</FileObj:Name>
+     <FileObj:Signature>UPX v3.0.2</FileObj:Signature>
+    </FileObj:Packer>
+   </FileObj:Packer_List>
+  </cybox:Properties>
+  </maecCore:Object>
+  
+  <maecCore:Object id="maec-example-obj-2">
+   <cybox:Properties xsi:type="WinExecFileObj:WindowsExecutableFileObjectType">
+    <WinExecFileObj:Headers>
+     <WinExecFileObj:Optional_Header>
+      <WinExecFileObj:Major_Linker_Version>06</WinExecFileObj:Major_Linker_Version>
+      <WinExecFileObj:Minor_Linker_Version>00</WinExecFileObj:Minor_Linker_Version>
+      <WinExecFileObj:Base_Of_Code>036418</WinExecFileObj:Base_Of_Code>
+      <WinExecFileObj:Subsystem>Windows_GUI</WinExecFileObj:Subsystem>
+     </WinExecFileObj:Optional_Header>
+    </WinExecFileObj:Headers>
+    <WinExecFileObj:Type>Executable</WinExecFileObj:Type>
+   </cybox:Properties>
+  </maecCore:Object>  
+ </maecPackage:Objects>
+ 
+</maecPackage:MAEC_Package>

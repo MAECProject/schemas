@@ -18,15 +18,20 @@
  xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation=
- "http://maec.mitre.org/XMLSchema/maec-package-5 ..\maec_package_schema.xsd
- http://maec.mitre.org/XMLSchema/maec-core-1 ..\maec_core_schema.xsd
+ "http://maec.mitre.org/XMLSchema/maec-package-5 ../maec_package_schema.xsd
+ http://maec.mitre.org/XMLSchema/maec-core-1 ../maec_core_schema.xsd
  http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
  http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
  http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd" 
  id="maec-example-pkg-1" schema_version="5.0">
 <maecPackage:Malware_Subjects>
  <maecPackage:Malware_Subject id="maec-example-sub-1">
-  <maecPackage:Instance_Object>
+  <maecPackage:Instance_Object object_idref="example-obj-1"/>
+ </maecPackage:Malware_Subject>
+</maecPackage:Malware_Subjects>
+ 
+ <maecPackage:Objects>
+  <maecCore:Object id="example-obj-1">
    <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
     <FileObj:File_Name>a92e5b2bae.exe</FileObj:File_Name>
     <FileObj:File_Path>C:\a92e5b2bae.exe</FileObj:File_Path>
@@ -52,12 +57,13 @@
     <maecPackage:AV_Classification id="avclass-2" scan_date="2012-02-11T08:36:14" detected="true">
      <cyboxCommon:Name>Security Essentials</cyboxCommon:Name>
      <cyboxCommon:Vendor>Microsoft</cyboxCommon:Vendor>
-     <cyboxCommon:Engine_Version>5.1.0</cyboxCommon:Engine_Version>
+     <maecCore:Engine_Version>5.1.0</maecCore:Engine_Version>
      <maecCore:Definition_Version>053514-0062</maecCore:Definition_Version>
      <maecCore:Classification_Name>Zeus.D.C</maecCore:Classification_Name>
     </maecPackage:AV_Classification>
    </cybox:Domain_Specific_Object_Properties>
-  </maecPackage:Instance_Object>
- </maecPackage:Malware_Subject>
-</maecPackage:Malware_Subjects>
+  </maecCore:Object>
+  
+  <maecCore:Object></maecCore:Object>
+ </maecPackage:Objects>
 </maecPackage:MAEC_Package>
