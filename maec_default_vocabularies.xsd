@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1" targetNamespace="http://maec.mitre.org/default_vocabularies-1" elementFormDefault="qualified" version="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:maecVocabs="http://maec.mitre.org/XMLSchema/default_vocabularies-1"
+    targetNamespace="http://maec.mitre.org/XMLSchema/default_vocabularies-1"
+    elementFormDefault="qualified" version="1.1">
     <xs:annotation>
         <xs:documentation>This schema was originally developed by The MITRE Corporation. The MAEC XML Schema implementation is maintained by The MITRE Corporation and developed by the open MAEC Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the MAEC website at http://maec.mitre.org. </xs:documentation>
         <xs:appinfo>
@@ -10,7 +14,8 @@
 			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the MAEC License located at http://maec.mitre.org/about/termsofuse.html. See the MAEC License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the MAEC Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
     </xs:annotation>
-    <xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="http://cybox.mitre.org/XMLSchema/common/2.1/cybox_common.xsd"/>
+    <xs:import namespace="http://cybox.mitre.org/common-2"
+        schemaLocation="http://cybox.mitre.org/XMLSchema/common/2.1/cybox_common.xsd"/>
     <xs:complexType name="ActionObjectAssociationTypeVocab-1.0">
         <xs:annotation>
             <xs:documentation>The ActionObjectAssocationVocab is the default MAEC vocabulary for Action-Object association types, captured via the AssociatedObjectType/Association_Type element in CybOX Core.</xs:documentation>
@@ -21,8 +26,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:ActionObjectAssociationTypeEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Action-Object Association Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Action-Object Association Names" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -57,8 +65,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:ImportanceTypeEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Importance Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ImportanceTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Importance Types" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#ImportanceTypeVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -108,8 +119,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:MalwareEntityTypeEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Entity Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareEntityTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Entity Types" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareEntityTypeVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -135,52 +149,6 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="GroupingRelationshipTypeVocab-1.0">
-        <xs:annotation>
-            <xs:documentation>The GroupingRelationshipTypeVocab is the default MAEC vocabulary for the grouping relatonships in a Package, captured via the GroupingRelationshipType/Type element in the MAEC Package.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
-                <xs:simpleType>
-                    <xs:union memberTypes="maecVocabs:GroupingRelationshipEnum-1.0"/>
-                </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Grouping Relationship Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#GroupingRelationshipTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
-            </xs:restriction>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:simpleType name="GroupingRelationshipEnum-1.0">
-        <xs:annotation>
-            <xs:documentation>The GroupingRelationshipEnum is a non-exhaustive enumeration of Malware Subject grouping relationships.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="same malware family">
-                <xs:annotation>
-                    <xs:documentation>The 'same malware family' value indicates that the Malware Subjects in the Package are all part of the same malware family.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="clustered together">
-                <xs:annotation>
-                    <xs:documentation>The 'clustered together' value indicates that the Malware Subjects in the Package were clustered together by some algorithm or other capability.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="observed together">
-                <xs:annotation>
-                    <xs:documentation>The 'observed together' value indicates that the Malware Subjects in the Package were abstractly observed together, such as on a host system, in some archive, etc.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="part of intrusion set">
-                <xs:annotation>
-                    <xs:documentation>The 'part of intrusion' set value indicates that the Malware Subjects in the Package were found as part of the same malware intrusion set.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="same malware toolkit">
-                <xs:annotation>
-                    <xs:documentation>The 'same malware toolkit' value indicates that the Malware Subjects in the Package were all created using the same malware toolkit, independent of toolkit version.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
     <xs:complexType name="MalwareConfigurationParameterVocab-1.0">
         <xs:annotation>
             <xs:documentation>The MalwareConfigurationParameterVocab is the default MAEC vocabulary for malware configuration parameter names, captured via the MalwareConfigurationParameterType/Name element in the MAEC Package.</xs:documentation>
@@ -190,8 +158,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:MalwareConfigurationParameterEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Configuration Parameter Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareConfigurationParameterVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Configuration Parameter Names"
+                    name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareConfigurationParameterVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -242,8 +213,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:MalwareSubjectRelationshipEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Subject Relationship Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareSubjectRelationshipTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Subject Relationship Types"
+                    name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareSubjectRelationshipTypeVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -295,8 +269,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:MalwareSubjectRelationshipEnum-1.1"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Subject Relationship Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareSubjectRelationshipTypeVocab-1.1" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Subject Relationship Types"
+                    name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareSubjectRelationshipTypeVocab-1.1"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -426,14 +403,17 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:MalwareDevelopmentToolEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Development Tool Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareDevelopmentToolVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Development Tool Types" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareDevelopmentToolVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="MalwareDevelopmentToolEnum-1.0">
         <xs:annotation>
-            <xs:documentation>The GroupingRelationshipEnum is a non-exhaustive enumeration tools used in the development of malware.</xs:documentation>
+            <xs:documentation>The GroupingRelationshipEnum is a non-exhaustive enumeration of tools used in the development of malware.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="builder">
@@ -477,8 +457,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:MalwareLabelEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Labels" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareLabelVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Labels" name="vocab_name" type="xs:string"
+                    use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareLabelVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -696,7 +679,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'wiper' value specifies a piece of malware whose primary aim is to delete files or entire disks on a machine.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>           
+            </xs:enumeration>
             <xs:enumeration value="worm">
                 <xs:annotation>
                     <xs:documentation>The 'worm' value specifies 1. A self-replicating malicious program that replicates using a network and does not require human interaction. 2. A self-replicating, self-propagating, self-contained program that uses networking mechanisms to spread itself.</xs:documentation>
@@ -943,7 +926,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'wiper' value specifies a piece of malware whose primary aim is to delete files or entire disks on a machine.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>           
+            </xs:enumeration>
             <xs:enumeration value="worm">
                 <xs:annotation>
                     <xs:documentation>The 'worm' value specifies 1. A self-replicating malicious program that replicates using a network and does not require human interaction. 2. A self-replicating, self-propagating, self-contained program that uses networking mechanisms to spread itself.</xs:documentation>
@@ -955,7 +938,7 @@
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
-    </xs:simpleType>    
+    </xs:simpleType>
     <xs:complexType name="CapabilityObjectiveRelationshipTypeVocab-1.0">
         <xs:annotation>
             <xs:documentation>The CapabilityObjectiveRelationshipTypeVocab is the default MAEC vocabulary for relationships between Malware Capability Objectives.</xs:documentation>
@@ -965,8 +948,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:CapabilityObjectiveRelationshipEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Capability Objective Relationship Types" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CapabilityObjectiveRelationshipTypeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Capability Objective Relationship Types"
+                    name="vocab_name" type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CapabilityObjectiveRelationshipTypeVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1006,8 +992,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:CapabilityAttributeEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Capability Attributes" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CapabilityAttributeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Capability Attributes" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CapabilityAttributeVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1097,7 +1086,7 @@
             <xs:enumeration value="targeted file architecture type">
                 <xs:annotation>
                     <xs:documentation>The 'targeted file architecture' value refers to type of file architecture targeted by the Infect File Capability.</xs:documentation>
-                    <xs:documentation>>Recommended values are: '32 bit', or '64 bit'.</xs:documentation>
+                    <xs:documentation>&gt;Recommended values are: '32 bit', or '64 bit'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="file infection type">
@@ -1137,8 +1126,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:CommonAttributeEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Common Attributes" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CommonAttributeVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Common Attributes" name="vocab_name" type="xs:string"
+                    use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CommonAttributeVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1192,8 +1184,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:PlatformEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC OS Platforms" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PlatformVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC OS Platforms" name="vocab_name" type="xs:string"
+                    use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#PlatformVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1236,7 +1231,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'android 2.1.x' value indicates the Android 2.1.x platform.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>            
+            </xs:enumeration>
             <xs:enumeration value="android 2.2.x">
                 <xs:annotation>
                     <xs:documentation>The 'android 2.2.x' value indicates the Android 2.2.x platform.</xs:documentation>
@@ -1251,7 +1246,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'android 3.0.x' value indicates the Android 3.0.x platform.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>            
+            </xs:enumeration>
             <xs:enumeration value="android 3.1.x">
                 <xs:annotation>
                     <xs:documentation>The 'android 3.1.x' value indicates the Android 3.1.x platform.</xs:documentation>
@@ -1733,8 +1728,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:EncryptionAlgorithmEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Encryption Algorithms" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#EncryptionAlgorithmsVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Encryption Algorithms" name="vocab_name" type="xs:string"
+                    use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#EncryptionAlgorithmsVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1769,8 +1767,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:Layer7ProtocolEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Layer7 Network Protocols" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#Layer7ProtocolVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Layer7 Network Protocols" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#Layer7ProtocolVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1806,6 +1807,40 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+    <xs:complexType name="GeneralRelationshipTypeVocab-1.0">
+        <xs:annotation>
+            <xs:documentation>The GeneralRelationshipTypeVocab-1.0 is the default MAEC Vocabulary for relationships between MAEC entities.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+                <xs:simpleType>
+                    <xs:union memberTypes="maecVocabs:GeneralRelationshipTypeEnum-1.0"/>
+                </xs:simpleType>
+                <xs:attribute fixed="General MAEC Relationships" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#GeneralRelationshipTypeVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="GeneralRelationshipTypeEnum-1.0">
+        <xs:annotation>
+            <xs:documentation>The GeneralRelationshipTypeEnum-1.0 is a non-exhaustive enumeration of relationships.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="equivalent">
+                <xs:annotation>
+                    <xs:documentation>The 'equivalent' value specifies that the pair of entities referenced by the source_id and target_id fields in the relationship are equivalent.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="has distance">
+                <xs:annotation>
+                    <xs:documentation>The 'has distance' value specifies that the pair of entities referenced by the source_id and target_id fields have some associated distance score, which is captured via the Additional_Metadata field.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="TechniqueVocab-1.0">
         <xs:annotation>
             <xs:documentation>The TechniqueVocab-1.0 is the default MAEC Vocabulary for techniques associated with instances of Behaviors.</xs:documentation>
@@ -1815,8 +1850,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:TechniqueEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Behavior Instance Techniques" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#TechniqueVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Behavior Instance Techniques" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#TechniqueVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1891,8 +1929,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:CapabilityEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Capabilities" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CapabilityVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Capabilities" name="vocab_name" type="xs:string"
+                    use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#CapabilityVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -1955,7 +1996,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'infection/propagation' Capability indicates that the malware instance is able to propagate through the infection of a machine or is able to infect a file after executing on a system.  The malware instance may infect actively (e.g., gain access to a machine directly) or passively (e.g., send malicious email).  This Capability does not encompass any aspects of the initial infection that is done independently of the malware instance itself.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>           
+            </xs:enumeration>
             <xs:enumeration value="integrity violation">
                 <xs:annotation>
                     <xs:documentation>The 'integrity violation' Capability indicates that the malware instance is able to compromise the integrity of a system.</xs:documentation>
@@ -1985,7 +2026,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'secondary operation' Capability indicates that the malware instance is able to achieve secondary objectives in conjunction with or after achieving its primary objectives.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>            
+            </xs:enumeration>
             <xs:enumeration value="security degradation">
                 <xs:annotation>
                     <xs:documentation>The 'security degradation' Capability indicates that the malware instance is able to bypass or disable security features and/or controls.</xs:documentation>
@@ -1995,7 +2036,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'spying' Capability indicates that the malware instance is able to capture information from a system related to user or system activity (e.g., from a system's peripheral devices).</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>        
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="RefinedCapabilityVocab-1.0">
@@ -2007,8 +2048,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:RefinedCapabilityEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Refined Capabilities" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#RefinedCapabilityVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Refined Capabilities" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#RefinedCapabilityVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -2201,12 +2245,12 @@
                 <xs:annotation>
                     <xs:documentation>The 'security software degradation' Capability indicates that the malware instance is able to bypass or disable security programs running on a system, either by stopping them from executing or by making changes to their code or configuration parameters.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>            
+            </xs:enumeration>
             <xs:enumeration value="security software evasion">
                 <xs:annotation>
                     <xs:documentation>The 'security software evasion' Capability indicates that the malware instance is able to evade security software (e.g., anti-virus tools).</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>            
+            </xs:enumeration>
             <xs:enumeration value="self-modification">
                 <xs:annotation>
                     <xs:documentation>The 'self-modification' Capability indicates that the malware instance is able to modify itself.</xs:documentation>
@@ -2216,7 +2260,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'send data to c2 server' Capability indicates that the malware instance is able to send some data to a command and control server.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>            
+            </xs:enumeration>
             <xs:enumeration value="service provider security feature degradation">
                 <xs:annotation>
                     <xs:documentation>The ‘service provider security feature degradation’ Capability indicates that the malware instance is able to bypass or disable mobile device service provider security features that would otherwise identify or notify users of its presence.</xs:documentation>
@@ -2261,7 +2305,7 @@
                 <xs:annotation>
                     <xs:documentation>The 'virtual entity destruction' Capability indicates that the malware instance is able to destroy a virtual entity.</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>         
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="BehaviorVocab-1.0">
@@ -2273,8 +2317,11 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:BehaviorEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Behavior Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#BehaviorVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Behavior Names" name="vocab_name" type="xs:string"
+                    use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#BehaviorVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
         </xs:simpleContent>
     </xs:complexType>
@@ -2949,10 +2996,13 @@
                 <xs:simpleType>
                     <xs:union memberTypes="maecVocabs:MalwareActionEnum-1.0"/>
                 </xs:simpleType>
-                <xs:attribute fixed="MAEC Default Malware Action Names" name="vocab_name" type="xs:string" use="optional"/>
-                <xs:attribute fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareActionVocab-1.0" name="vocab_reference" type="xs:anyURI" use="optional"/>
+                <xs:attribute fixed="MAEC Default Malware Action Names" name="vocab_name"
+                    type="xs:string" use="optional"/>
+                <xs:attribute
+                    fixed="http://maec.mitre.org/XMLSchema/default_vocabularies/2.1/maec_default_vocabularies.xsd#MalwareActionVocab-1.0"
+                    name="vocab_reference" type="xs:anyURI" use="optional"/>
             </xs:restriction>
-         </xs:simpleContent>
+        </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="MalwareActionEnum-1.0">
         <xs:annotation>
@@ -4065,4 +4115,3 @@
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
-        

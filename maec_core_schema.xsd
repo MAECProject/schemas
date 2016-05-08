@@ -130,54 +130,6 @@
 		</xs:attribute>
 	</xs:complexType>
 
-	<xs:complexType name="BehaviorCollectionType">
-		<xs:annotation>
-			<xs:documentation>The BehaviorCollectionType provides a Capability for characterizing collections of behaviors.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecCore:BaseCollectionType">
-				<xs:sequence>
-					<xs:element name="Purpose" type="xs:string" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>The Purpose field states the intended purpose of the collection of Behaviors. Since Behaviors are not always successful, and may not be fully observed, this is meant as way of absracting the nature of the collection of Behaviors away  from its constituent Actions.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Behavior_List" type="maecCore:BehaviorListType">
-						<xs:annotation>
-							<xs:documentation>The Behavior_List field specifies a list of Behaviors that make up the collection.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-				<xs:attribute name="id" use="required" type="xs:QName">
-					<xs:annotation>
-						<xs:documentation>The id field specifies a unique ID for this Behavior Collection.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="ActionCollectionType">
-		<xs:annotation>
-			<xs:documentation>The ActionCollectionType provides a method for characterizing collections of actions. This can be useful for organizing actions that may be related and where the exact relationship is unknown, as well as actions whose associated behavior has not yet been established.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecCore:BaseCollectionType">
-				<xs:sequence>
-					<xs:element name="Action_List" type="maecCore:ActionListType">
-						<xs:annotation>
-							<xs:documentation>The Action_List field specifies a list of Actions that make up the collection.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-				<xs:attribute name="id" use="required" type="xs:QName">
-					<xs:annotation>
-						<xs:documentation>The id field specifies a unique ID for this Action Collection.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
 	<xs:complexType name="APICallType">
 		<xs:annotation>
 			<xs:documentation>The APICallType provides a method for the  characterization of API calls, including functions and their parameters.</xs:documentation>
@@ -246,81 +198,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="ObjectCollectionType">
-		<xs:annotation>
-			<xs:documentation>The ObjectCollectionType provides a Capability for characterizing collections of Objects. For instance, it can be used to group all of the Objects that are associated with a specific behavior.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="maecCore:BaseCollectionType">
-				<xs:sequence>
-					<xs:element name="Object_List" type="maecCore:ObjectListType">
-						<xs:annotation>
-							<xs:documentation>The Object_List field specifies a list of Objects that make up the collection.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-				<xs:attribute name="id" use="required" type="xs:QName">
-					<xs:annotation>
-						<xs:documentation>The id attribute specifies a unique ID for this Object Collection. </xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="BaseCollectionType">
-		<xs:annotation>
-			<xs:documentation>The BaseCollectionType is the base type for other MAEC collection types.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Affinity_Type" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The Affinity_Type field provides an abstract way of characterizing how the objects in a collection are related.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Affinity_Degree" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The Affinity_Degree field is intended to provide an abstract way of characterizing the degree to which the objects in a collection are related.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Description" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Description field contains a textual description of the collection.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="name" type="xs:string">
-			<xs:annotation>
-				<xs:documentation>The name field specifies the name of the collection.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-
-	<xs:complexType name="BehaviorRelationshipType">
-		<xs:annotation>
-			<xs:documentation>The BehaviorRelationshipType provides a method for the characterization of relationships between Behaviors. </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Behavior_Reference"
-				type="maecCore:BehaviorReferenceType" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation>The Behavior_Reference field specifies a reference to a single Behavior in the relationship.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="type" use="optional">
-			<xs:annotation>
-				<xs:documentation>The type field specifies the nature of the relationship between Behaviors that is being captured.</xs:documentation>
-			</xs:annotation>
-			<xs:simpleType>
-				<xs:restriction base="cyboxVocabs:ActionRelationshipTypeEnum-1.0">
-					<xs:enumeration value="Preceded_By"/>
-					<xs:enumeration value="Followed_By"/>
-					<xs:enumeration value="Related_To"/>
-					<xs:enumeration value="Dependent_On"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
 	<xs:complexType name="ParameterType">
 		<xs:annotation>
 			<xs:documentation>The ParameterType characterizes function parameters.</xs:documentation>
@@ -379,19 +256,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="BehaviorRelationshipListType">
-		<xs:annotation>
-			<xs:documentation>The BehaviorRelationshipListType captures any relationships between a Behavior and other Behaviors.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Relationship"
-				type="maecCore:BehaviorRelationshipType">
-				<xs:annotation>
-					<xs:documentation>The Relationship field specifies a single relationship between a single Behavior and one or more other Behaviors.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="BehaviorListType">
 		<xs:annotation>
 			<xs:documentation>The BehaviorListType captures a list of Behaviors.</xs:documentation>
@@ -433,21 +297,21 @@
 	</xs:complexType>
 	<xs:complexType name="BehaviorReferenceType">
 		<xs:annotation>
-			<xs:documentation>The BehaviorReferenceType serves as a method for referencing existing behaviors contained in the Bundle.</xs:documentation>
+			<xs:documentation>The BehaviorReferenceType serves as a method for referencing Behaviors defined in the Package.</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="behavior_idref" type="xs:QName" use="required">
 			<xs:annotation>
-				<xs:documentation>The behavior_idref field specifies the id of the Behavior being referenced; this Behavior must be present in the current Bundle.</xs:documentation>
+				<xs:documentation>The behavior_idref field specifies the id of the Behavior being referenced; this Behavior must be present in the current Package.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="ObjectReferenceType">
 		<xs:annotation>
-			<xs:documentation>The ObjectReferenceType serves as a method for linking to CybOX Objects embedded in the MAEC Bundle.</xs:documentation>
+			<xs:documentation>The ObjectReferenceType serves as a method for linking to CybOX Objects defined in the Package.</xs:documentation>
 		</xs:annotation>
 		<xs:attribute name="object_idref" type="xs:QName" use="required">
 			<xs:annotation>
-				<xs:documentation>The object_idref field specifies the id of a CybOX Object being referenced in the current MAEC Bundle.</xs:documentation>
+				<xs:documentation>The object_idref field specifies the id of the CybOX Object being referenced.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -500,31 +364,6 @@
 				type="maecCore:ObjectReferenceType">
 				<xs:annotation>
 					<xs:documentation>The Object_Reference field specifies a reference to a single CybOX Object.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CollectionsType">
-		<xs:annotation>
-			<xs:documentation>The CollectionsType captures the various types of MAEC entity collections.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Behavior_Collections"
-				type="maecCore:BehaviorCollectionListType">
-				<xs:annotation>
-					<xs:documentation>The Behavior_Collections field captures any collections of Behaviors in the Bundle.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Action_Collections"
-				type="maecCore:ActionCollectionListType">
-				<xs:annotation>
-					<xs:documentation>The Action_Collections field captures any collections of Actions in the Bundle.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Object_Collections"
-				type="maecCore:ObjectCollectionListType">
-				<xs:annotation>
-					<xs:documentation>The Objects_Collections field captures any collections of CybOX Objects in the Bundle.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -584,45 +423,6 @@
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="BehaviorCollectionListType">
-		<xs:annotation>
-			<xs:documentation>The BehaviorCollectionListType captures a list of Behaviors Collections.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Behavior_Collection"
-				type="maecCore:BehaviorCollectionType">
-				<xs:annotation>
-					<xs:documentation>The Behavior_Collection field specifies a single collection of Behaviors in the Bundle.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ActionCollectionListType">
-		<xs:annotation>
-			<xs:documentation>The ActionCollectionListType captures a list of Actions Collections.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Action_Collection"
-				type="maecCore:ActionCollectionType">
-				<xs:annotation>
-					<xs:documentation>The Action_Collection field specifies a single collection of Actions in the Bundle.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ObjectCollectionListType">
-		<xs:annotation>
-			<xs:documentation>The ObjectCollectionListType captures a list of Object Collections.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Object_Collection"
-				type="maecCore:ObjectCollectionType">
-				<xs:annotation>
-					<xs:documentation>The Object_Collection field specifies a single collection of CybOX Objects.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AVClassificationType">
 		<xs:annotation>

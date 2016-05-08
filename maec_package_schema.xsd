@@ -8,9 +8,12 @@
 	xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
 	xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2"
 	xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" version="5.0"
+	xmlns:maecVocabs="http://maec.mitre.org/XMLSchema/default_vocabularies-1"
 	xmlns:maecCore="http://maec.mitre.org/XMLSchema/maec-core-1">
 	<xs:import namespace="http://maec.mitre.org/XMLSchema/maec-core-1"
 		schemaLocation="maec_core_schema.xsd"/>
+	<xs:import namespace="http://maec.mitre.org/XMLSchema/default_vocabularies-1"
+		schemaLocation="maec_default_vocabularies.xsd"/>
 	<xs:import namespace="http://xml/metadataSharing.xsd"
 		schemaLocation="http://grouper.ieee.org/groups/malware/malwg/Schema1.2/metadataSharing.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/cybox-2"
@@ -162,6 +165,46 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
+	<xs:complexType name="AssociationMetadataType">
+		<xs:annotation>
+			<xs:documentation>The AssociationMetadataType provides a mechanism for specifying the association between Malware Subjects in a Package.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Malware_Family_Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Malware_Family_Name field specifies the name of the malware family referred to by the 'same_malware_family' association type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Malware_Toolkit_Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Malware_Toolkit_Name field specifies the name of the malware toolkit referred to by the 'same_malware_toolkit' association type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Intrustion_Set_Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Intrusion_Set_Name field specifies the name of the intrusion set referred to by the 'part of intrusion set' association type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Clustering_Metadata"
+				type="maecPackage:ClusteringMetadataType">
+				<xs:annotation>
+					<xs:documentation>The Clustering_Metadata field specifies any metadata associated with the 'clustered together' association type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CollectionListType">
+		<xs:annotation>
+			<xs:documentation>The CollectionpListType captures a list of collections relating the MAEC entities in a Package.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Collection" type="maecPackage:CollectionType">
+				<xs:annotation>
+					<xs:documentation>The Collection field specifies a single collection in the list.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="AnalysisSystemType">
 		<xs:annotation>
 			<xs:documentation>The AnalysisSystemType is intended to characterize any systems on which malware analysis is performed. It imports and extends version 2.0.1 of the CybOX System Object.</xs:documentation>
@@ -251,14 +294,15 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Discovered_Entities"
-				type="maecPackage:EntityReferenceListType">
+				type="maecPackage:SpecifiedEntityReferenceListType">
 				<xs:annotation>
-					<xs:documentation>The Discovered_Entities field references any MAEC entities, such as Actions or Behaviors, that were discovered through the analysis.</xs:documentation>
+					<xs:documentation>The Discovered_Entities field captures a set of references to one more more MAEC entities, such as Actions or Behaviors, that were discovered through the analysis.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="Tools" type="maecPackage:ToolListType">
+			<xs:element maxOccurs="1" minOccurs="0" name="Tools"
+				type="maecPackage:ToolReferenceListType">
 				<xs:annotation>
-					<xs:documentation>The Tools field specifies information about the tool(s) used in the analysis, via the CybOX ToolInformationType. If only a single Tool is specified, then this implies that this tool was responsible for all of the findings contained in the Bundle referenced by the Findings_Bundle_Reference element.</xs:documentation>
+					<xs:documentation>The Tools field captures a set references to one or more Tools used in the analysis of a Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Dynamic_Analysis_Metadata"
@@ -370,10 +414,19 @@
 					<xs:documentation>The Objects field captures any defined CybOX Objects that are then referenced elsewhere throughout the MAEC document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Grouping_Relationships"
-				type="maecPackage:GroupingRelationshipListType">
+			<xs:element minOccurs="0" name="Collections" type="maecPackage:CollectionListType">
 				<xs:annotation>
-					<xs:documentation>The Grouping_Relationships field specifies the particular relationships that serve to group the Malware Subjects encompassed in this Package. This is solely for cases where more than one Malware Subject is contained within the Package.</xs:documentation>
+					<xs:documentation>The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Subjects.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Tools" type="maecPackage:ToolListType">
+				<xs:annotation>
+					<xs:documentation>The Tools field captures a set of one or more Tools relevant to the Package content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Relationships" type="maecPackage:RelationshipListType">
+				<xs:annotation>
+					<xs:documentation>The Relationships field captures the relationships between the entities in the MAEC document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -484,50 +537,12 @@
 					<xs:documentation>The Static_Features field specifies a set of one or more Object references related to the malware instance characterized by the Malware Subject.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Relationships"
-				type="maecPackage:MalwareSubjectRelationshipListType">
-				<xs:annotation>
-					<xs:documentation>The Relationships field captures any relationships between the Malware Subject and other Malware Subjects.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The required id field specifies a unique ID for this Malware Subject.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="MalwareSubjectRelationshipType">
-		<xs:annotation>
-			<xs:documentation>The MalwareSubjectRelationshipType provides a mechanism for capturing the relationships between a Malware Subject and one or more other Malware Subjects.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="1" name="Type" type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Type field specifies the type of relationship being captured.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is MalwareSubjectRelationshipTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element maxOccurs="unbounded" name="Malware_Subject_Reference"
-				type="maecPackage:MalwareSubjectReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Malware_Subject_Reference field provides a reference to a single Malware Subject that this relationship pertains to.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="MalwareSubjectRelationshipListType">
-		<xs:annotation>
-			<xs:documentation>The MalwareSubjectRelationshipListType captures a list of relationships between a Malware Subject and other Malware Subjects.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Relationship" maxOccurs="unbounded"
-				type="maecPackage:MalwareSubjectRelationshipType">
-				<xs:annotation>
-					<xs:documentation>The Relationship field specifies a relationship that relates the Malware Subject to one or more other Malware Subjects contained in the Package.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="MalwareSubjectReferenceType">
 		<xs:annotation>
@@ -565,48 +580,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="GroupingRelationshipType">
-		<xs:annotation>
-			<xs:documentation>The GroupingRelationshipType provides a mechanism for specifying the relationship that groups together the Malware Subjects in a Package.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" name="Type" type="cyboxCommon:ControlledVocabularyStringType">
-				<xs:annotation>
-					<xs:documentation>The Type field specifies the type of relationship that groups the Malware Subjects in the Package.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is GroupingRelationshipTypeVocab-1.0 in the http://maec.mitre.org/default_vocabularies-1 namespace. This type is defined in the maec_default_vocabularies.xsd file or at the URL http://maec.mitre.org/XMLSchema/default_vocabularies/1.0.0/maec_default_vocabularies.xsd.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Malware_Family_Name" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Malware_Family_Name field specifies the name of the malware family referred to by the 'same_malware_family' relationship type.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Malware_Toolkit_Name" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The Malware_Toolkit_Name field specifies the name of the malware toolkit referred to by the 'same_malware_toolkit' relationship type.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Clustering_Metadata"
-				type="maecPackage:ClusteringMetadataType">
-				<xs:annotation>
-					<xs:documentation>The Clustering_Metadata field specifies any metadata regarding the algorithm and/or methods used for cluster the Malware Subjects in this Package.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="GroupingRelationshipListType">
-		<xs:annotation>
-			<xs:documentation>The GroupingRelationshipListType captures a list of grouping relationships relating the Malware Subjects in a Package.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Grouping_Relationship"
-				type="maecPackage:GroupingRelationshipType">
-				<xs:annotation>
-					<xs:documentation>The Grouping_Relationship field specifies a single grouping relationship in the list.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="ClusteringMetadataType">
 		<xs:annotation>
 			<xs:documentation>The ClusteringMetadataType specifies any metadata regarding the algorithm and/or methods used for clustering the Malware Subjects in this Package, for use in the ‘clustered together’ relationship type.</xs:documentation>
@@ -638,59 +611,7 @@
 					<xs:documentation>The Cluster_Description field provides a textual description of the malware cluster, such as information about its composition, etc.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Cluster_Composition" minOccurs="0"
-				type="maecPackage:ClusterCompositionType">
-				<xs:annotation>
-					<xs:documentation>The Cluster_Composition field captures the composition of the malware cluster, including the similarity indices between its members, as a collection of edges and their corresponding nodes.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ClusterEdgeNodePairType">
-		<xs:annotation>
-			<xs:documentation>The ClusterEdgeNodePairType captures a single edge-node pair in a malware cluster, which is composed of the two Malware Subjects that correspond to the nodes connected to the edge (via references), and represents the similarity index between the two Malware Subjects.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="1" name="Malware_Subject_Node_A"
-				type="maecPackage:MalwareSubjectReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Malware_Subject_Node_A field represents a node connected to the edge via a reference to a Malware Subject that is part of a malware cluster.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Malware_Subject_Node_B" type="maecPackage:MalwareSubjectReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Malware_Subject_Node_B field represents a node connected to the edge via a reference to a Malware Subject that is part of a malware cluster.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="similarity_index" type="xs:decimal">
-			<xs:annotation>
-				<xs:documentation>The similarity_index field specifies the similarity index  between the two Malware Subjects being referenced (indicating how similar they are), as a decimal value. This value should be equivalent to 1 minus the similarity distance value (if included).</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="similarity_distance" type="xs:decimal">
-			<xs:annotation>
-				<xs:documentation>The similarity_index field specifies the similarity distance between the two Malware Subjects being referenced (indicating how dissimilar they are), as a decimal value. This value should be equivalent to 1 minus the similarity index value (if included).</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:complexType name="ClusterCompositionType">
-		<xs:annotation>
-			<xs:documentation>The ClusterCompositionType captures the composition of a malware cluster via its edges and their respective connected nodes, as in an undirected graph.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="Edge_Node_Pair"
-				type="maecPackage:ClusterEdgeNodePairType">
-				<xs:annotation>
-					<xs:documentation>The Cluster_Edge_Node_Pair field specifies a single edge and its connected nodes in the malware cluster, representing the similarity index between two Malware Subjects.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="score_type" type="xs:string">
-			<xs:annotation>
-				<xs:documentation>For clustering algorithms that may capture different types of scores, the score_type attribute specifies the type of score used to define the composition of this malware cluster.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="ClusteringAlgorithmParametersType">
 		<xs:annotation>
@@ -945,9 +866,9 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="EntityReferenceListType">
+	<xs:complexType name="SpecifiedEntityReferenceListType">
 		<xs:annotation>
-			<xs:documentation>The EntityReferenceListType captures one or more references to an existing MAEC entity defined in the document, such as an Action or Behavior.</xs:documentation>
+			<xs:documentation>The SpecifiedEntityReferenceType captures one or more references to an existing MAEC entity defined in the document: Actions, Behaviors, Capabilities, Objects, or Process Trees.</xs:documentation>
 		</xs:annotation>
 		<xs:choice maxOccurs="unbounded">
 			<xs:element name="Action_Reference" type="cybox:ActionReferenceType">
@@ -976,6 +897,44 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="EntityReferenceListType">
+		<xs:annotation>
+			<xs:documentation>The EntityReferenceListType captures a list of entity references.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Entity_Reference"
+				type="maecPackage:EntityReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Entity_Reference field references an existing entity in the document via its ID.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EntityReferenceType">
+		<xs:annotation>
+			<xs:documentation>The EntityReferenceType references an existing top level entity: malware subjects, actions, objects, behaviors, capabilities tools, and process trees.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="entity_idref" type="xs:QName" use="required">
+			<xs:annotation>
+				<xs:documentation>The required entity_idref field provides a reference to an existing Entity in the MAEC document, via its ID. For example, if an Action has an ID value of "action-1", setting the entity_idref field to this value would serve as a reference to this Action.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ToolReferenceListType">
+		<xs:annotation>
+			<xs:documentation>The ToolReferenceListType captures a list of tool references.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Tool_Reference"
+				type="maecPackage:ToolReferenceType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ToolReferenceType">
+		<xs:annotation>
+			<xs:documentation>The ToolReferenceType specifies a tool via a reference to its ID.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="tool_idref" type="xs:QName"/>
 	</xs:complexType>
 	<xs:complexType name="MalwareNameType">
 		<xs:annotation>
@@ -1035,6 +994,134 @@
 						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>The AV_Classification field captures a single AV classification of a CybOX Object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CollectionType">
+		<xs:annotation>
+			<xs:documentation>The CollectionType captures collections of any MAEC entity(ies), including Malware Subjects.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The Name field specifies the name of the Collection.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Entity_Reference" maxOccurs="unbounded"
+				type="maecPackage:EntityReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Entity_Reference field captures a reference to one or more MAEC entities (Action, Behavior, etc.) that are contained in the Collection.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Association_Metadata" minOccurs="0"
+				type="maecPackage:AssociationMetadataType">
+				<xs:annotation>
+					<xs:documentation>The Association_Metadata field captures metadata that may be relevant to specific association types as captured in the association_type field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:QName" use="required">
+			<xs:annotation>
+				<xs:documentation>The id field specifies a unique identifier in the Collection.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="maec_entity_type" type="maecPackage:CollectionEntityTypeEnum">
+			<xs:annotation>
+				<xs:documentation>The required maec_entity_type field specifies the type of MAEC entity that is captured in the Collection, via the CollectionEntityTypeEnum. Example types would be 'objects' or 'various'. The default values is 'various'.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="association_type" type="maecPackage:CollectionAssociationTypeEnum"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>The association type field specifies the nature of the contents of the Collection, via the CollectionAssociationTypeEnum.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="RelationshipListType">
+		<xs:annotation>
+			<xs:documentation>The RelationshipListType captures one or more relationships.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Relationship"
+				type="maecPackage:RelationshipType">
+				<xs:annotation>
+					<xs:documentation>The Relationship field captures a single relationship between two entities in the MAEC document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RelationshipType">
+		<xs:annotation>
+			<xs:documentation>The RelationshipType captures relationships between two entities in the MAEC document.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType">
+				<xs:annotation>
+					<xs:documentation>The Type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary when used with the xsi:type extension mechanism. The possible vocabularies for use with this field are the MalwareSubjectRelationshipTypeVocab, CapabilityObjectiveRelationshipTypeVocab, and GeneralRelationshipTypeVocab.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Additional_Metadata"
+				type="maecPackage:RelationshipMetadataType">
+				<xs:annotation>
+					<xs:documentation>The Additional_Metadata field captures any additional metadata that may associated with the Relationship.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Supporting_Reference"
+				type="maecPackage:EntityReferenceType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The Supporting_Reference field references an entity in the MAEC document (e.g., Action or Object) that may support the Relationship.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:QName">
+			<xs:annotation>
+				<xs:documentation>The id field specifies a unique identifier for the relationship.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="source_id" type="xs:QName" use="required">
+			<xs:annotation>
+				<xs:documentation>The required source_id field specifies a reference to the ID of the entity in the MAEC document that corresponds to the source in the (source-&gt;target) relationship.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="target_id" type="xs:QName" use="required">
+			<xs:annotation>
+				<xs:documentation>The required target_id field specifies a reference to the ID of the entity in the MAEC document that corresponds to the target in the (source-&gt;target) relationship.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="timestamp" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>The timestamp field specifies a timestamp that states when the relationship was created.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="RelationshipMetadataType">
+		<xs:annotation>
+			<xs:documentation>The RelationshipMetadataType is an abstract type, intended for extension (e.g., RelationshipDistanceMetadataType).</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="RelationshipDistanceMetadataType">
+		<xs:annotation>
+			<xs:documentation>Captures information associated with a distance metric between the source and target in the relationship.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="maecPackage:RelationshipMetadataType">
+				<xs:sequence>
+					<xs:element name="Distance_Score" type="xs:double">
+						<xs:annotation>
+							<xs:documentation>The required Distance_Score field captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., "0.62".</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Algorithm_Name" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The Algorithm_Name field captures the name of the algorithm used in calculating the distance score specified in the Distance_Score field.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Algorithm_Version" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The Algorithm_Version field captures the version of the algorithm used in calculating the distance score specified in the Distance_Score field.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -1234,6 +1321,130 @@
 			<xs:enumeration value="Unknown">
 				<xs:annotation>
 					<xs:documentation>An unknown measure of confidence. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CollectionEntityTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The CollectionEntityTypeEnum is a non-exhaustive enumeration of entity types that can be captures as part of a collection.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="malware subjects">
+				<xs:annotation>
+					<xs:documentation>The 'malware subjects' value specifies that the collection contains ONLY MAEC Malware Subjects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="actions">
+				<xs:annotation>
+					<xs:documentation>The 'actions' value specifies that the collection contains ONLY MAEC Malware Actions.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="objects">
+				<xs:annotation>
+					<xs:documentation>The 'objects' value specifies that the collection contains ONLY CybOX Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="behaviors">
+				<xs:annotation>
+					<xs:documentation>The 'behaviors' value specifies that the collection contains ONLY MAEC Behaviors.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="capabilities">
+				<xs:annotation>
+					<xs:documentation>The 'capabilities' value specifies that the collection contains ONLY MAEC Capabilities.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="tools">
+				<xs:annotation>
+					<xs:documentation>The 'tools' value specifies that the collection contains ONLY MAEC Tools.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="process trees">
+				<xs:annotation>
+					<xs:documentation>The 'process trees' value specifies that the collection contains ONLY MAEC Process Trees.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="various">
+				<xs:annotation>
+					<xs:documentation>The 'various' value specifies that the collection contains various types of entities, such as Malware Actions AND CybOX Objects, for example.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CollectionAssociationTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The CollectionAssociationTypeEnum is a non-exhaustive enumeration of association types that can be captures as part of a collection.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="file system entities">
+				<xs:annotation>
+					<xs:documentation>The 'file system entities' value specifies that the Collection contains ONLY file system related entities; for example, this could include MAEC Actions that operate on files and/or CybOX File Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="network entities">
+				<xs:annotation>
+					<xs:documentation>The 'network entities' value specifies that the Collection contains ONLY network related entities; for example, this could include MAEC Actions that operate on sockets and/or CybOX Address Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="process entities">
+				<xs:annotation>
+					<xs:documentation>The 'process entities' value specifies that the Collection contains ONLY operating system process related entities; for example, this could include MAEC Actions that operate on processes and/or CybOX Process Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="memory entities">
+				<xs:annotation>
+					<xs:documentation>The 'process entities' value specifies that the Collection contains ONLY memory related entities; for example, this could include MAEC Actions that operate on system memory and/or CybOX Memory Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ipc entities">
+				<xs:annotation>
+					<xs:documentation>The 'ipc entities' value specifies that the Collection contains ONLY interprocess-communication related entities; for example, this could include MAEC Actions that operate on mutexes and/or CybOX Mutex Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="device entities">
+				<xs:annotation>
+					<xs:documentation>The 'device entities' value specifies that the Collection contains ONLY system device related entities; for example, this could include MAEC Actions that operate on disks and/or CybOX Disk Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="registry entities">
+				<xs:annotation>
+					<xs:documentation>The 'registry entities' value specifies that the Collection contains ONLY Windows registry related entities; for example, this could include MAEC Actions that operate on registry keys and/or CybOX Windows Registry Key Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="service entities">
+				<xs:annotation>
+					<xs:documentation>The 'service entities' value specifies that the Collection contains ONLY Windows service related entities; for example, this could include MAEC Actions that operate on services and/or CybOX Windows Service Objects.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="potential indicators">
+				<xs:annotation>
+					<xs:documentation>The 'potential indicators' value specifies that the Collection contains entities that could serve as potential indicators for a malware instance; for example, this could include specific CybOX File Objects that are created by the malware instance on a host system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="same malware family">
+				<xs:annotation>
+					<xs:documentation>The 'same malware family' value specifies that the Collection contains Malware Subjects that are all part of the same malware family.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="clustered together">
+				<xs:annotation>
+					<xs:documentation>The 'clustered together' value specifies that the Collection contains entities that were clustered together by some algorithm or other capability.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="observed together">
+				<xs:annotation>
+					<xs:documentation>The 'observed together' value specifies that the Collection contains entities that were abstractly observed together.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="part of intrusion set">
+				<xs:annotation>
+					<xs:documentation>The 'part of intrusion set' value specifies that the Collection contains Malware Subjects that were found as part of the same malware intrusion set.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="same malware toolkit">
+				<xs:annotation>
+					<xs:documentation>The 'same malware toolkit' value specifies that the Collection contains Malware Subjects that were created using the same malware toolkit, independent of toolkit version.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
