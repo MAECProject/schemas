@@ -128,19 +128,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ToolListType">
-		<xs:annotation>
-			<xs:documentation>The ToolsType characterizes one or more tools, such as those used in the analysis of a Malware Subject.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence maxOccurs="1">
-			<xs:element maxOccurs="unbounded" name="Tool" type="cyboxCommon:ToolInformationType"
-				minOccurs="1">
-				<xs:annotation>
-					<xs:documentation>The Tool field specifies a single tool in the list.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="CommentType">
 		<xs:annotation>
 			<xs:documentation>The CommentType captures a comment relating to some MAEC field.</xs:documentation>
@@ -394,9 +381,9 @@
 					<xs:documentation>The Malware_Subjects field captures each of the Malware Subjects contained in the Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Actions" minOccurs="0" type="maecCore:ActionListType">
+			<xs:element minOccurs="0" name="Capabilities" type="maecCore:CapabilityListType">
 				<xs:annotation>
-					<xs:documentation>The Actions field captures a set of one or more Actions relevant to the Package content.</xs:documentation>
+					<xs:documentation>The Capabilities field captures a set of one or more Capabilities relevant to the Package content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Behaviors" type="maecCore:BehaviorListType">
@@ -404,9 +391,9 @@
 					<xs:documentation>The Behaviors field captures a set of one or more Behaviors relevant to the Package content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Capabilities" type="maecCore:CapabilityListType">
+			<xs:element name="Actions" minOccurs="0" type="maecCore:ActionListType">
 				<xs:annotation>
-					<xs:documentation>The Capabilities field captures a set of one or more Capabilities relevant to the Package content.</xs:documentation>
+					<xs:documentation>The Actions field captures a set of one or more Actions relevant to the Package content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Objects" minOccurs="0" type="maecCore:ObjectListType">
@@ -419,7 +406,7 @@
 					<xs:documentation>The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Subjects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Tools" type="maecPackage:ToolListType">
+			<xs:element minOccurs="0" name="Tools" type="cyboxCommon:ToolsInformationType">
 				<xs:annotation>
 					<xs:documentation>The Tools field captures a set of one or more Tools relevant to the Package content.</xs:documentation>
 				</xs:annotation>

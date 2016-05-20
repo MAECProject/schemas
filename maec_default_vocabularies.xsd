@@ -1022,9 +1022,9 @@
                     <xs:documentation>Recommended values are: 'horizontal', or 'vertical'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="scope">
+            <xs:enumeration value="persistence scope">
                 <xs:annotation>
-                    <xs:documentation>The 'scope' value refers to the scope of persistence employed by the Persistence Capability, i.e. whether the malware instance make itself persist, or whether it makes other malware components persist.</xs:documentation>
+                    <xs:documentation>The 'persistence scope' value refers to the scope of persistence employed by the Persistence Capability, i.e. whether the malware instance make itself persist, or whether it makes other malware components persist.</xs:documentation>
                     <xs:documentation>Recommended values are: 'self', or 'other malware/components'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
@@ -1059,9 +1059,9 @@
                     <xs:documentation>The 'targeted sandbox' value refers to the name of a sandbox targeted by the Anti-Behavioral Analysis Capability.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="scope">
+            <xs:enumeration value="propagation scope">
                 <xs:annotation>
-                    <xs:documentation>The 'scope' value refers to the scope of the infection or propagation performed by the malware instance via the Infection/Propagation Capability, i.e. whether it infects just the local machine or actively propagates to other machines as well. </xs:documentation>
+                    <xs:documentation>The 'propagation scope' value refers to the scope of the infection or propagation performed by the malware instance via the Infection/Propagation Capability, i.e. whether it infects just the local machine or actively propagates to other machines as well. </xs:documentation>
                     <xs:documentation>Recommended values are: 'local', or 'remote'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>

@@ -47,10 +47,7 @@
       <maecPackage:Capability_Reference capability_idref="maec-tst-cpb-1"/>
      </maecPackage:Discovered_Entities>
      <maecPackage:Tools>
-      <maecPackage:Tool id="analysis-tool-1">
-       <cyboxCommon:Name>PEiD</cyboxCommon:Name>
-       <cyboxCommon:Version>0.94</cyboxCommon:Version>
-      </maecPackage:Tool>
+      <maecPackage:Tool_Reference tool_idref="analysis-tool-1"/>
      </maecPackage:Tools>
     </maecPackage:Analysis>
    </maecPackage:Analyses>
@@ -95,5 +92,12 @@
    </cybox:Properties>
   </maecCore:Object>  
  </maecPackage:Objects>
+ 
+ <maecPackage:Tools>
+  <cyboxCommon:Tool id="analysis-tool-1">
+   <cyboxCommon:Name>PEiD</cyboxCommon:Name>
+   <cyboxCommon:Version>0.94</cyboxCommon:Version>
+  </cyboxCommon:Tool>
+ </maecPackage:Tools>
  
 </maecPackage:MAEC_Package>
