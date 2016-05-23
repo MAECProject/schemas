@@ -623,7 +623,7 @@
 		<xs:attribute name="association_type" type="maecVocabs:ActionObjectAssociationTypeEnum-1.0"
 			use="required">
 			<xs:annotation>
-				<xs:documentation>The object_idref field serves as a reference to an existing CybOX Object in the MAEC document, via its ID.</xs:documentation>
+				<xs:documentation>The association_type field captures the type of association between the Action and the Object being referenced.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

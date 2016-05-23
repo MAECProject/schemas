@@ -63,7 +63,5 @@
     </maecPackage:AV_Classification>
    </cybox:Domain_Specific_Object_Properties>
   </maecCore:Object>
-  
-  <maecCore:Object></maecCore:Object>
  </maecPackage:Objects>
 </maecPackage:MAEC_Package>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ MAEC Capability/Objective Example 
+ -Based on ThreatExpert report: http://www.threatexpert.com/report.aspx?md5=9d7006e30fdf15e9c8e03e62534b3a3e
+ -Demonstrates how Capabilities and Objectives may be captured
+ -Shows example of full linkage from Capability/Objective->Behavior->Action
+  Added February 2014 for MAEC v4.1 
+  Updated May 2016 for MAEC 5.0 -->
+<maecPackage:MAEC_Package 
+ xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+ xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+ xmlns:maecCore="http://maec.mitre.org/XMLSchema/maec-core-1"
+ xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-5"
+ xmlns:maecVocabs="http://maec.mitre.org/XMLSchema/default_vocabularies-1"
+ xmlns:cybox="http://cybox.mitre.org/cybox-2"
+ xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+ xmlns:WinRegistryKeyObj="http://cybox.mitre.org/objects#WinRegistryKeyObject-2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation=
+ "http://maec.mitre.org/XMLSchema/maec-package-5 ../maec_package_schema.xsd
+ http://maec.mitre.org/XMLSchema/maec-core-1 ../maec_core_schema.xsd
+ http://maec.mitre.org/XMLSchema/default_vocabularies-1 ../maec_default_vocabularies.xsd
+ http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd
+ http://cybox.mitre.org/objects#WinRegistryKeyObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/2.1/Win_Registry_Key_Object.xsd" 
+ id="maec-test-pkg-1" schema_version="5.0">
+    <maecPackage:Malware_Subjects>
+        <maecPackage:Malware_Subject id="maec-test-sub-1">
+            <maecPackage:Instance_Object object_idref="maec-tst-obj-1"/>
+ 
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">mass-mailer</maecPackage:Label>
+            <maecPackage:Label xsi:type="maecVocabs:MalwareLabelVocab-1.0">worm</maecPackage:Label>
+            
+        </maecPackage:Malware_Subject>
+    </maecPackage:Malware_Subjects>
+    
+    <maecPackage:Capabilities>
+        <maecCore:Capability id="maec-tst-cpb-1">
+            <maecCore:Name xsi:type="maecVocabs:CapabilityVocab-1.0">persistence</maecCore:Name>
+            <maecCore:Refined_Capability id="maec-example-refcpb-1">
+                <maecCore:Name xsi:type="maecVocabs:RefinedCapabilityVocab-1.0">continuous execution</maecCore:Name>
+                <maecCore:Behavior_Reference behavior_idref="maec-example-bhv-1"/>
+            </maecCore:Refined_Capability>
+        </maecCore:Capability>
+    </maecPackage:Capabilities>
+    
+    <maecPackage:Behaviors>
+        <maecCore:Behavior id="maec-example-bhv-1">
+            <maecCore:Name xsi:type="maecVocabs:BehaviorVocab-1.0">persist after system reboot</maecCore:Name>
+            <maecCore:Description>System reboot persistence via registry startup</maecCore:Description>
+            <maecCore:Action_Reference action_id="maec-tst-act-1"/>
+        </maecCore:Behavior>
+    </maecPackage:Behaviors>
+    
+    <maecPackage:Actions>
+        <maecCore:Action id="maec-tst-act-1">
+            <maecCore:Name xsi:type="maecVocabs:MalwareActionVocab-1.0">create registry key value</maecCore:Name>
+            <maecCore:Associated_Object_Reference object_idref="maec-tst-obj-2" association_type="output"/>
+        </maecCore:Action>
+    </maecPackage:Actions>
+    
+    <maecPackage:Objects>
+        <maecCore:Object id="maec-tst-obj-1">
+            <cybox:Properties xsi:type="FileObj:FileObjectType">
+                <FileObj:Hashes>
+                    <cyboxCommon:Hash>
+                        <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                        <cyboxCommon:Simple_Hash_Value>9d7006e30fdf15e9c8e03e62534b3a3e</cyboxCommon:Simple_Hash_Value>
+                    </cyboxCommon:Hash>
+                </FileObj:Hashes>
+            </cybox:Properties>
+        </maecCore:Object>
+        <maecCore:Object id="maec-tst-obj-2">
+            <cybox:Properties xsi:type="WinRegistryKeyObj:WindowsRegistryKeyObjectType">
+                <WinRegistryKeyObj:Key>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</WinRegistryKeyObj:Key>
+                <WinRegistryKeyObj:Hive>HKEY_LOCAL_MACHINE</WinRegistryKeyObj:Hive>
+                <WinRegistryKeyObj:Values>
+                    <WinRegistryKeyObj:Value>
+                        <WinRegistryKeyObj:Name>MSInfo</WinRegistryKeyObj:Name>
+                        <WinRegistryKeyObj:Data>%Windir%\AVBgle.exe</WinRegistryKeyObj:Data>
+                    </WinRegistryKeyObj:Value>
+                </WinRegistryKeyObj:Values>
+            </cybox:Properties>
+        </maecCore:Object>
+    </maecPackage:Objects>
+    
+</maecPackage:MAEC_Package>
