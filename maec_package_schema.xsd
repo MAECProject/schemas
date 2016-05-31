@@ -951,11 +951,16 @@
 		<xs:annotation>
 			<xs:documentation>The NameConfidenceType captures the relative confidence of a malware instance or family name.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="confidence" type="maecPackage:ConfidenceMeasureEnum" use="optional">
-			<xs:annotation>
-				<xs:documentation>The confidence field specifies the relative confidence in the accuracy of the assigned malware instance or malware family name.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="confidence" type="maecPackage:ConfidenceMeasureEnum"
+					use="optional">
+					<xs:annotation>
+						<xs:documentation>The confidence field specifies the relative confidence in the accuracy of the assigned malware instance or malware family name.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="MalwareAliasesType">
 		<xs:annotation>
