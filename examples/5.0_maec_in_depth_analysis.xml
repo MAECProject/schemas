@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+ MAEC In Depth Analysis Example
+ -Demonstrates how Capabilities and Behaviors from in-depth analysis are captured in a MAEC Package. 
+ -Updated May 2016 for MAEC 5.0
+-->
+<maecPackage:MAEC_Package 
+	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+	xmlns:cybox="http://cybox.mitre.org/cybox-2"
+	xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+	xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+	xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
+	xmlns:WinFileObj="http://cybox.mitre.org/objects#WinFileObject-2"
+	xmlns:WinHookObj="http://cybox.mitre.org/objects#WinHookObject-1"
+	xmlns:maecVocabs="http://maec.mitre.org/XMLSchema/default_vocabularies-1"
+	xmlns:maecCore="http://maec.mitre.org/XMLSchema/maec-core-1"
+	xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-5"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:example="example.com"
+	xsi:schemaLocation=
+	"http://cybox.mitre.org/common-2 http://cybox.mitre.org/XMLSchema/common/2.1/cybox_common.xsd 
+	http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.1/cybox_core.xsd 
+	http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
+	http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd 
+	http://cybox.mitre.org/objects#ProcessObject-2 http://cybox.mitre.org/XMLSchema/objects/Process/2.1/Process_Object.xsd 
+	http://cybox.mitre.org/objects#URIObject-2 http://cybox.mitre.org/XMLSchema/objects/URI/2.1/URI_Object.xsd 
+	http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd 
+	http://cybox.mitre.org/objects#WinFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_File/2.1/Win_File_Object.xsd 
+	http://cybox.mitre.org/objects#WinRegistryKeyObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/2.1/Win_Registry_Key_Object.xsd 
+	http://maec.mitre.org/XMLSchema/maec-package-5 ../maec_package_schema.xsd
+	http://maec.mitre.org/XMLSchema/maec-core-1 ../maec_core_schema.xsd
+	http://maec.mitre.org/XMLSchema/default_vocabularies-1 ../maec_default_vocabularies.xsd 
+	http://cybox.mitre.org/objects#WinHookObject-1 http://cybox.mitre.org/XMLSchema/objects/Win_Hook/1.0/Win_Hook_Object.xsd" 
+	id="example:package-bfb88343-a19d-4255-8b7a-a69082008be5" schema_version="5.0">
+    <maecPackage:Malware_Subjects>
+        <maecPackage:Malware_Subject id="example:malware_subject-1">
+            <maecPackage:Instance_Object object_idref="example:object-1"/>
+            <maecPackage:Analyses>
+                <maecPackage:Analysis method="static" type="in-depth" id="example:analysis-1">
+                    <maecPackage:Discovered_Entities>
+                        <maecPackage:Capability_Reference capability_idref="example:capability-1"/>
+                    </maecPackage:Discovered_Entities>
+                </maecPackage:Analysis>
+            </maecPackage:Analyses>
+        </maecPackage:Malware_Subject>
+    </maecPackage:Malware_Subjects>
+    
+    <maecPackage:Capabilities>
+        <maecCore:Capability id="example:capability-1">
+            <maecCore:Name xsi:type="maecVocabs:CapabilityVocab-1.0">spying</maecCore:Name>
+            <maecCore:Behavior_Reference behavior_idref="example:behavior-1"/>
+            <maecCore:Behavior_Reference behavior_idref=""/>
+        </maecCore:Capability>
+    </maecPackage:Capabilities>
+    
+    <maecPackage:Behaviors>
+        <maecCore:Behavior id="example:behavior-1">
+            <maecCore:Name xsi:type="maecVocabs:BehaviorVocab-1.0">capture keyboard input</maecCore:Name>
+            <maecCore:Action_Reference action_id="example:action-1"/>
+        </maecCore:Behavior>
+    </maecPackage:Behaviors>
+    
+    <maecPackage:Actions>
+        <maecCore:Action id="example:action-1">
+            <maecCore:Name xsi:type="maecVocabs:MalwareActionVocab-1.0">add windows hook></maecCore:Name>
+            <maecCore:Associated_Object_Reference object_idref="example:object-2" association_type="output"/>
+        </maecCore:Action>
+    </maecPackage:Actions>
+    
+    <maecPackage:Objects>
+        <maecCore:Object id="example:object-1">
+            <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">
+                <FileObj:Size_In_Bytes>210564</FileObj:Size_In_Bytes>
+                <FileObj:Hashes>
+                    <cyboxCommon:Hash>
+                        <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                        <cyboxCommon:Simple_Hash_Value>B6C39FF68346DCC8B67AA060DEFE40C2</cyboxCommon:Simple_Hash_Value>
+                    </cyboxCommon:Hash>
+                </FileObj:Hashes>
+            </cybox:Properties>
+        </maecCore:Object>
+        <maecCore:Object id="example:object-2">
+            <cybox:Properties xsi:type="WinHookObj:WindowsHookObjectType">
+                <WinHookObj:Type>WH_KEYBOARD_LL</WinHookObj:Type>
+            </cybox:Properties>
+        </maecCore:Object>
+    </maecPackage:Objects>
+</maecPackage:MAEC_Package>

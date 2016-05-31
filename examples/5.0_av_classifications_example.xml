@@ -8,7 +8,7 @@
  Updated January 2014 for MAEC v4.1 and CybOX v2.1 
  Updated May 2016 for MAEC v5.0 and CybOX v2.1 -->
 <maecPackage:MAEC_Package
- xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
+ xmlns:maecVocabs="http://maec.mitre.org/XMLSchema/default_vocabularies-1"
  xmlns:maecCore="http://maec.mitre.org/XMLSchema/maec-core-1"
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-5"
  xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
@@ -20,7 +20,7 @@
  xsi:schemaLocation=
  "http://maec.mitre.org/XMLSchema/maec-package-5 ../maec_package_schema.xsd
  http://maec.mitre.org/XMLSchema/maec-core-1 ../maec_core_schema.xsd
- http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
+ http://maec.mitre.org/XMLSchema/default_vocabularies-1 ../maec_default_vocabularies.xsd
  http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
  http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd" 
  id="maec-example-pkg-1" schema_version="5.0">
