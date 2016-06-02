@@ -526,18 +526,14 @@
 		<xs:annotation>
 			<xs:documentation>The CapabilityListType captures a list of Capabilities.</xs:documentation>
 		</xs:annotation>
-		<xs:choice maxOccurs="unbounded">
-			<xs:element maxOccurs="1" minOccurs="1" name="Capability" type="maecCore:CapabilityType">
+		<xs:sequence maxOccurs="1">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Capability"
+				type="maecCore:CapabilityType">
 				<xs:annotation>
 					<xs:documentation>The Capability field captures a single Capability in the list, and therefore represents a single Capability possessed by the malware instance.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Capability_Reference" type="maecCore:CapabilityReferenceType">
-				<xs:annotation>
-					<xs:documentation>The Capability_Reference field references a single Capability defined elsewhere in the MAEC document, and therefore represents a single Capability possessed by the malware instance.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CapabilityReferenceType">
 		<xs:annotation>
