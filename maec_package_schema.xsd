@@ -157,7 +157,8 @@
 			<xs:documentation>The AssociationMetadataType provides a mechanism for specifying the association between Malware Subjects in a Package.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Malware_Family_Name" type="xs:string">
+			<xs:element minOccurs="0" name="Malware_Family"
+				type="maecPackage:MalwareFamilyReferenceType">
 				<xs:annotation>
 					<xs:documentation>The Malware_Family_Name field specifies the name of the malware family referred to by the 'same_malware_family' association type.</xs:documentation>
 				</xs:annotation>
@@ -401,6 +402,12 @@
 					<xs:documentation>The Objects field captures any defined CybOX Objects that are then referenced elsewhere throughout the MAEC document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Malware_Families"
+				type="maecPackage:MalwareFamiliyListType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Families field captures a set of one or more Malware Families relevant to the Package content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="Collections" type="maecPackage:CollectionListType">
 				<xs:annotation>
 					<xs:documentation>The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Subjects.</xs:documentation>
@@ -443,14 +450,19 @@
 					<xs:documentation>The Instance_Object field references the CybOX Object (most commonly a File Object) that represents the malware instance whose Capabilities, Behaviors, Actions, Objects, and Process Tree are characterized in a Malware Subject of a MAEC Package.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Malware_Name" type="maecPackage:MalwareNameType">
+			<xs:element minOccurs="0" name="Malware_Name" type="maecPackage:NameType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Name field captures the name of the malware instance characterized by the Malware Subject and also the malware family that it belongs to. These names are assigned by the producer of the MAEC document, and may come from various sources, including from an analyst or as reported by a tool (e.g., an AV classification tool).</xs:documentation>
+					<xs:documentation>The Malware_Name field captures the name of the malware instance characterized by the Malware Subject. These names are assigned by the producer of the MAEC document, and may come from various sources, including from an analyst or as reported by a tool (e.g., an AV classification tool).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Malware_Aliases" type="maecPackage:MalwareAliasesType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Aliases field captures any aliases for the malware instance name or malware family name associated with the Malware Subject, as reported by sources other than the producer of the MAEC document.</xs:documentation>
+					<xs:documentation>The Malware_Aliases field captures any aliases for the malware instance name associated with the Malware Subject, as reported by sources other than the producer of the MAEC document (e.g., AV vendors).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Minor_Variants" type="maecPackage:MinorVariantListType">
+				<xs:annotation>
+					<xs:documentation>The Minor_Variants field captures any minor variants of the malware instance object, such as the same file but with different filenames. These differences between two malware samples are minor, so minor that they do not mean that the two samples are variants of the same family.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="Label"
@@ -475,11 +487,6 @@
 				type="cyboxCommon:PlatformSpecificationType">
 				<xs:annotation>
 					<xs:documentation>The Compatible_Platform field specifies a single platform that the Malware Subject is compatible with (i.e. can execute on). It uses the PlatformSpecificationType from the imported CybOX Common schema. More than one compatible platform can be specified by using multiple occurrences of this field.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Minor_Variants" type="maecPackage:MinorVariantListType">
-				<xs:annotation>
-					<xs:documentation>The Minor_Variants field captures any minor variants of the malware instance object, such as the same file but with different filenames.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Field_Data" type="metadata:fieldDataEntry">
@@ -528,6 +535,85 @@
 		<xs:attribute name="id" use="required" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The required id field specifies a unique ID for this Malware Subject.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MalwareFamiliyListType">
+		<xs:annotation>
+			<xs:documentation>The MalwareFamilyListType captures a list of malware families relating to the entities in a Package.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Malware_Family"
+				type="maecPackage:MalwareFamilyType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Family field specifies a single malware family in the list.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MalwareFamilyType">
+		<xs:annotation>
+			<xs:documentation>The MalwareFamilyType captures all of the details pertaining to a Malware Family.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Name" type="maecPackage:NameType">
+				<xs:annotation>
+					<xs:documentation>The Name field captures a name of the Malware Family.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Aliases"
+				type="maecPackage:MalwareAliasesType">
+				<xs:annotation>
+					<xs:documentation>The Alias field captures a single alias for the Malware Family.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Description" type="cyboxCommon:StructuredTextType">
+				<xs:annotation>
+					<xs:documentation>The Description field contains a basic, textual description of the Malware Family.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Malware_Subject"
+				type="maecPackage:MalwareSubjectReferenceType">
+				<xs:annotation>
+					<xs:documentation>The Malware_Subject field contains a reference to a Malware Subject that is a member of the Malware Family.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Common_Actions" type="maecCore:ActionReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Common_Actions field contains a list of Action References that are performed by members of the Malware Family.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Common_Behaviors"
+				type="maecCore:BehaviorReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Common_Behaviors field contains a list of Behavior References that are performed by members of the Malware Family.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Common_Capabilities"
+				type="maecCore:CapabilityReferenceListType">
+				<xs:annotation>
+					<xs:documentation>The Common_Capabilities field contains a list of Capability References that describe members of the Malware Family.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="References" type="xs:anyURI">
+				<xs:annotation>
+					<xs:documentation>The Reference field contains an external URL reference to the Malware Family.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:QName">
+			<xs:annotation>
+				<xs:documentation>The required id field specifies a unique id for this Malware Family.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MalwareFamilyReferenceType">
+		<xs:annotation>
+			<xs:documentation>The MalwareFamilyReferenceType provides a mechanism for specifying a reference to a Malware Family contained in the Package.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="malware_family_idref" type="xs:QName">
+			<xs:annotation>
+				<xs:documentation>The malware_family_idref field provides a reference to a Malware Family contained in the Package via its ID.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -923,21 +1009,14 @@
 		</xs:annotation>
 		<xs:attribute name="tool_idref" type="xs:QName"/>
 	</xs:complexType>
-	<xs:complexType name="MalwareNameType">
+	<xs:complexType name="MalwareAliasType">
 		<xs:annotation>
-			<xs:documentation>The MalwareNameType captures name information associated with a malware instance.</xs:documentation>
+			<xs:documentation>The MalwareAliasType captures name information associated with an alias.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Malware_Instance_Name"
-				type="maecPackage:NameConfidenceType">
+			<xs:element minOccurs="0" name="Name" type="maecPackage:NameType">
 				<xs:annotation>
 					<xs:documentation>The Malware_Instance_Name field captures the name of the malware instance that is characterized by the Malware Subject.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="Malware_Family_Name"
-				type="maecPackage:NameConfidenceType">
-				<xs:annotation>
-					<xs:documentation>The Malware_Family_Name field captures the name of the malware family to which the malware instance characterized by the Malware Subject belongs.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Source" type="maecPackage:SourceType">
@@ -947,16 +1026,16 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="NameConfidenceType">
+	<xs:complexType name="NameType">
 		<xs:annotation>
-			<xs:documentation>The NameConfidenceType captures the relative confidence of a malware instance or family name.</xs:documentation>
+			<xs:documentation>The NameType captures the name of a malware instance and the relative confidence of the name.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
 				<xs:attribute name="confidence" type="maecPackage:ConfidenceMeasureEnum"
 					use="optional">
 					<xs:annotation>
-						<xs:documentation>The confidence field specifies the relative confidence in the accuracy of the assigned malware instance or malware family name.</xs:documentation>
+						<xs:documentation>The confidence field specifies the relative confidence in the accuracy of the assigned malware instance name.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -968,9 +1047,9 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" name="Malware_Alias"
-				type="maecPackage:MalwareNameType">
+				type="maecPackage:MalwareAliasType">
 				<xs:annotation>
-					<xs:documentation>The Malware_Alias field captures a single alias for the malware instance name or malware family name (captured in the Malware_Name field) provided by the MAEC document producer.</xs:documentation>
+					<xs:documentation>The Malware_Alias field captures a single alias for the malware instance name or malware family name provided by the MAEC document producer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
