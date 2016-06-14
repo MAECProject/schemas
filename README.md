@@ -15,4 +15,4 @@ The goal of the MAEC (pronounced "mike") effort is to provide a basis for transf
 
 Join the public [MAEC Community Email Discussion List](https://maec.mitre.org/community/discussionlist.html).
 
-Email the MAEC Developers at [maec@mitre.org](maec@mitre.org).
+Email the MAEC Developers at maec@mitre.org.
