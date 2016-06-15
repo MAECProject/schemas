@@ -564,7 +564,7 @@
 			<xs:element maxOccurs="1" minOccurs="0" name="Aliases"
 				type="maecPackage:MalwareAliasesType">
 				<xs:annotation>
-					<xs:documentation>The Alias field captures a single alias for the Malware Family.</xs:documentation>
+					<xs:documentation>The Aliases field captures aliases for the Malware Family.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Description" type="cyboxCommon:StructuredTextType">
@@ -1028,7 +1028,7 @@
 	</xs:complexType>
 	<xs:complexType name="NameType">
 		<xs:annotation>
-			<xs:documentation>The NameType captures the name of a malware instance and the relative confidence of the name.</xs:documentation>
+			<xs:documentation>The NameType captures the name of a malware instance or malware family and the relative confidence of the name.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
