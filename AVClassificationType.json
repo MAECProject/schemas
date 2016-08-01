@@ -1,0 +1,17 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"definitions":{
+		"AVClassificationType":{
+			"allOf":[
+				{"$ref":"#/REFERENCE PLACEHOLDER FOR cyboxCommon:ToolInformationType"},
+				{"description":"The AVClassificationType  captures information on AV scanner classifications"},
+				{"properties":{
+					"Engine_Version":{"type":"string", "description": "The Engine_Version field captures the version of the AV engine used by the AV scanner tool"},
+					"Definition_Version":{"type":"string","description":"The Definition_Version field captures the version of the AV definitions used by the AV scanner tool"},
+					"Classification_Name": {"type":"string","description":"The Classification_Name field captures the classification assigned to the malware instance object by the AV scanner tool"},
+					"scan_date":{"type":"string", "format":"date-time","description":"The scan_date field specifies the date and time of the scan. This field can be used to capture how a scan changes over time"},
+				  	"detected":{"type":"boolean","description":"The detected field specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Subject"}
+				  }
+				}
+			]
+		}

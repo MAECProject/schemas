@@ -1,0 +1,40 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"definitions":{
+		"CapabilityType":{
+			"type":"object",
+			"description":"The CapabilityType captures details of a Capability that may be implemented in the malware instance",
+			"properties":{
+				"Name":{"$ref":"REFERENCE PLACEHOLDER FOR cyboxCommon:ControlledVocabularyStringType", "description": "The required Name field captures the name of the Capability. The default vocabulary for this field is the CapabilityVocab from the MAEC Default Vocabularies schema. When used as part of a refined Capability, the default vocabulary is the RefinedCapabilityVocab."},
+				"Refined_Capability": {"$ref":"#/definitions/CapabilityType","description":"The optional Refined_Capability field is a refinement of the Capability using the same structure"},
+				"Description":{"$ref":"REFERENCE PLACEHOLDER FOR cyboxCommon:StructuredTextType","description":"The Description field captures a basic textual description of the Capability"},
+				"Attribute":{"$ref":"#/definitions/AttributeType","description":"The attribute field permits the capture of a single attribute of the Capability, as a name/value pair. More than one attribute can be specified via multiple occurences of this field"},
+				"Behavior_Reference": {"$ref":"#/definitions/BehaviorReferenceType","description":"The Behavior_Reference field captures a reference to a Behavior that serves as an implementation of the Capability. For Behaviors that serve as implementations of specific Strategic or Tactical Objectives, the Behavior_Reference field under the Strategic_Objective or Tactical_Objective fields should be used, respectively"},
+				"id":{"type":"string","description": "The required id field specifies a unique ID for this MAEC Capability"},
+				"reference":{"type":"string","format":"uri","description":"The reference field specifies that URL of the corresponding entry in the MAEC Semantic MediaWiki for the Capability"}
+			}
+		},
+		"CapabilityListType":{
+			"type":"object",
+			"description":"The CapabilityListType captures a list of Capabilities",
+			"properties":{
+				"Capability":{"$ref":"#/Definitions/CapabilityType", "description":"The Capability field captures a single Capability in the list, and therefore represents a single Capability posessed by the malware instance"}
+			}
+		},
+		"CapabilityReferenceType":{
+			"type":"object",
+			"description":"The CapabilityReferenceType serves as a method for referening existing Capabilities contained in the MAEC document",
+			"properties":{
+				"capability_idref":{"type":"string", "description":"The capability_idref field references the ID of a Capability contained inside the current MAEC document"}
+			},
+			"required":["capability_idref"]
+		},
+		"CapabilityReferenceListType":{
+			"type":"object",
+			"description":"The CapabilityReferenceListType captures a list of references to Capabilities defined in the MAEC document",
+			"properties":{
+				"Capability_Reference": {"$ref":"#/definitions/CapabilityReferenceType","description":"The Capability_Reference field captures a reference to a single Capability defined in the MAEC document"}
+			}
+		}
+	}
+}

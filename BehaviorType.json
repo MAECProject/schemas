@@ -24,14 +24,44 @@
 			}
 		},
 		"BehavioralActionReferenceType":{
-			"type": "object",
-			"description": "The Action_Reference field specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field.",
-			"properties": {
-				"action_id": {"$ref":"REFERENCE PLACEHOLDER FOR cyboxCommon:ActionReferenceType", "description":"ActionReferenceType is intended to serve as a method for linking to actions."},
-				"behavioral_ordering" : {"type": "integer","minimum": 0, "description": "The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of \"1\" would come before an Action with a behavioral_ordering of \"2\", etc."}
+			"allOf":[
+				{"$ref":"REFERENCE PLACEHOLDER FOR cybox:ActionReferenceType"},
+				{"properties": {
+					"behavioral_ordering" : {"type": "integer","minimum": 0, "description": "The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of \"1\" would come before an Action with a behavioral_ordering of \"2\", etc."}
+				},
+				"required":["action_id"]
+				}
+			]
+		},
+		"BehaviorReferenceType":{
+			"type":"object",
+			"description":"The BehaviorReferenceType serves as a method for referencing Behaviors defined in the Package",
+			"properties":{
+				"behavior_idref":{"type":"string","description":"The behavior_idref field specifies the id of the Behavior being referenced; this Behavior must be present in the current Package"}
 			},
-			"required":["action_id"]	
+			"required":["behavior_idref"]
+		},
+		"BehaviorReferenceListType":{
+			"type":"object",
+			"description":"The BehaviorReferenceListType captures a list of Behavior References",
+			"properties":{
+				"Behavior_Reference": {"$ref":"#/definitions/BehaviorReferenceType","description":"The Behavior_Reference field specifies a reference to a single Behavior"}
+			}
+		},
+		"BehaviorListType":{
+			"type":"object",
+			"description":"The BehaviorListType captures a list of Behaviors",
+			"properties":{
+				"Behavior":{"$ref":"#/definitions/BehaviorType", "description":"The Behavior field specifies a single Behavior in the list"}
+			},
+			"minProperties":1
+		},
+		"AssociatedCodeType":{
+			"type":"object",
+			"description": "The AssociatedCodeType serves as a generic way of specifying any code snippets associated with a MAEC entity, such as a Behavior",
+			"properties":{
+				"Code_Snippet":{"$ref":"#/definitions/ObjectReferenceType","description":"The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."}	
+			}
 		}
-		
 	}
 }
