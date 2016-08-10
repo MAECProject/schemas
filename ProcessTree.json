@@ -13,7 +13,13 @@
 				{"$ref":"REFERENCE PLACEHOLDER FOR objects:ProcessObjectType"},
 				{"description":"The ProcessTreeNodeType captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object."},
 				{"properties":{
-					"initiated_actions":{"$ref":"#/definitions/ActionReferenceListType", "description":"The Initiated_Actions field captures, via references, the actions (found inside the top-level Actions element, or an Action Collection inside the top-level Collections element) initiated by the Process."},
+					"initiated_actions":{
+						"description":"The Initiated_Actions field captures, via references, the actions (found inside the top-level Actions element, or an Action Collection inside the top-level Collections element) initiated by the Process.",
+						"type":"array",
+						"items":{
+							"$ref":"REFERENCE PLACEHOLDER FOR cybox:ActionReferenceType"
+						}
+					},
 					"spawned_process":{"$ref":"#/definitions/ProcessTreeNodeType","description":"The Spawned_Process field captures a single child process spawned by this process."},
 					"injected_process":{"$ref":"#/definitions/ProcessTreeNodeType","description":"The Injected_Process field captures a single process that was injected by this process."},
 					"id":{"type":"string","description":"The required id field specifies a unique ID for the Process Node."},
@@ -24,32 +30,11 @@
 				}
 			]
 		},
-		"ProcessTreeListType":{
-			"type":"object",
-			"description":"The ProcessTreeListType captures a list of Process Trees",
-			"properties":{
-				"process_tree":{"$ref":"#/definitions/ProcessTreeType","description": "The Process_Tree field specifies a single process tree of execution, as recorded during an execution of the Malware Subject"}
-			}
-		},
-		"ActionReferenceListType":{
-			"type":"object",
-			"description":"The ActionReferenceListType captures a list of Action References.",
-			"properties":{
-				"action_reference":{"$ref":"REFERENCE PLACEHOLDER FOR cybox:ActionReferenceType"}
-			}
-		},
 		"ProcessTreeReferenceType":{
 			"type":"object",
 			"description":"The ProcessTreeReferenceType captures a reference to an existing Process Tree defined in the MAEC document.",
 			"properties":{
 				"process_tree_idref":{"type":"string", "description":"The required process_tree_idref field references an existing Process Tree defined in the MAEC document, via its ID"}
-			}
-		},
-		"ProcessTreeReferenceListType":{
-			"type":"object",
-			"description":"The ProcessTreeReferenceListType captures a list of references to Process Trees defined in the MAEC document",
-			"properties":{
-				"process_tree_reference":{"$ref":"#/definitions/ProcessTreeReferenceType"}
 			}
 		}
 	} 

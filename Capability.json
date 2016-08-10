@@ -14,13 +14,6 @@
 				"reference":{"type":"string","format":"uri","description":"The reference field specifies that URL of the corresponding entry in the MAEC Semantic MediaWiki for the Capability"}
 			}
 		},
-		"CapabilityListType":{
-			"type":"object",
-			"description":"The CapabilityListType captures a list of Capabilities",
-			"properties":{
-				"capability":{"$ref":"#/Definitions/CapabilityType", "description":"The Capability field captures a single Capability in the list, and therefore represents a single Capability posessed by the malware instance"}
-			}
-		},
 		"CapabilityReferenceType":{
 			"type":"object",
 			"description":"The CapabilityReferenceType serves as a method for referening existing Capabilities contained in the MAEC document",
@@ -28,13 +21,6 @@
 				"capability_idref":{"type":"string", "description":"The capability_idref field references the ID of a Capability contained inside the current MAEC document"}
 			},
 			"required":["capability_idref"]
-		},
-		"CapabilityReferenceListType":{
-			"type":"object",
-			"description":"The CapabilityReferenceListType captures a list of references to Capabilities defined in the MAEC document",
-			"properties":{
-				"capability_reference": {"$ref":"#/definitions/CapabilityReferenceType","description":"The Capability_Reference field captures a reference to a single Capability defined in the MAEC document"}
-			}
 		}
 	}
 }
