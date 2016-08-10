@@ -5,10 +5,10 @@
 			"type":"object",
 			"description": "The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.",
 			"properties": {
-				"Name": {"$ref": "#/REFERENCE PLACEHOLDER FOR cyboxCommon: ControlledVocabularyStringType"},
-				"Description": {"$ref":"#/REFERENCE PLACEHOLDER FOR ControlledVocabularyStringType","description":"The Description field contains the basic tectual description of the behavior. "},
-				"Attribute": { "$ref": "#/definitions/AttributeType"},
-				"Action_Reference" :{"$ref": "#/definitions/BehavioralActionReferenceType"},
+				"name": {"$ref": "#/REFERENCE PLACEHOLDER FOR cyboxCommon: ControlledVocabularyStringType"},
+				"description": {"$ref":"#/REFERENCE PLACEHOLDER FOR ControlledVocabularyStringType","description":"The Description field contains the basic tectual description of the behavior. "},
+				"attribute": { "$ref": "#/definitions/AttributeType"},
+				"action_Reference" :{"$ref": "#/definitions/BehavioralActionReferenceType"},
 				"id": {"type": "string", "description": "The required if field specifies a unique ID for this Behavior"},
 				"status":{"$ref": "#/PLACEHOLDER REFERENCE FOR cybox:ActionStatusTypeEnum"},
 				"reference": {"type": "string", "format":"uri" }
@@ -19,8 +19,8 @@
 			"type": "object",
 			"description":"The Attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field.",
 			"properties": {
-				"Name": {"$ref":"REFERENCE PLACEHOLDER FOR cyboxCommon:ControlledVocabularyStringType" , "description": "The Name field specifies the name of the attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema. The default vocabulary for use with this field is the CommonAttributeVocab-1.0."},
-				"Value": {"$ref": "REFERENCE PLACEHOLDER for cyboxCommon:ControlledVocabularyStringType" , "description":"The Value field specifies the value of the attribute being captured.See the annotations for the enumerations in CommonAttributeEnum-1.0 for default vocabularies associated with these values."}	
+				"name": {"$ref":"REFERENCE PLACEHOLDER FOR cyboxCommon:ControlledVocabularyStringType" , "description": "The Name field specifies the name of the attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema. This field uses the ControlledVocabularyStringType from the imported CybOX Common schema. The default vocabulary for use with this field is the CommonAttributeVocab-1.0."},
+				"value": {"$ref": "REFERENCE PLACEHOLDER for cyboxCommon:ControlledVocabularyStringType" , "description":"The Value field specifies the value of the attribute being captured.See the annotations for the enumerations in CommonAttributeEnum-1.0 for default vocabularies associated with these values."}	
 			}
 		},
 		"BehavioralActionReferenceType":{
@@ -41,26 +41,11 @@
 			},
 			"required":["behavior_idref"]
 		},
-		"BehaviorReferenceListType":{
-			"type":"object",
-			"description":"The BehaviorReferenceListType captures a list of Behavior References",
-			"properties":{
-				"Behavior_Reference": {"$ref":"#/definitions/BehaviorReferenceType","description":"The Behavior_Reference field specifies a reference to a single Behavior"}
-			}
-		},
-		"BehaviorListType":{
-			"type":"object",
-			"description":"The BehaviorListType captures a list of Behaviors",
-			"properties":{
-				"Behavior":{"$ref":"#/definitions/BehaviorType", "description":"The Behavior field specifies a single Behavior in the list"}
-			},
-			"minProperties":1
-		},
 		"AssociatedCodeType":{
 			"type":"object",
 			"description": "The AssociatedCodeType serves as a generic way of specifying any code snippets associated with a MAEC entity, such as a Behavior",
 			"properties":{
-				"Code_Snippet":{"$ref":"#/definitions/ObjectReferenceType","description":"The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."}	
+				"code_snippet":{"$ref":"#/definitions/ObjectReferenceType","description":"The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."}	
 			}
 		}
 	}
