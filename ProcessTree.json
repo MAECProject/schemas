@@ -5,7 +5,7 @@
 			"type":"object",
 			"description":"The ProcessTreeType captures the process tree for the malware instance, including the parent process and processes spawned by it, along with any Actions initiated by each.",
 			"properties":{
-				"Root_Process": {"$ref":"#/definitions/ProcessTreeNodeType"}
+				"root_process": {"$ref":"#/definitions/ProcessTreeNodeType"}
 			}
 		},
 		"ProcessTreeNodeType":{
@@ -13,9 +13,9 @@
 				{"$ref":"REFERENCE PLACEHOLDER FOR objects:ProcessObjectType"},
 				{"description":"The ProcessTreeNodeType captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object."},
 				{"properties":{
-					"Initiated_Actions":{"$ref":"#/definitions/ActionReferenceListType", "description":"The Initiated_Actions field captures, via references, the actions (found inside the top-level Actions element, or an Action Collection inside the top-level Collections element) initiated by the Process."},
-					"Spawned_Process":{"$ref":"#/definitions/ProcessTreeNodeType","description":"The Spawned_Process field captures a single child process spawned by this process."},
-					"Injected_Process":{"$ref":"#/definitions/ProcessTreeNodeType","description":"The Injected_Process field captures a single process that was injected by this process."},
+					"initiated_actions":{"$ref":"#/definitions/ActionReferenceListType", "description":"The Initiated_Actions field captures, via references, the actions (found inside the top-level Actions element, or an Action Collection inside the top-level Collections element) initiated by the Process."},
+					"spawned_process":{"$ref":"#/definitions/ProcessTreeNodeType","description":"The Spawned_Process field captures a single child process spawned by this process."},
+					"injected_process":{"$ref":"#/definitions/ProcessTreeNodeType","description":"The Injected_Process field captures a single process that was injected by this process."},
 					"id":{"type":"string","description":"The required id field specifies a unique ID for the Process Node."},
 					"parent_action_idref":{"type":"string","description":"The parent_action_idref field specifies the id of the action that created or injected this process."},
 					"ordinal_position":{"type":"integer","minimum":0,"description":"The ordinal_position field specifies the ordinal position of the process with respect to the other processes spawned or injected by the malware."}
@@ -28,14 +28,14 @@
 			"type":"object",
 			"description":"The ProcessTreeListType captures a list of Process Trees",
 			"properties":{
-				"Process_Tree":{"$ref":"#/definitions/ProcessTreeType","description": "The Process_Tree field specifies a single process tree of execution, as recorded during an execution of the Malware Subject"}
+				"process_tree":{"$ref":"#/definitions/ProcessTreeType","description": "The Process_Tree field specifies a single process tree of execution, as recorded during an execution of the Malware Subject"}
 			}
 		},
 		"ActionReferenceListType":{
 			"type":"object",
 			"description":"The ActionReferenceListType captures a list of Action References.",
 			"properties":{
-				"Action_Reference":{"$ref":"REFERENCE PLACEHOLDER FOR cybox:ActionReferenceType"}
+				"action_reference":{"$ref":"REFERENCE PLACEHOLDER FOR cybox:ActionReferenceType"}
 			}
 		},
 		"ProcessTreeReferenceType":{
@@ -49,7 +49,7 @@
 			"type":"object",
 			"description":"The ProcessTreeReferenceListType captures a list of references to Process Trees defined in the MAEC document",
 			"properties":{
-				"Process_Tree_Reference":{"$ref":"#/definitions/ProcessTreeReferenceType"}
+				"process_tree_reference":{"$ref":"#/definitions/ProcessTreeReferenceType"}
 			}
 		}
 	} 
