@@ -1,0 +1,12 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"definitions":{
+		"ToolReferenceType":{
+			"type":"object",
+			"description": "The ToolReferenceType specifies a tool via a reference to its ID",
+			"properties":{
+				"tool_idref":{"type":"string","description":" (in maec-5.0, this was a qualified name)"}
+			}
+		}
+	}
+}
