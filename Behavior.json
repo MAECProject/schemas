@@ -7,8 +7,8 @@
 			"properties": {
 				"name": {"$ref": "#/REFERENCE PLACEHOLDER FOR cyboxCommon: ControlledVocabularyStringType"},
 				"description": {"$ref":"#/REFERENCE PLACEHOLDER FOR cyboxCommonStructuredTextType","description":"The Description field contains the basic tectual description of the behavior. "},
-				"attribute": { "$ref": "#/definitions/AttributeType"},
-				"action_Reference" :{"$ref": "#/definitions/BehavioralActionReferenceType"},
+				"attribute": { "$ref": "Behavior.json#/definitions/AttributeType"},
+				"action_Reference" :{"$ref": "Behavior.json#/definitions/BehavioralActionReferenceType"},
 				"id": {"type": "string", "description": "The required if field specifies a unique ID for this Behavior"},
 				"status":{"$ref": "#/PLACEHOLDER REFERENCE FOR cybox:ActionStatusTypeEnum"},
 				"reference": {"type": "string", "format":"uri" }
@@ -45,7 +45,7 @@
 			"type":"object",
 			"description": "The AssociatedCodeType serves as a generic way of specifying any code snippets associated with a MAEC entity, such as a Behavior",
 			"properties":{
-				"code_snippet":{"$ref":"#/definitions/ObjectReferenceType","description":"The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."}	
+				"code_snippet":{"$ref":"MalwareAction.json#/definitions/ObjectReferenceType","description":"The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."}	
 			}
 		}
 	}
