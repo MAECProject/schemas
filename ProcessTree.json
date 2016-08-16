@@ -10,7 +10,7 @@
 		},
 		"ProcessTreeNodeType":{
 			"allOf":[
-				{"$ref":"REFERENCE PLACEHOLDER FOR objects:ProcessObjectType"},
+				{"$ref":"REFERENCE PLACEHOLDER FOR ProcessObj:ProcessObjectType"},
 				{"description":"The ProcessTreeNodeType captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object."},
 				{"properties":{
 					"initiated_actions":{
