@@ -59,7 +59,7 @@
                 },
                 "tools": {
                     "type": "array",
-                    "items": {"$ref": "#/PLACEHOLDER REFERENCE FOR ToolReferenceType"},
+                    "items": {"type": "string"},
                     "description": "The tools field captures a set references to one or more Tools used in the analysis of a Malware Subject."
                 },
                 "dynamic_analysis_metadata": {
