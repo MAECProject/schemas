@@ -10,11 +10,11 @@
                     "description": "The required id field specifies a unique ID for this Analysis."
                 },
                 "type": {
-                    "$ref": "#/definitions/AnalysisTypeEnum",
+                    "$ref": "Analysis.json#/definitions/AnalysisTypeEnum",
                     "description": "The type field specifies the type of malware analysis being performed."
                 },
                 "method": {
-                    "$ref": "#/definitions/AnalysisMethodEnum",
+                    "$ref": "Analysis.json#/definitions/AnalysisMethodEnum",
                     "description": "The method field specifies the analysis method used in the analysis."
                 },
                 "ordinal_position": {
@@ -37,7 +37,7 @@
                     "description": "The start_datetime field specifies the date/time the analysis was last updated."
                 },
                 "source": {
-                    "$ref": "#/definitions/SourceType",
+                    "$ref": "Analysis.json#/definitions/SourceType",
                     "definition": "The Source field specifies information about the internal or external source of the analysis, if applicable."
                 },
                 "analysts": {
@@ -50,11 +50,11 @@
                 },
                 "comments": {
                     "type": "array",
-                    "items": {"$ref": "#/definitions/CommentType"},
+                    "items": {"$ref": "Analysis.json#/definitions/CommentType"},
                     "description": "The comments field specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
                 },
                 "findings": {
-                    "$ref": "#/definitions/FindingsType",
+                    "$ref": "Analysis.json#/definitions/FindingsType",
                     "description": "The findings field specifies the findings of the analysis, via references to one or more other entities in the MAEC Package."
                 },
                 "tools": {
@@ -63,7 +63,7 @@
                     "description": "The tools field captures a set references to one or more Tools used in the analysis of a Malware Subject."
                 },
                 "dynamic_analysis_metadata": {
-                    "$ref": "#/definitions/DynamicAnalysisMetadataType",
+                    "$ref": "Analysis.json#/definitions/DynamicAnalysisMetadataType",
                     "description": "The dynamic_analysis_metadata field specifies metadata pertaining to the dynamic analysis of the subject binary, such as the command line used, the duration of the analysis, etc."
                 },
                 "analysis_environment": {
@@ -170,7 +170,7 @@
                 },
                 "raised_exceptions": {
                     "type": "array",
-                    "items": {"$ref": "#/definitions/MalwareExceptionType"},
+                    "items": {"$ref": "Analysis.json#/definitions/MalwareExceptionType"},
                     "description": "The raised_exceptions field captures the exceptions that were raised (or thrown) during the execution of the malware instance."
                 }
             }

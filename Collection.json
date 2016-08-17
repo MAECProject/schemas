@@ -14,11 +14,11 @@
                     "description": "The name field specifies the name of the Collection."
                 },
                 "maec_entity_type": {
-                    "$ref": "#/definitions/CollectionEntityTypeEnum",
+                    "$ref": "Collection.json#/definitions/CollectionEntityTypeEnum",
                     "description": "The required maec_entity_type field specifies the type of MAEC entity that is captured in the Collection, via the CollectionEntityTypeEnum. Example types would be 'objects' or 'various'. The default values is 'various'."
                 },
                 "association_type": {
-                    "$ref": "#/definitions/CollectionAssociationTypeEnum",
+                    "$ref": "Collection.json#/definitions/CollectionAssociationTypeEnum",
                     "description": "The association type field specifies the nature of the contents of the Collection, via the CollectionAssociationTypeEnum."
                 },
                 "entity_references": {
