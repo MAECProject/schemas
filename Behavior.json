@@ -5,12 +5,10 @@
 			"type":"object",
 			"description": "The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.",
 			"properties": {
-<<<<<<< HEAD:BehaviorType.json
 				"name": {"type":"string","description":"The required name field captures the name of the Behavior. The default vocabulary for this field is the BehaviorVocab from the MAEC Default Vocabularies schema"},
 				"description": {"type":"string","description":"The Description field contains the basic textual description of the behavior."},
 				"attribute": { "$ref": "Behavior.json#/definitions/AttributeType"},
 				"action_Reference" :{"$ref": "Behavior.json#/definitions/BehavioralActionReferenceType"},
->>>>>>> 94ece664a082e4f4b6c30fdd2f86710e2af51eb6:Behavior.json
 				"id": {"type": "string", "description": "The required if field specifies a unique ID for this Behavior"},
 				"status":{"$ref": "#/PLACEHOLDER REFERENCE FOR cybox:ActionStatusTypeEnum"},
 				"reference": {"type": "string", "format":"uri" }
