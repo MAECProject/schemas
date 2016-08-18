@@ -59,8 +59,8 @@
                 },
                 "tools": {
                     "type": "array",
-                    "items": {"type": "string"},
-                    "description": "The tools field captures a set references to one or more Tools used in the analysis of a Malware Subject."
+                    "items": {"$ref": "PLACEHOLDER REFERENCE FOR cybox:software-object"},
+                    "description": "The tools field captures a set of references to one or more Tools used in the analysis of a Malware Instance. The referenced tools MUST be Software Objects."
                 },
                 "dynamic_analysis_metadata": {
                     "$ref": "Analysis.json#/definitions/DynamicAnalysisMetadataType",
