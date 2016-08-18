@@ -51,7 +51,7 @@
                 },
                 "tools": {
                     "type": "array",
-                    "items": {"$ref": "REFERENCE PLACEHOLDER FOR cybox:ToolType"},
+                    "items": {"$ref": "REFERENCE PLACEHOLDER FOR cybox:ToolInformationType"},
                     "description": "The Tools field captures a set of one or more Tools relevant to the Package content."
                 },
                 "relationships": {
