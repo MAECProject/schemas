@@ -22,25 +22,26 @@
             },
             "engine_version": {
                 "type": "string",
-                "description": "The engine_version field captures the version of the AV engine used by the AV scanner tool"
+                "description": "The engine_version field captures the version of the AV engine used by the AV scanner tool."
             },
             "definition_version": {
                 "type": "string",
-                "description": "The definition_version field captures the version of the AV definitions used by the AV scanner tool"
+                "description": "The definition_version field captures the version of the AV definitions used by the AV scanner tool."
             },
             "classification_name": {
                 "type": "string",
-                "description": "The classification_name field captures the classification assigned to the malware instance object by the AV scanner tool"
+                "description": "The classification_name field captures the classification assigned to the malware instance object by the AV scanner tool."
             },
             "scan_date": {
                 "type": "string",
                 "format": "date-time",
-                "description": "The scan_date field specifies the date and time of the scan. This field can be used to capture how a scan changes over time"
+                "description": "The scan_date field specifies the date and time of the scan. This field can be used to capture how a scan changes over time."
             },
             "detected": {
                 "type": "boolean",
-                "description": "The detected field specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Subject"
+                "description": "The detected field specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Instance."
             }
-        }
+        },
+        "required": ["id"]
     }}
 }
