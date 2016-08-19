@@ -1,47 +1,53 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {"AVClassificationType": {
-        "type": "object",
-        "description": "The AVClassificationType captures information on AV scanner classifications.",
-        "properties": {
-            "id": {
-                "type": "string",
-                "description": "The required id field specifies a unique ID for this AV scanner classification."
+    "definitions": {
+        "AVClassificationType": {
+            "type": "object",
+            "description": "The AVClassificationType captures information on AV scanner classifications.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The required id field specifies a unique ID for this AV scanner classification."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name field captures the name of the AV scanner tool."
+                },
+                "vendor": {
+                    "type": "string",
+                    "description": "The vendor fields captures the vendor of the AV scanner tool."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version field captures the version of the AV scanner tool."
+                },
+                "engine_version": {
+                    "type": "string",
+                    "description": "The engine_version field captures the version of the AV engine used by the AV scanner tool."
+                },
+                "definition_version": {
+                    "type": "string",
+                    "description": "The definition_version field captures the version of the AV definitions used by the AV scanner tool."
+                },
+                "classification_name": {
+                    "type": "string",
+                    "description": "The classification_name field captures the classification assigned to the malware instance object by the AV scanner tool."
+                },
+                "scan_date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The scan_date field specifies the date and time of the scan. This field can be used to capture how a scan changes over time."
+                },
+                "detected": {
+                    "type": "boolean",
+                    "description": "The detected field specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Instance."
+                }
             },
-            "name": {
-                "type": "string",
-                "description": "The name field captures the name of the AV scanner tool."
-            },
-            "vendor": {
-                "type": "string",
-                "description": "The vendor fields captures the vendor of the AV scanner tool."
-            },
-            "version": {
-                "type": "string",
-                "description": "The version field captures the version of the AV scanner tool."
-            },
-            "engine_version": {
-                "type": "string",
-                "description": "The engine_version field captures the version of the AV engine used by the AV scanner tool."
-            },
-            "definition_version": {
-                "type": "string",
-                "description": "The definition_version field captures the version of the AV definitions used by the AV scanner tool."
-            },
-            "classification_name": {
-                "type": "string",
-                "description": "The classification_name field captures the classification assigned to the malware instance object by the AV scanner tool."
-            },
-            "scan_date": {
-                "type": "string",
-                "format": "date-time",
-                "description": "The scan_date field specifies the date and time of the scan. This field can be used to capture how a scan changes over time."
-            },
-            "detected": {
-                "type": "boolean",
-                "description": "The detected field specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Instance."
-            }
+            "required": ["id"]
         },
-        "required": ["id"]
-    }}
+        "maec-avclass": {
+            "type": "array",
+            "items": {"$ref": "AVClassification.json#/definitions/AVClassificationType"}
+        }
+    }
 }
