@@ -49,11 +49,6 @@
                     "items": {"$ref": "Collection.json#/definitions/CollectionType"},
                     "description": "The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Subjects."
                 },
-                "tools": {
-                    "type": "array",
-                    "items": {"$ref": "REFERENCE PLACEHOLDER FOR cybox:ToolInformationType"},
-                    "description": "The Tools field captures a set of one or more Tools relevant to the Package content."
-                },
                 "relationships": {
                     "type": "array",
                     "items": {"$ref": "Relationship.json#/definitions/RelationshipType"},
