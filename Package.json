@@ -1,61 +1,63 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
-        "PackageType": {
-            "type": "object",
-            "description": "The PackageType is the namesake type of the MAEC Package schema, and captures either a single Malware Subject, or a collection of Malware Subjects that are related in some way (even if exact details of the relationship are unknown). Unlike the MAEC Bundle, which captures only the MAEC-characterized analysis results for a malware instance, the Package permits the capture of additional metadata relating to the analysis, relationships between Malware Subjects, and similar types of entities.",
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "The required id field specifies a unique ID for this Package."
-                },
-                "schema_version": {
-                    "type": "string",
-                    "enum": ["5.0"],
-                    "description": "The required schema_version field specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation."
-                },
-                "malware_instances": {
-                    "type": "array",
-                    "items": {"$ref": "MalwareInstance.json#/definitions/MalwareInstanceType"},
-                    "description": "The malware_instances field captures each of the Malware Instances contained in the Package."
-                },
-                "malware_families": {
-                    "type": "array",
-                    "items": {"$ref": "MalwareFamily.json#/definitions/MalwareFamilyType"},
-                    "description": "The malware_families field captures a set of one or more Malware Families relevant to the Package content."
-                },
-                "capabilities": {
-                    "type": "array",
-                    "items": {"$ref": "Capability.json#/definitions/CapabilityType"},
-                    "description": "The Capabilities field captures a set of one or more Capabilities relevant to the Package content."
-                },
-                "behaviors": {
-                    "type": "array",
-                    "items": {"$ref": "Behavior.json#/definitions/BehaviorType"},
-                    "description": "The Behaviors field captures a set of one or more Behaviors relevant to the Package content."
-                },
-                "actions": {
-                    "type": "array",
-                    "items": {"$ref": "MalwareAction.json#/definitions/MalwareActionType"},
-                    "description": "The Actions field captures a set of one or more Actions relevant to the Package content."
-                },
-                "objects": {
-                    "type": "array",
-                    "items": {"$ref": "REFERENCE PLACEHOLDER FOR cybox:ObjectType"},
-                    "description": "The Objects field captures any defined CybOX Objects that are then referenced elsewhere throughout the MAEC document."
-                },
-                "collections": {
-                    "type": "array",
-                    "items": {"$ref": "Collection.json#/definitions/CollectionType"},
-                    "description": "The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Subjects."
-                },
-                "relationships": {
-                    "type": "array",
-                    "items": {"$ref": "Relationship.json#/definitions/RelationshipType"},
-                    "description": "The Relationships field captures the relationships between the entities in the MAEC document."
-                }
+    "definitions": {"PackageType": {
+        "type": "object",
+        "description": "The PackageType is the namesake type of the MAEC Package schema, and captures either a single Malware Subject, or a collection of Malware Subjects that are related in some way (even if exact details of the relationship are unknown). Unlike the MAEC Bundle, which captures only the MAEC-characterized analysis results for a malware instance, the Package permits the capture of additional metadata relating to the analysis, relationships between Malware Subjects, and similar types of entities.",
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "The required id field specifies a unique ID for this Package."
             },
-            "required": ["id", "schema_version"]
-        }
-    }
+            "schema_version": {
+                "type": "string",
+                "enum": ["5.0"],
+                "description": "The required schema_version field specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation."
+            },
+            "malware_instances": {
+                "type": "array",
+                "items": {"$ref": "MalwareInstance.json#/definitions/MalwareInstanceType"},
+                "description": "The malware_instances field captures each of the Malware Instances contained in the Package."
+            },
+            "malware_families": {
+                "type": "array",
+                "items": {"$ref": "MalwareFamily.json#/definitions/MalwareFamilyType"},
+                "description": "The malware_families field captures a set of one or more Malware Families relevant to the Package content."
+            },
+            "capabilities": {
+                "type": "array",
+                "items": {"$ref": "Capability.json#/definitions/CapabilityType"},
+                "description": "The Capabilities field captures a set of one or more Capabilities relevant to the Package content."
+            },
+            "behaviors": {
+                "type": "array",
+                "items": {"$ref": "Behavior.json#/definitions/BehaviorType"},
+                "description": "The Behaviors field captures a set of one or more Behaviors relevant to the Package content."
+            },
+            "actions": {
+                "type": "array",
+                "items": {"$ref": "MalwareAction.json#/definitions/MalwareActionType"},
+                "description": "The Actions field captures a set of one or more Actions relevant to the Package content."
+            },
+            "objects": {
+                "type": "array",
+                "items": {"$ref": "REFERENCE PLACEHOLDER FOR cybox:ObjectType"},
+                "description": "The Objects field captures any defined CybOX Objects that are then referenced elsewhere throughout the MAEC document."
+            },
+            "collections": {
+                "type": "array",
+                "items": {"$ref": "Collection.json#/definitions/CollectionType"},
+                "description": "The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Subjects."
+            },
+            "relationships": {
+                "type": "array",
+                "items": {"$ref": "Relationship.json#/definitions/RelationshipType"},
+                "description": "The Relationships field captures the relationships between the entities in the MAEC document."
+            }
+        },
+        "required": [
+            "id",
+            "schema_version"
+        ]
+    }},
+    "allOf":[{"$ref": "#/definitions/PackageType"}]
 }
