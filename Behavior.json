@@ -1,83 +1,87 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"definitions":{
-		"BehaviorType":{
-			"type":"object",
-			"description": "The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.",
-			"properties":{
-				"name":{
-					"type":"string",
-					"description":"The required name field captures the name of the Behavior. The default vocabulary for this field is the BehaviorVocab from the MAEC Default Vocabularies schema"
-				},
-				"description":{
-					"type":"string",
-					"description":"The Description field contains the basic textual description of the behavior."
-				},
-				"attribute":{
-				 	"$ref": "Behavior.json#/definitions/AttributeType",
-				 	"description":"The attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field."
-				},
-				"action_reference":{
-					"type":"object",
-					"description":"The action_reference field specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field",
-					"properties":{
-						"action_id":{
-							"type":"string",
-							"description":"The action_id field referes to the id of teh action being referenced"
-						},
-						"behavioral_ordering":{
-							"type": "integer",
-							"minimum": 0,
-							"description": "The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of \"1\" would come before an Action with a behavioral_ordering of \"2\", etc."
-						}
-					}
-				},
-				"id":{
-					"type": "string",
-					 "description": "The required if field specifies a unique ID for this Behavior"
-				},
-				"status":{
-					"$ref": "#/PLACEHOLDER REFERENCE FOR cybox:ActionStatusTypeEnum",
-					"description":"The status field specifies the execution status of the Behavior, i.e. whether it was successful or not."
-				},
-				"reference":{
-					"type": "string",
-					 "format":"uri", 
-					 "description": "The reference field specifies the URL of the corresponding entry in the MAEC Semantic MediaWiki for the Behavior."
-				}
-			},
-			"required":["id"]
-		},
-		"AttributeType":{
-			"type": "object",
-			"description":"The Attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field.",
-			"properties":{
-				"name":{
-					"type" : "string",
-					"description" : "The name field specifies the name of the attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema."
-				},
-				"value":{
-					"type": "string",
-					"description" : "The value field specifies the value of the attribute being captured. See the annotations for the enumerations in CommonAttributeEnum-1.0 for default vocabularies associated with these values."
-				}	
-			}
-		},
-		"AssociatedCodeType":{
-			"type":"object",
-			"description": "The AssociatedCodeType serves as a generic way of specifying any code snippets associated with a MAEC entity, such as a Behavior",
-			"properties":{
-				"code_snippet":{
-					"$ref":"MalwareAction.json#/definitions/ObjectReferenceType",
-					"description":"The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."
-				}	
-			}
-		},
-		"ActionStatusTypeEnum":{
-			"type" : "string",
-			"description" : "",
-			"enum":[
-				"NEED TO FINISH"
-			]
-		}
-	}
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "BehaviorType": {
+            "type": "object",
+            "description": "The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The required name field captures the name of the Behavior. The default vocabulary for this field is the BehaviorVocab from the MAEC Default Vocabularies schema"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Description field contains the basic textual description of the behavior."
+                },
+                "attribute": {
+                    "$ref": "Behavior.json#/definitions/AttributeType",
+                    "description": "The attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field."
+                },
+                "action_reference": {
+                    "type": "object",
+                    "description": "The action_reference field specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field",
+                    "properties": {
+                        "action_id": {
+                            "type": "string",
+                            "description": "The action_id field referes to the id of teh action being referenced"
+                        },
+                        "behavioral_ordering": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "description": "The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of \"1\" would come before an Action with a behavioral_ordering of \"2\", etc."
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The required if field specifies a unique ID for this Behavior"
+                },
+                "status": {
+                    "$ref": "Behavior.json#/definitions/ActionStatusTypeEnum",
+                    "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful."
+                },
+                "reference": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The reference field specifies the URL of the corresponding entry in the MAEC Semantic MediaWiki for the Behavior."
+                }
+            },
+            "required": ["id"]
+        },
+        "AttributeType": {
+            "type": "object",
+            "description": "The Attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name field specifies the name of the attribute being captured. The name can be either free form text or a standardized value from a vocabulary included in the MAEC Default Vocabularies schema."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value field specifies the value of the attribute being captured. See the annotations for the enumerations in CommonAttributeEnum-1.0 for default vocabularies associated with these values."
+                }
+            }
+        },
+        "AssociatedCodeType": {
+            "type": "object",
+            "description": "The AssociatedCodeType serves as a generic way of specifying any code snippets associated with a MAEC entity, such as a Behavior",
+            "properties": {"code_snippet": {
+                "$ref": "MalwareAction.json#/definitions/ObjectReferenceType",
+                "description": "The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."
+            }}
+        },
+        "ActionStatusTypeEnum": {
+            "type": "string",
+            "description": "ActionStatusTypeEnum is a (non-exhaustive) enumeration of observable action status types.",
+            "enum": [
+                "success",
+                "failure",
+                "error",
+                "completed",
+                "pending",
+                "ongoing",
+                "unknown"
+            ]
+        }
+    }
 }
