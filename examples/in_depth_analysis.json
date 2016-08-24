@@ -1,0 +1,42 @@
+{
+    "id": "package-1234",
+    "schema_version": "5.0",
+    "malware_instances": [{
+        "id": "malware_instance-1",
+        "instance_object_idref": "object-1",
+        "analyses": [{
+            "id": "analysis-1",
+            "method": "static",
+            "type": "in-depth",
+            "findings": [{"capability_idrefs": ["capability-1"]}]
+        }]
+    }],
+    "capabilities": [{
+        "id": "capability-1",
+        "name": "spying",
+        "behavior_idref": "behavior-1"
+    }],
+    "behaviors": [{
+        "id": "behavior-1",
+        "name": "capture keyboard input",
+        "action_idref": "action-1"
+    }],
+    "actions": [{
+        "id": "action-1",
+        "name": "add windows hook",
+        "associated_object_reference": {
+            "object_idref": "object-2",
+            "association_type": "output"
+        }
+    }],
+    "objects": [
+        {
+            "id": "object-1",
+            "$ref": "REFERENCE PLACEHOLDER FOR WinExecutableFileObj:WindowsExecutableFileObjectType with size_in_byte=210564, MD5hash=B6C39FF68346DCC8B67AA060DEFE40C2"
+        },
+        {
+            "id": "object-2",
+            "$ref": "REFERENCE PLACEHOLDER FOR WinHookObj:WindowsHookObjectType with type=WH_KEYBOARD_LL"
+        }
+    ]
+}
