@@ -14,7 +14,7 @@
                     "description": "The Description field contains the basic textual description of the behavior."
                 },
                 "attribute": {
-                    "$ref": "Behavior.json#/definitions/AttributeType",
+                    "$ref": "#/definitions/AttributeType",
                     "description": "The attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field."
                 },
                 "action_reference": {
@@ -37,7 +37,7 @@
                     "description": "The required if field specifies a unique ID for this Behavior"
                 },
                 "status": {
-                    "$ref": "Behavior.json#/definitions/ActionStatusTypeEnum",
+                    "$ref": "Vocabs.json#/definitions/ActionStatusTypeEnum",
                     "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful."
                 },
                 "reference": {
@@ -58,7 +58,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The value field specifies the value of the attribute being captured. See the annotations for the enumerations in CommonAttributeEnum-1.0 for default vocabularies associated with these values."
+                    "description": "The value field specifies the value of the attribute being captured. See the annotations for the enumerations in CommonAttributeEnum for default vocabularies associated with these values."
                 }
             }
         },
@@ -69,19 +69,6 @@
                 "$ref": "MalwareAction.json#/definitions/ObjectReferenceType",
                 "description": "The Code_Snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."
             }}
-        },
-        "ActionStatusTypeEnum": {
-            "type": "string",
-            "description": "ActionStatusTypeEnum is a (non-exhaustive) enumeration of observable action status types.",
-            "enum": [
-                "success",
-                "failure",
-                "error",
-                "completed",
-                "pending",
-                "ongoing",
-                "unknown"
-            ]
         }
     }
 }

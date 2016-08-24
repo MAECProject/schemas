@@ -1,7 +1,15 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "ActionObjectAssociationTypeEnum-1.0": {
+        "ActionImplementationTypeEnum": {
+            "type": "string",
+            "description": "The ActionImplementationTypeEnum represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
+            "enum": [
+                "api call",
+                "code"
+            ]
+        },
+        "ActionObjectAssociationTypeEnum": {
             "type": "string",
             "description": "ActionObjectAssociationTypeEnum-1.0 is a (non-exhaustive) enumeration of types of action-object associations.",
             "enum": [
@@ -10,7 +18,37 @@
                 "side-effect"
             ]
         },
-        "BehaviorEnum-1.0": {
+        "ActionStatusTypeEnum": {
+            "type": "string",
+            "description": "ActionStatusTypeEnum is a (non-exhaustive) enumeration of observable action status types.",
+            "enum": [
+                "success",
+                "failure",
+                "error",
+                "completed",
+                "pending",
+                "ongoing",
+                "unknown"
+            ]
+        },
+        "AnalysisMethodEnum": {
+            "type": "string",
+            "description": "The AnalysisMethodEnum is an enumeration of malware analysis methods.",
+            "enum": [
+                "static",
+                "dynamic",
+                "combination"
+            ]
+        },
+        "AnalysisTypeEnum": {
+            "type": "string",
+            "description": "The AnalysisTypeEnum is an enumeration of types of malware analyses.",
+            "enum": [
+                "triage",
+                "in-depth"
+            ]
+        },
+        "BehaviorEnum": {
             "type": "string",
             "description": "BehaviorEnum-1.0 is an enumeration of Behaviors.",
             "enum": [
@@ -147,7 +185,7 @@
                 "write code into file"
             ]
         },
-        "CapabilityAttributeEnum-1.0": {
+        "CapabilityAttributeEnum": {
             "type": "string",
             "description": "CapabilityAttributeEnum-1.0 is an enumeration of Capability attributes.",
             "enum": [
@@ -173,7 +211,7 @@
                 "user privilege escalation type"
             ]
         },
-        "CapabilityEnum-1.0": {
+        "CapabilityEnum": {
             "type": "string",
             "description": "CapabilityEnum-1.0 is an enumeration of Capability names.",
             "enum": [
@@ -198,7 +236,35 @@
                 "spying"
             ]
         },
-        "CommonAttributeEnum-1.0": {
+        "CollectionAssociationTypeEnum": {
+            "type": "string",
+            "description": "The CollectionAssociationTypeEnum is a non-exhaustive enumeration of association types that can be captures as part of a collection.",
+            "enum": [
+                "file system entities",
+                "network entities",
+                "process entities",
+                "behaviors",
+                "capabilities",
+                "tools",
+                "process trees",
+                "various"
+            ]
+        },
+        "CollectionEntityTypeEnum": {
+            "type": "string",
+            "description": "The CollectionEntityTypeEnum is a non-exhaustive enumeration of entity types that can be captured as part of a collection.",
+            "enum": [
+                "malware subjects",
+                "actions",
+                "objects",
+                "behaviors",
+                "capabilities",
+                "tools",
+                "process trees",
+                "various"
+            ]
+        },
+        "CommonAttributeEnum": {
             "type": "string",
             "description": "The CommonAttributeEnum-1.0 is an enumeration of common attributes of Capabilities and Behaviors.",
             "enum": [
@@ -210,7 +276,18 @@
                 "vulnerability ID (OSVDB)"
             ]
         },
-        "EncryptionAlgorithmEnum-1.0": {
+        "ConfidenceMeasureEnum": {
+            "type": "string",
+            "description": "The ConfidenceMeasureEnum represents an enumeration of relative confidence measures, and aligns with the values in the HighMediumLow Vocabulary from STIX.",
+            "enum": [
+                "low",
+                "medium",
+                "high",
+                "none",
+                "unknown"
+            ]
+        },
+        "EncryptionAlgorithmEnum": {
             "type": "string",
             "description": "EncryptionAlgorithmEnum-1.0 is a non-exhaustive enumeration of encryption algorithms.",
             "enum": [
@@ -219,7 +296,7 @@
                 "rsa"
             ]
         },
-        "GeneralRelationshipTypeEnum-1.0": {
+        "GeneralRelationshipTypeEnum": {
             "type": "string",
             "description": "The GeneralRelationshipTypeEnum-1.0 is a non-exhaustive enumeration of relationships.",
             "enum": [
@@ -227,7 +304,7 @@
                 "has distance"
             ]
         },
-        "ImportanceTypeEnum-1.0": {
+        "ImportanceTypeEnum": {
             "type": "string",
             "description": "ImportanceTypeEnum-1.0 is a (non-exhaustive) enumeration of relative importance measures.",
             "enum": [
@@ -239,7 +316,7 @@
                 "unknown"
             ]
         },
-        "Layer7ProtocolEnum-1.0": {
+        "Layer7ProtocolEnum": {
             "type": "string",
             "description": "The Layer7ProtocolEnum-1.0 is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
             "enum": [
@@ -250,7 +327,7 @@
                 "smtp"
             ]
         },
-        "MalwareActionEnum-1.0": {
+        "MalwareActionEnum": {
             "type": "string",
             "description": "MalwareActionEnum-1.0 is an enumeration of Malware Actions.",
             "enum": [
@@ -467,7 +544,7 @@
                 "write to process memory"
             ]
         },
-        "MalwareConfigurationParameterEnum-1.0": {
+        "MalwareConfigurationParameterEnum": {
             "type": "string",
             "description": "MalwareConfigurationParameterEnum-1.0 is a non-exhaustive enumeration of malware configuration parameter names.",
             "enum": [
@@ -479,7 +556,7 @@
                 "installation patch"
             ]
         },
-        "MalwareDevelopmentToolEnum-1.0": {
+        "MalwareDevelopmentToolEnum": {
             "type": "string",
             "description": "MalwareDevelopmentToolEnum-1.0 is a non-exhaustive enumeration of tools used in the development of malware.",
             "enum": [
@@ -491,7 +568,7 @@
                 "protector"
             ]
         },
-        "MalwareEntityTypeEnum-1.0": {
+        "MalwareEntityTypeEnum": {
             "type": "string",
             "description": "MalwareEntityTypeEnum-1.0 is a (non-exhaustive) enumeration of the different types of entities that a malware indicator or signature may be written against.",
             "enum": [
@@ -500,7 +577,7 @@
                 "class"
             ]
         },
-        "MalwareLabelEnum-1.1": {
+        "MalwareLabelEnum": {
             "type": "string",
             "description": "MalwareLabelEnum-1.1 is a non-exhaustive enumeration of common malware labels.",
             "enum": [
@@ -554,7 +631,7 @@
                 "zip bomb"
             ]
         },
-        "MalwareSubjectRelationshipEnum-1.1": {
+        "MalwareSubjectRelationshipEnum": {
             "type": "string",
             "description": "MalwareSubjectRelationshipEnum-1.1 is a non-exhaustive enumeration of relationships between Malware Subjects.",
             "enum": [
@@ -582,7 +659,7 @@
                 "unpacked version of"
             ]
         },
-        "PlatformEnum-1.0": {
+        "PlatformEnum": {
             "type": "string",
             "description": "PlatformEnum-1.0 is a non-exhaustive enumeration of operting system platforms.",
             "emun": [
@@ -691,7 +768,7 @@
                 "windows xp"
             ]
         },
-        "RefinedCapabilityEnum-1.0": {
+        "RefinedCapabilityEnum": {
             "type": "string",
             "description": "RefinedCapabilityEnum-1.0 is an enumeration of refined Capability names.",
             "enum": [
@@ -746,7 +823,7 @@
                 "virtual entity destruction"
             ]
         },
-        "TechniqueEnum-1.0": {
+        "TechniqueEnum": {
             "type": "string",
             "description": "TechniqueEnum-1.0 is an enumeration of techniques associated with instances of Behaviors.",
             "enum": [

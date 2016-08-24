@@ -4,7 +4,7 @@
         "ProcessTreeType":{
             "type": "object",
             "description": "The ProcessTreeType captures the process tree for the malware instance, including the parent process and processes spawned by it, along with any Actions initiated by each.",
-            "properties": {"root_process": {"$ref": "ProcessTree.json#/definitions/ProcessTreeNodeType"}}
+            "properties": {"root_process": {"$ref": "#/definitions/ProcessTreeNodeType"}}
         },
         "ProcessTreeNodeType": {"allOf": [
             {"$ref": "REFERENCE PLACEHOLDER FOR ProcessObj:ProcessObjectType"},
@@ -17,11 +17,11 @@
                         "items": {"type": "string"}
                     },
                     "spawned_process":{
-                        "$ref": "ProcessTree.json#/definitions/ProcessTreeNodeType",
+                        "$ref": "#/definitions/ProcessTreeNodeType",
                         "description": "The Spawned_Process field captures a single child process spawned by this process."
                     },
                     "injected_process":{
-                        "$ref": "ProcessTree.json#/definitions/ProcessTreeNodeType",
+                        "$ref": "#/definitions/ProcessTreeNodeType",
                         "description": "The Injected_Process field captures a single process that was injected by this process."
                     },
                     "id":{

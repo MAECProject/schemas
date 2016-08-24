@@ -47,7 +47,7 @@
         },
         "maec-avclass": {
             "type": "array",
-            "items": {"$ref": "AVClassification.json#/definitions/AVClassificationType"}
+            "items": {"$ref": "#/definitions/AVClassificationType"}
         }
     }
 }
