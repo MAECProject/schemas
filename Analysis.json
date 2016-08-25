@@ -53,14 +53,15 @@
                     "items": {"$ref": "#/definitions/CommentType"},
                     "description": "The comments field specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
                 },
-                "findings": {
+                "finding_refs": {
                     "$ref": "#/definitions/FindingsType",
-                    "description": "The findings field specifies the findings of the analysis, via references to one or more other entities in the MAEC Package."
+                    "items": {"type": "string"},
+                    "description": "The finding_refs field specifies the findings of the analysis, via references to one or more other entities in the MAEC Package."
                 },
-                "tools": {
+                "tool_refs": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "The tools field captures a set of references to one or more Tools used in the analysis of a Malware Instance. Values MUST be references to Software Objects in the objects field at the top-level of the Package."
+                    "description": "The tool_refs field captures a set of references to one or more Tools used in the analysis of a Malware Instance. Values MUST be references to Software Objects in the objects field at the top-level of the Package."
                 },
                 "dynamic_analysis_metadata": {
                     "$ref": "#/definitions/DynamicAnalysisMetadataType",
@@ -130,25 +131,30 @@
             "type": "object",
             "description": "The FindingsType relates the findings of an analysis performed on a malware instance.",
             "properties": {
-                "objects_ref": {
+                "object_refs": {
                     "type": "array",
-                    "description": "The objects_ref references any CybOX Objects found as a result of the analysis."
+                    "items": {"type": "string"},
+                    "description": "The object_refs references any CybOX Objects found as a result of the analysis."
                 },
-                "behaviors_ref": {
+                "behavior_refs": {
                     "type": "array",
-                    "description": "The behaviors_ref references any Behaviors found as a result of the analysis."
+                    "items": {"type": "string"},
+                    "description": "The behavior_refs references any Behaviors found as a result of the analysis."
                 },
-                "actions_ref": {
+                "action_refs": {
                     "type": "array",
-                    "description": "The actions_ref references any Actions found as a result of the analysis."
+                    "items": {"type": "string"},
+                    "description": "The action_refs references any Actions found as a result of the analysis."
                 },
-                "capabilities_ref": {
+                "capability_refs": {
                     "type": "array",
-                    "description": "The capabilities_ref references any Capabilities found as a result of the analysis."
+                    "items": {"type": "string"},
+                    "description": "The capability_refs references any Capabilities found as a result of the analysis."
                 },
-                "process_trees_ref": {
+                "process_tree_refs": {
                     "type": "array",
-                    "description": "The process_trees_ref references any Process Trees found as a result of the analysis."
+                    "items": {"type": "string"},
+                    "description": "The process_tree_refs references any Process Trees found as a result of the analysis."
                 }
             }
         },

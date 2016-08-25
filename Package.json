@@ -46,7 +46,7 @@
             "collections": {
                 "type": "array",
                 "items": {"$ref": "Collection.json#/definitions/CollectionType"},
-                "description": "The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Subjects."
+                "description": "The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Instances."
             },
             "relationships": {
                 "type": "array",

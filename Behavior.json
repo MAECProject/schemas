@@ -5,13 +5,17 @@
             "type": "object",
             "description": "The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.",
             "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The required id field specifies a unique ID for this Behavior"
+                },
                 "name": {
                     "type": "string",
                     "description": "The required name field captures the name of the Behavior. The default vocabulary for this field is the BehaviorVocab from the MAEC Default Vocabularies schema"
                 },
                 "description": {
                     "type": "string",
-                    "description": "The Description field contains the basic textual description of the behavior."
+                    "description": "The description field contains the basic textual description of the behavior."
                 },
                 "attribute": {
                     "$ref": "#/definitions/AttributeType",
@@ -21,9 +25,9 @@
                     "type": "object",
                     "description": "The action_reference field specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field",
                     "properties": {
-                        "action_id": {
+                        "action_ref": {
                             "type": "string",
-                            "description": "The action_id field referes to the id of teh action being referenced"
+                            "description": "The action_ref field refers to the id of the action being referenced"
                         },
                         "behavioral_ordering": {
                             "type": "integer",
@@ -31,10 +35,6 @@
                             "description": "The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of \"1\" would come before an Action with a behavioral_ordering of \"2\", etc."
                         }
                     }
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The required if field specifies a unique ID for this Behavior"
                 },
                 "status": {
                     "$ref": "Vocabs.json#/definitions/ActionStatusTypeEnum",
@@ -50,7 +50,7 @@
         },
         "AttributeType": {
             "type": "object",
-            "description": "The Attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field.",
+            "description": "The AttributeType permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field.",
             "properties": {
                 "name": {
                     "type": "string",
