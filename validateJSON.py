@@ -20,7 +20,7 @@ HELP_OUTPUT = "validateJSON.py -d <json data file or directory name> -s <json sc
 			  "-d <json data directory> will attempt to validate every json file in directory against the schema \n\n" \
 			  "Notes: \n" \
 			  "(Supply absolute paths of parameters, if not in current directory) \n"  \
-			  "(If json schema is in multiple files, place referenced files in same directory as the supplied schema file path \n" 
+			  "(If json schema is in multiple files, place referenced files in same directory as the supplied schema file path) \n" 
 
 SCHEMA_DIR_ERROR_LOOP_CONT = "--> Since this a directory of schema files, will continue and try to merge the other schema files"
 
