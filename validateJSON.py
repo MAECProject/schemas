@@ -40,7 +40,6 @@ def generic_except(message):
 handle args passed from command line
 '''
 def handle_CL_param(main_args):
-
 	try:
 		opts, args = getopt.getopt(main_args,"d:hs:",["help", "data=","schema="])
 	except getopt.GetoptError as err:
@@ -66,7 +65,6 @@ def handle_CL_param(main_args):
 		elif opt in ("-h", "--help"):
 			print(HELP_OUTPUT)
 			sys.exit(1)
-
 	#print(param)
 	return param
 
@@ -83,7 +81,6 @@ def process_data_dir(data_fn, schema_fn):
 		if not process_json_data(data_fn, schema_fn):
 			status = False
 	return status
-
 
 
 '''
@@ -116,7 +113,6 @@ def process_json_data(data_fn,schema_fn):
 			return False
 
 	print("{} did successfully validate against the schema(s): {}".format(data_fn.split("/")[-1], schema_fn))
-
 	return True
 
 
@@ -134,7 +130,6 @@ def main(argv):
 	else:
 		process_json_data(param["json_data_fn"],param["json_schema_fn"])
 	return
-
 
 
 if __name__ =="__main__":
