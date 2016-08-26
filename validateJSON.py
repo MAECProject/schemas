@@ -13,7 +13,6 @@ import traceback
 
 '''TODO:
 	-Hardcoded to draft 4 json schemas
-
 '''
 
 HELP_OUTPUT = "validateJSON.py -d <json data file or directory name> -s <json schema file> \n\n " \
@@ -120,9 +119,8 @@ def process_json_data(data_fn,schema_fn):
 main
 '''
 def main(argv):
-	
+	#process args
 	param = handle_CL_param(argv)
-	#param = {"json_data_fn" : "/home/michael/Desktop/MAEC-JSONValidator/test_json_data.json", "json_schema_fn": "/home/michael/Desktop/MAEC-JSONValidator/Behavior.json", 'schema_dir': False ,}
 	
 	#Process a directory of json data files or a single json file
 	if param['data_dir']:
