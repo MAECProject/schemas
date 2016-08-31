@@ -10,11 +10,11 @@
                     "description": "The required id field specifies a unique ID for this Analysis."
                 },
                 "type": {
-                    "$ref": "Vocabs.json#/definitions/AnalysisTypeEnum",
+                    "$ref": "Vocabs.json#/definitions/analysis-ov",
                     "description": "The type field specifies the type of malware analysis being performed."
                 },
                 "method": {
-                    "$ref": "Vocabs.json#/definitions/AnalysisMethodEnum",
+                    "$ref": "Vocabs.json#/definitions/analysis-method-ov",
                     "description": "The method field specifies the analysis method used in the analysis."
                 },
                 "ordinal_position": {

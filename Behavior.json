@@ -37,7 +37,7 @@
                     }
                 },
                 "status": {
-                    "$ref": "Vocabs.json#/definitions/ActionStatusTypeEnum",
+                    "$ref": "Vocabs.json#/definitions/action-status-ov",
                     "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful."
                 },
                 "reference": {

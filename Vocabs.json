@@ -1,26 +1,26 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "ActionImplementationTypeEnum": {
+        "action-implementation-ov": {
             "type": "string",
-            "description": "The ActionImplementationTypeEnum represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
+            "description": "action-implementation-ov represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
             "enum": [
                 "api call",
                 "code"
             ]
         },
-        "ActionObjectAssociationTypeEnum": {
+        "action-object-association-cv": {
             "type": "string",
-            "description": "ActionObjectAssociationTypeEnum-1.0 is a (non-exhaustive) enumeration of types of action-object associations.",
+            "description": "action-object-association-cv is a (non-exhaustive, closed) enumeration of types of action-object associations.",
             "enum": [
                 "input",
                 "output",
                 "side-effect"
             ]
         },
-        "ActionStatusTypeEnum": {
+        "action-status-ov": {
             "type": "string",
-            "description": "ActionStatusTypeEnum is a (non-exhaustive) enumeration of observable action status types.",
+            "description": "action-status-ov is a (non-exhaustive) enumeration of observable action status types.",
             "enum": [
                 "success",
                 "failure",
@@ -31,26 +31,26 @@
                 "unknown"
             ]
         },
-        "AnalysisMethodEnum": {
+        "analysis-method-ov": {
             "type": "string",
-            "description": "The AnalysisMethodEnum is an enumeration of malware analysis methods.",
+            "description": "analysis-method-ov is an enumeration of malware analysis methods.",
             "enum": [
                 "static",
                 "dynamic",
                 "combination"
             ]
         },
-        "AnalysisTypeEnum": {
+        "analysis-ov": {
             "type": "string",
-            "description": "The AnalysisTypeEnum is an enumeration of types of malware analyses.",
+            "description": "analysis-ov is an enumeration of types of malware analyses.",
             "enum": [
                 "triage",
                 "in-depth"
             ]
         },
-        "BehaviorEnum": {
+        "behavior-ov": {
             "type": "string",
-            "description": "BehaviorEnum-1.0 is an enumeration of Behaviors.",
+            "description": "behavior-ov is an enumeration of Behaviors.",
             "enum": [
                 "access premium service",
                 "autonomous remote infection",
@@ -185,9 +185,9 @@
                 "write code into file"
             ]
         },
-        "CapabilityAttributeEnum": {
+        "capability-attribute-ov": {
             "type": "string",
-            "description": "CapabilityAttributeEnum-1.0 is an enumeration of Capability attributes.",
+            "description": "capability-attribute-ov is an enumeration of Capability attributes.",
             "enum": [
                 "archive type",
                 "autonomy",
@@ -211,9 +211,9 @@
                 "user privilege escalation type"
             ]
         },
-        "CapabilityEnum": {
+        "capability-ov": {
             "type": "string",
-            "description": "CapabilityEnum-1.0 is an enumeration of Capability names.",
+            "description": "capability-ov is an enumeration of Capability names.",
             "enum": [
                 "anti-behavioral analysis",
                 "anti-code analysis",
@@ -236,9 +236,9 @@
                 "spying"
             ]
         },
-        "CollectionAssociationTypeEnum": {
+        "collection-association-ov": {
             "type": "string",
-            "description": "The CollectionAssociationTypeEnum is a non-exhaustive enumeration of association types that can be captures as part of a collection.",
+            "description": "collection-association-ov is a non-exhaustive enumeration of association types that can be captures as part of a collection.",
             "enum": [
                 "file system entities",
                 "network entities",
@@ -250,9 +250,9 @@
                 "various"
             ]
         },
-        "CollectionEntityTypeEnum": {
+        "collection-entity-ov": {
             "type": "string",
-            "description": "The CollectionEntityTypeEnum is a non-exhaustive enumeration of entity types that can be captured as part of a collection.",
+            "description": "collection-entity-ov is a non-exhaustive enumeration of entity types that can be captured as part of a collection.",
             "enum": [
                 "malware subjects",
                 "actions",
@@ -264,9 +264,9 @@
                 "various"
             ]
         },
-        "CommonAttributeEnum": {
+        "common-attribute-ov": {
             "type": "string",
-            "description": "The CommonAttributeEnum-1.0 is an enumeration of common attributes of Capabilities and Behaviors.",
+            "description": "common-attribute-ov is an enumeration of common attributes of Capabilities and Behaviors.",
             "enum": [
                 "applicable platform",
                 "encryption algorithm",
@@ -276,9 +276,9 @@
                 "vulnerability ID (OSVDB)"
             ]
         },
-        "ConfidenceMeasureEnum": {
+        "confidence-measure-ov": {
             "type": "string",
-            "description": "The ConfidenceMeasureEnum represents an enumeration of relative confidence measures, and aligns with the values in the HighMediumLow Vocabulary from STIX.",
+            "description": "confidence-measure-ov is an enumeration of relative confidence measures, and aligns with the values in the HighMediumLow Vocabulary from STIX.",
             "enum": [
                 "low",
                 "medium",
@@ -287,26 +287,26 @@
                 "unknown"
             ]
         },
-        "EncryptionAlgorithmEnum": {
+        "encryption-algorithm-ov": {
             "type": "string",
-            "description": "EncryptionAlgorithmEnum-1.0 is a non-exhaustive enumeration of encryption algorithms.",
+            "description": "encryption-algorithm-ov is a non-exhaustive enumeration of encryption algorithms.",
             "enum": [
                 "aes256",
                 "rc4",
                 "rsa"
             ]
         },
-        "GeneralRelationshipTypeEnum": {
+        "general-relationship-ov": {
             "type": "string",
-            "description": "The GeneralRelationshipTypeEnum-1.0 is a non-exhaustive enumeration of relationships.",
+            "description": "general-relationship-ov is a non-exhaustive enumeration of relationships.",
             "enum": [
                 "equivalent",
                 "has distance"
             ]
         },
-        "ImportanceTypeEnum": {
+        "importance-ov": {
             "type": "string",
-            "description": "ImportanceTypeEnum-1.0 is a (non-exhaustive) enumeration of relative importance measures.",
+            "description": "importance-ov is a (non-exhaustive) enumeration of relative importance measures.",
             "enum": [
                 "high",
                 "medium",
@@ -316,9 +316,9 @@
                 "unknown"
             ]
         },
-        "Layer7ProtocolEnum": {
+        "layer7-protocol-ov": {
             "type": "string",
-            "description": "The Layer7ProtocolEnum-1.0 is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
+            "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
             "enum": [
                 "ftp",
                 "http",
@@ -327,9 +327,9 @@
                 "smtp"
             ]
         },
-        "MalwareActionEnum": {
+        "malware-action-ov": {
             "type": "string",
-            "description": "MalwareActionEnum-1.0 is an enumeration of Malware Actions.",
+            "description": "malware-action-ov is an enumeration of Malware Actions.",
             "enum": [
                 "accept socket connection",
                 "add connection to network share",
@@ -544,9 +544,9 @@
                 "write to process memory"
             ]
         },
-        "MalwareConfigurationParameterEnum": {
+        "malware-configuration-parameter-ov": {
             "type": "string",
-            "description": "MalwareConfigurationParameterEnum-1.0 is a non-exhaustive enumeration of malware configuration parameter names.",
+            "description": "malware-configuration-parameter-ov is a non-exhaustive enumeration of malware configuration parameter names.",
             "enum": [
                 "magic number",
                 "id",
@@ -556,9 +556,9 @@
                 "installation patch"
             ]
         },
-        "MalwareDevelopmentToolEnum": {
+        "malware-development-tool-ov": {
             "type": "string",
-            "description": "MalwareDevelopmentToolEnum-1.0 is a non-exhaustive enumeration of tools used in the development of malware.",
+            "description": "malware-development-tool-ov is a non-exhaustive enumeration of tools used in the development of malware.",
             "enum": [
                 "builder",
                 "compiler",
@@ -568,18 +568,18 @@
                 "protector"
             ]
         },
-        "MalwareEntityTypeEnum": {
+        "malware-entity-ov": {
             "type": "string",
-            "description": "MalwareEntityTypeEnum-1.0 is a (non-exhaustive) enumeration of the different types of entities that a malware indicator or signature may be written against.",
+            "description": "malware-entity-ov is a (non-exhaustive) enumeration of the different types of entities that a malware indicator or signature may be written against.",
             "enum": [
                 "instance",
                 "family",
                 "class"
             ]
         },
-        "MalwareLabelEnum": {
+        "malware-label-ov": {
             "type": "string",
-            "description": "MalwareLabelEnum-1.1 is a non-exhaustive enumeration of common malware labels.",
+            "description": "malware-label-ov is a non-exhaustive enumeration of common malware labels.",
             "enum": [
                 "adware",
                 "appender",
@@ -631,9 +631,9 @@
                 "zip bomb"
             ]
         },
-        "MalwareSubjectRelationshipEnum": {
+        "malware-subject-relationship-ov": {
             "type": "string",
-            "description": "MalwareSubjectRelationshipEnum-1.1 is a non-exhaustive enumeration of relationships between Malware Subjects.",
+            "description": "malware-subject-relationship-ov is a non-exhaustive enumeration of relationships between Malware Subjects.",
             "enum": [
                 "32-bit version of",
                 "64-bit version of",
@@ -659,9 +659,9 @@
                 "unpacked version of"
             ]
         },
-        "PlatformEnum": {
+        "platform-ov": {
             "type": "string",
-            "description": "PlatformEnum-1.0 is a non-exhaustive enumeration of operting system platforms.",
+            "description": "platform-ov is a non-exhaustive enumeration of operting system platforms.",
             "emun": [
                 "android 1.0.x",
                 "android 1.1.x",
@@ -768,9 +768,9 @@
                 "windows xp"
             ]
         },
-        "RefinedCapabilityEnum": {
+        "refined-capability-ov": {
             "type": "string",
-            "description": "RefinedCapabilityEnum-1.0 is an enumeration of refined Capability names.",
+            "description": "refined-capability-ov is an enumeration of refined Capability names.",
             "enum": [
                 "access control degradation",
                 "anti-debugging",
@@ -823,9 +823,9 @@
                 "virtual entity destruction"
             ]
         },
-        "TechniqueEnum": {
+        "technique-ov": {
             "type": "string",
-            "description": "TechniqueEnum-1.0 is an enumeration of techniques associated with instances of Behaviors.",
+            "description": "technique-ov is an enumeration of techniques associated with instances of Behaviors.",
             "enum": [
                 "api call checking",
                 "bios manipulation",

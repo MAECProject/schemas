@@ -23,7 +23,7 @@
                     "description": "The timestamp field specifies a timestamp that states when the relationship was created."
                 },
                 "type": {
-                    "$ref": "Vocabs.json#/definitions/MalwareSubjectRelationshipEnum",
+                    "$ref": "Vocabs.json#/definitions/malware-subject-relationship-ov",
                     "description": "The Type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary when used with the xsi:type extension mechanism. The possible vocabularies for use with this field are the MalwareSubjectRelationshipTypeVocab, CapabilityObjectiveRelationshipTypeVocab, and GeneralRelationshipTypeVocab."
                 },
                 "additional_metadata": {
