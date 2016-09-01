@@ -8,7 +8,7 @@
             "id": "analysis--3e2a98a5-5cd9-4bbe-a28f-58840a5d87de",
             "method": "static",
             "type": "in-depth",
-            "findings": [{"capability_idrefs": ["capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8"]}]
+            "findings": [{"capability_refs": ["capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8"]}]
         }]
     }],
     "capabilities": [{
@@ -19,15 +19,15 @@
     "behaviors": [{
         "id": "behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31",
         "name": "capture keyboard input",
-        "action_reference": {"action_ref": "action-2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"}
+        "action_references": [{"action_ref": "action-2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"}]
     }],
     "actions": [{
         "id": "action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5",
         "name": "add windows hook",
-        "associated_object_reference": {
+        "object_references": [{
             "object_ref": "object-50350ce9-cf24-454e-82ca-b09be9cb8b0a",
             "association_type": "output"
-        }
+        }]
     }],
     "objects": [
         {
