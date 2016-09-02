@@ -4,17 +4,24 @@
     "malware_instances": [{
         "id": "malware_instance--19863c16-503e-493f-8841-16c68e39c26e",
         "instance_object_ref": "object-763be4d7-44e4-49d1-949c-87dcb70f0b19",
-        "labels": ["mass-mailer", "worm"]
+        "labels": [
+            "mass-mailer",
+            "worm"
+        ]
     }],
     "capabilities": [{
         "id": "capability-8f43a788-f2bd-4a69-b0a1-0cdbefde7006",
         "name": "persistence",
-        "refined_capabilities": [{ "id":"refined-capability--f7b85c97-06a6-4e6b-b513-67e81564e581", "name": "continuous execution", "behavior_ref": "behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817"}]
+        "refined_capabilities": [{
+            "id": "refined-capability--f7b85c97-06a6-4e6b-b513-67e81564e581",
+            "name": "continuous execution",
+            "behavior_ref": "behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817"
+        }]
     }],
     "behaviors": [{
         "id": "behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817",
         "name": "persist after system reboot",
-        "description":"System reboot persistence via registry startup",
+        "description": "System reboot persistence via registry startup",
         "action_references": [{"action_ref": "action-1"}]
     }],
     "actions": [{
