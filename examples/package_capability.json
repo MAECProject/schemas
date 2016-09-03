@@ -22,10 +22,10 @@
         "id": "behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817",
         "name": "persist after system reboot",
         "description": "System reboot persistence via registry startup",
-        "action_references": [{"action_ref": "action-1"}]
+        "action_references": [{"action_ref": "action-2aa73fd6-f440-4219-8d32-6929c47f0745"}]
     }],
     "actions": [{
-        "id": "action-1",
+        "id": "action-2aa73fd6-f440-4219-8d32-6929c47f0745",
         "name": "create registry key value",
         "associated_object_references": [{
             "object_ref": "object-99f5767b-9489-43e4-b583-9872c4797030",
