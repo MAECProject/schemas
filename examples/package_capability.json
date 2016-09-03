@@ -27,7 +27,7 @@
     "actions": [{
         "id": "action-2aa73fd6-f440-4219-8d32-6929c47f0745",
         "name": "create registry key value",
-        "associated_object_references": [{
+        "object_references": [{
             "object_ref": "object-99f5767b-9489-43e4-b583-9872c4797030",
             "association_type": "output"
         }]
