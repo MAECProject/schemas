@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "action-implementation-ov": {
+        "action-implementation-cv": {
             "type": "string",
             "description": "action-implementation-ov represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
             "enum": [
@@ -9,13 +9,22 @@
                 "code"
             ]
         },
-        "action-object-association-cv": {
+        "action-object-association-ov": {
             "type": "string",
             "description": "action-object-association-cv is a (non-exhaustive, closed) enumeration of types of action-object associations.",
             "enum": [
                 "input",
                 "output",
                 "side-effect"
+            ]
+        },
+        "analysis-method-cv": {
+            "type": "string",
+            "description": "analysis-methos-cv is an enumeration of malware analysis methods",
+            "enum": [
+                "static",
+                "dynamic",
+                "combination"
             ]
         },
         "action-status-ov": {
@@ -31,13 +40,12 @@
                 "unknown"
             ]
         },
-        "analysis-method-ov": {
+        "analysis-type-cv": {
             "type": "string",
-            "description": "analysis-method-ov is an enumeration of malware analysis methods.",
+            "description": "The analysis-type-cv is an enumeration of types of malware analyses.",
             "enum": [
-                "static",
-                "dynamic",
-                "combination"
+                "triage",
+                "in-depth"
             ]
         },
         "analysis-ov": {
@@ -236,21 +244,27 @@
                 "spying"
             ]
         },
-        "collection-association-ov": {
+        "collection-association-cv": {
             "type": "string",
             "description": "collection-association-ov is a non-exhaustive enumeration of association types that can be captures as part of a collection.",
             "enum": [
                 "file system entities",
                 "network entities",
                 "process entities",
-                "behaviors",
-                "capabilities",
-                "tools",
-                "process trees",
-                "various"
+                "memory entities",
+                "ipc entities",
+                "device entities",
+                "registry entities",
+                "service entities",
+                "potential indicators",
+                "same malware family",
+                "clustered together",
+                "observed together",
+                "part of intrusion set",
+                "same malware toolkit"
             ]
         },
-        "collection-entity-ov": {
+        "collection-entity-cv": {
             "type": "string",
             "description": "collection-entity-ov is a non-exhaustive enumeration of entity types that can be captured as part of a collection.",
             "enum": [
@@ -276,7 +290,7 @@
                 "vulnerability ID (OSVDB)"
             ]
         },
-        "confidence-measure-ov": {
+        "confidence-measure-cv": {
             "type": "string",
             "description": "confidence-measure-ov is an enumeration of relative confidence measures, and aligns with the values in the HighMediumLow Vocabulary from STIX.",
             "enum": [
@@ -316,7 +330,26 @@
                 "unknown"
             ]
         },
-        "layer7-protocol-ov": {
+        "interaction-level-cv": {
+            "type": "string",
+            "description": "interaction-level-cv is a non-exhaustive enumeration of interaction levels for network protocols in a malware analysis environment.",
+            "enum": [
+                "high",
+                "low",
+                "honeytrap",
+                "live",
+                "none"
+            ]
+        },
+        "layer4-protocol-cv": {
+            "type": "string",
+            "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
+            "enum": [
+                "tcp",
+                "udp"
+            ]
+        },
+        "layer7-protocol-cv": {
             "type": "string",
             "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
             "enum": [
