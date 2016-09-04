@@ -27,9 +27,9 @@
                 "combination"
             ]
         },
-        "action-status-ov": {
+        "action-status-cv": {
             "type": "string",
-            "description": "action-status-ov is a (non-exhaustive) enumeration of observable action status types.",
+            "description": "action-status-cv is a (non-exhaustive) enumeration of observable action status types.",
             "enum": [
                 "success",
                 "failure",
