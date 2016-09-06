@@ -1,63 +1,66 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-    	"RelationshipType":{
-    		"type":"object",
-    		"definition":"The RelationshipType captures relationships between two entities in the MAEC document.",
-    		"properties":{
-    			"type":{
-    				"$ref":"Vocabs.json#/definitions/MalwareSubjectRelationshipEnum",
-    				"description": "The Type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary when used with the xsi:type extension mechanism. The possible vocabularies for use with this field are the MalwareSubjectRelationshipTypeVocab, CapabilityObjectiveRelationshipTypeVocab, and GeneralRelationshipTypeVocab."
-    			},
-    			"additional_metadata":{
-    				"type":"object",
-    				"description": "The Additional_Metadata field captures any additional metadata that may associated with the Relationship.",
-    				"oneOf":[
-    					{"$ref": "#/definitions/RelationshipDistanceMetadataType"}
-    				]
-    			},
-    			"supporting_reference":{
-    				"type": "string",
-    				"description": "The Supporting_Reference field references an entity in the MAEC document (e.g., Action or Object) that may support the Relationship."
-    			},
-    			"id":{
-    				"type":"string",
-    				"description": "The id field specifies a unique identifier for the relationship."
-    			},
-    			"source_id":{
-    				"type":"string",
-    				"description": "The required source_id field specifies a reference to the ID of the entity in the MAEC document that corresponds to the source in the (source-&gt;target) relationship."
-    			},
-    			"target_id":{
-    				"type":"string",
-    				"description": "The required target_id field specifies a reference to the ID of the entity in the MAEC document that corresponds to the target in the (source-&gt;target) relationship."
-    			},
-    			"timestamp":{
-    				"type":"string",
-    				"format":"date-time",
-    				"description": "The timestamp field specifies a timestamp that states when the relationship was created."
-    			}
-    		},
-    		"required":["source_id","target_id"]
-    	},
-	    "RelationshipDistanceMetadataType":{
-	    	"type":"object",
-	    	"description": "Captures information associated with a distance metric between the source and target in the relationship.",
-	    	"properties":{
-	    		"distance_score": {
-	    			"type":"number", 
-	    			"description": "The required distance_score field captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., \"0.62\"."
-	    		},
-	    		"algorithm_name":{
-	    			"type":"string",
-	    			"description": "The algorithm_name field captures the name of the algorithm used in calculating the distance score specified in the Distance_Score field."
-	    		},
-	    		"algorithm_version":{
-	    			"type":"string",
-	    			"description":"The algorithm_version field captures the version of the algorithm used in calculating the distance score specified in the Distance_Score field."
-	    		}
-	    	},
-	    	"required":["distance_score"]
-	    }
-	}
- }
+        "RelationshipType": {
+            "type": "object",
+            "definition": "The RelationshipType captures relationships between two entities in the MAEC document.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The id field specifies a unique identifier for the relationship."
+                },
+                "source_ref": {
+                    "type": "string",
+                    "description": "The required source_ref field specifies a reference to the ID of the entity in the MAEC document that corresponds to the source in the (source-&gt;target) relationship."
+                },
+                "target_ref": {
+                    "type": "string",
+                    "description": "The required target_ref field specifies a reference to the ID of the entity in the MAEC document that corresponds to the target in the (source-&gt;target) relationship."
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The timestamp field specifies a timestamp that states when the relationship was created."
+                },
+                "type": {
+                    "$ref": "string",
+                    "description": "The Type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary. The possible vocabularies for use with this field are malware-subject-relationship-ov and general-relationship-ov."
+                },
+                "additional_metadata": {
+                    "type": "object",
+                    "description": "The Additional_Metadata field captures any additional metadata that may associated with the Relationship.",
+                    "oneOf": [{"$ref": "#/definitions/RelationshipDistanceMetadataType"}]
+                },
+                "supporting_data_refs": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "The supporting_data_refs field references an entity in the MAEC document (e.g., Action or Object) that may support the Relationship."
+                }
+            },
+            "required": [
+                "source_ref",
+                "target_ref",
+                "type"
+            ]
+        },
+        "RelationshipDistanceMetadataType": {
+            "type": "object",
+            "description": "Captures information associated with a distance metric between the source and target in the relationship.",
+            "properties": {
+                "distance_score": {
+                    "type": "number",
+                    "description": "The required distance_score field captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., \"0.62\"."
+                },
+                "algorithm_name": {
+                    "type": "string",
+                    "description": "The algorithm_name field captures the name of the algorithm used in calculating the distance score specified in the Distance_Score field."
+                },
+                "algorithm_version": {
+                    "type": "string",
+                    "description": "The algorithm_version field captures the version of the algorithm used in calculating the distance score specified in the Distance_Score field."
+                }
+            },
+            "required": ["distance_score"]
+        }
+    }
+}

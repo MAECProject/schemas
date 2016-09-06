@@ -17,27 +17,18 @@
                     "type": "string",
                     "description": "The description field contains the basic textual description of the behavior."
                 },
-                "attribute": {
-                    "$ref": "#/definitions/AttributeType",
+                "attributes": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AttributeType"},
                     "description": "The attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field."
                 },
-                "action_reference": {
-                    "type": "object",
-                    "description": "The action_reference field specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field",
-                    "properties": {
-                        "action_ref": {
-                            "type": "string",
-                            "description": "The action_ref field refers to the id of the action being referenced"
-                        },
-                        "behavioral_ordering": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "description": "The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of \"1\" would come before an Action with a behavioral_ordering of \"2\", etc."
-                        }
-                    }
+                "action_references": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/BehaviorActionReferenceType"},
+                    "description": "An action_reference specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field"
                 },
                 "status": {
-                    "$ref": "Vocabs.json#/definitions/ActionStatusTypeEnum",
+                    "$ref": "Vocabs.json#/definitions/action-status-ov",
                     "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful."
                 },
                 "reference": {
@@ -47,6 +38,22 @@
                 }
             },
             "required": ["id"]
+        },
+        "BehaviorActionReferenceType": {
+            "type": "object",
+            "description": "The BehaviorActionReferenceType specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field",
+            "properties": {
+                "action_ref": {
+                    "type": "string",
+                    "description": "The action_ref field refers to the id of the action being referenced"
+                },
+                "behavioral_ordering": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of \"1\" would come before an Action with a behavioral_ordering of \"2\", etc."
+                }
+            },
+            "required": ["action_ref"]
         },
         "AttributeType": {
             "type": "object",

@@ -10,11 +10,11 @@
                     "description": "The required id field specifies a unique ID for this Analysis."
                 },
                 "type": {
-                    "$ref": "Vocabs.json#/definitions/AnalysisTypeEnum",
+                    "$ref": "Vocabs.json#/definitions/analysis-ov",
                     "description": "The type field specifies the type of malware analysis being performed."
                 },
                 "method": {
-                    "$ref": "Vocabs.json#/definitions/AnalysisMethodEnum",
+                    "$ref": "Vocabs.json#/definitions/analysis-method-ov",
                     "description": "The method field specifies the analysis method used in the analysis."
                 },
                 "ordinal_position": {
@@ -54,8 +54,8 @@
                     "description": "The comments field specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
                 },
                 "findings": {
-                    "items": {"$ref":"#/definitions/FindingsType"},
-                    "description": "The finding_refs field specifies the findings of the analysis, via references to one or more other entities in the MAEC Package."
+                    "$ref": "#/definitions/FindingsType",
+                    "description": "The findings field specifies the findings of the analysis, via a collection of references to one or more other entities in the MAEC Package."
                 },
                 "tool_refs": {
                     "type": "array",

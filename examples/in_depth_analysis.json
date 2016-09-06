@@ -1,41 +1,41 @@
 {
-    "id": "package-1234",
+    "id": "package-f63bb5f0-4173-4e72-8ceb-a316fbd3206b",
     "schema_version": "5.0",
     "malware_instances": [{
-        "id": "malware_instance-1",
-        "instance_object_ref": "object-1",
+        "id": "malware_instance--b965814d-0c2e-4e01-b8a5-d8c32bb038e6",
+        "instance_object_ref": "object--e64f85c7-9a1a-4427-907a-1fc7353fa064",
         "analyses": [{
-            "id": "analysis-1",
+            "id": "analysis--3e2a98a5-5cd9-4bbe-a28f-58840a5d87de",
             "method": "static",
             "type": "in-depth",
-            "findings": [{"capability_idrefs": ["capability-1"]}]
+            "findings": [{"capability_refs": ["capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8"]}]
         }]
     }],
     "capabilities": [{
-        "id": "capability-1",
+        "id": "capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8",
         "name": "spying",
-        "behavior_ref": "behavior-1"
+        "behavior_ref": "behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31"
     }],
     "behaviors": [{
-        "id": "behavior-1",
+        "id": "behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31",
         "name": "capture keyboard input",
-        "action_reference": {"action_ref": "action-1"}
+        "action_references": [{"action_ref": "action-2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"}]
     }],
     "actions": [{
-        "id": "action-1",
+        "id": "action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5",
         "name": "add windows hook",
-        "associated_object_reference": {
-            "object_ref": "object-2",
+        "object_references": [{
+            "object_ref": "object-50350ce9-cf24-454e-82ca-b09be9cb8b0a",
             "association_type": "output"
-        }
+        }]
     }],
     "objects": [
         {
-            "id": "object-1",
+            "id": "object--e64f85c7-9a1a-4427-907a-1fc7353fa064",
             "$ref": "REFERENCE PLACEHOLDER FOR WinExecutableFileObj:WindowsExecutableFileObjectType with size_in_byte=210564, MD5hash=B6C39FF68346DCC8B67AA060DEFE40C2"
         },
         {
-            "id": "object-2",
+            "id": "object--50350ce9-cf24-454e-82ca-b09be9cb8b0a",
             "$ref": "REFERENCE PLACEHOLDER FOR WinHookObj:WindowsHookObjectType with type=WH_KEYBOARD_LL"
         }
     ]
