@@ -53,9 +53,8 @@
                     "items": {"$ref": "#/definitions/CommentType"},
                     "description": "The comments field specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
                 },
-                "finding_refs": {
-                    "$ref": "#/definitions/FindingsType",
-                    "items": {"type": "string"},
+                "findings": {
+                    "items": {"$ref":"#/definitions/FindingsType"},
                     "description": "The finding_refs field specifies the findings of the analysis, via references to one or more other entities in the MAEC Package."
                 },
                 "tool_refs": {

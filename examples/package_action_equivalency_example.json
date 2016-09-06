@@ -1,0 +1,165 @@
+{
+	"id":"maec-example-pkg-1",
+	"schema_version":"5.0",
+	"malware_instances":[
+		{
+			"id":"maec-example-sub-1",
+			"instance_object_ref":"maec-sub-obj-1",
+			"labels":[
+				"dropper file"
+			],
+			"analyses":[
+				{
+					"id":"maec_example-ana-1",
+					"method":"dynamic",
+					"type":"triage",
+					"summary":"Dynamic (behavorial) triage of the subject binary",
+					"findings":{
+						"action_refs":[
+							"maec-anubis_to_maec-act-1"
+						]
+					},
+					"tool_refs":[
+						"analysis-tool-1"
+					]
+				},
+				{
+					"id":"maec-example-ana-2",
+					"method":"dynamic",
+					"type":"triage",
+					"summary":"Dynamic (behavorial) and tool-based triage of the subject binary",
+					"findings":{
+						"action_refs":[
+							"maec-threatexpert_to_maec-act-1"
+						]
+					},
+					"tool_refs":[
+						"analysis-tool-2"
+					]
+				},
+				{
+					"id":"maec-example-ana-3",
+					"method":"static",
+					"type":"in-depth",
+					"summary":"Manual analysis of the subject binary",
+					"findings":{
+						"capability_refs":[
+							"maec-example-cpb-1"
+						],
+						"behavior_refs":[
+							"maec-example-bhv-1"
+						]
+					}
+				}
+			]
+		}
+	],
+	"capabilities":[
+		{
+			"id":"maec-example-cpb-1",
+			"name":"persistence",
+			"refined_capabilities":[
+				{
+					"name":"continuous execution"
+				}
+			],
+			"attributes":[
+				{
+					"name":"persistence scope",
+					"value":"self"
+				}
+			],
+			"behavior_refs":[
+				"maec-example-bhv-1"
+			]
+		}
+	],
+	"behaviors":[
+		{
+			"id":"maec-example-bhv-1",
+			"name":"persist after system reboot",
+			"description":"A persistence after reboot behavior using the Windows startup folder",
+			"action_references":[
+				{
+					"action_ref":"maec-anubis_to_maec-act-1"
+				},
+				{
+					"action_ref":"maec-threatexpert_to_maec-act-1"
+				}
+			]
+		}
+	],
+	"actions": [
+		{
+			"action_status":"success",
+			"id":"maec-anubis_to_maec-act-1",
+			"name":"create file",
+			"object_references":[
+				{
+					"object_ref":"maec-anubis_to_maec-obj-2",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"action_status":"success",
+			"id":"maec-threatexpert_to_maec-act-1",
+			"name":"create file",
+			"object_references":[
+				{
+					"object_ref":"maec-threatexpert_to_maec-obj-3",
+					"association_type":"output"
+				}
+			]
+		}
+	],
+	"objects":[
+		{
+			"id":"maec-sub-obj-1",
+			"properties":{
+				"type":"WinExecFileObj:WindowsExecutableFileObjectType",
+				"file_name":"2ed2386bfb.exe",
+				"file_path":"C:\\2ed2386bfb.exe",
+				"size_in_bytes": 379077,
+				"hashes":[
+					{
+						"type":"MD5",
+						"simple_hash_value": "2ed2386fbd31a1104e402a0c97c1aa6" 
+					},
+					{
+						"type":"SHA1",
+						"simple_hash_value":"611a0dae515ea4606c1e3b76814af902ed5f349"
+					}
+				]
+			}
+		},
+		{
+			"id":"maec-anubis_to_maec-obj-2",
+			"properties":{
+				"type":"WinExecFileObj:WindowsExecutableFileObjectType",
+				"file_name":"taskmgrsx.exe",
+				"file_path":"C:\\Documents and Settings\\Administrator\\Start Menu\\Programs\\Startup"
+			}
+		},
+		{
+			"id":"maec-threatexpert_to_maec-obj-3",
+			"properties":{
+				"type":"WinExecFileObj:WindowsExecutableFileObjectType",
+				"file_name":"taskmgrsx.exe",
+				"file_path":"%Programs%\\Startup\\"
+			}
+		}
+	],
+	"tools":[
+		{"THERE IS NO tools array in the new package schema..."}
+	],
+	"relationships":[
+		{
+			"source_ref":"maec-anubis_to_maec-act-1",
+			"target_ref":"maec-threatexpert_to_maec-act-1",
+			"type":"equivalent"
+		}
+
+	]
+
+}
