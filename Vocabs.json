@@ -3,7 +3,7 @@
     "definitions": {
         "action-implementation-cv": {
             "type": "string",
-            "description": "action-implementation-ov represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
+            "description": "action-implementation-cv represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
             "enum": [
                 "api call",
                 "code"
@@ -11,7 +11,7 @@
         },
         "action-object-association-ov": {
             "type": "string",
-            "description": "action-object-association-cv is a (non-exhaustive, closed) enumeration of types of action-object associations.",
+            "description": "action-object-association-ov is a (non-exhaustive, closed) enumeration of types of action-object associations.",
             "enum": [
                 "input",
                 "output",
@@ -27,30 +27,9 @@
                 "combination"
             ]
         },
-        "action-status-cv": {
-            "type": "string",
-            "description": "action-status-cv is a (non-exhaustive) enumeration of observable action status types.",
-            "enum": [
-                "success",
-                "failure",
-                "error",
-                "completed",
-                "pending",
-                "ongoing",
-                "unknown"
-            ]
-        },
         "analysis-type-cv": {
             "type": "string",
             "description": "The analysis-type-cv is an enumeration of types of malware analyses.",
-            "enum": [
-                "triage",
-                "in-depth"
-            ]
-        },
-        "analysis-ov": {
-            "type": "string",
-            "description": "analysis-ov is an enumeration of types of malware analyses.",
             "enum": [
                 "triage",
                 "in-depth"
@@ -308,6 +287,19 @@
                 "aes256",
                 "rc4",
                 "rsa"
+            ]
+        },
+        "execution-status-ov": {
+            "type": "string",
+            "description": "action-status-cv is a (non-exhaustive) enumeration of observable action status types.",
+            "enum": [
+                "success",
+                "failure",
+                "error",
+                "completion",
+                "pending",
+                "ongoing",
+                "unknown"
             ]
         },
         "general-relationship-ov": {
