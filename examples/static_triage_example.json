@@ -39,43 +39,39 @@
 	"objects":[
 		{
 			"id":"maec-example-obj-1",
-			"properties":{
-				"type":"WinExecFileObj:WindowsExecutableFileObjectType",
-				"file_name":"dg003_improve_8080_V132.exe",
-				"size_in_bytes":196608,
-				"hashes":[
-					{
-						"type":"MD5",
-						"simple_hash_value": "4EC0027BEF4D7E1786A04D021FA8A67F"
-					}
-				],
-				"packer_list":[
-					{
-						"name": "UPX",
-						"signature": "UPX v3.0.2"
-					}
-				]
-			}
+			"type":"WinExecFileObj:WindowsExecutableFileObjectType",
+			"file_name":"dg003_improve_8080_V132.exe",
+			"size_in_bytes":196608,
+			"hashes":{
+				"MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
+			},
+			"packer_list":[
+				{
+					"name": "UPX",
+					"signature": "UPX v3.0.2"
+				}
+			]
 		},
 		{
 			"id":"maec-example-obj-2",
-			"properties":{
-				"type":"WinExecFileObj:WindowsExecutableFileObjectType",
-				"headers":[
-					{
-						"optional_header":{
-							"major_linker_version": "06",
-							"minor_linker_version": "00",
-							"base_of_code": "036418",
-							"subsystem": "Windows_GUI"
-						}
+			"type":"WinExecFileObj:WindowsExecutableFileObjectType",
+			"headers":[
+				{
+					"optional_header":{
+						"major_linker_version": "06",
+						"minor_linker_version": "00",
+						"base_of_code": "036418",
+						"subsystem": "Windows_GUI"
 					}
-				],
-				"type":"executable"
-			}
+				}
+			],
+			"type":"executable"
+		},
+		{
+			"id":"analysis-tool-1",
+			"type":"software",
+			"name":"PEiD",
+			"version":"0.94"
 		}
-	],
-	"tools":[
-		{"THERE IS NO tools array in the new package schema..."}
 	]
 }

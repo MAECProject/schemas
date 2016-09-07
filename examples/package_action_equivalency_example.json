@@ -116,42 +116,48 @@
 	"objects":[
 		{
 			"id":"maec-sub-obj-1",
-			"properties":{
-				"type":"WinExecFileObj:WindowsExecutableFileObjectType",
-				"file_name":"2ed2386bfb.exe",
-				"file_path":"C:\\2ed2386bfb.exe",
-				"size_in_bytes": 379077,
-				"hashes":[
-					{
-						"type":"MD5",
-						"simple_hash_value": "2ed2386fbd31a1104e402a0c97c1aa6" 
-					},
-					{
-						"type":"SHA1",
-						"simple_hash_value":"611a0dae515ea4606c1e3b76814af902ed5f349"
-					}
-				]
+			"type":"WinExecFileObj:WindowsExecutableFileObjectType",
+			"file_name":"2ed2386bfb.exe",
+			"parent_directory_ref":{
+				"type": "directory",
+				"path":"C:\\"
+			},
+			"size": 379077,
+			"hashes":{
+				"MD5":"2ed2386fbd31a1104e402a0c97c1aa6", 
+				"SHA1":"611a0dae515ea4606c1e3b76814af902ed5f349"
 			}
 		},
 		{
 			"id":"maec-anubis_to_maec-obj-2",
-			"properties":{
-				"type":"WinExecFileObj:WindowsExecutableFileObjectType",
-				"file_name":"taskmgrsx.exe",
-				"file_path":"C:\\Documents and Settings\\Administrator\\Start Menu\\Programs\\Startup"
+			"type":"WinExecFileObj:WindowsExecutableFileObjectType",
+			"file_name":"taskmgrsx.exe",
+			"parent_directory_ref":{
+				"type": "directory",
+				"path":"C:\\Documents and Settings\\Administrator\\Start Menu\\Programs\\Startup"
 			}
 		},
 		{
 			"id":"maec-threatexpert_to_maec-obj-3",
-			"properties":{
-				"type":"WinExecFileObj:WindowsExecutableFileObjectType",
-				"file_name":"taskmgrsx.exe",
-				"file_path":"%Programs%\\Startup\\"
+			"type":"WinExecFileObj:WindowsExecutableFileObjectType",
+			"file_name":"taskmgrsx.exe",
+			"parent_directory_ref":{
+				"type": "directory",
+				"path":"%Programs%\\Startup\\"
 			}
+		},
+		{
+			"id":"analysis-tool-1",
+			"type":"software",
+			"name":"Anubis",
+			"vendor":"IsecLab"
+		},
+		{
+			"id":"analysis-tool-2",
+			"type":"software",
+			"name":"ThreatExpert",
+			"vendor":"Symantec"
 		}
-	],
-	"tools":[
-		{"THERE IS NO tools array in the new package schema..."}
 	],
 	"relationships":[
 		{
@@ -159,7 +165,5 @@
 			"target_ref":"maec-threatexpert_to_maec-act-1",
 			"type":"equivalent"
 		}
-
 	]
-
 }
