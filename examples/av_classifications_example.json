@@ -7,42 +7,45 @@
 			"instance_object_ref":"example-obj-1"
 		}
 	],
-	"objects":[
-		{
-			"id": "example-obj-1",
-			"type":"WinExecutableFileObj:WindowsExecutableFileObjectType",
-			"file_name":"a92e5b2bae.exe",
-			"parent_directory_ref": {
+	"cybox":{
+		"objects":{
+			"example-obj-1":{
+				"type":"file",
+				"file_name":"a92e5b2bae.exe",
+				"parent_directory_ref": "parent_directory_ref1",
+				"size":77312,
+				"hashes":{
+					"MD5":"a92e5b2bae0b4b3a3d81c85610b95cd4",
+					"SHA":"5374e08903744ceeaedd8f5e1bfc06b2c4688e76"
+				},
+				"extended_properties":{
+					"maec-av-class":[
+						{
+							"id":"avclass-1",
+							"scan_date":"2010-05-15T03:38:44",
+							"detected":"False",
+							"name":"Security Essentials",
+							"vendor":"Microsoft",
+							"engine_version":"4.2.3",
+							"definition_version":"032415-0011"
+						},
+						{
+							"id":"avclass-2",
+							"scan_date":"2012-02-11T08:36:14",
+							"detected":"True",
+							"name":"Security Essentials",
+							"vendor":"Microsoft",
+							"engine_version":"5.1.0",
+							"definition_version":"053514-0062",
+							"classification_name": "Zeus.D.C."
+						}
+					]
+				}
+			},
+			"parent_directory_ref1":{
 				"type": "directory",
 				"path":"C:\\"
-			},
-			"size":77312,
-			"hashes":{
-				"MD5":"a92e5b2bae0b4b3a3d81c85610b95cd4",
-				"SHA":"5374e08903744ceeaedd8f5e1bfc06b2c4688e76"
-			},
-			"domain_specific_object_properties":[
-				{
-					"type":"AVClassificationsType",
-					"id":"avclass-1",
-					"scan_date":"2010-05-15T03:38:44",
-					"detected":"False",
-					"name":"Security Essentials",
-					"vendor":"Microsoft",
-					"engine_version":"4.2.3",
-					"definition_version":"032415-0011"
-				},
-				{
-					"id":"avclass-2",
-					"scan_date":"2012-02-11T08:36:14",
-					"detected":"True",
-					"name":"Security Essentials",
-					"vendor":"Microsoft",
-					"engine_version":"5.1.0",
-					"definition_version":"053514-0062",
-					"classification_name": "Zeus.D.C."
-				}
-			]
+			}
 		}
-	]
+	}
 }

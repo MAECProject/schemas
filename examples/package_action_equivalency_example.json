@@ -113,52 +113,52 @@
 			]
 		}
 	],
-	"objects":[
-		{
-			"id":"maec-sub-obj-1",
-			"type":"WinExecFileObj:WindowsExecutableFileObjectType",
-			"file_name":"2ed2386bfb.exe",
-			"parent_directory_ref":{
+	"cybox":{
+		"objects":{
+			"maec-sub-obj-1":{
+				"type":"file",
+				"file_name":"2ed2386bfb.exe",
+				"parent_directory_ref":"parent_directory_ref1",
+				"size": 379077,
+				"hashes":{
+					"MD5":"2ed2386fbd31a1104e402a0c97c1aa6", 
+					"SHA1":"611a0dae515ea4606c1e3b76814af902ed5f349"
+				}
+			},
+			"maec-anubis_to_maec-obj-2":{
+				"type":"file",
+				"file_name":"taskmgrsx.exe",
+				"parent_directory_ref":"parent_directory_ref2"
+			},
+			"maec-threatexpert_to_maec-obj-3":{
+				"type":"file",
+				"file_name":"taskmgrsx.exe",
+				"parent_directory_ref":"parent_directory_ref3"
+			},
+			"parent_directory_ref1":{
 				"type": "directory",
 				"path":"C:\\"
 			},
-			"size": 379077,
-			"hashes":{
-				"MD5":"2ed2386fbd31a1104e402a0c97c1aa6", 
-				"SHA1":"611a0dae515ea4606c1e3b76814af902ed5f349"
-			}
-		},
-		{
-			"id":"maec-anubis_to_maec-obj-2",
-			"type":"WinExecFileObj:WindowsExecutableFileObjectType",
-			"file_name":"taskmgrsx.exe",
-			"parent_directory_ref":{
+			"parent_directory_ref2":{
 				"type": "directory",
 				"path":"C:\\Documents and Settings\\Administrator\\Start Menu\\Programs\\Startup"
-			}
-		},
-		{
-			"id":"maec-threatexpert_to_maec-obj-3",
-			"type":"WinExecFileObj:WindowsExecutableFileObjectType",
-			"file_name":"taskmgrsx.exe",
-			"parent_directory_ref":{
+			},
+			"parent_directory_ref3":{
 				"type": "directory",
 				"path":"%Programs%\\Startup\\"
+			},
+			"analysis-tool-1":{
+				"type":"software",
+				"name":"Anubis",
+				"vendor":"IsecLab"
+			},
+			"analysis-tool-2":{
+				"type":"software",
+				"name":"ThreatExpert",
+				"vendor":"Symantec"
 			}
-		},
-		{
-			"id":"analysis-tool-1",
-			"type":"software",
-			"name":"Anubis",
-			"vendor":"IsecLab"
-		},
-		{
-			"id":"analysis-tool-2",
-			"type":"software",
-			"name":"ThreatExpert",
-			"vendor":"Symantec"
 		}
-	],
+	},
 	"relationships":[
 		{
 			"source_ref":"maec-anubis_to_maec-act-1",
