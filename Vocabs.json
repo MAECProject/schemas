@@ -293,12 +293,11 @@
             "type": "string",
             "description": "action-status-cv is a (non-exhaustive) enumeration of observable action status types.",
             "enum": [
-                "success",
-                "failure",
-                "error",
-                "completion",
-                "pending",
-                "ongoing",
+                "active",
+                "completed",
+                "failed",
+                "terminated",
+                "suspended",
                 "unknown"
             ]
         },
