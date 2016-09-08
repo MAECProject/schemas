@@ -1,0 +1,133 @@
+{
+	"id":"maec-example-pkg-1",
+	"schema_version":"5.0",
+	"malware_instances":[
+		{
+			"id":"maec-example-instance-1",
+			"instance_object_ref":"instance-obj-1",
+			"action-refs":[
+				"maec-example-act-1",
+				"maec-example-act-2",
+				"maec-example-act-3",
+				"maec-example-act-4",
+				"maec-example-act-5",
+				"maec-example-act-6"
+			]
+		}
+	],
+	"cybox":{
+		"objects":{
+			"instance-obj-1":{
+				"type":"file",
+				"size":"332288",
+				"hashes":{
+					"MD5":"6519ED23FB22D0228E61A68D40F75C49",
+					"SHA1":"7F42DF6B1318A5CC4633E33076629F95F59F1445"
+				}
+			},
+			"maec-example-act-1-obj-1":{
+				"type":"file",
+				"file_name":"Zcxaaz.exe",
+				"parent_directory_ref":"parent_directory_ref1",
+				"size": 332288
+
+			},
+			"maec-example-act-2-obj-1":{
+				"type":"windows-registry-key",
+				"key":"HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+				"values":[
+					{
+						"name":"Zcxaxz",
+						"data":"%AppData%\\Zcxaxz.exe"
+					}
+				]
+			},
+			"maec-example-act-3-obj-1":{
+				"type":"mutex-object",
+				"name":"redem-mutex"
+			},
+			"maec-example-act-4-obj-1":{
+				"type": "process",
+				"name":"services.exe",
+				"cwd":"%System%\\"
+			},
+			"maec-example-act-5-obj-1":{
+				"type":"process",
+				"name":"svchost.exe",
+				"cwd":"%System%\\"
+			},
+			"maec-example-act-6-obj-1":{
+				"type": "process",
+				"name": "alg.exe",
+				"cwd": "%System%\\"
+			},
+			"parent_directory_ref1":{
+				"type": "directory",
+				"path":"%AppData%/"
+			}
+		}
+	},
+	"actions":[
+		{
+			"id":"maec-example-act-1",
+			"name":"create file",
+			"object_references":[
+				{
+					"object_ref":"maec-example-act-1-obj-1",
+					"association_type": "output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-2",
+			"name":"create registry key",
+			"object_references":[
+				{
+					"object_ref":"maec-example-act-2-obj-1",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-3",
+			"name":"create mutex",
+			"object_references":[
+				{
+					"object_ref":"maec-example-act-3-obj-1",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-4",
+			"name":"allocate process virtual memory",
+			"object_references":[
+				{
+					"object_ref":"maec-example-act-4-obj-1",
+					"association_type":"input"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-5",
+			"name":"allocate process virtual memory",
+			"object_references":[
+				{
+					"object_ref":"maec-example-act-5-obj-1",
+					"association_type":"input"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-6",
+			"name":"allocate process virtual memory",
+			"object_references":[
+				{
+					"object_ref":"maec-example-act-6-obj-1",
+					"association_type":"input"
+				}
+			]
+		}
+	]
+
+}
