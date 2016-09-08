@@ -32,14 +32,18 @@
             "association_type": "output"
         }]
     }],
-    "objects": [
-        {
-            "id": "object--763be4d7-44e4-49d1-949c-87dcb70f0b19",
-            "$ref": "REFERENCE PLACEHOLDER FOR FileObj:FileObjectType with MD5hash=9d7006e30fdf15e9c8e03e62534b3a3e"
+    "cybox": {"objects": {
+        "object--763be4d7-44e4-49d1-949c-87dcb70f0b19": {
+            "type": "file",
+            "hashes": {"MD5": "9d7006e30fdf15e9c8e03e62534b3a3e"}
         },
-        {
-            "id": "object--99f5767b-9489-43e4-b583-9872c4797030",
-            "$ref": "REFERENCE PLACEHOLDER FOR WinRegistryKeyObj:WindowsRegistryKeyObjectType with key=SOFTWARE-Microsoft-Windows-CurrentVersion-Run, hive=HKEY_LOCAL_MACHINE, Values-Name=MSInfo and Value-Data=>%Windir%-AVBgle.exe"
+        "object--99f5767b-9489-43e4-b583-9872c4797030": {
+            "type": "windows-registry-key",
+            "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+            "values": [{
+                "name": "MSInfo",
+                "value": "%Windir%\\AVBgle.exe"
+            }]
         }
-    ]
+    }}
 }

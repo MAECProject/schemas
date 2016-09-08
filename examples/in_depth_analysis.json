@@ -29,14 +29,16 @@
             "association_type": "output"
         }]
     }],
-    "objects": [
+    "cybox":{"objects": {
         {
-            "id": "object--e64f85c7-9a1a-4427-907a-1fc7353fa064",
-            "$ref": "REFERENCE PLACEHOLDER FOR WinExecutableFileObj:WindowsExecutableFileObjectType with size_in_byte=210564, MD5hash=B6C39FF68346DCC8B67AA060DEFE40C2"
+            "object--e64f85c7-9a1a-4427-907a-1fc7353fa064":{
+            "type":"file",
+            "hashes":{"MD5":"B6C39FF68346DCC8B67AA060DEFE40C2"}
         },
         {
-            "id": "object--50350ce9-cf24-454e-82ca-b09be9cb8b0a",
-            "$ref": "REFERENCE PLACEHOLDER FOR WinHookObj:WindowsHookObjectType with type=WH_KEYBOARD_LL"
+            "object--50350ce9-cf24-454e-82ca-b09be9cb8b0a":{
+            "type":"x_windows-hook",
+            "win-hook-type":"WH_KEYBOARD_LL"
         }
-    ]
+    }
 }

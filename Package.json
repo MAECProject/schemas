@@ -23,6 +23,10 @@
                 "items": {"$ref": "MalwareFamily.json#/definitions/MalwareFamilyType"},
                 "description": "The malware_families field captures a set of one or more Malware Families relevant to the Package content."
             },
+            "cybox": {
+                "type": "object",
+                "description": "The cybox field captures a set of one or more CybOX entities, such as CybOX Objects, relevant to the MAEC package. "
+            },
             "capabilities": {
                 "type": "array",
                 "items": {"$ref": "Capability.json#/definitions/CapabilityType"},
@@ -37,11 +41,6 @@
                 "type": "array",
                 "items": {"$ref": "MalwareAction.json#/definitions/MalwareActionType"},
                 "description": "The Actions field captures a set of one or more Actions relevant to the Package content."
-            },
-            "objects": {
-                "type": "array",
-                "items": {"$ref": "REFERENCE PLACEHOLDER FOR cybox:ObjectType"},
-                "description": "The Objects field captures any defined CybOX Objects that are then referenced elsewhere throughout the MAEC document."
             },
             "collections": {
                 "type": "array",
