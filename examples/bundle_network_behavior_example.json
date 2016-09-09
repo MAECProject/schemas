@@ -1,0 +1,88 @@
+{
+	"id":"maec-example-pkg-1",
+	"schema_version":"5.0",
+	"malware_instances":[
+		{
+			"id":"maec-example-instance-1",
+			"malware_name":"Red October Downloader",
+			"labels":[
+				"downloader"
+			],
+			"instance_object_ref":"instance-obj-1",
+			"capability_refs":[
+				"maec-example-cpb-1"
+			],
+			"behavior_refs":[
+				"maec_example-bhv-1"
+			],
+			"action_refs":[
+				"maec-example-act-1"
+			]
+		}
+	],
+	"cybox":{
+		"objects":{
+			"instance-obj-1":{
+				"type":"file",
+				"hashes":{
+					"MD5":"c3b0d1403ba35c3aba8f4529f43fb300"
+				}
+			},
+			"maec-example-obj-1":{
+				"type":"network-connection",
+				"extended_properties":{
+					"http":{
+						"request_method":"post",
+						"request_value":"http://www.dailyinfonews.net/reportdatas.php",
+						"request_version":"HTTP/1.0",
+						"message_body_data_ref": "http_msg_body-1"
+					}
+
+				}
+			},
+			"http_msg_body-1":{
+				"type":"artifact",
+				"description":"regular expression for http post request message body pattern",
+				"payload_bin":"aWQ9KFxkfFx3KSsmYW1wO0E9XGQrJmFtcDtCPSgwfDEpJmFtcDtDPVxkKw=="
+
+			}
+		}
+	},
+	"capabilities":[
+		{
+			"id":"maec-example-cpb-1",
+			"name":"command and control",
+			"refined_capabilities":[
+				{
+					"id":"maec-example-obt-1",
+					"name":"send data to c2 server"
+				}
+			]
+		}
+	],
+	"behaviors":[
+		{
+			"id":"maec-example-bhv-1",
+			"description":"A Command and Control Server Connection Loop. Every 180 seconds the malware subject sends an HTTP Post request to its C2 server with some data uniquely identifying the victim machine and reporting on the status of the execution of the malware.",
+			"action_references": [
+				{
+					"action_ref":"maec-example-act-1"
+				}
+			]	
+		}
+	],
+	"actions":[
+		{
+			"id":"maec-example-act-1",
+			"name":"send http post request",
+			"description":"http post request which occurs every 180 seconds",
+			"object_references":[
+				{
+					"obj_ref":"maec-example-obj-1",
+					"association_type":"input"
+				}
+			]
+		}
+	]
+
+}
