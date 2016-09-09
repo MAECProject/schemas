@@ -34,17 +34,9 @@
 					"http":{
 						"request_method":"post",
 						"request_value":"http://www.dailyinfonews.net/reportdatas.php",
-						"request_version":"HTTP/1.0",
-						"message_body_data_ref": "http_msg_body-1"
+						"request_version":"HTTP/1.0"
 					}
-
 				}
-			},
-			"http_msg_body-1":{
-				"type":"artifact",
-				"description":"regular expression for http post request message body pattern",
-				"payload_bin":"aWQ9KFxkfFx3KSsmYW1wO0E9XGQrJmFtcDtCPSgwfDEpJmFtcDtDPVxkKw=="
-
 			}
 		}
 	},

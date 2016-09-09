@@ -1,0 +1,67 @@
+{
+	"id":"maec-example-pkg-1",
+	"schema_version":"5.0",
+	"malware_instances":[
+		{
+			"id":"maec-example-instance-1",
+			"instance_objext_ref":"instance-obj-1",
+			"action_refs":[
+				"maec-example-act-1",
+				"maec-example-act-2"
+			]
+		}
+	],
+	"cybox":{
+		"objects":{
+			"instance-obj-1":{
+				"type":"file",
+				"size": 196608,
+				"hashes":{
+					"MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
+				}
+			},
+			"maec-example-obj-1":{
+				"type":"file",
+				"file_name":"msvcr.dll",
+				"parent_directory_ref":"parent_directory_ref1"
+			},
+			"parent_directory_ref1":{
+				"type":"directory",
+				"path":"C:\\Documents and Settings\\user\\Local Settings\\Application\\Data"
+			},
+			"maec-example-obj-2":{
+				"type":"process",
+				"name":"explorer.exe",
+				"cwd":"C:\\Windows\\"
+			}
+		}
+	},
+	"actions":[
+		{
+			"id":"maec-example-act-1",
+			"name":"create file",
+			"execution_status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-1",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-2",
+			"name":"write to process memory",
+			"execution_status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-1",
+					"association_type":"input"
+				},
+				{
+					"object_ref":"maec-example-obj-2",
+					"association_type":"output"
+				}
+			]
+		}
+	]
+}
