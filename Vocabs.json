@@ -301,14 +301,6 @@
                 "unknown"
             ]
         },
-        "general-relationship-ov": {
-            "type": "string",
-            "description": "general-relationship-ov is a non-exhaustive enumeration of relationships.",
-            "enum": [
-                "equivalent",
-                "has distance"
-            ]
-        },
         "importance-ov": {
             "type": "string",
             "description": "importance-ov is a (non-exhaustive) enumeration of relative importance measures.",
@@ -655,34 +647,6 @@
                 "zip bomb"
             ]
         },
-        "malware-subject-relationship-ov": {
-            "type": "string",
-            "description": "malware-subject-relationship-ov is a non-exhaustive enumeration of relationships between Malware Subjects.",
-            "enum": [
-                "32-bit version of",
-                "64-bit version of",
-                "contained in disk image",
-                "contained in memory image",
-                "contained in network traffic capture",
-                "decrypted version of",
-                "direct ancestor of",
-                "direct descendant of",
-                "disk image of",
-                "downloaded by",
-                "downloads",
-                "dropped by",
-                "drops",
-                "encrypted version of",
-                "extracted from",
-                "extracts",
-                "installed by",
-                "installs",
-                "memory image of",
-                "network traffic capture of",
-                "packed version of",
-                "unpacked version of"
-            ]
-        },
         "platform-ov": {
             "type": "string",
             "description": "platform-ov is a non-exhaustive enumeration of operting system platforms.",
@@ -845,6 +809,36 @@
                 "system update degradation",
                 "user data theft",
                 "virtual entity destruction"
+            ]
+        },
+        "relationship-ov": {
+            "type": "string",
+            "description": "relationship-ov is a non-exhaustive enumeration of relationships between MAEC entities.",
+            "enum": [
+                "32-bit version of",
+                "64-bit version of",
+                "contained in disk image",
+                "contained in memory image",
+                "contained in network traffic capture",
+                "decrypted version of",
+                "direct ancestor of",
+                "direct descendant of",
+                "disk image of",
+                "downloaded by",
+                "downloads",
+                "dropped by",
+                "drops",
+                "encrypted version of",
+                "equivalent",
+                "extracted from",
+                "extracts",
+                "has distance",
+                "installed by",
+                "installs",
+                "memory image of",
+                "network traffic capture of",
+                "packed version of",
+                "unpacked version of"
             ]
         },
         "technique-ov": {
