@@ -13,11 +13,11 @@
                 "description": "The name field specifies the name of the Collection."
             },
             "maec_entity_type": {
-                "$ref": "Vocabs.json#/definitions/collection-entity-ov",
+                "$ref": "Vocabs.json#/definitions/collection-entity-cv",
                 "description": "The required maec_entity_type field specifies the type of MAEC entity that is captured in the Collection, via the CollectionEntityTypeEnum. Example types would be 'objects' or 'various'. The default values is 'various'."
             },
             "association_type": {
-                "$ref": "Vocabs.json#/definitions/collection-association-ov",
+                "$ref": "Vocabs.json#/definitions/collection-association-cv",
                 "description": "The association type field specifies the nature of the contents of the Collection, via the CollectionAssociationTypeEnum."
             },
             "entity_refs": {

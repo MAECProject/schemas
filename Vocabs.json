@@ -291,7 +291,7 @@
         },
         "execution-status-ov": {
             "type": "string",
-            "description": "execution-status-ov is a (non-exhaustive) enumeration of observable action status types.",
+            "description": "execution-status-ov is a (non-exhaustive) enumeration of observable execution status types.",
             "enum": [
                 "active",
                 "completed",
