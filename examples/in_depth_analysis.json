@@ -1,44 +1,67 @@
 {
-    "id": "package-f63bb5f0-4173-4e72-8ceb-a316fbd3206b",
-    "schema_version": "5.0",
-    "malware_instances": [{
-        "id": "malware_instance--b965814d-0c2e-4e01-b8a5-d8c32bb038e6",
-        "instance_object_ref": "object--e64f85c7-9a1a-4427-907a-1fc7353fa064",
-        "analyses": [{
-            "id": "analysis--3e2a98a5-5cd9-4bbe-a28f-58840a5d87de",
-            "method": "static",
-            "type": "in-depth",
-            "findings": [{"capability_refs": ["capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8"]}]
-        }]
-    }],
-    "capabilities": [{
-        "id": "capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8",
-        "name": "spying",
-        "behavior_ref": "behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31"
-    }],
-    "behaviors": [{
-        "id": "behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31",
-        "name": "capture keyboard input",
-        "action_references": [{"action_ref": "action-2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"}]
-    }],
-    "actions": [{
-        "id": "action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5",
-        "name": "add windows hook",
-        "object_references": [{
-            "object_ref": "object-50350ce9-cf24-454e-82ca-b09be9cb8b0a",
-            "association_type": "output"
-        }]
-    }],
-    "cybox":{"objects": {
+  "id":"package-f63bb5f0-4173-4e72-8ceb-a316fbd3206b",
+  "schema_version":"5.0",
+  "malware_instances":[
+    {
+      "id":"malware_instance--b965814d-0c2e-4e01-b8a5-d8c32bb038e6",
+      "instance_object_ref":"object--1",
+      "analyses":[
         {
-            "object--e64f85c7-9a1a-4427-907a-1fc7353fa064":{
-            "type":"file",
-            "hashes":{"MD5":"B6C39FF68346DCC8B67AA060DEFE40C2"}
-        },
-        {
-            "object--50350ce9-cf24-454e-82ca-b09be9cb8b0a":{
-            "type":"x_windows-hook",
-            "win-hook-type":"WH_KEYBOARD_LL"
+          "method":"static",
+          "type":"in-depth",
+          "findings":[
+            {
+              "capability_refs":[
+                "capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8"
+              ]
+            }
+          ]
         }
+      ]
     }
+  ],
+  "capabilities":[
+    {
+      "id":"capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8",
+      "name":"spying",
+      "behavior_ref":"behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31"
+    }
+  ],
+  "behaviors":[
+    {
+      "id":"behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31",
+      "name":"capture keyboard input",
+      "action_references":[
+        {
+          "action_ref":"action-2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"
+        }
+      ]
+    }
+  ],
+  "actions":[
+    {
+      "id":"action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5",
+      "name":"add windows hook",
+      "object_references":[
+        {
+          "object_ref":"object--2",
+          "association_type":"output"
+        }
+      ]
+    }
+  ],
+  "cybox":{
+    "objects":{
+      "object--1":{
+        "type":"file",
+        "hashes":{
+          "MD5":"B6C39FF68346DCC8B67AA060DEFE40C2"
+        }
+      },
+      "object--2":{
+        "type":"x_windows-hook",
+        "win-hook-type":"WH_KEYBOARD_LL"
+      }
+    }
+  }
 }
