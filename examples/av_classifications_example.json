@@ -19,7 +19,7 @@
 					"SHA":"5374e08903744ceeaedd8f5e1bfc06b2c4688e76"
 				},
 				"extended_properties":{
-					"maec-avclass":[
+					"x-maec-avclass":[
 						{
 							"id":"avclass-1",
 							"scan_date":"2010-05-15T03:38:44",
