@@ -5,7 +5,7 @@
 		{
 			"id":"maec-example-instance-1",
 			"instance_object_ref":"instance-obj-1",
-			"object_refs":"maec-example-obj-1"
+			"object_refs":["maec-example-obj-1"]
 		}
 	],
 	"cybox":{
@@ -15,7 +15,7 @@
 				"size":24840,
 				"hashes":{
 					"MD5":"3d23ec8b55840b95ea75197ce9446b6d",
-					"SHA1":"272ce73adebba81983abbbf112155e463951d046"
+					"SHA-1":"272ce73adebba81983abbbf112155e463951d046"
 				}
 			},
 			"maec-example-obj-1":{
