@@ -1,78 +1,74 @@
 {
-	"id":"maec-example-pkg-1",
-	"schema_version":"5.0",
-	"malware_instances":[
-		{
-			"id":"maec-example-sub-1",
-			"instance_object_ref":"maec-sub-obj-1",
-			"labels":[
-				"dropper file"
-			],
-			"analyses":[
-				{
-					"id":"maec-example-ana-1",
-					"method":"static",
-					"type":"triage",
-					"source":{
-						"name": "Frankie Li",
-						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
-					},
-					"summary":"A basic static triage of the subject binary using PEiD.",
-					"findings":{
-						"behavior_refs":[
-							"maec-tst-bhv-1"
-						],
-						"capability_refs":[
-							"maec-tst-cpb-1"
-						]
-					},
-					"tool_refs":[
-						"analysis-tool-1"
-					]
-				}
-			],
-			"static_feature_refs":[
-				"maec-example-obj-2"
-			]
-		}
-	],
-	"cybox":{
-		"objects":{
-			"maec-example-obj-1":{
-				"type":"file",
-				"file_name":"dg003_improve_8080_V132.exe",
-				"size":196608,
-				"hashes":{
-					"MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
-				},
-				"extended_properties":{
-					"maec-packer-list":[
-						{
-							"name": "UPX",
-							"signature": "UPX v3.0.2"
-						}
-					]
-				}
-			},
-			"maec-example-obj-2":{
-				"type":"file",
-				"extended_properties":{
-					"windows-pebinary-ext":{
-						"pe_type":"exe",
-						"windows-pe-optional-header":{
-							"major_linker_version": "06",
-							"minor_linker_version": "00",
-							"base_of_code": "036418",
-							"subsystem": "Windows_GUI"
-						}
-					}
-				}
-			},
-			"analysis-tool-1":{
-				"type":"software",
-				"name":"PEiD",
-				"version":"0.94"
-			}
-		}
-	}
+  "id":"maec-example-pkg-1",
+  "schema_version":"5.0",
+  "malware_instances":[
+    {
+      "id":"malware_instance--57998fb0-604e-4d14-b8f1-6363dbff87cb",
+      "instance_object_ref":"object--1",
+      "labels":[
+        "dropper file"
+      ],
+      "analyses":[
+        {
+          "method":"static",
+          "type":"triage",
+          "source":{
+            "name":"Frankie Li",
+            "url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
+          },
+          "summary":"A basic static triage of the subject binary using PEiD.",
+          "findings":{
+            "object_refs":[
+              "object--2"
+            ]
+          },
+          "tool_refs":[
+            "object--3"
+          ]
+        }
+      ],
+      "static_feature_refs":[
+        "object--2"
+      ]
+    }
+  ],
+  "cybox":{
+    "objects":{
+      "object--1":{
+        "type":"file",
+        "file_name":"dg003_improve_8080_V132.exe",
+        "size":196608,
+        "hashes":{
+          "MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
+        },
+        "extended_properties":{
+          "maec-packer-list":[
+            {
+              "name":"UPX",
+              "signature":"UPX v3.0.2"
+            }
+          ]
+        }
+      },
+      "object--2":{
+        "type":"file",
+        "extended_properties":{
+          "windows-pebinary-ext":{
+            "pe_type":"exe",
+            "windows-pe-optional-header":{
+              "major_linker_version":"06",
+              "minor_linker_version":"00",
+              "base_of_code":"036418",
+              "subsystem":"Windows_GUI"
+            }
+          }
+        }
+      },
+      "object--3":{
+        "type":"software",
+        "name":"PEiD",
+        "version":"0.94"
+      }
+    }
+  }
 }
