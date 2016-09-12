@@ -17,11 +17,6 @@
             "url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
           },
           "summary":"A basic static triage of the subject binary using PEiD.",
-          "findings":{
-            "object_refs":[
-              "object--2"
-            ]
-          },
           "tool_refs":[
             "object--3"
           ]
