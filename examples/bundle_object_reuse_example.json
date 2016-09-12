@@ -4,7 +4,7 @@
 	"malware_instances":[
 		{
 			"id":"maec-example-instance-1",
-			"instance_objext_ref":"instance-obj-1",
+			"instance_object_ref":"instance-obj-1",
 			"action_refs":[
 				"maec-example-act-1",
 				"maec-example-act-2"
