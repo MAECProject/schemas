@@ -5,6 +5,10 @@
             "type": "object",
             "description": "The CapabilityType captures details of a Capability that may be implemented in the malware instance",
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["capability"]
+                },
                 "id": {
                     "type": "string",
                     "description": "The required id field specifies a unique ID for this MAEC Capability"
