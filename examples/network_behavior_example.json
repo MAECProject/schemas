@@ -3,32 +3,32 @@
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
-			"id":"maec-example-instance-1",
+			"id":"malware_instance--6c2d11a7-fba4-4375-8cb2-89f2bfcf6940",
 			"malware_name":"Red October Downloader",
 			"labels":[
 				"downloader"
 			],
-			"instance_object_ref":"instance-obj-1",
+			"instance_object_ref":"object--1",
 			"capability_refs":[
-				"maec-example-cpb-1"
+				"capability--32a104d2-c680-43d1-974d-f27be13292f8"
 			],
 			"behavior_refs":[
-				"maec_example-bhv-1"
+				"behavior--10b06b25-9fbe-4593-9609-5cba8e877f75"
 			],
 			"action_refs":[
-				"maec-example-act-1"
+				"action--5809df22-e9e2-4d78-beb6-1c412cdb4b18"
 			]
 		}
 	],
 	"cybox":{
 		"objects":{
-			"instance-obj-1":{
+			"object--1":{
 				"type":"file",
 				"hashes":{
 					"MD5":"c3b0d1403ba35c3aba8f4529f43fb300"
 				}
 			},
-			"maec-example-obj-1":{
+			"object--2":{
 				"type":"network-connection",
 				"extended_properties":{
 					"http":{
@@ -42,7 +42,7 @@
 	},
 	"capabilities":[
 		{
-			"id":"maec-example-cpb-1",
+			"id":"capability--32a104d2-c680-43d1-974d-f27be13292f8",
 			"name":"command and control",
 			"refined_capabilities":[
 				{
@@ -54,7 +54,7 @@
 	],
 	"behaviors":[
 		{
-			"id":"maec-example-bhv-1",
+			"id":"behavior--10b06b25-9fbe-4593-9609-5cba8e877f75",
 			"description":"A Command and Control Server Connection Loop. Every 180 seconds the malware subject sends an HTTP Post request to its C2 server with some data uniquely identifying the victim machine and reporting on the status of the execution of the malware.",
 			"action_references": [
 				{
@@ -65,12 +65,12 @@
 	],
 	"actions":[
 		{
-			"id":"maec-example-act-1",
+			"id":"action--5809df22-e9e2-4d78-beb6-1c412cdb4b18",
 			"name":"send http post request",
 			"description":"http post request which occurs every 180 seconds",
 			"object_references":[
 				{
-					"obj_ref":"maec-example-obj-1",
+					"obj_ref":"object--2",
 					"association_type":"input"
 				}
 			]
