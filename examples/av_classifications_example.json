@@ -3,16 +3,16 @@
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
-			"id":"maec-example-sub-1",
-			"instance_object_ref":"example-obj-1"
+			"id":"malware_instance--8bcf14e9-2ba2-44ef-9e32-fbbc9d2608b2",
+			"instance_object_ref":"object--1"
 		}
 	],
 	"cybox":{
 		"objects":{
-			"example-obj-1":{
+			"object--1":{
 				"type":"file",
 				"file_name":"a92e5b2bae.exe",
-				"parent_directory_ref": "example-obj-2",
+				"parent_directory_ref": "object--2",
 				"size":77312,
 				"hashes":{
 					"MD5":"a92e5b2bae0b4b3a3d81c85610b95cd4",
@@ -40,7 +40,7 @@
 					]
 				}
 			},
-			"example-obj-2":{
+			"object--2":{
 				"type": "directory",
 				"path":"C:\\"
 			}
