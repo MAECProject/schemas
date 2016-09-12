@@ -4,13 +4,12 @@
 	"malware_instances":[
 		{
 			"id":"maec-example-sub-1",
-			"instance_object_ref":"maec-sub-obj-1",
+			"instance_object_ref":"object--1",
 			"labels":[
 				"dropper file"
 			],
 			"analyses":[
 				{
-					"id":"maec_example-ana-1",
 					"method":"dynamic",
 					"type":"triage",
 					"summary":"Dynamic (behavorial) triage of the subject binary",
@@ -20,11 +19,10 @@
 						]
 					},
 					"tool_refs":[
-						"analysis-tool-1"
+						"object--7"
 					]
 				},
 				{
-					"id":"maec-example-ana-2",
 					"method":"dynamic",
 					"type":"triage",
 					"summary":"Dynamic (behavorial) and tool-based triage of the subject binary",
@@ -34,11 +32,10 @@
 						]
 					},
 					"tool_refs":[
-						"analysis-tool-2"
+						"object--8"
 					]
 				},
 				{
-					"id":"maec-example-ana-3",
 					"method":"static",
 					"type":"in-depth",
 					"summary":"Manual analysis of the subject binary",
@@ -96,7 +93,7 @@
 			"name":"create file",
 			"object_references":[
 				{
-					"object_ref":"maec-anubis_to_maec-obj-2",
+					"object_ref":"object--2",
 					"association_type":"output"
 				}
 			]
@@ -107,7 +104,7 @@
 			"name":"create file",
 			"object_references":[
 				{
-					"object_ref":"maec-threatexpert_to_maec-obj-3",
+					"object_ref":"object--3",
 					"association_type":"output"
 				}
 			]
@@ -115,44 +112,44 @@
 	],
 	"cybox":{
 		"objects":{
-			"maec-sub-obj-1":{
+			"object--1":{
 				"type":"file",
 				"file_name":"2ed2386bfb.exe",
-				"parent_directory_ref":"parent_directory_ref1",
+				"parent_directory_ref":"object--4",
 				"size": 379077,
 				"hashes":{
 					"MD5":"2ed2386fbd31a1104e402a0c97c1aa6", 
-					"SHA1":"611a0dae515ea4606c1e3b76814af902ed5f349"
+					"SHA-1":"611a0dae515ea4606c1e3b76814af902ed5f349"
 				}
 			},
-			"maec-anubis_to_maec-obj-2":{
+			"object--2":{
 				"type":"file",
 				"file_name":"taskmgrsx.exe",
-				"parent_directory_ref":"parent_directory_ref2"
+				"parent_directory_ref":"object--5"
 			},
-			"maec-threatexpert_to_maec-obj-3":{
+			"object--3":{
 				"type":"file",
 				"file_name":"taskmgrsx.exe",
-				"parent_directory_ref":"parent_directory_ref3"
+				"parent_directory_ref":"object--6"
 			},
-			"parent_directory_ref1":{
+			"object--4":{
 				"type": "directory",
 				"path":"C:\\"
 			},
-			"parent_directory_ref2":{
+			"object--5":{
 				"type": "directory",
 				"path":"C:\\Documents and Settings\\Administrator\\Start Menu\\Programs\\Startup"
 			},
-			"parent_directory_ref3":{
+			"object--6":{
 				"type": "directory",
 				"path":"%Programs%\\Startup\\"
 			},
-			"analysis-tool-1":{
+			"object--7":{
 				"type":"software",
 				"name":"Anubis",
 				"vendor":"IsecLab"
 			},
-			"analysis-tool-2":{
+			"object--8":{
 				"type":"software",
 				"name":"ThreatExpert",
 				"vendor":"Symantec"
