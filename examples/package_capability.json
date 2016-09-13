@@ -8,16 +8,18 @@
       "labels":[
         "mass-mailer",
         "worm"
-      ]
+      ],
+      "capability_refs":["capability--8f43a788-f2bd-4a69-b0a1-0cdbefde7006"],
+      "behavior_refs":["behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817"],
+      "action_refs":["action--2aa73fd6-f440-4219-8d32-6929c47f0745"]
     }
   ],
   "capabilities":[
     {
-      "id":"capability-8f43a788-f2bd-4a69-b0a1-0cdbefde7006",
+      "id":"capability--8f43a788-f2bd-4a69-b0a1-0cdbefde7006",
       "name":"persistence",
       "refined_capabilities":[
         {
-          "id":"refined-capability--f7b85c97-06a6-4e6b-b513-67e81564e581",
           "name":"continuous execution",
           "behavior_ref":"behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817"
         }
@@ -31,14 +33,14 @@
       "description":"System reboot persistence via registry startup",
       "action_references":[
         {
-          "action_ref":"action-2aa73fd6-f440-4219-8d32-6929c47f0745"
+          "action_ref":"action--2aa73fd6-f440-4219-8d32-6929c47f0745"
         }
       ]
     }
   ],
   "actions":[
     {
-      "id":"action-2aa73fd6-f440-4219-8d32-6929c47f0745",
+      "id":"action--2aa73fd6-f440-4219-8d32-6929c47f0745",
       "name":"create registry key value",
       "object_references":[
         {
