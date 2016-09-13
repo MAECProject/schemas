@@ -1,5 +1,5 @@
 {
-	"id":"maec-example-pkg-1",
+	"id":"package--7af42bc3-8aef-42dc-95e4-d89f16eaa142",
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
@@ -71,7 +71,7 @@
 			"object_references":[
 				{
 					"obj_ref":"object--2",
-					"association_type":"input"
+					"association_type":"output"
 				}
 			]
 		}
