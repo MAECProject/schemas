@@ -24,7 +24,7 @@
                 },
                 "type": {
                     "$ref": "string",
-                    "description": "The Type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary. The possible vocabularies for use with this field are malware-subject-relationship-ov and general-relationship-ov."
+                    "description": "The Type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary. The possible vocabularies for use with this field is relationship-ov."
                 },
                 "additional_metadata": {
                     "type": "object",

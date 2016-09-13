@@ -1,0 +1,120 @@
+{
+	"id":"maec-test-pkg-1",
+	"schema_version":"5.0",
+	"malware_instances":[
+		{
+			"id":"maec-tst-sub-1",
+			"instance_object_ref":"maec-tst-obj-1",
+			"labels":[
+				"dropper file"
+			]
+		},
+		{
+			"id":"maec-tst-sub-2",
+			"instance_object_ref":"maec-tst-obj-2",
+			"labels":[
+				"dropper file"
+			],
+			"capability_refs":[
+				"maec-tst-cpb-2",
+				"maec-tst-cpb-3",
+				"maec-tst-cpb-4",
+				"maec-tst-cpb-5",
+			],
+			"analyses":[
+
+			]
+		}
+	],
+	"cybox":{
+		"objects":{
+			"maec-tst-sub-1":{
+				"type":"file",
+				"file_name":"2a7.exe",
+				"hashes":{
+					"MD5":"eaa5e4f26028c41ba3935a4ac455892c",
+					"SHA1":"049db2d7030bf7563974a2c25671aef046cabf99"
+				},
+
+			},
+			"maec-tst-sub-2":{
+				"type":"file",
+				"file_name":"dump_006D0000.bin",
+				"hashes":{
+					"MD5":"d819facd7c980b01bf44ea7efbf6af42",
+					"SHA1": "abfe4e74b345669a0fcd8a34bff9c9a0a7bc9c44"
+				}
+			}
+		},
+	},
+	"capabilities":[
+		{
+			"id":"maec-tst-cpb-2",
+			"name":"probing",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-4",
+					"name":"host configuration probing"
+				}
+			],
+			"behavior_refs":[
+				"behavior-1"
+			]
+		},
+		{
+			"id":"maec-tst-cpb-3",
+			"name":"anti-detection",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-6",
+					"name":"hide artifacts"
+				}
+			],
+			"behavior_refs":[
+				"behavior-2"
+			]
+		},
+		{
+			"id":"maec-tst-cpb-4",
+			"name":"persistence",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-8",
+					"name":"continuous execution"
+				}
+			],
+			"behavior_refs":[
+				"behavior-3"
+			]
+		}
+	],
+	"behaviors":[
+		{
+			"id":"behavior-1",
+			"name":"identify OS"
+		}
+		{
+			"id":"behavior-2",
+			"name": "obfuscate artifact properties"
+		},
+		{
+			"id":"behavior-3",
+			"name":"persist after system reboot"
+		}
+	],
+	"actions":[
+
+	],
+	"relationships":[
+		{
+			"source_ref":"maec-tst-sub-1",
+			"target_ref":"maec-tst-sub-2",
+			"type":"contained in memory image"
+		},
+		{
+			"source_ref":"maec-tst-sub-1",
+			"target_ref":"maec-tst-sub-4",
+			"type":"contained in memory image"
+		},
+	]
+}
