@@ -37,7 +37,7 @@
           "MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
         },
         "extended_properties":{
-          "maec-packer-list":[
+          "x-maec-packer-list":[
             {
               "name":"UPX",
               "signature":"UPX v3.0.2"
