@@ -1,9 +1,9 @@
 {
-	"id":"maec-example-pkg-1",
+	"id":"package--f9f00b01-ce0a-4193-8005-ae8aab645b53",
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
-			"id":"maec-example-sub-1",
+			"id":"malware_instance--b72eed82-4333-4f41-830e-0e806b53dc4e",
 			"instance_object_ref":"object--1",
 			"labels":[
 				"dropper file"
@@ -15,7 +15,7 @@
 					"summary":"Dynamic (behavorial) triage of the subject binary",
 					"findings":{
 						"action_refs":[
-							"maec-anubis_to_maec-act-1"
+							"action--3b127f1c-59cf-460d-8eab-afd1ee705d16"
 						]
 					},
 					"tool_refs":[
@@ -28,7 +28,7 @@
 					"summary":"Dynamic (behavorial) and tool-based triage of the subject binary",
 					"findings":{
 						"action_refs":[
-							"maec-threatexpert_to_maec-act-1"
+							"action--33e9271d-30b5-4db1-9fca-892ffae1f087"
 						]
 					},
 					"tool_refs":[
@@ -41,10 +41,10 @@
 					"summary":"Manual analysis of the subject binary",
 					"findings":{
 						"capability_refs":[
-							"maec-example-cpb-1"
+							"capability--a0b139f1-7c99-4427-985b-13ec9cb04af8"
 						],
 						"behavior_refs":[
-							"maec-example-bhv-1"
+							"behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"
 						]
 					}
 				}
@@ -53,7 +53,7 @@
 	],
 	"capabilities":[
 		{
-			"id":"maec-example-cpb-1",
+			"id":"capability--a0b139f1-7c99-4427-985b-13ec9cb04af8",
 			"name":"persistence",
 			"refined_capabilities":[
 				{
@@ -67,21 +67,21 @@
 				}
 			],
 			"behavior_refs":[
-				"maec-example-bhv-1"
+				"behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"
 			]
 		}
 	],
 	"behaviors":[
 		{
-			"id":"maec-example-bhv-1",
+			"id":"behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67",
 			"name":"persist after system reboot",
 			"description":"A persistence after reboot behavior using the Windows startup folder",
 			"action_references":[
 				{
-					"action_ref":"maec-anubis_to_maec-act-1"
+					"action_ref":"action--3b127f1c-59cf-460d-8eab-afd1ee705d16"
 				},
 				{
-					"action_ref":"maec-threatexpert_to_maec-act-1"
+					"action_ref":"action--33e9271d-30b5-4db1-9fca-892ffae1f087"
 				}
 			]
 		}
@@ -89,7 +89,7 @@
 	"actions": [
 		{
 			"action_status":"success",
-			"id":"maec-anubis_to_maec-act-1",
+			"id":"action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
 			"name":"create file",
 			"object_references":[
 				{
@@ -100,7 +100,7 @@
 		},
 		{
 			"action_status":"success",
-			"id":"maec-threatexpert_to_maec-act-1",
+			"id":"action--33e9271d-30b5-4db1-9fca-892ffae1f087",
 			"name":"create file",
 			"object_references":[
 				{
