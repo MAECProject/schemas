@@ -1,5 +1,5 @@
 {
-	"id":"maec-example-pkg-1",
+	"id":"package--d717c418-d8cd-4019-8505-71faef1f1309",
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
@@ -7,11 +7,11 @@
 			"instance_object_ref":"object--1",
 			"action-refs":[
 				"action--fe99bcab-50d7-4010-9a2b-70083f7cad56",
-				"maec-example-act-2",
-				"maec-example-act-3",
-				"maec-example-act-4",
-				"maec-example-act-5",
-				"maec-example-act-6"
+				"action--37c2f512-06af-4e8f-b81d-01a699663492",
+				"action--8d3929fb-484c-4426-857b-289e42d4f53c",
+				"action--56974c6e-c0f1-44ab-a2e4-2899adbfd72a",
+				"action--f45c69ea-3c48-4493-9d2b-feeda12643a6",
+				"action--0f0ef516-ca2d-448a-9a7a-db4b215e7098"
 			]
 		}
 	],
