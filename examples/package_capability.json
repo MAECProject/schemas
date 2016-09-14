@@ -64,7 +64,7 @@
         "values":[
           {
             "name":"MSInfo",
-            "value":"%Windir%\\AVBgle.exe"
+            "data":"%Windir%\\AVBgle.exe"
           }
         ]
       }
