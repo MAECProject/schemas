@@ -1,53 +1,49 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
-        "AVClassificationType": {
-            "type": "object",
-            "description": "The AVClassificationType captures information on AV scanner classifications.",
+    "definitions": {"x-maec-avclass": {
+        "type": "array",
+        "description": "The x-maec-avclass extension captures information on anti-virus (AV) tool classifications for a particular file.",
+        "items": {
+            "type":"object",
             "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "The required id field specifies a unique ID for this AV scanner classification."
-                },
                 "scan_date": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The scan_date field specifies the date and time of the scan. This field can be used to capture how a scan changes over time."
+                    "description": "Specifies the date and time of the scan. This field can be used to capture how a scan changes over time."
                 },
-                "detected": {
+                "is_detected": {
                     "type": "boolean",
-                    "description": "The detected field specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Instance."
+                    "description": "Specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Instance."
                 },
                 "classification_name": {
                     "type": "string",
-                    "description": "The classification_name field captures the classification assigned to the malware instance object by the AV scanner tool."
+                    "description": "Captures the classification assigned to the malware instance object by the AV scanner tool."
                 },
-                "name": {
+                "av_name": {
                     "type": "string",
-                    "description": "The name field captures the name of the AV scanner tool."
+                    "description": "Captures the name of the AV scanner tool."
                 },
-                "vendor": {
+                "av_vendor": {
                     "type": "string",
-                    "description": "The vendor fields captures the vendor of the AV scanner tool."
+                    "description": "Captures the vendor of the AV scanner tool."
                 },
-                "version": {
+                "av_version": {
                     "type": "string",
-                    "description": "The version field captures the version of the AV scanner tool."
+                    "description": "Captures the version of the AV scanner tool."
                 },
-                "engine_version": {
+                "av_engine_version": {
                     "type": "string",
-                    "description": "The engine_version field captures the version of the AV engine used by the AV scanner tool."
+                    "description": "Captures the version of the AV engine used by the AV scanner tool."
                 },
-                "definition_version": {
+                "av_definition_version": {
                     "type": "string",
-                    "description": "The definition_version field captures the version of the AV definitions used by the AV scanner tool."
+                    "description": "Captures the version of the AV definitions used by the AV scanner tool."
                 }
             },
-            "required": ["id"]
-        },
-        "maec-avclass": {
-            "type": "array",
-            "items": {"$ref": "#/definitions/AVClassificationType"}
+            "required": [
+                "scan_date",
+                "is_detected"
+            ]
         }
-    }
+    }}
 }

@@ -5,6 +5,10 @@
             "type": "object",
             "description": "The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.",
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["behavior"]
+                },
                 "id": {
                     "type": "string",
                     "description": "The required id field specifies a unique ID for this Behavior"
@@ -28,8 +32,8 @@
                     "description": "An action_reference specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field"
                 },
                 "status": {
-                    "$ref": "Vocabs.json#/definitions/execution-status-ov",
-                    "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful."
+                    "type": "string",
+                    "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful. The available vocabulary for use with this field is execution-status-ov."
                 },
                 "reference": {
                     "type": "string",
