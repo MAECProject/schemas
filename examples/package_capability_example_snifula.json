@@ -21,9 +21,51 @@
 				"maec-tst-cpb-4",
 				"maec-tst-cpb-5",
 			],
-			"analyses":[
-
+			"behavior_refs":[
+				"behavior-1",
+				"behavior-2",
+				"behavior-3",
+				"behavior-4"
 			]
+		},
+		{
+			"id":"maec-tst-sub-3",
+			"instance_object_ref":"maec-tst-obj-3",
+			"labels":[
+				"backdoor",
+				"password stealer",
+				"spyware",
+				"trojan horse"
+			],
+			"analyses":[
+				{
+					"id":"maec-example-ana-1",
+					"type": "in-depth",
+					"method":"combination",
+					"source":{
+						"organization":"Computer Incident Response Center Luxembourg and National CERT of Luxembourg",
+						"url":"https://www.circl.lu/files/tr-13/tr-13-snifula-analysis-report-v1.3.pdf"
+					},
+					"summary":"Malware analysis of a Backdoor.Snifula variant",
+					"comments":[
+						{
+							"comment":"The malware binary exports 46 functions, but it seems most are used for camouflage, with only a single function actually being used."
+						}
+					],
+					"findings":{
+						"maec-example-findings-1":{
+							"behavior_refs":[
+
+							],
+							"capability_refs":[
+								"maec-tst-cpb-6",
+								"maec-tst-cpb-7"
+							],
+						}
+					}
+				}
+			]
+
 		}
 	],
 	"cybox":{
@@ -35,7 +77,7 @@
 					"MD5":"eaa5e4f26028c41ba3935a4ac455892c",
 					"SHA1":"049db2d7030bf7563974a2c25671aef046cabf99"
 				},
-
+				(IS THERE A WAY TO EXTEND THIS WITH .dll fields)
 			},
 			"maec-tst-sub-2":{
 				"type":"file",
@@ -44,6 +86,15 @@
 					"MD5":"d819facd7c980b01bf44ea7efbf6af42",
 					"SHA1": "abfe4e74b345669a0fcd8a34bff9c9a0a7bc9c44"
 				}
+			},
+			"maec-tst-obj-3":{
+				"type":"file",
+				"file_name":"ctfmreg.dll",
+				"hashes":{
+					"MD5":"f9005fd7eb85a81f2f9b1474bba61be0",
+					"SHA1":"89196b0ed3189e8571924144e57aa867f72164bd"
+				}
+
 			}
 		},
 	},
@@ -86,6 +137,56 @@
 			"behavior_refs":[
 				"behavior-3"
 			]
+		},
+		{
+			"id":"maec-tst-cpb-5",
+			"name":"secondary operation",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-10",
+					"name":"install other components"
+				}
+			],
+			"behavior_refs":[
+				"behavior-4"
+			]
+		},
+		{
+			"id":"maec-tst-cpb-6",
+			"name":"security degradation",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-12",
+					"name":"prevent security software from executing"
+				}
+			],
+			"attributes":[
+				{
+					"name":"targeted program",
+					"value":"procmon.exe"
+				}
+			]
+		},
+		{
+			"id":"maec-tst-cpb-7",
+			"name":"persistence",
+			"refined_capabilities":[
+				{
+					"id": "maec-tst-obt-14",
+					"name":"ensure compatibility",
+					"behavior_refs":[
+						"behavior-5"
+					]
+				},
+				{
+					"id":"maec-tst-obt-46",
+					"name": "continuous execution",
+					"behavior_refs":[
+						"behavior-6"
+					]
+				}
+
+			]
 		}
 	],
 	"behaviors":[
@@ -100,6 +201,25 @@
 		{
 			"id":"behavior-3",
 			"name":"persist after system reboot"
+		},
+		{
+			"id":"behavior-4",
+			"name":"install secondary module"
+		},
+		{
+			"id":"behavior-5",
+			"name": "limit application type/version"
+		},
+		{
+			"id":"behavior-6",
+			"name":"persist after system reboot",
+			"attributes":[
+				{
+					"name":"scope",
+					"value":"other malware/components"
+				}
+				(LEFT OFF HERE)
+			]
 		}
 	],
 	"actions":[
@@ -107,14 +227,40 @@
 	],
 	"relationships":[
 		{
+			"id":"relationship-1",
 			"source_ref":"maec-tst-sub-1",
 			"target_ref":"maec-tst-sub-2",
 			"type":"contained in memory image"
 		},
 		{
+			"id":"relationship-2",
 			"source_ref":"maec-tst-sub-1",
 			"target_ref":"maec-tst-sub-4",
 			"type":"contained in memory image"
 		},
+		{
+			"id":"relationship-3",
+			"source_ref":"maec-tst-sub-2",
+			"target_ref":"maec-tst-sub-1",
+			"type":"memory image of"
+		},
+		{
+			"id":"relationship-4",
+			"source_ref":"maec-tst-sub-2",
+			"target_ref":"maec-tst-sub-3",
+			"type":"drops"
+		},
+		{
+			"id":"relationship-5",
+			"source_ref":"maec-tst-sub-2",
+			"target_ref":"maec-tst-sub-6",
+			"type":"drops"
+		},
+		{
+			"id":"relationship-6",
+			"source_ref":"maec-tst-sub-2",
+			"target_ref":"maec-tst-sub-3",
+			"type":"installs"
+		}
 	]
 }
