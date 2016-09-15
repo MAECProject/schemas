@@ -34,7 +34,17 @@
                 "behavior_refs": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "The behavior_ref field captures a reference to a Behavior that serves as an implementation of the Capability. The behavior_idref field specifies the id of the Behavior being referenced; this Behavior must be present in the current Package."
+                    "description": "The behavior_ref field captures a reference to a Behavior that serves as an implementation of the Capability. The Behavior must be present in the current Package."
+                },
+                "incorporates_refs":{
+                    "type":"array",
+                    "items":{"type":"string"},
+                    "description": "The incorporates_ref field captures a reference to a Capability or Behavior that is incorporated by this Capability"
+                },
+                "incorporated_by_refs":{
+                    "type":"array",
+                    "items":{"type":"string"},
+                    "description": "The incorporated_by_ref field captures a reference to a Capability or Behavior that incorporates this Capability"
                 },
                 "references": {
                     "type": "array",

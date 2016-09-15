@@ -35,6 +35,16 @@
                     "type": "string",
                     "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful. The available vocabulary for use with this field is execution-status-ov."
                 },
+                "incorporates_refs":{
+                    "type":"array",
+                    "items":{"type":"string"},
+                    "description": "The incorporates_ref field captures a reference to a Capability or Behavior that is incorporated by this Behavior"
+                },
+                "incorporated_by_refs":{
+                    "type":"array",
+                    "items":{"type":"string"},
+                    "description": "The incorporated_by_ref field captures a reference to a Capability or Behavior that incorporates this Behavior"
+                },
                 "reference": {
                     "type": "string",
                     "format": "uri",

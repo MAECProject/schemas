@@ -22,10 +22,10 @@
 				"maec-tst-cpb-5",
 			],
 			"behavior_refs":[
-				"behavior-1",
-				"behavior-2",
-				"behavior-3",
-				"behavior-4"
+				"maec-tst-obt-5",
+				"maec-tst-obt-7",
+				"maec-tst-obt-9",
+				"maec-tst-obt-11"
 			]
 		},
 		{
@@ -76,8 +76,7 @@
 				"hashes":{
 					"MD5":"eaa5e4f26028c41ba3935a4ac455892c",
 					"SHA1":"049db2d7030bf7563974a2c25671aef046cabf99"
-				},
-				(IS THERE A WAY TO EXTEND THIS WITH .dll fields)
+				}
 			},
 			"maec-tst-sub-2":{
 				"type":"file",
@@ -93,7 +92,8 @@
 				"hashes":{
 					"MD5":"f9005fd7eb85a81f2f9b1474bba61be0",
 					"SHA1":"89196b0ed3189e8571924144e57aa867f72164bd"
-				}
+				},
+				(IS THERE A WAY TO EXTEND THIS WITH .dll fields)
 
 			}
 		},
@@ -109,7 +109,7 @@
 				}
 			],
 			"behavior_refs":[
-				"behavior-1"
+				"maec-tst-obt-5"
 			]
 		},
 		{
@@ -122,7 +122,7 @@
 				}
 			],
 			"behavior_refs":[
-				"behavior-2"
+				"maec-tst-obt-7"
 			]
 		},
 		{
@@ -135,7 +135,7 @@
 				}
 			],
 			"behavior_refs":[
-				"behavior-3"
+				"maec-tst-obt-9"
 			]
 		},
 		{
@@ -148,7 +148,7 @@
 				}
 			],
 			"behavior_refs":[
-				"behavior-4"
+				"maec-tst-obt-11"
 			]
 		},
 		{
@@ -175,7 +175,7 @@
 					"id": "maec-tst-obt-14",
 					"name":"ensure compatibility",
 					"behavior_refs":[
-						"behavior-5"
+						"maec-tst-obt-15"
 					]
 				},
 				{
@@ -187,38 +187,115 @@
 				}
 
 			]
+		},
+		{
+			"id":"maec-tst-cpb-8",
+			"name":"command and control",
+			"attributes":[
+				{
+					"name":"network protocol",
+					"value":"http"
+				}
+			],
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-16",
+					"name":"receive data from c2 server",
+					"behavior_refs":[
+						"maec-tst-obt-20",
+						"maec-tst-obt-21"
+					]
+				},
+				{
+					"id":"maec-tst-obt-17",
+					"name":"send data to c2 server",
+					"behavior_refs":[
+						"maec-tst-obt-18",
+						"maec-tst-obt-19"
+					]
+				}
+			]
+
+		},
+		{
+			"id":"maec-tst-cpb-9",
+			"name":"secondary operation",
+			"refined_capabilities":[
+				{
+					"id": "maec-tst-obt-45",
+					"name": "install other components",
+					"incorporated_by_refs":[
+						"maec-obt-tst-20"
+					],
+					"incorporates_refs":[
+						"maec-tst-obt-16",
+						"maec-tst-obt-47"
+					]
+				},
+			],
+			"behavior_refs":[
+				"maec-tst-obt-22"
+			]
 		}
 	],
 	"behaviors":[
 		{
-			"id":"behavior-1",
+			"id":"maec-tst-obt-5",
 			"name":"identify OS"
 		}
 		{
-			"id":"behavior-2",
+			"id":"maec-tst-obt-7",
 			"name": "obfuscate artifact properties"
 		},
 		{
-			"id":"behavior-3",
+			"id":"maec-tst-obt-9",
 			"name":"persist after system reboot"
 		},
 		{
-			"id":"behavior-4",
+			"id":"maec-tst-obt-11",
 			"name":"install secondary module"
 		},
 		{
-			"id":"behavior-5",
+			"id":"maec-tst-obt-15",
 			"name": "limit application type/version"
 		},
 		{
-			"id":"behavior-6",
+			"id":"maec-tst-obt-18",
+			"name":"check for payload"
+		},
+		{
+			"id":"maec-tst-obt-19",
+			"name":  LEFT OFF HERE
+		},
+		{
+			"id":"maec-tst-obt-20",
+			"name":"control local machine via remote command"
+		},
+		{
+			"id":"maec-tst-obt-21",
+			"name":"update configuration"
+		}
+		{
+			"id":"maec-tst-obt-22",
+			"name":"log activity",
+			"incorporated_by_refs":[
+				"maec-tst-obt-20"
+			],
+			"incorporates_refs":[
+				"maec-tst-obt-17"
+			]
+		},
+		{
+			"id":"maec-tst-obt-47",
 			"name":"persist after system reboot",
 			"attributes":[
 				{
 					"name":"scope",
 					"value":"other malware/components"
 				}
-				(LEFT OFF HERE)
+			],
+			"incorporated_by_refs":[
+				"maec-tst-obt-45"
 			]
 		}
 	],
