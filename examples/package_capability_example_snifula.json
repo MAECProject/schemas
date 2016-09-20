@@ -64,7 +64,26 @@
 						}
 					}
 				}
+			],
+			"capability_refs":[
+				"maec-tst-cpb-6",
+				"maec-tst-cpb-7",
+				"maec-tst-cpb-8",
+				"maec-tst-cpb-9",
+				"maec-tst-cpb-10",
+				"maec-tst-cpb-11",
+				"maec-tst-cpb-12",
+				"maec-tst-cpb-13",
+				"maec-tst-cpb-14"
+			],
+			"behavior_refs":[
+				"maec-tst-obt-12",
+				"maec-tst-obt-13",
+				"maec-tst-obt-14",
+				"maec-tst-obt"
 			]
+			HERE, finish behavior and capability refs
+				Q: do we want to reference refined_capabilities from here?
 
 		}
 	],
@@ -236,6 +255,94 @@
 			"behavior_refs":[
 				"maec-tst-obt-22"
 			]
+		},
+		{
+			"id":"maec-tst-cpb-10",
+			"name":"probing",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-23",
+					"name":"network configuration probing",
+				}
+			],
+			"behavior_refs":[
+				"maec-tst-obt-24"
+			]
+
+		},
+		{
+			"id":"maec-tst-cpb-11",
+			"name": "data theft",
+			"refined_capabilities":[
+				{
+					"id": "maec-tst-obt-25",
+					"name":"authentication credentials theft",
+					"behavior_refs":[
+						"maec-tst-obt-28",
+						"maec-tst-obt-29",
+						"maec-tst-obt-32"
+					]
+				},
+				{
+					"id":"maec-tst-obt-26",
+					"name":"user data theft",
+					"behavior_refs":[
+						"maec-tst-obt-27",
+						"maec-tst-obt-30",
+						"maec-tst-obt-31"
+					]
+				}
+			]
+		},
+		{
+			"id":"maec-tst-cpb-12",
+			"name":"spying",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-33",
+					"name":"capture system output peripheral data"
+				}
+			],
+			"behavior_refs":[
+				"maec-tst-obt-34"
+			]
+				
+		},
+		{
+			"id":"maec-tst-cpb-13",
+			"name":"data exfiltration",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-35",
+					"name":"data staging"
+				},
+				{
+					"id":"maec-tst-obt-36",
+					"name":"data obfuscation"
+				}
+			],
+			"behavior_refs":[
+				"maec-tst-obt-38",
+				"maec-tst-obt-39",
+				"maec-tst-obt-40"
+			]
+		},
+		{
+			"id":"maec-tst-cpb-14",
+			"name":"integrity violation",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-41",
+					"name":"compromise network operational capability",
+					"behavior_refs":[
+						"maec-tst-obt-43"
+					]
+				},
+				{
+					"id":"maec-tst-obt-42",
+					"name":"data integrity violation"
+				}
+			]
 		}
 	],
 	"behaviors":[
@@ -265,7 +372,7 @@
 		},
 		{
 			"id":"maec-tst-obt-19",
-			"name":  LEFT OFF HERE
+			"name": "fingerprint host"
 		},
 		{
 			"id":"maec-tst-obt-20",
@@ -284,6 +391,60 @@
 			"incorporates_refs":[
 				"maec-tst-obt-17"
 			]
+		},
+		{
+			"id":"maec-tst-cpb-24",
+			"name":"test for internet connectivity",
+			"incorporated_by_refs":[
+				"maec-tst-obt-17"
+			]
+		},
+		{
+			"id":"maec-tst-obt-27",
+			"name":"steal cookie"
+		},
+		{
+			"id":"maec-tst-obt-28",
+			"name":"steal code signing certificate",
+		},
+		{
+			"id":"maec-tst-obt-29",
+			"name":"steal pki key"
+		},
+		{
+			"id":"maec-tst-obt-30",
+			"description":"steal browser history"
+		},
+		{
+			"id":"maec-tst-obt-31",
+			"description":"steal browser cache"
+		},
+		{
+			"id":"maec-tst-obt-32",
+			"name": "steal web/network credential"
+		},
+		{
+			"id":"maec-tst-obt-34",
+			"name":"capture system screenshot"
+		}
+		{
+			"id":"maec-tst-obt-38",
+			"name":"package_data"
+		},
+		{
+			"id":"maec-tst-obt-39",
+			"name": "encrypt data"
+		},
+		{
+			"id":"maec-tst-obt-40",
+			"name":"exfiltrate data via network",
+			"incorporates_refs":[
+				"maec-tst-obt-17"
+			]
+		},
+		{
+			"id":"maec-tst-obt-43",
+			"name":"intercept/manipulate network traffic"
 		},
 		{
 			"id":"maec-tst-obt-47",
@@ -338,6 +499,24 @@
 			"source_ref":"maec-tst-sub-2",
 			"target_ref":"maec-tst-sub-3",
 			"type":"installs"
+		},
+		{
+			"id":"relationship-7",
+			"source_ref":"maec-tst-sub-3",
+			"target_ref":"maec-tst-sub-2",
+			"type":"dropped by"
+		},
+		{
+			"id":"relationship-8",
+			"source_ref":"maec-tst-sub-3",
+			"target_ref":"maec-tst-sub-4",
+			"type":"encrypted version of"
+		},
+		{
+			"id":"relationship-9",
+			"source_ref":"maec-tst-sub-3",
+			"target_ref":"maec-tst-sub-5",
+			"type":"32 bit version-of"
 		}
 	]
 }
