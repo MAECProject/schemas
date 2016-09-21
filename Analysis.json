@@ -9,9 +9,9 @@
                     "type": "string",
                     "description": "The required id field specifies a unique ID for this Analysis."
                 },
-                "type": {
+                "analysis_type": {
                     "type": "string",
-                    "description": "The type field specifies the type of malware analysis being performed. The available vocabulary for use with this field is analysis-ov."
+                    "description": "The analysis_type field specifies the type of malware analysis being performed. The available vocabulary for use with this field is analysis-ov."
                 },
                 "method": {
                     "type": "string",
@@ -29,19 +29,20 @@
                 "complete_datetime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The start_datetime field specifies the date/time the analysis was completed."
+                    "description": "The complete_datetime field specifies the date/time the analysis was completed."
                 },
                 "last_update_datetime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The start_datetime field specifies the date/time the analysis was last updated."
+                    "description": "The last_update_datetime field specifies the date/time the analysis was last updated."
                 },
                 "source": {
                     "$ref": "#/definitions/SourceType",
                     "definition": "The Source field specifies information about the internal or external source of the analysis, if applicable."
                 },
                 "analysts": {
-                    "$ref": "#/PLACEHOLDER REFERENCE FOR cyboxCommon:PersonnelType",
+                    "type": "array",
+                    "items": {"$ref": "#/PLACEHOLDER REFERENCE FOR cyboxCommon:PersonnelType"},
                     "description": "The analysts field specifies the analyst(s) who performed the analysis."
                 },
                 "summary": {
