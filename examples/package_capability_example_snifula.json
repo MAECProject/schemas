@@ -53,38 +53,65 @@
 						}
 					],
 					"findings":{
-						"maec-example-findings-1":{
+						"maec-example-findings-sub-3":{
 							"behavior_refs":[
-
+								"maec-tst-obt-13",
+								"maec-tst-obt-15",
+								"maec-tst-obt-18",
+								"maec-tst-obt-19",
+								"maec-tst-obt-20",
+								"maec-tst-obt-21",
+								"maec-tst-obt-22",
+								"maec-tst-obt-24",
+								"maec-tst-obt-27",
+								"maec-tst-obt-28",
+								"maec-tst-obt-30",
+								"maec-tst-obt-31",
+								"maec-tst-obt-32",
+								"maec-tst-obt-34",
+								"maec-tst-obt-38",
+								"maec-tst-obt-39",
+								"maec-tst-obt-40",
+								"maec-tst-obt-43",
+								"maec-tst-obt-47"
 							],
 							"capability_refs":[
 								"maec-tst-cpb-6",
-								"maec-tst-cpb-7"
-							],
+								"maec-tst-cpb-7",
+								"maec-tst-cpb-8",
+								"maec-tst-cpb-9",
+								"maec-tst-cpb-10",
+								"maec-tst-cpb-11",
+								"maec-tst-cpb-12",
+								"maec-tst-cpb-13",
+								"maec-tst-cpb-14"
+							]
 						}
 					}
 				}
+			]
+		},
+		{
+			"id":"maec-tst-sub-4",
+			"instance_object_ref":"maec-tst-obj-4",
+		},
+		{
+			"id":"maec-tst-sub-5",
+			"instance_object_ref":"maec-tst-obj-5"
+		},
+		{
+			"id":"maec-tst-sub-6",
+			"instance_object_ref":"maec-tst-obj-6",
+			"labels":[
+				"wiper"
 			],
-			"capability_refs":[
-				"maec-tst-cpb-6",
-				"maec-tst-cpb-7",
-				"maec-tst-cpb-8",
-				"maec-tst-cpb-9",
-				"maec-tst-cpb-10",
-				"maec-tst-cpb-11",
-				"maec-tst-cpb-12",
-				"maec-tst-cpb-13",
-				"maec-tst-cpb-14"
+			"capability_refs": [
+				"maec-tst-cpb-1"
 			],
 			"behavior_refs":[
-				"maec-tst-obt-12",
-				"maec-tst-obt-13",
-				"maec-tst-obt-14",
-				"maec-tst-obt"
+				"maec-tst-obt-2",
+				"maec-tst-obt-3"
 			]
-			HERE, finish behavior and capability refs
-				Q: do we want to reference refined_capabilities from here?
-
 		}
 	],
 	"cybox":{
@@ -111,13 +138,50 @@
 				"hashes":{
 					"MD5":"f9005fd7eb85a81f2f9b1474bba61be0",
 					"SHA1":"89196b0ed3189e8571924144e57aa867f72164bd"
-				},
-				(IS THERE A WAY TO EXTEND THIS WITH .dll fields)
-
+				}
+			},
+			"maec-tst-obj-4":{
+				"type":"file",
+				"file_name":"dump_00E30000.bin",
+				"hashes":{
+					"MD5":"a6bf4ae086b8d28612de4bc0d7ec4abe",
+					"SHA1":"2b6b4fbc77553425b00ee3135e2e83386ebd797f"
+				}
+			},
+			"maec-tst-sub-5":{
+				"type":"file",
+				"file_name":"ctfmreg64.dll",
+				"hashes":{
+					"MD5":"edb1c6fa185dc818e9cf1d107974561a",
+					"SHA1":"383b76f23ac1d469a59a85af1a8d9c1d3f932e2f"
+				}
+			},
+			"maec-tst-obj-6":{
+				"type":"file",
+				"description":"Batch cleanup file. The name of the file is baed on GetTicketCount value.",
+				"file_name":"[0-9]{8}\\.bat",
+				"hashes":{
+					"MD5":"d226a657b279c5fc0a892748230a56ff",
+					"SHA1":"fa7e4fb6d6de3c4769001cbfce0a00ba02ef28a5"
+				}
 			}
 		},
 	},
 	"capabilities":[
+		{
+			"id":"maec-tst-cpb-1",
+			"name":"secondary operation",
+			"refined_capabilities":[
+				{
+					"id":"maec-tst-obt-1",
+					"name":"clean traces of infection"
+				}
+			],
+			"behavior_refs":[
+				"maec-tst-obt-2",
+				"maec-tst-obt-3"
+			]
+		},
 		{
 			"id":"maec-tst-cpb-2",
 			"name":"probing",
@@ -347,9 +411,17 @@
 	],
 	"behaviors":[
 		{
+			"id":"maec-tst-obt-2",
+			"name":"remove self"
+		},
+		{
+			"id":"maec-tst-obt-3",
+			"name":"remove system artifacts"
+		},
+		{
 			"id":"maec-tst-obt-5",
 			"name":"identify OS"
-		}
+		},
 		{
 			"id":"maec-tst-obt-7",
 			"name": "obfuscate artifact properties"
@@ -361,6 +433,10 @@
 		{
 			"id":"maec-tst-obt-11",
 			"name":"install secondary module"
+		},
+		{
+			"id":"maec-tst-obt-13",
+			"name":"prevent security program from running"
 		},
 		{
 			"id":"maec-tst-obt-15",
@@ -381,7 +457,7 @@
 		{
 			"id":"maec-tst-obt-21",
 			"name":"update configuration"
-		}
+		},
 		{
 			"id":"maec-tst-obt-22",
 			"name":"log activity",
@@ -393,7 +469,7 @@
 			]
 		},
 		{
-			"id":"maec-tst-cpb-24",
+			"id":"maec-tst-obt-24",
 			"name":"test for internet connectivity",
 			"incorporated_by_refs":[
 				"maec-tst-obt-17"
@@ -426,7 +502,7 @@
 		{
 			"id":"maec-tst-obt-34",
 			"name":"capture system screenshot"
-		}
+		},
 		{
 			"id":"maec-tst-obt-38",
 			"name":"package_data"
@@ -517,6 +593,36 @@
 			"source_ref":"maec-tst-sub-3",
 			"target_ref":"maec-tst-sub-5",
 			"type":"32 bit version-of"
+		},
+		{
+			"id":"relationship-10",
+			"source_ref":"maec-tst-sub-4",
+			"target_ref":"maec-tst-sub-1",
+			"type":"memory image of"
+		},
+		{
+			"id":"relationship-11",
+			"source_ref":"maec-tst-sub-4",
+			"target_ref":"maec-tst-3",
+			"type":"decrypted version of"
+		},
+		{
+			"id":"relationship-12",
+			"source_ref":"maec-tst-sub-5",
+			"target_ref":"maec-tst-sub-2",
+			"type":"extracted from"
+		},
+		{
+			"id":"relationship-13",
+			"source_ref":"maec-tst-sub-5",
+			"target_ref":"maec-tst-sub-3",
+			"type":"64-bit version of"
+		},
+		{
+			"id":"relationship-14",
+			"source_ref":"maec-tst-sub-6",
+			"target_ref":"maec-tst-sub-2",
+			"type":"dropped by"
 		}
 	]
 }
