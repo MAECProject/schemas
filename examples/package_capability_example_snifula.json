@@ -19,7 +19,7 @@
 				"maec-tst-cpb-2",
 				"maec-tst-cpb-3",
 				"maec-tst-cpb-4",
-				"maec-tst-cpb-5",
+				"maec-tst-cpb-5"
 			],
 			"behavior_refs":[
 				"maec-tst-obt-5",
@@ -93,7 +93,7 @@
 		},
 		{
 			"id":"maec-tst-sub-4",
-			"instance_object_ref":"maec-tst-obj-4",
+			"instance_object_ref":"maec-tst-obj-4"
 		},
 		{
 			"id":"maec-tst-sub-5",
@@ -165,7 +165,7 @@
 					"SHA1":"fa7e4fb6d6de3c4769001cbfce0a00ba02ef28a5"
 				}
 			}
-		},
+		}
 	},
 	"capabilities":[
 		{
@@ -314,7 +314,7 @@
 						"maec-tst-obt-16",
 						"maec-tst-obt-47"
 					]
-				},
+				}
 			],
 			"behavior_refs":[
 				"maec-tst-obt-22"
@@ -326,7 +326,7 @@
 			"refined_capabilities":[
 				{
 					"id":"maec-tst-obt-23",
-					"name":"network configuration probing",
+					"name":"network configuration probing"
 				}
 			],
 			"behavior_refs":[
@@ -481,7 +481,7 @@
 		},
 		{
 			"id":"maec-tst-obt-28",
-			"name":"steal code signing certificate",
+			"name":"steal code signing certificate"
 		},
 		{
 			"id":"maec-tst-obt-29",
