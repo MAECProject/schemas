@@ -4,6 +4,10 @@
         "type": "object",
         "description": "The CollectionType captures collections of any MAEC entities, including Malware Subjects.",
         "properties": {
+            "type": {
+                "type": "string",
+                "enum": ["collection"]
+            },
             "id": {
                 "type": "string",
                 "description": "The required id field specifies a unique ID for this Collection."

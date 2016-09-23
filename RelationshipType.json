@@ -5,6 +5,10 @@
             "type": "object",
             "definition": "The RelationshipType captures relationships between two entities in the MAEC document.",
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["relationship"]
+                },
                 "id": {
                     "type": "string",
                     "description": "The id field specifies a unique identifier for the relationship."
@@ -22,13 +26,13 @@
                     "format": "date-time",
                     "description": "The timestamp field specifies a timestamp that states when the relationship was created."
                 },
-                "type": {
+                "relationship_type": {
                     "$ref": "string",
-                    "description": "The Type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary. The possible vocabularies for use with this field is relationship-ov."
+                    "description": "The relationship_type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary. The possible vocabularies for use with this field is relationship-ov."
                 },
                 "additional_metadata": {
                     "type": "object",
-                    "description": "The Additional_Metadata field captures any additional metadata that may associated with the Relationship.",
+                    "description": "The additional_metadata field captures any additional metadata that may associated with the Relationship.",
                     "oneOf": [{"$ref": "#/definitions/RelationshipDistanceMetadataType"}]
                 },
                 "supporting_data_refs": {
