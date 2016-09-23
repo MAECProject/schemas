@@ -53,15 +53,15 @@
             "properties": {
                 "distance_score": {
                     "type": "number",
-                    "description": "The required distance_score field captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., \"0.62\"."
+                    "description": "The distance_score field captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., \"0.62\"."
                 },
                 "algorithm_name": {
                     "type": "string",
-                    "description": "The algorithm_name field captures the name of the algorithm used in calculating the distance score specified in the Distance_Score field."
+                    "description": "The algorithm_name field captures the name of the algorithm used in calculating the distance score specified in the distance_score field."
                 },
                 "algorithm_version": {
                     "type": "string",
-                    "description": "The algorithm_version field captures the version of the algorithm used in calculating the distance score specified in the Distance_Score field."
+                    "description": "The algorithm_version field captures the version of the algorithm used in calculating the distance score specified in the distance_score field."
                 }
             },
             "required": ["distance_score"]
