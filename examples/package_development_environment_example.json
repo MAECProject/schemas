@@ -1,0 +1,33 @@
+{
+  "id":"maec-example-pkg-1",
+  "schema_version":"5.0",
+  "malware_instances":[
+    {
+    	"id":"maec-tst-sub-1",
+    	"instance_object_ref":"object--1",
+    	"development_environment":{
+    		"dev-env-1":{
+    			"tool-refs":[
+    				"tool-1"
+    			]
+    		}
+    	}
+    }
+   ],
+  "cybox":{
+  	"objects":{
+  		"object--1":{
+  			"type":"file",
+  			"hashes":{
+  				"MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
+  			}
+  		},
+  		"tool-1":{
+  			"type":"software",
+  			"name":"Microsoft Visual C++ compiler",
+  			"version":"6.0",
+  			"description":"compiler"
+  		}
+  	}
+  }
+}
