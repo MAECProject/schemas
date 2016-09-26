@@ -1,0 +1,123 @@
+{
+  "id":"maec-example-pkg-1",
+  "schema_version":"5.0",
+  "malware instances":[
+  	{
+  		"id":"maec-example-sub-1",
+  		"instance_object_ref":"object--1",
+  		"labels":[
+  			"trojan horse",
+  			"bot",
+  			"keylogger",
+  			"password stealer"
+  		],
+  		"analyses":[
+  			{
+  				"id":"maec-example-ana-1",
+  				"method":"dynamic",
+  				"type":"triage",
+  				"summary":"Dynamic (behavioral) triage of the subject binary.",
+  				"tool_refs":[
+  					"maec-example-tool-1"
+  				]
+  			},
+  			{
+  				"id":"maec-example-ana-2",
+  				"method":"dynamic",
+  				"type":"triage",
+  				"summary":"Dynamic (behavioral) and tool-based triage of the subject binary.",
+  				"tool_refs":[
+  					"maec-example-tool-2"
+  				]
+  			}
+  		]
+  	},
+  ],
+  "cybox":{
+  	"objects":{
+  		"object--1":{
+  			"type":"file",
+  			"file_name":"076e5b2bae.exe",
+  			"parent_directory_ref": "parent-dir-obj-1",
+  			"size":77312,
+  			"hashes":{
+  				"MD5":"076e5b2bae0b4b3a3d81c85610b95cd4",
+  				"SHA1":"4484e08903744ceeaedd8f5e1bfc06b2c4688e76"
+  			}
+  		},
+  		"parent-dir-obj-1":{
+  			"type":"directory",
+  			"path":"C:\\"
+  		},
+  		"maec-example-tool-1":{
+  			"type":"software",
+  			"name":"Anubis",
+  			"vendor":"IsecLab"
+  		},
+  		"maec-example-tool-2":{
+  			"type":"software",
+  			"name":"ThreatExpert",
+  			"vendor":"Symantec"
+  		},
+  		"maec-anubis_to_maec-obj-1":{
+  			"type":"file",
+  			"file_name":"oembios.exe",
+  			"parent_directory_ref":"parent-dir-obj-2"
+  		},
+  		"parent-dir-obj-2":{
+  			"type":"directory",
+  			"path":"C:\\Windows\\system32\\"
+  		},
+  		"maec-anubis_to_maec-obj-2":{
+  			"type":"mutex-object",
+  			"name":"__SYSTEM__91C38905__"
+  		}
+  	}
+  },
+  "actions":[
+  	{
+  		"id":"maec-anubis_to_maec_act-1",
+  		"name":"create file",
+  		"object_references":[
+  			{
+  				"obj_ref":"maec-anubis_to_maec-obj-1",
+  				"association_type":"output"
+  			}
+  		],
+  		"status":"Success"
+  	},
+  	{
+  		"id":"maec-anubis_to_maec_act-2",
+  		"name":"create mutex",
+  		"object_references":[
+  			{
+  				"obj_ref":"maec-anubis_to_maec-obj-2",
+  				"association_type":"output"
+  			}
+  		],
+  		"status":"Success"
+  	}
+
+  ],
+  "collections":[
+  	{
+  		"id":"maec-anubis_to_maec-actc-1",
+  		"name":"File System Actions",
+  		"maec_entity_type":"actions",
+  		"entity_refs":[
+  			"maec-anubis_to_maec-obj-1"
+  		]
+ 	},
+ 	{
+  		"id":"maec-anubis_to_maec-actc-2",
+  		"name":"Synchronization Actions",
+  		"maec_entity_type":"actions",
+  		"entity_refs":[
+  			"maec-anubis_to_maec-obj-2"
+  		]
+ 	},
+
+  ]
+
+
+}
