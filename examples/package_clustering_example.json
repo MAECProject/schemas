@@ -80,7 +80,7 @@
   			"algorithm_version":"1.0"
   		}
   	},
-  		{
+  	{
   		"id":"relationship-2",
   		"source_ref":"maec-example-sub-1",
   		"target_ref":"maec-example-sub-3",
@@ -91,7 +91,7 @@
   			"algorithm_version":"1.0"
   		}
   	},
-  		{
+  	{
   		"id":"relationship-3",
   		"source_ref":"maec-example-sub-2",
   		"target_ref":"maec-example-sub-3",
@@ -99,8 +99,7 @@
   		"additional_metadata":{
   			"distance_score":0.66667,
   			"algorithm_name":"Test Algorithm",
-  			"algorithm_version":"1.0"
-  			
+  			"algorithm_version":"1.0"	
   		}
   	}
   ]
