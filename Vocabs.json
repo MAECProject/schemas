@@ -571,7 +571,7 @@
                 "group id",
                 "mutex",
                 "filename",
-                "installation patch"
+                "installation path"
             ]
         },
         "malware-development-tool-ov": {
