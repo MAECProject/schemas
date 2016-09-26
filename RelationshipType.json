@@ -5,6 +5,10 @@
             "type": "object",
             "definition": "The RelationshipType captures relationships between two entities in the MAEC document.",
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["relationship"]
+                },
                 "id": {
                     "type": "string",
                     "description": "The id field specifies a unique identifier for the relationship."
@@ -22,13 +26,13 @@
                     "format": "date-time",
                     "description": "The timestamp field specifies a timestamp that states when the relationship was created."
                 },
-                "type": {
+                "relationship_type": {
                     "$ref": "string",
-                    "description": "The Type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary. The possible vocabularies for use with this field is relationship-ov."
+                    "description": "The relationship_type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary. The possible vocabularies for use with this field is relationship-ov."
                 },
                 "additional_metadata": {
                     "type": "object",
-                    "description": "The Additional_Metadata field captures any additional metadata that may associated with the Relationship.",
+                    "description": "The additional_metadata field captures any additional metadata that may associated with the Relationship.",
                     "oneOf": [{"$ref": "#/definitions/RelationshipDistanceMetadataType"}]
                 },
                 "supporting_data_refs": {
@@ -49,15 +53,15 @@
             "properties": {
                 "distance_score": {
                     "type": "number",
-                    "description": "The required distance_score field captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., \"0.62\"."
+                    "description": "The distance_score field captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., \"0.62\"."
                 },
                 "algorithm_name": {
                     "type": "string",
-                    "description": "The algorithm_name field captures the name of the algorithm used in calculating the distance score specified in the Distance_Score field."
+                    "description": "The algorithm_name field captures the name of the algorithm used in calculating the distance score specified in the distance_score field."
                 },
                 "algorithm_version": {
                     "type": "string",
-                    "description": "The algorithm_version field captures the version of the algorithm used in calculating the distance score specified in the Distance_Score field."
+                    "description": "The algorithm_version field captures the version of the algorithm used in calculating the distance score specified in the distance_score field."
                 }
             },
             "required": ["distance_score"]

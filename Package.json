@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {"PackageType": {
         "type": "object",
-        "description": "The PackageType is the namesake type of the MAEC Package schema, and captures either a single Malware Subject, or a collection of Malware Subjects that are related in some way (even if exact details of the relationship are unknown). Unlike the MAEC Bundle, which captures only the MAEC-characterized analysis results for a malware instance, the Package permits the capture of additional metadata relating to the analysis, relationships between Malware Subjects, and similar types of entities.",
+        "description": "The PackageType is the standard output format that can be used to describe one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, CybOX Objects, and Collections and Relationships.",
         "properties": {
             "id": {
                 "type": "string",
