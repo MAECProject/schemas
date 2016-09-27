@@ -28,7 +28,7 @@
   		"id":"example:subject-9fb155a9-abc7-4d38-8dc4-df00f83732f7",
   		"instance_object_ref":"object--3",
   		"behavior_refs":[
-  			"example:behavior-f085f3b9-9939-4ac9-9445-bc4b61fec981",
+  			"example:behavior-f085f3b9-9939-4ac9-9445-bc4b61fec981"
   		],
   		"action_refs":[
   			"example:action-7504a917-d264-46d8-b55a-a9d4c214ce23",
