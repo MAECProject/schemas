@@ -120,7 +120,7 @@
 					"association_type":"output"
 				},
 				{
-					"obj_ref":"object--5,
+					"obj_ref":"object--5",
 					"association_type":"input"
 				}
 			]
@@ -138,7 +138,6 @@
 					"association_type":"input"
 				}
 			]
-
 		}
 	]
 }
