@@ -315,6 +315,29 @@
                 "unknown"
             ]
         },
+        "infection-vector-ov": {
+            "type": "string",
+            "description": "infection-vector-ov is a non-exhaustive enumeration of malware infection vectors",
+            "enum": [
+                "active-attacker",
+                "pharming",
+                "phishing",
+                "trojanized-link",
+                "email-attachment",
+                "trojanized-software",
+                "watering-hole",
+                "fake-website",
+                "malvertising",
+                "exploit-kit-landing-page",
+                "malicious-iframes",
+                "dropper",
+                "downloader",
+                "janitor-attack",
+                "usb-cable-syncing",
+                "media-baiting",
+                "auto-executing-media"
+            ]
+        },
         "interaction-level-cv": {
             "type": "string",
             "description": "interaction-level-cv is a non-exhaustive enumeration of interaction levels for network protocols in a malware analysis environment.",
