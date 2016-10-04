@@ -2,6 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "AnalysisType": {
+	    "title":"Analysis",
             "type": "object",
             "description": "The AnalysisType provides a way of capturing the information associated with the analysis of a malware instance, such as the subject, authors, start datetime, and other relevant data.",
             "properties": {
@@ -79,6 +80,7 @@
             "required": ["id"]
         },
         "SourceType": {
+   	    "title":"Source",
             "type": "object",
             "description": "The SourceType provides a way of characterizing the external source of a relevant MAEC entity, such as an Analysis.",
             "properties": {
@@ -106,6 +108,7 @@
             }
         },
         "CommentType": {
+            "title":"Comment",
             "type": "object",
             "description": "The CommentType captures a comment relating to some MAEC field.",
             "properties": {
@@ -128,6 +131,7 @@
             }
         },
         "FindingsType": {
+	    "title":"Finding",
             "type": "object",
             "description": "The FindingsType relates the findings of an analysis performed on a malware instance.",
             "properties": {
@@ -159,6 +163,7 @@
             }
         },
         "DynamicAnalysisMetadataType": {
+	    "title":"DynamicAnalysisMetadata",
             "type": "object",
             "description": "The DynamicAnalysisMetadataType captures any metadata specific to the dynamic analysis of a malware instance.",
             "properties": {
@@ -182,6 +187,7 @@
             }
         },
         "MalwareExceptionType": {
+	    "title":"MalwareException",
             "type": "object",
             "description": "The MalwareExceptionType captures details of exceptions that may be raised as a result of a malware instance executing on a system.",
             "properties": {

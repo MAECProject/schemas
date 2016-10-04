@@ -2,7 +2,8 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "BehaviorType": {
-            "type": "object",
+            "title":"Behavior",
+	    "type": "object",
             "description": "The BehaviorType is one of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.",
             "properties": {
                 "type": {
@@ -54,6 +55,7 @@
             "required": ["id"]
         },
         "BehaviorActionReferenceType": {
+	    "title":"BehaviorActionReference",
             "type": "object",
             "description": "The BehaviorActionReferenceType specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field",
             "properties": {
@@ -70,6 +72,7 @@
             "required": ["action_ref"]
         },
         "AttributeType": {
+	    "title":"Attribute",
             "type": "object",
             "description": "The AttributeType permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field.",
             "properties": {
@@ -84,6 +87,7 @@
             }
         },
         "AssociatedCodeType": {
+	    "title":"AssociatedCode",
             "type": "object",
             "description": "The AssociatedCodeType is a generic way of specifying any code snippets associated with a MAEC entity, such as a Behavior",
             "properties": {"code_snippet": {

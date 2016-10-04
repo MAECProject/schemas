@@ -2,7 +2,8 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "ProcessTreeType": {
-            "type": "object",
+            "title":"ProcessTree",
+	    "type": "object",
             "description": "The ProcessTreeType captures the process tree for the malware instance, including the parent process and processes spawned by it, along with any Actions initiated by each.",
             "properties": {"root_process": {
                 "$ref": "#/definitions/ProcessTreeNodeType",
@@ -11,6 +12,7 @@
         },
         "ProcessTreeNodeType": {"allOf": [
             {"$ref": "REFERENCE PLACEHOLDER FOR ProcessObj:ProcessObjectType"},
+	    {"title":"ProcessTreeNode"},
             {"description": "The ProcessTreeNodeType captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object."},
             {
                 "properties": {
