@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {"PackageType": {
         "title":"Package",
-	    "type": "object",
+	"type": "object",
         "description": "The PackageType is the standard output format that can be used to describe one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, CybOX Objects, and Collections and Relationships.",
         "properties": {
             "id": {
