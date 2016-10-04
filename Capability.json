@@ -3,7 +3,7 @@
     "definitions": {
         "CapabilityType": {
             "title":"Capability",
-	    "type": "object",
+	        "type": "object",
             "description": "The CapabilityType captures details of a Capability that may be implemented in the malware instance",
             "properties": {
                 "type": {

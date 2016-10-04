@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {"CollectionType": {
         "title":"Collection",
-	"type": "object",
+	    "type": "object",
         "description": "The CollectionType captures collections of any MAEC entities, including Malware Subjects.",
         "properties": {
             "type": {

@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {"x-maec-avclass": {
         "title":"AVClassification",
-	"type": "array",
+	    "type": "array",
         "description": "The x-maec-avclass extension captures information on anti-virus (AV) tool classifications for a particular file.",
         "items": {
             "type":"object",

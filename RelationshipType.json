@@ -3,7 +3,7 @@
     "definitions": {
         "RelationshipType": {
             "title":"Relationship",
-	    "type": "object",
+	        "type": "object",
             "definition": "The RelationshipType captures relationships between two entities in the MAEC document.",
             "properties": {
                 "type": {
@@ -49,7 +49,7 @@
             ]
         },
         "RelationshipDistanceMetadataType": {
-	    "title":"RelationshipDistanceMetadata",
+	        "title":"RelationshipDistanceMetadata",
             "type": "object",
             "description": "Captures information associated with a distance metric between the source and target in the relationship.",
             "properties": {
