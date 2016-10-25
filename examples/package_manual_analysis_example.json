@@ -1,0 +1,127 @@
+{
+	"id":"package--7af42bc3-8aef-42dc-95e4-d89f16eaa142",
+	"schema_version":"5.0",
+	"malware_instances":[
+		{
+			"id":"maec-example-sub-1",
+			"instance_object_ref":["object--1"],
+			"labels":[
+				"dropper_file"
+			],
+			"analyses":[
+				{
+					"id":"maec-example-ana-1",
+					"method":"static",
+					"type":"triage",
+					"source":{
+						"name":"Franki Li",
+						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
+					},
+					"summary":"A basic static triage of the subject binary using PEiD",
+					"tool_refs":[
+						"analysis-tool-1"
+					]
+				},
+				{
+					"id":"maec-example-ana-2",
+					"method":"dynamic",
+					"type":"triage",
+					"source":{
+						"name":"Franki Li",
+						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
+					},
+					"summary":"Dynamic (behavioral) and tool-based triage of the subject binary.",
+					"tool_refs":[
+						"analysis-tool-2",
+						"analysis-tool-3",
+						"analysis-tool-4",
+						"analysis-tool-5",
+						"analysis-tool-6",
+						"analysis-tool-7"
+					]
+				},
+				{
+					"id":"maec-example-ana-3",
+					"method":"static",
+					"type":"in-depth",
+					"source":{
+						"name":"Franki Li",
+						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
+					},
+					"tool_refs":[
+						"analysis-tool-8"
+					]
+				}
+			],
+			"object_refs":[
+				"maec-example-obj-1",
+
+
+			]
+
+		}
+	],
+	"cybox":{
+		"objects":{
+			"object--1":{
+				"type":"file",
+				"file_name":"dg003_improve_8080_V132.exe",
+				"size": 196608,
+				"hashes":{
+					"MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
+				}
+			},
+			"analysis-tool-1":{
+				"type":"software",
+				"name":"PEiD",
+				"version":"0.94"
+			},
+			"analysis-tool-2":{
+				"type":"software",
+				"name":"CaptureBAT",
+				"vendor":"Zealand Honeynet Project",
+				"version":"2.0.0"
+			},
+			"analysis-tool-3":{
+				"type":"software",
+				"name":"Regshot",
+				"version":"1.8.2"
+			},
+			"analysis-tool-4":{
+				"name":"HandleDiff",
+				"version":"0.2"
+			},
+			"analysis-tool-5":{
+				"name":"VMMap",
+				"vendor":"Sysinternals",
+				"version": "3.1"
+			},
+			"analysis-tool-6":{
+				"name":"Wireshark",
+				"vendor":"Wireshark.org",
+				"version":"1.2.2"
+			},
+			"analysis-tool-7":{
+				"name":"Process Monitor",
+				"vendor":"Sysinternals",
+				"version":"15.0"
+			},
+			"analysis-tool-8":{
+				"name":"IDA Pro Freeware",
+				"vendor":"Hex-Rays SA",
+				"version":"5.0"
+			},
+			"maec-example-obj-1":{
+				"type":"file",
+				"windows-pebinary-ext":{
+					"pe_type":"exe",
+					"windows-pe-optional-header_type":{
+						"major_linker_version":6,
+						"minor_linker_version":0,
+						"base_of_code":036418
+					}
+				}
+			}
+		}
+
+	}
