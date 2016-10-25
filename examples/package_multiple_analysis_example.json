@@ -4,7 +4,7 @@
   "malware instances":[
   	{
   		"id":"maec-example-sub-1",
-  		"instance_object_ref":"object--1",
+  		"instance_object_ref":["object--1"],
   		"labels":[
   			"trojan horse",
   			"bot",
