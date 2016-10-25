@@ -4,7 +4,7 @@
   "malware_instances":[
     {
       "id":"malware_instance--1d43c77c-21a0-4a10-9a9a-8c0fdfd280b8",
-      "instance_object_ref":"object--1",
+      "instance_object_ref":["object--1"],
       "action_refs":[
         "action--935a718f-863e-49fb-89b8-d65dc0e70e53",
         "action--75514819-ea94-4684-8107-68ee63315fc4"
