@@ -4,7 +4,7 @@
   "malware instances":[
   	{
   		"id":"example:subject-eb54999d-4a5a-439d-aeb9-39b5f7eaf77c",
-  		"instance_object_ref":"object--1",
+  		"instance_object_ref":["object--1"],
   		"behavior_refs":[
   			"example:behavior-1127c9d9-2ab0-4763-a53b-46145425bdf5"
   		],
@@ -15,7 +15,7 @@
   	},
   	{
   		"id":"example:subject-0b1b98d8-9235-427d-aeab-54bdf9f70412",
-  		"instance_object_ref":"object--2",
+  		"instance_object_ref":["object--2"],
   		"behavior_refs":[
   			"example:behavior-1b75ce50-d6f6-49a4-9524-9b15fa2f7d49"
   		],
@@ -26,7 +26,7 @@
   	},
   	{
   		"id":"example:subject-9fb155a9-abc7-4d38-8dc4-df00f83732f7",
-  		"instance_object_ref":"object--3",
+  		"instance_object_ref":["object--3"],
   		"behavior_refs":[
   			"example:behavior-f085f3b9-9939-4ac9-9445-bc4b61fec981"
   		],
@@ -37,7 +37,7 @@
   	},
   	{
   		"id":"example:subject-662d7a32-2246-4712-8dae-f201dac945b3",
-  		"instance_object_ref":"object--4",
+  		"instance_object_ref":["object--4"],
   		"behavior_refs":[
   			"example:behavior-0c226f00-f6ed-4246-a203-5b574cac3362"
   		],
