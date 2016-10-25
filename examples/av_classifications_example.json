@@ -4,7 +4,7 @@
 	"malware_instances":[
 		{
 			"id":"malware_instance--8bcf14e9-2ba2-44ef-9e32-fbbc9d2608b2",
-			"instance_object_ref":"object--1"
+			"instance_object_ref":["object--1"]
 		}
 	],
 	"cybox":{
