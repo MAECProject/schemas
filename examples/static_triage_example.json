@@ -4,7 +4,7 @@
   "malware_instances":[
     {
       "id":"malware_instance--57998fb0-604e-4d14-b8f1-6363dbff87cb",
-      "instance_object_ref":"object--1",
+      "instance_object_ref":["object--1"],
       "labels":[
         "dropper file"
       ],
