@@ -1,52 +1,55 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {
-        "ProcessTreeType": {
+    "definitions":{
+        "ProcessTreeType":{
             "title":"ProcessTree",
-	        "type": "object",
+            "type": "object",
             "description": "The ProcessTreeType captures the process tree for the malware instance, including the parent process and processes spawned by it, along with any Actions initiated by each.",
-            "properties": {"root_process": {
-                "$ref": "#/definitions/ProcessTreeNodeType",
-                "description": "The root_process field captures the root process in the process tree."
-            }}
+            "properties":{
+                "root_process":{
+                    "$ref": "#/definitions/ProcessTreeNodeType",
+                    "description": "The root_process field captures the root process in the process tree."
+				}
+	    	}
         },
-        "ProcessTreeNodeType": {"allOf": [
-            {"$ref": "REFERENCE PLACEHOLDER FOR ProcessObj:ProcessObjectType"},
-	        {"title":"ProcessTreeNode"},
-            {"description": "The ProcessTreeNodeType captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object."},
-            {
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "description": "The required id field specifies a unique ID for the Process Node."
-                    },
-                    "parent_action_ref": {
-                        "type": "string",
-                        "description": "The parent_action_ref field specifies the id of the action that created or injected this process."
-                    },
-                    "ordinal_position": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "description": "The ordinal_position field specifies the ordinal position of the process with respect to the other processes spawned or injected by the malware."
-                    },
-                    "initiated_action_refs": {
-                        "description": "The initiated_action_refs field captures, via references, the malware actions initiated by the process.",
-                        "type": "array",
-                        "items": {"type": "string"}
-                    },
-                    "spawned_processes": {
-                        "type": "array",
-                        "items": {"$ref": "#/definitions/ProcessTreeNodeType"},
-                        "description": "The spawned_process field captures a single child process spawned by this process."
-                    },
-                    "injected_processes": {
-                        "type": "array",
-                        "items": {"$ref": "#/definitions/ProcessTreeNodeType"},
-                        "description": "The injected_process field captures a single process that was injected by this process."
-                    }
-                },
-                "required": ["id"]
-            }
-        ]}
-    }
+        "ProcessTreeNodeType":{
+	    	"title":"ProcessTreeNode",
+	    	"description": "The ProcessTreeNodeType captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object.",
+            "properties":{
+	        	"process_ref":{
+		     		"type":"string",
+		     		"description": "The process_ref field captures a reference to a Cyber Observable -Process Object"   
+				},
+		        "id":{
+			    	"type": "string",
+			    	"description": "The required id field specifies a unique ID for the Process Node."
+		        },
+		        "parent_action_ref":{
+			    	"type": "string",
+			    	"description": "The parent_action_ref field specifies the id of the action that created or injected this process."
+		        },
+		        "ordinal_position": {
+			   		"type": "integer",
+			   		"minimum": 0,
+			   		"description": "The ordinal_position field specifies the ordinal position of the process with respect to the other processes spawned or injected by the malware."
+		        },
+		        "initiated_action_refs": {
+			    	"description": "The initiated_action_refs field captures, via references, the malware actions initiated by the process.",
+			    	"type": "array",
+			    	"items": {"type": "string"}
+		        },
+		        "spawned_processes": {
+			    	"type": "array",
+			    	"items": {"$ref": "#/definitions/ProcessTreeNodeType"},
+			    	"description": "The spawned_process field captures a single child process spawned by this process."
+		        },
+		        "injected_processes": {
+			    	"type": "array",
+			    	"items": {"$ref": "#/definitions/ProcessTreeNodeType"},
+			    	"description": "The injected_process field captures a single process that was injected by this process."
+		        }
+        	},
+            "required": ["id"]
+    	}
+	}
 }
