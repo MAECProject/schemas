@@ -101,25 +101,30 @@
 				"version":"1.8.2"
 			},
 			"analysis-tool-4":{
+				"type":"software",
 				"name":"HandleDiff",
 				"version":"0.2"
 			},
 			"analysis-tool-5":{
+				"type":"software",
 				"name":"VMMap",
 				"vendor":"Sysinternals",
 				"version": "3.1"
 			},
 			"analysis-tool-6":{
+				"type":"software",
 				"name":"Wireshark",
 				"vendor":"Wireshark.org",
 				"version":"1.2.2"
 			},
 			"analysis-tool-7":{
+				"type":"software",
 				"name":"Process Monitor",
 				"vendor":"Sysinternals",
 				"version":"15.0"
 			},
 			"analysis-tool-8":{
+				"type":"software",
 				"name":"IDA Pro Freeware",
 				"vendor":"Hex-Rays SA",
 				"version":"5.0"
@@ -128,14 +133,475 @@
 				"type":"file",
 				"windows-pebinary-ext":{
 					"pe_type":"exe",
-					"windows-pe-optional-header_type":{
+					"windows-pe-optional-header-type":{
 						"major_linker_version":6,
 						"minor_linker_version,":0,
-						"base_of_code":036418
-						SUBSYSTEM FIELD MAY GO HERE
+						"base_of_code":036418,
+						"subsystem_hex":"2"
 					}
 				}
+			},
+			"maec-example-obj-2":{
+				"type":"file",
+				"file_name":"ws2help.PNF",
+				"parent_directory_ref": "parent-dir-1",	
+			},
+			"maec-example-obj-3":{
+				"type":"file",
+				"file_name":"msvcr.dll",
+				"parent_directory_ref":"parent-dir-1"
+			},
+			"maec-example-obj-4":{
+				"type":"file",
+				"file_name":"1.txt",
+				"parent_directory_ref":"parent-dir-2"
+			},
+			"maec-example-obj-5":{
+				"type":"file",
+				"file_name":"netstat.exe",
+				"parent_directory_ref":"parent-dir-3"
+			},
+			"maec-example-obj-6":{
+				"type":"file",
+				"file_name":"IECheck.exe",
+				"parent_directory_ref":"parent-dir-1"
+			},
+			"maec-example-obj-7":{
+				"type":"file",
+				"file_name":"IPsecstap.dat",
+				"parent_directory_ref":"parent-dir-3"
+			},
+			"maec-example-obj-8":{
+				"type":"file",
+				"file_name":"Internet Explorer Security Check.lnk",
+				"parent_directory_ref":"parent-dir-4"
+			},
+			"maec-example-obj-9":{
+				"type":"file",
+				"file_name":"13605",
+				"parent_directory_ref":"parent-dir-3"
+			},
+			"maec-example-obj-10":{
+				"type":"mutex",
+				"name":"VistaDLLProRUNNING"
+			},
+			"maec-example-obj-11":{
+				"type":"file",
+				"file_name":"mscvr.dll",
+				"parent_directory_ref":"parent-dir-1"
+			},
+			"maec-example-obj-12":{
+				"type":"file",
+				"file_name":"explorer.exe",
+				"parent_directory_ref":"parent-dir-8"
+			},
+			"maec-example-obj-20":{
+				"type":"file",
+				"file_name":"fvcwin32.exe",
+				"parent_directory_ref":"parent-dir-5"
+			},
+			"maec-example-obj-21":{
+				"type":"file",
+				"file_name":"acvcwin32.exe",
+				"parent_directory_ref":"parent-dir-5"
+			},
+			"maec-example-obj-22":{
+				"type":"file",
+				"file_name":"acvwin32.exe",
+				"parent_directory_ref":"parent-dir-5"
+			},
+			"maec-example-obj-26":{
+				"type":"file",
+				"file_name":"AutoList.txt",
+				"parent_directory_ref":"parent-dir-6"
+			},
+			"maec-example-obj-28":{
+				"type":"file",
+				"file_name":"SAM.dll",
+				"parent_directory_ref":"parent-dir-7"
+			},
+			"maec-example-obj-29":{
+				"type":"file",
+				"file_name":"system.dll",
+				"parent_directory_ref":"parent-dir-7"
+			},
+			"maec-example-obj-31":{
+				"type":"file",
+				"file_name":"Iestorage.dll",
+				"parent_directory_ref":"parent-dir-7"
+			},
+			"maec-example-obj-35":{
+				"type":"file",
+				"file_name":"drive.cab",
+				"parent_directory_ref":"parent-dir-7"
+			},
+			"parent-dir-1":{
+				"type":"directory",
+				"path":"C:\\Documents\\Settings\\Local Settings\\Application\\Data"
+				^This was originally a pattern, no way to accomodate?
+			},
+			"parent-dir-2":{
+				"type":"directory",
+				"path":"C:\\Windows\\inf"
+			},
+			"parent-dir-3":{
+				"type":"directory",
+				"path":"C:\\Windows\\system32"
+			},
+			"parent-dir-4":{
+				"type":"directory",
+				"path":"C:\\Documents\\user\\Start Menu\\Programs\\Startup"
+				^This was originally a pattern, no way to accomodate?
+			},
+			"parent-dir-5":{
+				"type":"directory",
+				"path":"C:\\Windows\\Debug"
+			},
+			"parent-dir-6":{
+				"type":"directory",
+				"path":"C:\\Documents\\.*\\Application Data"
+				^This was originally a pattern, no way to accomodate?
+			},
+			"parent-dir-7":{
+				"type":"directory",
+				"path":"C:\\Windows\\Debug\\Data"
+			},
+			"parent-dir-8":{
+				"type":"directory",
+				"path":"C:\\Windows\\"
+			},
+			"maec-example-process-obj-1":{
+				"type":"process",
+				"name":"dg003.exe",
+				"cwd":"C:\\"
+			},
+			"maec-example-process-obj-2":{
+				"type":"process",
+				"name":"explorer.exe",
+				"cwd":"C:\\"
+			},
+			"maec-example-process-obj-3":{
+				"type":"process",
+				"name":"fvcwin32.exe",
+				"cwd":"C:\\"
+			},
+			"maec-example-process-obj-4":{
+				"type":"process",
+				"name":"acvwin32.exe",
+				"cwd":"C:\\"
 			}
 		}
 
-	}
+	},
+	"actions":[
+		{
+			"id":"maec-example-act-1",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-2",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-2",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-3",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-3",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-4",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-4",
+			"name":"modify file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-5",
+					"association_type":"input"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-5",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-6",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-6",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-7",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-7",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-8",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-8",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-9",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-9",
+			"name":"create mutex",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-10",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-10",
+			"name":"create remote thread in process",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-11",
+					"association_type":"input"
+				},
+				{
+					"object_ref":"maec-example-obj-12",
+					"association_type":"input"
+				}
+			]
+		}
+		{
+			"id":"maec-example-act-18",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-20",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-19",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-21",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-20",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-22",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-24",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-26",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-26",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-28",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-27",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-29",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-29",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-31",
+					"association_type":"output"
+				}
+			]
+		},
+		{
+			"id":"maec-example-act-33",
+			"name":"create file",
+			"status":"completed",
+			"object_references":[
+				{
+					"object_ref":"maec-example-obj-35",
+					"association_type":"output"
+				}
+			]
+		},
+		
+
+	],
+	"process_trees":[
+		{
+			"root_process":{
+				"process_ref":"maec-example-process-obj-1",
+				"id":"maec-example-pro-1",
+				"initiated_action_refs":[
+					"maec-example-act-1",
+					"maec-example-act-2",
+					"maec-example-act-3",
+					"maec-example-act-4",
+					"maec-example-act-5"
+				],
+				"injected_processes":[
+					{
+						"process_ref":"maec-example-process-obj-2",
+						"id":"maec-example-pro-2",
+						"parent_action_ref":"maec-example-act-10",
+						"initiated_action_refs":[
+							"maec-example-act-6"
+							"maec-example-act-7"
+							"maec-example-act-9"
+							"maec-example-act-18"
+							"maec-example-act-19"
+							"maec-example-act-20"
+							"maec-example-act-21"
+							"maec-example-act-22"
+							"maec-example-act-23"
+							"maec-example-act-24"
+						],
+						"spawned_processes":[
+							{
+								"process_ref":"maec-example-process-obj-3",
+								"id":"maec-example-pro-3",
+								"parent_action_ref":"maec-example-act-21",
+							},
+							{
+								"process_ref":"maec-example-process-obj-4",
+								"id":"maec-example-pro-4",
+								"parent_action_ref":"maec-example-act-22"
+							},
+							{
+								"process_ref":"maec-example-process-obj-5",
+								"id":"maec-example-pro-5",
+								"parent_action_ref":"maec-example-act-10",
+								"initiated_action_refs":[
+									"maec-example-act-26",
+									"maec-example-act-27",
+									"maec-example-act-29"
+								]
+							}
+						]
+					}
+				]
+			}
+		}
+
+	],
+	"collections":[
+		{
+			"id":"maec-example-actc-1",
+			"name":"File Actions",
+			"maec_entity_type":"actions",
+			"association_type":"observed together",
+			"entity_refs":[
+				"maec-example-act-1",
+				"maec-example-act-2",
+				"maec-example-act-3",
+				"maec-example-act-4",
+				"maec-example-act-5",
+				"maec-example-act-6",
+				"maec-example-act-7",
+				"maec-example-act-8",
+				"maec-example-act-18",
+				"maec-example-act-19",
+				"maec-example-act-20",
+				"maec-example-act-24",
+				"maec-example-act-26",
+				"maec-example-act-27",
+				"maec-example-act-29",
+				"maec-example-act-33"
+			]
+		},
+		{
+			"id":"maec-example-actc-2",
+			"name":"Synchronization Actions",
+			"maec_entity_type":"actions",
+			"association_type":"observed together",
+			"entity_refs":[
+				"maec-example-act-9",
+
+			]
+		},
+		{
+			"id":"maec-example-actc-3",
+			"name":"Thread Actions",
+			"maec_entity_type":"actions",
+			"association_type":"observed together",
+			"entity_refs":[
+				"maec-example-act-10",
+				""
+			]
+		}
+
+
+	]
+}
