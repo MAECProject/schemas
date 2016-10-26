@@ -18,6 +18,11 @@
 						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 					},
 					"summary":"A basic static triage of the subject binary using PEiD",
+					"findings":{
+						"object_refs":[
+							"maec-example-obj-1"
+						]
+					},
 					"tool_refs":[
 						"analysis-tool-1"
 					]
@@ -31,6 +36,11 @@
 						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 					},
 					"summary":"Dynamic (behavioral) and tool-based triage of the subject binary.",
+					"findings":{
+						"process_tree_refs":[
+							"maec-example-pro-1"
+						]
+					},
 					"tool_refs":[
 						"analysis-tool-2",
 						"analysis-tool-3",
@@ -48,6 +58,7 @@
 						"name":"Franki Li",
 						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 					},
+					"summary":"Manual Analysis of the main subject binary.",
 					"tool_refs":[
 						"analysis-tool-8"
 					]
@@ -56,8 +67,10 @@
 			"object_refs":[
 				"maec-example-obj-1",
 
-
-			]
+			],
+			"process_tree_refs":[
+				"maec-example-pro-1"
+			],
 
 		}
 	],
@@ -117,8 +130,9 @@
 					"pe_type":"exe",
 					"windows-pe-optional-header_type":{
 						"major_linker_version":6,
-						"minor_linker_version":0,
+						"minor_linker_version,":0,
 						"base_of_code":036418
+						SUBSYSTEM FIELD MAY GO HERE
 					}
 				}
 			}
