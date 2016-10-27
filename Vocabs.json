@@ -834,6 +834,7 @@
                 "file infection",
                 "hide artifacts",
                 "hide executing code",
+		"hide non-executing code",
                 "host configuration probing",
                 "information gathering for improvement",
                 "input peripheral capture",
