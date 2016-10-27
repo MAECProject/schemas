@@ -845,6 +845,7 @@
                 "physical entity destruction",
                 "prevent artifact access",
                 "prevent artifact delection",
+		"prevent duplicate infection",
                 "receive data from c2 server",
                 "remote machine access",
                 "remote machine infection",
