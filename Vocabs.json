@@ -891,6 +891,7 @@
                 "memory image of",
                 "network traffic capture of",
                 "packed version of",
+		"preceded by",
                 "unpacked version of"
             ]
         },
