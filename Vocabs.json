@@ -834,6 +834,7 @@
                 "file infection",
                 "hide artifacts",
                 "hide executing code",
+		"hide non-executing code",
                 "host configuration probing",
                 "information gathering for improvement",
                 "input peripheral capture",
@@ -844,6 +845,7 @@
                 "physical entity destruction",
                 "prevent artifact access",
                 "prevent artifact delection",
+		"prevent duplicate infection",
                 "receive data from c2 server",
                 "remote machine access",
                 "remote machine infection",
@@ -890,6 +892,7 @@
                 "memory image of",
                 "network traffic capture of",
                 "packed version of",
+		"preceded by",
                 "unpacked version of"
             ]
         },
