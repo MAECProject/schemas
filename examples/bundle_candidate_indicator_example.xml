@@ -11,25 +11,25 @@
 <maecBundle:MAEC_Bundle
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
  xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
- xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
- xmlns:cybox="http://cybox.mitre.org/cybox-2"
- xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
- xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2"
- xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
- xmlns:MutexObj="http://cybox.mitre.org/objects#MutexObject-2"
- xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
- xmlns:WinRegistryKeyObj="http://cybox.mitre.org/objects#WinRegistryKeyObject-2"
- xmlns:WinMutexObj="http://cybox.mitre.org/objects#WinMutexObject-2"
- xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject-2"
+ xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2"
+ xmlns:cybox="http://docs.oasis-open.org/cti/ns/cybox/core-2"
+ xmlns:cyboxVocabs="http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2"
+ xmlns:ProcessObj="http://docs.oasis-open.org/cti/ns/cybox/objects/process-2"
+ xmlns:FileObj="http://docs.oasis-open.org/cti/ns/cybox/objects/file-2"
+ xmlns:MutexObj="http://docs.oasis-open.org/cti/ns/cybox/objects/mutex-2"
+ xmlns:WinExecutableFileObj="http://docs.oasis-open.org/cti/ns/cybox/objects/win-executable-file-2"
+ xmlns:WinRegistryKeyObj="http://docs.oasis-open.org/cti/ns/cybox/objects/win-registry-key-2"
+ xmlns:WinMutexObj="http://docs.oasis-open.org/cti/ns/cybox/objects/win-mutex-2"
+ xmlns:WinProcessObj="http://docs.oasis-open.org/cti/ns/cybox/objects/win-process-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation=
  "http://maec.mitre.org/XMLSchema/maec-bundle-4 http://maec.mitre.org/language/version4.1/maec_bundle_schema.xsd
  http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
- http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd 
- http://cybox.mitre.org/objects#WinExecutableFileObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd
- http://cybox.mitre.org/objects#WinRegistryKeyObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/2.1/Win_Registry_Key_Object.xsd
- http://cybox.mitre.org/objects#WinMutexObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Mutex/2.1/Win_Mutex_Object.xsd
- http://cybox.mitre.org/objects#WinProcessObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Process/2.1/Win_Process_Object.xsd" 
+ http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 http://docs.oasis-open.org/cti/cybox/v2.1.1/csd01/xml-schemas/default-vocabularies.xsd 
+ http://docs.oasis-open.org/cti/ns/cybox/objects/win-executable-file-2 http://docs.oasis-open.org/cti/cybox/v2.1.1/csd01/xml-schemas/objects/Win-Executable-File-Object.xsd
+ http://docs.oasis-open.org/cti/ns/cybox/objects/win-registry-key-2 http://docs.oasis-open.org/cti/cybox/v2.1.1/csd01/xml-schemas/objects/Win-Registry-Key-Object.xsd
+ http://docs.oasis-open.org/cti/ns/cybox/objects/win-mutex-2 http://docs.oasis-open.org/cti/cybox/v2.1.1/csd01/xml-schemas/objects/Win-Mutex-Object.xsd
+ http://docs.oasis-open.org/cti/ns/cybox/objects/win-process-2 http://docs.oasis-open.org/cti/cybox/v2.1.1/csd01/xml-schemas/objects/Win-Process-Object.xsd" 
  id="maec-example-bnd-1" schema_version="4.1" defined_subject="true" content_type="mixed">
 <maecBundle:Malware_Instance_Object_Attributes>
  <cybox:Properties xsi:type="WinExecutableFileObj:WindowsExecutableFileObjectType">

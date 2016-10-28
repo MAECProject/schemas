@@ -10,19 +10,19 @@
  xmlns:maecPackage="http://maec.mitre.org/XMLSchema/maec-package-2"
  xmlns:maecBundle="http://maec.mitre.org/XMLSchema/maec-bundle-4"
  xmlns:maecVocabs="http://maec.mitre.org/default_vocabularies-1"
- xmlns:cybox="http://cybox.mitre.org/cybox-2"
- xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
- xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
- xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
- xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2"
- xmlns:WinRegistryKeyObj="http://cybox.mitre.org/objects#WinRegistryKeyObject-2"
+ xmlns:cybox="http://docs.oasis-open.org/cti/ns/cybox/core-2"
+ xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2"
+ xmlns:cyboxVocabs="http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2"
+ xmlns:FileObj="http://docs.oasis-open.org/cti/ns/cybox/objects/file-2"
+ xmlns:WinExecutableFileObj="http://docs.oasis-open.org/cti/ns/cybox/objects/win-executable-file-2"
+ xmlns:WinRegistryKeyObj="http://docs.oasis-open.org/cti/ns/cybox/objects/win-registry-key-2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns:example="http://example.com"
  xsi:schemaLocation="http://maec.mitre.org/XMLSchema/maec-package-2 http://maec.mitre.org/language/version4.1/maec_package_schema.xsd
  http://maec.mitre.org/default_vocabularies-1 http://maec.mitre.org/language/version4.1/maec_default_vocabularies.xsd
- http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd
- http://cybox.mitre.org/objects#WinExecutableFileObject http://cybox.mitre.org/XMLSchema/objects/Win_Executable_File/2.1/Win_Executable_File_Object.xsd
- http://cybox.mitre.org/objects#WinRegistryKeyObject-2 http://cybox.mitre.org/XMLSchema/objects/Win_Registry_Key/2.1/Win_Registry_Key_Object.xsd" 
+ http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 http://docs.oasis-open.org/cti/cybox/v2.1.1/csd01/xml-schemas/default-vocabularies.xsd
+ http://cybox.mitre.org/objects#WinExecutableFileObject http://docs.oasis-open.org/cti/cybox/v2.1.1/csd01/xml-schemas/objects/Win-Executable-File-Object.xsd
+ http://docs.oasis-open.org/cti/ns/cybox/objects/win-registry-key-2 http://docs.oasis-open.org/cti/cybox/v2.1.1/csd01/xml-schemas/objects/Win-Registry-Key-Object.xsd" 
  id="example:package-e7597272-4c5d-40ef-be1d-481ffd451fe8" schema_version="2.1">
     <maecPackage:Malware_Subjects>
         <maecPackage:Malware_Subject id="example:subject-eb54999d-4a5a-439d-aeb9-39b5f7eaf77c">
