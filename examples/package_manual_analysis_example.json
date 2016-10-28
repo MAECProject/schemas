@@ -65,13 +65,11 @@
 				}
 			],
 			"object_refs":[
-				"maec-example-obj-1",
-
+				"maec-example-obj-1"
 			],
 			"process_tree_refs":[
 				"maec-example-pro-1"
-			],
-
+			]
 		}
 	],
 	"cybox":{
@@ -135,8 +133,8 @@
 					"pe_type":"exe",
 					"windows-pe-optional-header-type":{
 						"major_linker_version":6,
-						"minor_linker_version,":0,
-						"base_of_code":036418,
+						"minor_linker_version":0,
+						"base_of_code": 36418,
 						"subsystem_hex":"2"
 					}
 				}
@@ -144,7 +142,7 @@
 			"maec-example-obj-2":{
 				"type":"file",
 				"file_name":"ws2help.PNF",
-				"parent_directory_ref": "parent-dir-1",	
+				"parent_directory_ref": "parent-dir-1"
 			},
 			"maec-example-obj-3":{
 				"type":"file",
@@ -221,8 +219,7 @@
 			},
 			"maec-example-obj-19":{
 				"type":"ipv4-addr",
-				"value":"^115\\..*\\..*\\.249"
-				^the above pattern cant be handled, needs to be CIDR addressing
+				"value":"115\\*\\*\\.249"
 			},
 			"maec-example-obj-20":{
 				"type":"file",
@@ -311,7 +308,6 @@
 			"parent-dir-1":{
 				"type":"directory",
 				"path":"C:\\Documents\\Settings\\user\\Local Settings\\Application\\Data"
-				^This was originally a pattern, no way to accomodate?
 			},
 			"parent-dir-2":{
 				"type":"directory",
@@ -324,7 +320,6 @@
 			"parent-dir-4":{
 				"type":"directory",
 				"path":"C:\\Documents\\user\\Start Menu\\Programs\\Startup"
-				^This was originally a pattern, no way to accomodate?
 			},
 			"parent-dir-5":{
 				"type":"directory",
@@ -333,7 +328,6 @@
 			"parent-dir-6":{
 				"type":"directory",
 				"path":"C:\\Documents\\.*\\Application Data"
-				^This was originally a pattern, no way to accomodate?
 			},
 			"parent-dir-7":{
 				"type":"directory",
@@ -373,7 +367,7 @@
 			"refined_capbilities":[
 				{
 					"id":"maec-example-obt-1",
-					"name":"host configuration probing",
+					"name":"host configuration probing"
 				},
 				{
 					"id":"maec-example-obt-2",
@@ -487,7 +481,7 @@
 			"description":"File obfuscation behavior. The binary changes the modification, access, change time and properties of a file in order to obfuscate it.",
 			"action_references":[
 				{
-					"action_ref":"maec-example-act-35",
+					"action_ref":"maec-example-act-35"
 				}
 			]
 		},
@@ -928,8 +922,7 @@
 					"association_type":"output"
 				}
 			]
-		},
-		
+		}
 	],
 	"process_trees":[
 		{
@@ -949,22 +942,22 @@
 						"id":"maec-example-pro-2",
 						"parent_action_ref":"maec-example-act-10",
 						"initiated_action_refs":[
-							"maec-example-act-6"
-							"maec-example-act-7"
-							"maec-example-act-9"
-							"maec-example-act-18"
-							"maec-example-act-19"
-							"maec-example-act-20"
-							"maec-example-act-21"
-							"maec-example-act-22"
-							"maec-example-act-23"
+							"maec-example-act-6",
+							"maec-example-act-7",
+							"maec-example-act-9",
+							"maec-example-act-18",
+							"maec-example-act-19",
+							"maec-example-act-20",
+							"maec-example-act-21",
+							"maec-example-act-22",
+							"maec-example-act-23",
 							"maec-example-act-24"
 						],
 						"spawned_processes":[
 							{
 								"process_ref":"maec-example-process-obj-3",
 								"id":"maec-example-pro-3",
-								"parent_action_ref":"maec-example-act-21",
+								"parent_action_ref":"maec-example-act-21"
 							},
 							{
 								"process_ref":"maec-example-process-obj-4",
@@ -1019,8 +1012,7 @@
 			"maec_entity_type":"actions",
 			"association_type":"observed together",
 			"entity_refs":[
-				"maec-example-act-9",
-
+				"maec-example-act-9"
 			]
 		},
 		{
@@ -1029,7 +1021,7 @@
 			"maec_entity_type":"actions",
 			"association_type":"observed together",
 			"entity_refs":[
-				"maec-example-act-10",
+				"maec-example-act-10"
 			]
 		},
 		{
@@ -1084,7 +1076,7 @@
 			"source_ref": "maec-example-act-10" ,
 			"target_ref":"maec-exmple-act-2",
 			"relationship_type":"preceded by"
-		}
+		},
 		{
 			"id":"rel-2",
 			"source_ref":"maec-example-obt-10",
