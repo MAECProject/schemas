@@ -84,7 +84,7 @@
                 "disable system file overwrite protection",
                 "disable update services/daemons",
                 "disable user account control",
-                "drop/retrive debug log file",
+                "drop/retrieve debug log file",
                 "elevate privilege",
                 "encrypt data",
                 "encrypt files",
