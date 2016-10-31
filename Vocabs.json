@@ -2,8 +2,8 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "action-implementation-cv": {
-            "title":"action implementation cv",
-	    "type": "string",
+            "title": "action implementation cv",
+            "type": "string",
             "description": "action-implementation-cv represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
             "enum": [
                 "api call",
@@ -11,7 +11,7 @@
             ]
         },
         "action-object-association-ov": {
-	    "title":"action object association ov",
+            "title": "action object association ov",
             "type": "string",
             "description": "action-object-association-ov is a (non-exhaustive, closed) enumeration of types of action-object associations.",
             "enum": [
@@ -21,7 +21,7 @@
             ]
         },
         "analysis-method-cv": {
-	    "title":"analysis method cv",
+            "title": "analysis method cv",
             "type": "string",
             "description": "analysis-methos-cv is an enumeration of malware analysis methods",
             "enum": [
@@ -31,7 +31,7 @@
             ]
         },
         "analysis-type-cv": {
-	    "title":"analysis type cv",
+            "title": "analysis type cv",
             "type": "string",
             "description": "The analysis-type-cv is an enumeration of types of malware analyses.",
             "enum": [
@@ -40,7 +40,7 @@
             ]
         },
         "behavior-ov": {
-	    "title":"behavior ov",
+            "title": "behavior ov",
             "type": "string",
             "description": "behavior-ov is an enumeration of Behaviors.",
             "enum": [
@@ -64,6 +64,7 @@
                 "compare host fingerprints",
                 "compromise remote machine",
                 "control local machine via remote command",
+                "control malware via remote command",
                 "crack passwords",
                 "defeat call graph generation",
                 "defeat flow-oriented assembler",
@@ -157,8 +158,18 @@
                 "request email template",
                 "search for remote machines",
                 "send beacon",
-                "steal code signing certificate",
-                "steal cookie",
+                "send email message",
+                "send system information",
+                "social-engineering based remote infection",
+                "steal browser cache",
+                "steal browser cookies",
+                "steal browser history",
+                "steal contact list data",
+                "steal cryptocurrency data",
+                "steal database content",
+                "steal dialed phone numbers",
+                "steal digital certificate",
+                "steal documents",
                 "steal email data",
                 "steal images",
                 "steal password hashes",
@@ -180,8 +191,8 @@
             ]
         },
         "capability-attribute-ov": {
-            "title":"capability attribute",
-	    "type": "string",
+            "title": "capability attribute",
+            "type": "string",
             "description": "capability-attribute-ov is an enumeration of Capability attributes.",
             "enum": [
                 "archive type",
@@ -207,7 +218,7 @@
             ]
         },
         "capability-ov": {
-            "title":"capability ov",
+            "title": "capability ov",
             "type": "string",
             "description": "capability-ov is an enumeration of Capability names.",
             "enum": [
@@ -233,7 +244,7 @@
             ]
         },
         "collection-association-cv": {
-            "title":"collection association cv",
+            "title": "collection association cv",
             "type": "string",
             "description": "collection-association-ov is a non-exhaustive enumeration of association types that can be captures as part of a collection.",
             "enum": [
@@ -254,7 +265,7 @@
             ]
         },
         "collection-entity-cv": {
-	    "title":"collection entity cv",
+            "title": "collection entity cv",
             "type": "string",
             "description": "collection-entity-ov is a non-exhaustive enumeration of entity types that can be captured as part of a collection.",
             "enum": [
@@ -269,7 +280,7 @@
             ]
         },
         "common-attribute-ov": {
-  	    "title":"common attribute ov",
+            "title": "common attribute ov",
             "type": "string",
             "description": "common-attribute-ov is an enumeration of common attributes of Capabilities and Behaviors.",
             "enum": [
@@ -282,7 +293,7 @@
             ]
         },
         "confidence-measure-cv": {
-	    "title":"confidence attribute ov",
+            "title": "confidence attribute ov",
             "type": "string",
             "description": "confidence-measure-ov is an enumeration of relative confidence measures, and aligns with the values in the HighMediumLow Vocabulary from STIX.",
             "enum": [
@@ -294,7 +305,7 @@
             ]
         },
         "encryption-algorithm-ov": {
-	    "title":"encryption algorithm ov",
+            "title": "encryption algorithm ov",
             "type": "string",
             "description": "encryption-algorithm-ov is a non-exhaustive enumeration of encryption algorithms.",
             "enum": [
@@ -304,8 +315,8 @@
             ]
         },
         "execution-status-ov": {
-            "title":"execution status ov",
-	    "type": "string",
+            "title": "execution status ov",
+            "type": "string",
             "description": "execution-status-ov is a (non-exhaustive) enumeration of observable execution status types.",
             "enum": [
                 "active",
@@ -317,7 +328,7 @@
             ]
         },
         "importance-ov": {
-            "title":"importance ov",
+            "title": "importance ov",
             "type": "string",
             "description": "importance-ov is a (non-exhaustive) enumeration of relative importance measures.",
             "enum": [
@@ -330,7 +341,7 @@
             ]
         },
         "infection-vector-ov": {
-	    "title":"infection vector ov",
+            "title": "infection vector ov",
             "type": "string",
             "description": "infection-vector-ov is a non-exhaustive enumeration of malware infection vectors",
             "enum": [
@@ -354,7 +365,7 @@
             ]
         },
         "interaction-level-cv": {
-	    "title":"interaction level cv",
+            "title": "interaction level cv",
             "type": "string",
             "description": "interaction-level-cv is a non-exhaustive enumeration of interaction levels for network protocols in a malware analysis environment.",
             "enum": [
@@ -366,8 +377,8 @@
             ]
         },
         "layer4-protocol-cv": {
-            "title":"layer 4 protocol cv",
-	    "type": "string",
+            "title": "layer 4 protocol cv",
+            "type": "string",
             "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
             "enum": [
                 "tcp",
@@ -375,7 +386,7 @@
             ]
         },
         "layer7-protocol-cv": {
-	    "title":"layer 7 protocol cv",
+            "title": "layer 7 protocol cv",
             "type": "string",
             "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
             "enum": [
@@ -387,7 +398,7 @@
             ]
         },
         "malware-action-ov": {
-            "title":"malware action ov",
+            "title": "malware action ov",
             "type": "string",
             "description": "malware-action-ov is an enumeration of Malware Actions.",
             "enum": [
@@ -605,7 +616,7 @@
             ]
         },
         "malware-configuration-parameter-ov": {
-	    "title":"malware configuration parameter ov",
+            "title": "malware configuration parameter ov",
             "type": "string",
             "description": "malware-configuration-parameter-ov is a non-exhaustive enumeration of malware configuration parameter names.",
             "enum": [
@@ -618,7 +629,7 @@
             ]
         },
         "malware-development-tool-ov": {
-            "title":"malware development tool ov",
+            "title": "malware development tool ov",
             "type": "string",
             "description": "malware-development-tool-ov is a non-exhaustive enumeration of tools used in the development of malware.",
             "enum": [
@@ -631,7 +642,7 @@
             ]
         },
         "malware-entity-ov": {
-	    "title":"malware entity ov",
+            "title": "malware entity ov",
             "type": "string",
             "description": "malware-entity-ov is a (non-exhaustive) enumeration of the different types of entities that a malware indicator or signature may be written against.",
             "enum": [
@@ -641,7 +652,7 @@
             ]
         },
         "malware-label-ov": {
-            "title":"malware label ov",
+            "title": "malware label ov",
             "type": "string",
             "description": "malware-label-ov is a non-exhaustive enumeration of common malware labels.",
             "enum": [
@@ -696,7 +707,7 @@
             ]
         },
         "platform-ov": {
-	    "title":"platform ov",
+            "title": "platform ov",
             "type": "string",
             "description": "platform-ov is a non-exhaustive enumeration of operting system platforms.",
             "emun": [
@@ -806,7 +817,7 @@
             ]
         },
         "refined-capability-ov": {
-            "title":"refined capability ov",
+            "title": "refined capability ov",
             "type": "string",
             "description": "refined-capability-ov is an enumeration of refined Capability names.",
             "enum": [
@@ -834,7 +845,7 @@
                 "file infection",
                 "hide artifacts",
                 "hide executing code",
-		"hide non-executing code",
+                "hide non-executing code",
                 "host configuration probing",
                 "information gathering for improvement",
                 "input peripheral capture",
@@ -845,7 +856,7 @@
                 "physical entity destruction",
                 "prevent artifact access",
                 "prevent artifact delection",
-		"prevent duplicate infection",
+                "prevent duplicate infection",
                 "receive data from c2 server",
                 "remote machine access",
                 "remote machine infection",
@@ -865,7 +876,7 @@
             ]
         },
         "relationship-ov": {
-            "title":"relationship ov",
+            "title": "relationship ov",
             "type": "string",
             "description": "relationship-ov is a non-exhaustive enumeration of relationships between MAEC entities.",
             "enum": [
@@ -892,12 +903,12 @@
                 "memory image of",
                 "network traffic capture of",
                 "packed version of",
-		"preceded by",
+                "preceded by",
                 "unpacked version of"
             ]
         },
         "technique-ov": {
-  	    "title":"technique ov",
+            "title": "technique ov",
             "type": "string",
             "description": "technique-ov is an enumeration of techniques associated with instances of Behaviors.",
             "enum": [
