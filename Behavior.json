@@ -16,7 +16,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The required name field captures the name of the Behavior. The default vocabulary for this field is the BehaviorVocab from the MAEC Default Vocabularies schema"
+                    "description": "The required name field captures the name of the Behavior. The suggested vocabulary for use with this field is behavior-ov."
                 },
                 "description": {
                     "type": "string",
@@ -30,7 +30,7 @@
                 "action_references": {
                     "type": "array",
                     "items": {"$ref": "#/definitions/BehaviorActionReferenceType"},
-                    "description": "An action_reference specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field"
+                    "description": "An action_reference specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field."
                 },
                 "status": {
                     "type": "string",
