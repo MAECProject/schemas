@@ -12,11 +12,11 @@
                 },
                 "analysis_type": {
                     "type": "string",
-                    "description": "The analysis_type field specifies the type of malware analysis being performed. The available vocabulary for use with this field is analysis-ov."
+                    "description": "The analysis_type field specifies the type of malware analysis being performed. The suggested vocabulary for use with this field is analysis-ov."
                 },
                 "method": {
                     "type": "string",
-                    "description": "The method field specifies the analysis method used in the analysis. The available vocabulary for use with this field is analysis-method-ov."
+                    "description": "The method field specifies the analysis method used in the analysis. The controlled vocabulary for use with this field is analysis-method-cv."
                 },
                 "ordinal_position": {
                     "type": "number",
