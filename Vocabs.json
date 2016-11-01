@@ -10,16 +10,6 @@
                 "code"
             ]
         },
-        "action-object-association-ov": {
-            "title": "action object association ov",
-            "type": "string",
-            "description": "action-object-association-ov is a (non-exhaustive, closed) enumeration of types of action-object associations.",
-            "enum": [
-                "input",
-                "output",
-                "side-effect"
-            ]
-        },
         "analysis-method-cv": {
             "title": "analysis method cv",
             "type": "string",
