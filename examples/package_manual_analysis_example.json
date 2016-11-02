@@ -1106,8 +1106,198 @@
 			"source_ref":"maec-example-bhv-6",
 			"target_ref":"maec-example-bhv-5",
 			"relationship_type":"preceded by"
-
+		},
+		{
+			"id":"rel-7",
+			"source_ref":"maec-example-act-1",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-8",
+			"source_ref":"maec-example-act-2",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-9",
+			"source_ref":"maec-example-act-3",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-10",
+			"source_ref":"maec-example-act-4",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-11",
+			"source_ref":"maec-example-act-5",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-12",
+			"source_ref":"maec-example-act-6",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-13",
+			"source_ref":"maec-example-act-7",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-14",
+			"source_ref":"maec-example-act-8",
+			"target_ref":"analysis-tool-3",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-15",
+			"source_ref":"maec-example-act-18",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-16",
+			"source_ref":"maec-example-act-19",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-17",
+			"source_ref":"maec-example-act-20",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-18",
+			"source_ref":"maec-example-act-24",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-21",
+			"source_ref":"maec-example-act-26",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-22",
+			"source_ref":"maec-example-act-27",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-25",
+			"source_ref":"maec-example-act-29",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-29",
+			"source_ref":"maec-example-act-33",
+			"target_ref":"analysis-tool-2",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-30",
+			"source_ref":"maec-example-act-9",
+			"target_ref":"analysis-tool-4",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-31",
+			"source_ref":"maec-example-act-10",
+			"target_ref":"analysis-tool-5",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-32",
+			"source_ref":"maec-example-act-21",
+			"target_ref":"analysis-tool-7",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-33",
+			"source_ref":"maec-example-act-22",
+			"target_ref":"analysis-tool-7",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-34",
+			"source_ref":"maec-example-act-23",
+			"target_ref":"analysis-tool-7",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-35",
+			"source_ref":"maec-example-act-11",
+			"target_ref":"analysis-tool-6",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-36",
+			"source_ref":"maec-example-act-12",
+			"target_ref":"analysis-tool-6",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-37",
+			"source_ref":"maec-example-act-13",
+			"target_ref":"analysis-tool-6",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-38",
+			"source_ref":"maec-example-act-14",
+			"target_ref":"analysis-tool-6",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-39",
+			"source_ref":"maec-example-act-15",
+			"target_ref":"analysis-tool-6",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-40",
+			"source_ref":"maec-example-act-16",
+			"target_ref":"analysis-tool-6",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-41",
+			"source_ref":"maec-example-act-17",
+			"target_ref":"analysis-tool-6",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-42",
+			"source_ref":"maec-example-act-35",
+			"target_ref":"analysis-tool-8",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-43",
+			"source_ref":"maec-example-act-36",
+			"target_ref":"analysis-tool-8",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-44",
+			"source_ref":"maec-example-act-37",
+			"target_ref":"analysis-tool-8",
+			"relationship_type":"discovered by"
+		},
+		{
+			"id":"rel-45",
+			"source_ref":"maec-example-act-34",
+			"target_ref":"analysis-tool-8",
+			"relationship_type":"discovered by"
 		}
-
 	]
 }
