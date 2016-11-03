@@ -180,33 +180,6 @@
                 "write code into file"
             ]
         },
-        "capability-attribute-ov": {
-            "title": "capability attribute",
-            "type": "string",
-            "description": "capability-attribute-ov is an enumeration of Capability attributes.",
-            "enum": [
-                "archive type",
-                "autonomy",
-                "backdoor type",
-                "cryptocurrency type",
-                "erasure scope",
-                "file infection type",
-                "file type",
-                "frequency",
-                "infection targeting",
-                "persistence scope",
-                "propagation scope",
-                "targeted application",
-                "targeted file architecture type",
-                "targeted file type",
-                "targeted program",
-                "targeted sandbox",
-                "targeted vm",
-                "targeted website",
-                "trigger type",
-                "user privilege escalation type"
-            ]
-        },
         "capability-ov": {
             "title": "capability ov",
             "type": "string",
