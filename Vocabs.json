@@ -4,7 +4,7 @@
         "action-implementation-cv": {
             "title": "action implementation cv",
             "type": "string",
-            "description": "action-implementation-cv represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
+            "description": "action-implementation-cv is an enumeration of action implementation types.",
             "enum": [
                 "api call",
                 "code"
@@ -13,7 +13,7 @@
         "analysis-method-cv": {
             "title": "analysis method cv",
             "type": "string",
-            "description": "analysis-methos-cv is an enumeration of malware analysis methods",
+            "description": "analysis-methos-cv is an enumeration of malware analysis methods.",
             "enum": [
                 "static",
                 "dynamic",
@@ -23,7 +23,7 @@
         "analysis-type-cv": {
             "title": "analysis type cv",
             "type": "string",
-            "description": "The analysis-type-cv is an enumeration of types of malware analyses.",
+            "description": "The analysis-type-cv is an enumeration of types of malware analysis types.",
             "enum": [
                 "triage",
                 "in-depth"
@@ -183,7 +183,7 @@
         "capability-ov": {
             "title": "capability ov",
             "type": "string",
-            "description": "capability-ov is an enumeration of Capability names.",
+            "description": "capability-ov is an enumeration of Capabilities.",
             "enum": [
                 "anti-behavioral analysis",
                 "anti-code analysis",
@@ -209,7 +209,7 @@
         "collection-association-cv": {
             "title": "collection association cv",
             "type": "string",
-            "description": "collection-association-ov is a non-exhaustive enumeration of association types that can be captures as part of a collection.",
+            "description": "collection-association-ov is a non-exhaustive enumeration of association types that can be captured as part of a Collection.",
             "enum": [
                 "file system entities",
                 "network entities",
@@ -280,7 +280,7 @@
         "confidence-measure-cv": {
             "title": "confidence attribute ov",
             "type": "string",
-            "description": "confidence-measure-ov is an enumeration of relative confidence measures, and aligns with the values in the HighMediumLow Vocabulary from STIX.",
+            "description": "confidence-measure-ov is an enumeration of relative confidence measures; it aligns with the values in the STIX HighMediumLow vocabulary.",
             "enum": [
                 "low",
                 "medium",
@@ -302,7 +302,7 @@
         "execution-status-ov": {
             "title": "execution status ov",
             "type": "string",
-            "description": "execution-status-ov is a (non-exhaustive) enumeration of observable execution status types.",
+            "description": "execution-status-ov is a non-exhaustive enumeration of observable execution status types.",
             "enum": [
                 "active",
                 "completed",
@@ -315,7 +315,7 @@
         "importance-ov": {
             "title": "importance ov",
             "type": "string",
-            "description": "importance-ov is a (non-exhaustive) enumeration of relative importance measures.",
+            "description": "importance-ov is a non-exhaustive enumeration of relative importance measures.",
             "enum": [
                 "high",
                 "medium",
@@ -364,7 +364,7 @@
         "layer4-protocol-cv": {
             "title": "layer 4 protocol cv",
             "type": "string",
-            "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
+            "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 4 (OSI model) network protocols.",
             "enum": [
                 "tcp",
                 "udp"
@@ -605,12 +605,12 @@
             "type": "string",
             "description": "malware-configuration-parameter-ov is a non-exhaustive enumeration of malware configuration parameter names.",
             "enum": [
-                "magic number",
-                "id",
-                "group id",
-                "mutex",
                 "filename",
-                "installation path"
+                "group id",
+                "id",
+                "installation path",
+                "magic number",
+                "mutex"
             ]
         },
         "malware-development-tool-ov": {
@@ -620,20 +620,20 @@
             "enum": [
                 "builder",
                 "compiler",
+                "crypter",
                 "linker",
                 "packer",
-                "crypter",
                 "protector"
             ]
         },
         "malware-entity-ov": {
             "title": "malware entity ov",
             "type": "string",
-            "description": "malware-entity-ov is a (non-exhaustive) enumeration of the different types of entities that a malware indicator or signature may be written against.",
+            "description": "malware-entity-ov is a non-exhaustive enumeration of the entity types against which a malware indicator or signature may be written.",
             "enum": [
-                "instance",
+                "class",
                 "family",
-                "class"
+                "instance"
             ]
         },
         "malware-label-ov": {
@@ -737,6 +737,12 @@
                 "iOS 8.2.x",
                 "iOS 8.3.x",
                 "iOS 8.4.x",
+                "iOS 9.0.x",
+                "iOS 9.1.x",
+                "iOS 9.2.x",
+                "iOS 9.3.x",
+                "iOS 10.0.x",
+                "iOS 10.1.x",
                 "iOS unknown version",
                 "linux kernel 2.4.x",
                 "linux kernel 2.6.x",
@@ -840,7 +846,7 @@
                 "OS security feature degradation",
                 "physical entity destruction",
                 "prevent artifact access",
-                "prevent artifact delection",
+                "prevent artifact detection",
                 "prevent duplicate infection",
                 "receive data from c2 server",
                 "remote machine access",
@@ -902,7 +908,7 @@
                 "bios manipulation",
                 "direct kernel object manipulation",
                 "dll search path hijacking",
-                "file system manipulation",
+                "filesystem manipulation",
                 "firmware manipulation",
                 "inline/iat/eat hooking",
                 "irp filtering",
