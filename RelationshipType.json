@@ -29,7 +29,7 @@
                 },
                 "relationship_type": {
                     "$ref": "string",
-                    "description": "The relationship_type field specifies the type of relationship being expressed, and may make use of a defined controlled vocabulary. The possible vocabularies for use with this field is relationship-ov."
+                    "description": "The relationship_type field specifies the type of relationship being expressed. The suggested vocabulary for use with this field is relationship-ov."
                 },
                 "additional_metadata": {
                     "type": "object",
