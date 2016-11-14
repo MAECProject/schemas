@@ -78,11 +78,11 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The name field specifies the name of the attribute being captured. The default vocabulary for this field is common-attribute-ov."
+                    "description": "The name field specifies the name of the attribute being captured. The suggested vocabulary for this field is common-attribute-ov."
                 },
                 "value": {
                     "type": "string",
-                    "description": "The value field specifies the value of the attribute being captured. The default vocabularies for this field are platform-ov, encryption-algorithm-ov, and technique-ov. Closed vocabularies have also been defined for some attributes: layer4-protocol-cv, layer7-protocol-cv."
+                    "description": "The value field specifies the value of the attribute being captured. The suggested vocabularies for this field are platform-ov, encryption-algorithm-ov, and technique-ov. Closed vocabularies have also been defined for some attributes: layer4-protocol-cv, layer7-protocol-cv."
                 }
             }
         },

@@ -16,7 +16,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The required name field captures the name of the Capability. The default vocabulary for this field is the capability-ov from the MAEC Default Vocabularies schema. When used as part of a refined Capability, the default vocabulary is the refined-capability-ov."
+                    "description": "The required name field captures the name of the Capability. The suggested vocabulary for this field is the capability-ov. When used as part of a refined Capability, the suggested vocabulary is the refined-capability-ov."
                 },
                 "refined_capabilities": {
                     "type": "array",

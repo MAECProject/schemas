@@ -4,7 +4,7 @@
         "action-implementation-cv": {
             "title": "action implementation cv",
             "type": "string",
-            "description": "action-implementation-cv represents an enumeration of action implementation types.The api call value specifies that the action was implemented using some particular API call, details of which may be captured in the API_Call element. The code value specifies that the action was implemented using some particular code snippet, details of which may be captured in the Code element.",
+            "description": "action-implementation-cv is an enumeration of action implementation types.",
             "enum": [
                 "api call",
                 "code"
@@ -13,7 +13,7 @@
         "analysis-method-cv": {
             "title": "analysis method cv",
             "type": "string",
-            "description": "analysis-methos-cv is an enumeration of malware analysis methods",
+            "description": "analysis-methos-cv is an enumeration of malware analysis methods.",
             "enum": [
                 "static",
                 "dynamic",
@@ -23,7 +23,7 @@
         "analysis-type-cv": {
             "title": "analysis type cv",
             "type": "string",
-            "description": "The analysis-type-cv is an enumeration of types of malware analyses.",
+            "description": "The analysis-type-cv is an enumeration of types of malware analysis types.",
             "enum": [
                 "triage",
                 "in-depth"
@@ -180,37 +180,10 @@
                 "write code into file"
             ]
         },
-        "capability-attribute-ov": {
-            "title": "capability attribute",
-            "type": "string",
-            "description": "capability-attribute-ov is an enumeration of Capability attributes.",
-            "enum": [
-                "archive type",
-                "autonomy",
-                "backdoor type",
-                "cryptocurrency type",
-                "erasure scope",
-                "file infection type",
-                "file type",
-                "frequency",
-                "infection targeting",
-                "persistence scope",
-                "propagation scope",
-                "targeted application",
-                "targeted file architecture type",
-                "targeted file type",
-                "targeted program",
-                "targeted sandbox",
-                "targeted vm",
-                "targeted website",
-                "trigger type",
-                "user privilege escalation type"
-            ]
-        },
         "capability-ov": {
             "title": "capability ov",
             "type": "string",
-            "description": "capability-ov is an enumeration of Capability names.",
+            "description": "capability-ov is an enumeration of Capabilities.",
             "enum": [
                 "anti-behavioral analysis",
                 "anti-code analysis",
@@ -236,7 +209,7 @@
         "collection-association-cv": {
             "title": "collection association cv",
             "type": "string",
-            "description": "collection-association-ov is a non-exhaustive enumeration of association types that can be captures as part of a collection.",
+            "description": "collection-association-ov is a non-exhaustive enumeration of association types that can be captured as part of a Collection.",
             "enum": [
                 "file system entities",
                 "network entities",
@@ -275,9 +248,31 @@
             "description": "common-attribute-ov is an enumeration of common attributes of Capabilities and Behaviors.",
             "enum": [
                 "applicable platform",
+                "archive type",
+                "autonomy",
+                "backdoor type",
+                "cryptocurrency type",
                 "encryption algorithm",
+                "erasure scope",
+                "file infection type",
+                "file modification type",
+                "file type",
+                "frequency",
+                "infection targeting",
                 "network protocol",
+                "persistence scope",
+                "port number",
+                "propagation scope",
+                "targeted application",
+                "targeted file architecture type",
+                "targeted file type",
+                "targeted program",
+                "targeted sandbox",
+                "targeted vm",
+                "targeted website",
                 "technique",
+                "trigger type",
+                "user privilege escalation type",
                 "vulnerability ID (CVE)",
                 "vulnerability ID (OSVDB)"
             ]
@@ -285,7 +280,7 @@
         "confidence-measure-cv": {
             "title": "confidence attribute ov",
             "type": "string",
-            "description": "confidence-measure-ov is an enumeration of relative confidence measures, and aligns with the values in the HighMediumLow Vocabulary from STIX.",
+            "description": "confidence-measure-ov is an enumeration of relative confidence measures; it aligns with the values in the STIX HighMediumLow vocabulary.",
             "enum": [
                 "low",
                 "medium",
@@ -307,7 +302,7 @@
         "execution-status-ov": {
             "title": "execution status ov",
             "type": "string",
-            "description": "execution-status-ov is a (non-exhaustive) enumeration of observable execution status types.",
+            "description": "execution-status-ov is a non-exhaustive enumeration of observable execution status types.",
             "enum": [
                 "active",
                 "completed",
@@ -320,7 +315,7 @@
         "importance-ov": {
             "title": "importance ov",
             "type": "string",
-            "description": "importance-ov is a (non-exhaustive) enumeration of relative importance measures.",
+            "description": "importance-ov is a non-exhaustive enumeration of relative importance measures.",
             "enum": [
                 "high",
                 "medium",
@@ -369,7 +364,7 @@
         "layer4-protocol-cv": {
             "title": "layer 4 protocol cv",
             "type": "string",
-            "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
+            "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 4 (OSI model) network protocols.",
             "enum": [
                 "tcp",
                 "udp"
@@ -610,12 +605,12 @@
             "type": "string",
             "description": "malware-configuration-parameter-ov is a non-exhaustive enumeration of malware configuration parameter names.",
             "enum": [
-                "magic number",
-                "id",
-                "group id",
-                "mutex",
                 "filename",
-                "installation path"
+                "group id",
+                "id",
+                "installation path",
+                "magic number",
+                "mutex"
             ]
         },
         "malware-development-tool-ov": {
@@ -625,20 +620,20 @@
             "enum": [
                 "builder",
                 "compiler",
+                "crypter",
                 "linker",
                 "packer",
-                "crypter",
                 "protector"
             ]
         },
         "malware-entity-ov": {
             "title": "malware entity ov",
             "type": "string",
-            "description": "malware-entity-ov is a (non-exhaustive) enumeration of the different types of entities that a malware indicator or signature may be written against.",
+            "description": "malware-entity-ov is a non-exhaustive enumeration of the entity types against which a malware indicator or signature may be written.",
             "enum": [
-                "instance",
+                "class",
                 "family",
-                "class"
+                "instance"
             ]
         },
         "malware-label-ov": {
@@ -742,11 +737,25 @@
                 "iOS 8.2.x",
                 "iOS 8.3.x",
                 "iOS 8.4.x",
+                "iOS 9.0.x",
+                "iOS 9.1.x",
+                "iOS 9.2.x",
+                "iOS 9.3.x",
+                "iOS 10.0.x",
+                "iOS 10.1.x",
                 "iOS unknown version",
                 "linux kernel 2.4.x",
                 "linux kernel 2.6.x",
                 "linux kernel 3.0.x",
                 "linux kernel 3.1.x",
+                "linux kernel 3.2.x",
+                "linux kernel 3.3.x",
+                "linux kernel 3.4.x",
+                "linux kernel 3.5.x",
+                "linux kernel 3.6.x",
+                "linux kernel 3.7.x",
+                "linux kernel 3.8.x",
+                "linux kernel 3.9.x",
                 "linux kernel 3.10.x",
                 "linux kernel 3.11.x",
                 "linux kernel 3.12.x",
@@ -757,21 +766,11 @@
                 "linux kernel 3.17.x",
                 "linux kernel 3.18.x",
                 "linux kernel 3.19.x",
-                "linux kernel 3.2.x",
-                "linux kernel 3.3.x",
-                "linux kernel 3.4.x",
-                "linux kernel 3.5.x",
-                "linux kernel 3.6.x",
-                "linux kernel 3.7.x",
-                "linux kernel 3.8.x",
-                "linux kernel 3.9.x",
                 "linux kernel 4.0.x",
                 "linux kernel 4.1.x",
                 "linux unknown kernel version",
                 "mac os x 10.0.x",
                 "mac os x 10.1.x",
-                "mac os x 10.10.x",
-                "mac os x 10.11.x",
                 "mac os x 10.2.x",
                 "mac os x 10.3.x",
                 "mac os x 10.4.x",
@@ -780,30 +779,33 @@
                 "mac os x 10.7.x",
                 "mac os x 10.8.x",
                 "mac os x 10.9.x",
+                "mac os x 10.10.x",
+                "mac os x 10.11.x",
                 "mac os x unknown version",
-                "windows 10",
-                "windows 7 sp1",
                 "windows 7",
+                "windows 7 sp1",
                 "windows 8",
                 "windows 8.1",
+                "windows 10",
+                "windows server 2003",
                 "windows server 2003 sp1",
                 "windows server 2003 sp2",
-                "windows server 2003",
-                "windows server 2008 r2 sp1",
-                "windows server 2008 r2",
+                "windows server 2008",
                 "windows server 2008 sp1",
                 "windows server 2008 sp2",
-                "windows server 2008",
-                "windows server 2012 r2",
+                "windows server 2008 r2",
+                "windows server 2008 r2 sp1",
                 "windows server 2012",
-                "windows unknown version",
-                "windows vista sp1",
-                "windows vista sp1",
-                "windows vista sp2",
-                "windows vista sp2",
-                "windows vista sp3",
+                "windows server 2012 r2",
                 "windows vista",
-                "windows xp"
+                "windows vista sp1",
+                "windows vista sp1",
+                "windows xp",
+                "windows xp sp1",
+                "windows xp sp2",
+                "windows xp sp2",
+                "windows xp sp3",
+                "windows unknown version"
             ]
         },
         "refined-capability-ov": {
@@ -845,7 +847,7 @@
                 "OS security feature degradation",
                 "physical entity destruction",
                 "prevent artifact access",
-                "prevent artifact delection",
+                "prevent artifact detection",
                 "prevent duplicate infection",
                 "receive data from c2 server",
                 "remote machine access",
@@ -907,7 +909,7 @@
                 "bios manipulation",
                 "direct kernel object manipulation",
                 "dll search path hijacking",
-                "file system manipulation",
+                "filesystem manipulation",
                 "firmware manipulation",
                 "inline/iat/eat hooking",
                 "irp filtering",
