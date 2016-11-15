@@ -1,20 +1,20 @@
 {
-    "id":"example:package-54f0d8fe-3c99-46f6-8798-1ba4a7f945c5",
+    "id":"package-54f0d8fe-3c99-46f6-8798-1ba4a7f945c5",
     "schema_version":"5.0",
-    "description":"Created by VirusTotal to MAEC (http://github.com/MAECProject/vt-to-maec",
+    "description":"Created by VirusTotal to MAEC (http://github.com/MAECProject/vt-to-maec)",
     "malware_instances":[
         {
             "instance_object_ref":[
-                "example:malware_instance_object-386c3618-4e63-4e82-a5ac-3d546b8aceff"
+                "malware_instance_object-386c3618-4e63-4e82-a5ac-3d546b8aceff"
             ],
-            "id":"example:malware_instance-cfe57efb-d24d-4a7e-8d1b-4037d74c69bb"
+            "id":"malware_instance-cfe57efb-d24d-4a7e-8d1b-4037d74c69bb"
         }
     ],
     "cybox":{
         "objects":{
-            "example:malware_instance_object-386c3618-4e63-4e82-a5ac-3d546b8aceff":{
+            "malware_instance_object-386c3618-4e63-4e82-a5ac-3d546b8aceff":{
                 "hashes":{
-                    "SHA256":"be4211fe5c1a19ff393a2bcfa21dad8d0a687663263a63789552bda446d9421b",
+                    "SHA-256":"be4211fe5c1a19ff393a2bcfa21dad8d0a687663263a63789552bda446d9421b",
                     "SHA-1":"57f0839433234285cc9df96198a6ca58248a4707",
                     "MD5":"e0fb946c00b140693e3cf5de258c22a1"
                 },
