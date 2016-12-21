@@ -33,7 +33,7 @@
             },
             "objects": {
                 "type": "array",
-                "items":{"type":"REFERENCE PLACEHOLDER FOR STIX Observable Objects (stix:observable-objects"},
+                "items":{"$ref":"REFERENCE PLACEHOLDER FOR STIX Observable Objects (stix:observable-objects"},
                 "description": "The cybox field captures a set of one or more CybOX entities, such as CybOX Objects, relevant to the MAEC package. "
             },
             "behaviors": {
@@ -58,7 +58,7 @@
             }
         },
         "required": [
-            "type"
+            "type",
             "id",
             "schema_version"
         ]

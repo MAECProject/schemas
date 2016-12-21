@@ -3,7 +3,7 @@
     "definitions": {
         "CapabilityType": {
             "title":"Capability",
-	    "type": "object",
+	        "type": "object",
             "description": "The CapabilityType captures details of a Capability that may be implemented in the malware instance",
             "properties": {
                 "name": {
@@ -37,10 +37,10 @@
                     },
                     "description": "The reference field specifies that URL of the corresponding entry in the MAEC Semantic MediaWiki for the Capability"
                 }
-            }
-        },
-        "required": [
-            "name"
-        ]
+            },
+            "required": [
+               "name"
+            ]
+        }
     }
 }
