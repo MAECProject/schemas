@@ -46,6 +46,11 @@
                 "items": {"$ref": "MalwareAction.json#/definitions/MalwareActionType"},
                 "description": "The Actions field captures a set of one or more Actions relevant to the Package content."
             },
+            "process_trees":{
+                "type":"array",
+                "items":{"$ref":"ProcessTree.json#/definitions/ProcessTreeType"},
+                "description":"The Process_Trees field captures one or more Process Trees relevant to the package content"
+            },
             "collections": {
                 "type": "array",
                 "items": {"$ref": "Collection.json#/definitions/CollectionType"},
