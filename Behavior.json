@@ -27,49 +27,31 @@
                     "items": {"$ref": "#/definitions/AttributeType"},
                     "description": "The attribute field permits the capture of a single attribute of the Behavior, as a key/value pair. More than one attribute can be specified via multiple occurrences of this field."
                 },
-                "action_references": {
+                "action_refs": {
                     "type": "array",
-                    "items": {"$ref": "#/definitions/BehaviorActionReferenceType"},
+                    "items": {"type": "string"},
                     "description": "An action_reference specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field."
                 },
                 "status": {
                     "type": "string",
                     "description": "The status field specifies the execution status of the Behavior, i.e., whether or not it was successful. The available vocabulary for use with this field is execution-status-ov."
                 },
-                "incorporates_refs":{
-                    "type":"array",
-                    "items":{"type":"string"},
-                    "description": "The incorporates_ref field captures a reference to a Capability or Behavior that is incorporated by this Behavior"
-                },
-                "incorporated_by_refs":{
-                    "type":"array",
-                    "items":{"type":"string"},
-                    "description": "The incorporated_by_ref field captures a reference to a Capability or Behavior that incorporates this Behavior"
-                },
-                "reference": {
+                "references": {
                     "type": "string",
                     "format": "uri",
                     "description": "The reference field specifies the URL of the corresponding entry in the MAEC Semantic MediaWiki for the Behavior."
-                }
-            },
-            "required": ["id"]
-        },
-        "BehaviorActionReferenceType": {
-	    "title":"BehaviorActionReference",
-            "type": "object",
-            "description": "The BehaviorActionReferenceType specifies a reference to a single Action that serves as the underlying implementation of the Behavior. More than one such Action can be referenced via multiple occurrences of this field",
-            "properties": {
-                "action_ref": {
-                    "type": "string",
-                    "description": "The action_ref field refers to the id of the action being referenced"
                 },
-                "behavioral_ordering": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "description": "The behavioral_ordering field defines the ordering of the Action with respect to the other Actions that make up the Behavior. For example, an Action with a behavioral_ordering of \"1\" would come before an Action with a behavioral_ordering of \"2\", etc."
+                "techniques":{
+                    "type":"array",
+                    "items": {"type":"string"},
+                    "description":"Captures the particular technique(s) used to implement the Behavior. The values for this property SHOULD come from the technique-ov."
                 }
             },
-            "required": ["action_ref"]
+            "required": [
+                "id",
+                "type",
+                "name"
+            ]
         },
         "AttributeType": {
 	    "title":"Attribute",
@@ -85,15 +67,6 @@
                     "description": "The value field specifies the value of the attribute being captured. The suggested vocabularies for this field are platform-ov, encryption-algorithm-ov, and technique-ov. Closed vocabularies have also been defined for some attributes: layer4-protocol-cv, layer7-protocol-cv."
                 }
             }
-        },
-        "AssociatedCodeType": {
-	    "title":"AssociatedCode",
-            "type": "object",
-            "description": "The AssociatedCodeType is a generic way of specifying any code snippets associated with a MAEC entity, such as a Behavior",
-            "properties": {"code_snippet": {
-                "$ref": "MalwareAction.json#/definitions/ObjectReferenceType",
-                "description": "The code_snippet field references a CybOX Object, which MUST be a Code Object that captures a single snippet of code."
-            }}
         }
     }
 }

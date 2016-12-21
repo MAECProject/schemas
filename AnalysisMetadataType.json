@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "AnalysisMetadataType": {
+        	"title":"Analysis",
+        	"type":"object",
+        	"description":"The AnalysisMetadataType captures metadata associated with the analyses of a malware instance, such as the tools used, analysts, other data",
+        	"properties":{
+        		"analysts": {
+                    "type": "array",
+                    "items": {"$ref": "#/PLACEHOLDER REFERENCE FOR cyboxCommon:PersonnelType"},
+                    "description": "The analysts field specifies the analyst(s) who performed the analysis."
+                },
+                "comments": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CommentType"},
+                    "description": "The comments field specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
+                },
+                "tool_refs": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "The tool_refs field captures a set of references to one or more Tools used in the analysis of a Malware Instance. Values MUST be references to Software Objects in the objects field at the top-level of the Package."
+                },
+                   "summary": {
+                    "type": "string",
+                    "description": "The summary field specifies a summary of the analysis that was performed.  It should be high-level and concise.  It should summarize the contents of the report field, if present, and otherwise should provide a brief synopsis of the analysis that was performed and any highlights."
+                }
+        	}
+        }
+    }
+}

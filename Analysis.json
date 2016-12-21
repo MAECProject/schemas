@@ -1,3 +1,5 @@
+TO BE DEPRECATED - (double check with team)
+
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
@@ -78,57 +80,6 @@
                 }
             },
             "required": ["id"]
-        },
-        "SourceType": {
-   	    "title":"Source",
-            "type": "object",
-            "description": "The SourceType provides a way of characterizing the external source of a relevant MAEC entity, such as an Analysis.",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The name field refers to the name of the person linked to the source."
-                },
-                "method": {
-                    "type": "string",
-                    "description": "The method field provides an abstract way of specifying the method used to obtain the data that the Source element refers to."
-                },
-                "reference": {
-                    "type": "string",
-                    "description": "The reference field provides an abstract way of specifying a reference name or ID for the source."
-                },
-                "organization": {
-                    "type": "string",
-                    "description": "The organization field specifies the name of the organization from which the source originated."
-                },
-                "url": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "The url field specifies the the Uniform Resource Locator (URL) of the external source, if applicable."
-                }
-            }
-        },
-        "CommentType": {
-            "title":"Comment",
-            "type": "object",
-            "description": "The CommentType captures a comment relating to some MAEC field.",
-            "properties": {
-                "comment": {
-                    "type": "string",
-                    "description": "The comment field specifies the actual comment."
-                },
-                "author": {
-                    "type": "string",
-                    "description": "The author field specifies the name of the author that added the comment."
-                },
-                "timestamp": {
-                    "type": "string",
-                    "description": "The timestamp field specifies the date/time that the comment was added."
-                },
-                "observation_name": {
-                    "type": "string",
-                    "description": "The observation_name field captures the name, type, or identifier of an observation, for comments that refer to the observation of particular entities. For example, a comment that refers to a command and control (C2) encryption key could have an observation_name of \"C2 Encryption Key\"."
-                }
-            }
         },
         "FindingsType": {
 	    "title":"Finding",

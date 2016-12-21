@@ -45,7 +45,8 @@
             "required": [
                 "source_ref",
                 "target_ref",
-                "type"
+                "type",
+                "relationship_type"
             ]
         },
         "RelationshipDistanceMetadataType": {

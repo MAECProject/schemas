@@ -17,14 +17,14 @@
 	    	"type":"object",
 	    	"description": "The ProcessTreeNodeType captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object.",
             "properties":{
+	        	"id":{
+			    	"type": "string",
+			    	"description": "The required id field specifies a unique ID for the Process Node."
+		        },
 	        	"process_ref":{
 		     		"type":"string",
 		     		"description": "The process_ref field captures a reference to a Cyber Observable -Process Object"   
 				},
-		        "id":{
-			    	"type": "string",
-			    	"description": "The required id field specifies a unique ID for the Process Node."
-		        },
 		        "parent_action_ref":{
 			    	"type": "string",
 			    	"description": "The parent_action_ref field specifies the id of the action that created or injected this process."
@@ -50,7 +50,10 @@
 			    	"description": "The injected_process field captures a single process that was injected by this process."
 		        }
         	},
-            "required": ["id"]
+            "required": [
+            	"id",
+            	"process_ref"
+            ]
     	}
 	}
 }

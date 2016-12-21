@@ -5,13 +5,20 @@
 	"type": "object",
         "description": "The PackageType is the standard output format that can be used to describe one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, CybOX Objects, and Collections and Relationships.",
         "properties": {
+            "type":{
+                "type":"string",
+                "enum":[
+                    "package"
+                ],
+                "description":"The value of this field MUST be \"package\""
+            },
             "id": {
                 "type": "string",
                 "description": "The required id field specifies a unique ID for this Package."
             },
             "schema_version": {
-                "type": "string",
-                "enum": ["5.0"],
+                "type": "number",
+                "enum": [5.0],
                 "description": "The required schema_version field specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation."
             },
             "malware_instances": {
@@ -24,14 +31,10 @@
                 "items": {"$ref": "MalwareFamily.json#/definitions/MalwareFamilyType"},
                 "description": "The malware_families field captures a set of one or more Malware Families relevant to the Package content."
             },
-            "cybox": {
-                "type": "object",
-                "description": "The cybox field captures a set of one or more CybOX entities, such as CybOX Objects, relevant to the MAEC package. "
-            },
-            "capabilities": {
+            "objects": {
                 "type": "array",
-                "items": {"$ref": "Capability.json#/definitions/CapabilityType"},
-                "description": "The Capabilities field captures a set of one or more Capabilities relevant to the Package content."
+                "items":{"type":"REFERENCE PLACEHOLDER FOR STIX Observable Objects (stix:observable-objects"},
+                "description": "The cybox field captures a set of one or more CybOX entities, such as CybOX Objects, relevant to the MAEC package. "
             },
             "behaviors": {
                 "type": "array",
@@ -42,11 +45,6 @@
                 "type": "array",
                 "items": {"$ref": "MalwareAction.json#/definitions/MalwareActionType"},
                 "description": "The Actions field captures a set of one or more Actions relevant to the Package content."
-            },
-	    "process_trees": {
-                "type": "array",
-                "items": {"$ref": "ProcessTree.json#/definitions/ProcessTreeType"},
-                "description": "The Process_Trees field captures one or more Process Trees relevant to the package content."
             },
             "collections": {
                 "type": "array",
@@ -60,6 +58,7 @@
             }
         },
         "required": [
+            "type"
             "id",
             "schema_version"
         ]
