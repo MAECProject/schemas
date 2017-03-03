@@ -6,7 +6,7 @@
         {
             "type":"malware-instance",
             "instance_object_ref":[
-                "malware_instance_object-386c3618-4e63-4e82-a5ac-3d546b8aceff"
+                "0"
             ],
             "id":"malware_instance-cfe57efb-d24d-4a7e-8d1b-4037d74c69bb",
             "analyses":[
@@ -17,14 +17,14 @@
         }
     ],
     "objects":{
-        "malware_instance_object-386c3618-4e63-4e82-a5ac-3d546b8aceff":{
+        "0":{
             "type":"file",
             "hashes":{
                 "SHA-256":"be4211fe5c1a19ff393a2bcfa21dad8d0a687663263a63789552bda446d9421b",
                 "SHA-1":"57f0839433234285cc9df96198a6ca58248a4707",
                 "MD5":"e0fb946c00b140693e3cf5de258c22a1"
             },
-            "extended_properties":{
+            "extensions":{
                 "x-maec-avclass":[
                     {
                         "classification_name":"W32.RzangPPP.Trojan",

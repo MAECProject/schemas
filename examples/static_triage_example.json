@@ -16,18 +16,18 @@
         {
           "method":"static",   !!!!WHERE DOES THIS GO NOW!!!!!
           "type":"triage",     !!!!WHERE DOES THIS GO NOW!!!!!
-          "source":{
-            "name":"Frankie Li",
-            "url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
-          },
           "analysts":[
             {
               "type":"identity",
               "name":"Frankie Li",
-              "identity_class":"HEEREEEE"
-
+              "identity_class":"individual"
+            },
+            {
+              "type":"identity",
+              "name":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814",
+              "identity_class":"organization"
             }
-          ]
+          ],
           "summary":"A basic static triage of the subject binary using PEiD.",
           "tool_refs":[
             "object--3"

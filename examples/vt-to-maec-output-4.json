@@ -6,7 +6,7 @@
         {
             "type":"malware-instance",
             "instance_object_ref":[
-                "malware_instance_object-27bb05f0-4bdf-4a8e-89b6-0456f9f87140"
+                "0"
             ],
             "id":"malware_instance-b489415b-5e1a-4339-a363-0b9e37bcb477",
             "analyses":[
@@ -17,14 +17,14 @@
         }
     ],
     "objects":{
-        "malware_instance_object-27bb05f0-4bdf-4a8e-89b6-0456f9f87140":{
+        "0":{
             "type":"file",
             "hashes":{
                 "SHA-256":"68a15a34c2e28b9b521a240b948634617d72ad619e3950bc6dc769e60a0c3cf2",
                 "SHA-1":"0ae1f9071c5e8fe4a69d3f671937935d242d8a6c",
                 "MD5":"ccf1d1573f175299ade01c07791a6541"
             },
-            "extended_properties":{
+            "extensions":{
                 "x-maec-avclass":[
                     {
                         "classification_name":null,

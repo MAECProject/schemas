@@ -1,8 +1,10 @@
 {
+	"type":"package",
 	"id":"maec-test-pkg-1",
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
+			"type":"malware-instance",
 			"id":"maec-tst-sub-1",
 			"instance_object_ref":["maec-tst-obj-1"],
 			"labels":[
@@ -10,25 +12,73 @@
 			]
 		},
 		{
+			"type":"malware-instance",
 			"id":"maec-tst-sub-2",
 			"instance_object_ref":["maec-tst-obj-2"],
 			"labels":[
 				"dropper file"
 			],
-			"capability_refs":[
-				"maec-tst-cpb-2",
-				"maec-tst-cpb-3",
-				"maec-tst-cpb-4",
-				"maec-tst-cpb-5"
-			],
-			"behavior_refs":[
-				"maec-tst-obt-5",
-				"maec-tst-obt-7",
-				"maec-tst-obt-9",
-				"maec-tst-obt-11"
+			"behavioral_features":{
+				"behavior_refs":[
+					"maec-tst-obt-5",
+					"maec-tst-obt-7",
+					"maec-tst-obt-9",
+					"maec-tst-obt-11"
+				]
+			},
+			"capabilities":[
+				{
+					"name":"probing",
+					"refined_capabilities":[
+						{
+							"id":"maec-tst-obt-4",
+							"name":"host configuration probing"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-5"
+					]
+				},
+				{
+					"name":"anti-detection",
+					"refined_capabilities":[
+						{
+							"id":"maec-tst-obt-6",
+							"name":"hide artifacts"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-7"
+					]
+				},
+				{
+					"name":"persistence",
+					"refined_capabilities":[
+						{
+							"id":"maec-tst-obt-8",
+							"name":"continuous execution"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-9"
+					]
+				},
+				{
+					"name":"secondary operation",
+					"refined_capabilities":[
+						{
+							"id":"maec-tst-obt-10",
+							"name":"install other components"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-11"
+					]
+				}
 			]
 		},
 		{
+			"type":"malware-instance",
 			"id":"maec-tst-sub-3",
 			"instance_object_ref":["maec-tst-obj-3"],
 			"labels":[
@@ -37,76 +87,225 @@
 				"spyware",
 				"trojan horse"
 			],
+			"name":{
+				"value":"Backdoor.Snifula variant",
+				"source":{
+					"organization":"Computer Incident Response Center Luxembourg and National CERT of Luxembourg",
+					"references":[
+						{
+							"source_name":"Computer Incident Response Center Luxembourg and National CERT of Luxembourg",
+							"url":"https://www.circl.lu/files/tr-13/tr-13-snifula-analysis-report-v1.3.pdf"
+						}
+					]
+				}
+			},
 			"analyses":[
 				{
-					"id":"maec-example-ana-1",
-					"type": "in-depth",
-					"method":"combination",
-					"source":{
-						"organization":"Computer Incident Response Center Luxembourg and National CERT of Luxembourg",
-						"url":"https://www.circl.lu/files/tr-13/tr-13-snifula-analysis-report-v1.3.pdf"
-					},
-					"summary":"Malware analysis of a Backdoor.Snifula variant",
+					"analysis_type":"combination",
+					"description":"Malware analysis of a Backdoor.Snifula variant",
 					"comments":[
+						"The malware binary exports 46 functions, but it seems most are used for camouflage, with only a single function actually being used."
+					]
+				}
+			],
+			"behavioral_features":{
+				"behavior_refs":[
+					"maec-tst-obt-13",
+					"maec-tst-obt-15",
+					"maec-tst-obt-18",
+					"maec-tst-obt-19",
+					"maec-tst-obt-20",
+					"maec-tst-obt-21",
+					"maec-tst-obt-22",
+					"maec-tst-obt-24",
+					"maec-tst-obt-27",
+					"maec-tst-obt-28",
+					"maec-tst-obt-30",
+					"maec-tst-obt-31",
+					"maec-tst-obt-32",
+					"maec-tst-obt-34",
+					"maec-tst-obt-38",
+					"maec-tst-obt-39",
+					"maec-tst-obt-40",
+					"maec-tst-obt-43",
+					"maec-tst-obt-47"
+				]
+			},
+			"capabilities":[
+				{
+					"name":"security degradation",
+					"refined_capabilities":[
 						{
-							"comment":"The malware binary exports 46 functions, but it seems most are used for camouflage, with only a single function actually being used."
+							"id":"maec-tst-obt-12",
+							"name":"prevent security software from executing"
 						}
 					],
-					"findings":{
-						"maec-example-findings-sub-3":{
+					"attributes":[
+						{
+							"targeted program":"procmon.exe"
+						}
+					]
+				},
+				{
+					"name":"persistence",
+					"refined_capabilities":[
+						{
+							"name":"ensure compatibility",
 							"behavior_refs":[
-								"maec-tst-obt-13",
-								"maec-tst-obt-15",
-								"maec-tst-obt-18",
-								"maec-tst-obt-19",
-								"maec-tst-obt-20",
-								"maec-tst-obt-21",
-								"maec-tst-obt-22",
-								"maec-tst-obt-24",
-								"maec-tst-obt-27",
-								"maec-tst-obt-28",
-								"maec-tst-obt-30",
-								"maec-tst-obt-31",
-								"maec-tst-obt-32",
-								"maec-tst-obt-34",
-								"maec-tst-obt-38",
-								"maec-tst-obt-39",
-								"maec-tst-obt-40",
-								"maec-tst-obt-43",
-								"maec-tst-obt-47"
-							],
-							"capability_refs":[
-								"maec-tst-cpb-6",
-								"maec-tst-cpb-7",
-								"maec-tst-cpb-8",
-								"maec-tst-cpb-9",
-								"maec-tst-cpb-10",
-								"maec-tst-cpb-11",
-								"maec-tst-cpb-12",
-								"maec-tst-cpb-13",
-								"maec-tst-cpb-14"
+								"maec-tst-obt-15"
+							]
+						},
+						{
+							"name": "continuous execution",
+							"behavior_refs":[
+								"behavior-6"
 							]
 						}
-					}
+
+					]
+				},
+				{
+					"name":"command and control",
+					"attributes":[
+						{
+							"network protocol":"http"
+						}
+					],
+					"refined_capabilities":[
+						{
+							"name":"receive data from c2 server",
+							"behavior_refs":[
+								"maec-tst-obt-20",
+								"maec-tst-obt-21"
+							]
+						},
+						{
+							"name":"send data to c2 server",
+							"behavior_refs":[
+								"maec-tst-obt-18",
+								"maec-tst-obt-19"
+							]
+						}
+					]
+				},
+				{
+					"name":"secondary operation",
+					"refined_capabilities":[
+						{
+							"name": "install other components"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-22"
+					]
+				},
+				{
+					"name":"probing",
+					"refined_capabilities":[
+						{
+							"name":"network configuration probing"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-24"
+					]
+
+				},
+				{
+					"name": "data theft",
+					"refined_capabilities":[
+						{
+							"name":"authentication credentials theft",
+							"behavior_refs":[
+								"maec-tst-obt-28",
+								"maec-tst-obt-29",
+								"maec-tst-obt-32"
+							]
+						},
+						{
+							"name":"user data theft",
+							"behavior_refs":[
+								"maec-tst-obt-27",
+								"maec-tst-obt-30",
+								"maec-tst-obt-31"
+							]
+						}
+					]
+				},
+				{
+					"name":"spying",
+					"refined_capabilities":[
+						{
+							"name":"capture system output peripheral data"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-34"
+					]
+				},
+				{
+					"name":"data exfiltration",
+					"refined_capabilities":[
+						{
+							"name":"data staging"
+						},
+						{
+							"name":"data obfuscation"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-38",
+						"maec-tst-obt-39",
+						"maec-tst-obt-40"
+					]
+				},
+				{
+					"name":"integrity violation",
+					"refined_capabilities":[
+						{
+							"name":"compromise network operational capability",
+							"behavior_refs":[
+								"maec-tst-obt-43"
+							]
+						},
+						{
+							"name":"data integrity violation"
+						}
+					]
 				}
 			]
 		},
 		{
+			"type":"malware-instance",
 			"id":"maec-tst-sub-4",
 			"instance_object_ref":["maec-tst-obj-4"]
 		},
 		{
+			"type":"malware-instance",
 			"id":"maec-tst-sub-5",
 			"instance_object_ref":["maec-tst-obj-5"]
 		},
 		{
+			"type":"malware-instance",
 			"id":"maec-tst-sub-6",
 			"instance_object_ref":["maec-tst-obj-6"],
 			"labels":[
 				"wiper"
 			],
-			"capability_refs": [
-				"maec-tst-cpb-1"
+			"capabilities":[
+				{
+					"name":"secondary operation",
+					"refined_capabilities":[
+						{
+							"id":"maec-tst-obt-1",
+							"name":"clean traces of infection"
+						}
+					],
+					"behavior_refs":[
+						"maec-tst-obt-2",
+						"maec-tst-obt-3"
+					]
+				}
 			],
 			"behavior_refs":[
 				"maec-tst-obt-2",
@@ -114,415 +313,185 @@
 			]
 		}
 	],
-	"cybox":{
-		"objects":{
-			"maec-tst-sub-1":{
-				"type":"file",
-				"file_name":"2a7.exe",
-				"hashes":{
-					"MD5":"eaa5e4f26028c41ba3935a4ac455892c",
-					"SHA1":"049db2d7030bf7563974a2c25671aef046cabf99"
-				}
-			},
-			"maec-tst-sub-2":{
-				"type":"file",
-				"file_name":"dump_006D0000.bin",
-				"hashes":{
-					"MD5":"d819facd7c980b01bf44ea7efbf6af42",
-					"SHA1": "abfe4e74b345669a0fcd8a34bff9c9a0a7bc9c44"
-				}
-			},
-			"maec-tst-obj-3":{
-				"type":"file",
-				"file_name":"ctfmreg.dll",
-				"hashes":{
-					"MD5":"f9005fd7eb85a81f2f9b1474bba61be0",
-					"SHA1":"89196b0ed3189e8571924144e57aa867f72164bd"
-				}
-			},
-			"maec-tst-obj-4":{
-				"type":"file",
-				"file_name":"dump_00E30000.bin",
-				"hashes":{
-					"MD5":"a6bf4ae086b8d28612de4bc0d7ec4abe",
-					"SHA1":"2b6b4fbc77553425b00ee3135e2e83386ebd797f"
-				}
-			},
-			"maec-tst-sub-5":{
-				"type":"file",
-				"file_name":"ctfmreg64.dll",
-				"hashes":{
-					"MD5":"edb1c6fa185dc818e9cf1d107974561a",
-					"SHA1":"383b76f23ac1d469a59a85af1a8d9c1d3f932e2f"
-				}
-			},
-			"maec-tst-obj-6":{
-				"type":"file",
-				"description":"Batch cleanup file. The name of the file is baed on GetTicketCount value.",
-				"file_name":"[0-9]{8}\\.bat",
-				"hashes":{
-					"MD5":"d226a657b279c5fc0a892748230a56ff",
-					"SHA1":"fa7e4fb6d6de3c4769001cbfce0a00ba02ef28a5"
-				}
+	"objects":{
+		"maec-tst-sub-1":{
+			"type":"file",
+			"file_name":"2a7.exe",
+			"hashes":{
+				"MD5":"eaa5e4f26028c41ba3935a4ac455892c",
+				"SHA1":"049db2d7030bf7563974a2c25671aef046cabf99"
+			}
+		},
+		"maec-tst-sub-2":{
+			"type":"file",
+			"file_name":"dump_006D0000.bin",
+			"hashes":{
+				"MD5":"d819facd7c980b01bf44ea7efbf6af42",
+				"SHA1": "abfe4e74b345669a0fcd8a34bff9c9a0a7bc9c44"
+			}
+		},
+		"maec-tst-obj-3":{
+			"type":"file",
+			"file_name":"ctfmreg.dll",
+			"hashes":{
+				"MD5":"f9005fd7eb85a81f2f9b1474bba61be0",
+				"SHA1":"89196b0ed3189e8571924144e57aa867f72164bd"
+			}
+		},
+		"maec-tst-obj-4":{
+			"type":"file",
+			"file_name":"dump_00E30000.bin",
+			"hashes":{
+				"MD5":"a6bf4ae086b8d28612de4bc0d7ec4abe",
+				"SHA1":"2b6b4fbc77553425b00ee3135e2e83386ebd797f"
+			}
+		},
+		"maec-tst-sub-5":{
+			"type":"file",
+			"file_name":"ctfmreg64.dll",
+			"hashes":{
+				"MD5":"edb1c6fa185dc818e9cf1d107974561a",
+				"SHA1":"383b76f23ac1d469a59a85af1a8d9c1d3f932e2f"
+			}
+		},
+		"maec-tst-obj-6":{
+			"type":"file",
+			"description":"Batch cleanup file. The name of the file is baed on GetTicketCount value.",
+			"file_name":"[0-9]{8}\\.bat",
+			"hashes":{
+				"MD5":"d226a657b279c5fc0a892748230a56ff",
+				"SHA1":"fa7e4fb6d6de3c4769001cbfce0a00ba02ef28a5"
 			}
 		}
 	},
-	"capabilities":[
-		{
-			"id":"maec-tst-cpb-1",
-			"name":"secondary operation",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-1",
-					"name":"clean traces of infection"
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-2",
-				"maec-tst-obt-3"
-			]
-		},
-		{
-			"id":"maec-tst-cpb-2",
-			"name":"probing",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-4",
-					"name":"host configuration probing"
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-5"
-			]
-		},
-		{
-			"id":"maec-tst-cpb-3",
-			"name":"anti-detection",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-6",
-					"name":"hide artifacts"
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-7"
-			]
-		},
-		{
-			"id":"maec-tst-cpb-4",
-			"name":"persistence",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-8",
-					"name":"continuous execution"
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-9"
-			]
-		},
-		{
-			"id":"maec-tst-cpb-5",
-			"name":"secondary operation",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-10",
-					"name":"install other components"
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-11"
-			]
-		},
-		{
-			"id":"maec-tst-cpb-6",
-			"name":"security degradation",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-12",
-					"name":"prevent security software from executing"
-				}
-			],
-			"attributes":[
-				{
-					"name":"targeted program",
-					"value":"procmon.exe"
-				}
-			]
-		},
-		{
-			"id":"maec-tst-cpb-7",
-			"name":"persistence",
-			"refined_capabilities":[
-				{
-					"id": "maec-tst-obt-14",
-					"name":"ensure compatibility",
-					"behavior_refs":[
-						"maec-tst-obt-15"
-					]
-				},
-				{
-					"id":"maec-tst-obt-46",
-					"name": "continuous execution",
-					"behavior_refs":[
-						"behavior-6"
-					]
-				}
-
-			]
-		},
-		{
-			"id":"maec-tst-cpb-8",
-			"name":"command and control",
-			"attributes":[
-				{
-					"name":"network protocol",
-					"value":"http"
-				}
-			],
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-16",
-					"name":"receive data from c2 server",
-					"behavior_refs":[
-						"maec-tst-obt-20",
-						"maec-tst-obt-21"
-					]
-				},
-				{
-					"id":"maec-tst-obt-17",
-					"name":"send data to c2 server",
-					"behavior_refs":[
-						"maec-tst-obt-18",
-						"maec-tst-obt-19"
-					]
-				}
-			]
-
-		},
-		{
-			"id":"maec-tst-cpb-9",
-			"name":"secondary operation",
-			"refined_capabilities":[
-				{
-					"id": "maec-tst-obt-45",
-					"name": "install other components",
-					"incorporated_by_refs":[
-						"maec-obt-tst-20"
-					],
-					"incorporates_refs":[
-						"maec-tst-obt-16",
-						"maec-tst-obt-47"
-					]
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-22"
-			]
-		},
-		{
-			"id":"maec-tst-cpb-10",
-			"name":"probing",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-23",
-					"name":"network configuration probing"
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-24"
-			]
-
-		},
-		{
-			"id":"maec-tst-cpb-11",
-			"name": "data theft",
-			"refined_capabilities":[
-				{
-					"id": "maec-tst-obt-25",
-					"name":"authentication credentials theft",
-					"behavior_refs":[
-						"maec-tst-obt-28",
-						"maec-tst-obt-29",
-						"maec-tst-obt-32"
-					]
-				},
-				{
-					"id":"maec-tst-obt-26",
-					"name":"user data theft",
-					"behavior_refs":[
-						"maec-tst-obt-27",
-						"maec-tst-obt-30",
-						"maec-tst-obt-31"
-					]
-				}
-			]
-		},
-		{
-			"id":"maec-tst-cpb-12",
-			"name":"spying",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-33",
-					"name":"capture system output peripheral data"
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-34"
-			]
-				
-		},
-		{
-			"id":"maec-tst-cpb-13",
-			"name":"data exfiltration",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-35",
-					"name":"data staging"
-				},
-				{
-					"id":"maec-tst-obt-36",
-					"name":"data obfuscation"
-				}
-			],
-			"behavior_refs":[
-				"maec-tst-obt-38",
-				"maec-tst-obt-39",
-				"maec-tst-obt-40"
-			]
-		},
-		{
-			"id":"maec-tst-cpb-14",
-			"name":"integrity violation",
-			"refined_capabilities":[
-				{
-					"id":"maec-tst-obt-41",
-					"name":"compromise network operational capability",
-					"behavior_refs":[
-						"maec-tst-obt-43"
-					]
-				},
-				{
-					"id":"maec-tst-obt-42",
-					"name":"data integrity violation"
-				}
-			]
-		}
-	],
 	"behaviors":[
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-2",
 			"name":"remove self"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-3",
 			"name":"remove system artifacts"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-5",
 			"name":"identify OS"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-7",
 			"name": "obfuscate artifact properties"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-9",
 			"name":"persist after system reboot"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-11",
 			"name":"install secondary module"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-13",
 			"name":"prevent security program from running"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-15",
 			"name": "limit application type/version"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-18",
 			"name":"check for payload"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-19",
 			"name": "fingerprint host"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-20",
 			"name":"control local machine via remote command"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-21",
 			"name":"update configuration"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-22",
-			"name":"log activity",
-			"incorporated_by_refs":[
-				"maec-tst-obt-20"
-			],
-			"incorporates_refs":[
-				"maec-tst-obt-17"
-			]
+			"name":"log activity"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-24",
-			"name":"test for internet connectivity",
-			"incorporated_by_refs":[
-				"maec-tst-obt-17"
-			]
+			"name":"test for internet connectivity"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-27",
 			"name":"steal cookie"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-28",
 			"name":"steal code signing certificate"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-29",
 			"name":"steal pki key"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-30",
 			"description":"steal browser history"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-31",
 			"description":"steal browser cache"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-32",
 			"name": "steal web/network credential"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-34",
 			"name":"capture system screenshot"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-38",
 			"name":"package_data"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-39",
 			"name": "encrypt data"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-40",
-			"name":"exfiltrate data via network",
-			"incorporates_refs":[
-				"maec-tst-obt-17"
-			]
+			"name":"exfiltrate data via network"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-43",
 			"name":"intercept/manipulate network traffic"
 		},
 		{
+			"type":"behavior",
 			"id":"maec-tst-obt-47",
 			"name":"persist after system reboot",
 			"attributes":[
@@ -530,93 +499,90 @@
 					"name":"scope",
 					"value":"other malware/components"
 				}
-			],
-			"incorporated_by_refs":[
-				"maec-tst-obt-45"
 			]
 		}
 	],
 	"relationships":[
 		{
-			"id":"relationship-1",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-1",
 			"target_ref":"maec-tst-sub-2",
 			"type":"contained in memory image"
 		},
 		{
-			"id":"relationship-2",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-1",
 			"target_ref":"maec-tst-sub-4",
 			"type":"contained in memory image"
 		},
 		{
-			"id":"relationship-3",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-2",
 			"target_ref":"maec-tst-sub-1",
 			"type":"memory image of"
 		},
 		{
-			"id":"relationship-4",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-2",
 			"target_ref":"maec-tst-sub-3",
 			"type":"drops"
 		},
 		{
-			"id":"relationship-5",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-2",
 			"target_ref":"maec-tst-sub-6",
 			"type":"drops"
 		},
 		{
-			"id":"relationship-6",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-2",
 			"target_ref":"maec-tst-sub-3",
 			"type":"installs"
 		},
 		{
-			"id":"relationship-7",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-3",
 			"target_ref":"maec-tst-sub-2",
 			"type":"dropped by"
 		},
 		{
-			"id":"relationship-8",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-3",
 			"target_ref":"maec-tst-sub-4",
 			"type":"encrypted version of"
 		},
 		{
-			"id":"relationship-9",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-3",
 			"target_ref":"maec-tst-sub-5",
 			"type":"32 bit version-of"
 		},
 		{
-			"id":"relationship-10",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-4",
 			"target_ref":"maec-tst-sub-1",
 			"type":"memory image of"
 		},
 		{
-			"id":"relationship-11",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-4",
 			"target_ref":"maec-tst-3",
 			"type":"decrypted version of"
 		},
 		{
-			"id":"relationship-12",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-5",
 			"target_ref":"maec-tst-sub-2",
 			"type":"extracted from"
 		},
 		{
-			"id":"relationship-13",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-5",
 			"target_ref":"maec-tst-sub-3",
 			"type":"64-bit version of"
 		},
 		{
-			"id":"relationship-14",
+			"type":"relationship",
 			"source_ref":"maec-tst-sub-6",
 			"target_ref":"maec-tst-sub-2",
 			"type":"dropped by"

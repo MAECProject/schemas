@@ -1,61 +1,63 @@
 {
+	"type":"package",
 	"id":"package--7af42bc3-8aef-42dc-95e4-d89f16eaa142",
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
 			"id":"malware_instance--6c2d11a7-fba4-4375-8cb2-89f2bfcf6940",
-			"malware_name":"Red October Downloader",
+			"name":{
+				"value":"Red October Downloader"
+			},
 			"labels":[
 				"downloader"
 			],
 			"instance_object_ref":["object--1"],
-			"capability_refs":[
-				"capability--32a104d2-c680-43d1-974d-f27be13292f8"
+			"capabilities":[
+				{
+					"id":"capability--32a104d2-c680-43d1-974d-f27be13292f8",
+					"name":"command and control",
+					"refined_capabilities":[
+						{
+							"id":"maec-example-obt-1",
+							"name":"send data to c2 server"
+						}
+					]
+				}
 			],
-			"behavior_refs":[
-				"behavior--10b06b25-9fbe-4593-9609-5cba8e877f75"
-			],
-			"action_refs":[
-				"action--5809df22-e9e2-4d78-beb6-1c412cdb4b18"
-			]
+			"behavioral_features":{
+				"behavior_refs":[
+					"behavior--10b06b25-9fbe-4593-9609-5cba8e877f75"
+				],
+				"action_refs":[
+					"action--5809df22-e9e2-4d78-beb6-1c412cdb4b18"
+				]
+			}
 		}
 	],
-	"cybox":{
-		"objects":{
-			"object--1":{
-				"type":"file",
-				"hashes":{
-					"MD5":"c3b0d1403ba35c3aba8f4529f43fb300"
-				}
-			},
-			"object--2":{
-				"type":"network-connection",
-				"extended_properties":{
-					"http":{
-						"request_method":"post",
-						"request_value":"http://www.dailyinfonews.net/reportdatas.php",
-						"request_version":"HTTP/1.0"
-					}
+	"objects":{
+		"object--1":{
+			"type":"file",
+			"hashes":{
+				"MD5":"c3b0d1403ba35c3aba8f4529f43fb300"
+			}
+		},
+		"object--2":{
+			"type":"network-traffic",
+			"extensions":{
+				"http-request-ext":{
+					"request_method":"post",
+					"request_value":"http://www.dailyinfonews.net/reportdatas.php",
+					"request_version":"HTTP/1.0"
 				}
 			}
 		}
 	},
-	"capabilities":[
-		{
-			"id":"capability--32a104d2-c680-43d1-974d-f27be13292f8",
-			"name":"command and control",
-			"refined_capabilities":[
-				{
-					"id":"maec-example-obt-1",
-					"name":"send data to c2 server"
-				}
-			]
-		}
-	],
 	"behaviors":[
 		{
+			"type":"behavior",
 			"id":"behavior--10b06b25-9fbe-4593-9609-5cba8e877f75",
-			"description":"A Command and Control Server Connection Loop. Every 180 seconds the malware subject sends an HTTP Post request to its C2 server with some data uniquely identifying the victim machine and reporting on the status of the execution of the malware.",
+			"name":"send data to C2 server",
+			"implementation":"A Command and Control Server Connection Loop. Every 180 seconds the malware subject sends an HTTP Post request to its C2 server with some data uniquely identifying the victim machine and reporting on the status of the execution of the malware.",
 			"action_references": [
 				{
 					"action_ref":"maec-example-act-1"
@@ -65,14 +67,12 @@
 	],
 	"actions":[
 		{
+			"type":"malware-action",
 			"id":"action--5809df22-e9e2-4d78-beb6-1c412cdb4b18",
 			"name":"send http post request",
 			"description":"http post request which occurs every 180 seconds",
-			"object_references":[
-				{
-					"obj_ref":"object--2",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"object--2"
 			]
 		}
 	]

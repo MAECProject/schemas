@@ -9,15 +9,8 @@
       "instance_object_ref":["object--1"],
       "analyses":[
         {
-          "method":"static",
-          "type":"in-depth",
-          "findings":[
-            {
-              "capability_refs":[
-                "capability--c2f01ec8-42ff-403e-9e76-b4e8a1ffe1b8"
-              ]
-            }
-          ]
+          "analysis_type":"static",
+          "description":"in-depth"
         }
       ],
       "capabilities":[
@@ -32,7 +25,7 @@
   ],
   "behaviors":[
     {
-      "type":"behavrior",
+      "type":"behavior",
       "id":"behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31",
       "name":"capture keyboard input",
       "action_refs":[

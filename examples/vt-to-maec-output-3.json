@@ -6,7 +6,7 @@
         {
             "type":"malware-instance",
             "instance_object_ref":[
-                "malware_instance_object-fad7fff3-52f7-4649-a77b-63064c0feb26"
+                "0"
             ],
             "id":"malware_instance-537478c9-6c41-4154-960f-8408e42775b4",
             "analyses":[
@@ -17,14 +17,14 @@
         }
     ],
     "objects":{
-        "malware_instance_object-fad7fff3-52f7-4649-a77b-63064c0feb26":{
+        "0":{
             "type":"file",
             "hashes":{
                 "SHA-256":"ecbac2a6c0bf8dbc7bed2370ed098cd43a56b0d69a0db1d5715751270711f1d6",
                 "SHA-1":"1590f13e451fe9fde4243ad40f453f6fe3e27402",
                 "MD5":"c0ec10a8bd525ba10254b857f406ec36"
             },
-            "extended_properties":{
+            "extensions":{
                 "x-maec-avclass":[
                     {
                         "classification_name":"W32.HolowsAE.Trojan",
