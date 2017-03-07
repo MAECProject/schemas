@@ -1,10 +1,12 @@
 {
+  "type":"package",
   "id":"maec-example-pkg-1",
   "schema_version":"5.0",
   "malware instances":[
   	{
+      "type":"malware-instance",
   		"id":"maec-example-sub-1",
-  		"instance_object_ref":["object--1"],
+  		"instance_object_refs":["object--1"],
   		"labels":[
   			"trojan horse",
   			"bot",
@@ -13,222 +15,212 @@
   		],
   		"analyses":[
   			{
-  				"id":"maec-example-ana-1",
-  				"method":"dynamic",
-  				"type":"triage",
-  				"summary":"Dynamic (behavioral) triage of the subject binary.",
+  				"analysis_type":"dynamic",
+  				"description":"Dynamic (behavioral) triage of the subject binary.",
   				"tool_refs":[
   					"maec-example-tool-1"
   				]
   			},
   			{
-  				"id":"maec-example-ana-2",
-  				"method":"dynamic",
-  				"type":"triage",
-  				"summary":"Dynamic (behavioral) and tool-based triage of the subject binary.",
+  				"analysis_type":"dynamic",
+  				"description":"Dynamic (behavioral) and tool-based triage of the subject binary.",
   				"tool_refs":[
   					"maec-example-tool-2"
   				]
   			}
   		],
-  		"action_refs":[
-  			"maec-anubis_to_maec_act-1",
-  			"maec-anubis_to_maec_act-2",
-  			"maec-anubis_to_maec_act-3",
-  			"maec-threatexpert_to_maec-act-1",
-  			"maec-threatexpert_to_maec-act-2",
-  			"maec-threatexpert_to_maec-act-3"
-  		]
+      "behavioral_features":{
+        "action_refs":[
+          "maec-anubis_to_maec_act-1",
+          "maec-anubis_to_maec_act-2",
+          "maec-anubis_to_maec_act-3",
+          "maec-threatexpert_to_maec-act-1",
+          "maec-threatexpert_to_maec-act-2",
+          "maec-threatexpert_to_maec-act-3"
+        ]
+      }
   	}
   ],
-  "cybox":{
-  	"objects":{
-  		"object--1":{
-  			"type":"file",
-  			"file_name":"076e5b2bae.exe",
-  			"parent_directory_ref": "parent-dir-obj-1",
-  			"size":77312,
-  			"hashes":{
-  				"MD5":"076e5b2bae0b4b3a3d81c85610b95cd4",
-  				"SHA1":"4484e08903744ceeaedd8f5e1bfc06b2c4688e76"
-  			}
-  		},
-  		"parent-dir-obj-1":{
-  			"type":"directory",
-  			"path":"C:\\"
-  		},
-  		"maec-example-tool-1":{
-  			"type":"software",
-  			"name":"Anubis",
-  			"vendor":"IsecLab"
-  		},
-  		"maec-example-tool-2":{
-  			"type":"software",
-  			"name":"ThreatExpert",
-  			"vendor":"Symantec"
-  		},
-  		"maec-anubis_to_maec-obj-1":{
-  			"type":"file",
-  			"file_name":"oembios.exe",
-  			"parent_directory_ref":"parent-dir-obj-2"
-  		},
-  		"parent-dir-obj-2":{
-  			"type":"directory",
-  			"path":"C:\\Windows\\system32\\"
-  		},
-  		"maec-anubis_to_maec-obj-2":{
-  			"type":"mutex-object",
-  			"name":"__SYSTEM__91C38905__"
-  		},
-  		"maec-anubis_to_maec-obj-3":{
-  			"type":"windows-registry-key",
-  			"key":"HKEY_LOCAL_MACHINE\\software\\microsoft\\windows nt\\currentversion\\winlogon",
-  			"values":[
-  				{
-  					"name":"userinit",
-  					"data":"C:\\WINDOWS\\system32\\userinit.exe,C:\\WINDOWS\\system32\\oembios.exe,"
-  				}
-  			]
-  		},
-  		"maec-threatexpert_to_maec-obj-1":{
-  			"type":"file",
-  			"file_name":"sysproc32.sys",
-  			"parent_directory_ref":"parent-dir-obj-3",
-  			"hashes":{
-  				"MD5": "9855B3C1D06770B46927917F89C7FAEE",
-  				"SHA1":"1BF78B02A09E11414C2DFF3C4FF7DFA282A4125E"
-  			}
-  		},
-  		"parent-dir-obj-3":{
-  			"type":"directory",
-  			"path":"%Profiles%\\LocalService\\Application Data\\sysproc64\\"
-  		},
-  		"maec-threatexpert_to_maec-obj-2":{
-  			"type":"mutex-object",
-  			"name":"__SYSTEM__91C38905__"
-  		},
-  		"maec-threatexpert_to_maec-obj-3":{
-  			"type":"windows-registry-key",
-  			"key":"HKEY_USERS\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\{19127AD2-394B-70F5-C650-B97867BAA1F7}"
-  		}
-  	}
-  },
+	"objects":{
+		"object--1":{
+			"type":"file",
+			"file_name":"076e5b2bae.exe",
+			"parent_directory_ref": "parent-dir-obj-1",
+			"size":77312,
+			"hashes":{
+				"MD5":"076e5b2bae0b4b3a3d81c85610b95cd4",
+				"SHA1":"4484e08903744ceeaedd8f5e1bfc06b2c4688e76"
+			}
+		},
+		"parent-dir-obj-1":{
+			"type":"directory",
+			"path":"C:\\"
+		},
+		"maec-example-tool-1":{
+			"type":"software",
+			"name":"Anubis",
+			"vendor":"IsecLab"
+		},
+		"maec-example-tool-2":{
+			"type":"software",
+			"name":"ThreatExpert",
+			"vendor":"Symantec"
+		},
+		"maec-anubis_to_maec-obj-1":{
+			"type":"file",
+			"file_name":"oembios.exe",
+			"parent_directory_ref":"parent-dir-obj-2"
+		},
+		"parent-dir-obj-2":{
+			"type":"directory",
+			"path":"C:\\Windows\\system32\\"
+		},
+		"maec-anubis_to_maec-obj-2":{
+			"type":"mutex-object",
+			"name":"__SYSTEM__91C38905__"
+		},
+		"maec-anubis_to_maec-obj-3":{
+			"type":"windows-registry-key",
+			"key":"HKEY_LOCAL_MACHINE\\software\\microsoft\\windows nt\\currentversion\\winlogon",
+			"values":[
+				{
+					"name":"userinit",
+					"data":"C:\\WINDOWS\\system32\\userinit.exe,C:\\WINDOWS\\system32\\oembios.exe,"
+				}
+			]
+		},
+		"maec-threatexpert_to_maec-obj-1":{
+			"type":"file",
+			"file_name":"sysproc32.sys",
+			"parent_directory_ref":"parent-dir-obj-3",
+			"hashes":{
+				"MD5": "9855B3C1D06770B46927917F89C7FAEE",
+				"SHA1":"1BF78B02A09E11414C2DFF3C4FF7DFA282A4125E"
+			}
+		},
+		"parent-dir-obj-3":{
+			"type":"directory",
+			"path":"%Profiles%\\LocalService\\Application Data\\sysproc64\\"
+		},
+		"maec-threatexpert_to_maec-obj-2":{
+			"type":"mutex-object",
+			"name":"__SYSTEM__91C38905__"
+		},
+		"maec-threatexpert_to_maec-obj-3":{
+			"type":"windows-registry-key",
+			"key":"HKEY_USERS\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\{19127AD2-394B-70F5-C650-B97867BAA1F7}"
+		}
+	},
   "actions":[
   	{
+      "type":"action",
   		"id":"maec-anubis_to_maec_act-1",
   		"name":"create file",
-  		"object_references":[
-  			{
-  				"obj_ref":"maec-anubis_to_maec-obj-1",
-  				"association_type":"output"
-  			}
-  		],
+      "output_object_refs":[
+        "maec-anubis_to_maec-obj-1"
+      ],
   		"status":"Success"
   	},
   	{
+      "type":"action",
   		"id":"maec-anubis_to_maec_act-2",
   		"name":"create mutex",
-  		"object_references":[
-  			{
-  				"obj_ref":"maec-anubis_to_maec-obj-2",
-  				"association_type":"output"
-  			}
-  		],
+      "output_object_refs":[
+        "maec-anubis_to_maec-obj-2"
+      ],
   		"status":"Success"
   	},
   	{
+      "type":"action",
   		"id":"maec-anubis_to_maec_act-3",
   		"name":"modify registry key value",
-  		"object_references":[
-  			{
-  				"obj_ref":"maec-anubis_to_maec-obj-3",
-  				"association_type":"input"
-  			}
-  		],
+      "input_object_refs":[
+        "maec-anubis_to_maec-obj-3"
+      ],
   		"status":"Success"
   	},
   	{
+      "type":"action",
   		"id":"maec-threatexpert_to_maec-act-1",
   		"name":"create file",
-  		"object_references":[
-  			{
-  				"obj_ref":"maec-threatexpert_to_maec-obj-1",
-  				"association_type":"output"
-  			}
-  		],
+      "output_object_refs":[
+        "maec-threatexpert_to_maec-obj-1"
+      ],
   		"status":"Success"
   	},
   	{
+      "type":"action",
   		"id":"maec-threatexpert_to_maec-act-2",
   		"name":"create mutex",
-  		"object_references":[
-  			{
-  				"obj_ref":"maec-threatexpert_to_maec-obj-2",
-  				"association_type":"output"
-  			}
-  		],
+      "output_object_refs":[
+        "maec-threatexpert_to_maec-obj-2"
+      ],
   		"status":"Success"
   	},
   	{
+      "type":"action",
   		"id":"maec-threatexpert_to_maec-act-3",
   		"name":"create registry key",
-  		"object_references":[
-  			{
-  				"obj_ref":"maec-threatexpert_to_maec-obj-3",
-  				"association_type":"output"
-  			}
-  		],
+      "output_object_refs":[
+        "maec-threatexpert_to_maec-obj-3"
+      ],
   		"status":"Success"
   	}
   ],
   "collections":[
   	{
+      "type":"collection",
   		"id":"maec-anubis_to_maec-actc-1",
   		"name":"File System Actions",
   		"maec_entity_type":"actions",
   		"entity_refs":[
   			"maec-anubis_to_maec-obj-1"
   		]
- 	},
- 	{
-  		"id":"maec-anubis_to_maec-actc-2",
-  		"name":"Synchronization Actions",
-  		"maec_entity_type":"actions",
-  		"entity_refs":[
-  			"maec-anubis_to_maec-obj-2"
-  		]
- 	},
- 	{
- 		"id":"maec-anubis_to_maec-actc-3",
- 		"name":"Registry Actions",
- 		"maec_entity_type":"actions",
- 		"entity_refs":[
- 			"maec-anubis_to_maec-obj-3"
- 		]
- 	},
- 	{
- 		"id":"maec-threatexpert_to_maec-actc-1",
- 		"name": "File System Actions",
- 		"maec_entity_type":"actions",
- 		"entity_refs":[
- 			"maec-threatexpert_to_maec-act-1"
- 		]
- 	},
- 	{
- 		"id":"maec-threatexpert_to_maec-actc-2",
- 		"name":"Synchronization Actions",
- 		"maec_entity_type":"actions",
- 		"entity_refs":[
- 			"maec-threatexpert_to_maec-act-2"
- 		]
- 	},
- 	{
- 		"id":"maec-threatexpert_to_maec-actc-3",
- 		"name":"Registry Actions",
- 		"maec_entity_type":"actions",
- 		"entity_refs":[
- 			"maec-threatexpert_to_maec-act-3"
- 		]
- 	}
+   	},
+   	{
+        "type":"collection",
+    		"id":"maec-anubis_to_maec-actc-2",
+    		"name":"Synchronization Actions",
+    		"maec_entity_type":"actions",
+    		"entity_refs":[
+    			"maec-anubis_to_maec-obj-2"
+    		]
+   	},
+   	{
+      "type":"collection",
+   		"id":"maec-anubis_to_maec-actc-3",
+   		"name":"Registry Actions",
+   		"maec_entity_type":"actions",
+   		"entity_refs":[
+   			"maec-anubis_to_maec-obj-3"
+   		]
+   	},
+   	{
+      "type":"collection",
+   		"id":"maec-threatexpert_to_maec-actc-1",
+   		"name": "File System Actions",
+   		"maec_entity_type":"actions",
+   		"entity_refs":[
+   			"maec-threatexpert_to_maec-act-1"
+   		]
+   	},
+   	{
+      "type":"collection",
+   		"id":"maec-threatexpert_to_maec-actc-2",
+   		"name":"Synchronization Actions",
+   		"maec_entity_type":"actions",
+   		"entity_refs":[
+   			"maec-threatexpert_to_maec-act-2"
+   		]
+   	},
+   	{
+      "type":"collection",
+   		"id":"maec-threatexpert_to_maec-actc-3",
+   		"name":"Registry Actions",
+   		"maec_entity_type":"actions",
+   		"entity_refs":[
+   			"maec-threatexpert_to_maec-act-3"
+   		]
+   	}
   ]
 }

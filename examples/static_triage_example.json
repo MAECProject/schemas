@@ -6,16 +6,17 @@
     {
       "type":"malware-instance",
       "id":"malware_instance--57998fb0-604e-4d14-b8f1-6363dbff87cb",
-      "instance_object_ref":["object--1"],
-      "metadata":{
-        "labels":[
-          "dropper file"
-        ]
-      },
+      "instance_object_refs":["object--1"],
+      "labels":[
+        "dropper file"
+      ],
       "analyses":[
         {
-          "method":"static",   !!!!WHERE DOES THIS GO NOW!!!!!
-          "type":"triage",     !!!!WHERE DOES THIS GO NOW!!!!!
+          "analysis_type":"static",
+          "analysts":[
+            "Franki Li"
+          ],
+          <Old analysts dict below - what to do with the org and URL>
           "analysts":[
             {
               "type":"identity",
@@ -28,54 +29,54 @@
               "identity_class":"organization"
             }
           ],
-          "summary":"A basic static triage of the subject binary using PEiD.",
+          "description":"A basic static triage of the subject binary using PEiD.",
           "tool_refs":[
             "object--3"
           ]
         }
       ],
-      "static_feature_refs":[
-        "object--2"
-      ]
+      "static_features":{
+        "file_headers":[
+          "object--2"
+        ]
+      }
     }
   ],
-  "cybox":{
-    "objects":{
-      "object--1":{
-        "type":"file",
-        "file_name":"dg003_improve_8080_V132.exe",
-        "size":196608,
-        "hashes":{
-          "MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
-        },
-        "extended_properties":{
-          "x-maec-packer-list":[
-            {
-              "name":"UPX",
-              "signature":"UPX v3.0.2"
-            }
-          ]
-        }
+  "objects":{
+    "object--1":{
+      "type":"file",
+      "file_name":"dg003_improve_8080_V132.exe",
+      "size":196608,
+      "hashes":{
+        "MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
       },
-      "object--2":{
-        "type":"file",
-        "extended_properties":{
-          "windows-pebinary-ext":{
-            "pe_type":"exe",
-            "windows-pe-optional-header":{
-              "major_linker_version":"06",
-              "minor_linker_version":"00",
-              "base_of_code":"036418",
-              "subsystem":"Windows_GUI"
-            }
+      "extended_properties":{
+        "x-maec-packer-list":[
+          {
+            "name":"UPX",
+            "signature":"UPX v3.0.2"
+          }
+        ]
+      }
+    },
+    "object--2":{
+      "type":"file",
+      "extended_properties":{
+        "windows-pebinary-ext":{
+          "pe_type":"exe",
+          "windows-pe-optional-header":{
+            "major_linker_version":"06",
+            "minor_linker_version":"00",
+            "base_of_code":"036418",
+            "subsystem":"Windows_GUI"
           }
         }
-      },
-      "object--3":{
-        "type":"software",
-        "name":"PEiD",
-        "version":"0.94"
       }
+    },
+    "object--3":{
+      "type":"software",
+      "name":"PEiD",
+      "version":"0.94"
     }
   }
 }

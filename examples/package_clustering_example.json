@@ -1,8 +1,10 @@
 {
+  "type":"package",
   "id":"maec-example-pkg-1",
   "schema_version":"5.0",
   "malware instances":[
   	{
+      "type":"malware-instance",
   		"id":"maec-example-sub-1",
   		"instance_object_ref":["object--1"],
   		"labels":[
@@ -11,6 +13,7 @@
   		]
   	},
   	{
+      "type":"malware-instance",
   		"id":"maec-example-sub-2",
   		"instance_object_ref":["object--2"],
   		"labels":[
@@ -19,6 +22,7 @@
   		]
   	},
   	{
+      "type":"malware-instance",
   		"id":"maec-example-sub-3",
   		"instance_object_ref":["object--3"],
   		"labels":[
@@ -26,77 +30,73 @@
   		]
   	}
   ],
-  "cybox":{
-  	"objects":{
-  		"object--1":{
-  			"type":"file",
-  			"hashes":{
-  				"MD5":"89c11cc1e7bcad1fa677201b29b46f5d"
-  			},
-  			"extended_properties":{
-  				"x-maec-avclass":{
-  					"av_name":"Microsoft Security Essentials",
-  					"av_vendor":"Microsoft",
-  					"classification_name":"TrojanClicker:Win32/Small"
-  				}
-  			}
-  		},
-  		"object--2":{
-  			"type":"file",
-  			"hashes":{
-  				"MD5":"c4e0a16a8833a55e5ed8971783d09181"
-  			},
-  			"extended_properties":{
-  				"x-maec-avclass":{
-  					"av_name":"Microsoft Security Essentials",
-  					"av_vendor":"Microsoft",
-  					"classification_name":"TrojanClicker:Win32/Small.I"
-  				}
-  			}
-  		},
-  		"object--3":{
-  			"type":"file",
-  			"hashes":{
-  				"MD5":"40b1b0944f76d8f54f2564f69b6850102"
-  			},
-  			"extended_properties":{
-  				"x-maec-avclass":{
-  					"av_name":"Microsoft Security Essentials",
-  					"av_vendor":"Microsoft",
-  					"classification_name":"TrojanClicker:Win32/Small"
-  				}
-  			}
-  		}
-  	}
-  },
+	"objects":{
+		"object--1":{
+			"type":"file",
+			"hashes":{
+				"MD5":"89c11cc1e7bcad1fa677201b29b46f5d"
+			},
+			"extended_properties":{
+				"x-maec-avclass":{
+					"av_name":"Microsoft Security Essentials",
+					"av_vendor":"Microsoft",
+					"classification_name":"TrojanClicker:Win32/Small"
+				}
+			}
+		},
+		"object--2":{
+			"type":"file",
+			"hashes":{
+				"MD5":"c4e0a16a8833a55e5ed8971783d09181"
+			},
+			"extended_properties":{
+				"x-maec-avclass":{
+					"av_name":"Microsoft Security Essentials",
+					"av_vendor":"Microsoft",
+					"classification_name":"TrojanClicker:Win32/Small.I"
+				}
+			}
+		},
+		"object--3":{
+			"type":"file",
+			"hashes":{
+				"MD5":"40b1b0944f76d8f54f2564f69b6850102"
+			},
+			"extended_properties":{
+				"x-maec-avclass":{
+					"av_name":"Microsoft Security Essentials",
+					"av_vendor":"Microsoft",
+					"classification_name":"TrojanClicker:Win32/Small"
+				}
+			}
+		}
+	},
   "relationships":[
   	{
-  		"id":"relationship-1",
+  		"type":"realtionship",
   		"source_ref":"maec-example-sub-1",
   		"target_ref":"maec-example-sub-2",
-  		"additional_metadata":{
+  		"distance":{
   			"distance_score":0.66667,
   			"algorithm_name":"Test Algorithm",
   			"algorithm_version":"1.0"
   		}
   	},
   	{
-  		"id":"relationship-2",
+  		"type":"relationship",
   		"source_ref":"maec-example-sub-1",
   		"target_ref":"maec-example-sub-3",
-  		"type":"",
-  		"additional_metadata":{
+  		"distance":{
   			"distance_score":1.0,
   			"algorithm_name":"Test Algorithm",
   			"algorithm_version":"1.0"
   		}
   	},
   	{
-  		"id":"relationship-3",
+  		"type":"relationship",
   		"source_ref":"maec-example-sub-2",
   		"target_ref":"maec-example-sub-3",
-  		"type":"",
-  		"additional_metadata":{
+  		"distance":{
   			"distance_score":0.66667,
   			"algorithm_name":"Test Algorithm",
   			"algorithm_version":"1.0"	

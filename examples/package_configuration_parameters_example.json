@@ -1,43 +1,41 @@
 {
+  "type":"package",
   "id":"maec-example-pkg-1",
   "schema_version":"5.0",
   "malware_instances":[
     {
+      "type":"malware-instance",
     	"id":"maec-tst-sub-1",
     	"instance_object_ref":["object--1"],
-    	"configuration_details":{
-    		"maec-tst-sub-1-config":{
-    			"configuration_parameters":[
-    				{
-    					"type":"filename",
-    					"value":"wmimserver.exe"
-    				},
-    				{
-    					"type":"installation path",
-    					"value":"%System%"
-    				},
-    				{
-    					"type":"id",
-    					"value":"aubok"
-    				},
-    				{
-    					"type":"mutex",
-    					"value":"801JsYqFulHpg"
-    				}
-    			]
-    		}
+      "static_features_type":{
+        "configuration_parameters":[
+          {
+            "name":"filename",
+            "value":"wmimserver.exe"
+          },
+          {
+            "name":"installation path",
+            "value":"%System%"
+          },
+          {
+            "name":"id",
+            "value":"aubok"
+          },
+          {
+            "name":"mutex",
+            "value":"801JsYqFulHpg"
+          }
+        ]
     	}
     }
   ],
-  "cybox":{
-  	"objects":{
-  		"object--1":{
-  			"type":"file",
-  			"file_name":"Investor Relations Contacts.doc",
-  			"hashes":{
-  				"MD5":"875767086897e90fb47a021b45e161b2"
-  			}
-  		}
-  	}
-  }
+	"objects":{
+		"object--1":{
+			"type":"file",
+			"file_name":"Investor Relations Contacts.doc",
+			"hashes":{
+				"MD5":"875767086897e90fb47a021b45e161b2"
+			}
+		}
+	}
 }

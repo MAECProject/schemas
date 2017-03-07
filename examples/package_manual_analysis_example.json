@@ -1,23 +1,131 @@
 {
+	"type":"package",
 	"id":"package--7af42bc3-8aef-42dc-95e4-d89f16eaa142",
 	"schema_version":"5.0",
 	"malware_instances":[
 		{
+			"type":"malware-instance",
 			"id":"maec-example-sub-1",
-			"instance_object_ref":["object--1"],
+			"instance_object_refs":["object--1"],
 			"labels":[
 				"dropper_file"
 			],
+			"capabilities":[
+				{
+					"name": "probing",
+					"refined_capabilities":[
+						{
+							"name":"host configuration probing"
+						},
+						{
+							"name":"inventory system applications",
+							"behavior_refs":[
+								"maec-example-bhv-1"
+							]
+						}
+					]
+				},
+				{
+					"name":"anti-detection",
+					"refined_capabilities":[
+						{
+							"name":"hide non-executing code",
+							"behavior_refs":[
+								"maec-example-bhv-3",
+								"maec-example-obt-4"
+							]
+						},
+						{
+							"name":"hide artifacts",
+							"behavior_refs":[
+								"maec-example-bhv-5",
+								"maec-example-bhv-6"
+							]
+						}
+					]
+				},
+				{
+					"name":"secondary operation",
+					"refined_capabilities":[
+						{
+							"name":"install other components"
+						}
+					],
+					"behavior_refs":[
+						"maec-example-obt-10"
+					]
+				},
+				{
+					"name":"infection/propagation",
+					"refined_capabilities":[
+						{
+							"name":"prevent duplicate infection",
+							"behavior_refs":[
+								"maec-example-bhv-2"
+							]
+						}
+					]
+				}
+			],
+			"behavioral_features":{
+				"process_trees":[
+					{
+						"process_ref":"maec-example-process-obj-1",
+						"initiated_action_refs":[
+							"maec-example-act-1",
+							"maec-example-act-2",
+							"maec-example-act-3",
+							"maec-example-act-4",
+							"maec-example-act-5"
+						],
+						"injected_processes":[
+							{
+								"process_ref":"maec-example-process-obj-2",
+								"parent_action_ref":"maec-example-act-10",
+								"initiated_action_refs":[
+									"maec-example-act-6",
+									"maec-example-act-7",
+									"maec-example-act-9",
+									"maec-example-act-18",
+									"maec-example-act-19",
+									"maec-example-act-20",
+									"maec-example-act-21",
+									"maec-example-act-22",
+									"maec-example-act-23",
+									"maec-example-act-24"
+								],
+								"spawned_processes":[
+									{
+										"process_ref":"maec-example-process-obj-3",
+										"parent_action_ref":"maec-example-act-21"
+									},
+									{
+										"process_ref":"maec-example-process-obj-4",
+										"parent_action_ref":"maec-example-act-22"
+									},
+									{
+										"process_ref":"maec-example-process-obj-5",
+										"parent_action_ref":"maec-example-act-10",
+										"initiated_action_refs":[
+											"maec-example-act-26",
+											"maec-example-act-27",
+											"maec-example-act-29"
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
 			"analyses":[
 				{
-					"id":"maec-example-ana-1",
-					"method":"static",
-					"type":"triage",
+					"analysis_type":"static",
 					"source":{
 						"name":"Franki Li",
 						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 					},
-					"summary":"A basic static triage of the subject binary using PEiD",
+					"description":"A basic static triage of the subject binary using PEiD",
 					"findings":{
 						"object_refs":[
 							"maec-example-obj-1"
@@ -28,14 +136,12 @@
 					]
 				},
 				{
-					"id":"maec-example-ana-2",
-					"method":"dynamic",
-					"type":"triage",
+					"analysis_type":"static",
 					"source":{
 						"name":"Franki Li",
 						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 					},
-					"summary":"Dynamic (behavioral) and tool-based triage of the subject binary.",
+					"description":"Dynamic (behavioral) and tool-based triage of the subject binary.",
 					"findings":{
 						"process_tree_refs":[
 							"maec-example-pro-1"
@@ -56,933 +162,673 @@
 					"type":"in-depth",
 					"source":{
 						"name":"Franki Li",
-						"url":"http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
+						"url":"http://www.sans.org/readding_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 					},
-					"summary":"Manual Analysis of the main subject binary.",
+					"description":"Manual Analysis of the main subject binary.",
 					"tool_refs":[
 						"analysis-tool-8"
 					]
 				}
-			],
-			"object_refs":[
-				"maec-example-obj-1"
-			],
-			"process_tree_refs":[
-				"maec-example-pro-1"
 			]
 		}
 	],
-	"cybox":{
-		"objects":{
-			"object--1":{
-				"type":"file",
-				"file_name":"dg003_improve_8080_V132.exe",
-				"size": 196608,
-				"hashes":{
-					"MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
-				}
-			},
-			"analysis-tool-1":{
-				"type":"software",
-				"name":"PEiD",
-				"version":"0.94"
-			},
-			"analysis-tool-2":{
-				"type":"software",
-				"name":"CaptureBAT",
-				"vendor":"Zealand Honeynet Project",
-				"version":"2.0.0"
-			},
-			"analysis-tool-3":{
-				"type":"software",
-				"name":"Regshot",
-				"version":"1.8.2"
-			},
-			"analysis-tool-4":{
-				"type":"software",
-				"name":"HandleDiff",
-				"version":"0.2"
-			},
-			"analysis-tool-5":{
-				"type":"software",
-				"name":"VMMap",
-				"vendor":"Sysinternals",
-				"version": "3.1"
-			},
-			"analysis-tool-6":{
-				"type":"software",
-				"name":"Wireshark",
-				"vendor":"Wireshark.org",
-				"version":"1.2.2"
-			},
-			"analysis-tool-7":{
-				"type":"software",
-				"name":"Process Monitor",
-				"vendor":"Sysinternals",
-				"version":"15.0"
-			},
-			"analysis-tool-8":{
-				"type":"software",
-				"name":"IDA Pro Freeware",
-				"vendor":"Hex-Rays SA",
-				"version":"5.0"
-			},
-			"maec-example-obj-1":{
-				"type":"file",
-				"windows-pebinary-ext":{
-					"pe_type":"exe",
-					"windows-pe-optional-header-type":{
-						"major_linker_version":6,
-						"minor_linker_version":0,
-						"base_of_code": 36418,
-						"subsystem_hex":"2"
-					}
-				}
-			},
-			"maec-example-obj-2":{
-				"type":"file",
-				"file_name":"ws2help.PNF",
-				"parent_directory_ref": "parent-dir-1"
-			},
-			"maec-example-obj-3":{
-				"type":"file",
-				"file_name":"msvcr.dll",
-				"parent_directory_ref":"parent-dir-1"
-			},
-			"maec-example-obj-4":{
-				"type":"file",
-				"file_name":"1.txt",
-				"parent_directory_ref":"parent-dir-2"
-			},
-			"maec-example-obj-5":{
-				"type":"file",
-				"file_name":"netstat.exe",
-				"parent_directory_ref":"parent-dir-3"
-			},
-			"maec-example-obj-6":{
-				"type":"file",
-				"file_name":"IECheck.exe",
-				"parent_directory_ref":"parent-dir-1"
-			},
-			"maec-example-obj-7":{
-				"type":"file",
-				"file_name":"IPsecstap.dat",
-				"parent_directory_ref":"parent-dir-3"
-			},
-			"maec-example-obj-8":{
-				"type":"file",
-				"file_name":"Internet Explorer Security Check.lnk",
-				"parent_directory_ref":"parent-dir-4"
-			},
-			"maec-example-obj-9":{
-				"type":"file",
-				"file_name":"13605",
-				"parent_directory_ref":"parent-dir-3"
-			},
-			"maec-example-obj-10":{
-				"type":"mutex",
-				"name":"VistaDLLProRUNNING"
-			},
-			"maec-example-obj-11":{
-				"type":"file",
-				"file_name":"mscvr.dll",
-				"parent_directory_ref":"parent-dir-1"
-			},
-			"maec-example-obj-12":{
-				"type":"file",
-				"file_name":"explorer.exe",
-				"parent_directory_ref":"parent-dir-8"
-			},
-			"maec-example-obj-13":{
-				"type":"url",
-				"value": "1.test.3322.org.cn"
-			},
-			"maec-example-obj-14":{
-				"type":"url",
-				"value": "test.3322.org.cn"
-			},
-			"maec-example-obj-15":{
-				"type":"url",
-				"value": "2.test.3322.org.cn"
-			},
-			"maec-example-obj-16":{
-				"type":"url",
-				"value": "3.test.3322.org.cn"
-			},
-			"maec-example-obj-17":{
-				"type":"url",
-				"value": "4.test.3322.org.cn"
-			},
-			"maec-example-obj-18":{
-				"type":"ipv4-addr",
-				"value":"172.16.0.61"
-			},
-			"maec-example-obj-19":{
-				"type":"ipv4-addr",
-				"value":"115\\*\\*\\.249"
-			},
-			"maec-example-obj-20":{
-				"type":"file",
-				"file_name":"fvcwin32.exe",
-				"parent_directory_ref":"parent-dir-5"
-			},
-			"maec-example-obj-21":{
-				"type":"file",
-				"file_name":"acvcwin32.exe",
-				"parent_directory_ref":"parent-dir-5"
-			},
-			"maec-example-obj-22":{
-				"type":"file",
-				"file_name":"acvwin32.exe",
-				"parent_directory_ref":"parent-dir-5"
-			},
-			"maec-example-obj-23":{
-				"type":"file",
-				"file_name":"fvcwin32.exe",
-				"parent_directory_ref":"parent-dir-5"
-			},
-			"maec-example-obj-24":{
-				"type":"file",
-				"file_name":"acvwin32.exe",
-				"parent_directory_ref":"parent-dir-5"
-			},
-			"maec-example-obj-25":{
-				"type":"file",
-				"file_name":"acvcwin32.exe",
-				"parent_directory_ref":"parent-dir-5"
-			},
-			"maec-example-obj-26":{
-				"type":"file",
-				"file_name":"AutoList.txt",
-				"parent_directory_ref":"parent-dir-6"
-			},
-			"maec-example-obj-28":{
-				"type":"file",
-				"file_name":"SAM.dll",
-				"parent_directory_ref":"parent-dir-7"
-			},
-			"maec-example-obj-29":{
-				"type":"file",
-				"file_name":"system.dll",
-				"parent_directory_ref":"parent-dir-7"
-			},
-			"maec-example-obj-31":{
-				"type":"file",
-				"file_name":"Iestorage.dll",
-				"parent_directory_ref":"parent-dir-7"
-			},
-			"maec-example-obj-35":{
-				"type":"file",
-				"file_name":"drive.cab",
-				"parent_directory_ref":"parent-dir-7"
-			},
-			"maec-example-obj-36":{
-				"type":"windows-registry-key",
-				"key":"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\windows\\CurrentVersion\\Uninstall"
-			},
-			"maec-example-obj-37":{
-				"type":"file",
-				"file_name":"msvcr.dll",
-				"parent_directory_ref":"parent-dir-1"
-			},
-			"maec-example-obj-38":{
-				"type":"file",
-				"file_name":"netstat.exe",
-				"parent_directory_ref":"parent-dir-3"
-			},
-			"maec-example-obj-39":{
-				"type":"file",
-				"file_name":"13605",
-				"parent_directory_ref":"parent-dir-3"
-			},
-			"maec-example-obj-40":{
-				"type":"file",
-				"file_name":"SFC_OS.dll",
-				"parent_directory_ref":"parent-dir-3"
-			},
-			"maec-example-obj-41":{
-				"type":"file",
-				"file_name":"1.txt",
-				"parent_directory_ref":"parent-dir-2"
-			},
-			"parent-dir-1":{
-				"type":"directory",
-				"path":"C:\\Documents\\Settings\\user\\Local Settings\\Application\\Data"
-			},
-			"parent-dir-2":{
-				"type":"directory",
-				"path":"C:\\WINDOWS\\inf"
-			},
-			"parent-dir-3":{
-				"type":"directory",
-				"path":"C:\\WINDOWS\\system32"
-			},
-			"parent-dir-4":{
-				"type":"directory",
-				"path":"C:\\Documents\\user\\Start Menu\\Programs\\Startup"
-			},
-			"parent-dir-5":{
-				"type":"directory",
-				"path":"C:\\Windows\\Debug"
-			},
-			"parent-dir-6":{
-				"type":"directory",
-				"path":"C:\\Documents\\.*\\Application Data"
-			},
-			"parent-dir-7":{
-				"type":"directory",
-				"path":"C:\\WINDOWS\\Debug\\Data"
-			},
-			"parent-dir-8":{
-				"type":"directory",
-				"path":"C:\\WINDOWS\\"
-			},
-			"maec-example-process-obj-1":{
-				"type":"process",
-				"name":"dg003.exe",
-				"cwd":"C:\\"
-			},
-			"maec-example-process-obj-2":{
-				"type":"process",
-				"name":"explorer.exe",
-				"cwd":"C:\\"
-			},
-			"maec-example-process-obj-3":{
-				"type":"process",
-				"name":"fvcwin32.exe",
-				"cwd":"C:\\"
-			},
-			"maec-example-process-obj-4":{
-				"type":"process",
-				"name":"acvwin32.exe",
-				"cwd":"C:\\"
+	"objects":{
+		"object--1":{
+			"type":"file",
+			"file_name":"dg003_improve_8080_V132.exe",
+			"size": 196608,
+			"hashes":{
+				"MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
 			}
+		},
+		"analysis-tool-1":{
+			"type":"software",
+			"name":"PEiD",
+			"version":"0.94"
+		},
+		"analysis-tool-2":{
+			"type":"software",
+			"name":"CaptureBAT",
+			"vendor":"Zealand Honeynet Project",
+			"version":"2.0.0"
+		},
+		"analysis-tool-3":{
+			"type":"software",
+			"name":"Regshot",
+			"version":"1.8.2"
+		},
+		"analysis-tool-4":{
+			"type":"software",
+			"name":"HandleDiff",
+			"version":"0.2"
+		},
+		"analysis-tool-5":{
+			"type":"software",
+			"name":"VMMap",
+			"vendor":"Sysinternals",
+			"version": "3.1"
+		},
+		"analysis-tool-6":{
+			"type":"software",
+			"name":"Wireshark",
+			"vendor":"Wireshark.org",
+			"version":"1.2.2"
+		},
+		"analysis-tool-7":{
+			"type":"software",
+			"name":"Process Monitor",
+			"vendor":"Sysinternals",
+			"version":"15.0"
+		},
+		"analysis-tool-8":{
+			"type":"software",
+			"name":"IDA Pro Freeware",
+			"vendor":"Hex-Rays SA",
+			"version":"5.0"
+		},
+		"maec-example-obj-1":{
+			"type":"file",
+			"windows-pebinary-ext":{
+				"pe_type":"exe",
+				"windows-pe-optional-header-type":{
+					"major_linker_version":6,
+					"minor_linker_version":0,
+					"base_of_code": 36418,
+					"subsystem_hex":"2"
+				}
+			}
+		},
+		"maec-example-obj-2":{
+			"type":"file",
+			"file_name":"ws2help.PNF",
+			"parent_directory_ref": "parent-dir-1"
+		},
+		"maec-example-obj-3":{
+			"type":"file",
+			"file_name":"msvcr.dll",
+			"parent_directory_ref":"parent-dir-1"
+		},
+		"maec-example-obj-4":{
+			"type":"file",
+			"file_name":"1.txt",
+			"parent_directory_ref":"parent-dir-2"
+		},
+		"maec-example-obj-5":{
+			"type":"file",
+			"file_name":"netstat.exe",
+			"parent_directory_ref":"parent-dir-3"
+		},
+		"maec-example-obj-6":{
+			"type":"file",
+			"file_name":"IECheck.exe",
+			"parent_directory_ref":"parent-dir-1"
+		},
+		"maec-example-obj-7":{
+			"type":"file",
+			"file_name":"IPsecstap.dat",
+			"parent_directory_ref":"parent-dir-3"
+		},
+		"maec-example-obj-8":{
+			"type":"file",
+			"file_name":"Internet Explorer Security Check.lnk",
+			"parent_directory_ref":"parent-dir-4"
+		},
+		"maec-example-obj-9":{
+			"type":"file",
+			"file_name":"13605",
+			"parent_directory_ref":"parent-dir-3"
+		},
+		"maec-example-obj-10":{
+			"type":"mutex",
+			"name":"VistaDLLProRUNNING"
+		},
+		"maec-example-obj-11":{
+			"type":"file",
+			"file_name":"mscvr.dll",
+			"parent_directory_ref":"parent-dir-1"
+		},
+		"maec-example-obj-12":{
+			"type":"file",
+			"file_name":"explorer.exe",
+			"parent_directory_ref":"parent-dir-8"
+		},
+		"maec-example-obj-13":{
+			"type":"url",
+			"value": "1.test.3322.org.cn"
+		},
+		"maec-example-obj-14":{
+			"type":"url",
+			"value": "test.3322.org.cn"
+		},
+		"maec-example-obj-15":{
+			"type":"url",
+			"value": "2.test.3322.org.cn"
+		},
+		"maec-example-obj-16":{
+			"type":"url",
+			"value": "3.test.3322.org.cn"
+		},
+		"maec-example-obj-17":{
+			"type":"url",
+			"value": "4.test.3322.org.cn"
+		},
+		"maec-example-obj-18":{
+			"type":"ipv4-addr",
+			"value":"172.16.0.61"
+		},
+		"maec-example-obj-19":{
+			"type":"ipv4-addr",
+			"value":"115\\*\\*\\.249"
+		},
+		"maec-example-obj-20":{
+			"type":"file",
+			"file_name":"fvcwin32.exe",
+			"parent_directory_ref":"parent-dir-5"
+		},
+		"maec-example-obj-21":{
+			"type":"file",
+			"file_name":"acvcwin32.exe",
+			"parent_directory_ref":"parent-dir-5"
+		},
+		"maec-example-obj-22":{
+			"type":"file",
+			"file_name":"acvwin32.exe",
+			"parent_directory_ref":"parent-dir-5"
+		},
+		"maec-example-obj-23":{
+			"type":"file",
+			"file_name":"fvcwin32.exe",
+			"parent_directory_ref":"parent-dir-5"
+		},
+		"maec-example-obj-24":{
+			"type":"file",
+			"file_name":"acvwin32.exe",
+			"parent_directory_ref":"parent-dir-5"
+		},
+		"maec-example-obj-25":{
+			"type":"file",
+			"file_name":"acvcwin32.exe",
+			"parent_directory_ref":"parent-dir-5"
+		},
+		"maec-example-obj-26":{
+			"type":"file",
+			"file_name":"AutoList.txt",
+			"parent_directory_ref":"parent-dir-6"
+		},
+		"maec-example-obj-28":{
+			"type":"file",
+			"file_name":"SAM.dll",
+			"parent_directory_ref":"parent-dir-7"
+		},
+		"maec-example-obj-29":{
+			"type":"file",
+			"file_name":"system.dll",
+			"parent_directory_ref":"parent-dir-7"
+		},
+		"maec-example-obj-31":{
+			"type":"file",
+			"file_name":"Iestorage.dll",
+			"parent_directory_ref":"parent-dir-7"
+		},
+		"maec-example-obj-35":{
+			"type":"file",
+			"file_name":"drive.cab",
+			"parent_directory_ref":"parent-dir-7"
+		},
+		"maec-example-obj-36":{
+			"type":"windows-registry-key",
+			"key":"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\windows\\CurrentVersion\\Uninstall"
+		},
+		"maec-example-obj-37":{
+			"type":"file",
+			"file_name":"msvcr.dll",
+			"parent_directory_ref":"parent-dir-1"
+		},
+		"maec-example-obj-38":{
+			"type":"file",
+			"file_name":"netstat.exe",
+			"parent_directory_ref":"parent-dir-3"
+		},
+		"maec-example-obj-39":{
+			"type":"file",
+			"file_name":"13605",
+			"parent_directory_ref":"parent-dir-3"
+		},
+		"maec-example-obj-40":{
+			"type":"file",
+			"file_name":"SFC_OS.dll",
+			"parent_directory_ref":"parent-dir-3"
+		},
+		"maec-example-obj-41":{
+			"type":"file",
+			"file_name":"1.txt",
+			"parent_directory_ref":"parent-dir-2"
+		},
+		"parent-dir-1":{
+			"type":"directory",
+			"path":"C:\\Documents\\Settings\\user\\Local Settings\\Application\\Data"
+		},
+		"parent-dir-2":{
+			"type":"directory",
+			"path":"C:\\WINDOWS\\inf"
+		},
+		"parent-dir-3":{
+			"type":"directory",
+			"path":"C:\\WINDOWS\\system32"
+		},
+		"parent-dir-4":{
+			"type":"directory",
+			"path":"C:\\Documents\\user\\Start Menu\\Programs\\Startup"
+		},
+		"parent-dir-5":{
+			"type":"directory",
+			"path":"C:\\Windows\\Debug"
+		},
+		"parent-dir-6":{
+			"type":"directory",
+			"path":"C:\\Documents\\.*\\Application Data"
+		},
+		"parent-dir-7":{
+			"type":"directory",
+			"path":"C:\\WINDOWS\\Debug\\Data"
+		},
+		"parent-dir-8":{
+			"type":"directory",
+			"path":"C:\\WINDOWS\\"
+		},
+		"maec-example-process-obj-1":{
+			"type":"process",
+			"name":"dg003.exe",
+			"cwd":"C:\\"
+		},
+		"maec-example-process-obj-2":{
+			"type":"process",
+			"name":"explorer.exe",
+			"cwd":"C:\\"
+		},
+		"maec-example-process-obj-3":{
+			"type":"process",
+			"name":"fvcwin32.exe",
+			"cwd":"C:\\"
+		},
+		"maec-example-process-obj-4":{
+			"type":"process",
+			"name":"acvwin32.exe",
+			"cwd":"C:\\"
 		}
-
 	},
-	"capabilities":[
-		{
-			"id": "maec-example-cpb-1",
-			"name": "probing",
-			"refined_capbilities":[
-				{
-					"id":"maec-example-obt-1",
-					"name":"host configuration probing"
-				},
-				{
-					"id":"maec-example-obt-2",
-					"name":"inventory system applications",
-					"behavior_refs":[
-						"maec-example-bhv-1"
-					]
-				}
-			]
-		},
-		{
-			"id":"maec-example-cpb-2",
-			"name":"anti-detection",
-			"refined_capbilities":[
-				{
-					"id":"maec-example-obt-3",
-					"name":"hide non-executing code",
-					"incorporates_refs":[
-						"maec-example-obt-4"
-					],
-					"behavior_refs":[
-						"maec-example-bhv-3"
-					]
-				},
-				{
-					"id":"maec-example-obt-5",
-					"name":"hide artifacts",
-					"behavior_refs":[
-						"maec-example-obt-6",
-						"maec-example-obt-7",
-						"maec-example-obt-8"
-					],
-					"incorporated_by_refs":[
-						"maec-example-obt-10"
-					]
-
-				}
-			]
-		},
-		{
-			"id":"maec-example-cpb-3",
-			"name":"secondary operation",
-			"refined_capbilities":[
-				{
-					"id":"maec-example-obt-9",
-					"name":"install other components"
-				}
-			],
-			"incorporates_refs":[
-				"maec-example-obt-10"
-			]
-		},
-		{
-			"id":"maec-example-cpb-4",
-			"name":"infection/propagation",
-			"refined_capabilities":[
-				{
-					"id":"maec-example-obt-11",
-					"name":"prevent duplicate infection",
-					"behavior_refs":[
-						"maec-example-bhv-2"
-					]
-				}
-			]
-
-		}
-
-
-	],
 	"behaviors":[
 		{
+			"type":"behavior",
 			"id":"maec-example-bhv-1",
+			"name":"checks for antivirus software",  <MADE UP>
 			"status":"completed",
-			"description":"Anti-virus software checking behavior. The binary checks if the victim has Kaspersky, ESET, BitDefender, AVG, NOD32, Rising or 360+ installed by enumerating the values of a registry key.",
-			"action_references":[
-				{
-					"action_ref":"maec-example-34",
-					"behavioral_ordering":1
-				}
+			"implementation":"Anti-virus software checking behavior. The binary checks if the victim has Kaspersky, ESET, BitDefender, AVG, NOD32, Rising or 360+ installed by enumerating the values of a registry key.",
+			"action_refs":[
+				"maec-example-34"
 			]
 		},
 		{
-			"id":"maec-example-bhv-2",
+			"type":"behavior",
+			"id":"maec-example-bhv-2",  
+			"name":"Concurrent execution prevention behavior",  <MADE UP>
 			"status":"completed",
-			"description":"Concurrent execution prevention behavior. The binary creates a global mutex to mark its presence and prevent it from being from re-executing on the system.",
-			"action_references":[
-				{
-					"action_ref":"maec-example-act-9",
-					"behavioral_ordering":2
-				}
+			"implementation":"Concurrent execution prevention behavior. The binary creates a global mutex to mark its presence and prevent it from being from re-executing on the system.",
+			"action_refs":[
+				"maec-example-act-9"
 			]
 		},
 		{
+			"type":"behavior",
 			"id":"maec-example-bhv-3",
+			"name":"multiple instantiation",  <MADE UP>
 			"status":"completed",
-			"description":"System instantiation behavior. The binary creates a copy of itself in several locations as a means of instantiating itself on the system, primarily for use in further behaviors. ",
-			"action_references":[
-				{
-					"action_ref":"maec-example-act-1",
-					"behavioral_ordering":1
-				},
-				{
-					"action_ref":"maec-example-act-5",
-					"behavioral_ordering":2
-				}
+			"implementation":"System instantiation behavior. The binary creates a copy of itself in several locations as a means of instantiating itself on the system, primarily for use in further behaviors. ",
+			"action_refs":[
+				"maec-example-act-1",
+				"maec-example-act-5",
 			]
 		},
 		{
+			"type":"behavior",
 			"id":"maec-example-bhv-5",
-			"status":"completed",
-			"description":"File obfuscation behavior. The binary changes the modification, access, change time and properties of a file in order to obfuscate it.",
-			"action_references":[
-				{
-					"action_ref":"maec-example-act-35"
-				}
-			]
-		},
-		{
-			"id":"maec-example-bhv-6",
-			"status":"completed",
-			"description":"Network activity obfuscation behavior.The binary copies two Windows system files of “netstat.exe” to C:\\Windows\\System32\\13605 and “SFC_OS.dll” to C:\\Windows\\inf\\1.txt. The “SFC_OS.dll” is the executable portion of Windows File Protection mechanism (WFP), which protects system files from being modified or deleted. The malware calls to ordinal 5 function of “1.txt” in order to bypass the WFP (Collake, 2006) during patching \"netstat.exe\" for hiding network connection of IP address of 115.x.x.249",
-			"action_references":[
-				{
-					"action_ref":"maec-example-act-36",
-					"behavioral_ordering":1
-				},
-				{
-					"action_ref":"maec-example-act-37",
-					"behavioral_ordering":2
-				},
-				{
-					"action_ref":"maec-example-act-4",
-					"behavioral_ordering":3
-				}
-			]
-		},
-		{
-			"id":"maec-example-obt-4",
-			"description":"hide code in a file",
-			"incorporated_by_refs":[
-				"maec-example-obt-3"
-			]
-		},
-		{
-			"id":"maec-example-obt-6",
 			"name":"obfuscate artifact properties",
-			"incorporated_by_refs":[
-				"maec-example-obt-5"
-			],
-			"incorporates_refs":[
-				"maec-example-bhv-5"
+			"status":"completed",
+			"implementation":"File obfuscation behavior. The binary changes the modification, access, change time and properties of a file in order to obfuscate it.",
+			"action_refs":[
+				"maec-example-act-35"
 			]
 		},
 		{
-			"id":"maec-example-obt-7",
-			"name":"hide file system artifacts",
-			"incorporated_by_refs":[
-				"maec-example-obt-5"
-			],
-			"incorporates_refs":[
-				"maec-example-bhv-5"
-			]
-		},
-		{
-			"id":"maec-example-obt-8",
+			"type":"behavior",
+			"id":"maec-example-bhv-6",
 			"name":"hide network traffic",
-			"incorporated_by_refs":[
-				"maec-example-obt-5"
-			],
-			"incorporates_refs":[
-				"maec-example-bhv-6"
+			"status":"completed",
+			"implementation":"Network activity obfuscation behavior.The binary copies two Windows system files of “netstat.exe” to C:\\Windows\\System32\\13605 and “SFC_OS.dll” to C:\\Windows\\inf\\1.txt. The “SFC_OS.dll” is the executable portion of Windows File Protection mechanism (WFP), which protects system files from being modified or deleted. The malware calls to ordinal 5 function of “1.txt” in order to bypass the WFP (Collake, 2006) during patching \"netstat.exe\" for hiding network connection of IP address of 115.x.x.249",
+			"action_refs":[
+				"maec-example-act-36",
+				"maec-example-act-37",
+				"maec-example-act-4"
 			]
 		},
 		{
+			"type":"behavior",
+			"id":"maec-example-obt-4",
+			"name":"hide data in other formats",
+			"implementation":"hide code in a file",
+		},
+		{
+			"type":"behavior",
 			"id":"maec-example-obt-10",
 			"name":"install secondary module",
 			"status":"completed",
-			"discovery":"Payload drop behavior. The binary drops it primary payload on the system",
-			"incorporates_refs":[
-				"maec-example-obt-5"  
-			],
+			"implementation":"Payload drop behavior. The binary drops it primary payload on the system",
 			"action_references":[
-				{
-					"action_ref":"maec-example-act-2",
-					"behavioral_ordering":4
-				}
+				"maec-example-act-2"
 			]
 		}
-
 	],
 	"actions":[
 		{
+			"type":"action",
 			"id":"maec-example-act-1",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-2",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-2"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-2",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-3",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-3"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-3",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-4",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-4"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-4",
 			"name":"modify file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-5",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-5"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-5",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-6",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-6"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-6",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-7",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-7"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-7",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-8",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-8"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-8",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-9",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-9"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-9",
 			"name":"create mutex",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-10",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-10"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-10",
 			"name":"create remote thread in process",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-11",
-					"association_type":"input"
-				},
-				{
-					"object_ref":"maec-example-obj-12",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-11",
+				"maec-example-obj-12"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-11",
 			"name":"send dns query",
 			"status":"failed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-13",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-13"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-12",
 			"name":"send dns query",
 			"status":"failed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-14",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-14"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-13",
 			"name":"send dns query",
 			"status":"failed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-15",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-15"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-14",
 			"name":"send dns query",
 			"status":"failed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-16",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-16"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-15",
 			"name":"send dns query",
 			"status":"failed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-17",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-17"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-16",
 			"name":"connect to ip",
 			"status":"failed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-18",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-18"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-17",
 			"name":"connect to ip",
 			"status":"failed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-19",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-19"
 			]
 		},		
 		{
+			"type":"action",
 			"id":"maec-example-act-18",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-20",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-20"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-19",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-21",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-21"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-20",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-22",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-22"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-21",
 			"name":"create process",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-23",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-23"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-22",
 			"name":"create process",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-24",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-24"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-23",
 			"name":"create process",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-25",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-25"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-24",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-26",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-26"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-26",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-28",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-28"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-27",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-29",
-					"association_type":"output"
-				}
-			]
+			"output_object_refs":[
+				"maec-example-obj-29"
+			],
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-29",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-31",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-31"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-33",
 			"name":"create file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-35",
-					"association_type":"output"
-				}
+			"output_object_refs":[
+				"maec-example-obj-35"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-34",
 			"name":"enumerate registry key values",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-36",
-					"association_type":"input"
-				}
+			"output_object_refs":[
+				"maec-example-obj-36"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-35",
 			"name":"set file attributes",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-37",
-					"association_type":"input"
-				}
+			"input_object_refs":[
+				"maec-example-obj-37"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-36",
 			"name":"cpoy file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-38",
-					"association_type":"input"
-				},
-				{
-					"object_ref":"maec-example-obj-39",
-					"association_type":"output"
-				}
+			"input_object_refs":[
+				"maec-example-obj-38"
+			],
+			"output_object_refs":[
+				"maec-example-obj-39"
 			]
 		},
 		{
+			"type":"action",
 			"id":"maec-example-act-37",
 			"name":"copy file",
 			"status":"completed",
-			"object_references":[
-				{
-					"object_ref":"maec-example-obj-40",
-					"association_type":"input"
-				},
-				{
-					"object_ref":"maec-example-obj-41",
-					"association_type":"output"
-				}
+			"input_object_refs":[
+				"maec-example-obj-40"
+			],
+			"output_object_refs":[
+				"maec-example-obj-41"
 			]
 		}
 	],
-	"process_trees":[
-		{
-			"root_process":{
-				"process_ref":"maec-example-process-obj-1",
-				"id":"maec-example-pro-1",
-				"initiated_action_refs":[
-					"maec-example-act-1",
-					"maec-example-act-2",
-					"maec-example-act-3",
-					"maec-example-act-4",
-					"maec-example-act-5"
-				],
-				"injected_processes":[
-					{
-						"process_ref":"maec-example-process-obj-2",
-						"id":"maec-example-pro-2",
-						"parent_action_ref":"maec-example-act-10",
-						"initiated_action_refs":[
-							"maec-example-act-6",
-							"maec-example-act-7",
-							"maec-example-act-9",
-							"maec-example-act-18",
-							"maec-example-act-19",
-							"maec-example-act-20",
-							"maec-example-act-21",
-							"maec-example-act-22",
-							"maec-example-act-23",
-							"maec-example-act-24"
-						],
-						"spawned_processes":[
-							{
-								"process_ref":"maec-example-process-obj-3",
-								"id":"maec-example-pro-3",
-								"parent_action_ref":"maec-example-act-21"
-							},
-							{
-								"process_ref":"maec-example-process-obj-4",
-								"id":"maec-example-pro-4",
-								"parent_action_ref":"maec-example-act-22"
-							},
-							{
-								"process_ref":"maec-example-process-obj-5",
-								"id":"maec-example-pro-5",
-								"parent_action_ref":"maec-example-act-10",
-								"initiated_action_refs":[
-									"maec-example-act-26",
-									"maec-example-act-27",
-									"maec-example-act-29"
-								]
-							}
-						]
-					}
-				]
-			}
-		}
 
-	],
 	"collections":[
 		{
+			"type":"collection",
 			"id":"maec-example-actc-1",
 			"name":"File Actions",
 			"maec_entity_type":"actions",
@@ -1007,6 +853,7 @@
 			]
 		},
 		{
+			"type":"collection",
 			"id":"maec-example-actc-2",
 			"name":"Synchronization Actions",
 			"maec_entity_type":"actions",
@@ -1016,6 +863,7 @@
 			]
 		},
 		{
+			"type":"collection",
 			"id":"maec-example-actc-3",
 			"name":"Thread Actions",
 			"maec_entity_type":"actions",
@@ -1025,6 +873,7 @@
 			]
 		},
 		{
+			"type":"collection",
 			"id":"maec-example-actc-4",
 			"name":"Process Actions",
 			"maec_entity_type":"actions",
@@ -1037,6 +886,7 @@
 			]
 		},
 		{
+			"type":"collection",
 			"id":"maec-example-actc-5",
 			"name":"Network Actions",
 			"maec_entity_type":"actions",
@@ -1052,6 +902,7 @@
 			]
 		},
 		{
+			"type":"collection",
 			"id":"maec-example-actc-6",
 			"name":"File Actions",
 			"maec_entity_type":"actions",
@@ -1062,6 +913,7 @@
 			]
 		},
 		{
+			"type":"collection",
 			"id":"maec-example-actc-7",
 			"name":"Registry Actions",
 			"maec_entity_type":"actions",
@@ -1072,229 +924,229 @@
 	],
 	"relationships":[
 		{
-			"id":"rel-1",
+			"type":"relationship",
 			"source_ref": "maec-example-act-10" ,
 			"target_ref":"maec-exmple-act-2",
 			"relationship_type":"preceded by"
 		},
 		{
-			"id":"rel-2",
+			"type":"relationship",
 			"source_ref":"maec-example-obt-10",
 			"target_ref":"maec-example-bhv-3",
 			"relationship_type":"preceded by"
 		},
 		{
-			"id":"rel-3",
+			"type":"relationship",
 			"source_ref":"maec-example-bhv-2",
 			"target_ref":"maec-example-bhv-1",
 			"relationship_type":"preceded by"
 		},
 		{
-			"id":"rel-4",
+			"type":"relationship",
 			"source_ref":"maec-example-bhv-3",
 			"target_ref":"maec-example-bhv-2",
 			"relationship_type":"preceded by"
 		},
 		{
-			"id":"rel-5",
+			"type":"relationship",
 			"source_ref":"maec-example-bhv-5",
 			"target_ref":"maec-example-obt-10",
 			"relationship_type":"preceded by"
 		},
 		{
-			"id":"rel-6",
+			"type":"relationship",
 			"source_ref":"maec-example-bhv-6",
 			"target_ref":"maec-example-bhv-5",
 			"relationship_type":"preceded by"
 		},
 		{
-			"id":"rel-7",
+			"type":"relationship",
 			"source_ref":"maec-example-act-1",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-8",
+			"type":"relationship",
 			"source_ref":"maec-example-act-2",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-9",
+			"type":"relationship",
 			"source_ref":"maec-example-act-3",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-10",
+			"type":"relationship",
 			"source_ref":"maec-example-act-4",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-11",
+			"type":"relationship",
 			"source_ref":"maec-example-act-5",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-12",
+			"type":"relationship",
 			"source_ref":"maec-example-act-6",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-13",
+			"type":"relationship",
 			"source_ref":"maec-example-act-7",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-14",
+			"type":"relationship",
 			"source_ref":"maec-example-act-8",
 			"target_ref":"analysis-tool-3",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-15",
+			"type":"relationship",
 			"source_ref":"maec-example-act-18",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-16",
+			"type":"relationship",
 			"source_ref":"maec-example-act-19",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-17",
+			"type":"relationship",
 			"source_ref":"maec-example-act-20",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-18",
+			"type":"relationship",
 			"source_ref":"maec-example-act-24",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-21",
+			"type":"relationship",
 			"source_ref":"maec-example-act-26",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-22",
+			"type":"relationship",
 			"source_ref":"maec-example-act-27",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-25",
+			"type":"relationship",
 			"source_ref":"maec-example-act-29",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-29",
+			"type":"relationship",
 			"source_ref":"maec-example-act-33",
 			"target_ref":"analysis-tool-2",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-30",
+			"type":"relationship",
 			"source_ref":"maec-example-act-9",
 			"target_ref":"analysis-tool-4",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-31",
+			"type":"relationship",
 			"source_ref":"maec-example-act-10",
 			"target_ref":"analysis-tool-5",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-32",
+			"type":"relationship",
 			"source_ref":"maec-example-act-21",
 			"target_ref":"analysis-tool-7",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-33",
+			"type":"relationship",
 			"source_ref":"maec-example-act-22",
 			"target_ref":"analysis-tool-7",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-34",
+			"type":"relationship",
 			"source_ref":"maec-example-act-23",
 			"target_ref":"analysis-tool-7",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-35",
+			"type":"relationship",
 			"source_ref":"maec-example-act-11",
 			"target_ref":"analysis-tool-6",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-36",
+			"type":"relationship",
 			"source_ref":"maec-example-act-12",
 			"target_ref":"analysis-tool-6",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-37",
+			"type":"relationship",
 			"source_ref":"maec-example-act-13",
 			"target_ref":"analysis-tool-6",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-38",
+			"type":"relationship",
 			"source_ref":"maec-example-act-14",
 			"target_ref":"analysis-tool-6",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-39",
+			"type":"relationship",
 			"source_ref":"maec-example-act-15",
 			"target_ref":"analysis-tool-6",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-40",
+			"type":"relationship",
 			"source_ref":"maec-example-act-16",
 			"target_ref":"analysis-tool-6",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-41",
+			"type":"relationship",
 			"source_ref":"maec-example-act-17",
 			"target_ref":"analysis-tool-6",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-42",
+			"type":"relationship",
 			"source_ref":"maec-example-act-35",
 			"target_ref":"analysis-tool-8",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-43",
+			"type":"relationship",
 			"source_ref":"maec-example-act-36",
 			"target_ref":"analysis-tool-8",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-44",
+			"type":"relationship",
 			"source_ref":"maec-example-act-37",
 			"target_ref":"analysis-tool-8",
 			"relationship_type":"discovered by"
 		},
 		{
-			"id":"rel-45",
+			"type":"relationship",
 			"source_ref":"maec-example-act-34",
 			"target_ref":"analysis-tool-8",
 			"relationship_type":"discovered by"

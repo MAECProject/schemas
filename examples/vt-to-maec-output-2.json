@@ -11,7 +11,7 @@
             "id":"malware_instance-2984bb23-f281-43c3-a5e5-efc7573d8483",
             "analyses":[
                 {
-                    "summary":"Created by VirusTotal to MAEC (http://github.com/MAECProject/vt-to-maec)"
+                    "description":"Created by VirusTotal to MAEC (http://github.com/MAECProject/vt-to-maec)"
                 }
             ]
         }
