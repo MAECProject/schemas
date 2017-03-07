@@ -6,7 +6,7 @@
 		{
 			"type":"malware-instance",
 			"id":"malware_instance--0beb15e6-9994-46fd-8cc8-318d2ac8885f",
-			"instance_object_ref":["object--1"]
+			"instance_object_refs":["object--1"]
 		}
 	],
 	"objects":{

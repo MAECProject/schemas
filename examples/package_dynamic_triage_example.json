@@ -6,7 +6,7 @@
 		{
 			"type":"malware-instance",
 			"id":"maec-example-sub-1",
-			"instance_object_ref":[
+			"instance_object_refs":[
 				"instance-obj-1"
 			],
 			"labels":[

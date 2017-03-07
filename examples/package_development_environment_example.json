@@ -6,7 +6,7 @@
     {
       "type":"malware-instance",
     	"id":"maec-tst-sub-1",
-    	"instance_object_ref":["object--1"],
+    	"instance_object_refs":["object--1"],
       "static_features":{
         "development_environment":{
           "tool_refs":[

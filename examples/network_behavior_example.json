@@ -11,7 +11,7 @@
 			"labels":[
 				"downloader"
 			],
-			"instance_object_ref":["object--1"],
+			"instance_object_refs":["object--1"],
 			"capabilities":[
 				{
 					"id":"capability--32a104d2-c680-43d1-974d-f27be13292f8",

@@ -6,7 +6,7 @@
 		{
 			"type":"malware-instance",
 			"id":"malware_instance--82008585-1939-4ca8-bd47-3173c1e91053",
-			"instance_object_ref":["object--1"],
+			"instance_object_refs":["object--1"],
 			"capabilities":[
 				{
 					"name":"infection/propagation",

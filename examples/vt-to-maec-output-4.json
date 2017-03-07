@@ -5,7 +5,7 @@
     "malware_instances":[
         {
             "type":"malware-instance",
-            "instance_object_ref":[
+            "instance_object_refs":[
                 "0"
             ],
             "id":"malware_instance-b489415b-5e1a-4339-a363-0b9e37bcb477",

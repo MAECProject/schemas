@@ -119,6 +119,7 @@
 				]
 			},
 			"analyses":[
+				<what to do with the URL fields of these analysis objects>
 				{
 					"analysis_type":"static",
 					"source":{

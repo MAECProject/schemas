@@ -6,7 +6,7 @@
   	{
       "type":"malware-instance",
   		"id":"maec-example-sub-1",
-  		"instance_object_ref":["object--1"],
+  		"instance_object_refs":["object--1"],
   		"labels":[
   			"tojan horse",
   			"clicker"
@@ -15,7 +15,7 @@
   	{
       "type":"malware-instance",
   		"id":"maec-example-sub-2",
-  		"instance_object_ref":["object--2"],
+  		"instance_object_refs":["object--2"],
   		"labels":[
   			"trojan horse",
   			"clicker"
@@ -24,7 +24,7 @@
   	{
       "type":"malware-instance",
   		"id":"maec-example-sub-3",
-  		"instance_object_ref":["object--3"],
+  		"instance_object_refs":["object--3"],
   		"labels":[
   			"trojan horse"
   		]

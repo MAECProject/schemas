@@ -6,7 +6,7 @@
 		{
 			"type":"malware-instance",
 			"id":"malware_instance--b72eed82-4333-4f41-830e-0e806b53dc4e",
-			"instance_object_ref":["object--1"],
+			"instance_object_refs":["object--1"],
 			"labels":[
 				"dropper file"
 			],

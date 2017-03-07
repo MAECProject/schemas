@@ -6,7 +6,7 @@
     {
       "type":"malware-instance",
       "id":"malware_instance--19863c16-503e-493f-8841-16c68e39c26e",
-      "instance_object_ref":["object--1"],
+      "instance_object_refs":["object--1"],
       "labels":[
         "mass-mailer",
         "worm"

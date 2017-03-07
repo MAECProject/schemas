@@ -6,7 +6,7 @@
 		{
 			"type":"malware-instance",
 			"id":"maec-tst-sub-1",
-			"instance_object_ref":["maec-tst-obj-1"],
+			"instance_object_refs":["maec-tst-obj-1"],
 			"labels":[
 				"dropper file"
 			]
@@ -14,7 +14,7 @@
 		{
 			"type":"malware-instance",
 			"id":"maec-tst-sub-2",
-			"instance_object_ref":["maec-tst-obj-2"],
+			"instance_object_refs":["maec-tst-obj-2"],
 			"labels":[
 				"dropper file"
 			],
@@ -80,7 +80,7 @@
 		{
 			"type":"malware-instance",
 			"id":"maec-tst-sub-3",
-			"instance_object_ref":["maec-tst-obj-3"],
+			"instance_object_refs":["maec-tst-obj-3"],
 			"labels":[
 				"backdoor",
 				"password stealer",
@@ -278,17 +278,17 @@
 		{
 			"type":"malware-instance",
 			"id":"maec-tst-sub-4",
-			"instance_object_ref":["maec-tst-obj-4"]
+			"instance_object_refs":["maec-tst-obj-4"]
 		},
 		{
 			"type":"malware-instance",
 			"id":"maec-tst-sub-5",
-			"instance_object_ref":["maec-tst-obj-5"]
+			"instance_object_refs":["maec-tst-obj-5"]
 		},
 		{
 			"type":"malware-instance",
 			"id":"maec-tst-sub-6",
-			"instance_object_ref":["maec-tst-obj-6"],
+			"instance_object_refs":["maec-tst-obj-6"],
 			"labels":[
 				"wiper"
 			],
