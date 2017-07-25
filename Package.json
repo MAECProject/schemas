@@ -3,69 +3,45 @@
     "definitions": {"PackageType": {
         "title":"Package",
 	"type": "object",
-        "description": "The PackageType is the standard output format that can be used to describe one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, CybOX Objects, and Collections and Relationships.",
+        "description": "Standard output format that can be used to describe one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, CybOX Objects, and Collections and Relationships.",
         "properties": {
             "type":{
                 "type":"string",
                 "enum":[
                     "package"
                 ],
-                "description":"The value of this field MUST be \"package\""
+                "description":"The value of this field MUST be \"package\"."
             },
             "id": {
                 "type": "string",
-                "description": "The required id field specifies a unique ID for this Package."
+                "description": "Specifies a unique ID for this Package."
             },
             "schema_version": {
                 "type": "number",
                 "enum": [5.0],
-                "description": "The required schema_version field specifies the version of the MAEC Package schema that the document has been written in and that should be used for validation."
-            },
-            "malware_instances": {
-                "type": "array",
-                "items": {"$ref": "MalwareInstance.json#/definitions/MalwareInstanceType"},
-                "description": "The malware_instances field captures each of the Malware Instances contained in the Package."
-            },
-            "malware_families": {
-                "type": "array",
-                "items": {"$ref": "MalwareFamily.json#/definitions/MalwareFamilyType"},
-                "description": "The malware_families field captures a set of one or more Malware Families relevant to the Package content."
+                "description": "Specifies the version of the MAEC specification used to represent the content in this Package. The value of this property MUST be 5.0 for Packages containing MAEC Objects defined in this specification."
             },
             "objects": {
                 "type": "array",
-                "items":{"$ref":"REFERENCE PLACEHOLDER FOR STIX Observable Objects (stix:observable-objects"},
-                "description": "The cybox field captures a set of one or more CybOX entities, such as CybOX Objects, relevant to the MAEC package. "
+                "items": {WHAT TO SPECIFY HERE},
+                "description": "Specifies a set of one or more MAEC Objects. Objects in this list MUST be a MAEC Top-level Object."
             },
-            "behaviors": {
+            "observable_objects": {
                 "type": "array",
-                "items": {"$ref": "Behavior.json#/definitions/BehaviorType"},
-                "description": "The Behaviors field captures a set of one or more Behaviors relevant to the Package content."
+                "items": {WHAT TO SPECIFY HERE},
+                "description": "Specifies a set of one or more STIX Cyber Observable Objects relevant to the MAEC package."
             },
-            "actions": {
+            "relationships":{
                 "type": "array",
-                "items": {"$ref": "MalwareAction.json#/definitions/MalwareActionType"},
-                "description": "The Actions field captures a set of one or more Actions relevant to the Package content."
-            },
-            "process_trees":{
-                "type":"array",
-                "items":{"$ref":"ProcessTree.json#/definitions/ProcessTreeType"},
-                "description":"The Process_Trees field captures one or more Process Trees relevant to the package content"
-            },
-            "collections": {
-                "type": "array",
-                "items": {"$ref": "Collection.json#/definitions/CollectionType"},
-                "description": "The Collections field specifies the particular collections that serve to group the MAEC entities encompassed in this Package, including Malware Instances."
-            },
-            "relationships": {
-                "type": "array",
-                "items": {"$ref": "Relationship.json#/definitions/RelationshipType"},
-                "description": "The Relationships field captures the relationships between the entities in the MAEC document."
+                "items": {"$ref": "RelationshipType.json#/RelationshipType"},
+                "description": "Specifies a set of one or more MAEC relationships. Each entry in this list must be of type Relationship."
             }
         },
         "required": [
             "type",
             "id",
-            "schema_version"
+            "schema_version",
+            "objects"
         ]
     }},
     "allOf":[{"$ref": "#/definitions/PackageType"}]

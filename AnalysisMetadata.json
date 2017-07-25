@@ -4,28 +4,64 @@
         "AnalysisMetadataType": {
         	"title":"Analysis",
         	"type":"object",
-        	"description":"The AnalysisMetadataType captures metadata associated with the analyses of a malware instance, such as the tools used, analysts, other data",
+        	"description":"Captures metadata associated with the analyses of a malware instance, such as the tools used, analysts, and other data.",
         	"properties":{
+                "is_automated":{
+                    "type":"boolean",
+                    "description":"Specifies whether the analysis was completely automated (i.e., with no human analyst in the loop). If this property is set to true, the analysts property MUST NOT be included."
+                },
+                "start_time":{
+                    "type":"string",
+                    "format":"date-time",
+                    "description":"Specifies the date/time that the analysis was started."
+                },
+                "end_time":{
+                    "type":"string",
+                    "format":"date-time",
+                    "description":"Specifies the date/time that the analysis was completed."
+                },
+                "last_update_time":{
+                    "type":"string",
+                    "format":"date-time",
+                    "description":"Specifies the date/time that the analysis was last updated."
+                },
+                "confidence":{
+                    "type":"string",
+                    "description":"Specifies the relative measure of confidence in the accuracy of the analysis results. The value for this property MUST come from the confidence-measure-cv closed vocabulary."
+                },
         		"analysts": {
                     "type": "array",
-                    "items": {"$ref": "#/PLACEHOLDER REFERENCE FOR cyboxCommon:PersonnelType"},
-                    "description": "The analysts field specifies the analyst(s) who performed the analysis."
+                    "items": {"type": "string"},
+                    "description": "Specifies the analyst(s) who performed the analysis."
+                },
+                "analysis_type":{
+                    "type":"string",
+                    "description":"Specifies the type of analysis that was performed. The value for this property SHOULD come from the analysis-type-ov open vocabulary."
                 },
                 "comments": {
                     "type": "array",
-                    "items": {"$ref": "#/definitions/CommentType"},
-                    "description": "The comments field specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
+                    "items": {"type": "string"},
+                    "description":"Specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
                 },
                 "tool_refs": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "The tool_refs field captures a set of references to one or more Tools used in the analysis of a Malware Instance. Values MUST be references to Software Objects in the objects field at the top-level of the Package."
+                    "description": "Captures set of references to one or more Tools used in the analysis of a Malware Instance. Values MUST be references to Software Objects in the objects field at the top-level of the Package."
                 },
-                   "summary": {
+                "description": {
                     "type": "string",
-                    "description": "The summary field specifies a summary of the analysis that was performed.  It should be high-level and concise.  It should summarize the contents of the report field, if present, and otherwise should provide a brief synopsis of the analysis that was performed and any highlights."
+                    "description": "Captures a textual description of the analysis that was performed."
+                },
+                "conclusion":{
+                    "type":"array",
+                    "items":{"type":"string"},
+                    "description":"Captures the conclusion(s) of the analysis that was performed, such as whether the binary was found to be malicious. The value for this property SHOULD come from the analysis-conclusion-type-ov open vocabulary."
                 }
-        	}
+        	},
+            "required":[
+                "is_automated",
+                "analysis_type"
+            ]
         }
     }
 }

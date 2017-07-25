@@ -4,30 +4,30 @@
         "CapabilityType": {
             "title":"Capability",
 	        "type": "object",
-            "description": "The CapabilityType captures details of a Capability that may be implemented in the malware instance",
+            "description": "Captures details of a Capability that may be implemented in the malware instance.",
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The required name field captures the name of the Capability. The suggested vocabulary for this field is the capability-ov. When used as part of a refined Capability, the suggested vocabulary is the refined-capability-ov."
+                    "description": "Captures the name of the Capability. The values for this property SHOULD come from the Encyclopedia of Malware Attributes (EMA) Capabilities list. When used as part of a refined Capability, the values for this property SHOULD come from the Encyclopedia of Malware Attributes(EMA) Subcapabilities list."
                 },
                 "refined_capabilities": {
                     "type": "array",
                     "items": {"$ref": "#/definitions/CapabilityType"},
-                    "description": "The optional refined_capability field is a refinement of the Capability using the same structure."
+                    "description": "Specifies a refinement of the Capability using the same structure."
                 },
                 "description": {
                     "type": "string",
-                    "description": "The description field captures a basic textual description of the Capability"
+                    "description": "Captures a basic textual description of the Capability."
                 },
                 "attributes": {
-                    "type": "array",
-                    "items": {"$ref": "Behavior.json#/definitions/AttributeType"},
-                    "description": "The attribute field permits the capture of a single attribute of the Capability, as a name/value pair. More than one attribute can be specified via multiple occurences of this field"
+                    "type": "object",
+                    "items": {"$ref": "THIS NEEDS TO BE AN OPEN ENDED DICT"},
+                    "description": "Captures attributes of the Capability as key/value pairs. Each key in the dictionary MUST be a string that captures the name of the attribute and SHOULD come from the common-attribute-ov vocabulary. Each corresponding key value MUST be a string or list of strings that captures the corresponding attribute values."
                 },
                 "behavior_refs": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "The behavior_ref field captures a reference to a Behavior that serves as an implementation of the Capability. The Behavior must be present in the current Package."
+                    "description": "Specifies one or more Behaviors that serve as an implementation of the Capability. Each item in the list specifies the unique ID of the Behavior being referenced. The Behavior MUST be present in the current Package."
                 },
                 "references": {
                     "type": "array",
@@ -35,7 +35,7 @@
                         "type": "string",
                         "format": "uri"
                     },
-                    "description": "The reference field specifies that URL of the corresponding entry in the MAEC Semantic MediaWiki for the Capability"
+                    "description": "Specifies the ID of the corresponding entry in EMA. This property MUST be populated if the value of the name property references an EMA entry."
                 }
             },
             "required": [

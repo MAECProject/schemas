@@ -127,3 +127,6 @@ local_settings.py
 
 # ZSH
 locals.zsh
+
+# Custom
+validateJSON.py

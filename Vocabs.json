@@ -1,245 +1,25 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "action-implementation-cv": {
-            "title": "action implementation cv",
+        "analysis-conclusion-type-ov": {
+            "title": "analysis conclusion",
             "type": "string",
-            "description": "action-implementation-cv is an enumeration of action implementation types.",
-            "enum": [
-                "api call",
-                "code"
+            "description": "enumeration of malware analysis conclusion types",
+            "enum":[
+                "benign",
+                "malicious",
+                "suspicious",
+                "indeterminate"
             ]
         },
-        "analysis-method-cv": {
-            "title": "analysis method cv",
+        "analysis-type-ov": {
+            "title": "analysis method ov",
             "type": "string",
-            "description": "analysis-methos-cv is an enumeration of malware analysis methods.",
+            "description": "analysis-type-ov is an enumeration of malware analysis types.",
             "enum": [
                 "static",
                 "dynamic",
                 "combination"
-            ]
-        },
-        "analysis-type-cv": {
-            "title": "analysis type cv",
-            "type": "string",
-            "description": "The analysis-type-cv is an enumeration of types of malware analysis types.",
-            "enum": [
-                "triage",
-                "in-depth"
-            ]
-        },
-        "behavior-ov": {
-            "title": "behavior ov",
-            "type": "string",
-            "description": "behavior-ov is an enumeration of Behaviors.",
-            "enum": [
-                "access premium service",
-                "autonomous remote infection",
-                "block security websites",
-                "capture camera input",
-                "capture file system",
-                "capture GPS data",
-                "capture keyboard input",
-                "capture microphone input",
-                "capture mouse input",
-                "capture printer output",
-                "capture system memory",
-                "capture system network traffic",
-                "capture system screenshot",
-                "capture touchscreen input",
-                "check for payload",
-                "check language",
-                "click fraud",
-                "compare host fingerprints",
-                "compromise remote machine",
-                "control local machine via remote command",
-                "control malware via remote command",
-                "crack passwords",
-                "defeat call graph generation",
-                "defeat flow-oriented assembler",
-                "defeat linear disassembler",
-                "degrade security program",
-                "denial of service",
-                "destroy hardware",
-                "detect debugging",
-                "detect sandbox environment",
-                "detect VM environment",
-                "determine host IP address",
-                "disable access rights checking",
-                "disable firewall",
-                "disable kernel patch protection",
-                "disable OS security alerts",
-                "disable privilege limiting",
-                "disable service pack/patch installation",
-                "disable system file overwrite protection",
-                "disable update services/daemons",
-                "disable user account control",
-                "drop/retrieve debug log file",
-                "elevate privilege",
-                "encrypt data",
-                "encrypt files",
-                "encrypt self",
-                "erase data",
-                "execute before/external to kernel/hypervisor",
-                "execute non-main CPU code",
-                "execute stealthy code",
-                "exfiltrate data via covert channel",
-                "exfiltrate data via dumpster dive",
-                "exfiltrate data via fax",
-                "exfiltrate data via network",
-                "exfiltrate data via physical media",
-                "exfiltrate data via VoIP/phone",
-                "feed misinformation during physical memory acquisition",
-                "fingerprint host",
-                "generate c2 domain name(s)",
-                "hide arbitrary virtual memory",
-                "hide data in other formats",
-                "hide file system artifacts",
-                "hide kernel modules",
-                "hide network traffic",
-                "hide open network ports",
-                "hide processes",
-                "hide registry artifacts",
-                "hide services",
-                "hide threads",
-                "hide userspace libraries",
-                "identify file",
-                "identify OS",
-                "identify target machines",
-                "impersonate user",
-                "install backdoor",
-                "install legitimate software",
-                "install secondary malware",
-                "install secondary module",
-                "intercept/manipulate network traffic",
-                "inventory security products",
-                "inventory system applications",
-                "inventory victims",
-                "limit application type/version",
-                "log activity",
-                "manipulate file system data",
-                "map local network",
-                "mine for cryptocurrency",
-                "modify file",
-                "modify security software configuration",
-                "move data to staging server",
-                "obfuscate artifact properties",
-                "overload sandbox",
-                "package data",
-                "persist after hardware changes",
-                "persist after os changes",
-                "persist after system reboot",
-                "prevent API unhooking",
-                "prevent debugging",
-                "prevent file access",
-                "prevent file deletion",
-                "prevent memory access",
-                "prevent native API hooking",
-                "prevent physical memory acquisition",
-                "prevent registry access",
-                "prevent registry deletion",
-                "prevent security software from executing",
-                "re-instantiate self",
-                "remove self",
-                "remove SMS warning messages",
-                "remove system artifacts",
-                "request email address list",
-                "request email template",
-                "search for remote machines",
-                "send beacon",
-                "send email message",
-                "send system information",
-                "social-engineering based remote infection",
-                "steal browser cache",
-                "steal browser cookies",
-                "steal browser history",
-                "steal contact list data",
-                "steal cryptocurrency data",
-                "steal database content",
-                "steal dialed phone numbers",
-                "steal digital certificate",
-                "steal documents",
-                "steal email data",
-                "steal images",
-                "steal password hashes",
-                "steal PKI key",
-                "steal referrer URLs",
-                "steal serial numbers",
-                "steal SMS database",
-                "steal web/network credential",
-                "stop execution of security software",
-                "suicide exit",
-                "test for firewall",
-                "test for internet connectivity",
-                "test for network drives",
-                "test for proxy",
-                "test SMTP connection",
-                "update configuration",
-                "validate data",
-                "write code into file"
-            ]
-        },
-        "capability-ov": {
-            "title": "capability ov",
-            "type": "string",
-            "description": "capability-ov is an enumeration of Capabilities.",
-            "enum": [
-                "anti-behavioral analysis",
-                "anti-code analysis",
-                "anti-detection",
-                "anti-removal",
-                "availability violation",
-                "command and control",
-                "data exfiltration",
-                "data theft",
-                "destruction",
-                "fraud",
-                "infection/propagation",
-                "integrity violation",
-                "machine access/control",
-                "persistence",
-                "privilege escalation",
-                "probing",
-                "secondary operation",
-                "security degradation",
-                "spying"
-            ]
-        },
-        "collection-association-cv": {
-            "title": "collection association cv",
-            "type": "string",
-            "description": "collection-association-ov is a non-exhaustive enumeration of association types that can be captured as part of a Collection.",
-            "enum": [
-                "file system entities",
-                "network entities",
-                "process entities",
-                "memory entities",
-                "ipc entities",
-                "device entities",
-                "registry entities",
-                "service entities",
-                "potential indicators",
-                "same malware family",
-                "clustered together",
-                "observed together",
-                "part of intrusion set",
-                "same malware toolkit"
-            ]
-        },
-        "collection-entity-cv": {
-            "title": "collection entity cv",
-            "type": "string",
-            "description": "collection-entity-ov is a non-exhaustive enumeration of entity types that can be captured as part of a collection.",
-            "enum": [
-                "malware subjects",
-                "actions",
-                "objects",
-                "behaviors",
-                "capabilities",
-                "tools",
-                "process trees",
-                "various"
             ]
         },
         "common-attribute-ov": {
@@ -278,9 +58,9 @@
             ]
         },
         "confidence-measure-cv": {
-            "title": "confidence attribute ov",
+            "title": "confidence attribute cv",
             "type": "string",
-            "description": "confidence-measure-ov is an enumeration of relative confidence measures; it aligns with the values in the STIX HighMediumLow vocabulary.",
+            "description": "confidence-measure-cv is an enumeration of relative confidence measures; it aligns with the values in the STIX HighMediumLow vocabulary.",
             "enum": [
                 "low",
                 "medium",
@@ -289,46 +69,10 @@
                 "unknown"
             ]
         },
-        "encryption-algorithm-ov": {
-            "title": "encryption algorithm ov",
+        "delivery-vector-ov": {
+            "title": "delivery vector ov",
             "type": "string",
-            "description": "encryption-algorithm-ov is a non-exhaustive enumeration of encryption algorithms.",
-            "enum": [
-                "aes256",
-                "rc4",
-                "rsa"
-            ]
-        },
-        "execution-status-ov": {
-            "title": "execution status ov",
-            "type": "string",
-            "description": "execution-status-ov is a non-exhaustive enumeration of observable execution status types.",
-            "enum": [
-                "active",
-                "completed",
-                "failed",
-                "terminated",
-                "suspended",
-                "unknown"
-            ]
-        },
-        "importance-ov": {
-            "title": "importance ov",
-            "type": "string",
-            "description": "importance-ov is a non-exhaustive enumeration of relative importance measures.",
-            "enum": [
-                "high",
-                "medium",
-                "low",
-                "informational",
-                "numeric",
-                "unknown"
-            ]
-        },
-        "infection-vector-ov": {
-            "title": "infection vector ov",
-            "type": "string",
-            "description": "infection-vector-ov is a non-exhaustive enumeration of malware infection vectors",
+            "description": "non-exhaustive enumeration of delivery infection vectors.",
             "enum": [
                 "active-attacker",
                 "auto-executing-media",
@@ -349,16 +93,35 @@
                 "watering-hole"
             ]
         },
-        "interaction-level-cv": {
-            "title": "interaction level cv",
+        "entity-association-ov": {
+            "title": "entity association ov",
             "type": "string",
-            "description": "interaction-level-cv is a non-exhaustive enumeration of interaction levels for network protocols in a malware analysis environment.",
+            "description": "enumeration of MAEC entity association types",
             "enum": [
-                "high",
-                "low",
-                "honeytrap",
-                "live",
-                "none"
+                "file system entities",
+                "network entities",
+                "process entities",
+                "memory entities",
+                "ipc entities",
+                "device entities",
+                "registry entities",
+                "service entities",
+                "potential indicators",
+                "same malware family",
+                "clustered together",
+                "observed together",
+                "part of intrusion set",
+                "same malware toolkit"
+            ]
+        },
+        "execution-status-ov": {
+            "title": "execution status ov",
+            "type": "string",
+            "description": "execution-status-ov is a non-exhaustive enumeration of observable execution status types.",
+            "enum": [
+                "completed",
+                "failed",
+                "terminated"
             ]
         },
         "layer4-protocol-cv": {
@@ -516,7 +279,6 @@
                 "logon as user",
                 "map file into process",
                 "map library into process",
-                "modify file",
                 "modify process virtual memory protection",
                 "modify registry key value",
                 "modify registry key",
@@ -610,30 +372,18 @@
                 "id",
                 "installation path",
                 "magic number",
-                "mutex"
-            ]
-        },
-        "malware-development-tool-ov": {
-            "title": "malware development tool ov",
-            "type": "string",
-            "description": "malware-development-tool-ov is a non-exhaustive enumeration of tools used in the development of malware.",
-            "enum": [
-                "builder",
-                "compiler",
-                "crypter",
-                "linker",
-                "packer",
-                "protector"
-            ]
-        },
-        "malware-entity-ov": {
-            "title": "malware entity ov",
-            "type": "string",
-            "description": "malware-entity-ov is a non-exhaustive enumeration of the entity types against which a malware indicator or signature may be written.",
-            "enum": [
-                "class",
-                "family",
-                "instance"
+                "mutex",
+                "c2 ip address",
+                "c2 domain",
+                "c2 url",
+                "directory",
+                "filepath",
+                "injection process",
+                "interval",
+                "key",
+                "password",
+                "useragent",
+                "version"
             ]
         },
         "malware-label-ov": {
@@ -641,7 +391,6 @@
             "type": "string",
             "description": "malware-label-ov is a non-exhaustive enumeration of common malware labels.",
             "enum": [
-                "adware",
                 "appender",
                 "backdoor",
                 "boot sector virus",
@@ -691,11 +440,46 @@
                 "zip bomb"
             ]
         },
-        "platform-ov": {
-            "title": "platform ov",
+        "os-features-android-ov": {
+            "title": "Operating System Features - Android",
             "type": "string",
-            "description": "platform-ov is a non-exhaustive enumeration of operting system platforms.",
-            "emun": [
+            "description": "non-exhaustive enumeration of Android operating system features that may be used by malware.",
+            "enum": []
+        },
+        "os-features-osx-ov": {
+            "title": "Operating System Features - OS X",
+            "type": "string",
+            "description": "non-exhaustive enumeration of Apple OS X operating system features that may be used by malware.",
+            "enum": []
+        },
+        "os-features-ios-ov": {
+            "title": "Operating System Features - iOS",
+            "type": "string",
+            "description": "non-exhaustive enumeration for Apple iOS operating system features that may be used by malware.",
+            "enum": []
+        },
+        "os-features-linux-ov": {
+            "title": "Operating System Features - Linux",
+            "type": "string",
+            "description": "non-exhaustive enumeration of linux operating system features that may be used by malware.",
+            "enum": []
+        },
+        "os-features-windows-ov": {
+            "title": "Operating System Features - Windows",
+            "type": "string",
+            "description": "non-exhaustive enumeration of Windows opertating system features that may be used by malware.",
+            "enum": [
+                "named_pipes",
+                "registry keys",
+                "services",
+                "device drivers"
+            ]
+        },
+        "operating-system-ov": {
+            "title": "Operating Systems",
+            "type": "string",
+            "description": "non-exhaustive enumeration of operting system platforms.",
+            "enum": [
                 "android 1.0.x",
                 "android 1.1.x",
                 "android 1.5.x",
@@ -808,98 +592,25 @@
                 "windows unknown version"
             ]
         },
-        "refined-capability-ov": {
-            "title": "refined capability ov",
+        "obfuscation-method-ov": {
+            "title": "obfuscation method ov",
             "type": "string",
-            "description": "refined-capability-ov is an enumeration of refined Capability names.",
+            "description": "non-exhaustive enumeration of obfuscation methods used in obfuscating a binary associated with a Malware Instance.",
             "enum": [
-                "access control degradation",
-                "anti-debugging",
-                "anti-disassembly",
-                "anti-memory forensics",
-                "anti-sandbox",
-                "anti-VM",
-                "authentication credentials theft",
-                "capture system output peripheral data",
-                "clean traces of infection",
-                "compromise data availability",
-                "compromise network operational capability",
-                "compromise system availability",
-                "consume system resources",
-                "continuous execution",
-                "data integrity violation",
-                "data obfuscation",
-                "data staging",
-                "determine c2 server",
-                "email spam",
-                "ensure compatibility",
-                "environment awareness",
-                "file infection",
-                "hide artifacts",
-                "hide executing code",
-                "hide non-executing code",
-                "host configuration probing",
-                "information gathering for improvement",
-                "input peripheral capture",
-                "install other components",
-                "local machine control",
-                "network environment probing",
-                "OS security feature degradation",
-                "physical entity destruction",
-                "prevent artifact access",
-                "prevent artifact detection",
-                "prevent duplicate infection",
-                "receive data from c2 server",
-                "remote machine access",
-                "remote machine infection",
-                "security software degradation",
-                "security software evasion",
-                "self-modification",
-                "send data to c2 server",
-                "service provider security feature degradation",
-                "stored information theft",
-                "system interface data capture",
-                "system operation integrity violation",
-                "system re-infection",
-                "system state data capture",
-                "system update degradation",
-                "user data theft",
-                "virtual entity destruction"
+                "packing",
+                "code encryption",
+                "dead code insertion",
+                "entry point obfuscation",
+                "import address table obfuscation",
+                "interleaving code",
+                "symbolic obfuscation",
+                "string obfuscation",
+                "subroutine reordering",
+                "code transposition",
+                "instruction substitution",
+                "register reassignment"
             ]
-        },
-        "relationship-ov": {
-            "title": "relationship ov",
-            "type": "string",
-            "description": "relationship-ov is a non-exhaustive enumeration of relationships between MAEC entities.",
-            "enum": [
-                "32-bit version of",
-                "64-bit version of",
-                "contained in disk image",
-                "contained in memory image",
-                "contained in network traffic capture",
-                "decrypted version of",
-                "direct ancestor of",
-                "direct descendant of",
-                "disk image of",
-                "discovered by",
-                "downloaded by",
-                "downloads",
-                "dropped by",
-                "drops",
-                "encrypted version of",
-                "equivalent",
-                "extracted from",
-                "extracts",
-                "has distance",
-                "installed by",
-                "installs",
-                "memory image of",
-                "network traffic capture of",
-                "packed version of",
-                "preceded by",
-                "unpacked version of"
-            ]
-        },
+        },  
         "technique-ov": {
             "title": "technique ov",
             "type": "string",
@@ -916,6 +627,17 @@
                 "periodic check/recreation",
                 "windows registry manipulation",
                 "windows service manipulation"
+            ]
+        },
+        "signature-type-ov": {
+            "title": "signature-type-ov",
+            "type": "string",
+            "description": "non-exhaustive enumeration of malware signature types.",
+            "enum": [
+                "yara",
+                "snort",
+                "suricata",
+                "cuckoo"
             ]
         }
     }
