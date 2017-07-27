@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "StaticFeaturesType":{
+            "title":"StaticFeatures",
+            "type":"object",
+            "description":"Captures features associated with a malware binary not related to the semantics of the code.",
+            "properties":{
+                "strings":{
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Captures strings extracted from the binary."
+                },
+                "obfuscation_methods": {
+                    "type": "array",
+                    "items": {"type": "BinaryObfuscation.json#/definitions/BinaryObfuscationType"},
+                    "description": "Specifies the method(s) used to obfuscate the binary, such as packers or encryption."
+                },
+                "certificates":{
+                    "type":"array",
+                    "items":{"type": "string"},
+                    "description": "References any software certificates used to sign the malware binary associated witht the malware instance. The Cyber Observable Objects referenced in this field MUST be for the type x509-certificate."
+                },
+                "file_headers":{
+                    "type": "array",
+                    "items":{"type": "string"},
+                    "description": "References any file headers (e.g. PE file headers) extracted from the binary. The cyber Observable Objects referenced in this field MUST be of the type file."
+                },
+                "configuration_parameters":{
+                    "type": "array",
+                    "items": {"$ref": "MalwareConfigurationParameter.json#/definitions/MalwareConfigurationParameterType"},
+                    "description": "Captures details of the configuration specified for the Malware Instance, such as the configuration parameters."
+                },
+                "development_environment": {
+                    "$ref": "MalwareDevelopmentEnvironment.json#/definitions/MalwareDevelopmentEnvironmentType",
+                    "description": "Captures the details of the development environment used in the creation of the malware instance object characterized by the Malware Instance."
+                }
+            }
+        }
+    }
+}

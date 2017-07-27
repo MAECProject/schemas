@@ -21,7 +21,6 @@
                 },
                 "attributes": {
                     "type": "object",
-                    "items": {"$ref": "THIS NEEDS TO BE AN OPEN ENDED DICT"},
                     "description": "Captures attributes of the Capability as key/value pairs. Each key in the dictionary MUST be a string that captures the name of the attribute and SHOULD come from the common-attribute-ov vocabulary. Each corresponding key value MUST be a string or list of strings that captures the corresponding attribute values."
                 },
                 "behavior_refs": {
@@ -38,9 +37,7 @@
                     "description": "Specifies the ID of the corresponding entry in EMA. This property MUST be populated if the value of the name property references an EMA entry."
                 }
             },
-            "required": [
-               "name"
-            ]
+            "required": ["name"]
         }
     }
 }

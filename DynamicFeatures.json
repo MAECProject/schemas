@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": { 
+        "DynamicFeaturesType": {
+            "title": "DynamicFeatures",
+            "type": "object",
+            "description": "Captures the dynamic features, i.e., those that are associated with the semantics of the executed code, of a malware instance. At least one of the \"behavior_refs\" or \"action_refs\" or \"process_trees\" MUST be inlcuded when using this type.",
+            "properties": {
+                "behavior_refs": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Specifies a set of one or more Behaviors exhibited by the Malware Instance. Each item specifies the unique ID of the Behavior being referenced."
+                },
+                "action_refs": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Specifies a set of one or more Actions discovered for the Malware Instance. Each item specifies the unique ID of the Action being referenced."
+                },
+                "process_tree":{
+                    "type": "array",
+                    "items": {"type": "ProcessTree.json#/definitions/ProcessTreeNodeType"},
+                    "description": "Specifies the Process Tree observed during the execution of the Malware Instance."
+                }
+            }
+        }
+    }
+}

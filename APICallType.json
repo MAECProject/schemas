@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "APICallType":{
+            "title":"APICall",
+            "type":"object",
+            "description":"Serves as a method for characterizing API Calls, as implementations of Malware Actions.",
+            "properties":{
+                "address" : {
+                    "type": "string",
+                    "description": "Specifies the hexadecimal address of the API call in the binary."
+                },
+                "return_value":{
+                    "type": "string",
+                    "description": "Specifies the return value of the API call."
+                },
+                "parameters": {
+                    "type": "object",
+                    "description": "Specifies a list of function parameters, as a dictionary. Each key in the dictionary MUST be a string that captures the exact name of the parameter, and each corresponding key value MUST be a string that captures the corresponding parameter value. For parameter values that can be represented by a constant, e.g., GENERIC_WRITE, the constant value SHOULD be used."
+                },
+                "function_name": {
+                    "type":"string",
+                    "description": "Specifies the exact name of the API function called, e.g. CreateFileEx"
+                }
+            },
+            "required":["function_name"]
+        }
+    }
+}

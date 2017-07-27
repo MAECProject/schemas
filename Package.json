@@ -2,14 +2,12 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {"PackageType": {
         "title":"Package",
-	"type": "object",
+        "type": "object",
         "description": "Standard output format that can be used to describe one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, CybOX Objects, and Collections and Relationships.",
         "properties": {
             "type":{
                 "type":"string",
-                "enum":[
-                    "package"
-                ],
+                "enum":["package"],
                 "description":"The value of this field MUST be \"package\"."
             },
             "id": {
@@ -21,19 +19,17 @@
                 "enum": [5.0],
                 "description": "Specifies the version of the MAEC specification used to represent the content in this Package. The value of this property MUST be 5.0 for Packages containing MAEC Objects defined in this specification."
             },
-            "objects": {
+            "maec_objects": {
                 "type": "array",
-                "items": {WHAT TO SPECIFY HERE},
                 "description": "Specifies a set of one or more MAEC Objects. Objects in this list MUST be a MAEC Top-level Object."
             },
             "observable_objects": {
                 "type": "array",
-                "items": {WHAT TO SPECIFY HERE},
                 "description": "Specifies a set of one or more STIX Cyber Observable Objects relevant to the MAEC package."
             },
             "relationships":{
                 "type": "array",
-                "items": {"$ref": "RelationshipType.json#/RelationshipType"},
+                "items": {"$ref": "Relationship.json#/definitions/RelationshipType"},
                 "description": "Specifies a set of one or more MAEC relationships. Each entry in this list must be of type Relationship."
             }
         },

@@ -25,11 +25,11 @@
                 "type": "array",
                 "items": {"type": "string"},
                 "description": "Specifies a set of one or more MAEC entities that are contained in the Collection. Each item specifies the unique ID of the entity being referenced. All entities MUST be present in the current Package."
-            },
+            }
         },
         "required": [
-            "id",
             "type",
+            "id",
             "association_type",
             "entity_refs"
         ]

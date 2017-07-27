@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {        
+        "FieldDataType":{
+            "title": "FieldData",
+            "type": "object",
+            "description": "Captures field data with a malware instance or family. At least one of \"delivery_vectors\" or \"first_seen\" or \"last_seen\" MUST be included when using this type.",
+            "properties": {
+                "delivery_vectors": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Specifies the vectors used to distribute/deploy the Malware Instance. The values for this property SHOULD come from the delivery-vector-ov vocabulary."
+                },
+                "first_seen": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Specifies the date/time that the malware instance was first seen by the producer of the Malware Instance Object."
+                },
+                "last_seen": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Specifies the date/time that the malware instance was last seen by producer of the Malware Instance Object."
+                }
+            }
+        }
+    }
+}

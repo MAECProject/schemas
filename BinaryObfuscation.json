@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": { 
+        "BinaryObfuscationType": {
+            "title": "BinaryObfuscation",
+            "type": "object",
+            "description": "Extension that captures metadata ont he methods that a binary may be obfuscated with, such as executable packers or XOR encryption. This includes obfuscation of the entire binary as well as its constituent pieces, such as strings.",
+            "properties": {
+                "method": {
+                    "type": "string",
+                    "description": "Specifies the method used in obfuscating the binary. The value for this property SHOULD come from the obfuscation-method-ov vocabulary."
+                },
+                "layer_order": {
+                    "type": "integer",
+                    "description": "Specifies the ordering of the obfuscation method with respect to other obfuscation methods (if known), as a positive integer. For example, if a binary was packed and then XOR encrypted, the packing layer would have an ordering of \"1\" and the XOR encryption layer would have an ordering of \"2\"."
+                },
+                "encryption_algorithm": {
+                    "type": "string",
+                    "description": "Specifies the name of the encryption algorithm used in the obfuscation method (if applicable). The values for this property SHOULD come from the STIX encryption-algo-ov vocabulary."
+                },
+                "packer_name": {
+                    "type": "string",
+                    "description": "Specifies the name of the packer (if applicable)."
+                },
+                "packer_version": {
+                    "type": "string",
+                    "description": "Specifies the version of the packer (id applicable)."
+                },
+                "packer_entry_point": {
+                    "type": "string",
+                    "description": "Specifies the entry point address of the packer (if applicable)."
+                },
+                "packer_signature": {
+                    "type": "string",
+                    "description": "Specifies the matching signature detected for the packer (if applicable)."
+                }
+            },
+            "required": ["method"]
+        }
+    }
+}

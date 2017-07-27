@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "SourceType":{
+            "title": "Source",
+            "type": "object",
+            "description": "Provides a way of characterizing the external source of a relevant MAEC entity, such as an Analysis. At least once \"name\" or \"organization\" MUST be included when using this type.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Refers to the name of the person associated with the source, such as the author of a report."
+                },
+                "references":{
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Provides an abstract way of specifying one or more external references for the source."
+                },
+                "organization":{
+                    "type": "string",
+                    "description": "Specifies the name of the organization from which the source originated."
+                }
+            }
+
+        }
+    }
+}

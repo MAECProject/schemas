@@ -4,7 +4,7 @@
         "RelationshipType": {
             "title":"Relationship",
             "type": "object",
-            "definition": "The RelationshipType captures relationships between two entities in the MAEC document.",
+            "definition": "Captures relationships between two entities in the MAEC document.",
             "properties": {
                 "type": {
                     "type": "string",
@@ -33,43 +33,16 @@
                 },
                 "metadata": {
                     "type": "object",
-                    "items": {THIS NEEDS TO BE AN OPEN ENDED DICT},
                     "description": "Specifies a dictionary of additional metadata around the relationship. Standard dictionary keys include the following: distance: used for capturing any distance related metadata. The corresponding value for this key MUST be an object of type RelationshipDistanceMetadataType. supporting_data_refs: references any entities in the MAEC document (e.g., Action or Object) that may support the Relationship. The corresponding value for this key MUST list of type identifier. Custom entries in the dictionary MAY also be included."
                 }
             },
             "required": [
+                "type",
                 "id",
                 "source_ref",
                 "target_ref",
-                "type",
                 "relationship_type"
             ]
-        },
-        "RelationshipDistanceType": {
-	    "title":"RelationshipDistance",
-            "type": "object",
-            "description": "Captures information associated with a distance metric between the source and target in the relationship.",
-            "properties": {
-                "distance_score": {
-                    "type": "number",
-                    "description": "Captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., \"0.62\"."
-                },
-                "algorithm_name": {
-                    "type": "string",
-                    "description": "Captures the name of the algorithm used in calculating the distance score specified in the distance_score field."
-                },
-                "algorithm_version": {
-                    "type": "string",
-                    "description": "Captures the version of the algorithm used in calculating the distance score specified in the distance_score field."
-                },
-                "metadata":{
-                    "type": "object",
-                    "items": {THIS NEEDS TO BE AN OPEN ENDED DICT},
-                    "description": "Specifies a dictionary of additional metadata around the distance score, as a set of key/value pairs. Dictionary keys and their corresponding values MUST be of type string. "
-
-                }
-            },
-            "required": ["distance_score"]
         }
     }
 }

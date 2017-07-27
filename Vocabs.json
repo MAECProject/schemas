@@ -4,7 +4,7 @@
         "analysis-conclusion-type-ov": {
             "title": "analysis conclusion",
             "type": "string",
-            "description": "enumeration of malware analysis conclusion types",
+            "description": "enumeration of malware analysis conclusion types.",
             "enum":[
                 "benign",
                 "malicious",
@@ -122,27 +122,6 @@
                 "completed",
                 "failed",
                 "terminated"
-            ]
-        },
-        "layer4-protocol-cv": {
-            "title": "layer 4 protocol cv",
-            "type": "string",
-            "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 4 (OSI model) network protocols.",
-            "enum": [
-                "tcp",
-                "udp"
-            ]
-        },
-        "layer7-protocol-cv": {
-            "title": "layer 7 protocol cv",
-            "type": "string",
-            "description": "layer7-protocol-ov is a non-exhaustive enumeration of Layer 7 (OSI model) network protocols.",
-            "enum": [
-                "ftp",
-                "http",
-                "https",
-                "irc",
-                "smtp"
             ]
         },
         "malware-action-ov": {

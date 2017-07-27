@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {        
+        "SignatureMetadataType": {
+            "title": "SignatureMetadata",
+            "type": "object",
+            "description": "Captures metadata associated with a signature (for example, a YARA rule) that may have been triggered during the analysis of a Malware Instance.",
+            "properties": {
+                "signature_type": {
+                    "type": "string",
+                    "description": "Specifies the type of the signature, i.e., the language or platform it is written for. For example, “snort”, for the Snort network intrusion detection system (NIDS). The values for this property SHOULD come from the signature-type-ov vocabulary."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name provided for the signature (if applicable)."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies a textual description of the signature."
+                },
+                "author": {
+                    "type": "string",
+                    "description": "Specifies the name of the author of the signature."
+                },
+                "reference": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Specifies an external reference associated with the signature."
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "Specifies a measure of severity associated with the detection of the signature."
+                },
+                "external_id": {
+                    "type": "string",
+                    "description": "Specifies an external identifier associated with the signature."
+                }
+            },
+            "required":["signature_type"]
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "RelationshipDistanceType": {
+	       "title":"RelationshipDistance",
+            "type": "object",
+            "description": "Captures information associated with a distance metric between the source and target in the relationship.",
+            "properties": {
+                "distance_score": {
+                    "type": "number",
+                    "description": "Captures the distance score between the source and target in the relationship. This is most commonly represented as a floating point value between zero and one (with a higher value representing a greater distance between the two), e.g., \"0.62\"."
+                },
+                "algorithm_name": {
+                    "type": "string",
+                    "description": "Captures the name of the algorithm used in calculating the distance score specified in the distance_score field."
+                },
+                "algorithm_version": {
+                    "type": "string",
+                    "description": "Captures the version of the algorithm used in calculating the distance score specified in the distance_score field."
+                },
+                "metadata":{
+                    "type": "object",
+                    "description": "Specifies a dictionary of additional metadata around the distance score, as a set of key/value pairs. Dictionary keys and their corresponding values MUST be of type string."
+                }
+            },
+            "required": ["distance_score"]
+        }
+    }
+}
