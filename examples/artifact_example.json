@@ -2,14 +2,14 @@
 	"type":"package",
 	"id":"package--8b528c58-4ce6-446a-bf18-9a3e4a1425cc",
 	"schema_version":"5.0",
-	"malware_instances":[
+	"maec_objects":[
 		{
 			"type":"malware-instance",
 			"id":"malware_instance--9b947fbc-68da-43ee-a323-125e3f8cd64a",
 			"instance_object_refs":["object--1"]
 		}
 	],
-	"objects":{
+	"observable_objects":{
 		"object--1":{
 			"type":"file",
 			"size":24840,
