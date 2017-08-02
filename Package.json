@@ -24,7 +24,7 @@
                 "description": "Specifies a set of one or more MAEC Objects. Objects in this list MUST be a MAEC Top-level Object."
             },
             "observable_objects": {
-                "type": "array",
+                "type": "object",
                 "description": "Specifies a set of one or more STIX Cyber Observable Objects relevant to the MAEC package."
             },
             "relationships":{

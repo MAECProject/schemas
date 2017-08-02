@@ -1,106 +1,116 @@
 {
-  "type":"package",
-  "id":"maec-example-pkg-1",
-  "schema_version":"5.0",
-  "malware instances":[
-  	{
-      "type":"malware-instance",
-  		"id":"maec-example-sub-1",
-  		"instance_object_refs":["object--1"],
-  		"labels":[
-  			"tojan horse",
-  			"clicker"
-  		]
-  	},
-  	{
-      "type":"malware-instance",
-  		"id":"maec-example-sub-2",
-  		"instance_object_refs":["object--2"],
-  		"labels":[
-  			"trojan horse",
-  			"clicker"
-  		]
-  	},
-  	{
-      "type":"malware-instance",
-  		"id":"maec-example-sub-3",
-  		"instance_object_refs":["object--3"],
-  		"labels":[
-  			"trojan horse"
-  		]
-  	}
-  ],
-	"objects":{
-		"object--1":{
-			"type":"file",
-			"hashes":{
-				"MD5":"89c11cc1e7bcad1fa677201b29b46f5d"
-			},
-			"extended_properties":{
-				"x-maec-avclass":{
-					"av_name":"Microsoft Security Essentials",
-					"av_vendor":"Microsoft",
-					"classification_name":"TrojanClicker:Win32/Small"
-				}
-			}
-		},
-		"object--2":{
-			"type":"file",
-			"hashes":{
-				"MD5":"c4e0a16a8833a55e5ed8971783d09181"
-			},
-			"extended_properties":{
-				"x-maec-avclass":{
-					"av_name":"Microsoft Security Essentials",
-					"av_vendor":"Microsoft",
-					"classification_name":"TrojanClicker:Win32/Small.I"
-				}
-			}
-		},
-		"object--3":{
-			"type":"file",
-			"hashes":{
-				"MD5":"40b1b0944f76d8f54f2564f69b6850102"
-			},
-			"extended_properties":{
-				"x-maec-avclass":{
-					"av_name":"Microsoft Security Essentials",
-					"av_vendor":"Microsoft",
-					"classification_name":"TrojanClicker:Win32/Small"
-				}
-			}
-		}
-	},
-  "relationships":[
-  	{
-  		"type":"realtionship",
-  		"source_ref":"maec-example-sub-1",
-  		"target_ref":"maec-example-sub-2",
-  		"distance":{
-  			"distance_score":0.66667,
-  			"algorithm_name":"Test Algorithm",
-  			"algorithm_version":"1.0"
-  		}
-  	},
-  	{
-  		"type":"relationship",
-  		"source_ref":"maec-example-sub-1",
-  		"target_ref":"maec-example-sub-3",
-  		"distance":{
-  			"distance_score":1.0,
-  			"algorithm_name":"Test Algorithm",
-  			"algorithm_version":"1.0"
-  		}
-  	},
-  	{
-  		"type":"relationship",
-  		"source_ref":"maec-example-sub-2",
-  		"target_ref":"maec-example-sub-3",
-  		"distance":{
-  			"distance_score":0.66667,
-  			"algorithm_name":"Test Algorithm",
-  			"algorithm_version":"1.0"	
-  		}
-  	}
-  ]
+    "type": "package",
+    "id": "maec-example-pkg-1",
+    "schema_version": "5.0",
+    "maec_instances": [
+        {
+            "type": "malware-instance",
+            "id": "malware-instance--bc387224-2120-4fb8-949e-55a2b899f184",
+            "instance_object_refs": ["object--1"],
+            "labels": [
+               "tojan horse",
+                "clicker"
+            ]
+        },
+        {
+            "type": "malware-instance",
+            "id": "malware-instance--60721f53-952e-4110-ad02-132e4cbeffd4",
+            "instance_object_refs": ["object--2"],
+            "labels":[
+                "trojan horse",
+                "clicker"
+            ]
+        },
+        {
+            "type": "malware-instance",
+            "id": "malware-instance--1d90ffa0-22b8-4d5e-9518-132742f41b49",
+            "instance_object_refs": ["object--3"],
+            "labels": ["trojan horse"]
+        }
+    ],
+    "observable_objects": {
+        "object--1": {
+            "type": "file",
+            "hashes": {
+                "MD5": "89c11cc1e7bcad1fa677201b29b46f5d"
+            },
+            "extended_properties": {
+                "x-maec-avclass": {
+                    "av_name": "Microsoft Security Essentials",
+                    "av_vendor": "Microsoft",
+                    "classification_name": "TrojanClicker:Win32/Small"
+                }
+            }
+        },
+        "object--2": {
+            "type": "file",
+            "hashes": {
+                "MD5": "c4e0a16a8833a55e5ed8971783d09181"
+            },
+            "extended_properties":{
+               "x-maec-avclass": {
+                    "av_name": "Microsoft Security Essentials",
+                    "av_vendor": "Microsoft",
+                    "classification_name": "TrojanClicker:Win32/Small.I"
+                }
+            }
+        },
+        "object--3": {
+            "type": "file",
+            "hashes": {
+                "MD5": "40b1b0944f76d8f54f2564f69b6850102"
+            },
+            "extended_properties": {
+               "x-maec-avclass": {
+                   "av_name": "Microsoft Security Essentials",
+                   "av_vendor": "Microsoft",
+                    "classification_name": "TrojanClicker:Win32/Small"
+                }
+            }
+        }
+    },
+    "relationships": [
+        {
+            "type": "realtionship",
+            "id": "relationship--1ad934b9-b918-4229-8fbf-3eb983948f1c",
+            "relationship_type": "similirarity score",
+            "source_ref": "malware-instance--bc387224-2120-4fb8-949e-55a2b899f184",
+            "target_ref": "malware-instance--60721f53-952e-4110-ad02-132e4cbeffd4",
+            "metadata": {
+                "distance":{
+                    "distance_score": 0.66667,
+                    "algorithm_name": "Test Algorithm",
+                    "algorithm_version": "1.0"
+                }
+            }
+        },
+        {
+            "type": "relationship",
+            "id": "relationship--f716a2f3-71e0-42c2-aef4-e43f5b64f69f",
+            "relationship_type": "similirarity score",
+            "source_ref": "malware-instance--bc387224-2120-4fb8-949e-55a2b899f184",
+            "target_ref": "malware-instance--1d90ffa0-22b8-4d5e-9518-132742f41b49",
+            "metadata": {
+                "distance": {
+                    "distance_score": 1.0,
+                    "algorithm_name": "Test Algorithm",
+                    "algorithm_version": "1.0"
+               }
+            }
+        },
+        {
+            "type": "relationship",
+            "id": "relationship--4872c245-dcca-4ae8-98e8-a1792c873fc1",
+            "relationship_type": "similirarity score",
+            "source_ref": "malware-instance--60721f53-952e-4110-ad02-132e4cbeffd4",
+            "target_ref": "malware-instance--1d90ffa0-22b8-4d5e-9518-132742f41b49",
+            "metadata": {
+                "distance": {
+                    "distance_score": 0.66667,
+                    "algorithm_name": "Test Algorithm",
+                    "algorithm_version": "1.0"     
+                }
+            }
+        }
+    ]
 }

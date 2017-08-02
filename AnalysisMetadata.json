@@ -41,12 +41,12 @@
                 "comments": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description":"Specifies any comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
+                    "description":"Captures comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
                 },
                 "tool_refs": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "Captures set of references to one or more Tools used in the analysis of a Malware Instance. Values MUST be references to Software Objects in the objects field at the top-level of the Package."
+                    "description": "Captures references to Tools used in the analysis of a Malware Instance. Values MUST be references to Objects of type software captured in the objects property at the top-level of the Package."
                 },
                 "description": {
                     "type": "string",

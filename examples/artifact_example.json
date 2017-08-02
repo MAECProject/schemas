@@ -27,6 +27,7 @@
 	"relationships":[
 		{
 			"type":"relationship",
+			"id": "relationship--1c13e1060-1e13-4bcb-fdf1-e18e134115b",
 			"target_ref": "malware_instance--9b947fbc-68da-43ee-a323-125e3f8cd64a",
 			"source_ref":"object--2",
 			"relationship_type":"network traffic capture of"

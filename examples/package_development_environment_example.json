@@ -1,33 +1,31 @@
 {
-  "type":"package",
-  "id":"maec-example-pkg-1",
-  "schema_version":"5.0",
-  "malware_instances":[
-    {
-      "type":"malware-instance",
-    	"id":"maec-tst-sub-1",
-    	"instance_object_refs":["object--1"],
-      "static_features":{
-        "development_environment":{
-          "tool_refs":[
-            "tool-1"
-          ]
+    "type": "package",
+    "id": "maec-example-pkg-1",
+    "schema_version": "5.0",
+    "maec_objects": [
+        {
+            "type": "malware-instance",
+        	"id": "malware-instance--4b0c579e-c63c-4b61-ac68-d9e8254e5b4b",
+        	"instance_object_refs": ["object--1"],
+            "static_features": {
+                "development_environment": {
+                    "tool_refs": ["tool-1"]
+                }
+            }
         }
-      }
-    }
-   ],
-	"objects":{
-		"object--1":{
-			"type":"file",
-			"hashes":{
-				"MD5":"4EC0027BEF4D7E1786A04D021FA8A67F"
+     ],
+	"observable_objects": {
+		"object--1": {
+			"type": "file",
+			"hashes": {
+				"MD5": "4EC0027BEF4D7E1786A04D021FA8A67F"
 			}
 		},
-		"tool-1":{
-			"type":"software",
-			"name":"Microsoft Visual C++ compiler",
-			"version":"6.0",
-			"description":"compiler"
+		"tool-1": {
+			"type": "software",
+			"name": "Microsoft Visual C++ compiler",
+			"version": "6.0",
+			"description": "compiler"
 		}
 	}
 }

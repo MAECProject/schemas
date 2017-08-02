@@ -1,226 +1,188 @@
 {
-  "type":"package",
-  "id":"maec-example-pkg-1",
-  "schema_version":"5.0",
-  "malware instances":[
-  	{
-      "type":"malware-instance",
-  		"id":"maec-example-sub-1",
-  		"instance_object_refs":["object--1"],
-  		"labels":[
-  			"trojan horse",
-  			"bot",
-  			"keylogger",
-  			"password stealer"
-  		],
-  		"analyses":[
-  			{
-  				"analysis_type":"dynamic",
-  				"description":"Dynamic (behavioral) triage of the subject binary.",
-  				"tool_refs":[
-  					"maec-example-tool-1"
-  				]
-  			},
-  			{
-  				"analysis_type":"dynamic",
-  				"description":"Dynamic (behavioral) and tool-based triage of the subject binary.",
-  				"tool_refs":[
-  					"maec-example-tool-2"
-  				]
-  			}
-  		],
-      "behavioral_features":{
-        "action_refs":[
-          "maec-anubis_to_maec_act-1",
-          "maec-anubis_to_maec_act-2",
-          "maec-anubis_to_maec_act-3",
-          "maec-threatexpert_to_maec-act-1",
-          "maec-threatexpert_to_maec-act-2",
-          "maec-threatexpert_to_maec-act-3"
-        ]
-      }
-  	}
-  ],
-	"objects":{
-		"object--1":{
-			"type":"file",
-			"file_name":"076e5b2bae.exe",
+    "type": "package",
+    "id": "maec-example-pkg-1",
+    "schema_version": "5.0",
+    "maec_instances": [
+        {
+            "type": "malware-instance",
+    		"id": "malware-instance--5746070b-7e0b-45c7-8980-84427ef773b3",
+    		"instance_object_refs": ["object--1"],
+    		"labels": [
+    			"trojan horse",
+    			"bot",
+    			"keylogger",
+    			"password stealer"
+    		],
+    		"analysis_metadata": [
+    			{
+                    "is_automated": "True",
+    				"analysis_type": "dynamic",
+    				"description": "Dynamic (behavioral) triage of the subject binary.",
+    				"tool_refs": ["maec-example-tool-1"]
+    			},
+    			{
+                    "is_automated": "True",
+    				"analysis_type": "dynamic",
+    				"description": "Dynamic (behavioral) and tool-based triage of the subject binary.",
+    				"tool_refs": ["maec-example-tool-2"]
+    			}
+    		],
+            "dynamic_features":{
+                "action_refs":[
+                    "malware-instance--9bee0108-97ea-41e9-b624-f199119e280d",
+                    "malware-instance--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
+                    "malware-instance--ece7bf16-b2bd-4c10-8811-57f04243b556",
+                    "malware-instance--58c4ea1f-8ff4-42e8-8484-e87956139bce",
+                    "malware-instance--33faf89e-395a-47a0-8b43-edfa29500327",
+                    "malware-instance--a59c098a-3129-4c2d-8a71-335ae1def77e"
+                ]
+            }
+    	},
+        {
+            "type": "malware-action",
+            "id": "malware-instance--9bee0108-97ea-41e9-b624-f199119e280d",
+            "name": "create file",
+            "output_object_refs": ["maec-anubis_to_maec-obj-1"],
+            "status": "Success"
+        },
+        {
+            "type": "malware-action",
+            "id": "malware-instance--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
+            "name": "create mutex",
+            "output_object_refs": ["maec-anubis_to_maec-obj-2"],
+            "status": "Success"
+        },
+        {
+            "type": "malware-action",
+            "id": "malware-instance--ece7bf16-b2bd-4c10-8811-57f04243b556",
+            "name": "modify registry key value",
+            "input_object_refs": ["maec-anubis_to_maec-obj-3"],
+            "status":"Success"
+        },
+        {
+            "type": "malware-action",
+            "id": "malware-instance--58c4ea1f-8ff4-42e8-8484-e87956139bce",
+            "name": "create file",
+            "output_object_refs":["maec-threatexpert_to_maec-obj-1"],
+            "status":"Success"
+        },
+        {
+            "type": "malware-action",
+            "id": "malware-instance--33faf89e-395a-47a0-8b43-edfa29500327",
+            "name": "create mutex",
+            "output_object_refs": ["maec-threatexpert_to_maec-obj-2"],
+            "status": "Success"
+        },
+        {
+            "type": "malware-action",
+            "id": "malware-instance--a59c098a-3129-4c2d-8a71-335ae1def77e",
+            "name": "create registry key",
+            "output_object_refs": ["maec-threatexpert_to_maec-obj-3"],
+            "status":"Success"
+        },
+        {
+            "type": "collection",
+            "id": "collection--bcaec31e-2a3c-48df-a270-f4802cd6b8fd",
+            "association_type": "malware-action entities",
+            "description": "File System Actions",
+            "entity_refs": ["malware-instance--9bee0108-97ea-41e9-b624-f199119e280d"]
+        },
+        {
+            "type": "collection",
+            "id": "collection--ceaf683b-e850-4b99-bf4d-b821d53ab222",
+            "association_type": "malware-action entities",
+            "description": "Synchronization Actions",
+            "entity_refs": [
+                "malware-instance--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
+                "malware-instance--33faf89e-395a-47a0-8b43-edfa29500327"
+            ]
+        },
+        {
+            "type": "collection",
+            "id": "collection--39553fef-34e2-443e-9b77-19d79344bed6",
+            "association_type": "malware-action entities",
+            "description": "Registry Actions",
+            "entity_refs": [
+                "malware-instance--ece7bf16-b2bd-4c10-8811-57f04243b556",
+                "malware-instance--a59c098a-3129-4c2d-8a71-335ae1def77e"
+            ]
+        },
+        {
+            "type":"collection",
+            "id":"collection--bdbd3a1d-2b0e-4c6e-8ed2-658611af3899",
+            "association_type": "malware-action entities",
+            "description": "File System Actions",
+            "entity_refs":["malware-instance--58c4ea1f-8ff4-42e8-8484-e87956139bce"]
+        }
+    ],
+	"observable_objects": {
+		"object--1": {
+			"type": "file",
+			"file_name": "076e5b2bae.exe",
 			"parent_directory_ref": "parent-dir-obj-1",
-			"size":77312,
-			"hashes":{
-				"MD5":"076e5b2bae0b4b3a3d81c85610b95cd4",
-				"SHA1":"4484e08903744ceeaedd8f5e1bfc06b2c4688e76"
+			"size": 77312,
+			"hashes": {
+				"MD5": "076e5b2bae0b4b3a3d81c85610b95cd4",
+				"SHA1": "4484e08903744ceeaedd8f5e1bfc06b2c4688e76"
 			}
 		},
-		"parent-dir-obj-1":{
-			"type":"directory",
-			"path":"C:\\"
+		"parent-dir-obj-1": {
+			"type": "directory",
+			"path": "C:\\"
 		},
-		"maec-example-tool-1":{
-			"type":"software",
-			"name":"Anubis",
-			"vendor":"IsecLab"
+		"maec-example-tool-1": {
+			"type": "software",
+			"name": "Anubis",
+			"vendor": "IsecLab"
 		},
-		"maec-example-tool-2":{
-			"type":"software",
-			"name":"ThreatExpert",
-			"vendor":"Symantec"
+		"maec-example-tool-2": {
+			"type": "software",
+			"name": "ThreatExpert",
+			"vendor": "Symantec"
 		},
-		"maec-anubis_to_maec-obj-1":{
-			"type":"file",
-			"file_name":"oembios.exe",
-			"parent_directory_ref":"parent-dir-obj-2"
+		"maec-anubis_to_maec-obj-1": {
+			"type": "file",
+			"file_name": "oembios.exe",
+			"parent_directory_ref": "parent-dir-obj-2"
 		},
-		"parent-dir-obj-2":{
-			"type":"directory",
-			"path":"C:\\Windows\\system32\\"
+		"parent-dir-obj-2": {
+			"type": "directory",
+			"path": "C:\\Windows\\system32\\"
 		},
-		"maec-anubis_to_maec-obj-2":{
-			"type":"mutex-object",
-			"name":"__SYSTEM__91C38905__"
+		"maec-anubis_to_maec-obj-2": {
+			"type": "mutex-object",
+			"name": "__SYSTEM__91C38905__"
 		},
-		"maec-anubis_to_maec-obj-3":{
-			"type":"windows-registry-key",
-			"key":"HKEY_LOCAL_MACHINE\\software\\microsoft\\windows nt\\currentversion\\winlogon",
-			"values":[
+		"maec-anubis_to_maec-obj-3": {
+			"type": "windows-registry-key",
+			"key": "HKEY_LOCAL_MACHINE\\software\\microsoft\\windows nt\\currentversion\\winlogon",
+			"values": [
 				{
 					"name":"userinit",
 					"data":"C:\\WINDOWS\\system32\\userinit.exe,C:\\WINDOWS\\system32\\oembios.exe,"
 				}
 			]
 		},
-		"maec-threatexpert_to_maec-obj-1":{
-			"type":"file",
-			"file_name":"sysproc32.sys",
-			"parent_directory_ref":"parent-dir-obj-3",
+		"maec-threatexpert_to_maec-obj-1": {
+			"type": "file",
+			"file_name": "sysproc32.sys",
+			"parent_directory_ref": "parent-dir-obj-3",
 			"hashes":{
 				"MD5": "9855B3C1D06770B46927917F89C7FAEE",
 				"SHA1":"1BF78B02A09E11414C2DFF3C4FF7DFA282A4125E"
 			}
 		},
-		"parent-dir-obj-3":{
-			"type":"directory",
-			"path":"%Profiles%\\LocalService\\Application Data\\sysproc64\\"
+		"parent-dir-obj-3": {
+			"type": "directory",
+			"path": "%Profiles%\\LocalService\\Application Data\\sysproc64\\"
 		},
-		"maec-threatexpert_to_maec-obj-2":{
-			"type":"mutex-object",
-			"name":"__SYSTEM__91C38905__"
+		"maec-threatexpert_to_maec-obj-2": {
+			"type": "mutex-object",
+			"name": "__SYSTEM__91C38905__"
 		},
-		"maec-threatexpert_to_maec-obj-3":{
-			"type":"windows-registry-key",
-			"key":"HKEY_USERS\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\{19127AD2-394B-70F5-C650-B97867BAA1F7}"
+		"maec-threatexpert_to_maec-obj-3": {
+			"type": "windows-registry-key",
+			"key": "HKEY_USERS\\.DEFAULT\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\{19127AD2-394B-70F5-C650-B97867BAA1F7}"
 		}
-	},
-  "actions":[
-  	{
-      "type":"action",
-  		"id":"maec-anubis_to_maec_act-1",
-  		"name":"create file",
-      "output_object_refs":[
-        "maec-anubis_to_maec-obj-1"
-      ],
-  		"status":"Success"
-  	},
-  	{
-      "type":"action",
-  		"id":"maec-anubis_to_maec_act-2",
-  		"name":"create mutex",
-      "output_object_refs":[
-        "maec-anubis_to_maec-obj-2"
-      ],
-  		"status":"Success"
-  	},
-  	{
-      "type":"action",
-  		"id":"maec-anubis_to_maec_act-3",
-  		"name":"modify registry key value",
-      "input_object_refs":[
-        "maec-anubis_to_maec-obj-3"
-      ],
-  		"status":"Success"
-  	},
-  	{
-      "type":"action",
-  		"id":"maec-threatexpert_to_maec-act-1",
-  		"name":"create file",
-      "output_object_refs":[
-        "maec-threatexpert_to_maec-obj-1"
-      ],
-  		"status":"Success"
-  	},
-  	{
-      "type":"action",
-  		"id":"maec-threatexpert_to_maec-act-2",
-  		"name":"create mutex",
-      "output_object_refs":[
-        "maec-threatexpert_to_maec-obj-2"
-      ],
-  		"status":"Success"
-  	},
-  	{
-      "type":"action",
-  		"id":"maec-threatexpert_to_maec-act-3",
-  		"name":"create registry key",
-      "output_object_refs":[
-        "maec-threatexpert_to_maec-obj-3"
-      ],
-  		"status":"Success"
-  	}
-  ],
-  "collections":[
-  	{
-      "type":"collection",
-  		"id":"maec-anubis_to_maec-actc-1",
-  		"name":"File System Actions",
-  		"maec_entity_type":"actions",
-  		"entity_refs":[
-  			"maec-anubis_to_maec-obj-1"
-  		]
-   	},
-   	{
-        "type":"collection",
-    		"id":"maec-anubis_to_maec-actc-2",
-    		"name":"Synchronization Actions",
-    		"maec_entity_type":"actions",
-    		"entity_refs":[
-    			"maec-anubis_to_maec-obj-2"
-    		]
-   	},
-   	{
-      "type":"collection",
-   		"id":"maec-anubis_to_maec-actc-3",
-   		"name":"Registry Actions",
-   		"maec_entity_type":"actions",
-   		"entity_refs":[
-   			"maec-anubis_to_maec-obj-3"
-   		]
-   	},
-   	{
-      "type":"collection",
-   		"id":"maec-threatexpert_to_maec-actc-1",
-   		"name": "File System Actions",
-   		"maec_entity_type":"actions",
-   		"entity_refs":[
-   			"maec-threatexpert_to_maec-act-1"
-   		]
-   	},
-   	{
-      "type":"collection",
-   		"id":"maec-threatexpert_to_maec-actc-2",
-   		"name":"Synchronization Actions",
-   		"maec_entity_type":"actions",
-   		"entity_refs":[
-   			"maec-threatexpert_to_maec-act-2"
-   		]
-   	},
-   	{
-      "type":"collection",
-   		"id":"maec-threatexpert_to_maec-actc-3",
-   		"name":"Registry Actions",
-   		"maec_entity_type":"actions",
-   		"entity_refs":[
-   			"maec-threatexpert_to_maec-act-3"
-   		]
-   	}
-  ]
+	}
 }

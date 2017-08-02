@@ -1,122 +1,105 @@
 {
-	"type":"package",
-	"id":"package--f9f00b01-ce0a-4193-8005-ae8aab645b53",
-	"schema_version":"5.0",
-	"malware_instances":[
+	"type": "package",
+	"id": "package--f9f00b01-ce0a-4193-8005-ae8aab645b53",
+	"schema_version": "5.0",
+	"maec_objects": [
 		{
-			"type":"malware-instance",
-			"id":"malware_instance--b72eed82-4333-4f41-830e-0e806b53dc4e",
-			"instance_object_refs":["object--1"],
-			"labels":[
-				"dropper file"
-			],
-			"behavioral_features":{
-				"behavior_refs":[
-					"behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"
-				],
-				"action_refs":[
+			"type": "malware-instance",
+			"id": "malware_instance--b72eed82-4333-4f41-830e-0e806b53dc4e",
+			"instance_object_refs": ["object--1"],
+			"labels": ["dropper file"],
+			"dynamic_features": {
+				"behavior_refs": ["behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"],
+				"action_refs": [
 					"action--33e9271d-30b5-4db1-9fca-892ffae1f087",
 					"action--3b127f1c-59cf-460d-8eab-afd1ee705d16"
 				]
 			},
-			"capabilities":[
+			"capabilities": [
 				{
-					"name":"persistence",
-					"refined_capabilities":[
+					"name": "persistence",
+					"refined_capabilities": [
 						{
 							"name":"continuous execution"
 						}
 					],
-					"attributes":[
+					"attributes": [
 						{
-							"name":"persistence scope",
-							"value":"self"
+							"persistence scope": "self"
 						}
 					],
-					"behavior_refs":[
-						"behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"
-					]
+					"behavior_refs": ["behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"]
 				}
 			],
-			"analyses":[
+			"analysis_metadata": [
 				{
-					"analysis_type":"dynamic",
-					"description":"Dynamic (behavorial) triage of the subject binary",
-					"tool_refs":[
-						"object--7"
-					]
+					"is_automated": "True",
+					"analysis_type": "dynamic",
+					"description": "Dynamic (behavorial) triage of the subject binary",
+					"tool_refs": ["object--7"]
 				},
 				{
-					"analysis_type":"dynamic",
-					"description":"Dynamic (behavorial) and tool-based triage of the subject binary",
-					"tool_refs":[
-						"object--8"
-					]
+					"is_automated": "True",
+					"analysis_type": "dynamic",
+					"description": "Dynamic (behavorial) and tool-based triage of the subject binary",
+					"tool_refs": ["object--8"]
 				},
 				{
-					"analysis_type":"static",
-					"description":"Manual analysis of the subject binary"
+					"is_automated": "False",
+					"analysis_type": "static",
+					"description": "Manual analysis of the subject binary"
 				}
 			]
-		}
-	],
-
-	"behaviors":[
+		},
 		{
-			"type":"behavior",
-			"id":"behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67",
-			"name":"persist after system reboot",
-			"implementation":"A persistence after reboot behavior using the Windows startup folder",
-			"action_refs":[
+			"type": "behavior",
+			"id": "behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67",
+			"name": "persist after system reboot",
+			"description": "A persistence after reboot behavior using the Windows startup folder",
+			"action_refs": [
 				"action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
 				"action--33e9271d-30b5-4db1-9fca-892ffae1f087"
 			]
-		}
-	],
-	"actions": [
-		{
-			"type":"malware-action",
-			"action_status":"success",
-			"id":"action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
-			"name":"create file",
-			"output_object_refs":[
-				"object--2"
-			]
 		},
 		{
-			"type":"malware-action",
-			"action_status":"success",
-			"id":"action--33e9271d-30b5-4db1-9fca-892ffae1f087",
-			"name":"create file",
-			"output_object_refs":[
-				"object--3"
-			]
+			"type": "malware-action",
+			"id": "action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
+			"name": "create file",
+			"status": "success",
+			"output_object_refs": ["object--2"]
+		},
+		{
+			"type": "malware-action",
+			"id": "action--33e9271d-30b5-4db1-9fca-892ffae1f087",
+			"name": "create file",
+			"status": "success",
+			"output_object_refs": ["object--3"]
 		}
 	],
-	"objects":{
-		"object--1":{
-			"type":"file",
-			"file_name":"2ed2386bfb.exe",
-			"parent_directory_ref":"object--4",
+	"observable_objects": {
+		"object--1": {
+			"type": "file",
+			"file_name": "2ed2386bfb.exe",
+			"parent_directory_ref": "object--4",
 			"size": 379077,
-			"hashes":{
-				"MD5":"2ed2386fbd31a1104e402a0c97c1aa6", 
-				"SHA-1":"611a0dae515ea4606c1e3b76814af902ed5f349"
+			"hashes": {
+				"MD5": "2ed2386fbd31a1104e402a0c97c1aa6", 
+				"SHA-1": "611a0dae515ea4606c1e3b76814af902ed5f349"
 			}
 		},
-		"object--2":{
-			"type":"file",
-			"file_name":"taskmgrsx.exe",
-			"parent_directory_ref":"object--5"
+		"object--2": {
+			"type": "file",
+			"file_name": "taskmgrsx.exe",
+			"parent_directory_ref": "object--5"
 		},
-		"object--3":{
-			"type":"file",
-			"file_name":"taskmgrsx.exe",
-			"parent_directory_ref":"object--6"
+		"object--3": {
+			"type": "file",
+			"file_name": "taskmgrsx.exe",
+			"parent_directory_ref": "object--6"
 		},
-		"object--4":{
+		"object--4": {
 			"type": "directory",
-			"path":"C:\\"
+			"path": "C:\\"
 		},
 		"object--5":{
 			"type": "directory",
@@ -126,23 +109,24 @@
 			"type": "directory",
 			"path":"%Programs%\\Startup\\"
 		},
-		"object--7":{
-			"type":"software",
-			"name":"Anubis",
-			"vendor":"IsecLab"
+		"object--7": {
+			"type": "software",
+			"name": "Anubis",
+			"vendor": "IsecLab"
 		},
-		"object--8":{
-			"type":"software",
-			"name":"ThreatExpert",
-			"vendor":"Symantec"
+		"object--8": {
+			"type": "software",
+			"name": "ThreatExpert",
+			"vendor": "Symantec"
 		}
 	},
 	"relationships":[
 		{
-			"type":"relationship",
-			"source_ref":"maec-anubis_to_maec-act-1",
-			"target_ref":"maec-threatexpert_to_maec-act-1",
-			"relationship_type":"equivalent"
+			"type": "relationship",
+			"id": "relationnship--89c7873f-30b5-4db1-9fca-892ffae1f087",
+			"source_ref": "maec-anubis_to_maec-act-1",
+			"target_ref": "maec-threatexpert_to_maec-act-1",
+			"relationship_type": "equivalent"
 		}
 	]
 }
