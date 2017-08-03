@@ -5,7 +5,7 @@
 	"maec_objects": [
 		{
 			"type": "malware-instance",
-			"id": "malware_instance--8bcf14e9-2ba2-44ef-9e32-fbbc9d2608b2",
+			"id": "malware-instance--8bcf14e9-2ba2-44ef-9e32-fbbc9d2608b2",
 			"instance_object_refs": ["object--1"]
 		}
 	],

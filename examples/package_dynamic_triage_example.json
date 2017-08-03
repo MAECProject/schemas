@@ -1,6 +1,6 @@
 {
 	"type": "package",
-	"id": "maec-example-pkg-1",
+	"id": "package--57d19109-93ee-4326-bf0f-29c5e1063470",
 	"schema_version": "5.0",
 	"maec_objects": [
 		{
@@ -33,49 +33,45 @@
 				"process_tree": [
 					{
 						"process_ref": "maec-example-pro-obj-1",
+						"ordinal_position": 0,
 						"initiated_action_refs": [
 							"malware-action--e94948a2-2eae-4f74-aab2-757ad91cf07c",
 							"malware-action--12c701bd-f07a-4481-ae46-e4ff10707951",
 							"malware-action--ff7b4095-93eb-4172-bb16-3825ce302b98",
 							"malware-action--643a8371-7454-4b5b-9478-8cbdf103c158",
 							"malware-action--8a021a6c-ecc1-4a66-a250-7557a10b6027"
-						],
-						"injected_processes": [
-							{
-								"process_ref": "maec-example-pro-obj-2",
-								"id": "maec-example-pro-2",
-								"parent_action_ref": "malware-action--fd1f13c6-917b-4209-a7e5-065daf6ac90a",
-								"initiated_action_refs": [
-									"malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
-									"malware-action--93f50af2-0497-4c97-bf50-5eb4c2d93997",
-									"malware-action--c7fe23fc-bdab-4b14-8d5d-cf8a1a8f162b",
-									"malware-action--650096a1-4355-44da-b3cc-3bac279e90d1",
-									"malware-action--6875036d-787b-4b78-9e95-9476889d712c",
-									"malware-action--f78e4b46-ff6c-418b-8713-c380b7fcb4f8",
-									"malware-action--736dd7b2-49ac-48c3-8b83-6d9a94be509d",
-									"malware-action--07d1e675-f60d-4d08-b929-92cbc0000860",
-									"malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e",
-									"malware-action--fa56fbdb-d4ed-4b56-847a-a166038df73e"
-								],
-								"spawned_processes": [
-									{
-										"process_ref": "maec-example-pro-obj-3",
-										"id": "maec-example-pro-3",
-										"parent_action_ref": "malware-action--07d1e675-f60d-4d08-b929-92cbc0000860"
-									},
-									{
-										"process_ref": "maec-example-pro-obj-4",
-										"id": "maec-example-pro-4",
-										"parent_action_ref": "maec-example-act10",
-										"initiated_action_refs":[
-											"malware-action--92a20a21-f23f-4e3c-9e08-671a64652be5",
-											"malware-action--c3c54677-ef90-4b48-809b-640bbe03f3ef",
-											"malware-action--97f756f4-fda8-48bd-8715-7b44f2b22239"
-										]
-									}
-
-								]
-							}
+						]
+					},
+					{
+						"process_ref": "maec-example-pro-obj-2",
+						"ordinal_position": 2,
+						"parent_action_ref": "malware-action--fd1f13c6-917b-4209-a7e5-065daf6ac90a",
+						"initiated_action_refs": [
+							"malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
+							"malware-action--93f50af2-0497-4c97-bf50-5eb4c2d93997",
+							"malware-action--c7fe23fc-bdab-4b14-8d5d-cf8a1a8f162b",
+							"malware-action--650096a1-4355-44da-b3cc-3bac279e90d1",
+							"malware-action--6875036d-787b-4b78-9e95-9476889d712c",
+							"malware-action--f78e4b46-ff6c-418b-8713-c380b7fcb4f8",
+							"malware-action--736dd7b2-49ac-48c3-8b83-6d9a94be509d",
+							"malware-action--07d1e675-f60d-4d08-b929-92cbc0000860",
+							"malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e",
+							"malware-action--fa56fbdb-d4ed-4b56-847a-a166038df73e"
+						]
+					},
+					{
+						"process_ref": "maec-example-pro-obj-3",
+						"ordinal_position": 3, 
+						"parent_action_ref": "malware-action--07d1e675-f60d-4d08-b929-92cbc0000860"
+					},
+					{
+						"process_ref": "maec-example-pro-obj-4",
+						"ordinal_position": 4,
+						"parent_action_ref": "malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e",
+						"initiated_action_refs":[
+							"malware-action--92a20a21-f23f-4e3c-9e08-671a64652be5",
+							"malware-action--c3c54677-ef90-4b48-809b-640bbe03f3ef",
+							"malware-action--97f756f4-fda8-48bd-8715-7b44f2b22239"
 						]
 					}				
 				]
@@ -651,11 +647,11 @@
 			"relationship_type": "discovered by"
 		},
 		{
-			"type":"relationship",
-			"id":"relationship--2fe80b04-dfe6-4395-9a24-266417b4cca3",
-			"source_ref":"malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
-			"target_ref":"analysis-tool-2",
-			"relationship_type":"discovered by"
+			"type": "relationship",
+			"id": "relationship--2fe80b04-dfe6-4395-9a24-266417b4cca3",
+			"source_ref": "malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
+			"target_ref": "analysis-tool-2",
+			"relationship_type": "discovered by"
 		},
 		{
 			"type": "relationship",

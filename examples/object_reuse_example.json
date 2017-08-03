@@ -1,29 +1,29 @@
 {
-    "id":"package--3a7b331e-906f-42c0-bfd5-c2cd04076834",
+    "id": "package--3a7b331e-906f-42c0-bfd5-c2cd04076834",
     "type": "package",
     "schema_version": "5.0",
     "maec_objects": [
         {
             "type": "malware-instance",
-            "id": "malware_instance--1d43c77c-21a0-4a10-9a9a-8c0fdfd280b8",
+            "id": "malware-instance--1d43c77c-21a0-4a10-9a9a-8c0fdfd280b8",
             "instance_object_refs": ["object--1"],
             "dynamic_features": {
                 "action_refs": [
-                    "action--935a718f-863e-49fb-89b8-d65dc0e70e53",
-                    "action--75514819-ea94-4684-8107-68ee63315fc4"
+                    "malware-action--935a718f-863e-49fb-89b8-d65dc0e70e53",
+                    "malware-action--75514819-ea94-4684-8107-68ee63315fc4"
                 ]
             }
         },
         {
             "type": "malware-action",
-            "id": "action--935a718f-863e-49fb-89b8-d65dc0e70e53",
+            "id": "malware-action--935a718f-863e-49fb-89b8-d65dc0e70e53",
             "name": "create file",
             "status": "completed",
             "output_object_refs": ["object--1"]
         },
         {
             "type": "malware-action",
-            "id": "action--75514819-ea94-4684-8107-68ee63315fc4",
+            "id": "malware-action--75514819-ea94-4684-8107-68ee63315fc4",
             "name": "write to process memory",
             "status": "completed",
             "input_object_refs": ["object--1"],

@@ -23,8 +23,7 @@
                     "description": "Specifies the name of the author of the signature."
                 },
                 "reference": {
-                    "type": "string",
-                    "format": "uri",
+                    "$ref": "ExternalReference.json#/definitions/ExternalReference",
                     "description": "Specifies an external reference associated with the signature."
                 },
                 "severity": {

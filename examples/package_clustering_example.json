@@ -1,6 +1,6 @@
 {
     "type": "package",
-    "id": "maec-example-pkg-1",
+    "id": "package--8b6881e7-3253-494c-9750-1a30d9bfb508",
     "schema_version": "5.0",
     "maec_instances": [
         {
@@ -71,13 +71,13 @@
     },
     "relationships": [
         {
-            "type": "realtionship",
+            "type": "relationship",
             "id": "relationship--1ad934b9-b918-4229-8fbf-3eb983948f1c",
             "relationship_type": "similirarity score",
             "source_ref": "malware-instance--bc387224-2120-4fb8-949e-55a2b899f184",
             "target_ref": "malware-instance--60721f53-952e-4110-ad02-132e4cbeffd4",
             "metadata": {
-                "distance":{
+                "distance": {
                     "distance_score": 0.66667,
                     "algorithm_name": "Test Algorithm",
                     "algorithm_version": "1.0"

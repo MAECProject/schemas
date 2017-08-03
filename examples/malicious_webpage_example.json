@@ -5,7 +5,7 @@
 	"maec_objects": [
 		{
 			"type": "malware-instance",
-			"id": "malware_instance--82008585-1939-4ca8-bd47-3173c1e91053",
+			"id": "malware-instance--82008585-1939-4ca8-bd47-3173c1e91053",
 			"instance_object_refs": ["object--1"],
 			"capabilities": [
 				{
@@ -23,9 +23,9 @@
 					"behavior--4efd2828-92b8-41df-862e-9d983fe0d2f3"
 				],
 				"action_refs": [
-					"action--f0e023b8-6789-4425-bfbe-2c80ae50c81d",
-					"action--26462916-6cf6-4d60-908f-18bb96232463",
-					"action--63890287-23c6-42a6-8aa2-5d27e79c86dd"
+					"malware-action--f0e023b8-6789-4425-bfbe-2c80ae50c81d",
+					"malware-action--26462916-6cf6-4d60-908f-18bb96232463",
+					"malware-action--63890287-23c6-42a6-8aa2-5d27e79c86dd"
 				]
 			},
 			"labels": ["shellcode"]
@@ -45,41 +45,29 @@
 			"name": "autonomous remote infection",
 			"description": "A vulnerability exploit behavior initiated by some code on the web page.",
 			"attributes": {
-				"vulnerability ID (CVE)":"CVE-2012-0507"
+				"vulnerability ID (CVE)": "CVE-2012-0507"
 			}
 		},
 		{
 			"type": "malware-action",
-			"id": "action--f0e023b8-6789-4425-bfbe-2c80ae50c81d",
+			"id": "malware-action--f0e023b8-6789-4425-bfbe-2c80ae50c81d",
 			"name": "download file",
-			"input_object_refs": [
-				"object--3"
-			],
-			"output_object_refs": [
-				"object--1"
-			]
+			"input_object_refs": ["object--3"],
+			"output_object_refs": ["object--1"]
 		},
 		{
 			"type": "malware-action",
-			"id": "action--26462916-6cf6-4d60-908f-18bb9623246",
+			"id": "malware-action--26462916-6cf6-4d60-908f-18bb9623246",
 			"name": "download file",
-			"input_object_refs": [
-				"object--5"
-			],
-			"output_object_refs": [
-				"object--4"
-			]
+			"input_object_refs": ["object--5"],
+			"output_object_refs": ["object--4"]
 		},
 		{
 			"type": "malware-action",
 			"id": "action--63890287-23c6-42a6-8aa2-5d27e79c86dd",
 			"name": "download file",
-			"input_object_refs": [
-				"object--7"
-			],
-			"output_object_refs": [
-				"object--6"
-			]
+			"input_object_refs": ["object--7"],
+			"output_object_refs": ["object--6"]
 		}
 	],
 	"observable_objects": {

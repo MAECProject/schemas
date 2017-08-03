@@ -1,22 +1,22 @@
 {
     "type": "package",
     "id": "package--f63bb5f0-4173-4e72-8ceb-a316fbd3206b",
-    "schema_version":"5.0",
+    "schema_version": "5.0",
     "maec_objects": [
         {
             "type": "malware-instance",
-            "id": "malware_instance--b965814d-0c2e-4e01-b8a5-d8c32bb038e6",
+            "id": "malware-instance--b965814d-0c2e-4e01-b8a5-d8c32bb038e6",
             "instance_object_refs": ["object--1"],
             "analysis_metadata": [
                 {
                     "is_automated": "False",    
                     "analysis_type": "static",
-                    "description": "in-depth stati analysis"
+                    "description": "in-depth static analysis"
                 }
             ],
             "dynamic_features": {
                 "behavior_refs": ["behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31"],
-                "action_refs": ["action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"]
+                "action_refs": ["malware-action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"]
             },
             "capabilities": [
                 {
@@ -29,17 +29,13 @@
             "type": "behavior",
             "id": "behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31",
             "name": "capture keyboard input",
-            "action_refs": [
-                "action-2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"
-            ]
+            "action_refs": ["malware-action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"]
         },
         {
             "type": "malware-action",
-            "id": "action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5",
+            "id": "malware-action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5",
             "name":"add windows hook",
-            "output_object_refs": [
-                "object--2"
-            ]
+            "output_object_refs": ["object--2"]
         }
     ],
     "observable_objects": {

@@ -1,6 +1,6 @@
 {
     "type": "package",
-    "id": "maec-example-pkg-1",
+    "id": "package--d7af55a5-f0e1-43b0-bcd2-ba1174c579bf",
     "schema_version": "5.0",
     "maec_instances": [
         {
@@ -29,53 +29,53 @@
     		],
             "dynamic_features":{
                 "action_refs":[
-                    "malware-instance--9bee0108-97ea-41e9-b624-f199119e280d",
-                    "malware-instance--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
-                    "malware-instance--ece7bf16-b2bd-4c10-8811-57f04243b556",
-                    "malware-instance--58c4ea1f-8ff4-42e8-8484-e87956139bce",
-                    "malware-instance--33faf89e-395a-47a0-8b43-edfa29500327",
-                    "malware-instance--a59c098a-3129-4c2d-8a71-335ae1def77e"
+                    "malware-action--9bee0108-97ea-41e9-b624-f199119e280d",
+                    "malware-action--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
+                    "malware-action--ece7bf16-b2bd-4c10-8811-57f04243b556",
+                    "malware-action--58c4ea1f-8ff4-42e8-8484-e87956139bce",
+                    "malware-action--33faf89e-395a-47a0-8b43-edfa29500327",
+                    "malware-action--a59c098a-3129-4c2d-8a71-335ae1def77e"
                 ]
             }
     	},
         {
             "type": "malware-action",
-            "id": "malware-instance--9bee0108-97ea-41e9-b624-f199119e280d",
+            "id": "malware-action--9bee0108-97ea-41e9-b624-f199119e280d",
             "name": "create file",
             "output_object_refs": ["maec-anubis_to_maec-obj-1"],
             "status": "Success"
         },
         {
             "type": "malware-action",
-            "id": "malware-instance--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
+            "id": "malware-action--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
             "name": "create mutex",
             "output_object_refs": ["maec-anubis_to_maec-obj-2"],
             "status": "Success"
         },
         {
             "type": "malware-action",
-            "id": "malware-instance--ece7bf16-b2bd-4c10-8811-57f04243b556",
+            "id": "malware-action--ece7bf16-b2bd-4c10-8811-57f04243b556",
             "name": "modify registry key value",
             "input_object_refs": ["maec-anubis_to_maec-obj-3"],
             "status":"Success"
         },
         {
             "type": "malware-action",
-            "id": "malware-instance--58c4ea1f-8ff4-42e8-8484-e87956139bce",
+            "id": "malware-action--58c4ea1f-8ff4-42e8-8484-e87956139bce",
             "name": "create file",
             "output_object_refs":["maec-threatexpert_to_maec-obj-1"],
             "status":"Success"
         },
         {
             "type": "malware-action",
-            "id": "malware-instance--33faf89e-395a-47a0-8b43-edfa29500327",
+            "id": "malware-action--33faf89e-395a-47a0-8b43-edfa29500327",
             "name": "create mutex",
             "output_object_refs": ["maec-threatexpert_to_maec-obj-2"],
             "status": "Success"
         },
         {
             "type": "malware-action",
-            "id": "malware-instance--a59c098a-3129-4c2d-8a71-335ae1def77e",
+            "id": "malware-action--a59c098a-3129-4c2d-8a71-335ae1def77e",
             "name": "create registry key",
             "output_object_refs": ["maec-threatexpert_to_maec-obj-3"],
             "status":"Success"
@@ -85,7 +85,7 @@
             "id": "collection--bcaec31e-2a3c-48df-a270-f4802cd6b8fd",
             "association_type": "malware-action entities",
             "description": "File System Actions",
-            "entity_refs": ["malware-instance--9bee0108-97ea-41e9-b624-f199119e280d"]
+            "entity_refs": ["malware-action--9bee0108-97ea-41e9-b624-f199119e280d"]
         },
         {
             "type": "collection",
@@ -93,8 +93,8 @@
             "association_type": "malware-action entities",
             "description": "Synchronization Actions",
             "entity_refs": [
-                "malware-instance--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
-                "malware-instance--33faf89e-395a-47a0-8b43-edfa29500327"
+                "malware-action--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
+                "malware-action--33faf89e-395a-47a0-8b43-edfa29500327"
             ]
         },
         {
@@ -103,8 +103,8 @@
             "association_type": "malware-action entities",
             "description": "Registry Actions",
             "entity_refs": [
-                "malware-instance--ece7bf16-b2bd-4c10-8811-57f04243b556",
-                "malware-instance--a59c098a-3129-4c2d-8a71-335ae1def77e"
+                "malware-action--ece7bf16-b2bd-4c10-8811-57f04243b556",
+                "malware-action--a59c098a-3129-4c2d-8a71-335ae1def77e"
             ]
         },
         {
@@ -112,7 +112,7 @@
             "id":"collection--bdbd3a1d-2b0e-4c6e-8ed2-658611af3899",
             "association_type": "malware-action entities",
             "description": "File System Actions",
-            "entity_refs":["malware-instance--58c4ea1f-8ff4-42e8-8484-e87956139bce"]
+            "entity_refs":["malware-action--58c4ea1f-8ff4-42e8-8484-e87956139bce"]
         }
     ],
 	"observable_objects": {

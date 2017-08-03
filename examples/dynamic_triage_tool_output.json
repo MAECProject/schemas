@@ -5,56 +5,44 @@
 	"maec_objects": [
 		{
 			"type": "malware-instance",
-			"id": "malware_instance--0beb15e6-9994-46fd-8cc8-318d2ac8885f",
+			"id": "malware-instance--0beb15e6-9994-46fd-8cc8-318d2ac8885f",
 			"instance_object_refs": ["object--1"]
 		},
 		{
 			"type": "malware-action",
-			"id": "action--fe99bcab-50d7-4010-9a2b-70083f7cad56",
+			"id": "malware-action--fe99bcab-50d7-4010-9a2b-70083f7cad56",
 			"name": "create file",
-			"output_obj_refs": [
-				"object--2"
-			]
+			"output_obj_refs": ["object--2"]
 		},
 		{
 			"type": "malware-action",
-			"id": "action--37c2f512-06af-4e8f-b81d-01a699663492",
+			"id": "malware-action--37c2f512-06af-4e8f-b81d-01a699663492",
 			"name": "create registry key",
-			"output_obj_refs":[
-				"object--3"
-			]
+			"output_obj_refs": ["object--3"]
 		},
 		{
-			"type":"malware-action",
-			"id":"action--8d3929fb-484c-4426-857b-289e42d4f53c",
+			"type": "malware-action",
+			"id": "malware-action--8d3929fb-484c-4426-857b-289e42d4f53c",
 			"name": "create mutex",
-			"output_object_refs": [
-				"object--4"
-			]
+			"output_object_refs": ["object--4"]
 		},
 		{
 			"type": "malware-action",
-			"id": "action--56974c6e-c0f1-44ab-a2e4-2899adbfd72a",
+			"id": "malware-action--56974c6e-c0f1-44ab-a2e4-2899adbfd72a",
 			"name": "allocate process virtual memory",
-			"input_obj_refs": [
-				"object--5"
-			]
+			"input_obj_refs": ["object--5"]
 		},
 		{
 			"type": "malware-action",
-			"id": "action--f45c69ea-3c48-4493-9d2b-feeda12643a6",
+			"id": "malware-action--f45c69ea-3c48-4493-9d2b-feeda12643a6",
 			"name": "allocate process virtual memory",
-			"input_obj_refs": [
-				"obejct--6"
-			]
+			"input_obj_refs": ["object--6"]
 		},
 		{
 			"type": "malware-action",
-			"id": "action--0f0ef516-ca2d-448a-9a7a-db4b215e7098",
+			"id": "malware-action--0f0ef516-ca2d-448a-9a7a-db4b215e7098",
 			"name": "allocate process virtual memory",
-			"input_obj_refs": [
-				"object--7"
-			]
+			"input_obj_refs": ["object--7"]
 		}
 	],
 	"observable_objects": {
@@ -67,9 +55,9 @@
 			}
 		},
 		"object--2": {
-			"type":"file",
-			"file_name":"Zcxaaz.exe",
-			"parent_directory_ref":"object--8",
+			"type": "file",
+			"file_name": "Zcxaaz.exe",
+			"parent_directory_ref": "object--8",
 			"size": 332288
 
 		},
@@ -83,11 +71,11 @@
 				}
 			]
 		},
-		"object--4":{
+		"object--4": {
 			"type": "mutex-object",
 			"name": "redem-mutex"
 		},
-		"object--5":{
+		"object--5": {
 			"type": "process",
 			"name": "services.exe",
 			"cwd": "%System%\\"

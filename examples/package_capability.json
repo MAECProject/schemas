@@ -17,16 +17,14 @@
                     "refined_capabilities": [
                         {
                             "name": "continuous execution",
-                            "behavior_refs": [
-                                "behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817"
-                            ]
+                            "behavior_refs": ["behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817"]
                         }
                     ]
                 }
             ],
             "dynamic_features": {
                 "behavior_refs": ["behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817"],
-                "action_refs": ["action--2aa73fd6-f440-4219-8d32-6929c47f0745"]
+                "action_refs": ["malware-action--2aa73fd6-f440-4219-8d32-6929c47f0745"]
             }
         },
         {
@@ -34,11 +32,11 @@
             "id": "behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817",
             "name": "persist after system reboot",
             "description": "System reboot persistence via registry startup",
-            "action_refs": ["action--2aa73fd6-f440-4219-8d32-6929c47f0745"]
+            "action_refs": ["malware-action--2aa73fd6-f440-4219-8d32-6929c47f0745"]
         },
         {
             "type": "malware-action",
-            "id": "action--2aa73fd6-f440-4219-8d32-6929c47f0745",
+            "id": "malware-action--2aa73fd6-f440-4219-8d32-6929c47f0745",
             "name": "create registry key value",
             "output_object_refs": ["object--2"]
         }

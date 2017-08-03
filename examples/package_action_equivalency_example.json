@@ -5,14 +5,14 @@
 	"maec_objects": [
 		{
 			"type": "malware-instance",
-			"id": "malware_instance--b72eed82-4333-4f41-830e-0e806b53dc4e",
+			"id": "malware-instance--b72eed82-4333-4f41-830e-0e806b53dc4e",
 			"instance_object_refs": ["object--1"],
 			"labels": ["dropper file"],
 			"dynamic_features": {
 				"behavior_refs": ["behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"],
 				"action_refs": [
-					"action--33e9271d-30b5-4db1-9fca-892ffae1f087",
-					"action--3b127f1c-59cf-460d-8eab-afd1ee705d16"
+					"malware-action--33e9271d-30b5-4db1-9fca-892ffae1f087",
+					"malware-action--3b127f1c-59cf-460d-8eab-afd1ee705d16"
 				]
 			},
 			"capabilities": [
@@ -20,7 +20,7 @@
 					"name": "persistence",
 					"refined_capabilities": [
 						{
-							"name":"continuous execution"
+							"name": "continuous execution"
 						}
 					],
 					"attributes": [
@@ -57,20 +57,20 @@
 			"name": "persist after system reboot",
 			"description": "A persistence after reboot behavior using the Windows startup folder",
 			"action_refs": [
-				"action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
-				"action--33e9271d-30b5-4db1-9fca-892ffae1f087"
+				"malware-action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
+				"malware-action--33e9271d-30b5-4db1-9fca-892ffae1f087"
 			]
 		},
 		{
 			"type": "malware-action",
-			"id": "action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
+			"id": "malware-action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
 			"name": "create file",
 			"status": "success",
 			"output_object_refs": ["object--2"]
 		},
 		{
 			"type": "malware-action",
-			"id": "action--33e9271d-30b5-4db1-9fca-892ffae1f087",
+			"id": "malware-action--33e9271d-30b5-4db1-9fca-892ffae1f087",
 			"name": "create file",
 			"status": "success",
 			"output_object_refs": ["object--3"]
