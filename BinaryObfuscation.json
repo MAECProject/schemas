@@ -8,11 +8,11 @@
             "properties": {
                 "method": {
                     "type": "string",
-                    "description": "Specifies the method used in obfuscating the binary. The value for this property SHOULD come from the obfuscation-method-ov vocabulary."
+                    "description": "Captures the method used in obfuscating the binary. The value for this property SHOULD come from the obfuscation-method-ov vocabulary."
                 },
                 "layer_order": {
                     "type": "integer",
-                    "description": "Specifies the ordering of the obfuscation method with respect to other obfuscation methods (if known), as a positive integer. For example, if a binary was packed and then XOR encrypted, the packing layer would have an ordering of \"1\" and the XOR encryption layer would have an ordering of \"2\"."
+                    "description": "Captures the ordering of the obfuscation method with respect to other obfuscation methods (if known), as a positive integer. For example, if a binary was packed and then XOR encrypted, the packing layer would have an ordering of \"1\" and the XOR encryption layer would have an ordering of \"2\"."
                 },
                 "encryption_algorithm": {
                     "type": "string",
@@ -28,7 +28,7 @@
                 },
                 "packer_entry_point": {
                     "type": "string",
-                    "description": "Specifies the entry point address of the packer (if applicable)."
+                    "description": "Specifies the entry point address of the packer (if applicable); in hexadecimal."
                 },
                 "packer_signature": {
                     "type": "string",

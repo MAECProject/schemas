@@ -118,6 +118,7 @@
 					"analysts": ["Franki Li"],
 					"references": [
 						{
+							"source_name": "SANS",
 							"url": "http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 						}
 					],
@@ -130,6 +131,7 @@
 					"analysts": ["Franki Li"],
 					"references": [
 						{
+							"source_name": "SANS",
 							"url": "http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814",
 						}
 					],
@@ -149,6 +151,7 @@
 					"analysts": ["Frank Li"],
 					"references": [
 						{
+							"source_name": "SANS",
 							"url": "http://www.sans.org/readding_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814",
 						}
 					],

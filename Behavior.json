@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "BehaviorType": {
-            "title":"Behavior",
+            "title": "Behavior",
 	        "type": "object",
             "description": "One of the foundational MAEC types, and serves as a method for the characterization of malicious behaviors found or observed in malware. Behaviors can be thought of as representing the purpose behind groups of MAEC Actions, and are therefore representative of distinct portions of higher-level malware functionality. Thus, while a malware instance may perform some multitude of Actions, it is likely that these Actions represent only a few distinct behaviors. Some examples include vulnerability exploitation, email address harvesting, the disabling of a security service, etc.",
             "properties": {
@@ -18,6 +18,10 @@
                     "type": "string",
                     "description": "Captures the name of the Behavior. The values for this property should come from the Encyclopedia of Malware Atrributes (EMA) Behaviors list."
                 },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies a textual description of the Behavior."
+                },
                 "timestamp": {
                     "type": "string",
                     "format": "date-time",
@@ -25,12 +29,12 @@
                 },
                 "attributes": {
                     "type": "object",
-                    "description": "Captures attributes of the Behavior as name/value pairs. Dictionary keys used in this property SHOULD come from the common-attribute-ov vocabulary. The corresponding values for the keys SHOULD come from the platform-ov and encryption-algorithm-ov vocabularies. Controlled vocabularies have also been defined for some attributes: layer4-protocol-cv, layer7-protocol-cv."
+                    "description": "Captures attributes of the Behavior as name/value pairs.Dictionary keys used in this property SHOULD come from the common-attribute-ov vocabulary. The corresponding values for the keys SHOULD come from the platform-ov and encryption-algorithm-ov vocabularies."
                 },
                 "action_refs": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "Specifies references to one or more Actions that serve as an implementation of the Behavior. Each item in the list specifies the unique ID of the Action being referenced. The Action must be present in the current Package. The ordering of the references in the list denotes the sequential ordering of the Actions with respect to the Behavior; that is, Actions at the beginning of the list MUST have occurred before those later in the list."
+                    "description": "Captures Actions that serve as an implementation of the Behavior. Each list item specifies the unique ID of the Action being referenced. The Action MUST be present in the current Package. The ordering of the references in the list denotes the sequential ordering of the Actions with respect to the Behavior; that is, Actions at the beginning of the list MUST have occurred before those later in the list."
                 },
                 "status": {
                     "type": "string",
@@ -38,16 +42,16 @@
                 },
                 "references": {
                     "type": "array",
-                    "items":{
+                    "items": {
                         "type": "string",
                         "format": "uri"
                     },
-                    "description": "Captures the ID of the corresponding entry in the EMA. This property MUST be populated if the value of the name property references of EMA entry."
+                    "description": "Captures the IDs of corresponding EMA entries in EMA. This property MUST be populated if the value of the name property references an EMA entry."
                 },
-                "techniques":{
-                    "type":"array",
-                    "items": {"type":"string"},
-                    "description":"Captures the particular technique(s) used to implement the Behavior. The values for this property SHOULD come from the technique-ov vocabulary."
+                "techniques": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Captures the particular technique(s) used to implement the Behavior. The values for this property SHOULD come from the technique-ov vocabulary."
                 }
             },
             "required": [

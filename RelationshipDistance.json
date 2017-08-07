@@ -12,11 +12,11 @@
                 },
                 "algorithm_name": {
                     "type": "string",
-                    "description": "Captures the name of the algorithm used in calculating the distance score specified in the distance_score field."
+                    "description": "Captures the name of the algorithm used in calculating the distance score specified in the distance_score property."
                 },
                 "algorithm_version": {
                     "type": "string",
-                    "description": "Captures the version of the algorithm used in calculating the distance score specified in the distance_score field."
+                    "description": "Captures the version of the algorithm used in calculating the distance score specified in the distance_score property."
                 },
                 "metadata":{
                     "type": "object",

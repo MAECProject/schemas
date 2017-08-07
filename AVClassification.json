@@ -10,16 +10,16 @@
                 "scan_date": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Specifies the date and time of the scan. This field can be used to capture how a scan changes over time."
+                    "description": "Captures the date and time of the scan. This field can be used to capture how a scan changes over time."
                 },
                 "submission_date": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Specifies the data and time that the binary was submitted for scanning."
+                    "description": "Captures the data and time that the binary was submitted for scanning."
                 },
                 "is_detected": {
                     "type": "boolean",
-                    "description": "Specifies whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Instance."
+                    "description": "Captures whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Instance."
                 },
                 "classification_name": {
                     "type": "string",
@@ -39,11 +39,11 @@
                 },
                 "av_engine_version": {
                     "type": "string",
-                    "description": "Captures the version of the AV engine used by the AV tool."
+                    "description": "Captures the version of the AV engine used by the AV tool that generated the classification."
                 },
                 "av_definition_version": {
                     "type": "string",
-                    "description": "Captures the version of the AV definitions used by the AV tool that generated the classification"
+                    "description": "Captures the version of the AV definitions used by the AV tool that generated the classification."
                 }
             },
             "required": [

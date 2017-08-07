@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "CapabilityType": {
-            "title":"Capability",
+            "title": "Capability",
 	        "type": "object",
             "description": "Captures details of a Capability that may be implemented in the malware instance.",
             "properties": {
@@ -13,11 +13,11 @@
                 "refined_capabilities": {
                     "type": "array",
                     "items": {"$ref": "#/definitions/CapabilityType"},
-                    "description": "Specifies a refinement of the Capability using the same structure."
+                    "description": "Captures a refinement of the Capability using the same structure."
                 },
                 "description": {
                     "type": "string",
-                    "description": "Captures a basic textual description of the Capability."
+                    "description": "Captures a textual description of the Capability."
                 },
                 "attributes": {
                     "type": "object",

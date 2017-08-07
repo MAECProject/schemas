@@ -8,31 +8,31 @@
             "properties": {
                 "signature_type": {
                     "type": "string",
-                    "description": "Specifies the type of the signature, i.e., the language or platform it is written for. For example, “snort”, for the Snort network intrusion detection system (NIDS). The values for this property SHOULD come from the signature-type-ov vocabulary."
+                    "description": "Captures the type of the signature, i.e., the language or platform it is written for. For example, “snort”, for the Snort network intrusion detection system (NIDS). The values for this property SHOULD come from the signature-type-ov vocabulary."
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the name provided for the signature (if applicable)."
+                    "description": "Captures the name provided for the signature (if applicable)."
                 },
                 "description": {
                     "type": "string",
-                    "description": "Specifies a textual description of the signature."
+                    "description": "Captures a textual description of the signature."
                 },
                 "author": {
                     "type": "string",
-                    "description": "Specifies the name of the author of the signature."
+                    "description": "Captures the name of the author of the signature."
                 },
                 "reference": {
                     "$ref": "ExternalReference.json#/definitions/ExternalReference",
-                    "description": "Specifies an external reference associated with the signature."
+                    "description": "Captures an external reference associated with the signature."
                 },
                 "severity": {
                     "type": "string",
-                    "description": "Specifies a measure of severity associated with the detection of the signature."
+                    "description": "Captures a measure of severity associated with the detection of the signature."
                 },
                 "external_id": {
                     "type": "string",
-                    "description": "Specifies an external identifier associated with the signature."
+                    "description": "Captures an external identifier associated with the signature."
                 }
             },
             "required":["signature_type"]

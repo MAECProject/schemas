@@ -2,21 +2,21 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "NameType": {
-            "title":"Name",
+            "title": "Name",
             "type": "object",
             "description": "Captures the name of a malware instance or malware family and the relative confidence of the name.",
             "properties": {
                 "value": {
                     "type": "string",
-                    "description": "Specifies the name of the malware instance or malware family."
+                    "description": "Captures the name of the malware instance or malware family."
                 },
                 "source":{
-                    "$ref":"Source.json#/definitions/SourceType",
-                    "description":"Specifies the source of the value property (name)."
+                    "$ref": "Source.json#/definitions/SourceType",
+                    "description": "Captures the source of the value property (name)."
                 },
                 "confidence": {
                     "type": "string",
-                    "description": "Specifies the relative confidence in the accuracy of the assigned name. The values for this property is confidence-measure-ov."
+                    "description": "Captures the relative confidence in the accuracy of the assigned name. The value for this property is confidence-measure-ov."
                 }
             },
             "required": ["value"]

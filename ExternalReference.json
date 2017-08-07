@@ -22,6 +22,7 @@
         		"type": "string",
         		"description": "An indentifier for the external reference content"
         	}
-        }
+        },
+        "required": ["source_name"]
     }
 }

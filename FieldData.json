@@ -9,17 +9,17 @@
                 "delivery_vectors": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "Specifies the vectors used to distribute/deploy the Malware Instance. The values for this property SHOULD come from the delivery-vector-ov vocabulary."
+                    "description": "Captures the vectors used to distribute/deploy the Malware Instance. The values for this property SHOULD come from the delivery-vector-ov vocabulary."
                 },
                 "first_seen": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Specifies the date/time that the malware instance was first seen by the producer of the Malware Instance Object."
+                    "description": "Captures the date/time that the malware instance was first seen by the producer of the Malware Instance Object."
                 },
                 "last_seen": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Specifies the date/time that the malware instance was last seen by producer of the Malware Instance Object."
+                    "description": "Captures the date/time that the malware instance was last seen by producer of the Malware Instance Object."
                 }
             }
         }

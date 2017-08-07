@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "RelationshipType": {
-            "title":"Relationship",
+            "title": "Relationship",
             "type": "object",
             "definition": "Captures relationships between two entities in the MAEC document.",
             "properties": {
@@ -16,11 +16,11 @@
                 },
                 "source_ref": {
                     "type": "string",
-                    "description": "Specifies a reference to the ID of the entity in the MAEC document that corresponds to the source in the (source-&gt;target) relationship."
+                    "description": "Specifies a reference to the ID of the entity in the MAEC document that corresponds to the source in the source-target relationship."
                 },
                 "target_ref": {
                     "type": "string",
-                    "description": "Specifies a reference to the ID of the entity in the MAEC document that corresponds to the target in the (source-&gt;target) relationship."
+                    "description": "Specifies a reference to the ID of the entity in the MAEC document that corresponds to the target in the source-target relationship."
                 },
                 "timestamp": {
                     "type": "string",
@@ -33,7 +33,7 @@
                 },
                 "metadata": {
                     "type": "object",
-                    "description": "Specifies a dictionary of additional metadata around the relationship. Standard dictionary keys include the following: distance: used for capturing any distance related metadata. The corresponding value for this key MUST be an object of type RelationshipDistanceMetadataType. supporting_data_refs: references any entities in the MAEC document (e.g., Action or Object) that may support the Relationship. The corresponding value for this key MUST list of type identifier. Custom entries in the dictionary MAY also be included."
+                    "description": "Specifies a dictionary of additional metadata around the relationship. Standard dictionary keys include the following: distance: used for capturing any distance related metadata. The corresponding value for this key MUST be an object of type RelationshipDistanceType. supporting_data_refs: references any entities in the MAEC document (e.g., Action or Object) that may support the Relationship. The corresponding value for this key MUST list of type identifier. Custom entries in the dictionary MAY also be included."
                 }
             },
             "required": [

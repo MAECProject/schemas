@@ -2,60 +2,65 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "AnalysisMetadataType": {
-        	"title":"Analysis",
-        	"type":"object",
-        	"description":"Captures metadata associated with the analyses of a malware instance, such as the tools used, analysts, and other data.",
-        	"properties":{
-                "is_automated":{
-                    "type":"boolean",
-                    "description":"Specifies whether the analysis was completely automated (i.e., with no human analyst in the loop). If this property is set to true, the analysts property MUST NOT be included."
+        	"title": "Analysis",
+        	"type": "object",
+        	"description": "Captures metadata associated with the analyses of a malware instance, such as the tools used, analysts, and other data.",
+        	"properties": {
+                "is_automated": {
+                    "type": "boolean",
+                    "description": "Captures whether the analysis was completely automated (i.e., with no human analyst in the loop). If this property is set to true, the analysts property MUST NOT be included."
                 },
-                "start_time":{
-                    "type":"string",
-                    "format":"date-time",
-                    "description":"Specifies the date/time that the analysis was started."
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Specifies the date/time that the analysis was started."
                 },
-                "end_time":{
-                    "type":"string",
-                    "format":"date-time",
-                    "description":"Specifies the date/time that the analysis was completed."
+                "end_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Specifies the date/time that the analysis was completed."
                 },
-                "last_update_time":{
-                    "type":"string",
-                    "format":"date-time",
-                    "description":"Specifies the date/time that the analysis was last updated."
+                "last_update_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Specifies the date/time that the analysis was last updated."
                 },
-                "confidence":{
-                    "type":"string",
-                    "description":"Specifies the relative measure of confidence in the accuracy of the analysis results. The value for this property MUST come from the confidence-measure-cv closed vocabulary."
+                "confidence": {
+                    "type": "string",
+                    "description": "Specifies the relative measure of confidence in the accuracy of the analysis results. The value for this property MUST come from the confidence-measure-ov vocabulary."
                 },
         		"analysts": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "Specifies the analyst(s) who performed the analysis."
+                    "description": "Captures the names of analysts who performed the analysis."
                 },
-                "analysis_type":{
-                    "type":"string",
-                    "description":"Specifies the type of analysis that was performed. The value for this property SHOULD come from the analysis-type-ov open vocabulary."
+                "analysis_type": {
+                    "type": "string",
+                    "description": "Captures the type of analysis performed. The value for this property SHOULD come from the analysis-type-ov vocabulary."
                 },
                 "comments": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description":"Captures comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
+                    "description": "Captures comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
                 },
                 "tool_refs": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "Captures references to Tools used in the analysis of a Malware Instance. Values MUST be references to Objects of type software captured in the objects property at the top-level of the Package."
+                    "description": "References the tools used in the analysis of a Malware Instance. The objects reference MUST be of STIX type software and MUST be specified in the observable-objects property of the Package."
                 },
                 "description": {
                     "type": "string",
                     "description": "Captures a textual description of the analysis that was performed."
                 },
-                "conclusion":{
-                    "type":"array",
-                    "items":{"type":"string"},
-                    "description":"Captures the conclusion(s) of the analysis that was performed, such as whether the binary was found to be malicious. The value for this property SHOULD come from the analysis-conclusion-type-ov open vocabulary."
+                "conclusion": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Captures the conclusion(s) of the analysis that was performed, such as whether the binary was found to be malicious. The value for this property SHOULD come from the analysis-conclusion-type-ov vocabulary."
+                },
+                "references": {
+                    "type": "array",
+                    "items": {"$ref": "ExternalReference.json#/definitions/ExternalReference"},
+                    "description": "Captures any references to reports or other data sources pertaining to the analysis."
                 }
         	},
             "required":[

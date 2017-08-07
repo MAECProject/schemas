@@ -1,14 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {"PackageType": {
-        "title":"Package",
+        "title": "Package",
         "type": "object",
         "description": "Standard output format that can be used to describe one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, CybOX Objects, and Collections and Relationships.",
         "properties": {
             "type":{
-                "type":"string",
+                "type": "string",
                 "enum":["package"],
-                "description":"The value of this field MUST be \"package\"."
+                "description": "The value of this field MUST be \"package\"."
             },
             "id": {
                 "type": "string",
@@ -25,7 +25,7 @@
             },
             "observable_objects": {
                 "type": "object",
-                "description": "Specifies a set of one or more STIX Cyber Observable Objects relevant to the MAEC package."
+                "description": "Specifies a dictionary of STIX Cyber Observable Objects relevant to the MAEC Package.This dictionary MUST contain all Cyber Observable Objects associated with the MAEC Package, including those that are referenced by other Cyber Observable Objects. "
             },
             "relationships":{
                 "type": "array",
@@ -37,7 +37,7 @@
             "type",
             "id",
             "schema_version",
-            "objects"
+            "maec_objects"
         ]
     }},
     "allOf":[{"$ref": "#/definitions/PackageType"}]
