@@ -4,12 +4,13 @@
     "schema_version": "5.0",
     "maec_objects": [
         {
+            "type": "malware-instance",
             "id": "malware-instance--6c2d11a7-fba4-4375-8cb2-89f2bfcf6940",
             "name": {
                 "value": "Red October Downloader"
             },
             "labels": ["downloader"],
-            "instance_object_refs": ["object--1"],
+            "instance_object_refs": ["0"],
             "capabilities": [
                 {
                     "name": "command and control",
@@ -28,9 +29,9 @@
         {
             "type": "malware-action",
             "id": "malware-action--5809df22-e9e2-4d78-beb6-1c412cdb4b18",
-            "name": "send http post request",
+            "name": "send-http-post-request",
             "description": "http post request which occurs every 180 seconds",
-            "output_object_refs": ["object--2"]
+            "output_object_refs": ["1"]
         },
         {
             "type": "behavior",
@@ -41,13 +42,13 @@
         }
     ],
     "observable_objects":{
-        "object--1":{
+        "0":{
             "type": "file",
             "hashes": {
                 "MD5": "c3b0d1403ba35c3aba8f4529f43fb300"
             }
         },
-        "object--2": {
+        "1": {
             "type": "network-traffic",
             "extensions": {
                 "http-request-ext": {

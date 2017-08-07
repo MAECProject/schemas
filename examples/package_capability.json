@@ -5,8 +5,8 @@
     "maec_objects": [
         {
             "type": "malware-instance",
-            "id": "malware_instance--19863c16-503e-493f-8841-16c68e39c26e",
-            "instance_object_refs": ["object--1"],
+            "id": "malware-instance--19863c16-503e-493f-8841-16c68e39c26e",
+            "instance_object_refs": ["0"],
             "labels": [
                 "mass-mailer",
                 "worm"
@@ -30,25 +30,25 @@
         {
             "type": "behavior",
             "id": "behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817",
-            "name": "persist after system reboot",
+            "name": "persist-after-system-reboot",
             "description": "System reboot persistence via registry startup",
             "action_refs": ["malware-action--2aa73fd6-f440-4219-8d32-6929c47f0745"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--2aa73fd6-f440-4219-8d32-6929c47f0745",
-            "name": "create registry key value",
-            "output_object_refs": ["object--2"]
+            "name": "create-registry-key-value",
+            "output_object_refs": ["1"]
         }
     ],
     "observable_objects": {
-        "object--1": {
+        "0": {
             "type": "file",
             "hashes": {
                 "MD5":"9d7006e30fdf15e9c8e03e62534b3a3e"
             }
         },
-        "object--2": {
+        "1": {
             "type": "windows-registry-key",
             "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
             "values": [

@@ -6,7 +6,7 @@
         {
             "type": "malware-instance",
             "id": "malware-instance--eb54999d-4a5a-439d-aeb9-39b5f7eaf77c",
-            "instance_object_refs": ["object--1"],
+            "instance_object_refs": ["0"],
             "dynamic_features": {
                 "action_refs": [
                     "malware-action--0b8623b5-5264-4ae8-a2ed-20dbf51558b4",
@@ -18,7 +18,7 @@
         {
             "type": "malware-instance",
             "id": "malware--instance-0b1b98d8-9235-427d-aeab-54bdf9f70412",
-            "instance_object_refs": ["object--2"],
+            "instance_object_refs": ["1"],
             "dynamic_features": {
                 "action_refs": [
                     "malware-action--8bb139fc-1244-4b67-a652-6e01f1da8576",
@@ -30,7 +30,7 @@
         {
             "type": "malware-instance",
             "id": "malware-instance--9fb155a9-abc7-4d38-8dc4-df00f83732f7",
-            "instance_object_refs": ["object--3"],
+            "instance_object_refs": ["2"],
             "behavioral_features": {
                 "action_refs": [
                     "malware-action--7504a917-d264-46d8-b55a-a9d4c214ce23",
@@ -41,8 +41,8 @@
         },
         {
             "type": "malware-instance",
-            "id": "subject-662d7a32-2246-4712-8dae-f201dac945b3",
-            "instance_object_refs": ["object--4"],
+            "id": "malware-instance--55d83636-38b5-4b00-bca8-8323897fb482",
+            "instance_object_refs": ["3"],
             "behavioral_features": {
                 "action_refs": [
                     "malware-action--5f32221a-54b0-4364-9e9b-d7ecaf29a75a",
@@ -55,7 +55,8 @@
             "type": "behavior",
             "id": "behavior--1127c9d9-2ab0-4763-a53b-46145425bdf5",
             "name": "persistence",
-            "description": "Autostart via Windows registry",
+            "description": "persist after system reboot",
+            "techniques": ["windows-registry-manipulation"],
             "action_refs": [
                 "malware-action--0b8623b5-5264-4ae8-a2ed-20dbf51558b4",
                 "malware-action--f853f0bf-033b-4d2d-b927-702bb9cf6e8d"
@@ -65,7 +66,8 @@
             "type": "behavior",
             "id": "behavior--1b75ce50-d6f6-49a4-9524-9b15fa2f7d49",
             "name": "persistence",
-            "description": "Autostart via Windows registry",
+            "description": "persist after system reboot",
+            "techniques": ["windows-registry-manipulation"],
             "action_refs": [
                 "malware-action--8bb139fc-1244-4b67-a652-6e01f1da8576",
                 "malware-action--877637cf-4a80-4984-8172-3fccb777edf4"
@@ -75,7 +77,8 @@
             "type": "behavior",
             "id": "behavior--f085f3b9-9939-4ac9-9445-bc4b61fec981",
             "name": "persistence",
-            "description": "Autostart via Windows registry",
+            "description": "persist after system reboot",
+            "techniques": ["windows-registry-manipulation"],
             "action_refs": [
                 "malware-action--f49292ee-8ee6-4eb0-a744-295da612556c",
                 "malware-action--7504a917-d264-46d8-b55a-a9d4c214ce23"
@@ -85,7 +88,8 @@
             "type": "behavior",
             "id": "behavior--0c226f00-f6ed-4246-a203-5b574cac3362",
             "name": "persistence",
-            "description": "Autostart via Windows registry",
+            "description": "persist after system reboot",
+            "techniques": ["windows-registry-manipulation"],
             "action_refs": [
                 "malware-action--5f32221a-54b0-4364-9e9b-d7ecaf29a75",
                 "malware-action--ada5af3f-0dd5-4a7b-92d1-2c146d8fe100"
@@ -94,81 +98,87 @@
         {
             "type": "malware-action",
             "id": "malware-action--0b8623b5-5264-4ae8-a2ed-20dbf51558b4",
-            "name": "create file",
-            "output_object_refs": ["malware-action--obj-1"]
+            "name": "create-file",
+            "output_object_refs": ["4"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--f853f0bf-033b-4d2d-b927-702bb9cf6e8d",
-            "name": "modify registry key value",
-            "output_object_refs": ["malware-action--obj-2"]
+            "name": "modify-registry-key-value",
+            "output_object_refs": ["6"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--8bb139fc-1244-4b67-a652-6e01f1da8576",
-            "name": "create file",
-            "output_object_refs": ["malware-action--obj-3"]
+            "name": "create-file",
+            "output_object_refs": ["7"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--877637cf-4a80-4984-8172-3fccb777edf4",
-            "name": "modify registry key value",
-            "output_object_refs": ["malware-action--obj-4"]
+            "name": "modify-registry-key-value",
+            "output_object_refs": ["8"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--f49292ee-8ee6-4eb0-a744-295da612556c",
-            "name": "create file",
-            "output_object_refs": ["malware-action--obj-5"]
+            "name": "create-file",
+            "output_object_refs": ["9"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--7504a917-d264-46d8-b55a-a9d4c214ce23",
-            "name": "modify registry key value",
-            "output_object_refs": ["malware-action--obj-6"]
+            "name": "modify-registry-key-value",
+            "output_object_refs": ["10"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--5f32221a-54b0-4364-9e9b-d7ecaf29a75a",
-            "name": "create file",
-            "output_object_refs": ["malware-action--obj-7"]
+            "name": "create-file",
+            "output_object_refs": ["11"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--ada5af3f-0dd5-4a7b-92d1-2c146d8fe100",
-            "name": "modify registry key value",
-            "output_object_refs":["malware-action--obj-8"]
+            "name": "modify-registry-key-value",
+            "output_object_refs":["12"]
         }
     ],
     "observable_objects": {
-        "object--1": {
+        "0": {
             "type": "file",
             "hashes": {
                 "MD5": "076e5b2bae0b4b3a3d81c85610b95cd4"
             }
         },
-        "object--2": {
+        "1": {
             "type": "file",
             "hashes": {
                 "MD5": "0efade6825e49cf0cf9c87695d466157"
             }
         },
-        "object--3": {
+        "2": {
             "type": "file",
             "hashes": {
                 "MD5": "3dec61e0480eb79d2041605444437fee"
             }
         },
-        "malware-action--obj-1": {
+        "3": {
             "type": "file",
-            "file_name": "oembios.exe",
-            "parent_directory_ref": "parent-dir-obj-1"
+            "hashes": {
+                "MD5": "a164a8d10dd8ed55c51b0f703cd0ec60"
+            }
         },
-        "parent-dir-obj-1": {
+        "4": {
+            "type": "file",
+            "name": "oembios.exe",
+            "parent_directory_ref": "5"
+        },
+        "5": {
             "type": "directory",
             "path": "C:\\WINDOWS\\system32\\"
         },
-        "malware-action--obj-2": {
+        "6": {
             "type": "windows-registry-key",
             "key": "HKEY_LOCAL_MACHINE\\software\\microsoft\\windows nt\\currentversion\\winlogon",
             "values": [
@@ -178,12 +188,12 @@
                 }
             ]
         },
-        "malware-action--obj-3": {
+        "7": {
             "type": "file",
-            "file_name": "ntos.exe",
-            "parent_directory_ref": "parent-dir-obj-1"
+            "name": "ntos.exe",
+            "parent_directory_ref": "5"
         },
-        "malware-action--obj-4": {
+        "8": {
             "type": "windows-registry-key",
             "key": "HKEY_LOCAL_MACHINE\\software\\microsoft\\windows nt\\currentversion\\winlogon",
             "values": [
@@ -193,12 +203,12 @@
                 }
             ]
         },
-        "malware-action--obj-5": {
+        "9": {
             "type": "file",
-            "file_name": "twext.exe",
-            "parent_directory_ref": "parent-dir-obj-1"
+            "name": "twext.exe",
+            "parent_directory_ref": "5"
         },
-        "malware-action--obj-6": {
+        "10": {
             "type": "windows-registry-key",
             "key": "HKEY_LOCAL_MACHINE\\software\\microsoft\\windows nt\\currentversion\\winlogon",
             "values": [
@@ -208,12 +218,12 @@
                 }
             ]
         },
-        "malware-action--obj-7": {
+        "11": {
             "type": "file",
-            "file_name": "sdra64.exe",
-            "parent_directory_ref": "parent-dir-obj-1"
+            "name": "sdra64.exe",
+            "parent_directory_ref": "5"
         },
-        "malware-action--obj-8": {
+        "12": {
             "type": "windows-registry-key",
             "key": "HKEY_LOCAL_MACHINE\\software\\microsoft\\windows nt\\currentversion\\winlogon",
             "values":[

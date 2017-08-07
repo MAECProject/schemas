@@ -6,26 +6,25 @@
         {
             "type": "malware-instance",
         	"id": "malware-instance--4b0c579e-c63c-4b61-ac68-d9e8254e5b4b",
-        	"instance_object_refs": ["object--1"],
+        	"instance_object_refs": ["0"],
             "static_features": {
                 "development_environment": {
-                    "tool_refs": ["tool-1"]
+                    "tool_refs": ["1"]
                 }
             }
         }
      ],
 	"observable_objects": {
-		"object--1": {
+		"0": {
 			"type": "file",
 			"hashes": {
 				"MD5": "4EC0027BEF4D7E1786A04D021FA8A67F"
 			}
 		},
-		"tool-1": {
+		"1": {
 			"type": "software",
 			"name": "Microsoft Visual C++ compiler",
-			"version": "6.0",
-			"description": "compiler"
+			"version": "6.0"
 		}
 	}
 }

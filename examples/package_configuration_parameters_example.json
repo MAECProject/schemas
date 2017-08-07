@@ -6,7 +6,7 @@
         {
             "type": "malware-instance",
             "id": "malware-instance--dbcbeaf7-bba4-4332-9e5f-dfb1e3fb07fb",
-            "instance_object_refs": ["object--1"],
+            "instance_object_refs": ["0"],
             "static_features": {
                 "configuration_parameters": [
                     {
@@ -30,9 +30,9 @@
         }
     ],
     "observable_objects": {
-        "object--1": {
+        "0": {
             "type": "file",
-            "file_name": "Investor Relations Contacts.doc",
+            "name": "Investor Relations Contacts.doc",
             "hashes": {
                 "MD5": "875767086897e90fb47a021b45e161b2"
             }

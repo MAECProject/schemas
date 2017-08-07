@@ -6,13 +6,13 @@
 		{
 			"type": "malware-instance",
 			"id": "malware-instance--1c56c435-8e83-4bab-adf8-e09c1515094b",
-			"instance_object_refs": ["maec-tst-obj-1"],
+			"instance_object_refs": ["0"],
 			"labels": ["dropper file"]
 		},
 		{
 			"type": "malware-instance",
 			"id": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
-			"instance_object_refs": ["maec-tst-obj-2"],
+			"instance_object_refs": ["1"],
 			"labels": ["dropper file"],
 			"dynamic_features": {
 				"behavior_refs": [
@@ -64,7 +64,7 @@
 		{
 			"type": "malware-instance",
 			"id": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
-			"instance_object_refs": ["maec-tst-obj-3"],
+			"instance_object_refs": ["2"],
 			"labels": [
 				"backdoor",
 				"password stealer",
@@ -121,7 +121,7 @@
 					"name": "security degradation",
 					"refined_capabilities": [
 						{
-							"name": "prevent security software from executing"
+							"name": "security software degredation"
 						}
 					],
 					"attributes": {
@@ -177,7 +177,7 @@
 					"name": "probing",
 					"refined_capabilities": [
 						{
-							"name": "network configuration probing"
+							"name": "network environment probing"
 						}
 					],
 					"behavior_refs": ["behavior--324e5eb8-ea1a-406a-8af4-515c455ed106"]
@@ -208,7 +208,7 @@
 					"name": "spying",
 					"refined_capabilities": [
 						{
-							"name": "capture system output peripheral data"
+							"name": "output peripheral capture"
 						}
 					],
 					"behavior_refs": ["behavior--b03ce4c8-c0d7-43ca-973d-f1ff53a78351"]
@@ -233,7 +233,7 @@
 					"name": "integrity violation",
 					"refined_capabilities": [
 						{
-							"name":"compromise network operational capability",
+							"name":"compromise system availability",
 							"behavior_refs": ["behavior--345f2bc3-1e95-47bb-ba34-d60f7ba9882a"]
 						},
 						{
@@ -246,17 +246,17 @@
 		{
 			"type": "malware-instance",
 			"id": "malware-instance--511c93db-6426-41c6-a04d-50df6ac93c95",
-			"instance_object_refs": ["maec-tst-obj-4"]
+			"instance_object_refs": ["3"]
 		},
 		{
 			"type": "malware-instance",
 			"id": "malware-instance--d6850cf0-b246-4f92-a464-7e115da68717",
-			"instance_object_refs": ["maec-tst-obj-5"]
+			"instance_object_refs": ["4"]
 		},
 		{
 			"type": "malware-instance",
 			"id": "malware-instance--964a3bb8-ba1b-4115-ad8c-c8703c503934",
-			"instance_object_refs": ["maec-tst-obj-6"],
+			"instance_object_refs": ["5"],
 			"labels": ["wiper"],
 			"capabilities": [
 				{
@@ -312,7 +312,7 @@
 		{
 			"type": "behavior",
 			"id": "behavior--fa979df4-9c19-4aee-95a2-fd88dd014631",
-			"name": "prevent security program from running"
+			"name": "prevent security software from executing"
 		},
 		{
 			"type": "behavior",
@@ -352,17 +352,17 @@
 		{
 			"type": "behavior",
 			"id": "behavior--67448145-5ddb-481b-a62b-33eb82739f84",
-			"name": "steal cookie"
+			"name": "steal browser cookie"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--6b30377e-002b-40d3-a802-2be2bb061deb",
-			"name": "steal code signing certificate"
+			"name": "steal digital certificates"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--45912152-5397-4f73-b7bf-bd067ceeef41",
-			"name": "steal pki key"
+			"name": "steal PKI key"
 		},
 		{
 			"type": "behavior",
@@ -387,7 +387,7 @@
 		{
 			"type": "behavior",
 			"id": "behavior--12174544-7fae-4c4b-b7c9-725a0f94f035",
-			"name": "package_data"
+			"name": "package data"
 		},
 		{
 			"type": "behavior",
@@ -416,50 +416,49 @@
 		}
 	],
 	"observable_objects": {
-		"maec-tst-obj-1": {
+		"0": {
 			"type": "file",
-			"file_name": "2a7.exe",
+			"name": "2a7.exe",
 			"hashes": {
 				"MD5": "eaa5e4f26028c41ba3935a4ac455892c",
 				"SHA1": "049db2d7030bf7563974a2c25671aef046cabf99"
 			}
 		},
-		"maec-tst-obj-2": {
+		"1": {
 			"type": "file",
-			"file_name": "dump_006D0000.bin",
+			"name": "dump_006D0000.bin",
 			"hashes": {
 				"MD5": "d819facd7c980b01bf44ea7efbf6af42",
 				"SHA1": "abfe4e74b345669a0fcd8a34bff9c9a0a7bc9c44"
 			}
 		},
-		"maec-tst-obj-3": {
+		"2": {
 			"type": "file",
-			"file_name": "ctfmreg.dll",
+			"name": "ctfmreg.dll",
 			"hashes": {
 				"MD5": "f9005fd7eb85a81f2f9b1474bba61be0",
 				"SHA1": "89196b0ed3189e8571924144e57aa867f72164bd"
 			}
 		},
-		"maec-tst-obj-4": {
+		"3": {
 			"type": "file",
-			"file_name": "dump_00E30000.bin",
+			"name": "dump_00E30000.bin",
 			"hashes": {
 				"MD5": "a6bf4ae086b8d28612de4bc0d7ec4abe",
 				"SHA1": "2b6b4fbc77553425b00ee3135e2e83386ebd797f"
 			}
 		},
-		"maec-tst-obj-5": {
+		"4": {
 			"type": "file",
-			"file_name": "ctfmreg64.dll",
+			"name": "ctfmreg64.dll",
 			"hashes": {
 				"MD5": "edb1c6fa185dc818e9cf1d107974561a",
 				"SHA1": "383b76f23ac1d469a59a85af1a8d9c1d3f932e2f"
 			}
 		},
-		"maec-tst-obj-6": {
+		"5": {
 			"type": "file",
-			"description": "Batch cleanup file. The name of the file is based on GetTicketCount value.",
-			"file_name": "[0-9]{8}\\.bat",
+			"name": "[0-9]{8}\\.bat",
 			"hashes": {
 				"MD5": "d226a657b279c5fc0a892748230a56ff",
 				"SHA1": "fa7e4fb6d6de3c4769001cbfce0a00ba02ef28a5"

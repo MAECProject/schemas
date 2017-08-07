@@ -6,7 +6,7 @@
         {
             "type": "malware-instance",
             "id": "malware-instance--b965814d-0c2e-4e01-b8a5-d8c32bb038e6",
-            "instance_object_refs": ["object--1"],
+            "instance_object_refs": ["0"],
             "analysis_metadata": [
                 {
                     "is_automated": "False",    
@@ -34,19 +34,19 @@
         {
             "type": "malware-action",
             "id": "malware-action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5",
-            "name":"add windows hook",
-            "output_object_refs": ["object--2"]
+            "name":"add-windows-hook",
+            "output_object_refs": ["1"]
         }
     ],
     "observable_objects": {
-        "object--1": {
+        "0": {
             "type": "file",
             "hashes": {
                 "MD5": "B6C39FF68346DCC8B67AA060DEFE40C2"
             }
         },
-        "object--2": {
-            "type": "x_windows-hook",
+        "1": {
+            "type": "x-windows-hook",
             "win-hook-type": "WH_KEYBOARD_LL"
         }
     }

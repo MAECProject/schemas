@@ -6,7 +6,7 @@
         {
             "type": "malware-instance",
             "id": "malware-instance--1d43c77c-21a0-4a10-9a9a-8c0fdfd280b8",
-            "instance_object_refs": ["object--1"],
+            "instance_object_refs": ["0"],
             "dynamic_features": {
                 "action_refs": [
                     "malware-action--935a718f-863e-49fb-89b8-d65dc0e70e53",
@@ -17,38 +17,38 @@
         {
             "type": "malware-action",
             "id": "malware-action--935a718f-863e-49fb-89b8-d65dc0e70e53",
-            "name": "create file",
-            "status": "completed",
-            "output_object_refs": ["object--1"]
+            "name": "create-file",
+            "is_successful": "True",
+            "output_object_refs": ["0"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--75514819-ea94-4684-8107-68ee63315fc4",
-            "name": "write to process memory",
-            "status": "completed",
-            "input_object_refs": ["object--1"],
-            "output_object_refs": ["object--2"]
+            "name": "write-to-process-memory",
+            "is_successful": "True",
+            "input_object_refs": ["0"],
+            "output_object_refs": ["1"]
         }
     ],
     "observable_objects": {
-        "object--1": {
+        "0": {
             "type": "file",
             "size": 196608,
             "hashes": {
                 "MD5": "4EC0027BEF4D7E1786A04D021FA8A67F"
             },
-            "parent_directory_ref": "object--3"
+            "parent_directory_ref": "2"
         },
-        "object--2": {
+        "1": {
             "type": "file",
-            "file_name": "msvcr.dll",
+            "name": "msvcr.dll",
             "parent_directory_ref": "parent_directory_ref1"
         },
-        "object--3": {
+        "2": {
             "type": "directory",
             "path": "C:\\Documents and Settings\\user\\Local Settings\\Application\\Data"
         },
-        "object--4": {
+        "3": {
             "type": "process",
             "name": "explorer.exe",
             "cwd": "C:\\Windows\\"

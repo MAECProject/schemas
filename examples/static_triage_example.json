@@ -6,7 +6,7 @@
         {
             "type": "malware-instance",
             "id": "malware-instance--57998fb0-604e-4d14-b8f1-6363dbff87cb",
-            "instance_object_refs": ["object--1"],
+            "instance_object_refs": ["0"],
             "labels": ["dropper file"],
             "analysis_metadata": [
                 {
@@ -15,27 +15,27 @@
                     "analysts": ["Franki Li"],
                     "references": [
                         {
-                            "url": "http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"],
+                            "url": "http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814",
                         }
                     ],
                     "description": "A basic static triage of the subject binary using PEiD.",
-                    "tool_refs": ["object--3"]
+                    "tool_refs": ["1"]
                 }
             ],
             "static_features": {
-                "file_headers": ["object--2"]
+                "file_headers": ["2"]
             }
         }
     ],
     "objects": {
-        "object--1": {
+        "0": {
             "type": "file",
-            "file_name": "dg003_improve_8080_V132.exe",
+            "name": "dg003_improve_8080_V132.exe",
             "size": 196608,
             "hashes": {
                 "MD5": "4EC0027BEF4D7E1786A04D021FA8A67F"
             },
-            "extended_properties": {
+            "extensions": {
                 "x-maec-packer-list": [
                     {
                         "name": "UPX",
@@ -44,21 +44,21 @@
                 ]
             }
         },
-        "object--2": {
+        "2": {
             "type": "file",
-            "extended_properties": {
+            "extensions": {
                 "windows-pebinary-ext": {
                     "pe_type": "exe",
-                    "windows-pe-optional-header": {
+                    "optional_header": {
                         "major_linker_version": "06",
                         "minor_linker_version": "00",
                         "base_of_code": "036418",
-                        "subsystem": "Windows_GUI"
+                        "subsystem_hex": "Windows_GUI"
                     }
                 }
             }
         },
-        "object--3": {
+        "1": {
             "type": "software",
             "name": "PEiD",
             "version": "0.94"
