@@ -18,7 +18,7 @@
                 },
                 "process_tree":{
                     "type": "array",
-                    "items": {"type": "ProcessTree.json#/definitions/ProcessTreeNodeType"},
+                    "items": {"$ref": "ProcessTree.json#/definitions/ProcessTreeNodeType"},
                     "description": "Captures the Process Tree observed during the execution of the Malware Instance. This property may also capture Actions that are executed by a process and captured by dynamic analysis/sandboxing and therefore MUST NOT be used to reference any of the Actions that are included in the action_refs property. That is to say, the Actions referenced by this property are mutually exclusive with respect to the Actions referenced by the action_refs property."
                 }
             }

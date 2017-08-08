@@ -2,7 +2,7 @@
     "type": "package",
     "id": "package--d7af55a5-f0e1-43b0-bcd2-ba1174c579bf",
     "schema_version": "5.0",
-    "maec_instances": [
+    "maec_objects": [
         {
             "type": "malware-instance",
     		"id": "malware-instance--5746070b-7e0b-45c7-8980-84427ef773b3",

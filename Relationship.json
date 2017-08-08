@@ -28,7 +28,7 @@
                     "description": "Specifies a timestamp that states when the relationship was created."
                 },
                 "relationship_type": {
-                    "$ref": "string",
+                    "type": "string",
                     "description": "Specifies the type of relationship being expressed. This value SHOULD be an exact value listed in the relationships for the source and target top-level object, but MAY be any string. The value of this field MUST be in ASCII and is limited to characters a–z (lowercase ASCII), 0–9, and dash (-)."
                 },
                 "metadata": {

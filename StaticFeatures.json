@@ -1,32 +1,32 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "StaticFeaturesType":{
+        "StaticFeaturesType": {
             "title":"StaticFeatures",
             "type":"object",
             "description":"Captures features associated with a malware binary not related to the semantics of the code.",
-            "properties":{
-                "strings":{
+            "properties": {
+                "strings": {
                     "type": "array",
                     "items": {"type": "string"},
                     "description": "Captures strings extracted from the binary."
                 },
                 "obfuscation_methods": {
                     "type": "array",
-                    "items": {"type": "BinaryObfuscation.json#/definitions/BinaryObfuscationType"},
+                    "items": {"$ref": "BinaryObfuscation.json#/definitions/BinaryObfuscationType"},
                     "description": "Captures metadata associated with methods used to obfuscate the malware instance (e.g., packers, encryptors)."
                 },
-                "certificates":{
+                "certificates": {
                     "type":"array",
-                    "items":{"type": "string"},
+                    "items": {"type": "string"},
                     "description": "References any software certificates used to sign the malware instance. The Objects referenced MUST be of STIX type x509-certificate and MUST be specified in the observable_objects property of the Package."
                 },
-                "file_headers":{
+                "file_headers": {
                     "type": "array",
-                    "items":{"type": "string"},
+                    "items": {"type": "string"},
                     "description": "References any file headers (e.g., PE file headers) extracted from the malware instance. The Objects referenced MUST be of STIX type file and MUST be specified in the observable_objects property of the Package."
                 },
-                "configuration_parameters":{
+                "configuration_parameters": {
                     "type": "array",
                     "items": {"$ref": "MalwareConfigurationParameter.json#/definitions/MalwareConfigurationParameterType"},
                     "description": "Captures any configuration parameters specified for the malware instance."

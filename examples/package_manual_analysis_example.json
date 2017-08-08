@@ -2,7 +2,7 @@
 	"type": "package",
 	"id": "package--7af42bc3-8aef-42dc-95e4-d89f16eaa142",
 	"schema_version": "5.0",
-	"maec_instances": [
+	"maec_objects": [
 		{
 			"type": "malware-instance",
 			"id": "malware-instance--7c65642b-45f6-40cf-bc09-5e089eb8b392",
@@ -132,7 +132,7 @@
 					"references": [
 						{
 							"source_name": "SANS",
-							"url": "http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814",
+							"url": "http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 						}
 					],
 					"description": "Dynamic (behavioral) and tool-based triage of the subject binary.",
@@ -152,7 +152,7 @@
 					"references": [
 						{
 							"source_name": "SANS",
-							"url": "http://www.sans.org/readding_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814",
+							"url": "http://www.sans.org/readding_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
 						}
 					],
 					"description": "Manual Analysis of the main subject binary.",
@@ -181,7 +181,7 @@
 			"description": "System instantiation behavior. The binary creates a copy of itself in several locations as a means of instantiating itself on the system, primarily for use in further behaviors. ",
 			"action_refs": [
 				"malware-action--3422339e-f1ae-4f17-86bd-aa31e9c3b9bb",
-				"malware-action--31895a4c-4588-4363-862f-d45867175eef",
+				"malware-action--31895a4c-4588-4363-862f-d45867175eef"
 			]
 		},
 		{
@@ -206,7 +206,7 @@
 			"type": "behavior",
 			"id": "behavior--cde9e009-8868-457b-9170-0c01c086e82d",
 			"name": "hide data in other formats",
-			"description": "hide code in a file",
+			"description": "hide code in a file"
 		},
 		{
 			"type": "behavior",
@@ -398,7 +398,7 @@
 			"id": "malware-action--2a15c169-2ebb-49a0-a8eb-adcdb66e1639",
 			"name": "create-file",
 			"is_successful": "True",
-			"output_object_refs": ["36"],
+			"output_object_refs": ["36"]
 		},
 		{
 			"type": "malware-action",
