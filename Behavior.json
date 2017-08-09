@@ -36,10 +36,6 @@
                     "items": {"type": "string"},
                     "description": "Captures Actions that serve as an implementation of the Behavior. Each list item specifies the unique ID of the Action being referenced. The Action MUST be present in the current Package. The ordering of the references in the list denotes the sequential ordering of the Actions with respect to the Behavior; that is, Actions at the beginning of the list MUST have occurred before those later in the list."
                 },
-                "status": {
-                    "type": "string",
-                    "description": "Specifies the execution status of the Behavior. The values for this property SHOULD come from the execution-status-ov vocabulary."
-                },
                 "references": {
                     "type": "array",
                     "items": {

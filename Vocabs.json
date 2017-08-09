@@ -114,16 +114,6 @@
                 "same-malware-toolkit"
             ]
         },
-        "execution-status-ov": {
-            "title": "execution status ov",
-            "type": "string",
-            "description": "execution-status-ov is a non-exhaustive enumeration of observable execution status types.",
-            "enum": [
-                "completed",
-                "failed",
-                "terminated"
-            ]
-        },
         "malware-action-ov": {
             "title": "malware action ov",
             "type": "string",
