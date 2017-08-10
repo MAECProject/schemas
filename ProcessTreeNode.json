@@ -1,31 +1,30 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "ProcessTreeNodeType": {
-	    	"title": "ProcessTreeNode",
-	    	"type": "object",
-	    	"description": "Captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object.",
-            "properties": {
-	        	"process_ref": {
-		     		"type": "string",
-		     		"description": "References the Process Object, contained in the Package, which represents the process and its relevant metadata. The Object referenced MUST be of STIX type process and MUST be specified in the observable_objects property of the Package."   
-				},
-		        "parent_action_ref": {
-			    	"type": "string",
-			    	"description": "Captures the ID of the Action that created or injected this process."
-		        },
-		        "ordinal_position": {
-			   		"type": "integer",
-			   		"minimum": 0,
-			   		"description": "Captures the ordinal position of the process with respect to the other processes spawned or injected by the malware. This value MUST be a non-negative integer. For specifying the root process of the process tree, a value of 0 MUST be used."
-		        },
-		        "initiated_action_refs": {
-			    	"type": "array",
-			    	"items": {"type": "string"},
-			    	"description": "Captures the IDs of the Actions initiated by the process."
-		        }
-        	},
-            "required": ["process_ref"]
-    	}
-	}
+    "ProcessTreeNodeType": {
+        "title": "ProcessTreeNode",
+        "type": "object",
+        "description": "Captures a single node in a process tree, as recorded for a Malware Instance. ",
+        "properties": {
+            "process_ref": {
+                "type": "string",
+                "description": "References the Process Object, contained in the Package, which represents the process and its relevant metadata. The Object referenced MUST be of STIX type process and MUST be specified in the observable_objects property of the Package."
+            },
+            "parent_action_ref": {
+                "type": "string",
+                "description": "Captures the ID of the Action that created or injected this process."
+            },
+            "ordinal_position": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Captures the ordinal position of the process with respect to the other processes spawned or injected by the malware. This value MUST be a non-negative integer. For specifying the root process of the process tree, a value of 0 MUST be used."
+            },
+            "initiated_action_refs": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Captures the IDs of the Actions initiated by the process."
+            }
+        },
+        "required": ["process_ref"]
+    }}
 }
