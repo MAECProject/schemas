@@ -27,7 +27,7 @@
                 },
                 "confidence": {
                     "type": "string",
-                    "description": "Specifies the relative measure of confidence in the accuracy of the analysis results. The value for this property MUST come from the confidence-measure-ov vocabulary."
+                    "description": "Specifies the relative measure of confidence in the accuracy of the analysis results. The value for this property SHOULD come from the confidence-measure-ov vocabulary."
                 },
         		"analysts": {
                     "type": "array",
@@ -52,7 +52,7 @@
                     "type": "string",
                     "description": "Captures a textual description of the analysis that was performed."
                 },
-                "conclusion": {
+                "conclusions": {
                     "type": "array",
                     "items": {"type": "string"},
                     "description": "Captures the conclusion(s) of the analysis that was performed, such as whether the binary was found to be malicious. The value for this property SHOULD come from the analysis-conclusion-type-ov vocabulary."
