@@ -4,7 +4,7 @@
         "NameType": {
             "title": "Name",
             "type": "object",
-            "description": "Captures the name of a malware instance or malware family and the relative confidence of the name.",
+            "description": "Captures the name of a malware instance, family, or alias, as well as the source and relative confidence in the name.",
             "properties": {
                 "value": {
                     "type": "string",
@@ -12,11 +12,11 @@
                 },
                 "source":{
                     "$ref": "Source.json#/definitions/SourceType",
-                    "description": "Captures the source of the value property (name)."
+                    "description": "Captures the source of the value property (i.e., the name)."
                 },
                 "confidence": {
                     "type": "string",
-                    "description": "Captures the relative confidence in the accuracy of the assigned name. The value for this property is confidence-measure-ov."
+                    "description": "Captures the relative confidence in the accuracy of the assigned name. The value for this property SHOULD come from the confidence-measure-ov vocabulary."
                 }
             },
             "required": ["value"]
