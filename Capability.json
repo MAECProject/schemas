@@ -30,10 +30,7 @@
                 },
                 "references": {
                     "type": "array",
-                    "items": {
-                        "type": "string",
-                        "format": "uri"
-                    },
+                    "items": {"$ref": "ExternalReference.json#/definitions/ExternalReference"},
                     "description": "Specifies the ID of the corresponding entry in EMA. This property MUST be populated if the value of the name property references an EMA entry."
                 }
             },
