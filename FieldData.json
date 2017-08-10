@@ -21,7 +21,12 @@
                     "format": "date-time",
                     "description": "Captures the date/time that the malware instance was last seen by producer of the Malware Instance Object."
                 }
-            }
+            },
+            "anyOf": [
+                {"required": ["delivery_vectors"]},
+                {"required": ["first_seen"]},
+                {"required": ["last_seen"]}
+            ]
         }
     }
 }
