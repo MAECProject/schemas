@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "RelationshipDistanceType": {
+        "relationship-distance": {
 	       "title":"RelationshipDistance",
             "type": "object",
             "description": "Captures information associated with a distance metric between the source and target in the relationship.",

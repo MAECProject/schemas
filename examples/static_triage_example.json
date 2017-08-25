@@ -7,10 +7,10 @@
             "type": "malware-instance",
             "id": "malware-instance--57998fb0-604e-4d14-b8f1-6363dbff87cb",
             "instance_object_refs": ["0"],
-            "labels": ["dropper file"],
+            "labels": ["dropper"],
             "analysis_metadata": [
                 {
-                    "is_automated": "False",
+                    "is_automated": false,
                     "analysis_type": "static",
                     "analysts": ["Franki Li"],
                     "references": [

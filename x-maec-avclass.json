@@ -31,11 +31,11 @@
                 },
                 "av_vendor": {
                     "type": "string",
-                    "description": "Captures the vendor of the AV tool."
+                    "description": "Captures the name of the vendor of the AV tool that generated the classification."
                 },
                 "av_version": {
                     "type": "string",
-                    "description": "Captures the version of the AV tool."
+                    "description": "Captures the version of the AV tool that generated the classification."
                 },
                 "av_engine_version": {
                     "type": "string",

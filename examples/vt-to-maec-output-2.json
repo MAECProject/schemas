@@ -10,7 +10,7 @@
             "analysis_metadata": [
                 {
                     "analysis_type": "static",
-                    "is_automated": "True",
+                    "is_automated": true,
                     "description": "Created by VirusTotal to MAEC (http://github.com/MAECProject/vt-to-maec)"
                 }
             ]

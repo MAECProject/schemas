@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {"PackageType": {
+    "definitions": {"package": {
         "title": "Package",
         "type": "object",
         "description": "Standard output format that can be used to describe one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, CybOX Objects, and Collections and Relationships.",
@@ -21,6 +21,15 @@
             },
             "maec_objects": {
                 "type": "array",
+                "items": {
+                    "anyOf": [
+                        {"$ref": "behavior.json#/definitions/behavior"},
+                        {"$ref": "collection.json#/definitions/collection"},
+                        {"$ref": "malware-action.json#/definitions/malware-action"},
+                        {"$ref": "malware-family.json#/definitions/malware-family"},
+                        {"$ref": "malware-instance.json#/definitions/malware-instance"}
+                    ]
+                },
                 "description": "Specifies a set of one or more MAEC Objects. Objects in this list MUST be a MAEC Top-level Object."
             },
             "observable_objects": {
@@ -29,7 +38,7 @@
             },
             "relationships": {
                 "type": "array",
-                "items": {"$ref": "Relationship.json#/definitions/RelationshipType"},
+                "items": {"$ref": "relationship.json#/definitions/relationship"},
                 "description": "Specifies a set of one or more MAEC relationships. Each entry in this list must be of type Relationship."
             }
         },
@@ -40,5 +49,5 @@
             "maec_objects"
         ]
     }},
-    "allOf":[{"$ref": "#/definitions/PackageType"}]
+    "allOf":[{"$ref": "#/definitions/package"}]
 }

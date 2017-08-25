@@ -9,7 +9,7 @@
             "instance_object_refs": ["0"],
             "analysis_metadata": [
                 {
-                    "is_automated": "False",    
+                    "is_automated": false,    
                     "analysis_type": "static",
                     "description": "in-depth static analysis"
                 }
@@ -28,7 +28,7 @@
         {
             "type": "behavior",
             "id": "behavior--7946eb08-1a49-45ec-bd45-6b467e14bf31",
-            "name": "capture keyboard input",
+            "name": "capture-keyboard-input",
             "action_refs": ["malware-action--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5"]
         },
         {

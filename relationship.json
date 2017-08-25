@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "RelationshipType": {
+        "relationship": {
             "title": "Relationship",
             "type": "object",
             "definition": "Captures relationships between two entities in the MAEC document.",

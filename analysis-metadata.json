@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "AnalysisMetadataType": {
+        "analysis-metadata": {
         	"title": "Analysis",
         	"type": "object",
         	"description": "Captures metadata associated with the analyses of a malware instance, such as the tools used, analysts, and other data.",
@@ -13,21 +13,21 @@
                 "start_time": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Specifies the date/time that the analysis was started."
+                    "description": "Captures the date/time that the analysis was started."
                 },
                 "end_time": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Specifies the date/time that the analysis was completed."
+                    "description": "Captures the date/time that the analysis was completed."
                 },
                 "last_update_time": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Specifies the date/time that the analysis was last updated."
+                    "description": "Captures the date/time that the analysis was last updated."
                 },
                 "confidence": {
                     "type": "string",
-                    "description": "Specifies the relative measure of confidence in the accuracy of the analysis results. The value for this property MUST come from the confidence-measure-ov vocabulary."
+                    "description": "Captures the relative measure of confidence in the accuracy of the analysis results. The value for this property SHOULD come from the confidence-measure-ov vocabulary."
                 },
         		"analysts": {
                     "type": "array",
@@ -41,7 +41,7 @@
                 "comments": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "Captures comments regarding the analysis that was performed. A comment should be attributable to a specific analyst and should reflect particular insights of the author that are significant from an analysis standpoint.  The contents of comments are typically not contained in the report."
+                    "description": "Captures comments regarding the analysis that was performed. A comment SHOULD be attributable to a specific analyst and SHOULD reflect particular insights of the author that are significant from an analysis standpoint."
                 },
                 "tool_refs": {
                     "type": "array",
@@ -52,14 +52,14 @@
                     "type": "string",
                     "description": "Captures a textual description of the analysis that was performed."
                 },
-                "conclusion": {
+                "conclusions": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "Captures the conclusion(s) of the analysis that was performed, such as whether the binary was found to be malicious. The value for this property SHOULD come from the analysis-conclusion-type-ov vocabulary."
+                    "description": "Captures analysis conclusions, such as whether the binary was found to be malicious. The value for this property SHOULD come from the analysis-conclusion-type-ov vocabulary."
                 },
                 "references": {
                     "type": "array",
-                    "items": {"$ref": "ExternalReference.json#/definitions/ExternalReference"},
+                    "items": {"$ref": "external-reference.json#/definitions/external-reference"},
                     "description": "Captures any references to reports or other data sources pertaining to the analysis."
                 }
         	},

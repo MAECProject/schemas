@@ -12,7 +12,7 @@
 					"name": "infection/propagation",
 					"refined_capabilities": [
 						{
-							"name": "remote machine infection"
+							"name": "remote-machine-infection"
 						}
 					]
 				}
@@ -33,7 +33,7 @@
 		{
 			"type": "behavior",
 			"id": "behavior--738f7800-58f0-45d5-9f69-0fdb10050edc",
-			"name": "autonomous remote infection",
+			"name": "autonomous-remote-infection",
 			"description": "A vulnerability exploit behavior initiated by some code on the web page.",
 			"attributes": {
 				"vulnerability-id-cve": "CVE-2010-0188"
@@ -42,7 +42,7 @@
 		{
 			"type": "behavior",
 			"id": "behavior--4efd2828-92b8-41df-862e-9d983fe0d2f3",
-			"name": "autonomous remote infection",
+			"name": "autonomous-remote-infection",
 			"description": "A vulnerability exploit behavior initiated by some code on the web page.",
 			"attributes": {
 				"vulnerability-id-cve": "CVE-2012-0507"

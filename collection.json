@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "definitions": {"CollectionType": {
+    "definitions": {"collection": {
         "title":"Collection",
         "type": "object",
         "description": "Captures collections of any MAEC entities, including Malware Subjects.",
@@ -24,14 +24,22 @@
             "entity_refs": {
                 "type": "array",
                 "items": {"type": "string"},
-                "description": "Specifies a set of one or more MAEC entities that are contained in the Collection. Each item specifies the unique ID of the entity being referenced. All entities MUST be present in the current Package."
+                "description": "Specifies a set of one or more MAEC entities that are contained in the Collection. Each item specifies the unique ID of the entity being referenced. All entities MUST be present in the current Package. This property is mutually exclusive with regard to the observable_refs property and both properties MUST NOT be present in the same Collection."
+            },
+            "observable_refs":{
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Specifies a set of one or more STIX Cyber Observable Objects that are contained in the Collection. This property is mutually exclusive with regard to the entity_refs property and both properties MUST NOT be present in the same Collection."
             }
         },
         "required": [
             "type",
             "id",
-            "association_type",
-            "entity_refs"
+            "association_type"
+        ],
+        "oneOf": [
+            {"required": ["entity_refs"]},
+            {"required": ["observable_refs"]}
         ]
     }}
 }

@@ -7,7 +7,7 @@
 			"type": "malware-instance",
 			"id": "malware-instance--b72eed82-4333-4f41-830e-0e806b53dc4e",
 			"instance_object_refs": ["0"],
-			"labels": ["dropper file"],
+			"labels": ["dropper"],
 			"dynamic_features": {
 				"behavior_refs": ["behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"],
 				"action_refs": [
@@ -20,32 +20,30 @@
 					"name": "persistence",
 					"refined_capabilities": [
 						{
-							"name": "continuous execution"
+							"name": "continuous-execution"
 						}
 					],
-					"attributes": [
-						{
-							"persistence scope": "self"
-						}
-					],
+					"attributes": {
+							"persistence-scope": "self"
+					},
 					"behavior_refs": ["behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67"]
 				}
 			],
 			"analysis_metadata": [
 				{
-					"is_automated": "True",
+					"is_automated": true,
 					"analysis_type": "dynamic",
 					"description": "Dynamic (behavorial) triage of the subject binary",
 					"tool_refs": ["6"]
 				},
 				{
-					"is_automated": "True",
+					"is_automated": true,
 					"analysis_type": "dynamic",
 					"description": "Dynamic (behavorial) and tool-based triage of the subject binary",
 					"tool_refs": ["7"]
 				},
 				{
-					"is_automated": "False",
+					"is_automated": false,
 					"analysis_type": "static",
 					"description": "Manual analysis of the subject binary"
 				}
@@ -54,7 +52,7 @@
 		{
 			"type": "behavior",
 			"id": "behavior--f53c0819-b2a3-4e71-ac9e-8cda83afde67",
-			"name": "persist after system reboot",
+			"name": "persist-after-system-reboot",
 			"description": "A persistence after reboot behavior using the Windows startup folder",
 			"action_refs": [
 				"malware-action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
@@ -65,14 +63,14 @@
 			"type": "malware-action",
 			"id": "malware-action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["1"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--33e9271d-30b5-4db1-9fca-892ffae1f087",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["2"]
 		}
 	],
@@ -124,8 +122,8 @@
 		{
 			"type": "relationship",
 			"id": "relationnship--89c7873f-30b5-4db1-9fca-892ffae1f087",
-			"source_ref": "maec-anubis_to_maec-act-1",
-			"target_ref": "maec-threatexpert_to_maec-act-1",
+			"source_ref": "malware-action--3b127f1c-59cf-460d-8eab-afd1ee705d16",
+			"target_ref": "malware-action--33e9271d-30b5-4db1-9fca-892ffae1f087",
 			"relationship_type": "equivalent"
 		}
 	]

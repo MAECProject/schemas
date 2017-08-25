@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {        
-        "FieldDataType":{
+        "field-data":{
             "title": "FieldData",
             "type": "object",
             "description": "Captures field data with a malware instance or family. At least one of \"delivery_vectors\" or \"first_seen\" or \"last_seen\" MUST be included when using this type.",

@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "ProcessTreeNodeType": {
+        "process-tree-node": {
 	    	"title": "ProcessTreeNode",
 	    	"type": "object",
 	    	"description": "Captures a single process, or node, in the process tree. It imports and extends the ProcessObjectType from the CybOX Process Object.",

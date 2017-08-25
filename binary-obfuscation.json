@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": { 
-        "BinaryObfuscationType": {
+        "binary-obfuscation": {
             "title": "BinaryObfuscation",
             "type": "object",
             "description": "Extension that captures metadata ont he methods that a binary may be obfuscated with, such as executable packers or XOR encryption. This includes obfuscation of the entire binary as well as its constituent pieces, such as strings.",
@@ -16,7 +16,7 @@
                 },
                 "encryption_algorithm": {
                     "type": "string",
-                    "description": "Specifies the name of the encryption algorithm used in the obfuscation method (if applicable). The values for this property SHOULD come from the STIX encryption-algo-ov vocabulary."
+                    "description": "Captures the name of the encryption algorithm used by the obfuscation method (if applicable). The values for this property SHOULD come from the STIX encryption-algo-ov vocabulary."
                 },
                 "packer_name": {
                     "type": "string",

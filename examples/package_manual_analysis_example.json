@@ -7,16 +7,16 @@
 			"type": "malware-instance",
 			"id": "malware-instance--7c65642b-45f6-40cf-bc09-5e089eb8b392",
 			"instance_object_refs": ["0"],
-			"labels": ["dropper_file"],
+			"labels": ["dropper"],
 			"capabilities": [
 				{
 					"name": "probing",
 					"refined_capabilities": [
 						{
-							"name": "host configuration probing"
+							"name": "host-configuration-probing"
 						},
 						{
-							"name": "inventory system applications",
+							"name": "inventory-system-applications",
 							"behavior_refs": ["behavior--e00e6637-aafd-4e03-80b5-7fe007ed7b48"]
 						}
 					]
@@ -25,14 +25,14 @@
 					"name": "anti-detection",
 					"refined_capabilities": [
 						{
-							"name": "hide non-executing code",
+							"name": "hide-non-executing-code",
 							"behavior_refs": [
 								"behavior--ecfab224-9ba6-45d7-9eb4-f4804d39133e",
 								"behavior--cde9e009-8868-457b-9170-0c01c086e82d"
 							]
 						},
 						{
-							"name": "hide artifacts",
+							"name": "hide-artifacts",
 							"behavior_refs": [
 								"behavior--2740602a-015d-417d-97d0-d786277476bd",
 								"behavior--b5391078-9473-4caa-937c-b4e92ffe29d3"
@@ -41,10 +41,10 @@
 					]
 				},
 				{
-					"name": "secondary operation",
+					"name": "secondary-operation",
 					"refined_capabilities": [
 						{
-							"name": "install other components"
+							"name": "install-other-components"
 						}
 					],
 					"behavior_refs": ["behavior--ed0ce2bf-a1c7-426d-a067-6cb33a649ed6"]
@@ -53,7 +53,7 @@
 					"name": "infection/propagation",
 					"refined_capabilities": [
 						{
-							"name": "prevent concurrent execution",
+							"name": "prevent-concurrent-execution",
 							"behavior_refs": ["behavior--844c4514-0190-43c0-be32-e604be18b7d9"]
 						}
 					]
@@ -113,7 +113,7 @@
 			},
 			"analysis_metadata": [
 				{
-					"is_automated": "False",
+					"is_automated": false,
 					"analysis_type": "static",
 					"analysts": ["Franki Li"],
 					"references": [
@@ -126,7 +126,7 @@
 					"tool_refs":["1"]
 				},
 				{
-					"is_automated": "False",
+					"is_automated": false,
 					"analysis_type": "static",
 					"analysts": ["Franki Li"],
 					"references": [
@@ -146,7 +146,7 @@
 					]
 				},
 				{
-					"is_automated": "False",
+					"is_automated": false,
 					"analysis_type": "static",
 					"analysts": ["Frank Li"],
 					"references": [
@@ -163,21 +163,21 @@
 		{
 		    "type": "behavior",
 			"id": "behavior--e00e6637-aafd-4e03-80b5-7fe007ed7b48",
-			"name": "detect installed anti-virus tools",
+			"name": "detect-installed-anti-virus-tools",
 			"description": "Anti-virus software checking behavior. The binary checks if the victim has Kaspersky, ESET, BitDefender, AVG, NOD32, Rising or 360+ installed by enumerating the values of a registry key.",
 			"action_refs": ["malware-action--9225e1b8-0c06-44bc-8f9d-889b14cbea76"]
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--844c4514-0190-43c0-be32-e604be18b7d9",  
-			"name": "prevent concurrent execution",
+			"name": "prevent-concurrent-execution",
 			"description": "Concurrent execution prevention behavior. The binary creates a global mutex to mark its presence and prevent it from being from re-executing on the system.",
 			"action_refs": ["malware-action--bbd1cf43-d323-4b33-9a26-09b283356edb"]
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--ecfab224-9ba6-45d7-9eb4-f4804d39133e",
-			"name": "file system instantiation",
+			"name": "file-system-instantiation",
 			"description": "System instantiation behavior. The binary creates a copy of itself in several locations as a means of instantiating itself on the system, primarily for use in further behaviors. ",
 			"action_refs": [
 				"malware-action--3422339e-f1ae-4f17-86bd-aa31e9c3b9bb",
@@ -187,14 +187,14 @@
 		{
 			"type": "behavior",
 			"id": "behavior--2740602a-015d-417d-97d0-d786277476bd",
-			"name": "obfuscate artifact properties",
+			"name": "obfuscate-artifact-properties",
 			"description": "File obfuscation behavior. The binary changes the modification, access, change time and properties of a file in order to obfuscate it.",
 			"action_refs": ["malware-action--1fecfe3a-e3c3-406b-ab59-11353b214411"]
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--b5391078-9473-4caa-937c-b4e92ffe29d3",
-			"name": "hide network traffic",
+			"name": "hide-network-traffic",
 			"description": "Network activity obfuscation behavior.The binary copies two Windows system files of “netstat.exe” to C:\\Windows\\System32\\13605 and “SFC_OS.dll” to C:\\Windows\\inf\\1.txt. The “SFC_OS.dll” is the executable portion of Windows File Protection mechanism (WFP), which protects system files from being modified or deleted. The malware calls to ordinal 5 function of “1.txt” in order to bypass the WFP (Collake, 2006) during patching \"netstat.exe\" for hiding network connection of IP address of 115.x.x.249",
 			"action_refs": [
 				"malware-action--8151249d-3407-44d4-96ab-cdb6a3b1937d",
@@ -205,13 +205,13 @@
 		{
 			"type": "behavior",
 			"id": "behavior--cde9e009-8868-457b-9170-0c01c086e82d",
-			"name": "hide data in other formats",
+			"name": "hide-data-in-other-formats",
 			"description": "hide code in a file"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--ed0ce2bf-a1c7-426d-a067-6cb33a649ed6",
-			"name": "install secondary module",
+			"name": "install-secondary-module",
 			"description": "Payload drop behavior. The binary drops it primary payload on the system",
 			"action_references": ["malware-action--4d669039-4a39-4472-90c7-d4e8a7e22eb1"]
 		},
@@ -219,70 +219,70 @@
 			"type": "malware-action",
 			"id": "malware-action--3422339e-f1ae-4f17-86bd-aa31e9c3b9bb",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["10"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--4d669039-4a39-4472-90c7-d4e8a7e22eb1",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["11"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--8b987106-20d6-4a28-99da-8ad73c1a94b3",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["12"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--1e2cffa2-c233-480a-b18a-4eb629119dbc",
 			"name": "write-to-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"input_object_refs": ["13"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--31895a4c-4588-4363-862f-d45867175eef",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["14"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--03e50768-7fbe-433c-9dfd-024b2a6410d8",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["15"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--b3a94091-fa4b-4c05-8c13-3420e91b1eff",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["16"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--29290f7c-ab90-4ad2-8741-ab0fd0cca232",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["17"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--bbd1cf43-d323-4b33-9a26-09b283356edb",
 			"name": "create-mutex",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["18"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--8829ae31-7a6e-4d0d-8304-e17ce3b12940",
 			"name": "create-remote-thread-in-process",
-			"is_successful": "True",
+			"is_successful": true,
 			"input_object_refs": [
 				"19",
 				"20"
@@ -292,147 +292,147 @@
 			"type": "malware-action",
 			"id": "malware-action--4cdfe3b9-0be1-4a56-841f-14385c05a939",
 			"name": "send-dns-query",
-			"is_successful": "False",
+			"is_successful": false,
 			"input_object_refs":["21"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--9484099f-8896-4c0d-9db2-d0c6a659623c",
 			"name": "send-dns-query",
-			"is_successful": "False",
+			"is_successful": false,
 			"input_object_refs": ["22"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--5d13e5e4-12f9-4eb1-a218-abe805344feb",
 			"name": "send-dns-query",
-			"is_successful": "False",
+			"is_successful": false,
 			"input_object_refs": ["23"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--527aab34-7379-4298-a987-8aa08f0098fd",
 			"name": "send-dns-query",
-			"is_successful": "False",
+			"is_successful": false,
 			"input_object_refs": ["24"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--8ec6bb08-8ff2-45fd-913f-c8f1d4a0eacb",
 			"name": "send-dns-query",
-			"is_successful": "False",
+			"is_successful": false,
 			"input_object_refs": ["25"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--8009326f-9f51-4be1-9abc-22b655ea2c55",
 			"name": "connect-to-ip-address",
-			"is_successful": "False",
+			"is_successful": false,
 			"input_object_refs":["26"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--acb85bd3-3f7a-44ca-a538-a4915029fb55",
 			"name": "connect-to-ip-address",
-			"is_successful": "False",
+			"is_successful": false,
 			"input_object_refs": ["27"]
 		},		
 		{
 			"type": "malware-action",
 			"id": "malware-action--7a807fa0-7492-451a-aa45-eab1b263f57a",
-			"name": "create file",
-			"is_successful": "True",
+			"name": "create-file",
+			"is_successful": true,
 			"output_object_refs": ["28"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--db4e4b6c-007b-4fd0-8d1a-942a178781b7",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["29"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--472ccdb8-09d8-4548-9834-77e8c4fd7924",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["30"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--25d55f08-64de-44ce-9473-51f3c007d263",
 			"name": "create-process",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs":["31"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--fcb22a63-b151-4ed4-b923-82ecea1b199c",
 			"name": "create-process",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["32"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--fd954739-d710-4236-956b-2b809b7d9b74",
 			"name": "create-process",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["33"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--68b8a891-4b9f-4cda-a339-1c1ba7963916",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["34"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--1dae3517-7b3d-4899-9a83-06a07f81c25f",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["35"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--2a15c169-2ebb-49a0-a8eb-adcdb66e1639",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["36"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--cc386e71-2cf1-450b-8233-459fcff14663",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs":["37"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--2b18f181-37ee-426e-b06f-53d46235d6e4",
 			"name": "create-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["38"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--9225e1b8-0c06-44bc-8f9d-889b14cbea76",
 			"name": "enumerate-registry-key-values",
-			"is_successful": "True",
+			"is_successful": true,
 			"output_object_refs": ["39"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--1fecfe3a-e3c3-406b-ab59-11353b214411",
 			"name": "set-file-or-directory-attributes",
-			"is_successful": "True",
+			"is_successful": true,
 			"input_object_refs": ["40"]
 		},
 		{
 			"type": "malware-action",
 			"id": "malware-action--8151249d-3407-44d4-96ab-cdb6a3b1937d",
 			"name": "copy-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"input_object_refs": ["41"],
 			"output_object_refs":["42"]
 		},
@@ -440,7 +440,7 @@
 			"type": "malware-action",
 			"id": "malware-action--ba4ca744-8846-4331-b81c-ec94507ba742",
 			"name": "copy-file",
-			"is_successful": "True",
+			"is_successful": true,
 			"input_object_refs": ["43"],
 			"output_object_refs": ["44"]
 		},

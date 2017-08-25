@@ -15,13 +15,13 @@
     		],
     		"analysis_metadata": [
     			{
-                    "is_automated": "True",
+                    "is_automated": true,
     				"analysis_type": "dynamic",
     				"description": "Dynamic (behavioral) triage of the subject binary.",
     				"tool_refs": ["2"]
     			},
     			{
-                    "is_automated": "True",
+                    "is_automated": true,
     				"analysis_type": "dynamic",
     				"description": "Dynamic (behavioral) and tool-based triage of the subject binary.",
     				"tool_refs": ["3"]
@@ -43,42 +43,42 @@
             "id": "malware-action--9bee0108-97ea-41e9-b624-f199119e280d",
             "name": "create-file",
             "output_object_refs": ["4"],
-            "is_successful": "True"
+            "is_successful": true
         },
         {
             "type": "malware-action",
             "id": "malware-action--a6ae673b-ec94-466e-acab-d68d1c9b5bd4",
             "name": "create-mutex",
             "output_object_refs": ["6"],
-            "is_successful": "True"
+            "is_successful": true
         },
         {
             "type": "malware-action",
             "id": "malware-action--ece7bf16-b2bd-4c10-8811-57f04243b556",
             "name": "modify-registry-key-value",
             "input_object_refs": ["7"],
-            "is_successful": "True"
+            "is_successful": true
         },
         {
             "type": "malware-action",
             "id": "malware-action--58c4ea1f-8ff4-42e8-8484-e87956139bce",
-            "name": "create file",
+            "name": "create-file",
             "output_object_refs":["8"],
-            "is_successful": "True"
+            "is_successful": true
         },
         {
             "type": "malware-action",
             "id": "malware-action--33faf89e-395a-47a0-8b43-edfa29500327",
             "name": "create-mutex",
             "output_object_refs": ["10"],
-            "is_successful": "True"
+            "is_successful": true
         },
         {
             "type": "malware-action",
             "id": "malware-action--a59c098a-3129-4c2d-8a71-335ae1def77e",
             "name": "create-registry-key",
             "output_object_refs": ["11"],
-            "is_successful": "True"
+            "is_successful": true
         },
         {
             "type": "collection",

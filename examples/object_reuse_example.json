@@ -18,14 +18,14 @@
             "type": "malware-action",
             "id": "malware-action--935a718f-863e-49fb-89b8-d65dc0e70e53",
             "name": "create-file",
-            "is_successful": "True",
+            "is_successful": true,
             "output_object_refs": ["0"]
         },
         {
             "type": "malware-action",
             "id": "malware-action--75514819-ea94-4684-8107-68ee63315fc4",
             "name": "write-to-process-memory",
-            "is_successful": "True",
+            "is_successful": true,
             "input_object_refs": ["0"],
             "output_object_refs": ["1"]
         }

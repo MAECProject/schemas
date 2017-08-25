@@ -16,7 +16,7 @@
                     "name": "persistence",
                     "refined_capabilities": [
                         {
-                            "name": "continuous execution",
+                            "name": "continuous-execution",
                             "behavior_refs": ["behavior--2099d4c1-0e8a-49d2-8d32-f0427e1ff817"]
                         }
                     ]

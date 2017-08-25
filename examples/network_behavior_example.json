@@ -13,10 +13,10 @@
             "instance_object_refs": ["0"],
             "capabilities": [
                 {
-                    "name": "command and control",
+                    "name": "command-and-control",
                     "refined_capabilities": [
                         {
-                            "name": "send data to c2 server"
+                            "name": "send-data-to-c2-server"
                         }
                     ]
                 }
@@ -36,7 +36,7 @@
         {
             "type": "behavior",
             "id": "behavior--10b06b25-9fbe-4593-9609-5cba8e877f75",
-            "name": "send data to C2 server",
+            "name": "send-data-to-C2-server",
             "description": "A Command and Control Server Connection Loop. Every 180 seconds the malware subject sends an HTTP Post request to its C2 server with some data uniquely identifying the victim machine and reporting on the status of the execution of the malware.",
             "action_refs": ["action--5809df22-e9e2-4d78-beb6-1c412cdb4b18"]
         }

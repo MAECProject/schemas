@@ -10,20 +10,10 @@
             "static_features": {
                 "configuration_parameters": [
                     {
-                        "name": "filename",
-                        "value": "wmimserver.exe"
-                    },
-                    {
-                        "name": "installation path",
-                        "value": "%System%"
-                    },
-                    {
-                        "name": "id",
-                        "value": "aubok"
-                    },
-                    {
-                        "name": "mutex",
-                        "value": "801JsYqFulHpg"
+                        "filename": "wmimserver.exe",
+                        "installation path": "&System%",
+                        "id": "aubok",
+                        "mutex": "801JsYqFulHpg"
                     }
                 ]
             }

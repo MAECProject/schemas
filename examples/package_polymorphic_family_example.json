@@ -55,7 +55,7 @@
             "type": "behavior",
             "id": "behavior--1127c9d9-2ab0-4763-a53b-46145425bdf5",
             "name": "persistence",
-            "description": "persist after system reboot",
+            "description": "persist-after-system-reboot",
             "techniques": ["windows-registry-manipulation"],
             "action_refs": [
                 "malware-action--0b8623b5-5264-4ae8-a2ed-20dbf51558b4",
@@ -66,7 +66,7 @@
             "type": "behavior",
             "id": "behavior--1b75ce50-d6f6-49a4-9524-9b15fa2f7d49",
             "name": "persistence",
-            "description": "persist after system reboot",
+            "description": "persist-after-system-reboot",
             "techniques": ["windows-registry-manipulation"],
             "action_refs": [
                 "malware-action--8bb139fc-1244-4b67-a652-6e01f1da8576",
@@ -77,7 +77,7 @@
             "type": "behavior",
             "id": "behavior--f085f3b9-9939-4ac9-9445-bc4b61fec981",
             "name": "persistence",
-            "description": "persist after system reboot",
+            "description": "persist-after-system-reboot",
             "techniques": ["windows-registry-manipulation"],
             "action_refs": [
                 "malware-action--f49292ee-8ee6-4eb0-a744-295da612556c",
@@ -88,7 +88,7 @@
             "type": "behavior",
             "id": "behavior--0c226f00-f6ed-4246-a203-5b574cac3362",
             "name": "persistence",
-            "description": "persist after system reboot",
+            "description": "persist-after-system-reboot",
             "techniques": ["windows-registry-manipulation"],
             "action_refs": [
                 "malware-action--5f32221a-54b0-4364-9e9b-d7ecaf29a75",

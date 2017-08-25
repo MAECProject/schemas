@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {        
-        "SignatureMetadataType": {
+        "signature-metadata": {
             "title": "SignatureMetadata",
             "type": "object",
             "description": "Captures metadata associated with a signature (for example, a YARA rule) that may have been triggered during the analysis of a Malware Instance.",
@@ -23,7 +23,7 @@
                     "description": "Captures the name of the author of the signature."
                 },
                 "reference": {
-                    "$ref": "ExternalReference.json#/definitions/ExternalReference",
+                    "$ref": "external-reference.json#/definitions/external-reference",
                     "description": "Captures an external reference associated with the signature."
                 },
                 "severity": {

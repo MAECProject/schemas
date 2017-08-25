@@ -1,19 +1,19 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "CapabilityType": {
+        "capability": {
             "title": "Capability",
 	        "type": "object",
             "description": "Captures details of a Capability that may be implemented in the malware instance.",
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Captures the name of the Capability. The values for this property SHOULD come from the Encyclopedia of Malware Attributes (EMA) Capabilities list. When used as part of a refined Capability, the values for this property SHOULD come from the Encyclopedia of Malware Attributes(EMA) Subcapabilities list."
+                    "description": "Captures the name of the Capability. The values for this property SHOULD come from the capability-ov vocabulary. When used as part of a refined Capability, the values for this property SHOULD come from the refined-capability-ov vocabulary."
                 },
                 "refined_capabilities": {
                     "type": "array",
-                    "items": {"$ref": "#/definitions/CapabilityType"},
-                    "description": "Captures a refinement of the Capability using the same structure."
+                    "items": {"$ref": "#/definitions/capability"},
+                    "description": "Captures a refinement of the Capability, recursively using CapabilityType."
                 },
                 "description": {
                     "type": "string",
@@ -26,15 +26,12 @@
                 "behavior_refs": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "Specifies one or more Behaviors that serve as an implementation of the Capability. Each item in the list specifies the unique ID of the Behavior being referenced. The Behavior MUST be present in the current Package."
+                    "description": "Captures the IDs of Behaviors that implement the Capability. The Behavior MUST be present in the current Package."
                 },
                 "references": {
                     "type": "array",
-                    "items": {
-                        "type": "string",
-                        "format": "uri"
-                    },
-                    "description": "Specifies the ID of the corresponding entry in EMA. This property MUST be populated if the value of the name property references an EMA entry."
+                    "items": {"$ref": "external-reference.json#/definitions/external-reference"},
+                    "description": "Captures external references to ATT&CK Tactics and other entities that may be associated with the Capability. "
                 }
             },
             "required": ["name"]

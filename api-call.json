@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
-        "APICallType": {
+        "api-call": {
             "title": "APICall",
             "type": "object",
             "description": "Serves as a method for characterizing API Calls, as implementations of Malware Actions.",

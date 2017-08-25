@@ -7,13 +7,13 @@
 			"type": "malware-instance",
 			"id": "malware-instance--1c56c435-8e83-4bab-adf8-e09c1515094b",
 			"instance_object_refs": ["0"],
-			"labels": ["dropper file"]
+			"labels": ["dropper"]
 		},
 		{
 			"type": "malware-instance",
 			"id": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
 			"instance_object_refs": ["1"],
-			"labels": ["dropper file"],
+			"labels": ["dropper"],
 			"dynamic_features": {
 				"behavior_refs": [
 					"behavior--85b4e674-ddc0-4fb9-9c8c-24a8c6255ca1",
@@ -27,7 +27,7 @@
 					"name": "probing",
 					"refined_capabilities": [
 						{
-							"name": "host configuration probing"
+							"name": "host-configuration-probing"
 						}
 					],
 					"behavior_refs": ["behavior--85b4e674-ddc0-4fb9-9c8c-24a8c6255ca1"]
@@ -36,7 +36,7 @@
 					"name": "anti-detection",
 					"refined_capabilities": [
 						{
-							"name": "hide artifacts"
+							"name": "hide-artifacts"
 						}
 					],
 					"behavior_refs": ["behavior--608e6794-70e8-4c46-a237-5f75fb9c2e77"]
@@ -45,16 +45,16 @@
 					"name": "persistence",
 					"refined_capabilities": [
 						{
-							"name":"continuous execution"
+							"name":"continuous-execution"
 						}
 					],
 					"behavior_refs": ["behavior--8ff98c8b-649b-4daf-b3b5-bd11814421f6"]
 				},
 				{
-					"name": "secondary operation",
+					"name": "secondary-operation",
 					"refined_capabilities": [
 						{
-							"name": "install other components"
+							"name": "install-other-components"
 						}
 					],
 					"behavior_refs": ["behavior--84ff960f-69ff-4fd5-9ffa-539489ef8b20"]
@@ -74,18 +74,13 @@
 			"name": {
 				"value": "Backdoor.Snifula variant",
 				"source": {
-					"organization": "Computer Incident Response Center Luxembourg and National CERT of Luxembourg",
-					"references": [
-						{
-							"source_name": "Computer Incident Response Center Luxembourg and National CERT of Luxembourg",
-							"url": "https://www.circl.lu/files/tr-13/tr-13-snifula-analysis-report-v1.3.pdf"
-						}
-					]
+					"source_name": "Computer Incident Response Center Luxembourg and National CERT of Luxembourg",
+					"url": "https://www.circl.lu/files/tr-13/tr-13-snifula-analysis-report-v1.3.pdf"	
 				}
 			},
 			"analysis_metadata": [
 				{
-					"is_automated": "False",
+					"is_automated": false,
 					"analysis_type": "combination",
 					"description": "Malware analysis of a Backdoor.Snifula variant",
 					"comments": [
@@ -118,10 +113,10 @@
 			},
 			"capabilities": [
 				{
-					"name": "security degradation",
+					"name": "security-degradation",
 					"refined_capabilities": [
 						{
-							"name": "security software degredation"
+							"name": "security-software-degredation"
 						}
 					],
 					"attributes": {
@@ -132,31 +127,29 @@
 					"name": "persistence",
 					"refined_capabilities": [
 						{
-							"name": "ensure compatibility",
+							"name": "ensure-compatibility",
 							"behavior_refs": ["behavior--811410e5-b5d2-453f-b00b-2673e26edb1f"]
 						},
 						{
-							"name": "continuous execution"
+							"name": "continuous-execution"
 						}
 					]
 				},
 				{
-					"name": "command and control",
-					"attributes": [
-						{
+					"name": "command-and-control",
+					"attributes": {
 							"network protocol": "http"
-						}
-					],
+						},
 					"refined_capabilities": [
 						{
-							"name": "receive data from c2 server",
+							"name": "receive-data-from-c2-server",
 							"behavior_refs": [
 								"behavior--b950479f-2960-488a-a93b-5d789482d2ca",
 								"behavior--836cbf4e-9388-416d-8895-ce4aa4c19022"
 							]
 						},
 						{
-							"name": "send data to c2 server",
+							"name": "send-data-to-c2-server",
 							"behavior_refs": [
 								"behavior--1c0fa14f-a6be-4ae1-bb16-81d11cf30c35",
 								"behavior--f61215c1-32b7-4a13-b0ac-b479976b961d"
@@ -165,10 +158,10 @@
 					]
 				},
 				{
-					"name": "secondary operation",
+					"name": "secondary-operation",
 					"refined_capabilities": [
 						{
-							"name": "install other components"
+							"name": "install-other-components"
 						}
 					],
 					"behavior_refs": ["behavior--3634ffe8-b38a-4102-b6ed-2414a25622b6"]
@@ -177,17 +170,17 @@
 					"name": "probing",
 					"refined_capabilities": [
 						{
-							"name": "network environment probing"
+							"name": "network-environment-probing"
 						}
 					],
 					"behavior_refs": ["behavior--324e5eb8-ea1a-406a-8af4-515c455ed106"]
 
 				},
 				{
-					"name": "data theft",
+					"name": "data-theft",
 					"refined_capabilities": [
 						{
-							"name": "authentication credentials theft",
+							"name": "authentication-credentials-theft",
 							"behavior_refs": [
 								"behavior--6b30377e-002b-40d3-a802-2be2bb061deb",
 								"behavior--45912152-5397-4f73-b7bf-bd067ceeef41",
@@ -195,7 +188,7 @@
 							]
 						},
 						{
-							"name": "user data theft",
+							"name": "user-data-theft",
 							"behavior_refs": [
 								"behavior--67448145-5ddb-481b-a62b-33eb82739f84",
 								"behavior--defbd38d-202c-4a3c-a962-122553b19aa1",
@@ -208,19 +201,19 @@
 					"name": "spying",
 					"refined_capabilities": [
 						{
-							"name": "output peripheral capture"
+							"name": "output-peripheral-capture"
 						}
 					],
 					"behavior_refs": ["behavior--b03ce4c8-c0d7-43ca-973d-f1ff53a78351"]
 				},
 				{
-					"name": "data exfiltration",
+					"name": "data-exfiltration",
 					"refined_capabilities": [
 						{
-							"name":"data staging"
+							"name":"data-staging"
 						},
 						{
-							"name":"data obfuscation"
+							"name":"data-obfuscation"
 						}
 					],
 					"behavior_refs": [
@@ -230,14 +223,14 @@
 					]
 				},
 				{
-					"name": "integrity violation",
+					"name": "integrity-violation",
 					"refined_capabilities": [
 						{
-							"name":"compromise system availability",
+							"name":"compromise-system-availability",
 							"behavior_refs": ["behavior--345f2bc3-1e95-47bb-ba34-d60f7ba9882a"]
 						},
 						{
-							"name": "data integrity violation"
+							"name": "data-integrity-violation"
 						}
 					]
 				}
@@ -260,10 +253,10 @@
 			"labels": ["wiper"],
 			"capabilities": [
 				{
-					"name": "secondary operation",
+					"name": "secondary-operation",
 					"refined_capabilities": [
 						{
-							"name": "clean traces of infection"
+							"name": "clean-traces-of-infection"
 						}
 					],
 					"behavior_refs": [
@@ -282,137 +275,135 @@
 		{
 			"type": "behavior",
 			"id": "behavior--fdac452f-9a94-4059-be42-e9acd3af7c4b",
-			"name": "remove self"
+			"name": "remove-self"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--34cf58f9-f573-41f6-b60b-4c163274fd19",
-			"name": "remove system artifacts"
+			"name": "remove-system-artifacts"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--85b4e674-ddc0-4fb9-9c8c-24a8c6255ca1",
-			"name": "identify OS"
+			"name": "identify-OS"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--608e6794-70e8-4c46-a237-5f75fb9c2e77",
-			"name": "obfuscate artifact properties"
+			"name": "obfuscate-artifact-properties"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--8ff98c8b-649b-4daf-b3b5-bd11814421f6",
-			"name": "persist after system reboot"
+			"name": "persist-after-system-reboot"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--84ff960f-69ff-4fd5-9ffa-539489ef8b20",
-			"name": "install secondary module"
+			"name": "install-secondary-module"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--fa979df4-9c19-4aee-95a2-fd88dd014631",
-			"name": "prevent security software from executing"
+			"name": "prevent-security-software-from-executing"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--811410e5-b5d2-453f-b00b-2673e26edb1f",
-			"name": "limit application type/version"
+			"name": "limit-application-type/version"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--1c0fa14f-a6be-4ae1-bb16-81d11cf30c35",
-			"name": "check for payload"
+			"name": "check-for-payload"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--f61215c1-32b7-4a13-b0ac-b479976b961d",
-			"name": "fingerprint host"
+			"name": "fingerprint-host"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--b950479f-2960-488a-a93b-5d789482d2ca",
-			"name": "control local machine via remote command"
+			"name": "control-local-machine-via-remote-command"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--836cbf4e-9388-416d-8895-ce4aa4c19022",
-			"name": "update configuration"
+			"name": "update-configuration"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--3634ffe8-b38a-4102-b6ed-2414a25622b6",
-			"name": "log activity"
+			"name": "log-activity"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--324e5eb8-ea1a-406a-8af4-515c455ed106",
-			"name": "test for internet connectivity"
+			"name": "test-for-internet-connectivity"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--67448145-5ddb-481b-a62b-33eb82739f84",
-			"name": "steal browser cookie"
+			"name": "steal-browser-cookie"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--6b30377e-002b-40d3-a802-2be2bb061deb",
-			"name": "steal digital certificates"
+			"name": "steal-digital-certificates"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--45912152-5397-4f73-b7bf-bd067ceeef41",
-			"name": "steal PKI key"
+			"name": "steal-PKI-key"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--defbd38d-202c-4a3c-a962-122553b19aa1",
-			"description": "steal browser history"
+			"name": "steal-browser-history"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--249aa183-77bf-46ba-affa-a51fc3da7e38",
-			"description": "steal browser cache"
+			"name": "steal-browser-cache"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--b6ea67a3-2743-40b9-b102-aa97509e1629",
-			"name": "steal web/network credential"
+			"name": "steal-web/network-credential"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--b03ce4c8-c0d7-43ca-973d-f1ff53a78351",
-			"name": "capture system screenshot"
+			"name": "capture-system-screenshot"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--12174544-7fae-4c4b-b7c9-725a0f94f035",
-			"name": "package data"
+			"name": "package-data"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--1f236047-3a70-43be-8b6b-5e13b37f368a",
-			"name": "encrypt data"
+			"name": "encrypt-data"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--8ff3feb6-3f1f-4dfb-a3da-7b1ac6a36cd6",
-			"name": "exfiltrate data via network"
+			"name": "exfiltrate-data-via-network"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--345f2bc3-1e95-47bb-ba34-d60f7ba9882a",
-			"name": "intercept/manipulate network traffic"
+			"name": "intercept/manipulate-network-traffic"
 		},
 		{
 			"type": "behavior",
 			"id": "behavior--9a3a0214-94ec-470d-8f9a-92dd5493541a",
-			"name": "persist after system reboot",
-			"attributes": [
-				{
+			"name": "persist-after-system-reboot",
+			"attributes": {
 					"scope": "other malware/components"
-				}
-			]
+			}
 		}
 	],
 	"observable_objects": {
