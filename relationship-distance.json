@@ -2,9 +2,9 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "definitions": {
         "relationship-distance": {
-	       "title":"RelationshipDistance",
+            "title": "RelationshipDistance",
             "type": "object",
-            "description": "Captures information associated with a distance metric between the source and target in the relationship.",
+            "description": "Captures a distance score and associated metadata between the source and target in a MAEC Relationship.",
             "properties": {
                 "distance_score": {
                     "type": "number",
@@ -18,7 +18,7 @@
                     "type": "string",
                     "description": "Captures the version of the algorithm used in calculating the distance score specified in the distance_score property."
                 },
-                "metadata":{
+                "metadata": {
                     "type": "object",
                     "description": "Specifies a dictionary of additional metadata around the distance score, as a set of key/value pairs. Dictionary keys and their corresponding values MUST be of type string."
                 }

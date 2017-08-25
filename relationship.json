@@ -4,7 +4,7 @@
         "relationship": {
             "title": "Relationship",
             "type": "object",
-            "definition": "Captures relationships between two entities in the MAEC document.",
+            "definition": "Captures relationships between two entities in a MAEC Package.",
             "properties": {
                 "type": {
                     "type": "string",

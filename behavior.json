@@ -25,7 +25,7 @@
                 "timestamp": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Captures the local or relative time(s) at which the Behavior occured or was observed."
+                    "description": "Captures the local or relative time at which the Behavior occured or was observed."
                 },
                 "attributes": {
                     "type": "object",
@@ -39,7 +39,7 @@
                 "technique_refs": {
                     "type": "array",
                     "items": {"$ref": "external-reference.json#/definitions/external-reference"},
-                    "description": "References any techniques, such as DLL Search Order Hijacking, used to implement the Behavior. Each reference SHOULD point to a valid ATT&CK Technique."
+                    "description": "References any techniques, such as DLL Search Order Hijacking, used to implement the Behavior. Each reference SHOULD point to a valid ATT&CK Technique or related entity."
                 }
             },
             "required": [

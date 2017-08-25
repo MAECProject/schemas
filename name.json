@@ -4,7 +4,7 @@
         "name": {
             "title": "Name",
             "type": "object",
-            "description": "Captures the name of a malware instance or malware family and the relative confidence of the name.",
+            "description": "Captures the name of a malware instance, family, or alias, as well as the source and relative confidence in the name.",
             "properties": {
                 "value": {
                     "type": "string",

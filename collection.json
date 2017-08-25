@@ -3,7 +3,7 @@
     "definitions": {"collection": {
         "title":"Collection",
         "type": "object",
-        "description": "Captures collections of any MAEC entities, including Malware Subjects.",
+        "description": "Captures collections of any MAEC entities, including Malware Instances, Behaviors, etc.",
         "properties": {
             "type": {
                 "type": "string",
@@ -15,7 +15,7 @@
             },
             "description": {
                 "type": "string",
-                "description": "Specifies the textual description of the Collection."
+                "description": "Specifies a textual description of the Collection."
             },
             "association_type": {
                 "type":"string",

@@ -34,7 +34,15 @@
                     "$ref": "malware-development-environment.json#/definitions/malware-development-environment",
                     "description": "Captures the details of the development environment used in the creation of the malware instance object characterized by the Malware Instance."
                 }
-            }
+            },
+            "anyOf": [
+                {"required": ["strings"]},
+                {"required": ["obfuscation_methods"]},
+                {"required": ["certificates"]},
+                {"required": ["file_headers"]},
+                {"required": ["configuration_parameters"]},
+                {"required": ["development_environment"]}
+            ]
         }
     }
 }
