@@ -1,11 +1,11 @@
 MAEC Schemas
-=======
+============
 
 This repository is intended for storing the MAEC schemas, including those we're presently working on. 
 
 The current version stored is MAEC 4.1, with the previous MAEC 4.0.1 release available via the 'v4.0.1-release' tag.
 
-##About MAEC
+## About MAEC
 
 Malware Attribute Enumeration and Characterization (MAEC™) is a standardized language for sharing structured information about malware based upon attributes such as behaviors, artifacts, and attack patterns.
 
@@ -13,7 +13,7 @@ The goal of the MAEC (pronounced "mike") effort is to provide a basis for transf
 
 Please visit the [MAEC website](http://maecproject.github.io/) for more information about the MAEC Language.
 
-##Getting Help
+## Getting Help
 
 Join the public [MAEC Community Email Discussion List](https://maec.mitre.org/community/discussionlist.html).
 
