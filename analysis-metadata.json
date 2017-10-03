@@ -48,6 +48,19 @@
                     "items": {"type": "string"},
                     "description": "References the tools used in the analysis of a Malware Instance. The objects reference MUST be of STIX type software and MUST be specified in the observable-objects property of the Package."
                 },
+                "os_ref": {
+                    "type": "string",
+                    "description": "References the operating system used in the dynamic analysis of the Malware Instance, if applicable. This property MUST NOT be included if analysis_type is set to a value of static. The object referenced MUST be of STIX Cyber Observable type software and MUST be specified in the observable_objects property of the Package."
+                },
+                "installed_software_refs": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "References any non-standard software (e.g., Adobe Acrobat Reader) installed on the operating system used in the dynamic analysis of the Malware Instance, if applicable. This property MUST NOT be included if analysis_type is set to a value of static. The objects referenced MUST be of STIX Cyber Observable type software and MUST be specified in the observable_objects property of the Package."
+                },
+                "vm_ref": {
+                    "type": "string",
+                    "description": "References the virtual machine used in the dynamic analysis of the Malware Instance, if applicable. If this property is not included and analysis_type is set to a value of dynamic, this implies that the dynamic analysis was performed on bare metal (i.e., not virtualized or emulated). This property MUST NOT be included if analysis_type is set to a value of static. The object referenced MUST be of STIX Cyber Observable type software and MUST be specified in the observable_objects property of the Package."
+                },
                 "description": {
                     "type": "string",
                     "description": "Captures a textual description of the analysis that was performed."
