@@ -12,6 +12,16 @@
                 "indeterminate"
             ]
         },
+        "analysis-environment-ov": {
+            "title": "analyst environment properties",
+            "type": "string",
+            "description": "enumeration of properties associated with the environment used in malware analysis",
+            "enum": [
+                "operating-system",
+                "host-vm",
+                "installed-software"
+            ]
+        },
         "analysis-type-ov": {
             "title": "analysis method ov",
             "type": "string",
