@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {"package": {
+        "title": "Package",
+        "type": "object",
+        "description": "The standard output format that can be used to capture one or more Malware Instances or Malware Families and the entities associated with them: Capabilities, Behaviors, Actions, Cyber Observable Objects, and Collections and Relationships.",
+        "properties": {
+            "type":{
+                "type": "string",
+                "enum":["package"],
+                "description": "The value of this field MUST be \"package\"."
+            },
+            "id": {
+                "type": "string",
+                "description": "Specifies a unique ID for this Package."
+            },
+            "schema_version": {
+                "type": "string",
+                "enum": ["5.0"],
+                "description": "Specifies the version of the MAEC specification used to represent the content in this Package. The value of this property MUST be 5.0 for Packages containing MAEC Objects defined in this specification."
+            },
+            "maec_objects": {
+                "type": "array",
+                "items": {
+                    "anyOf": [
+                        {"$ref": "behavior.json#/definitions/behavior"},
+                        {"$ref": "collection.json#/definitions/collection"},
+                        {"$ref": "malware-action.json#/definitions/malware-action"},
+                        {"$ref": "malware-family.json#/definitions/malware-family"},
+                        {"$ref": "malware-instance.json#/definitions/malware-instance"}
+                    ]
+                },
+                "description": "Specifies a set of one or more MAEC Objects. Objects in this list MUST be a MAEC Top-level Object."
+            },
+            "observable_objects": {
+                "type": "object",
+                "description": "Specifies a dictionary of STIX Cyber Observable Objects relevant to the MAEC Package. This dictionary MUST contain all Cyber Observable Objects associated with the MAEC Package, including those that are referenced by other Cyber Observable Objects. "
+            },
+            "relationships": {
+                "type": "array",
+                "items": {"$ref": "relationship.json#/definitions/relationship"},
+                "description": "Specifies a set of one or more MAEC relationships. Each entry in this list must be of type Relationship."
+            }
+        },
+        "required": [
+            "type",
+            "id",
+            "schema_version",
+            "maec_objects"
+        ]
+    }},
+    "allOf":[{"$ref": "#/definitions/package"}]
+}

@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "relationship": {
+            "title": "Relationship",
+            "type": "object",
+            "definition": "Captures relationships between two entities in a MAEC Package.",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["relationship"]
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Specifies a unique identifier for the relationship."
+                },
+                "source_ref": {
+                    "type": "string",
+                    "description": "Specifies a reference to the ID of the entity in the MAEC document that corresponds to the source in the source-target relationship."
+                },
+                "target_ref": {
+                    "type": "string",
+                    "description": "Specifies a reference to the ID of the entity in the MAEC document that corresponds to the target in the source-target relationship."
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Specifies a timestamp that states when the relationship was created."
+                },
+                "relationship_type": {
+                    "type": "string",
+                    "description": "Specifies the type of relationship being expressed. This value SHOULD be an exact value listed in the relationships for the source and target top-level object, but MAY be any string. The value of this field MUST be in ASCII and is limited to characters a–z (lowercase ASCII), 0–9, and dash (-)."
+                },
+                "metadata": {
+                    "type": "object",
+                    "description": "Specifies a dictionary of additional metadata around the relationship. Standard dictionary keys include the following: distance: used for capturing any distance related metadata. The corresponding value for this key MUST be an object of type RelationshipDistanceType. supporting_data_refs: references any entities in the MAEC document (e.g., Action or Object) that may support the Relationship. The corresponding value for this key MUST list of type identifier. Custom entries in the dictionary MAY also be included."
+                }
+            },
+            "required": [
+                "type",
+                "id",
+                "source_ref",
+                "target_ref",
+                "relationship_type"
+            ]
+        }
+    }
+}

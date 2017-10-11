@@ -1,0 +1,820 @@
+{
+	"type": "package",
+	"id": "package--57d19109-93ee-4326-bf0f-29c5e1063470",
+	"schema_version": "5.0",
+	"maec_objects": [
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--274dbb74-3d82-4c2e-812a-bb0bb3258039",
+			"instance_object_refs": ["0"],
+			"labels": ["dropper"],
+			"dynamic_features": {
+				"action_refs": [
+					"malware-action--e94948a2-2eae-4f74-aab2-757ad91cf07c",
+					"malware-action--12c701bd-f07a-4481-ae46-e4ff10707951",
+					"malware-action--ff7b4095-93eb-4172-bb16-3825ce302b98",
+					"malware-action--643a8371-7454-4b5b-9478-8cbdf103c158",
+					"malware-action--8a021a6c-ecc1-4a66-a250-7557a10b6027",
+					"malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
+					"malware-action--93f50af2-0497-4c97-bf50-5eb4c2d93997",
+					"malware-action--c7fe23fc-bdab-4b14-8d5d-cf8a1a8f162b",
+					"malware-action--650096a1-4355-44da-b3cc-3bac279e90d1",
+					"malware-action--6875036d-787b-4b78-9e95-9476889d712c",
+					"malware-action--f78e4b46-ff6c-418b-8713-c380b7fcb4f8",
+					"malware-action--736dd7b2-49ac-48c3-8b83-6d9a94be509d",
+					"malware-action--07d1e675-f60d-4d08-b929-92cbc0000860",
+					"malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e",
+					"malware-action--fa56fbdb-d4ed-4b56-847a-a166038df73e",
+					"malware-action--92a20a21-f23f-4e3c-9e08-671a64652be5",
+					"malware-action--c3c54677-ef90-4b48-809b-640bbe03f3ef",
+					"malware-action--97f756f4-fda8-48bd-8715-7b44f2b22239",
+					"malware-action--e3ba9fe7-d61a-4804-9167-a33fe7205c15"
+				],
+				"process_tree": [
+					{
+						"process_ref": "37",
+						"ordinal_position": 0,
+						"initiated_action_refs": [
+							"malware-action--e94948a2-2eae-4f74-aab2-757ad91cf07c",
+							"malware-action--12c701bd-f07a-4481-ae46-e4ff10707951",
+							"malware-action--ff7b4095-93eb-4172-bb16-3825ce302b98",
+							"malware-action--643a8371-7454-4b5b-9478-8cbdf103c158",
+							"malware-action--8a021a6c-ecc1-4a66-a250-7557a10b6027"
+						]
+					},
+					{
+						"process_ref": "38",
+						"ordinal_position": 2,
+						"parent_action_ref": "malware-action--fd1f13c6-917b-4209-a7e5-065daf6ac90a",
+						"initiated_action_refs": [
+							"malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
+							"malware-action--93f50af2-0497-4c97-bf50-5eb4c2d93997",
+							"malware-action--c7fe23fc-bdab-4b14-8d5d-cf8a1a8f162b",
+							"malware-action--650096a1-4355-44da-b3cc-3bac279e90d1",
+							"malware-action--6875036d-787b-4b78-9e95-9476889d712c",
+							"malware-action--f78e4b46-ff6c-418b-8713-c380b7fcb4f8",
+							"malware-action--736dd7b2-49ac-48c3-8b83-6d9a94be509d",
+							"malware-action--07d1e675-f60d-4d08-b929-92cbc0000860",
+							"malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e",
+							"malware-action--fa56fbdb-d4ed-4b56-847a-a166038df73e"
+						]
+					},
+					{
+						"process_ref": "39",
+						"ordinal_position": 3, 
+						"parent_action_ref": "malware-action--07d1e675-f60d-4d08-b929-92cbc0000860"
+					},
+					{
+						"process_ref": "40",
+						"ordinal_position": 4,
+						"parent_action_ref": "malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e",
+						"initiated_action_refs":[
+							"malware-action--92a20a21-f23f-4e3c-9e08-671a64652be5",
+							"malware-action--c3c54677-ef90-4b48-809b-640bbe03f3ef",
+							"malware-action--97f756f4-fda8-48bd-8715-7b44f2b22239"
+						]
+					}				
+				]
+			},
+			"analysis_metadata": [
+				{
+					"is_automated": false,
+					"analysis_type": "static",
+					"analysts": ["Franki Li"],
+					"description": "A basic static triage of the subject binary using PEiD.",
+					"tool_refs": ["42"]
+				},
+				{
+					"is_automated": false,
+					"analysis_type": "dynamic",
+					"description": "Dynamic (behavioral) and tool-based triage of the subject binary.",
+					"analysts": ["Franki Li"],
+					"tool_refs":[
+						"43",
+						"44",
+						"45",
+						"46",
+						"47",
+						"48"
+					]
+
+				}
+			]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--e94948a2-2eae-4f74-aab2-757ad91cf07c",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["2"],
+			"description": "action was discovered by analysis-tool-2"
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--12c701bd-f07a-4481-ae46-e4ff10707951",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["3"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--ff7b4095-93eb-4172-bb16-3825ce302b98",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["4"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--643a8371-7454-4b5b-9478-8cbdf103c158",
+			"name": "write-to-file",
+			"is_successful": true,
+			"input_object_refs": ["5"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--8a021a6c-ecc1-4a66-a250-7557a10b6027",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["6"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["7"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--93f50af2-0497-4c97-bf50-5eb4c2d93997",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["8"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--704f4e79-2097-40e5-ad60-0127c7adb094",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["9"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--c7fe23fc-bdab-4b14-8d5d-cf8a1a8f162b",
+			"name": "create-mutex",
+			"is_successful": true,
+			"output_object_refs": ["10"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--fd1f13c6-917b-4209-a7e5-065daf6ac90a",
+			"name": "create-remote-thread-in-process",
+			"is_successful": true,
+			"output_object_refs": ["11"],
+			"input_object_refs": ["12"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--1934e26a-cae4-43f6-ae8f-a7950df755f1",
+			"name": "send-dns-query",
+			"is_successful": false,
+			"input_object_refs": ["13"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--020857f7-47d1-4662-8195-09f03d40433a",
+			"name": "send-dns-query",
+			"is_successful": false,
+			"input_object_refs": ["14"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--b95988df-87ee-4109-b33c-e15c0a9c8dd8",
+			"name": "send-dns-query",
+			"is_successful": false,
+			"input_object_refs": ["15"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--32d85024-aab1-4c58-a49b-777241005f6b",
+			"name": "send-dns-query",
+			"is_successful": false,
+			"input_object_refs": ["16"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--3eb05cf7-6cd8-46fe-a11b-2e8d4a2057b9",
+			"name": "send-dns-query",
+			"is_successful": false,
+			"input_object_refs": ["17"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--da376cf4-25ca-4fe5-be6a-835d037c64d2",
+			"name": "connect-to-ip-address",
+			"is_successful": false,
+			"input_object_refs": ["18"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--525bc6d9-39e2-4303-8273-5c619d6baa1c",
+			"name": "connect-to-ip-address",
+			"is_successful": false,
+			"input_object_refs": ["19"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--650096a1-4355-44da-b3cc-3bac279e90d1",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["20"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--6875036d-787b-4b78-9e95-9476889d712c",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["21"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--f78e4b46-ff6c-418b-8713-c380b7fcb4f8",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["22"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--736dd7b2-49ac-48c3-8b83-6d9a94be509d",
+			"name": "create-process",
+			"is_successful": true,
+			"output_object_refs": ["23"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--07d1e675-f60d-4d08-b929-92cbc0000860",
+			"name": "create-process",
+			"is_successful": true,
+			"output_object_refs": ["24"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e",
+			"name": "create-process",
+			"is_successful": true,
+			"output_object_refs": ["25"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--fa56fbdb-d4ed-4b56-847a-a166038df73e",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["26"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--92a20a21-f23f-4e3c-9e08-671a64652be5",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["27"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--c3c54677-ef90-4b48-809b-640bbe03f3ef",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["28"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--97f756f4-fda8-48bd-8715-7b44f2b22239",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["29"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--e3ba9fe7-d61a-4804-9167-a33fe7205c15",
+			"name": "create-file",
+			"is_successful": true,
+			"output_object_refs": ["30"]
+		},
+		{
+			"type": "collection",
+			"id": "collection--d4158f0a-9858-4fbd-a6e7-7024e9cd9828",
+			"association_type": "File Actions",
+			"entity_refs": [
+				"malware-action--e94948a2-2eae-4f74-aab2-757ad91cf07c",
+				"malware-action--12c701bd-f07a-4481-ae46-e4ff10707951",
+				"malware-action--ff7b4095-93eb-4172-bb16-3825ce302b98",
+				"malware-action--643a8371-7454-4b5b-9478-8cbdf103c158",
+				"malware-action--8a021a6c-ecc1-4a66-a250-7557a10b6027",
+				"malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
+				"malware-action--93f50af2-0497-4c97-bf50-5eb4c2d93997",
+				"malware-action--704f4e79-2097-40e5-ad60-0127c7adb094",
+				"malware-action--650096a1-4355-44da-b3cc-3bac279e90d1",
+				"malware-action--6875036d-787b-4b78-9e95-9476889d712c",
+				"malware-action--f78e4b46-ff6c-418b-8713-c380b7fcb4f8",
+				"malware-action--fa56fbdb-d4ed-4b56-847a-a166038df73e",
+				"malware-action--92a20a21-f23f-4e3c-9e08-671a64652be5",
+				"malware-action--c3c54677-ef90-4b48-809b-640bbe03f3ef",
+				"malware-action--97f756f4-fda8-48bd-8715-7b44f2b22239",
+				"malware-action--e3ba9fe7-d61a-4804-9167-a33fe7205c15"
+			]
+		},
+		{
+			"type": "collection",
+			"id": "collection--68760b78-9c4b-4955-b460-229ffa7c40f8",
+			"association_type": "Synchronization actions",
+			"entity_refs": ["malware-action--c7fe23fc-bdab-4b14-8d5d-cf8a1a8f162b"]
+		},
+		{
+			"type": "collection",
+			"id": "collection--d599ccec-6956-49f9-9b34-43eb2a208c7e",
+			"association_type": "Thread Actions",
+			"entity_refs": ["malware-action--fd1f13c6-917b-4209-a7e5-065daf6ac90a"]
+		},
+		{
+			"type": "collection",
+			"id": "collection--55127fb5-1241-4a95-a1c5-45315aad12ad",
+			"association_type": "Process Actions",
+			"entity_refs": [
+				"malware-action--736dd7b2-49ac-48c3-8b83-6d9a94be509d",
+				"malware-action--07d1e675-f60d-4d08-b929-92cbc0000860",
+				"malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e" 
+			]
+		},
+		{
+			"type": "collection",
+			"id": "collection--cd37efad-f204-4510-b94b-2f2d6328a9a0",
+			"association_type": "Network Actions",
+			"entity_refs": [
+				"malware-action--1934e26a-cae4-43f6-ae8f-a7950df755f1",
+				"malware-action--020857f7-47d1-4662-8195-09f03d40433a",
+				"malware-action--b95988df-87ee-4109-b33c-e15c0a9c8dd8",
+				"malware-action--32d85024-aab1-4c58-a49b-777241005f6b",
+				"malware-action--3eb05cf7-6cd8-46fe-a11b-2e8d4a2057b9",
+				"malware-action--da376cf4-25ca-4fe5-be6a-835d037c64d2",
+				"malware-action--525bc6d9-39e2-4303-8273-5c619d6baa1c"  
+			]
+		}
+	],
+	"observable_objects": {
+		"0": {
+			"type": "file",
+			"name": "dg003_improve_8080_V132.exe",
+			"size": 196608,
+			"hashes": {
+				"MD5": "4EC0027BEF4D7E1786A04D021FA8A67"
+			}
+		},
+		"1": {
+			"type": "file",
+			"extensions":{
+				"windows-pebinary-ext": {
+					"pe_type": "exe",
+					"optional_header": {
+						"major_linker_version": 6,
+						"minor_linker_version": 0,
+						"base_of_code": 36418,
+						"subsystem_hex": "2"
+					}
+				}
+			}
+		},
+		"2": {
+			"type": "file",
+			"name": "ws2help.PNF",
+			"parent_directory_ref": "49"
+		},
+		"3": {
+			"type": "file",
+			"name": "msvcr.dll",
+			"parent_directory_ref": "49"
+		},
+		"4":{
+			"type": "file",
+			"name": "1.txt",
+			"parent_directory_ref": "31"
+		},
+		"5": {
+			"type": "file",
+			"name": "netstat.exe",
+			"parent_directory_ref": "32"
+		},
+		"6":{
+			"type": "file",
+			"name": "IECheck.exe",
+			"parent_directory_ref": "49"
+		},
+		"7": {
+			"type": "file",
+			"name": "IPsecstap.dat",
+			"parent_directory_ref": "32"
+		},
+		"8": {
+			"type": "file",
+			"name": "Internet Explorer Security Check.lnk",
+			"parent_directory_ref": "33"
+		},
+		"9": {
+			"type": "file",
+			"name": "13605",
+			"parent_directory_ref": "32"
+		},
+		"10": {
+			"type": "mutex",
+			"name": "VistaDLLProRUNNING"
+		},
+		"11": {
+			"type": "file",
+			"name": "msvcr.dll",
+			"parent_directory_ref": "49"
+		},
+		"12": {
+			"type": "process",
+			"name": "explorer.exe",
+			"cwd": "C:\\Windows\\"
+		},
+		"13": {
+			"type": "url",
+			"value": "test.3322.org.cn"
+		},
+		"14": {
+			"type": "url",
+			"value": "1.test.3322.org.cn"
+		},
+		"15": {
+			"type": "url",
+			"value": "2.test.3322.org.cn"
+		},
+		"16": {
+			"type": "url",
+			"value": "3.test.3322.org.cn"
+		},
+		"17": {
+			"type": "url",
+			"value": "4.test.3322.org.cn"
+		},
+		"18": {
+			"type": "ipv4-addr",
+			"value": "172.16.0.61"
+		},
+		"19": {
+			"type": "ipv4-addr",
+			"value": "115.*.*.249"
+		},
+		"20": {
+			"type": "file",
+			"name": "fvcwin32.exe",
+			"parent_directory_ref": "34"
+		},
+		"21": {
+			"type": "file",
+			"name": "acvcwin32.exe",
+			"parent_directory_ref": "34"
+		},
+		"22": {
+			"type": "file",
+			"name": "avcwin32.exe",
+			"parent_directory_ref": "34"
+		},
+		"23":{
+			"type":"file",
+			"name":"fvcwin32.exe",
+			"parent_directory_ref":"34"
+		},
+		"24": {
+			"type": "file",
+			"name": "acvcwin32.exe",
+			"parent_directory_ref": "34"
+		},
+		"25": {
+			"type": "file",
+			"name": "avcwin32.exe",
+			"parent_directory_ref": "34"
+		},
+		"26": {
+			"type": "file",
+			"name": "AutoList.txt",
+			"parent_directory_ref": "35"
+		},
+		"27": {
+			"type": "file",
+			"name": "SAM.dll",
+			"parent_directory_ref": "36"
+		},
+		"28": {
+			"type": "file",
+			"name": "system.dll",
+			"parent_directory_ref": "36"
+		},
+		"29": {
+			"type": "file",
+			"name": "Iestorage.dll",
+			"parent_directory_ref": "36"
+		},
+		"30": {
+			"type": "file",
+			"name": "drive.cab",
+			"parent_directory_ref": "36"
+		},
+		"49": {
+			"type": "directory",
+			"path": "C:\\Documents and Settings\\user\\Local Settings\\Application\\Data"
+		},
+		"31": {
+			"type": "directory",
+			"path": "C:\\Windows\\inf"
+		},
+		"32": {
+			"type": "directory",
+			"path": "C:\\Windows\\system32"
+		},
+		"33": {
+			"type": "directory",
+			"path": "C:\\Documents and Settings\\user+\\Start Menu\\Programs\\Startup"
+		},
+		"34": {
+			"type": "directory",
+			"path": "C:\\WINDOWS\\Debug"
+		},
+		"35": {
+			"type": "directory",
+			"path": "C:\\Documents and Settings\\.*\\Application Data"
+		},
+		"36": {
+			"type": "directory",
+			"path": "C:\\WINDOWS\\Debug\\Data"
+		},
+		"37": {
+			"type": "process",
+			"name": "dg003.exe",
+			"cwd": "C:\\"
+		},
+		"38": {
+			"type": "process",
+			"name": "explorer.exe",
+			"cwd": "C:\\"
+		},
+		"39": {
+			"type": "process",
+			"name": "fvcwin32.exe",
+			"cwd": "C:\\"
+		},
+		"40": {
+			"type": "process",
+			"name": "acvwin32.exe",
+			"cwd": "C:\\"
+		},
+		"41": {
+			"type": "process",
+			"name": "avcwin32.exe",
+			"cwd": "C:\\"
+		},
+		"42": {
+			"type": "software",
+			"name": "PEiD",
+			"version": "0.94"
+		},
+		"43": {
+			"type": "software",
+			"name": "CaptureBAT",
+			"vendor": "Zealand Honeynet Project",
+			"version": "2.0.0"
+		},
+		"44": {
+			"type": "software",
+			"name": "Regshot",
+			"version ":"1.8.2"
+		},
+		"45": {
+			"type": "software",
+			"name": "HandleDiff",
+			"version": "0.2"
+		},
+		"46": {
+			"type": "software",
+			"name": "VMMap",
+			"vendor": "Sysinternals",
+			"version": "3.1"
+		},
+		"47": {
+			"type": "software",
+			"name": "WireShark",
+			"vendor" : "WireShark.org",
+			"version": "1.2.2"
+		},
+		"48": {
+			"type": "software",
+			"name": "Process Monitor",
+			"vendor": "Sysinternals",
+			"version": "15.0"
+		}
+	},
+	"relationships": [
+		{
+			"type": "relationship",
+			"id": "relationship--b80b0842-dc21-4f12-99c8-5dcb328e4377",
+			"source_ref": "malware-action--e94948a2-2eae-4f74-aab2-757ad91cf07c",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--8f1c8b92-6aca-44b2-a2bc-5fbe1f9916f6",
+			"source_ref": "malware-action--12c701bd-f07a-4481-ae46-e4ff10707951",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--7be324fe-c803-4496-b675-a2f21aab06ca",
+			"source_ref": "malware-action--ff7b4095-93eb-4172-bb16-3825ce302b98",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id":"relationship--889fdcda-524b-4e8b-84ad-32c70b4ccf1e",
+			"source_ref": "malware-action--643a8371-7454-4b5b-9478-8cbdf103c158",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--149a2029-56c4-4a1a-ac91-8660703d16ec",
+			"source_ref": "malware-action--8a021a6c-ecc1-4a66-a250-7557a10b6027",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--2fe80b04-dfe6-4395-9a24-266417b4cca3",
+			"source_ref": "malware-action--a04e4870-fd46-4559-bfc0-323d74db792c",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--944de6bf-fd9f-4651-bfc5-9266dfa8bd2a",
+			"source_ref": "malware-action--93f50af2-0497-4c97-bf50-5eb4c2d93997",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--64d17331-6c8f-4945-bc1e-755f6fbc1a62",
+			"source_ref": "malware-action--704f4e79-2097-40e5-ad60-0127c7adb094",
+			"target_ref": "44",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--06aebe6b-eab0-418f-a5dd-2cd64d5a3fe5",
+			"source_ref": "malware-action--650096a1-4355-44da-b3cc-3bac279e90d1",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--c3f9dddc-eefb-429b-a595-24678ad4ee55",
+			"source_ref": "malware-action--6875036d-787b-4b78-9e95-9476889d712c",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--8a1b9bd2-7793-45bf-a962-7ae650dbdd55",
+			"source_ref": "malware-action--f78e4b46-ff6c-418b-8713-c380b7fcb4f8",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--99d19171-a48f-4d32-8333-eeef485df82b",
+			"source_ref": "malware-action--fa56fbdb-d4ed-4b56-847a-a166038df73e",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--112a04c6-181e-4bd0-a384-292500b3b44d",
+			"source_ref": "malware-action--92a20a21-f23f-4e3c-9e08-671a64652be5",
+			"target_ref": "43",
+			"relationship_type": "discovered by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--37a8afdf-b283-487e-bc7b-90a37fe48348",
+			"source_ref": "malware-action--c3c54677-ef90-4b48-809b-640bbe03f3ef",
+			"target_ref": "43",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--870acb68-c0fe-4950-b516-ef29b7fc0d6a",
+			"source_ref": "malware-action--97f756f4-fda8-48bd-8715-7b44f2b22239",
+			"target_ref": "43",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--ecceb0fd-30dc-4c4c-90c4-145889e09896",
+			"source_ref": "malware-action--e3ba9fe7-d61a-4804-9167-a33fe7205c15",
+			"target_ref": "43",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--460d4dba-55d1-41c2-b2eb-cc5a5b5f3b90",
+			"source_ref": "malware-action--c7fe23fc-bdab-4b14-8d5d-cf8a1a8f162b",
+			"target_ref": "45",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--159de90a-32fd-4561-bf32-7ef7be172b86",
+			"source_ref": "malware-action--fd1f13c6-917b-4209-a7e5-065daf6ac90a",
+			"target_ref": "46",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--df9ba3e9-cc03-459f-9078-1ad89fefb392",
+			"source_ref": "malware-action--fd1f13c6-917b-4209-a7e5-065daf6ac90a",
+			"target_ref": "malware-action--12c701bd-f07a-4481-ae46-e4ff10707951",
+			"relationship_type": "preceded by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--6ca655fb-e699-4d9e-a6bd-aa99539a5f88",
+			"source_ref": "malware-action--736dd7b2-49ac-48c3-8b83-6d9a94be509d",
+			"target_ref": "48",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--02210fa5-d4e4-404e-9d2a-4e38b695c2dc",
+			"source_ref": "malware-action--07d1e675-f60d-4d08-b929-92cbc0000860",
+			"target_ref":  "48",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--45a8c815-1ac6-4431-a939-6dafe9df7a8e",
+			"source_ref": "malware-action--4e645710-b6fa-4751-b5ab-b03c520b3b2e",
+			"target_ref": "48",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--8273489e-1d07-425d-a499-dcae80356f19",
+			"source_ref": "malware-action--1934e26a-cae4-43f6-ae8f-a7950df755f1",
+			"target_ref": "47",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--a34c9f7f-4f34-4425-83dc-ac45149d0fdd",
+			"source_ref": "malware-action--020857f7-47d1-4662-8195-09f03d40433a",
+			"target_ref": "47",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--6b028505-4e41-48e0-b82c-05bc573f2ad7",
+			"source_ref": "malware-action--b95988df-87ee-4109-b33c-e15c0a9c8dd8",
+			"target_ref": "47",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--c62aede6-9c17-4ebd-bdef-0b9baeb17201",
+			"source_ref": "malware-action--32d85024-aab1-4c58-a49b-777241005f6b",
+			"target_ref": "47",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--ab1dea7a-1708-4772-ad24-0e5438b84746",
+			"source_ref": "malware-action--3eb05cf7-6cd8-46fe-a11b-2e8d4a2057b9",
+			"target_ref": "47",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type":"relationship",
+			"id": "relationship--d2d4e322-432b-454c-a54f-01ab453ff1a8",
+			"source_ref": "malware-action--da376cf4-25ca-4fe5-be6a-835d037c64d2",
+			"target_ref": "47",
+			"relationship_type": "discovered by"	
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--dd4122c5-8298-4f48-8502-5b9493846f97",
+			"source_ref": "malware-action--525bc6d9-39e2-4303-8273-5c619d6baa1c",
+			"target_ref": "47",
+			"relationship_type": "discovered by"	
+		}
+	]
+}

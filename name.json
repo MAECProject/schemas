@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "name": {
+            "title": "Name",
+            "type": "object",
+            "description": "Captures the name of a malware instance, family, or alias, as well as the source and relative confidence in the name.",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "description": "Captures the name of the malware instance or malware family."
+                },
+                "source":{
+                    "$ref": "external-reference.json#/definitions/external-reference",
+                    "description": "Captures the source of the value property (i.e., the name)."
+                },
+                "confidence": {
+                    "type": "string",
+                    "description": "Captures the relative confidence in the accuracy of the assigned name. The value for this property SHOULD come from the confidence-measure-ov vocabulary."
+                }
+            },
+            "required": ["value"]
+        }
+    }
+}

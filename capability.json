@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "capability": {
+            "title": "Capability",
+	        "type": "object",
+            "description": "Captures details of a Capability that may be implemented in the malware instance.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Captures the name of the Capability. The values for this property SHOULD come from the capability-ov vocabulary. When used as part of a refined Capability, the values for this property SHOULD come from the refined-capability-ov vocabulary."
+                },
+                "refined_capabilities": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/capability"},
+                    "description": "Captures a refinement of the Capability, recursively using CapabilityType."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Captures a textual description of the Capability."
+                },
+                "attributes": {
+                    "type": "object",
+                    "description": "Captures attributes of the Capability as key/value pairs. Each key in the dictionary MUST be a string that captures the name of the attribute and SHOULD come from the common-attribute-ov vocabulary. Each corresponding key value MUST be a string or list of strings that captures the corresponding attribute values."
+                },
+                "behavior_refs": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Captures the IDs of Behaviors that implement the Capability. The Behavior MUST be present in the current Package."
+                },
+                "references": {
+                    "type": "array",
+                    "items": {"$ref": "external-reference.json#/definitions/external-reference"},
+                    "description": "Captures external references to ATT&CK Tactics and other entities that may be associated with the Capability. "
+                }
+            },
+            "required": ["name"]
+        }
+    }
+}

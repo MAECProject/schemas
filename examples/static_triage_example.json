@@ -1,0 +1,68 @@
+{
+    "type": "package",
+    "id": "package--6b5e62e3-50bb-4bd1-87ee-92b4a2448971",
+    "schema_version": "5.0",
+    "maec_objects": [
+        {
+            "type": "malware-instance",
+            "id": "malware-instance--57998fb0-604e-4d14-b8f1-6363dbff87cb",
+            "instance_object_refs": ["0"],
+            "labels": ["dropper"],
+            "analysis_metadata": [
+                {
+                    "is_automated": false,
+                    "analysis_type": "static",
+                    "analysts": ["Franki Li"],
+                    "references": [
+                        {
+                            "source_name": "SANS",
+                            "url": "http://www.sans.org/reading_room/whitepapers/malicious/detailed-analysis-advanced-persistent-threat-malware_33814"
+                        }
+                    ],
+                    "description": "A basic static triage of the subject binary using PEiD.",
+                    "tool_refs": ["1"]
+                }
+            ],
+            "static_features": {
+                "file_headers": ["2"]
+            }
+        }
+    ],
+    "objects": {
+        "0": {
+            "type": "file",
+            "name": "dg003_improve_8080_V132.exe",
+            "size": 196608,
+            "hashes": {
+                "MD5": "4EC0027BEF4D7E1786A04D021FA8A67F"
+            },
+            "extensions": {
+                "x-maec-packer-list": [
+                    {
+                        "name": "UPX",
+                        "signature": "UPX v3.0.2"
+                    }
+                ]
+            }
+        },
+        "2": {
+            "type": "file",
+            "extensions": {
+                "windows-pebinary-ext": {
+                    "pe_type": "exe",
+                    "optional_header": {
+                        "major_linker_version": "06",
+                        "minor_linker_version": "00",
+                        "base_of_code": "036418",
+                        "subsystem_hex": "Windows_GUI"
+                    }
+                }
+            }
+        },
+        "1": {
+            "type": "software",
+            "name": "PEiD",
+            "version": "0.94"
+        }
+    }
+}

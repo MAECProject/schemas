@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "static-features": {
+            "title":"StaticFeatures",
+            "type":"object",
+            "description":"Captures features associated with a malware binary not related to the semantics of the code.",
+            "properties": {
+                "strings": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Captures strings extracted from the binary."
+                },
+                "obfuscation_methods": {
+                    "type": "array",
+                    "items": {"$ref": "binary-obfuscation.json#/definitions/binary-obfuscation"},
+                    "description": "Captures metadata associated with methods used to obfuscate the malware instance (e.g., packers, encryptors)."
+                },
+                "certificates": {
+                    "type":"array",
+                    "items": {"type": "string"},
+                    "description": "References any software certificates used to sign the malware instance. The Objects referenced MUST be of STIX type x509-certificate and MUST be specified in the observable_objects property of the Package."
+                },
+                "file_headers": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "References any file headers (e.g., PE file headers) extracted from the malware instance. The Objects referenced MUST be of STIX type file and MUST be specified in the observable_objects property of the Package."
+                },
+                "configuration_parameters": {
+                    "type": "object",
+                    "description": "Captures any configuration parameters specified for the malware instance. Each key in the dictionary MUST be of type string and SHOULD come from the malware-configuration-parameter-ov vocabulary, which is based on the data reported by the Malware Configuration Parser (MWCP) tool developed by the Department of Defense Cyber Crime Center (DC3). Each corresponding key value MUST also be of type string, and should capture the actual value of the configuration parameter."
+                },
+                "development_environment": {
+                    "$ref": "malware-development-environment.json#/definitions/malware-development-environment",
+                    "description": "Captures the details of the development environment used in the creation of the malware instance object characterized by the Malware Instance."
+                }
+            },
+            "anyOf": [
+                {"required": ["strings"]},
+                {"required": ["obfuscation_methods"]},
+                {"required": ["certificates"]},
+                {"required": ["file_headers"]},
+                {"required": ["configuration_parameters"]},
+                {"required": ["development_environment"]}
+            ]
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "type": "package",
+    "id": "package--2b74d963-b59e-42ad-b098-b714466fbf3e",
+    "schema_version": "5.0",
+    "maec_objects": [
+        {
+            "type": "malware-instance",
+            "id": "malware-instance--dbcbeaf7-bba4-4332-9e5f-dfb1e3fb07fb",
+            "instance_object_refs": ["0"],
+            "static_features": {
+                "configuration_parameters": [
+                    {
+                        "filename": "wmimserver.exe",
+                        "installation path": "&System%",
+                        "id": "aubok",
+                        "mutex": "801JsYqFulHpg"
+                    }
+                ]
+            }
+        }
+    ],
+    "observable_objects": {
+        "0": {
+            "type": "file",
+            "name": "Investor Relations Contacts.doc",
+            "hashes": {
+                "MD5": "875767086897e90fb47a021b45e161b2"
+            }
+        }
+    }
+}

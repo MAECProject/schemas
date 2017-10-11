@@ -1,0 +1,104 @@
+{
+	"type": "package",
+	"id": "package--e2215ced-19b2-4296-951e-3a3a26e1c79f",
+	"schema_version": "5.0",
+	"maec_objects": [
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--82008585-1939-4ca8-bd47-3173c1e91053",
+			"instance_object_refs": ["0"],
+			"capabilities": [
+				{
+					"name": "infection/propagation",
+					"refined_capabilities": [
+						{
+							"name": "remote-machine-infection"
+						}
+					]
+				}
+			],
+			"dynamic_features": {
+				"behavior_refs": [
+					"behavior--738f7800-58f0-45d5-9f69-0fdb10050edc",
+					"behavior--4efd2828-92b8-41df-862e-9d983fe0d2f3"
+				],
+				"action_refs": [
+					"malware-action--f0e023b8-6789-4425-bfbe-2c80ae50c81d",
+					"malware-action--26462916-6cf6-4d60-908f-18bb96232463",
+					"malware-action--63890287-23c6-42a6-8aa2-5d27e79c86dd"
+				]
+			},
+			"labels": ["shellcode"]
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--738f7800-58f0-45d5-9f69-0fdb10050edc",
+			"name": "autonomous-remote-infection",
+			"description": "A vulnerability exploit behavior initiated by some code on the web page.",
+			"attributes": {
+				"vulnerability-id-cve": "CVE-2010-0188"
+			}
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--4efd2828-92b8-41df-862e-9d983fe0d2f3",
+			"name": "autonomous-remote-infection",
+			"description": "A vulnerability exploit behavior initiated by some code on the web page.",
+			"attributes": {
+				"vulnerability-id-cve": "CVE-2012-0507"
+			}
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--f0e023b8-6789-4425-bfbe-2c80ae50c81d",
+			"name": "download-file",
+			"input_object_refs": ["2"],
+			"output_object_refs": ["0"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--26462916-6cf6-4d60-908f-18bb9623246",
+			"name": "download-file",
+			"input_object_refs": ["4"],
+			"output_object_refs": ["3"]
+		},
+		{
+			"type": "malware-action",
+			"id": "action--63890287-23c6-42a6-8aa2-5d27e79c86dd",
+			"name": "download-file",
+			"input_object_refs": ["5"],
+			"output_object_refs": ["7"]
+		}
+	],
+	"observable_objects": {
+		"0": {
+			"type": "url",
+			"value": "http://samsonikonyou.ru:8080/navigator/jueoaritjuir.php"
+		},
+		"1": {
+			"type": "file",
+			"name": "xodmeqglxldnx.jar"
+		},
+		"2": {
+			"type": "url",
+			"value": "http://samsonikonyou.ru:8080/navigator/xodmeqglxldnx.jar"
+		},
+		"3": {
+			"type": "file",
+			"name": "krgobpevcpync.jar"
+		},
+		"4":{
+			"type": "url",
+			"value": "http://samsonikonyou.ru:8080/navigator/krgobpevcpync.jar"
+		},
+		"5": {
+			"type": "file",
+			"name": "aqcphscwgqhvkzy5.pdf",
+			"contains_refs": ["maec-example-obj-7"]
+		},
+		"6": {
+			"type": "url",
+			"value": "http://samsonikonyou.ru:8080/navigator/aqcphscwgqhvkzy5.pdf"
+		}
+	}
+}

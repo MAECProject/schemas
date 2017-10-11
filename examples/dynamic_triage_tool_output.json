@@ -1,0 +1,98 @@
+{
+	"type": "package",
+	"id": "package--d717c418-d8cd-4019-8505-71faef1f1309",
+	"schema_version": "5.0",
+	"maec_objects": [
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--0beb15e6-9994-46fd-8cc8-318d2ac8885f",
+			"instance_object_refs": ["0"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--fe99bcab-50d7-4010-9a2b-70083f7cad56",
+			"name": "create-file",
+			"output_obj_refs": ["1"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--37c2f512-06af-4e8f-b81d-01a699663492",
+			"name": "create-registry-key",
+			"output_obj_refs": ["2"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--8d3929fb-484c-4426-857b-289e42d4f53c",
+			"name": "create-mutex",
+			"output_object_refs": ["3"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--56974c6e-c0f1-44ab-a2e4-2899adbfd72a",
+			"name": "allocate-process-virtual-memory",
+			"input_obj_refs": ["4"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--f45c69ea-3c48-4493-9d2b-feeda12643a6",
+			"name": "allocate-process-virtual-memory",
+			"input_obj_refs": ["5"]
+		},
+		{
+			"type": "malware-action",
+			"id": "malware-action--0f0ef516-ca2d-448a-9a7a-db4b215e7098",
+			"name": "allocate-process-virtual-memory",
+			"input_obj_refs": ["6"]
+		}
+	],
+	"observable_objects": {
+		"0": {
+			"type": "file",
+			"size": "332288",
+			"hashes": {
+				"MD5": "6519ED23FB22D0228E61A68D40F75C49",
+				"SHA-1": "7F42DF6B1318A5CC4633E33076629F95F59F1445"
+			}
+		},
+		"1": {
+			"type": "file",
+			"name": "Zcxaaz.exe",
+			"parent_directory_ref": "7",
+			"size": 332288
+
+		},
+		"2": {
+			"type": "windows-registry-key",
+			"key": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+			"values": [
+				{
+					"name": "Zcxaxz",
+					"data": "%AppData%\\Zcxaxz.exe"
+				}
+			]
+		},
+		"3": {
+			"type": "mutex",
+			"name": "redem-mutex"
+		},
+		"4": {
+			"type": "process",
+			"name": "services.exe",
+			"cwd": "%System%\\"
+		},
+		"5": {
+			"type": "process",
+			"name": "svchost.exe",
+			"cwd": "%System%\\"
+		},
+		"6": {
+			"type": "process",
+			"name": "alg.exe",
+			"cwd": "%System%\\"
+		},
+		"7": {
+			"type": "directory",
+			"path": "%AppData%/"
+		}
+	}
+}

@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+        "analysis-metadata": {
+        	"title": "Analysis",
+        	"type": "object",
+        	"description": "Captures metadata associated with the analyses of a malware instance, such as the tools used, analysts, and other data.",
+        	"properties": {
+                "is_automated": {
+                    "type": "boolean",
+                    "description": "Captures whether the analysis was completely automated (i.e., with no human analyst in the loop). If this property is set to true, the analysts property MUST NOT be included."
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Captures the date/time that the analysis was started."
+                },
+                "end_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Captures the date/time that the analysis was completed."
+                },
+                "last_update_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Captures the date/time that the analysis was last updated."
+                },
+                "confidence": {
+                    "type": "string",
+                    "description": "Captures the relative measure of confidence in the accuracy of the analysis results. The value for this property SHOULD come from the confidence-measure-ov vocabulary."
+                },
+        		"analysts": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Captures the names of analysts who performed the analysis."
+                },
+                "analysis_type": {
+                    "type": "string",
+                    "description": "Captures the type of analysis performed. The value for this property SHOULD come from the analysis-type-ov vocabulary."
+                },
+                "comments": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Captures comments regarding the analysis that was performed. A comment SHOULD be attributable to a specific analyst and SHOULD reflect particular insights of the author that are significant from an analysis standpoint."
+                },
+                "tool_refs": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "References the tools used in the analysis of a Malware Instance. The objects reference MUST be of STIX type software and MUST be specified in the observable-objects property of the Package."
+                },
+                "analysis_environment": {
+                    "type": "object",
+                    "description": "Captures any metadata, such as the host virtual machine, associated with the analysis environment used to perform the dynamic analysis of the Malware Instance. Each key in the dictionary SHOULD come from the analysis-environment-ov, and each corresponding key value SHOULD be a valid object-ref or list of object-ref. This property MUST NOT be included if analysis_type is set to a value of static."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Captures a textual description of the analysis that was performed."
+                },
+                "conclusions": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Captures analysis conclusions, such as whether the binary was found to be malicious. The value for this property SHOULD come from the analysis-conclusion-type-ov vocabulary."
+                },
+                "references": {
+                    "type": "array",
+                    "items": {"$ref": "external-reference.json#/definitions/external-reference"},
+                    "description": "Captures any references to reports or other data sources pertaining to the analysis."
+                }
+        	},
+            "required":[
+                "is_automated",
+                "analysis_type"
+            ]
+        }
+    }
+}

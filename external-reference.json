@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {"external-reference": {
+	"title":"ExternalRefererence",
+        "type": "object",
+        "description": "External references are used to describe pointers to information represented outside of MAEC. For example, a Malware Instance object could use an external reference to indicate an ID for that malware in an external database or a report could use references to represent source material.",
+        "properties": {
+        	"source_name": {
+        		"type": "string",
+        		"description": "The source within which the external-reference is defined (system, registry, organization, etc.)."
+        	},
+        	"description": {
+        		"type": "string",
+        		"description": "A human readable description."
+        	},
+        	"url": {
+        		"type": "string",
+        		"format": "uri",
+        		"description": "A URL reference to an external resource [RFC3986]"
+        	},
+        	"external_id": {
+        		"type": "string",
+        		"description": "An indentifier for the external reference content."
+        	}
+        },
+        "required": ["source_name"]
+    }}
+}

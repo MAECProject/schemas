@@ -1,0 +1,49 @@
+{
+	"type": "package",
+	"id": "package--3d92431d-ff62-45b0-9134-f1d3911d27c7",
+	"schema_version": "5.0",
+	"maec_objects": [
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--8bcf14e9-2ba2-44ef-9e32-fbbc9d2608b2",
+			"instance_object_refs": ["0"]
+		}
+	],
+	"observable_objects": {
+		"0": {
+			"type": "file",
+			"name": "a92e5b2bae.exe",
+			"parent_directory_ref": "1",
+			"size": 77312,
+			"hashes": {
+				"MD5": "a92e5b2bae0b4b3a3d81c85610b95cd4",
+				"SHA-1": "5374e08903744ceeaedd8f5e1bfc06b2c4688e76"
+			},
+			"extensions": {
+				"x-maec-avclass": [
+					{
+						"scan_date": "2010-05-15T03:38:44",
+						"is_detected": "False",
+						"av_name": "Security Essentials",
+						"av_vendor": "Microsoft",
+						"av_engine_version": "4.2.3",
+						"av_definition_version": "032415-0011"
+					},
+					{
+						"scan_date": "2012-02-11T08:36:14",
+						"is_detected": "True",
+						"av_name": "Security Essentials",
+						"av_vendor": "Microsoft",
+						"av_engine_version": "5.1.0",
+						"av_definition_version": "053514-0062",
+						"av_classification_name": "Zeus.D.C."
+					}
+				]
+			}
+		},
+		"1": {
+			"type": "directory",
+			"path": "C:\\"
+		}
+	}
+}

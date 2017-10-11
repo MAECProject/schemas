@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {"x-maec-avclass": {
+        "title":"AVClassification",
+	"type": "array",
+        "description": "This extension captures information on anti-virus (AV) tool classifications for a particular file. Note that unlike other extensions, the base type of this extension is a list and each entry in the list(of type dictionary) represents a single AV classification. This extension MUST only be used in conjunction with the Cyber Observable File Object.",
+        "items": {
+            "type":"object",
+            "properties": {
+                "scan_date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Captures the date and time of the scan. This field can be used to capture how a scan changes over time."
+                },
+                "submission_date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Captures the data and time that the binary was submitted for scanning."
+                },
+                "is_detected": {
+                    "type": "boolean",
+                    "description": "Captures whether or not the AV tool specified in AVClassificationType has detected the malware instance that is characterized by the Malware Instance."
+                },
+                "classification_name": {
+                    "type": "string",
+                    "description": "Captures the classification assigned to the malware instance object by the AV tool."
+                },
+                "av_name": {
+                    "type": "string",
+                    "description": "Captures the name of the AV tool that generated the classification."
+                },
+                "av_vendor": {
+                    "type": "string",
+                    "description": "Captures the name of the vendor of the AV tool that generated the classification."
+                },
+                "av_version": {
+                    "type": "string",
+                    "description": "Captures the version of the AV tool that generated the classification."
+                },
+                "av_engine_version": {
+                    "type": "string",
+                    "description": "Captures the version of the AV engine used by the AV tool that generated the classification."
+                },
+                "av_definition_version": {
+                    "type": "string",
+                    "description": "Captures the version of the AV definitions used by the AV tool that generated the classification."
+                }
+            },
+            "required": [
+                "scan_date",
+                "is_detected"
+            ]
+        }
+    }}
+}

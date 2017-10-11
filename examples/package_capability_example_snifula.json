@@ -1,0 +1,559 @@
+{
+	"type": "package",
+	"id": "package--f251930e-2112-4922-9a63-0fbfaa59a5e0",
+	"schema_version": "5.0",
+	"maec_objects": [
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--1c56c435-8e83-4bab-adf8-e09c1515094b",
+			"instance_object_refs": ["0"],
+			"labels": ["dropper"]
+		},
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"instance_object_refs": ["1"],
+			"labels": ["dropper"],
+			"dynamic_features": {
+				"behavior_refs": [
+					"behavior--85b4e674-ddc0-4fb9-9c8c-24a8c6255ca1",
+					"behavior--608e6794-70e8-4c46-a237-5f75fb9c2e77",
+					"behavior--8ff98c8b-649b-4daf-b3b5-bd11814421f6",
+					"behavior--84ff960f-69ff-4fd5-9ffa-539489ef8b20"
+				]
+			},
+			"capabilities": [
+				{
+					"name": "probing",
+					"refined_capabilities": [
+						{
+							"name": "host-configuration-probing"
+						}
+					],
+					"behavior_refs": ["behavior--85b4e674-ddc0-4fb9-9c8c-24a8c6255ca1"]
+				},
+				{
+					"name": "anti-detection",
+					"refined_capabilities": [
+						{
+							"name": "hide-artifacts"
+						}
+					],
+					"behavior_refs": ["behavior--608e6794-70e8-4c46-a237-5f75fb9c2e77"]
+				},
+				{
+					"name": "persistence",
+					"refined_capabilities": [
+						{
+							"name":"continuous-execution"
+						}
+					],
+					"behavior_refs": ["behavior--8ff98c8b-649b-4daf-b3b5-bd11814421f6"]
+				},
+				{
+					"name": "secondary-operation",
+					"refined_capabilities": [
+						{
+							"name": "install-other-components"
+						}
+					],
+					"behavior_refs": ["behavior--84ff960f-69ff-4fd5-9ffa-539489ef8b20"]
+				}
+			]
+		},
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
+			"instance_object_refs": ["2"],
+			"labels": [
+				"backdoor",
+				"password stealer",
+				"spyware",
+				"trojan horse"
+			],
+			"name": {
+				"value": "Backdoor.Snifula variant",
+				"source": {
+					"source_name": "Computer Incident Response Center Luxembourg and National CERT of Luxembourg",
+					"url": "https://www.circl.lu/files/tr-13/tr-13-snifula-analysis-report-v1.3.pdf"	
+				}
+			},
+			"analysis_metadata": [
+				{
+					"is_automated": false,
+					"analysis_type": "combination",
+					"description": "Malware analysis of a Backdoor.Snifula variant",
+					"comments": [
+						"The malware binary exports 46 functions, but it seems most are used for camouflage, with only a single function actually being used."
+					]
+				}
+			],
+			"dynamic_features": {
+				"behavior_refs": [
+					"behavior--fa979df4-9c19-4aee-95a2-fd88dd014631",
+					"behavior--811410e5-b5d2-453f-b00b-2673e26edb1f",
+					"behavior--1c0fa14f-a6be-4ae1-bb16-81d11cf30c35",
+					"behavior--f61215c1-32b7-4a13-b0ac-b479976b961d",
+					"behavior--b950479f-2960-488a-a93b-5d789482d2ca",
+					"behavior--836cbf4e-9388-416d-8895-ce4aa4c19022",
+					"behavior--3634ffe8-b38a-4102-b6ed-2414a25622b6",
+					"behavior--324e5eb8-ea1a-406a-8af4-515c455ed106",
+					"behavior--67448145-5ddb-481b-a62b-33eb82739f84",
+					"behavior--6b30377e-002b-40d3-a802-2be2bb061deb",
+					"behavior--defbd38d-202c-4a3c-a962-122553b19aa1",
+					"behavior--249aa183-77bf-46ba-affa-a51fc3da7e38",
+					"behavior--b6ea67a3-2743-40b9-b102-aa97509e1629",
+					"behavior--b03ce4c8-c0d7-43ca-973d-f1ff53a78351",
+					"behavior--12174544-7fae-4c4b-b7c9-725a0f94f035",
+					"behavior--1f236047-3a70-43be-8b6b-5e13b37f368a",
+					"behavior--8ff3feb6-3f1f-4dfb-a3da-7b1ac6a36cd6",
+					"behavior--345f2bc3-1e95-47bb-ba34-d60f7ba9882a",
+					"behavior--9a3a0214-94ec-470d-8f9a-92dd5493541a"
+				]
+			},
+			"capabilities": [
+				{
+					"name": "security-degradation",
+					"refined_capabilities": [
+						{
+							"name": "security-software-degredation"
+						}
+					],
+					"attributes": {
+						"targeted program": "procmon.exe"
+					}
+				},
+				{
+					"name": "persistence",
+					"refined_capabilities": [
+						{
+							"name": "ensure-compatibility",
+							"behavior_refs": ["behavior--811410e5-b5d2-453f-b00b-2673e26edb1f"]
+						},
+						{
+							"name": "continuous-execution"
+						}
+					]
+				},
+				{
+					"name": "command-and-control",
+					"attributes": {
+							"network protocol": "http"
+						},
+					"refined_capabilities": [
+						{
+							"name": "receive-data-from-c2-server",
+							"behavior_refs": [
+								"behavior--b950479f-2960-488a-a93b-5d789482d2ca",
+								"behavior--836cbf4e-9388-416d-8895-ce4aa4c19022"
+							]
+						},
+						{
+							"name": "send-data-to-c2-server",
+							"behavior_refs": [
+								"behavior--1c0fa14f-a6be-4ae1-bb16-81d11cf30c35",
+								"behavior--f61215c1-32b7-4a13-b0ac-b479976b961d"
+							]
+						}
+					]
+				},
+				{
+					"name": "secondary-operation",
+					"refined_capabilities": [
+						{
+							"name": "install-other-components"
+						}
+					],
+					"behavior_refs": ["behavior--3634ffe8-b38a-4102-b6ed-2414a25622b6"]
+				},
+				{
+					"name": "probing",
+					"refined_capabilities": [
+						{
+							"name": "network-environment-probing"
+						}
+					],
+					"behavior_refs": ["behavior--324e5eb8-ea1a-406a-8af4-515c455ed106"]
+
+				},
+				{
+					"name": "data-theft",
+					"refined_capabilities": [
+						{
+							"name": "authentication-credentials-theft",
+							"behavior_refs": [
+								"behavior--6b30377e-002b-40d3-a802-2be2bb061deb",
+								"behavior--45912152-5397-4f73-b7bf-bd067ceeef41",
+								"behavior--b6ea67a3-2743-40b9-b102-aa97509e1629"
+							]
+						},
+						{
+							"name": "user-data-theft",
+							"behavior_refs": [
+								"behavior--67448145-5ddb-481b-a62b-33eb82739f84",
+								"behavior--defbd38d-202c-4a3c-a962-122553b19aa1",
+								"behavior--249aa183-77bf-46ba-affa-a51fc3da7e38"
+							]
+						}
+					]
+				},
+				{
+					"name": "spying",
+					"refined_capabilities": [
+						{
+							"name": "output-peripheral-capture"
+						}
+					],
+					"behavior_refs": ["behavior--b03ce4c8-c0d7-43ca-973d-f1ff53a78351"]
+				},
+				{
+					"name": "data-exfiltration",
+					"refined_capabilities": [
+						{
+							"name":"data-staging"
+						},
+						{
+							"name":"data-obfuscation"
+						}
+					],
+					"behavior_refs": [
+						"behavior--12174544-7fae-4c4b-b7c9-725a0f94f035",
+						"behavior--1f236047-3a70-43be-8b6b-5e13b37f368a",
+						"behavior--8ff3feb6-3f1f-4dfb-a3da-7b1ac6a36cd6"
+					]
+				},
+				{
+					"name": "integrity-violation",
+					"refined_capabilities": [
+						{
+							"name":"compromise-system-availability",
+							"behavior_refs": ["behavior--345f2bc3-1e95-47bb-ba34-d60f7ba9882a"]
+						},
+						{
+							"name": "data-integrity-violation"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--511c93db-6426-41c6-a04d-50df6ac93c95",
+			"instance_object_refs": ["3"]
+		},
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--d6850cf0-b246-4f92-a464-7e115da68717",
+			"instance_object_refs": ["4"]
+		},
+		{
+			"type": "malware-instance",
+			"id": "malware-instance--964a3bb8-ba1b-4115-ad8c-c8703c503934",
+			"instance_object_refs": ["5"],
+			"labels": ["wiper"],
+			"capabilities": [
+				{
+					"name": "secondary-operation",
+					"refined_capabilities": [
+						{
+							"name": "clean-traces-of-infection"
+						}
+					],
+					"behavior_refs": [
+						"behavior--fdac452f-9a94-4059-be42-e9acd3af7c4b",
+						"behavior--34cf58f9-f573-41f6-b60b-4c163274fd19"
+					]
+				}
+			],
+			"dynamic_features":{
+				"behavior_refs": [
+					"behavior--fdac452f-9a94-4059-be42-e9acd3af7c4b",
+					"behavior--34cf58f9-f573-41f6-b60b-4c163274fd19"
+				]
+			}
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--fdac452f-9a94-4059-be42-e9acd3af7c4b",
+			"name": "remove-self"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--34cf58f9-f573-41f6-b60b-4c163274fd19",
+			"name": "remove-system-artifacts"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--85b4e674-ddc0-4fb9-9c8c-24a8c6255ca1",
+			"name": "identify-OS"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--608e6794-70e8-4c46-a237-5f75fb9c2e77",
+			"name": "obfuscate-artifact-properties"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--8ff98c8b-649b-4daf-b3b5-bd11814421f6",
+			"name": "persist-after-system-reboot"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--84ff960f-69ff-4fd5-9ffa-539489ef8b20",
+			"name": "install-secondary-module"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--fa979df4-9c19-4aee-95a2-fd88dd014631",
+			"name": "prevent-security-software-from-executing"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--811410e5-b5d2-453f-b00b-2673e26edb1f",
+			"name": "limit-application-type/version"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--1c0fa14f-a6be-4ae1-bb16-81d11cf30c35",
+			"name": "check-for-payload"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--f61215c1-32b7-4a13-b0ac-b479976b961d",
+			"name": "fingerprint-host"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--b950479f-2960-488a-a93b-5d789482d2ca",
+			"name": "control-local-machine-via-remote-command"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--836cbf4e-9388-416d-8895-ce4aa4c19022",
+			"name": "update-configuration"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--3634ffe8-b38a-4102-b6ed-2414a25622b6",
+			"name": "log-activity"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--324e5eb8-ea1a-406a-8af4-515c455ed106",
+			"name": "test-for-internet-connectivity"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--67448145-5ddb-481b-a62b-33eb82739f84",
+			"name": "steal-browser-cookie"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--6b30377e-002b-40d3-a802-2be2bb061deb",
+			"name": "steal-digital-certificates"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--45912152-5397-4f73-b7bf-bd067ceeef41",
+			"name": "steal-PKI-key"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--defbd38d-202c-4a3c-a962-122553b19aa1",
+			"name": "steal-browser-history"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--249aa183-77bf-46ba-affa-a51fc3da7e38",
+			"name": "steal-browser-cache"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--b6ea67a3-2743-40b9-b102-aa97509e1629",
+			"name": "steal-web/network-credential"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--b03ce4c8-c0d7-43ca-973d-f1ff53a78351",
+			"name": "capture-system-screenshot"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--12174544-7fae-4c4b-b7c9-725a0f94f035",
+			"name": "package-data"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--1f236047-3a70-43be-8b6b-5e13b37f368a",
+			"name": "encrypt-data"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--8ff3feb6-3f1f-4dfb-a3da-7b1ac6a36cd6",
+			"name": "exfiltrate-data-via-network"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--345f2bc3-1e95-47bb-ba34-d60f7ba9882a",
+			"name": "intercept/manipulate-network-traffic"
+		},
+		{
+			"type": "behavior",
+			"id": "behavior--9a3a0214-94ec-470d-8f9a-92dd5493541a",
+			"name": "persist-after-system-reboot",
+			"attributes": {
+					"scope": "other malware/components"
+			}
+		}
+	],
+	"observable_objects": {
+		"0": {
+			"type": "file",
+			"name": "2a7.exe",
+			"hashes": {
+				"MD5": "eaa5e4f26028c41ba3935a4ac455892c",
+				"SHA1": "049db2d7030bf7563974a2c25671aef046cabf99"
+			}
+		},
+		"1": {
+			"type": "file",
+			"name": "dump_006D0000.bin",
+			"hashes": {
+				"MD5": "d819facd7c980b01bf44ea7efbf6af42",
+				"SHA1": "abfe4e74b345669a0fcd8a34bff9c9a0a7bc9c44"
+			}
+		},
+		"2": {
+			"type": "file",
+			"name": "ctfmreg.dll",
+			"hashes": {
+				"MD5": "f9005fd7eb85a81f2f9b1474bba61be0",
+				"SHA1": "89196b0ed3189e8571924144e57aa867f72164bd"
+			}
+		},
+		"3": {
+			"type": "file",
+			"name": "dump_00E30000.bin",
+			"hashes": {
+				"MD5": "a6bf4ae086b8d28612de4bc0d7ec4abe",
+				"SHA1": "2b6b4fbc77553425b00ee3135e2e83386ebd797f"
+			}
+		},
+		"4": {
+			"type": "file",
+			"name": "ctfmreg64.dll",
+			"hashes": {
+				"MD5": "edb1c6fa185dc818e9cf1d107974561a",
+				"SHA1": "383b76f23ac1d469a59a85af1a8d9c1d3f932e2f"
+			}
+		},
+		"5": {
+			"type": "file",
+			"name": "[0-9]{8}\\.bat",
+			"hashes": {
+				"MD5": "d226a657b279c5fc0a892748230a56ff",
+				"SHA1": "fa7e4fb6d6de3c4769001cbfce0a00ba02ef28a5"
+			}
+		}
+	},
+	"relationships": [
+		{
+			"type": "relationship",
+			"id": "relationship--e76536cc-4e0c-4107-a19b-ac16c27668ea",
+			"source_ref": "malware-instance--1c56c435-8e83-4bab-adf8-e09c1515094b",
+			"target_ref": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"relationship_type": "contained in memory image"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--5472058f-d87f-4819-af27-c9a45d484f74",
+			"source_ref": "malware-instance--1c56c435-8e83-4bab-adf8-e09c1515094b",
+			"target_ref": "malware-instance--511c93db-6426-41c6-a04d-50df6ac93c95",
+			"relationship_type": "contained in memory image"
+		},
+		{
+			"type": "relationship",
+			"id":"relationship--d26f8966-6e3f-4350-864a-a5cb095eb57c",
+			"source_ref": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"target_ref": "malware-instance--1c56c435-8e83-4bab-adf8-e09c1515094b",
+			"relationship_type": "memory image of"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--c6592b27-6ec3-472d-97aa-aa5897638ff4",
+			"source_ref": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"target_ref": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
+			"relationship_type": "drops"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--52930fcb-69ba-4432-9b28-efaaa3ec277e",
+			"source_ref": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"target_ref": "malware-instance--964a3bb8-ba1b-4115-ad8c-c8703c503934",
+			"relationship_type": "drops"
+		},
+		{
+			"type":"relationship",
+			"id": "relationship--7a5818c9-f4ba-43b0-8484-66995af04dca",
+			"source_ref": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"target_ref": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
+			"relationship_type": "installs"
+		},
+		{
+			"type": "relationship",
+			"id":"relationship--e5d3056e-e3d5-4fd1-b0ad-69de3c230a4b",
+			"source_ref": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
+			"target_ref": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"relationship_type": "dropped by"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--1dfd5108-ccaa-4269-9517-4e7c3347d5a2",
+			"source_ref": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
+			"target_ref": "malware-instance--511c93db-6426-41c6-a04d-50df6ac93c95",
+			"relationship_type": "encrypted version of"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--031b24f8-db11-4b53-a6cb-684b8e496e23",
+			"source_ref": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
+			"target_ref": "malware-instance--d6850cf0-b246-4f92-a464-7e115da68717",
+			"relationship_type": "32 bit version-of"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--3d7627d4-f0d9-4b63-90aa-f314aa9a260b",
+			"source_ref": "malware-instance--511c93db-6426-41c6-a04d-50df6ac93c95",
+			"target_ref": "malware-instance--1c56c435-8e83-4bab-adf8-e09c1515094b",
+			"relationship_type": "memory image of"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--37576cd9-f412-4236-969f-eb940c918b6c",
+			"source_ref": "malware-instance--511c93db-6426-41c6-a04d-50df6ac93c95",
+			"target_ref": "maec-tst-3",
+			"relationship_type": "decrypted version of"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--0265ad9a-104e-448c-8e6d-4ced09d9429e",
+			"source_ref": "malware-instance--d6850cf0-b246-4f92-a464-7e115da68717",
+			"target_ref": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"relationship_type": "extracted from"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--4b021595-ab3c-49cc-aafb-04eeae2027ca",
+			"source_ref": "malware-instance--d6850cf0-b246-4f92-a464-7e115da68717",
+			"target_ref": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
+			"relationship_type": "64-bit version of"
+		},
+		{
+			"type": "relationship",
+			"id": "relationship--34adda84-4567-4815-aa6d-db5b77549d74",
+			"source_ref": "malware-instance--964a3bb8-ba1b-4115-ad8c-c8703c503934",
+			"target_ref": "malware-instance--2c99c995-8f93-1cab-adf8-e09c1777094b",
+			"relationship_type": "dropped by"
+		}
+	]
+}

@@ -1,0 +1,57 @@
+{
+    "id": "package--3a7b331e-906f-42c0-bfd5-c2cd04076834",
+    "type": "package",
+    "schema_version": "5.0",
+    "maec_objects": [
+        {
+            "type": "malware-instance",
+            "id": "malware-instance--1d43c77c-21a0-4a10-9a9a-8c0fdfd280b8",
+            "instance_object_refs": ["0"],
+            "dynamic_features": {
+                "action_refs": [
+                    "malware-action--935a718f-863e-49fb-89b8-d65dc0e70e53",
+                    "malware-action--75514819-ea94-4684-8107-68ee63315fc4"
+                ]
+            }
+        },
+        {
+            "type": "malware-action",
+            "id": "malware-action--935a718f-863e-49fb-89b8-d65dc0e70e53",
+            "name": "create-file",
+            "is_successful": true,
+            "output_object_refs": ["0"]
+        },
+        {
+            "type": "malware-action",
+            "id": "malware-action--75514819-ea94-4684-8107-68ee63315fc4",
+            "name": "write-to-process-memory",
+            "is_successful": true,
+            "input_object_refs": ["0"],
+            "output_object_refs": ["1"]
+        }
+    ],
+    "observable_objects": {
+        "0": {
+            "type": "file",
+            "size": 196608,
+            "hashes": {
+                "MD5": "4EC0027BEF4D7E1786A04D021FA8A67F"
+            },
+            "parent_directory_ref": "2"
+        },
+        "1": {
+            "type": "file",
+            "name": "msvcr.dll",
+            "parent_directory_ref": "parent_directory_ref1"
+        },
+        "2": {
+            "type": "directory",
+            "path": "C:\\Documents and Settings\\user\\Local Settings\\Application\\Data"
+        },
+        "3": {
+            "type": "process",
+            "name": "explorer.exe",
+            "cwd": "C:\\Windows\\"
+        }
+    }
+}

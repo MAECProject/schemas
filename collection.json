@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {"collection": {
+        "title":"Collection",
+        "type": "object",
+        "description": "Captures collections of any MAEC entities, including Malware Instances, Behaviors, etc.",
+        "properties": {
+            "type": {
+                "type": "string",
+                "enum": ["collection"]
+            },
+            "id": {
+                "type": "string",
+                "description": "Specifies a unique ID for this Collection."
+            },
+            "description": {
+                "type": "string",
+                "description": "Specifies a textual description of the Collection."
+            },
+            "association_type": {
+                "type":"string",
+                "description": "Specifies how the contents of the Collection are associated. The values for this property SHOULD come from the entity-association-ov vocabulary."
+            },
+            "entity_refs": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Specifies a set of one or more MAEC entities that are contained in the Collection. Each item specifies the unique ID of the entity being referenced. All entities MUST be present in the current Package. This property is mutually exclusive with regard to the observable_refs property and both properties MUST NOT be present in the same Collection."
+            },
+            "observable_refs":{
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Specifies a set of one or more STIX Cyber Observable Objects that are contained in the Collection. This property is mutually exclusive with regard to the entity_refs property and both properties MUST NOT be present in the same Collection."
+            }
+        },
+        "required": [
+            "type",
+            "id",
+            "association_type"
+        ],
+        "oneOf": [
+            {"required": ["entity_refs"]},
+            {"required": ["observable_refs"]}
+        ]
+    }}
+}
