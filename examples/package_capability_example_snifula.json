@@ -531,7 +531,7 @@
 			"type": "relationship",
 			"id": "relationship--37576cd9-f412-4236-969f-eb940c918b6c",
 			"source_ref": "malware-instance--511c93db-6426-41c6-a04d-50df6ac93c95",
-			"target_ref": "maec-tst-3",
+			"target_ref": "malware-instance--7c91c995-8f83-1cab-adf8-f10c1000088a",
 			"relationship_type": "decrypted version of"
 		},
 		{
