@@ -17,7 +17,7 @@
         },
         {
             "type": "malware-instance",
-            "id": "malware--instance-0b1b98d8-9235-427d-aeab-54bdf9f70412",
+            "id": "malware-instance--0b1b98d8-9235-427d-aeab-54bdf9f70412",
             "instance_object_refs": ["1"],
             "dynamic_features": {
                 "action_refs": [
