@@ -150,7 +150,7 @@
 			"path": "C:\\Windows\\system32\\"
 		},
 		"6": {
-			"type": "mutex-object",
+			"type": "mutex",
 			"name": "__SYSTEM__91C38905__"
 		},
 		"7": {
@@ -177,7 +177,7 @@
 			"path": "%Profiles%\\LocalService\\Application Data\\sysproc64\\"
 		},
 		"10": {
-			"type": "mutex-object",
+			"type": "mutex",
 			"name": "__SYSTEM__91C38905__"
 		},
 		"11": {
