@@ -54,7 +54,7 @@
                         "major_linker_version": "06",
                         "minor_linker_version": "00",
                         "base_of_code": "036418",
-                        "subsystem_hex": "Windows_GUI"
+                        "subsystem_hex": "57696e646f77735f475549"
                     }
                 }
             }
