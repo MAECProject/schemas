@@ -40,7 +40,7 @@
                         "av_name": "Microsoft Security Essentials",
                         "av_vendor": "Microsoft",
                         "classification_name": "TrojanClicker:Win32/Small",
-                        "scan_date": "2017-10-23 08:22:35",
+                        "scan_date": "2017-10-23T08:22:35Z",
                         "is_detected": true
                     }
                 ]
@@ -57,7 +57,7 @@
                         "av_name": "Microsoft Security Essentials",
                         "av_vendor": "Microsoft",
                         "classification_name": "TrojanClicker:Win32/Small.I",
-                        "scan_date": "2017-10-23 08:28:39",
+                        "scan_date": "2017-10-23T08:28:39Z",
                         "is_detected": true
                     }
                 ]
@@ -74,7 +74,7 @@
                         "av_name": "Microsoft Security Essentials",
                         "av_vendor": "Microsoft",
                         "classification_name": "TrojanClicker:Win32/Small",
-                        "scan_date": "2017-10-22 03:22:16",
+                        "scan_date": "2017-10-22T03:22:16Z",
                         "is_detected": true
                     }
                 ]
