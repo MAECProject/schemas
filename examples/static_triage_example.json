@@ -28,7 +28,7 @@
             }
         }
     ],
-    "objects": {
+    "observable_objects": {
         "0": {
             "type": "file",
             "name": "dg003_improve_8080_V132.exe",

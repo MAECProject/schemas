@@ -35,13 +35,15 @@
                 "MD5": "89c11cc1e7bcad1fa677201b29b46f5d"
             },
             "extensions": {
-                "x-maec-avclass": {
-                    "av_name": "Microsoft Security Essentials",
-                    "av_vendor": "Microsoft",
-                    "classification_name": "TrojanClicker:Win32/Small",
-                    "scan_date": "2017-10-23 08:22:35", 
-                    "is_detected": true
-                }
+                "x-maec-avclass": [
+                    {
+                        "av_name": "Microsoft Security Essentials",
+                        "av_vendor": "Microsoft",
+                        "classification_name": "TrojanClicker:Win32/Small",
+                        "scan_date": "2017-10-23 08:22:35",
+                        "is_detected": true
+                    }
+                ]
             }
         },
         "1": {
@@ -50,13 +52,15 @@
                 "MD5": "c4e0a16a8833a55e5ed8971783d09181"
             },
             "extensions":{
-               "x-maec-avclass": {
-                    "av_name": "Microsoft Security Essentials",
-                    "av_vendor": "Microsoft",
-                    "classification_name": "TrojanClicker:Win32/Small.I",
-                    "scan_date": "2017-10-23 08:28:39", 
-                    "is_detected": true
-                }
+                "x-maec-avclass": [
+                    {
+                        "av_name": "Microsoft Security Essentials",
+                        "av_vendor": "Microsoft",
+                        "classification_name": "TrojanClicker:Win32/Small.I",
+                        "scan_date": "2017-10-23 08:28:39",
+                        "is_detected": true
+                    }
+                ]
             }
         },
         "2": {
@@ -65,13 +69,15 @@
                 "MD5": "40b1b0944f76d8f54f2564f69b6850102"
             },
             "extensions": {
-               "x-maec-avclass": {
-                    "av_name": "Microsoft Security Essentials",
-                    "av_vendor": "Microsoft",
-                    "classification_name": "TrojanClicker:Win32/Small",
-                    "scan_date": "2017-10-22 03:22:16", 
-                    "is_detected": true
-                }
+                "x-maec-avclass": [
+                    {
+                        "av_name": "Microsoft Security Essentials",
+                        "av_vendor": "Microsoft",
+                        "classification_name": "TrojanClicker:Win32/Small",
+                        "scan_date": "2017-10-22 03:22:16",
+                        "is_detected": true
+                    }
+                ]
             }
         }
     },
