@@ -50,6 +50,8 @@
         },
         "1": {
             "type": "network-traffic",
+            "protocols": ["http"],
+            "dst_ref": "2",
             "extensions": {
                 "http-request-ext": {
                     "request_method": "post",
@@ -57,6 +59,10 @@
                     "request_version": "HTTP/1.0"
                 }
             }
+        },
+        "2": {
+            "type": "domain-name",
+            "value": "www.dailyinfonews.net"
         }
     }
 }
