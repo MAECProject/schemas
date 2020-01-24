@@ -55,8 +55,8 @@
             "extensions": {
                 "http-request-ext": {
                     "request_method": "post",
-                    "request_value": "http://www.dailyinfonews.net/reportdatas.php",
-                    "request_version": "HTTP/1.0"
+                    "request_value": "/reportdatas.php",
+                    "request_version": "http/1.0"
                 }
             }
         },
