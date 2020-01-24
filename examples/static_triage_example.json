@@ -47,6 +47,11 @@
         },
         "2": {
             "type": "file",
+            "name": "dg003_improve_8080_V132.exe",
+            "size": 196608,
+            "hashes": {
+                "MD5": "4EC0027BEF4D7E1786A04D021FA8A67F"
+            },
             "extensions": {
                 "windows-pebinary-ext": {
                     "pe_type": "exe",
@@ -54,7 +59,7 @@
                         "major_linker_version": "06",
                         "minor_linker_version": "00",
                         "base_of_code": "036418",
-                        "subsystem_hex": "Windows_GUI"
+                        "subsystem_hex": "02"
                     }
                 }
             }
