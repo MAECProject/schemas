@@ -8,7 +8,7 @@
             "id": "malware-instance--bc387224-2120-4fb8-949e-55a2b899f184",
             "instance_object_refs": ["0"],
             "labels": [
-               "tojan horse",
+               "trojan horse",
                 "clicker"
             ]
         },
@@ -40,7 +40,7 @@
                         "av_name": "Microsoft Security Essentials",
                         "av_vendor": "Microsoft",
                         "classification_name": "TrojanClicker:Win32/Small",
-                        "scan_date": "2017-10-23 08:22:35",
+                        "scan_date": "2017-10-23T08:22:35Z",
                         "is_detected": true
                     }
                 ]
@@ -57,7 +57,7 @@
                         "av_name": "Microsoft Security Essentials",
                         "av_vendor": "Microsoft",
                         "classification_name": "TrojanClicker:Win32/Small.I",
-                        "scan_date": "2017-10-23 08:28:39",
+                        "scan_date": "2017-10-23T08:28:39Z",
                         "is_detected": true
                     }
                 ]
@@ -66,7 +66,7 @@
         "2": {
             "type": "file",
             "hashes": {
-                "MD5": "40b1b0944f76d8f54f2564f69b6850102"
+                "MD5": "40b1b0944f76d8f54f2564f69b685010"
             },
             "extensions": {
                 "x-maec-avclass": [
@@ -74,7 +74,7 @@
                         "av_name": "Microsoft Security Essentials",
                         "av_vendor": "Microsoft",
                         "classification_name": "TrojanClicker:Win32/Small",
-                        "scan_date": "2017-10-22 03:22:16",
+                        "scan_date": "2017-10-22T03:22:16Z",
                         "is_detected": true
                     }
                 ]
